@@ -1,5 +1,10 @@
 # T013 — Run the event window: every mission is a double-dip, every trade line is capped
 
+Rev: 4 (2026-11-02) — the **printed mission parameters** added (log-in and free-store-gem **7/10/13**, tournaments
+**1/2/3**, cards **20/40/80**, research time **12 d/30 d/90 d**, kills **50 K/200 K/900 K** · **6 K/20 K/150 K** ·
+**4 K/15 K/100 K**), with the five lines that complete themselves from T022/T014/T005/T012/T006; the pool is **≈ 52 types**
+and `Death Defy` was **removed in v28.3**; the random-UW perk covers UW-locked quests; and the community **spending order**
+(relic → theme+songs **400/event** → ≤2 stone packs → gems pre-labs → bots) is now printed with its numbers.
 Rev: 3 (2026-11-02) — the whole event layer is now double-sourced from Tower Hub `wiki/system/events` (2026-11-01): the
 trade ladder gains its printed **8th row (flat 380)** and the fixed-quantity wording (“An exchange gives **150 gems,
 15 stones or 250 shards**. The cost rises after every purchase and resets when the next event begins”); the **150-gem-equiv
@@ -36,6 +41,34 @@ the two premium gates exist only with the **event pass** (real money), whose **�
 pass must be bought **per event** (a full pass event pays **1 890** = 2 × 945). Mission-table extras: the card-buy mission
 “automatically completes when all cards are maxed”, and the research-time mission is **12 d / 30 d / 90 d** with
 “rushed labs count”.
+
+**Printed mission parameters (Rev 4, `wiki/system/events` mission tables).** The “always there / Tips” block and the first
+kill rows are printed with their three tier values, which lets the whole set be pre-ranked before the event starts:
+
+| Mission (as printed) | Tier 1 / 2 / 3 | Already paid by |
+|---|---|---|
+| Log in for **X** days | 7 / 10 / 13 | T022 step 1 (the daily claim needs a login anyway) |
+| Get the **free gem reward in store** X times | 7 / 10 / 13 | T022 step 1 (**20 gems/day** claim = the same tap) |
+| Participate in **X tournaments** | 1 / 2 / 3 | T014 (both weekly brackets) |
+| Buy **X cards** | 20 / 40 / 80 | T012’s pull queue — and it **auto-completes** once every card is maxed |
+| Have a **total research time** of X | **12 d / 30 d / 90 d** | T006 (rushed labs count; the site’s own tip: “all five labs running at **1.5×** speed will complete this mission”) |
+| Kill **X Common** enemies | 50 K / 200 K / 900 K | the farm run (T005) |
+| Kill **X fast** enemies | 6 000 / 20 000 / 150 K | the same run |
+| Kill **X ranged** enemies | 4 000 / 15 000 / 100 K | the same run |
+
+Two census notes from the same print: the mission pool is **“Showing 10 of 53 rows”** (≈ 52 types) and one mission was
+**removed in v28.3** — `Death Defy at least X times on the same round` (2 / 3 / 5) — so a guide that still lists it is
+pre-v28.3. And a UW-locked quest is not a blocker: the community guide states that **the random-ultimate-weapon perk**
+(T011 §1.3) supplies a missing UW *for quest purposes* — the perk grants the weapon for the run, though it still does not
+open that weapon’s labs.
+
+**The spending order the same source set prints** (`wiki/guide/medals-guide`, 2026-11-01): **1)** a past-event relic whose
+stat is **lab speed** or **coins** (the two §3-ranked stats) → **2)** **themes + songs, 400 medals per event** for the pair
+(the two rotating theme rows 150 + 250 ✓ §1 cosmetics; three songs at 200 each add **+0.6 % coins** apiece) → **3)** stone
+packs, **one or two at most** (the ladder is convex, §2) → **4)** gems, **only before all five labs are open** → **5)** the
+rest into **bots**, one bot at a time (`Golden` first: **range** then **bonus**, nothing in **cooldown** — T015 §3 has the
+same ranking with the numbers). The guide’s warning matches T015’s ledger: *“do not unlock all 5 bots before upgrading
+them … nearly all of their value comes from upgrades.”*
 
 ## 2. The trade ladder: three lines, three counters, reset every event
 
@@ -126,6 +159,10 @@ Most event missions *are* the currency actions from the other techniques, so doi
       **150 gem-equivalents**.
 - [ ] With the pass, the panel shows four gates: **350 / 550 / 700 / 1 100**.
 - [ ] Buying a song/theme and leaving it **unequipped** still shows its +0.6 %/coin bonus in the coin total.
+- [ ] The **Tips** missions print **7 / 10 / 13** (log-in and free-store-gem), **1 / 2 / 3** (tournaments), **20 / 40 / 80**
+      (cards) and **12 d / 30 d / 90 d** (total research time) — the two “7 / 10 / 13” lines complete themselves from
+      T022 step 1, and the research line completes with five slots on the **×1.5** cell boost (T006).
+- [ ] The mission pool has **no `Death Defy` row** (it was removed in **v28.3**), and the panel counts ≈ **52** mission types.
 
 ## 6. Falsification
 
@@ -154,6 +191,19 @@ Most event missions *are* the currency actions from the other techniques, so doi
   additive… apply without being equipped”; respec **300 gems** once/event, labs not refunded.
 - Tower Hub `wiki/currency/currency-medals` (2026-11-01) — medals **do not expire** with the event; only sources are
   missions, Daily-Mission weekly boxes, Fetch; only in-event medals count toward relic gates.
+- Tower Hub `wiki/system/events` (last verified **2026-11-01**, 9 data tables) — unlock **T1 W70**; the cycle “**new
+  missions during the first 8 days, followed by 6 days with no new missions**, as soon as one event ends the next starts”;
+  “**seven missions are available on day one, and two more are added each day for the next seven days**”; the mission
+  parameters table (**log in 7/10/13** · **tournaments 1/2/3** · **cards 20/40/80** (auto-complete when maxed) · **free
+  store gem 7/10/13** · **research time 12 d/30 d/90 d**, “rushed labs count”, tip “all five labs at **1.5×** complete it” ·
+  **commons 50 K/200 K/900 K** · **fast 6 000/20 000/150 K** · **ranged 4 000/15 000/100 K**), “Showing 10 of **53** rows”;
+  the **Removed Missions** table (`Death Defy … 2/3/5`, **removed in V28.3**); the shop/relic/Bot+/Synchronicity tables.
+- Tower Hub `wiki/guide/medals-guide` (2026-11-01) — the five-step spending order (past-event **lab speed / coins** relics
+  first → **themes + songs, 400 medals per event** → **≤ 2** stone packs → gems only while labs are missing → **bots**), and
+  the bot order: “do not unlock all 5 bots before upgrading them”, `Golden` first with **range** then **bonus**, “leave
+  **cooldown** alone”, “three songs available, each giving **+0.6 % coins**”.
+- Tower Hub `wiki/guide/event-guide` (2026-07-29) — per-quest walkthroughs and the tip that “if a quest calls for an
+  ultimate weapon you do not own, the **random ultimate weapon perk** can provide it”.
 - fandom `Currency/Medals` (raw wikitext) — mission 10/15/20, Event Boost doubling, weekly boxes 10…35 = 135, Fetch ≤10/day, shop item list, **trade ladder 40/65/90/130/175/230/380 with per-event reset and per-line counters**, bot ladder 150/300/600/900/1 200, relic gates counting only in-event medals.
 - game-vault `Guide:Event_Guide` — events unlock at T1 W70, 2-week length, 21 missions, 45/mission, 945 + 270 = 1 215 per event, relic gates 350/700, full mission table with tips, spending-priority table (background 250, tower 150, Rare relic 200, Epic relic 500, 15 stones for 40), bot respec once per event, mailed unclaimed rewards.
 - `tools/gm_strings.txt` — panel strings `Themed Event UI`, `v25 Themed Event UI`, `Bots`, `Synchronicity`, `Event Shop`, `Featured Banner` / `Standard Banner`, `Free Reward` / `Premium Reward`.
