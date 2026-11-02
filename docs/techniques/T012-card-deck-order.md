@@ -4,6 +4,9 @@ Rev: 2 (2026-11-02) — the **full per-level price table** (printed values for e
 **three-phase pull schedule** (its total reproduces the printed **2 560 pulls** exactly), the **named-card closed form**,
 the **slot ladder sum check (20/20)**, and the **30-card → 32-card reconciliation**. · Status: **Verified (arithmetic)**
 for the copy/gem tables and the slot ladder; the drop-rate model is the in-game ℹ panel's own numbers.
+Rev: 2 (2026-11-02) — **star = level** established (`wiki/card/cards`, 2026-10-13: “levelled up to a maximum of
+**7 stars** by collecting duplicate copies”) ⇒ per-star columns on other systems are per-level columns, which makes
+Second Wind's invincibility `5 × star + 5` (**10 → 40 s**) computable from the copy ladder.
 Rev: 1 (2026-11-01) · Currency: **Coins** ( Coins/Cash/Crit Coin/Enemy Balance/Wave Skip cards), **Elite Cells** (Cells card), **Reroll Shards** (Cash-card mastery later)
 **Value:** ★★★★ — the six currency cards together are worth ≈ ×2–3 coins/cash, and their levels are the cheapest percentage points in the game *early* and the most expensive *late*.
 **Confidence:** **Medium-High** — all costs/values are the fandom wikitext tables (which are transcribed from the live UI) and the arithmetic below is exact; the drop-rate model is stated in-game by the Cards info panel. No on-device before/after yet.
@@ -19,6 +22,10 @@ Rev: 1 (2026-11-01) · Currency: **Coins** ( Coins/Cash/Crit Coin/Enemy Balance/
 - A card at **level 7 leaves the pool**; if a whole rarity is maxed, its share moves to the other rarities (80 % of an emptied Common pool splits 17 : 3 ⇒ **68 % Rare / 12 % Epic**). So the *marginal* cost of the last levels of an Epic falls as you finish the Commons — the deck gets cheaper as it fills.
 - Copies needed per card (fandom table, confirmed by the in-game Card Detail): **1 / 3 / 8 / 16 / 28 / 48 / 80** total copies for levels 1–7 ⇒ **80 pulls = 1 600 gems per maxed card**, **2 560 pulls = 51 200 gems** for all 32 (≈ 4 years at ~40 gems/day). The game-vault table (2 400 pulls / 48 000 gems, 19 slots) is the older 30-card pool.
 - Your **first** card is always **Damage** or **Attack Speed** (guaranteed).
+- **“Stars” = card levels.** The Cards page prints “individual cards can be levelled up to a maximum of **7 stars** by
+  collecting duplicate copies” (`wiki/card/cards`, 2026-10-13) ⇒ **star n = level n** on the ladder above, so any
+  per-star column elsewhere in the game is a per-level column (e.g. Second Wind's invincibility **10 → 40 s** at
+  stars 1–7 = `5 × star + 5`, T006 §Second Wind). One law, two names — read the panel's ★ counter as the level.
 
 ### Marginal copies per level-up, and what each level is worth
 
@@ -175,6 +182,10 @@ Do **not** spend on: Range (D-tier, breaks orb/mine builds), Health Regen, Energ
 ## Sources
 
 - fandom `Cards` (raw wikitext) — 32 cards / 12-9-11 split, 20-gem pull, 80/17/3, level copy table (1/3/8/16/28/48/80), 2 560 pulls = 51 200 gems, slot ladder to 58 400 gems + 6 Vault slots, locked-card list, preset rules, per-card level values, Vault/Keys card upgrades, card-specific labs.
+- Tower Hub `wiki/card/cards` (last verified **2026-10-13**, 9 data tables) — “Each card costs **20 Gems** to buy, and the
+  number you can have active at once is limited by your card slots. Individual cards can be levelled up to a maximum of
+  **7 stars** by collecting duplicate copies” (⇒ star rank = level), the per-rarity card lists (Common / Rare / Epic, with
+  the mastery-lab time-and-coins table), and the locked-card icon rule.
 - fandom `Card Masteries` (raw) — T16 W100 + 30×L7 gate, 28 500 stones for all, mastery values incl. **Elite Balance** 6 %→60 %, **Cells+** ×1.05→×1.32, **Double Coins** 10 %→100 %, **Elite Farming** reroll-shard chance.
 - game-vault `Cards` (last edited 6 Jul 2025) — the **printed per-level values for all 30 cards** (the source of the
   gems/pt table), the **L1→L7 copy/gem table** (1·20 … 32·640, totals 1/3/8/16/28/48/80 and 20/60/160/320/560/960/**1 600**),

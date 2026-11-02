@@ -1,5 +1,12 @@
 # T006 — Pack the Lab queue, then buy the *cheapest* skipped hour
 
+Rev: 8 (2026-11-02) — the **Second Wind lab pair** added to §census (`wiki/lab/second-wind-labs`, 2026-11-02):
+`Second Wind Blast` (**T3 W150**, 4 lv, value `25 × n` ⇒ **100 %**, costs 1.8 M / 3.0 M / 4.5 M / **75 M** = Σ **84.3 M**,
+times **100 000/150 000/200 000/300 000 s** ⇒ Σ **750 000 s = 8 d 16 h 20 m**) and `Recharge Second Wind`
+(**T14 W60**, 7 lv, value 2 000→400 waves, costs Σ **14.43 T** with Δ +500/+500/+500/+510/+510/+530 B, times Σ
+**10 371 960 s = 120 d 1 h 6 m**); both are further **hand-set** instances where the *cost* and *time* columns follow
+**different** shapes, so the family must be read per column; plus the printed mechanic (revive at **50 %** HP, Wall
+respawn, invincibility `5 × star + 5` ⇒ **10…40 s**).
 Rev: 7 (2026-11-02) — the **printed lab census** added: **158 named labs in 11 categories** (Main 15 · Attack 9 ·
 Defense 16 · Utility 12 · UW 39 · Card 10 · Perk 9 · Bot 8 · Enemies 21 · Module 14 · Battle Condition 5), every
 per-level law in this repo capped-checked against the printed `Max Lv` (`Labs Speed` 99 ⇒ ×2.98, `Labs Coin Discount` 99 ⇒
@@ -109,6 +116,27 @@ Every level cap the rest of this repo uses comes from that table, and each one r
 | 4 × bot cooldown, 4 × bot duration, `Burn Stacks` | 25 / 20 / **5** | as printed | T015 ✓ |
 | `Battle Condition Reduction` + Groups 1–4 | 10 / 20 / 20 / 10 / 10 | — | T006 §battle-condition ✓ |
 | `Card Mastery (1 lab per card)` | **9** per card | — | the per-card mastery line, 32 such labs |
+| `Second Wind Blast` / `Recharge Second Wind` | **4** / **7** | +25 pp / −waves | §Second Wind below ✓ |
+
+**The Second Wind pair, as two more hand-set ladders (`wiki/lab/second-wind-labs`, 2026-11-02).** Both are fully printed,
+and both confirm the “read the family from the first two rows” rule rather than adding a new family:
+
+| Lab (gate) | Levels | Per-level **value** | Per-level **cost** | Σ |
+|---|---|---|---|---|
+| `Second Wind Blast` (**T3 W150**) | **4** | `25 × n` ⇒ 25/50/75/**100 %** ✓ | 1.8 M · 3.0 M · 4.5 M · **75 M** (ratios 1.667 / 1.5 / **16.667**) | **84.3 M** coins, **750 000 s = 8 d 16 h 20 m** |
+| `Recharge Second Wind` (**T14 W60**) | **7** | 2 000→1 500→1 250→1 000→750→550→**400** waves | 550 B · 1.05 T · 1.55 T · 2.05 T · 2.56 T · 3.07 T · 3.60 T (Δ **+500/+500/+500/+510/+510/+530 B**) | **14.43 T** coins, **10 371 960 s = 120 d 1 h 6 m** |
+
+Three reads worth having: (a) the Blast **times** are exactly **100 000 / 150 000 / 200 000 / 300 000 s** (the printed
+minute forms are those values rounded, and the four sum to a clean **750 000 s**), so this line's time column is arithmetic
+in 50 000-s steps while its **cost** column is not (a **16.667×** jump at level 4); (b) the Recharge **cost** column is
+near-arithmetic (**+500 B** for L1→L4, drifting to +530) while its **time** column is geometric with a *rising* ratio
+(1.267 → 2.069) — the two columns of one lab follow different shapes, which is why the family must be read per column;
+(c) the underlying mechanic is printed too: **Second Wind revives the tower at 50 % health, respawns the Wall and grants
+invincibility once per round**, and the invincibility is `5 × star + 5` seconds ⇒ **10/15/20/25/30/35/40 s** at stars
+1–7 ✓ (star = the card's star rank, max **7**, T012). `Blast` is a **T3 W150** milestone gate, so it is inside the
+sub-T11 window; `Recharge` needs **T14 W60** and its level 1 alone ties up a slot for **5 d 5 h** for 2 000 waves of
+recharge delay.
+
 
 **The gem-rush ladder is a flat rate × one discount column.** Printed: 1 h **7.5** gems (**180**/day, 0 %), 1 d **163**
 (163/day, 9 %), 1 w **1 000** (142.9, 21 %), 30 d **3 550** (118.3, 34 %), 90 d **8 000** (88.9, 51 %), 360 d **25 000**
@@ -280,6 +308,11 @@ online often (it raises levels/day for all 5 slots: a `3 d 11 h` line becomes **
       the skipped hours at ×1.5 are **half** the nominal duration (1 h → 0.5, 24 h → 12).
 - [ ] `Daily Mission Shards` has **50** levels and `Shatter Shards` **5** and `Module Shard Costs` **30** (the last two cap at
       **+100 %** and **−30 %**).
+- [ ] **Second Wind pair:** `Second Wind Blast` appears after the **T3 W150** milestone with **4** levels reading
+      **25 / 50 / 75 / 100 %** and costs **1.8 M → 3.0 M → 4.5 M → 75 M**; `Recharge Second Wind` (T14 W60) has **7** levels
+      whose value falls **2 000 → 400** and whose time at level 1 is **5 d 5 h**.
+- [ ] With Second Wind at **star 1** the invincibility is **10 s** and at **star 7** it is **40 s** (`5 × star + 5`), and it
+      fires **once per round** — a second death in the same round has no save.
 
 ## Falsification
 
@@ -296,6 +329,10 @@ online often (it raises levels/day for all 5 slots: a `3 d 11 h` line becomes **
 - If the Lab list’s **category counts** differ from §census (e.g. Utility shows 13 instead of **12**), a lab was added or a
   milestone gate is unclaimed — the census is the quickest way to spot a missed unlock, and one added line shifts every
   “Σ levels per season” estimate in this doc.
+- If `Second Wind Blast` level 4 is not **75 M** (or level 1 is not **1.8 M**), the hand-set ladder was re-versioned → read
+  the four prices and re-add them; the `25 × n` value column is independent of the prices, so the +100 % cap likely stands.
+- If a Second Wind save gives something other than **50 %** HP, or the invincibility is not `5 × star + 5`, the star law is
+  superseded → read stars 1 and 2 and derive the step from that pair (10 → 15 is +5 s/star).
 - If T14’s average stops landing on **10.5** (e.g. always 7 or always 14), the server overrode the default drop table →
   record your min/max/mean per tier; the “server can override” caveat is the version marker.
 - If a skipped wave during Intro Sprint pays **0.22×** but the plain-IS wave pays ≠ 20 %, the two rules are not
@@ -328,6 +365,13 @@ online often (it raises levels/day for all 5 slots: a `3 d 11 h` line becomes **
   **gem-rush table** (1 h **7.5** / 1 d **163** / 1 w **1 000** / 30 d **3 550** / 90 d **8 000** / 360 d **25 000** /
   **> 360 d = 25 000**) with its `Gems/Day rate` and `Discount` columns, “gold-boxing … adds **0.015×** to your gem
   efficiency, stacking additively”, and the boost table’s `Cost One lab` / `Cost All labs` / `Effective time skip` columns.
+- Tower Hub `wiki/lab/second-wind-labs` (last verified **2026-11-01**, 2 data tables) — `Second Wind Blast` “unlocked
+  through Milestones at **tier 3 wave 150** … The lab has **4 levels**” with its Level/Time/Cost/Value rows
+  (1 d 3 h 47 m · **1,800,000** · 25 % … 3 d 11 h 20 m · **75,000,000** · 100 %), and `Recharge Second Wind` “unlocked …
+  at **tier 14 wave 60** … allows it to recharge and become available again a set number of waves after it activates …
+  **7 levels**” with its seven rows (550.00 B → **3.60 T**, value **2,000 → 400**); “**Once per round Second Wind revives
+  the tower at 50% health, respawns the Wall and grants invincibility** for a set time. Second Wind invincibility by
+  star 1-7: **10, 15, 20, 25, 30, 35, 40 s**”.
 - Tower Hub `wiki/currency/currency-elite-cells` (last verified **2026-11-01**) — the T14–T24 min/max/average table
   (10 rows, all re-adding; “the server can override them”), the three drop-enemy types and the zero-drop list, the
   **1.1×-even-during-Intro-Sprint** skip rule, the full boost-cost ladder (**15 … 1 000 000** cells/h) with

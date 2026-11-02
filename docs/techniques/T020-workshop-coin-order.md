@@ -1,5 +1,11 @@
 # T020 — Workshop coin-spend order: the level-band rule and the knee table
 
+Rev: 7 (2026-11-02) — **the printed coin laws** added (§1.3): “every coin multiplier multiplies with every other one”,
+with the worked **Black Hole 11× × Golden Tower 20.75× = 228.25×** ✓; the **CPW lab ceiling is printed as level 20**
+(⇒ `Coins/wave` ×1.40 and stop); the sync-funding rule (**1:1** needs one GT + one BH upgrade banked, **2:1** needs two
+GT + one BH) with the printed cooldowns (**GT 300 s**, **BH 200 s**, targets 200 s / 150 s) and the **Multiverse Nexus**
+average-cooldown module; the **12-item coin source list** with the **5** CPW-noted items (Packs / Coin Card / Tier /
+Themes / Relics); plus the “tens of millions” daily-mission skew note against T004's 100 B at T24.
 Rev: 6 (2026-11-02) — the **whole-lab closed forms** for the three `Enhancement Coin Discount` labs added to §6.3
 (price **×1.3/level** verified on all nine printed ratios ⇒ `Σ = 10⁹(1.3¹⁰⁰ − 1)/0.3 = ` **8.264e20** coins per lab,
 time **arithmetic** `n × 1 d 1 h 55 m` ⇒ **5 453 d** per lab / **16 360 d ≈ 44.8 y** for all three, and the line's
@@ -100,6 +106,37 @@ and 5 780 days of base time, i.e. with 5 slots ([T009](T009-gem-spend-order.md) 
 Bonus alike). Per multiplier *unit* the two sinks price as: workshop tail (L91–149) = 19.47 M − 3.22 M = **16.25 M** coins
 for +0.59 ⇒ **≈ 27.5 M per unit**; the lab = 111.68 M ÷ 1.98 = **≈ 56.4 M per unit**. So the **workshop line is ≈ 2× cheaper
 per point** — max the workshop line first, then take the lab in 10-level blocks (+20 % each).
+
+### 1.3 The printed coin laws, and the CPW ceiling (new, Rev 7)
+
+Source: Tower Hub `wiki/guide/coin-guide-basics` (last verified 2026-07-29). It prints four things this doc was inferring:
+
+1. **All coin multipliers multiply.** “Every coin multiplier in the game multiplies with every other one … packs, themes,
+   CPK workshop upgrades, Ultimate Weapon coin bonuses and more all stack **multiplicatively** when they apply to the same
+   enemy.” Its worked pair: **Black Hole maxes out at 11×** and **Golden Tower at 20.75×** ⇒ both on one kill =
+   `11 × 20.75 = ` **228.25×** the normal drop ✓ (the print's own 228.25 re-adds). The printed corollary is the same
+   portfolio logic as §2's band rule and T013 §2's trade ladder: “adding a brand new multiplier usually gains you more than
+   pushing an already well-developed multiplier further”.
+2. **CPW has a stated ceiling: “stop upgrading CPW in the lab by level 20”.** In this doc's units the `Coins/wave` lab
+   (§1.2) is +0.02/level ⇒ **L20 = 1 + 0.02·20 = ×1.40**, and levels 21–99 would add only 1.58 more on the dearer tail of
+   the same curve — so the printed ceiling is exactly the knee the ×2-cheaper-workshop rule points at, now with a number.
+   Use **20** as the stop on that line and spend the rest on the fresh multipliers of (1).
+3. **Sync is what makes 228.25 reachable** (costs and stone ladders: [T008](T008-uw-sync-with-stones.md)). “Make the
+   cooldowns multiples of each other, with **1:1** being the most common target”: **GT starts at 5:00 (300 s)** and
+   **BH at 3:20 (200 s)** ⇒ lower GT to 200 s for a permanent 1:1, or reduce BH to 2:30 (150 s) so it fires **twice per GT**
+   (2:1). The **Multiverse Nexus** armor module mimics this by averaging the cooldowns of Death Wave / Golden Tower /
+   Black Hole at a small penalty. Funding rule, printed: at **1:1** save enough stones for **one GT + one BH** upgrade
+   before touching *either* cooldown; at **2:1** fund **two GT + one BH** — “if you spend the stones early, the sync breaks”.
+4. **The 12-item coin source list**, of which exactly **5** carry the “also raises CPW” note: **Packs** (starter/epic/
+   disable-ads), **Coin Card**, **Tier**, **Themes**, **Relics**. The other seven are *kill-side* only: Enemy Balance
+   (indirect, more enemies), Coins/Kill (workshop + lab), **Golden Tower**, **Black Hole**, **Spotlight**, **Death Wave**
+   (the last four need their lab for the coin bonus), and the **Coin Bot** (event-shop bot, upgraded with **medals** —
+   the medal→coins line, T013 §3). Practical read: only the CPW-note five also raise your **tournament wave score**
+   (T014), so a sub-T11 account should buy those five first and treat the kill-side seven as the farming engine.
+
+**Skew note.** The guide says the daily-mission rewards “cap out in the tens of millions”; the printed 24-row table
+(T004 **Rev 3**) ends at **100 B** (T24), and the “tens of millions” band is tiers **13–15** (15 M / 30 M / 75 M) ⇒ read
+that sentence as the low-teens cap and compute with T004's table.
 
 ### 1.3 `Starting Cash` — the fifth T1-W30 lab, and the cheapest of the family
 
@@ -253,6 +290,11 @@ much as the workshop level it multiplies (T011's lab list); module effects are *
 product, so a shard-spent module effect is a *third* independent stack; and the 1.8 trade-off factor means a trade-off
 perk is a fixed ×1.8 on the whole product, which is why T011 ranks it high. “Enhancement is double counted in both the
 tier bonus and in CPK” (per the wiki), so enhancement levels are worth ~2× their printed value.
+
+**Two stacks, not one (Rev 7).** The §1.3 law (BH **11×** × GT **20.75×** = **228.25×**) is the *per-enemy drop* product
+that this formula then multiplies: the product above is the **stat**, the UW/cosmetic factors are the **on-enemy
+multipliers**, and a kill only sees a factor if that UW/bot is active at that moment — which is why §1.3's sync rule is
+the difference between 228.25 and max(11, 20.75).
 
 ## 6. The enhancement layer (v29 numbers)
 
@@ -424,6 +466,11 @@ the enhancement gates — track each of the three separately ([H024](../hypothes
       **0** and level 1 of any enhancement costs **5.00 B** coins.
 - [ ] A standard enhancement's level 50 price reads **9.59 T** with the total **73.23 T**; level 600 reads **5.83 s**
       (total **441.24 s**) and its multiplier reads **×7**.
+- [ ] **§1.3 CPW ceiling:** the `Coins/wave` lab reads **×1.40** at level **20** (`1 + 0.02·20`); stop there and move the
+      coins to a multiplier that is still at 1×.
+- [ ] **Sync identity:** with only Black Hole active a kill pays **11×**, with only Golden Tower **20.75×**, and with both
+      on the same kill **228.25×**; after setting GT's cooldown to 200 s the two numbers should appear on the **same** kill
+      every cycle (if they alternate, the sync is not holding and the stones went to the wrong line).
 - [ ] `Enemy Level Skip +` caps at level **60** and `Coin Bonus +` at **300** (the v29 caps, not 200/75/100).
 - [ ] `Starting Cash` **lab**: L1 = **30** coins at value **5**, L10 = **6 165** at value **50**, and the ten printed prices
       sum to **18 752** (each is 10 coins under the income labs' ladder).
@@ -459,6 +506,11 @@ the enhancement gates — track each of the three separately ([H024](../hypothes
 - If one Vault Power level doubles the line's number instead of adding +100 % to the pool, the stacking law is
   multiplicative → recompute §6.2.1's totals ([H048](../hypotheses/H048-vault-power-node-stacking-with-lab.md)).
   the ten cheapest levels of each line and rebuild §2's band table from the panel.
+- If the **CPW** ceiling is not level **20** (i.e. the panel's per-level value is no longer **+0.02** ⇒ L20 = ×1.40), the
+  printed ceiling moved with the curve → re-read `1 + 0.02·L` on the panel and take the level where the per-level price
+  first exceeds the next un-bought multiplier's price.
+- If two UW coin bonuses **add** instead of multiplying (BH + GT reads **31.75×** rather than **228.25×**), §1.3's law is
+  superseded → recompute the sync payoff as `1 + Σ(xᵢ − 1)`; the 1:1/2:1 stone-funding rule still stands either way.
 - If a currency line's level-1 price is not **30** (Cash pair) / **50** (Coins pair) coins, the tables are re-versioned →
   re-read the ten cheapest levels of each line and rebuild §2's band table from the panel.
 - If the `Workshop Utility Discount` lab does **not** change those four prices, §4's order collapses: then the utility
@@ -485,6 +537,13 @@ the enhancement gates — track each of the three separately ([H024](../hypothes
 
 ## Sources
 
+- Tower Hub `wiki/guide/coin-guide-basics` (last verified **2026-07-29**) — “Coins per wave … is the weakest coin source
+  in the game over the long run … **stop upgrading CPW in the lab by level 20**”; “**Every coin multiplier in the game
+  multiplies with every other one** … stack multiplicatively when they apply to the same enemy”, with the printed pair
+  **Black Hole 11×** / **Golden Tower 20.75×** ⇒ **228.25×**; the syncing section (**GT 5:00 = 300 s**, **BH 3:20 = 200 s**,
+  1:1 at 200 s or 2:1 at BH 2:30 = 150 s, the **Multiverse Nexus** average-cooldown module, and the stone-banking rule for
+  1:1 vs 2:1); the **12-source** coin list with its five “also raise CPW” notes; “the rewards cap out in the tens of
+  millions” for daily missions.
 - game-vault `Workshop` — tab structure and “coin upgrades are permanent / cash upgrades reset each round”; the full
   per-level cost + cumulative tables for Damage (6000 lv, 816.09 T), Attack Speed (99 lv, 3.60 M), Critical Chance
   (79 lv, 1.41 M), Critical Factor (150 lv, 259.20 B), Range (79 lv, 1.46 M), Damage/Meter (200 lv, 315.60 T),

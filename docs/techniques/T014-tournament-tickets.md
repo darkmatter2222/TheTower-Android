@@ -1,5 +1,15 @@
 # T014 — Tournament tickets: buy them while the marginal value beats the next card slot
 
+Rev: 6 (2026-11-02) — **§4.2, the Legend condition table in closed form** (`wiki/guide/legend-battle-conditions`,
+2026-11-02): the table is **26** rows = **17 random + 4 Overheats + 5 fixed** (other leagues **21**), heat is a **global**
+level (1 → +1 at each of **18** heat waves, done at **wave 1 000**) and **22 of 26** entries carry a **19-value** list;
+the four laws that make the numbers derivable are recorded and verified — `interval = max(1, 101 − value)` (**1 → 100**,
+**96 → 5** ✓), `removed = ⌈base × (1 − R)⌉` for the 1 500-wave decays (**10/10 cells**, and “28/40” = the law at R = 20 %),
+`skip_mult = 1 − 0.01·value·(1 − R_total)` (**×0.45** and **×0.6095** ✓), and the three always-on decay constants
+(**0.995/s**, **0.875**, **0.9**) whose stun recursion reproduces the printed ten-row **exactly**; plus the pool sizes
+15/16/17 with **Orb Resistance** as entry 1 (Legend **can** draw it — 2026-10-17 bracket), the 17-item grouped list, the
+Protector/Fast/Tank/Ranged Black-Hole decision rule, and a fourth confirmation of §4.1's Σ (the same page prints the
+generic lab total as **1.25e18 coins** = **1 247.44 q**, plus **79.2M s = 22 000 h ≈ 2.51 y**).
 Rev: 5 (2026-11-02) — a **third print** for the ticket rules (`wiki/system/tickets`, 2026-07-29): 1 ticket automatically per
 new tournament, more by **ad** or **10 gems**, and **no per-bracket cap printed anywhere** ⇒ §3's marginal-ticket rule is
 the only limiter; the `10` vs `10 rising by 10` difference between the two site pages is a first-purchase vs
@@ -120,6 +130,91 @@ condition). The random-pool sizes are printed per league: **15** (Silver–Plati
 the full condition list is a 30-row table (“Showing 10 of 30 rows”). The reduction labs exclude the **Ultimate Weapon
 Duration** condition (only Group 4 touches it).
 
+### 4.2 The Legend condition table in closed form (new, Rev 6)
+
+Source: Tower Hub `wiki/guide/legend-battle-conditions` (last verified **2026-11-02**). Everything below is printed with
+numbers, and the four laws re-add from the printed tables.
+
+**Structure.** Legend's condition table holds exactly **26** entries = **17** random-pool + **4** Overheats + **5** fixed
+(three always-on + *both* halves of the `Death Defy Down / Energy Shields Down` pair, one of which is active per
+tournament) ✓ `17 + 4 + 5 = 26`; every other league's table holds **21**. Each entry is *condition + activation wave +
+value list*, and **22 of the 26** carry a full **19-value** list (one per heat level) while only the **4 Overheats** are
+flat — which is why only those four are ever quotable as a single figure. **Heat is global**: it starts at **1** and steps
+up at each of the tournament's **18** heat-increase waves, a schedule that “appears to finish at wave 1 000” ✓ the same
+wave 1 000 cap §3 already uses; a condition contributes **exactly zero** below its activation wave, so all conditions share
+**one** ramp and differ only in their numbers (that is why the Overheats “appear out of nowhere” — their activation wave
+is deep in the run).
+
+**The four Legend Overheats** (Legend-only, one block; two strip the Workshop, two add enemies):
+
+| Overheat | From wave | Interval | Effect per step | Printed `value` |
+|---|---|---|---|---|
+| **More Fleets** | 1 000 | every **100** waves | one extra Fleet | **1** |
+| **Damage Decay** | 1 500 | every **10** waves | Attack Workshop levels removed | base **35** |
+| **Health Decay** | 1 500 | every **10** waves | Defense Workshop levels removed | base **50** |
+| **More Elites** | 2 000 | every **5** waves | one extra Elite | **96** |
+
+Both “more” conditions follow the printed interval law `interval = max(1, 101 − value)`: value **1** ⇒ `101 − 1 = ` **100** ✓
+and value **96** ⇒ `101 − 96 = ` **5** ✓. They run on **their own counters** and do not replace the normal Fleet/Elite
+cycles (§1's H012 evidence still stands).
+
+**The two Workshop-stripping decays are one law:** `levels removed = ⌈base × (1 − R)⌉`, `base = 35` (Damage/Attack) and
+`50` (Health/Defense), both **every 10 waves from wave 1 500**. All **10** printed cells re-add:
+
+| R (`Battle Condition Reduction`) | 0 % | 10 % | 20 % | 30 % | 40 % |
+|---|---|---|---|---|---|
+| Damage Decay (35) | 35 | 32 | **28** | 25 | 21 |
+| Health Decay (50) | 50 | 45 | **40** | 35 | 30 |
+
+⇒ `35 × 0.8 = 28`, `50 × 0.8 = 40`, so **the widely quoted “28 and 40” are this law at R = 20 %** — one account's research
+level, not a constant. Note the 30 %/40 % rows are **not** reachable from the generic lab alone (it caps at **+20 %** over
+**10** levels, §4.1) — they need the dedicated per-condition lines added into R. Ordering consequence, printed: Health
+collapses before Damage simply because 50 > 35 on the same clock.
+
+**Skip Reduction *scales*, it does not remove:** `skip_mult = 1 − 0.01·value·(1 − R_total)`, where **R_total adds** the
+generic lab and the dedicated `Enemy Level Skip` line (the “two add up” law of §4.1). Both printed numbers reproduce:
+value **55**, no research ⇒ `1 − 0.55 = ` **×0.45** ✓; at **R_total = 29 %** ⇒ `1 − 0.55 × 0.71 = ` **×0.6095** ✓.
+**Skip Decay** then eats what is left, `1 pp` per step **scaled by R only** — it shrinks the *step*, **never** the
+**interval**, which is `100 − value` waves ⇒ `100 − 80 = ` **20** ✓.
+
+**The three always-on per-enemy decay counters** (not battle conditions; invisible, on tournaments *and* normal tiers; a
+fresh enemy restarts at full effectiveness, so they only punish builds that keep one enemy alive for a long time):
+
+| Mechanic | Constant | Advances on | Printed check → reproduced |
+|---|---|---|---|
+| **Stun Decay** | **×0.995** | each **cumulative** stunned second | 10 s stun → **9.07 s** at application 3 ✓ |
+| **Miss Decay** | **×0.875** | each successful **miss** | `30 × 0.875³ = ` **20.1** ✓ |
+| **Death Defy Decay** | **×0.9** | each successful **Death Defy** | `42 × 0.9³ = ` **30.6** ✓ |
+
+Stun's is the one with a non-obvious shape (seconds, not application count):
+`L₁ = raw`, `Lₙ = raw × 0.995^(Σᵢ<ₙ Lᵢ)` — and that recursion reproduces the page's ten-value row **exactly**, to two
+decimals on all ten entries: **10.00 / 9.51 / 9.07 / 8.67 / 8.30 / 7.96 / 7.65 / 7.36 / 7.09 / 6.85**. The two quoted
+side results also close: a **2.5 s** stun is **2.25 s** at application 10 and **2.02 s** at 20 ✓. Practical: at
+application **10** a 10 s stun is **6.85 s < 7 s**, the Shockwave interval ⇒ that is the wave-count where a stun lock stops
+holding, and no stun research moves it; short stuns (2.5 s Inner Land Mines) burn the budget far more slowly per
+application than a 10 s Poison Swamp, which is why “stun” behaves differently on the two. Stuns do **not** stack — the
+enemy keeps the **longer** of current/new timer (T015's rule, now with its constant).
+
+**Pool sizes and the correction.** **15** (Silver/Gold/Platinum) → **16** (Champion, +`Ultimate Weapon Durations`) →
+**17** (Legend, +`Mass Enforcement`) ✓ the same numbers §4.1 prints, and the pool's **first** entry is **Orb Resistance**,
+which Legend **can** draw (the Legend tournament of **2026-10-17** drew it) — this corrects the site's earlier “16 / no Orb
+Resistance in Legend”. Legend shows **6** random conditions = one of `Death Defy Down`/`Energy Shields Down` + **5** of the
+17 ✓ §4's “Legend 5 extra”. The 17 grouped as printed: **Resistances (6)** Orb · Death Ray · Thorns · Knockback · Armored
+Enemies · Plasma Cannon; **Enhancements (4)** Enemy Speed · Enemy Attack Speed · More Enemies · Mass Enforcement;
+**Ultimate enemies (6)** Protector · Tank · Boss · Basic · Fast · Ranged; **Other (1)** Ultimate Weapon Durations.
+
+**Cross-check on §4.1's bill.** The same page's “Good to know” prints the generic reduction lab as “**10 levels, 0 to
+20 %, 1.25e18 coins, 79.2M s** base time total” ⇒ `1 247.44 q = 1.24744 × 10¹⁸` ✓ the *same* Σ as §4.1 in scientific
+notation (a fourth confirmation of the **×2.05** series), and `79.2e6 s = 22 000 h = ` **916 d 16 h ≈ 2.51 y** of raw slot
+time for those ten levels (≈ **45.1 d** first level if the line follows the ×1.15 time law).
+
+**The reading order before a run** (the page's, worth keeping): active **Ultimate-enemy** conditions → which of them
+ignore your CC → only then the **Black Hole** config and the module split. Concretely: **Ultimate Fast / Tank / Ranged are
+not attracted by Black Hole and take no damage from it** ⇒ with none of the three active, permanent BH uptime traps most
+regular enemies, while with **Ranged** active your projectiles concentrate on the trapped packs as the Ultimate Ranged
+walks in. **Ultimate Protector** ignores Chrono Field slow/rotation, knockback, Shockwave and every stun source and needs
+a **damage** answer, not a control one.
+
 ## 5. Steps (UI only)
 
 1. Before 00:00 UTC on **Wednesday / Saturday**, end any active run. On the home screen tap the **Tournament icon** → the **Tournament Start Panel**.
@@ -129,6 +224,10 @@ Duration** condition (only Group 4 touches it).
 5. After the tournament closes, claim on the **Tournament End / Finished Panel** — rewards (gems, stones, keys from Legend up) sit there until claimed.
 6. Check the **leaderboard** (same panel) for the wave you need to overtake the player directly above you next time; that gap is your target wave for the next bracket.
 7. Also claim the **“Participate in xx tournaments”** event mission (1/2/3) — see [T013] §3.
+8. In **Legend**, do §4.2's order instead of memorising conditions: read the active **Ultimate-enemy** rows first, mark
+   which ignore your CC (**Protector** ignores Chrono Field / knockback / Shockwave / all stuns; **Fast / Tank / Ranged**
+   are not attracted by Black Hole and take no damage from it), and only then set the **Black Hole** config and the module
+   split. Buy `Battle Condition Reduction` before the per-condition labs — its step is **+2 %/level** vs +1 % (§4.1).
 
 ## 6. Reproduction checklist
 
@@ -144,6 +243,16 @@ Duration** condition (only Group 4 touches it).
       (the ×2 series), the generic `Battle Condition Reduction` L1 = **1 q / +2 %**,
       and a new bracket grants exactly **1** ticket before the panel offers an **ad** and a **10-gem** purchase that rises
       by 10 per purchase in the same bracket (§3.1; no cap is printed anywhere).
+- [ ] **§4.2 interval law:** in Legend the extra **Fleet** wave comes every **100** waves from wave 1 000 and the extra
+      **Elite** every **5** waves from wave 2 000 (`max(1, 101 − value)` on the panel's own values **1** and **96**).
+- [ ] **§4.2 decay law:** at `Battle Condition Reduction` = **20 %** the Workshop really loses **28** Attack and **40**
+      Defense levels per step (and **35/50** with the lab at 0), every **10** waves from **1 500**.
+- [ ] **§4.2 skip law:** with the skip condition at value 55 and both reduction lines at 0 the panel's effective skip is
+      **×0.45**; banking **29 %** of reduction moves it to **×0.6095**.
+- [ ] **§4.2 table size:** the conditions panel for Legend counts **26** rows (other leagues **21**), and the four Overheat
+      rows are the only ones with a single value.
+- [ ] **§4.2 stun decay:** on one long-lived enemy, the 10th stun of a 10-second source lasts **6.85 s** (below the 7-second
+      Shockwave interval) while a 2.5-second source is still at **2.25 s**.
 
 ## 7. Falsification
 
@@ -155,6 +264,16 @@ Duration** condition (only Group 4 touches it).
   the in-game panel and re-derive §3's gem-equiv column; the marginal-ticket rule itself is ratio-based and survives.
 - If a Group-4 lab level 10 costs something other than **1024 q**, the ×2 series changed → re-read the ten printed costs
   and rebuild §4.1's Σ column; the +1 %/level values are independent of the series.
+- If the Legend conditions panel is **not 26 rows** (other leagues **21**), §4.2's `17 + 4 + 5` structure changed → recount
+  and re-derive which entries carry 19-value lists; the interval/decay/skip laws are per-entry and survive a re-count.
+- If the Workshop loses **35/50** levels at 20 % reduction (rather than 28/40), the decay law is **unscaled** by the
+  reduction lab → then `Battle Condition Reduction` does not apply to the two Overheat decays, and §4.1's priority order
+  (generic first) flips for these two conditions only.
+- If extra Fleet/Elite waves come every **101 − value** (no `max(1, …)` floor) or the intervals ignore the panel's
+  `value` column, re-derive the interval law from two measured gaps (100 and 5 are what the printed values 1 and 96 give).
+- If a repeatedly-stunned enemy keeps the **full** 10 s after ten applications, the per-enemy stun counter is not shared
+  across sources (or the constant is not 0.995/s) → re-derive §4.2's recursion with `Σ Lᵢ` replaced by the number of
+  applications; the 0.875 miss and 0.9 Death Defy constants are independent of it.
 
 ## Sources
 
@@ -174,3 +293,13 @@ Duration** condition (only Group 4 touches it).
 - fandom `Currency/Keys` (raw wikitext) — the per-rank key table for Legend and Mythic and the “fewer than 9 players pay less” caveat.
 - `tools/gm_strings.txt` — `TournamentManager`, `TournamentAttempt`, `TournamentPrizeEntry`, `TournamentLeaderboardEntry`, `HeatDefinition`, and the exact panel names `Tournament Start Panel`, `Tournament Progress Panel`, `Tournament End Panel`, `Tournament Finished Panel`, `Tournament Conditions Panel`, `Tournament Heat Main Bar`.
 - Remote-config keys seen in the binary: `haveTournamentVersion`, `joinTournamentV5`, `tournamentRegisterLoggingEnabled`, `banFromTournamentInternalV2` (a server-side join version + a ban list ⇒ joining is a server call, so an offline join will fail).
+- Tower Hub `wiki/guide/legend-battle-conditions` (last verified **2026-11-02**, 6 data tables; their own numbers credited
+  to *hiro29's Legend Battle Conditions guide*, last edited 2026-08-02) — the **26-entry** Legend table (`17 + 4 + 5`) with
+  **19-value** per-heat lists and **18** heat-increase waves ending at **W1000**; the four Overheats with waves
+  **1000/1500/1500/2000**, intervals **100/10/10/5** and the `max(1, 101 − value)` law plus the panel values **1** and
+  **96**; `Damage Decay` **35** / `Health Decay` **50** with the **5-row × (1 − R)** table; the `1 − value × 0.01`
+  skip-scaling law with the worked **×0.45** and **×0.6095** at **29 %**; Skip Decay's `100 − value` interval; the
+  **17**-item Legend draw list in four categories and the per-league pool sizes (and their own two corrections: pool is
+  **17** not 16, and **Orb Resistance** is entry 1 — drawn by the 2026-10-17 Legend bracket); the three decay constants
+  **0.995 / 0.875 / 0.9** with the ten-row stun ladder; and the “Good to know” print **BCR lab: 10 lv, 0–20 %,
+  1.25e18 coins, 79.2M s**.
