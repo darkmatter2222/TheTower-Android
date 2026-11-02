@@ -13,7 +13,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | T005 | [Tier-rush then farm](techniques/T005-tier-rush-then-farm.md) | Coins (daily/weekly) | **Verified (Rev 2**, arithmetic) |
 | T006 | [Lab queue packing + cheapest skipped hour](techniques/T006-lab-queue-packing.md) | all (multipliers) | **Verified (Rev 13**, arithmetic) |
 | T007 | [Ad-gem sweep](techniques/T007-ad-gem-sweep.md) | Gems | Amounts verified (Rev 2) |
-| T008 | [Stone economy: knee-first UW buying + cooldown sync](techniques/T008-uw-sync-with-stones.md) | Stones → Coins | **Verified (Rev 3**, arithmetic: 9/9 stone values + 4/4 lattice rows) |
+| T008 | [Stone economy: knee-first UW buying + cooldown sync](techniques/T008-uw-sync-with-stones.md) | Stones → Coins | **Verified (Rev 4**, arithmetic: 9/9 stone values + 4/4 lattice rows + the 53 547 ledger) |
 | T009 | [Gem spend order](techniques/T009-gem-spend-order.md) | Coins/min | **Double-sourced (Rev 4**; device read pending) |
 | T010 | [Module economy (slot levels, merges, rerolls)](techniques/T010-module-merge-chain.md) | Modules, shards | **Verified (Rev 7**, arithmetic) |
 | T011 | [Perk engine tuning](techniques/T011-perk-engine-tuning.md) | Coins (run multipliers) | **Verified (Rev 5**, arithmetic) |
@@ -90,6 +90,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | H053 | [Bot cooldown steps: medal −3 s / lab −1 s, base 120 s?](hypotheses/H053-bot-cooldown-step-sizes.md) | read one bot’s cooldown at 0 → 1 medal → 1 lab → (6 m + 2 l): expect 120 / 117 / 116 / 100 s |
 | H054 | [Thorns hits law `⌈100/t⌉` with breakpoints at 100/n?](hypotheses/H054-thorns-breakpoint-hit-law.md) | hits-to-kill at 25 / 26 / 33 / 34 % ⇒ expect 4 / 4 / 4 / **3** |
 | H055 | [Perk defense terms: what order gives exactly 99.1 %?](hypotheses/H055-perk-defense-composition.md) | read `Defense %` at 0 perks → after 5 × `+5 %` → after the −55 % perk: expect 85.5 / 90.5 / 95.5 (additive) or 85.5 flat with ×0.95⁵ damage (multiplicative) |
+| H056 | [Does the 53 547 stone headline include the UW+ ledger?](hypotheses/H056-uw-plus-ledger-in-headline.md) | read GT's per-UW "spent" number vs §2's prefix-sum (**2 520** at 10/15/10) and Golden Combo's per-level prices |
 
 ## Logs
 
@@ -162,6 +163,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 - [2026-11-02 - session 62 (T002/T003/T005 Verified, T008 Rev 3, T009 Rev 4)](log/2026-11-02.md#2026-11-02---session-62-iteration-71-the-three-unverified-docs-close-and-the-thorns-lattice-falls-out-of-one-formula)
 - [2026-11-02 - session 63 (T006 Rev 12)](log/2026-11-02.md#2026-11-02---session-63-iteration-72-the-wave-axis-becomes-one-law-and-the-fleet-shard-columns-close)
 - [2026-11-02 - session 64 (T011 Rev 5, T002 Rev 3, H055)](log/2026-11-02.md#2026-11-02---session-64-iteration-73-the-tier-guide-prints-the-perk-values-and-the-whole-per-tier-build)
+- [2026-11-02 - session 65 (T008 Rev 4, H056)](log/2026-11-02.md#2026-11-02---session-65-iteration-74-the-uw-stone-ladders-get-a-second-source-and-the-account-ledger-re-adds)
 
 ## Reference material in this repo
 

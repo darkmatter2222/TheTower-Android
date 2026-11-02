@@ -1,5 +1,12 @@
 # T008 — Stone economy: knee-first UW buying + cooldown sync
 
+Rev: 4 (2026-11-02) - the stone ladders get a **second source** and a **ledger check**: `wiki/guide/which-uw-do-i-select`
+prints both §1 tables verbatim, `wiki/guide/uw-tier-list` prints their **9 705** sum, and the account table re-adds as
+`43 842 + 9 705 = ` **53 547** (its headline); four `UW+ status = Locked` rows with non-zero stones pin that column to
+**basic-stat spend only** (**43 842 / 244 302 = 17.9 %** of the stat bill), which leaves the UW+ ledger unaccounted
+(**H056**). Also new: the printed pick order with its two **3x-lab-boost** conditional swaps (§1.②), the per-UW printed
+coin/health/cell multipliers, and the **374-run** coin/damage share tables (§1.③, coin shares sum to **155.9 %** by
+construction).
 Rev: 3 (2026-11-02) — the **sync lattice** gets its step sizes: bot medal upgrade **−3 s**, bot lab upgrade **−1 s**
 (the page’s three printed steps `5 s = 1 m + 2 l`, `10 s = 3 m + 1 l`, `20 s = 6 m + 2 l` solve to exactly that, and
 `120 − 20 = 100` ✓), base bot cooldown **120 s**, max **50 s** (bots except Flame, BH, DW) and **100 s** (GT); plus the
@@ -28,6 +35,60 @@ Currency: **Power Stones** (and the coin rate they buy) · Status: **Verified** 
 | **UW block total** | **≈ 453 400** | + card masteries 28 500, Bot+ 1 250 × 5, Synchronicity 1 500 + 3 × 1 500, assist slots 1 000 each ⇒ **≈ 500 k stones** |
 
 Against ≈ **10 700 stones/year** free (T022 §1) that is **≈ 47 years**, so the only sane policy is: buy each stat's **first cheap block** and stop, and spend the rest on the sync ladder in §4.
+
+### 1.① The two ladders are double-sourced, and one account's ledger re-adds (Rev 4)
+
+Both tables are now **printed verbatim** on `wiki/guide/which-uw-do-i-select` §Good to know (“Unlock price depends on how
+many UWs you already own, not on which one: 5, 50, 150, 300, 800, 1 250, 1 750, 2 400, 3 000 … Price by how many UW+ you
+own: 500, 625, 750, 975, 1 250, 1 650, 2 200, 2 900, 3 800”), and `wiki/guide/uw-tier-list` prints the first ladder's sum
+in prose (“All nine slots together cost exactly **9 705 stones**”), which re-adds from the nine cells ✓. Both ladders are
+**hand-set** (unlock deltas **45 / 100 / 150 / 500 / 450 / 500 / 650 / 600**; UW+ deltas **125 / 125 / 225 / 275 / 400 / 550
+/ 700 / 900**) — no closed form, so read the cell you need.
+
+**The account ledger identity (arithmetic ✓).** The tier-list page's headline is "a real Legend account put **53 547**
+stones", and its per-UW table sums to **43 842** (13 838 + 10 456 + 5 740 + 5 393 + 4 374 + 3 416 + 625 + 0 + 0). Adding
+the nine slot costs:
+
+```
+43 842  (per-UW column, 9 rows)  +  9 705  (nine unlock slots)  =  53 547   ✓ the printed headline
+```
+
+so the per-UW column is the *stat* ledger and the headline adds the slot costs — two independent cross-checks of §1's
+numbers. **Which pool the column is** is settled by the same table: four rows (**Black Hole**, **Death Wave**, **Chain
+Lightning**, **Inner Land Mines**) print `UW+ status = Locked` and still carry **5 740 / 5 393 / 3 416 / 625** stones, so
+their cells cannot contain any UW+ price ⇒ the column is **basic-stat spend only** (§2's per-level columns), and the
+account sits at **43 842 / 244 302 = 17.9 %** of the full stat bill. The three owned UW+ abilities (GT level 7, CF level 4,
+Spotlight level 0 ⇒ at least **500 + 625 + 750 = 1 875** by the printed ladder) are therefore *outside* the headline
+→ **H056**. The account's spend also descends in the recommended pick order, which is the point of the list.
+
+### 1.② The printed pick order, with its two conditional swaps
+
+| # | UW | Printed numbers | Note |
+|---|---|---|---|
+| 1 | **Golden Tower** | unlock = immediate **+20 %** cash **and** coins | the **9.0x** in §7 is the maxed Multiplier line |
+| 2 | **Black Hole** | weak on unlock; "most of its power comes from labs"; % of enemy HP per second | sync with GT, "the coin bonuses stack multiplicatively" |
+| 3 | **Death Wave** | no labs **1.5x** coins / up to **5x** health; with labs **2.5x** / **12.5x**; up to **x3 Elite Cells** | "currently the only way to increase Elite Cell gains within a run" |
+| 4 | **Spotlight** | **3x** coin bonus with **constant uptime**; max coverage ~ most of the field | the SLM lab + damage boost carry the mid game |
+| 5 | **Chrono Field** | permanent after its **first** activation | **swap:** 5th if you cannot run a **3x lab boost** continuously, else 6th/7th |
+| 6 | **Chain Lightning** | buffed in **0.24**; "fairly cheap to upgrade" | **swap:** take it 5th instead if one 3x lab boost is always up |
+| 7 | **Inner Land Mines** | **625** stones on the account "bought a real effect" | wide stun for bosses/elites => more SM time |
+| 8 | **Poison Swamp** | reworked in **v26**; needs a developed CF (ideally with CF+ levels) | underperforms nearly everything before that |
+| 9 | **Smart Missiles** | **0** stones on the account; largest investment before it outperforms CL | v29 **Tactical Barrage** core module does not change the verdict |
+
+**Recorded skew:** the page notes "the classic community order takes Smart Missiles **7th**, ahead of the two situational
+picks; I disagree". Both orders own all nine for the same total (**9 705**), so the disagreement only shifts *when* the
+stones land — keep the site's order (SM last) while CL is carrying damage, and revisit when a bracket needs raw damage.
+
+### 1.③ Where the currency actually comes from (one Legend account, 374 logged runs)
+
+Printed coin shares (each measured against the same no-bonus baseline, so they are **not** a partition — they sum to
+**155.9 %** because several multipliers apply to the same base): **Golden Combo 46.2 %** · **wave skip 35.5 %** ·
+**Golden Tower (base) 17.5 %** · **Black Hole 16.4 %** · **Golden Bot 14.4 %** · **Spotlight 11.2 %** · **Death Wave
+9.9 %** · **Orbs 4.3 %** · **Critical coin 0.5 %**. The damage ledger *is* a partition (**99.9 %** + "< 0.2 % combined"):
+**Chain Lightning 53.5 %** · **Orbs 32.7 %** · **Guardian (electrons) 9.0 %** · **Black Hole 4.2 %** · projectiles
+**0.5 %**. Reading for a sub-T11 account: the head of the coin list is the **GT + UW+ + sync** stack
+(**46.2 + 17.5 = 63.7 %** of the ledger), then the **wave-skip** layer (T024), then Black Hole — i.e. the order §4's stone
+ladder already uses.
 
 ## 2. Per-UW max-out cost (the `Total` rows, verified by summing the per-level columns)
 
@@ -177,6 +238,13 @@ Also: each `Basic_Upgrades` page's `Total` equals the sum of its own column (BH 
 - [ ] **Base cooldowns:** with 0 levels bought, GT reads **300 s (5:00)** and BH **200 s (3:20)**.
 - [ ] **The step law:** a bot at **6 medal + 2 lab** cooldown upgrades reads **100 s**; adding **1 medal + 2 labs** makes
       it **95 s** (`3 + 1 + 1 = 5` ✓), and **3 medals + 1 lab** makes it **90 s** (`9 + 1 = 10` ✓).
+- [ ] **The UW+ ladder:** the nine UW+ unlock prices appear in order **500 / 625 / 750 / 975 / 1 250 / 1 650 / 2 200 /
+      2 900 / 3 800**, and the panel says the price depends on **how many** you own, not which one.
+- [ ] **Per-UW printed multipliers:** `Death Wave` reads **1.5x** coins on hit before its labs and **2.5x** after (health
+      **5x** -> **12.5x**), its cell line caps at **x3**; `Spotlight` reads **3x** coins; a freshly unlocked `Golden Tower`
+      reads **+20 %** cash and **+20 %** coins.
+- [ ] **The ledger check (paper):** 13 838 + 10 456 + 5 740 + 5 393 + 4 374 + 3 416 + 625 = **43 842**, and
+      `43 842 + 9 705 = ` **53 547** ✓ the page's own headline; your own account's per-UW totals should behave the same way.
 - [ ] Fully maxed: **Black Hole 50 s**, **Death Wave 50 s**, bots (except Flame) **50 s**, **Golden Tower 100 s**.
 - [ ] **The 2:1 check:** BH at 150 s against GT at 300 s ⇒ BH fires **twice** per GT in the same window (count activations
       over one 300 s span: 2 and 1).
@@ -191,12 +259,28 @@ Also: each `Basic_Upgrades` page's `Total` equals the sum of its own column (BH 
 - If a cooldown `+` costs something other than the printed per-level column (10, 28, 46, …), the client uses a different price tree → record the whole column and rescale §3–§4 (the *ratios* between blocks are what the plan needs).
 - If the UW totals row disagrees (e.g. GT ≠ 27 186), the version changed a ladder — trust the panel, keep the block ratios.
 - If the triple-coincidence period does not shorten after §7 step 2, a third timer offsets the phase (Golden Bot, MVN, or a toggle): the UW timers **reset when a UW is toggled off and on again** (40 toggles/run max), so compare with all toggles left in their default state.
+- If the nine UW+ prices do **not** follow 500 / 625 / … / 3 800 *in purchase order*, the price is per ability rather than
+  per slot → record the nine pairs (ability, price) and rebuild §1's second row; the total bill is what the plan needs.
+- If a freshly unlocked Golden Tower reads something other than **+20 %** cash/coins, the "+20 %" is a *lab* value or a
+  level-2 value → read the UW panel's Multiplier line at level 1 and level 2 separately and quote those instead (§1.②).
+- If the 374-run coin shares stop summing near **156 %** (e.g. they sum to 100 %), the ledger was normalised differently
+  → renormalise by the printed baseline before using §1.③'s ranking.
 - If the perk-granted UW is still listed as owned after the run ends, §5.1's “in-run only” note is wrong → see H032.
 
 ## Sources
 
 - fandom raw wikitext: `Ultimate Weapons` (the 5 … 3 000 unlock ladder, the 3-random-offer rule, the 40-toggle limit), `Ultimate Weapons/Ultimate Weapon Plus` (500 … 3 800 unlock ladder, 10 levels per ability, `Template:TableUWPCOST` → the three trees 23 800 / 18 570 / 19 050), `Golden Tower/Basic Upgrades`, `Black Hole/Basic_Upgrades`, `Death Wave/Basic_Upgrades`, `Chain Lightning/Basic_Upgrades`, `Smart Missiles/Basic_Upgrades`, `Spotlight/Basic_Upgrades`, `Chrono Field/Basic_Upgrades`, `Inner Land Mines/Basic_Upgrades`, `Poison Swamp/Basic_Upgrades` (per-level columns + `Total` rows), `Perks` (the nine perk-UW `stone value` entries and their exact stats).
 - game-vault `Guide:Ultimate_Weapons_Sync` — the independent 910-stone figure for GT 300→200 s and the partial-sync table (250/200 → 1 000 s, 270/180 → 520 s).
+- Tower Hub `wiki/guide/which-uw-do-i-select` (last verified **2026-11-01**) — both stone ladders printed as the
+  “Good to know” lines (**5 … 3 000** by UWs owned, **500 … 3 800** by UW+ owned, plus the “UW+ can only be unlocked once
+  all 9 UWs are owned” rule), the community ranking with the printed per-UW numbers (**+20 %** on GT unlock, DW
+  **1.5x/5x -> 2.5x/12.5x** and **x3** cells “currently the only way to increase Elite Cell gains within a run”, Spotlight
+  **3x** constant uptime, CF permanent after its first activation) and the two conditional 5th/6th/7th swap notes keyed to
+  a continuously-running **3x lab boost**; the **0.24** CL buff, **v26** swamp rework and **v29** Tactical Barrage notes.
+- Tower Hub `wiki/guide/uw-tier-list` (last verified **2026-11-01**) — the S–D tier table with its verdicts, the printed
+  **9 705** total for the nine slots, the Legend account’s per-UW UW+ ledger (**13 838 / 10 456 / 5 740 / 5 393 / 4 374 /
+  3 416 / 625 / 0 / 0**, headline **53 547**), the **374**-run coin-share and damage-share tables, and the Smart-Missiles-7th
+  community skew.
 - Tower Hub `wiki/guide/coin-guide-basics` (2026-07-29) — GT **300 s** / BH **200 s** base, the 200 s (1:1) and 150 s (2:1)
   sync targets, the “fund both blocks in the same sitting” rule, MVN’s averaging + small penalty, and the **11× / 20.75× /
   228.25×** multiplier product.
