@@ -1,5 +1,11 @@
 # T006 — Pack the Lab queue, then buy the *cheapest* skipped hour
 
+Rev: 9 (2026-11-02) — **four more printed ladders + the per-column law**: the six **Wall** labs (gates T8 W10 / T10 W70 /
+T12 W10 / T14 W60; 50/20/30/20/10/60 levels; value laws `2n`/`−10n`/`10n`/`1n`/`1n`/`20n`), `Garlic Thorns`
+(**T2 W1000**, 10 lv, `0.5 × n`, Σ **1 350 000** coins / **25.45 d**), `Boss Health` + `Boss Attack` (**T9 W20**, 30 lv,
+`−0.30 % × n` ⇒ **−9.00 %** ✓), `Reroll Shards` (**T4 W70**, 100 lv, Σ10 **2.2404 B** / **15.64 d**); plus the measured
+**per-column** result (cost ratios fall 1.170→1.077 while time ratios rise 1.167→1.326 inside one lab ⇒ the
+×1.5/×1.15 pair is family-specific), the **1 200 s → 150 s** rebuild floor, and Fortification's `Wall Regen` dependency.
 Rev: 8 (2026-11-02) — the **Second Wind lab pair** added to §census (`wiki/lab/second-wind-labs`, 2026-11-02):
 `Second Wind Blast` (**T3 W150**, 4 lv, value `25 × n` ⇒ **100 %**, costs 1.8 M / 3.0 M / 4.5 M / **75 M** = Σ **84.3 M**,
 times **100 000/150 000/200 000/300 000 s** ⇒ Σ **750 000 s = 8 d 16 h 20 m**) and `Recharge Second Wind`
@@ -136,6 +142,38 @@ invincibility once per round**, and the invincibility is `5 × star + 5` seconds
 1–7 ✓ (star = the card's star rank, max **7**, T012). `Blast` is a **T3 W150** milestone gate, so it is inside the
 sub-T11 window; `Recharge` needs **T14 W60** and its level 1 alone ties up a slot for **5 d 5 h** for 2 000 waves of
 recharge delay.
+
+**Four more printed ladders, and the per-column law (Rev 9).** From `wiki/lab/wall-labs`, `wiki/lab/lab-garlic-thorns`,
+`wiki/lab/lab-category-*`-sibling pages `wiki/enemy/boss-labs` and `wiki/module/module-labs-reroll-shards` (all 2026-11-01
+except wall-labs 2026-07-29). The **value** column is exact arithmetic `step × n` on **every** line; the **cost** and
+**time** columns each follow their *own* law, so the “×1.5 cost / ×1.15 time” pair is a **family** property
+(main/bot/perk research), not a universal one:
+
+| Lab | Gate | Lv | Value law (✓) | Σ cost | Σ slot time |
+|---|---|---|---|---|---|
+| `Wall Health` | **T8 W10** | **50** | `+2 % × n` ⇒ L50 **+100 %** | per panel | per panel |
+| `Wall Rebuild` | **T8 W10** | **20** | `−10 s × n` ⇒ L20 **−200 s** | per panel | per panel |
+| `Wall Regen` | **T10 W70** | **30** | `+10 pp × n` ⇒ L30 **300 %** | 30.00 B (L1) → 217.89 B (L30) | 279 d 11 h 27 m (L30) |
+| `Wall Thorns` | **T10 W70** | **20** | `+1 % × n` ⇒ L20 **20 %** | 30.00 B (L1) → 202.03 B (L20) | 263 d 3 h 46 m (L20) |
+| `Wall Invincibility` | **T12 W10** | **10** | `+1 s × n` ⇒ L10 **10 s** | **5 383.72 B = 5.38 T** (Σ all 10) | **7 236 840 s = 83.76 d** |
+| `Wall Fortification` | **T14 W60** | **60** | `+20 % × n` ⇒ L60 **1 200 %** | 300.00 B (L1) → 10.57 T (L60) | per panel |
+| `Garlic Thorns` | **T2 W1000** | **10** | `+0.5 × n` ⇒ L10 **5.0** | **1 350 000** coins | **2 199 300 s = 25.45 d** |
+| `Boss Health` / `Boss Attack` | **T9 W20** | **30** each | `−0.30 % × n` ⇒ **−9.00 %** ✓ | 40.00 B (L1) → 421.14 B (L10) | 7 d 15 h 32 m (L10) |
+| `Reroll Shards` | **T4 W70** | **100** | `+1 shard × n` ⇒ **+100** | Σ10 **2 240 400 402** = **2.2404 B** | Σ10 **1 351 440 s = 15.64 d** |
+
+**The per-column measurement** (only the two fully-printed lines): on `Wall Invincibility` the **cost** ratios *fall*
+(1.170 → 1.077 across levels 2–10) while the **time** ratios *rise* (1.167 → 1.326) inside the same lab; on
+`Reroll Shards` the time column is near-geometric at **×1.026** (nine ratios 1.0255–1.0267, i.e. the per-level delta grows
+≈ +120 s: 51 → 65 minutes) while its cost ratios jump 3.24 → 4.77 → 2.86 → 2.15 → … So: **read the family per column from
+that column's first two printed rows**, and never assume the cost law from the time law.
+
+Two facts worth having next to the table: **base Wall rebuild time is 1 200 s and can never go below 150 s**, with the
+reduction coming from Workshop + lab + module substats + Vault + relics + **Fortress Mastery** (so the lab's −200 s is one
+of six sources inside a 1 050-s budget); and `Wall Fortification` only pays if **`Wall Regen` is researched first** — the
+extra pool above the maximum is healed by regen alone. The printed note on the enemy pages is a caution for every stat
+comparison in this repo: once enemy-stat labs are researched, “the usual base relationships between enemy types stop
+holding true” (e.g. boss health is no longer reliably **20×** basic health), so baseline multipliers are starting points,
+not constants.
 
 
 **The gem-rush ladder is a flat rate × one discount column.** Printed: 1 h **7.5** gems (**180**/day, 0 %), 1 d **163**
@@ -313,6 +351,13 @@ online often (it raises levels/day for all 5 slots: a `3 d 11 h` line becomes **
       whose value falls **2 000 → 400** and whose time at level 1 is **5 d 5 h**.
 - [ ] With Second Wind at **star 1** the invincibility is **10 s** and at **star 7** it is **40 s** (`5 × star + 5`), and it
       fires **once per round** — a second death in the same round has no save.
+- [ ] **Wall ladder (§four more printed ladders):** the six Wall labs show **50 / 20 / 30 / 20 / 10 / 60** levels and their
+      value columns read `+2 %` … `+100 %`, `−10 s` … `−200 s`, `+10 %` … `300 %`, `+1 %` … `20 %`, `+1 s` … `10 s`,
+      `+20 %` … `1 200 %` — one arithmetic law per line.
+- [ ] **Rebuild floor:** with every reduction source maxed the Wall's rebuild time stops at **150 s** (base **1 200 s**).
+- [ ] `Garlic Thorns` unlocks at the **T2 W1000** milestone, has **10** levels costing **4 500 → 459 900** coins
+      (Σ **1 350 000**) and its value column is **0.5 … 5.0**.
+- [ ] `Boss Health` / `Boss Attack` (both **T9 W20**) cap at **−9.00 %** after 30 levels, i.e. `0.30 % × 30`.
 
 ## Falsification
 
@@ -333,6 +378,13 @@ online often (it raises levels/day for all 5 slots: a `3 d 11 h` line becomes **
   the four prices and re-add them; the `25 × n` value column is independent of the prices, so the +100 % cap likely stands.
 - If a Second Wind save gives something other than **50 %** HP, or the invincibility is not `5 × star + 5`, the star law is
   superseded → read stars 1 and 2 and derive the step from that pair (10 → 15 is +5 s/star).
+- If a Wall lab's value column stops being arithmetic (e.g. `Wall Health` level 2 reads something other than **+4 %**),
+  the line was re-versioned → re-read levels 1–2 and derive the step from that pair; the gate/level-count table is the
+  part that shifts the Σ estimates.
+- If the Wall's rebuild time can go **below 150 s**, the floor changed → re-derive the six-source reduction budget
+  (1 200 − floor) before comparing rebuild builds.
+- If `Reroll Shards` costs rise at a steady ratio after level 3 (rather than the printed 3.24 / 4.77 / 2.86 / 2.15 …), the
+  cost column became a clean geometric → then forecast it from the first two ratios instead of using the rows.
 - If T14’s average stops landing on **10.5** (e.g. always 7 or always 14), the server overrode the default drop table →
   record your min/max/mean per tier; the “server can override” caveat is the version marker.
 - If a skipped wave during Intro Sprint pays **0.22×** but the plain-IS wave pays ≠ 20 %, the two rules are not
@@ -372,6 +424,22 @@ online often (it raises levels/day for all 5 slots: a `3 d 11 h` line becomes **
   **7 levels**” with its seven rows (550.00 B → **3.60 T**, value **2,000 → 400**); “**Once per round Second Wind revives
   the tower at 50% health, respawns the Wall and grants invincibility** for a set time. Second Wind invincibility by
   star 1-7: **10, 15, 20, 25, 30, 35, 40 s**”.
+- Tower Hub `wiki/lab/wall-labs` (2026-07-29, 6 data tables) — the six Wall labs with their milestone gates
+  (“**Wall Health and Wall Rebuild** … at **tier 8 wave 10**; **Wall Regen and Wall Thorns** … at **tier 10 wave 70**;
+  **Wall Invincibility** … at **tier 12 wave 10**; **Wall Fortification** … at **tier 14 wave 60** and has **60 levels**”),
+  the per-level tables, the “requires **Wall Regen** to heal any health above the maximum” dependency, and “Base rebuild
+  time is **1,200 s** and can never go below **150 s**; sources are Workshop, lab, module substats, Vault, relics and
+  **Fortress Mastery**”.
+- Tower Hub `wiki/lab/lab-garlic-thorns` (2026-11-01) — “You unlock Garlic Thorns by reaching **wave 1000 on tier 2**. The
+  lab has **10** upgrade levels”, the ten Level/Time/Cost/Value rows (4,500 → 459,900 coins; 0.5 → 5.0), and the mechanic
+  (Vampires take a % of thorns damage **per second while channeling** their ranged attack, which normal thorns do not).
+- Tower Hub `wiki/enemy/boss-labs` (2026-11-01) — `Boss Health` and `Boss Attack`, both “unlock in Milestones at
+  **tier 9 wave 20** … **30 levels**”, the −0.30 %/level column with 40.00 B → 421.14 B, and the caution that enemy-stat
+  labs break the base relationships (“boss health will no longer reliably sit at **twenty times** basic enemy health”).
+- Tower Hub `wiki/module/module-labs-reroll-shards` (2026-11-01) — “unlocked through Milestones by reaching **wave 70 on
+  tier 4** … **100 levels**, and each level adds **one extra reroll shard per boss drop**”, the ten printed rows
+  (900,000 → 755,277,021 coins), and “**Shattering a Rare gives 10 shards**; shards are typed by module type. Vault:
+  **Module Reroll Discount +2.5 % per level, 8 levels (+20 %, 180 keys)**”.
 - Tower Hub `wiki/currency/currency-elite-cells` (last verified **2026-11-01**) — the T14–T24 min/max/average table
   (10 rows, all re-adding; “the server can override them”), the three drop-enemy types and the zero-drop list, the
   **1.1×-even-during-Intro-Sprint** skip rule, the full boost-cost ladder (**15 … 1 000 000** cells/h) with

@@ -1,5 +1,10 @@
 # T010 — Module economy: level the *slot*, merge by recipe, reroll with few locks
 
+Rev: 6 (2026-11-02) — **`Reroll Shards` priced** (`wiki/module/module-labs-reroll-shards`, 2026-11-01): gate
+**T4 W70**, **100** levels, **+1 shard/level**, level 1 = **900,000** coins / **120 000 s**, level 10 = **755,277,021** /
+**1 d 18 h 6 m** ⇒ Σ10 **2.2404 B** coins and **15.64 d** of slot; the EV consequence at T5 (**1.8 → 3.30**, a doubling for
+2.24 B coins), and the page's two “Good to know” prints confirmed (Vault **Module Reroll Discount +2.5 % × 8 = +20 %,
+180 keys**, matching T017; **shattering a Rare = 10 shards**, shards **typed by module type**).
 Rev: 5 (2026-11-02) — **§2.1, the three module labs priced**: `Shatter Shards` (unlock **T16 W40**, 5 levels) prints its
 whole ladder — value is the clean `20 × n` (**+20 %/level ⇒ +100 %** ✓), the five prices are **10 T / 87 T / 229.2 T /
 547.36 T / 1.19 q** (Σ **2 063.56 T = 2.06 q**) and the five times Σ to **35 348.5 h = 1 472.9 d ≈ 4.04 y**; its cost
@@ -129,6 +134,22 @@ The sibling caps, from the same lab census (`wiki/lab/lab-upgrades`, T006 §cens
 Drop Chance` / `Rare Drop Chance` **10 levels each**; `Unmerge Module` **1**; `Daily Mission Shards` **50 levels** (step
 still a device read); and the four effect-ban labs (**Cannon 4 · Armor 4 · Generator 3 · Core 7**).
 
+**`Reroll Shards` is now priced (`wiki/module/module-labs-reroll-shards`, 2026-11-01).** Unlock **Tier 4 Wave 70**;
+**100 levels**; “each level adds **one extra reroll shard per boss drop**, for a total of **100 additional shards** at max
+level”. Printed rows: level 1 = **900,000** coins / **1 d 9 h 20 m** (120 000 s), level 10 = **755,277,021** coins /
+**1 d 18 h 6 m**, and the first ten sum to **2 240 400 402 coins = 2.2404 B** for **1 351 440 s = 15.64 d** of slot time
+(≈ 1.6 d and 224 M coins per level — cheap by the standards of the 99-level lines in T006 §census).
+
+Because the drop is `base + lab level` and the drop chance is **15 %**, the EV column of the table below is a one-line
+calculation: at **T5** (base 12) the tap is `0.15 × 12 = ` **1.8**, and with the lab at **L10** it is `0.15 × 22 = `
+**3.30**, i.e. **2.24 B coins doubles the boss reroll-shard tap**. Priorities follow: the same page's “Good to know” also
+prints the **Vault `Module Reroll Discount` = +2.5 % per level, 8 levels (+20 %, 180 keys)** ✓ the same node T017 prices at
+180 keys, and “**shattering a Rare gives 10 shards**; shards are **typed by module type**” ✓ §2's yield row.
+
+*(shape note, per T006 §four more printed ladders: this lab's **time** column is near-geometric at **×1.026**/level while
+its **cost** column is irregular (ratios 3.24 / 4.77 / 2.86 / 2.15 / 1.82 / 1.63 / 1.51 / 1.43 / 1.37) ⇒ use the printed
+rows, not an extrapolated ratio.)*
+
 **Boss-drop expected value (per boss kill)** — this is the steady-state shard tap, and it explains why *reroll* shards,
 not module shards, are the scarce ones:
 
@@ -183,6 +204,9 @@ only matter for filling the 350-slot inventory with merge material.
 - [ ] **§2.1 ladder:** `Shatter Shards` appears after the **T16 W40** milestone, level 1 costs **10 T** for **+20 %**, level 2
       costs **87 T** (ratio **8.7**, not 1.5), and level 5 reads **1.19 q / +100 %**; the five times sum to **≈ 1 473 d**.
 - [ ] `Module Shard Costs` reaches **−30 %** at its 30th level and `Reroll Shards` has **100** levels (+1 shard each).
+- [ ] **`Reroll Shards` ladder (§2.1):** after the **T4 W70** milestone the lab's level 1 costs **900,000** coins with
+      **1 d 9 h 20 m** of research, level 10 reads **755,277,021** coins, and a boss drop goes from **12** shards to **22**
+      at T5 (EV **1.8 → 3.30**).
 - [ ] A boss kill yields **12** reroll shards at Tier 5 (or 12 + lab levels), and none for the next 5 waves.
 - [ ] The Standard Banner panel lists **68.5 / 29 / 2.5** and every ×10 pull shows at least one Rare.
 - [ ] The 150-pull pity counter is visible and the 150th pull without an Epic shows an Epic.
@@ -259,6 +283,11 @@ cannot equip a module that shares a name with the primary · `Primary Module Bon
 - Tower Hub `wiki/lab/lab-category-module-research` (2026-07-29) — the Module Research line list with max levels
   (`Common Drop Chance` 10, `Reroll Shards` 100, `Daily Mission Shards` 50, `Module Shard Costs` 30, `Module Coin Cost` 30,
   `Rare Drop Chance` 10, `Unmerge Module` 1, `Shatter Shards` 5, effect bans 4/4/3/7, assist lines 30/30).
+- Tower Hub `wiki/module/module-labs-reroll-shards` (last verified **2026-11-01**, 1 data table) — “You unlock this lab
+  through Milestones by reaching **wave 70 on tier 4** … The lab has **100 levels**, and each level adds **one extra reroll
+  shard per boss drop**, for a total of **100 additional shards** at max level”, the Level/Time/Cost/Value rows
+  (**900,000** … **755,277,021** coins; 1 d 9 h 20 m … 1 d 18 h 6 m; +1 … +10), and the Good-to-know pair
+  (**+2.5 % × 8 = +20 %** for **180** Vault keys; **Rare = 10 shards**, typed by module type).
 - fandom `Modules` (raw wikitext, fetched per section 1–12) — slot-level ownership of levels, rarity table (max level /
   sub-stats / Epic copies), shatter yields, 15 % boss drop + 5-wave cooldown, reroll-shard-per-tier ladder (T13–T24 = +5/tier),
   lock-cost ladder, sub-stat rarity odds, ban-lab counts, presets, 350 inventory cap, hard caps; **new this pass**: the
