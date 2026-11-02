@@ -1,6 +1,6 @@
 # T014 — Tournament tickets: buy them while the marginal value beats the next card slot
 
-Rev: 2 (2026-11-01) · Currency: **Gems**, **Power Stones**, **Keys** (Legend+, the key ladder itself: [T017](T017-vault-keys-priority.md)), plus medal missions that count tournaments
+Rev: 3 (2026-11-01) — added the Dissonance interaction (§1); Rev 2 added the key ladder cross-check · Currency: **Gems**, **Power Stones**, **Keys** (Legend+, the key ladder itself: [T017](T017-vault-keys-priority.md)), plus medal missions that count tournaments
 **Value:** ★★★★ — a bottom-place run in your *current* league is worth 60 → 2 585 gem-equivalents per ticket, and **stones** (the UW sync fuel, T008) come almost entirely from here.
 **Confidence:** **Medium-High** — league list, schedule, promotion rules and the full per-league reward tables are fandom raw wikitext (Mythic table dated v29, 26 Aug 2026); the per-ticket arithmetic below is derived from those numbers.
 **Ease:** 2 taps (join, claim) + 1 run per ticket · **Prerequisite:** **Tier 1 Wave 60** milestone.
@@ -12,6 +12,11 @@ Rev: 2 (2026-11-01) · Currency: **Gems**, **Power Stones**, **Keys** (Legend+, 
 - A tournament starts **every Wednesday and Saturday at 00:00 UTC**; each bracket is **30 players** in one league.
 - Leagues, ascending: **Copper → Silver → Gold → Platinum → Champion → Legend → Mythic**.
 - **1 ticket = 1 run**; your highest wave in that run is what is scored. You get **1 free ticket** when the tournament starts, plus **1 more from a rewarded ad**, and more from gems: the **n-th extra ticket costs `10 × n` gems** (10, 20, 30, 40 …).
+- **Dissonance interaction:** in a bracket the tier's **own** Dissonant Boost is *not* applied, only the **echo** from
+  other tiers (`1 + 0.005 × B × Σ f`, i.e. ≈+0.01 per finished tier before the Echo labs) — so the coin multiplier you
+  read in a bracket is far below the **Dissonance** panel value for that tier
+  ([T021](T021-dissonant-runs-echo.md) §6, test in [H028](../hypotheses/H028-dissonance-boost-in-tournaments.md)). Use
+  the push preset for the wave, not for the multiplier.
 - Joining is impossible **while a run is in progress** — finish or quit the run first.
 - Promotion: **top 4 move up** a league; from **Platinum** downward the **bottom 6** are demoted. **Copper, Silver and Gold are protected** — once you leave them you never fall back, which makes early promotion a one-way ratchet you should always chase.
 
