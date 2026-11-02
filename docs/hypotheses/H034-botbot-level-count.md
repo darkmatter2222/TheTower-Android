@@ -1,8 +1,17 @@
 # H034 — Bot Bot's `Bonus` line: 19 levels (cap ×2.00) or 30 levels (cap ×2.55)?
 
-Status: open · Raised: 2026-11-01
+Status: **resolved 2026-11-02 — 19 levels, cap ×2.00** (value arithmetic closes; a device read stays as the independent
+cross-check) · Raised: 2026-11-01
 
-**Claim.** **19 levels, cap ×2.00** — Tower Hub's table is internally consistent (1.05 + 19 × 0.05 = 2.00 exactly) and comes
+**Settling print (iteration 46).** Tower Hub’s `wiki/bot/bot-bot` states the line in one sentence with all three anchors:
+“starts at **x1.05** and has **19 levels**, with each level adding **0.05**, up to **x2.00**” — and its cost table’s level-1
+row independently reads **×1.10** (= 1.05 + 0.05 ✓). The arithmetic closes with no free parameter:
+`1.05 + 19 × 0.05 = 2.00` ✓, and the same `20L² + 80L` law reproduces the *printed* totals of the sibling pages (Golden
+**56 100**, Amplify **54 420** = 20 400 + 7 920 + 5 700 + 20 400), which is why the derived Bot Bot bill
+(**20 400 + 5 700 + 8 740 + 9 600 = 44 440**) is trustworthy. The fandom’s “30 levels” is the outlier: with +0.05 it would
+need to end at ×2.55, which neither Tower Hub print shows.
+
+**Original claim.** **19 levels, cap ×2.00** — Tower Hub's table is internally consistent (1.05 + 19 × 0.05 = 2.00 exactly) and comes
 from an account-verified page dated 2026-11-01 ([H015](H015-bot-bot-increment.md) settled the increment at +0.05).
 
 **Alternative.** **30 levels, cap ×2.55** — the fandom `Bot Bot` page says the line “has 30 levels”, which with +0.05 ends at

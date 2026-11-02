@@ -20,7 +20,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | T012 | [Card deck order (gems per percentage point)](techniques/T012-card-deck-order.md) | Coins, Cash, Elite Cells | **Verified (Rev 2**, arithmetic) |
 | T013 | [Event window & medal economy](techniques/T013-event-medal-economy.md) | Medals → Gems, Stones, Shards | Unverified (Rev 2) |
 | T014 | [Tournament tickets & league ladder](techniques/T014-tournament-tickets.md) | Gems, Stones, Keys | Unverified (Rev 3) |
-| T015 | [Bot economy & cell/coin chain](techniques/T015-bot-economy.md) | Medals, Coins, Elite Cells | **Verified (Rev 3**, arithmetic) |
+| T015 | [Bot economy & cell/coin chain](techniques/T015-bot-economy.md) | Medals, Coins, Elite Cells | **Verified (Rev 4**, arithmetic) |
 | T016 | [Guild tokens & Bits](techniques/T016-guild-tokens-bits.md) | Tokens, Bits, Coins, Gems, Shards | **Verified (Rev 2**, arithmetic) |
 | T017 | [Vault: Keys priority ladder](techniques/T017-vault-keys-priority.md) | Keys → Gems, Coins, Cash, Shards | **Verified (Rev 2**, arithmetic) |
 | T018 | [Relic economy & price rule](techniques/T018-relic-economy.md) | % points (Coins/Cash/Lab) | **Verified (Rev 2**, arithmetic) |
@@ -67,7 +67,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | H031 | [Does the web Free Gift stack with the 20-gem claim](hypotheses/H031-webstore-weekly-gift-stacking.md) | one week of `G0 → G1 → G2` gem-counter reads |
 | H032 | [Is the perk-granted random UW permanent](hypotheses/H032-perk-random-uw-permanence.md) | take the perk, end the run, re-read the UW owned-list + next offer price |
 | H033 | [How many levels does a UW+ ability have](hypotheses/H033-uwplus-level-count.md) | read the level cap on two UW+ lines from different trees |
-| H034 | [Bot Bot Bonus line: 19 or 30 levels](hypotheses/H034-botbot-level-count.md) | read the Bonus line's cap and its value at the last level |
+| H034 | [Bot Bot Bonus line: 19 or 30 levels](hypotheses/H034-botbot-level-count.md) — **resolved** (19 levels, cap ×2.00) | done: value ladder closes 1.05 + 19 × 0.05 = 2.00 ✓ |
 | H035 | [Lab-rush price improves per completed lab](hypotheses/H035-lab-rush-rate-per-completed-lab.md) — **resolved** (7.5 gems/h × 0.91/0.79/0.66 buckets + 0.015× per gold box) | done: both factors printed by two sources |
 | H036 | [Is the 80-card event quest worth 1 600 gems](hypotheses/H036-buy-80-cards-event-roi.md) | read the quest's medal payout + the shop's gems-per-medal rate |
 | H037 | [Per-level step of the six special enhancements](hypotheses/H037-enhancement-per-level-step.md) | read the multiplier line at level 0, 1 and the cap for each |
@@ -125,6 +125,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 - [2026-11-02 — session 34 (T018 Rev 2, H051 candidate)](log/2026-11-02.md#2026-11-02--session-34-iteration-43-the-relic-pool-re-summed-row-by-row)
 - [2026-11-02 — session 35 (T016 Rev 2, H016 resolved)](log/2026-11-02.md#2026-11-02--session-35-iteration-44-the-guild-economy-double-sourced-and-h016-closed)
 - [2026-11-02 — session 36 (T015 Rev 3)](log/2026-11-02.md#2026-11-02--session-36-iteration-45-the-bot-layer-budgeted-in-events)
+- [2026-11-02 — session 37 (T015 Rev 4, H034 resolved)](log/2026-11-02.md#2026-11-02--session-37-iteration-46-per-bot-line-caps-close-the-bot-layer-h034-resolved)
 
 ## Reference material in this repo
 
