@@ -1,4 +1,4 @@
-param([string]$Urls)
+param([string]$Urls, [int]$Cap = 4500)
 # Fetches Tower Hub pages (comma-separated list) and prints every data table found in the
 # embedded RSC payload, plus the article prose. Payload rows use escaped quotes, so the
 # tables must be parsed before tag-stripping (the rendered HTML cuts each table to 10 rows).
@@ -16,7 +16,8 @@ foreach ($u in ($Urls -split ',')) {
   if ($i -ge 0) { $body = $body.Substring($i) }
   $txt = ($body -replace '(?s)<script.*?</script>', ' ') -replace '(?s)<[^>]+>', ' '
   $txt = $txt -replace '\s+', ' '
-  if ($txt.Length -gt 4500) { $txt = $txt.Substring(0, 4500) }
+  if ($Skip -gt 0 -and $txt.Length -gt $Skip) { $txt = $txt.Substring($Skip) }
+  if ($Cap -gt 0 -and $txt.Length -gt $Cap) { $txt = $txt.Substring(0, $Cap) }
   Write-Output ("TEXT: " + $txt)
   Write-Output ""
 }
