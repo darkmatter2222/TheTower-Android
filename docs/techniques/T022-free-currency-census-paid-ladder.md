@@ -4,7 +4,8 @@ Rev: 1 (2026-11-01) · Currency: **Gems** and **Power Stones** (the two that gat
 census for both.
 **Value:** ★★★★ — this is the *budget sheet*: the free flow is ≈ **360–435 gems/day** and **≈ 4 400 (Copper) / 10 700
 (Gold) stones/year**, while the published bills are **≈ 115 000 gems** (all card slots + all cards + lab slots) and
-**≈ 60 000 stones** (9 UWs + UW+ + card masteries + assist slots + Bot+ + Synchronicity). Knowing both sides is what
+**≈ 500 000 stones** (UW unlocks + all basic stats + UW+ + card masteries + assist slots + Bot+ + Synchronicity).
+Knowing both sides is what
 makes the spend order in T009/T012/T017 actually executable.
 **Confidence:** **High** for the per-source amounts and every listed price (fandom `Currency/Gems` and
 `Currency/Power_Stones` raw wikitext, which are transcribed from the live UI; the official store confirms the
@@ -59,11 +60,14 @@ Bots 300, Guardian 150** (all reducible to **0** by the Vault lines, T017); Even
 module purchases once tickets run out; guild creation.
 ⇒ **the ≈ 115 k-gem “framework” bill = 58 400 + 51 200 + 4 900**, i.e. **≈ 1 year of perfect claiming.**
 
-**Power Stones (published prices):** UW unlocks/upgrades; **UW+ 500 for the first → 3 800 for the ninth** (v29.0.5);
-**Card Masteries 500–1 250 each = 28 500 for all**; **assist module slots 1 000 each**; **Bot+ 1 250 each**;
-**Synchronicity 1 500 to unlock + 3 × 1 500**.
-⇒ **the ≈ 60 k-stone bill against ≈ 10.7 k/year ⇒ 5–6 years** ⇒ stones are the binding long-term constraint, which is
-why T008 (UW sync) spends them on **uptime first** and the cosmetic/late lines last.
+**Power Stones (published prices, full derivation in [T008](T008-uw-sync-with-stones.md) §1–§2):** UW unlocks **9 705**
+(5 / 50 / 150 / 300 / 800 / 1 250 / 1 750 / 2 400 / 3 000); maxing every basic UW stat **244 302** (BH 9 723 … Spotlight
+53 236); UW+ unlocks **14 650** (500 for the first → 3 800 for the ninth); maxing the nine UW+ abilities **184 740**; plus
+**Card Masteries 500–1 250 each = 28 500**, **assist module slots 1 000 each**, **Bot+ 1 250 each**,
+**Synchronicity 1 500 + 3 × 1 500**.
+⇒ **the ≈ 500 k-stone bill against ≈ 10.7 k/year ⇒ ≈ 47 years** ⇒ stones are the binding long-term constraint by a wide
+margin, which is why T008 buys each stat line's **first cheap block** only and puts the rest into the
+**2 620-stone** sync package.
 The UI also prints confirmation dialogs at **≥ 200 gems** and **≥ 100 stones**, and **stones are never refunded**.
 
 ## 3. Paid ladder (only if you pay at all)
@@ -73,7 +77,7 @@ The UI also prints confirmation dialogs at **≥ 200 gems** and **≥ 100 stones
 | **Buy gems on the Web Store, not in-app** | **+10 % gems** on applicable offers | the official store states it; the in-app price is the same money for 10 % fewer gems |
 | **Enter a creator code** | free (no cost to you) | the store pays the creator 5 % (in-app 3.5 %) — nothing changes for your totals |
 | **Claim the Web-store Free Gift every week** | free gems | separate from the in-game 20-gem daily claim (H031: does it stack?) |
-| **Monthly Stone Packs** (all 3 channels) | stones/year ↑ | the only renewable stone source besides tournaments; at ≈ 10.7 k/yr free, the 60 k bill is otherwise 5–6 years |
+| **Monthly Stone Packs** (all 3 channels) | stones/year ↑ | the only renewable stone source besides tournaments; at ≈ 10.7 k/yr free, the ≈ 500 k bill is otherwise ≈ 47 years |
 | **Milestone Pass (3-tier group)** | 1 505 → 8 930 gem-equivalents | already ranked in T019 §2 — buy right after finishing the group (retroactive) |
 | Order of the paid offers | Passes > Monthly Stone Packs > gems > cosmetic themes | passes and stone packs are the only ones whose value is printed; gems convert at the T009 ladder |
 
@@ -116,7 +120,7 @@ Creator** — so “Free Gift” is a first-class section: log in with your **Us
 - If the Weekly Free Gift does not arrive, the login was on a different **User ID** (profile screen) or the claim is
   once per week, not per day — re-read after a full week (H031).
 - If the stone ladder in §2 disagrees with the panel (UW+/mastery prices move between versions), trust the panel: the
-  *ratio* stones/year : bill (≈ 1 : 6) is the planning number that matters.
+  *ratio* stones/year : bill (≈ 1 : 47) is the planning number that matters.
 
 ## 7. The binary's own ledger (the authoritative taxonomy, 14 ids)
 
