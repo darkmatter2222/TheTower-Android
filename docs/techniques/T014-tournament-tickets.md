@@ -1,5 +1,12 @@
 # T014 — Tournament tickets: buy them while the marginal value beats the next card slot
 
+Rev: 9 (2026-11-02) — **§4.3: a bracket's contents become derivable from the league index**: `r(k) = k − 1` random
+conditions, `active(k) = (k − 1) + [k ≥ 3] + [k ≥ 4]` ⇒ the conditions panel should count **0 / 1 / 3 / 5 / 6 / 7** for
+Copper → Legend; the enumerable configurations are **C(pool, r) = 1 / 15 / 105 / 455 / 1 820 / 6 188** (Legend **12 376**
+with the Death Defy-or-Energy-Shield half); the boss Overheat is `interval = 11 − k`; the league's `Enemy Level Skip` values
+**10 / 20 / 30 / 50** inside §4.2's law give **×0.9544 / ×0.9088 / ×0.8632 / ×0.7720** at maxed research (so the BC labs buy
+**×1.06 … ×1.544** of effective skip); and heat at a 200-wave bracket is **level ≈ 4 of 19 (≈ 21 %)** —
+[H057](../hypotheses/H057-heat-increase-wave-spacing.md) settles the spacing.
 Rev: 8 (2026-11-02) — **§3.2, the ten-band ladders in full + the ticket law in closed form** (Tower Hub
 `wiki/system/tournaments`, 2026-11-01, double-sourced against the fandom's seven tables): all **130 printed cells** of the six
 Hub tables are recorded, **20/20 cells agree with the fandom in each of Copper/Silver/Gold** (6, 1, 0 above) and all seven
@@ -348,6 +355,50 @@ regular enemies, while with **Ranged** active your projectiles concentrate on th
 walks in. **Ultimate Protector** ignores Chrono Field slow/rotation, knockback, Shockwave and every stun source and needs
 a **damage** answer, not a control one.
 
+### 4.3 What a bracket contains, in closed form (per league) (new, Rev 9)
+
+Let **k** be the league index (**Copper 1, Silver 2, Gold 3, Platinum 4, Champion 5, Legend 6**, Mythic 7). Three printed
+facts turn into four laws:
+
+1. **Random draw count** `r(k) = k − 1` — printed as “Silver adds one random battle condition, Gold adds two, and the count
+   rises by one per league until Legend, which runs five at once” ⇒ `0, 1, 2, 3, 4, 5` ✓ (Copper has **no** Heat at all).
+2. **Always-on entries** ⇒ `active(k) = (k − 1) + [k ≥ 3] + [k ≥ 4]`: the **Enemy Level Skip** condition arrives at **Gold**
+   and the **Death Defy Down / Energy Shields Down** pair at **Platinum**, so the conditions panel should count
+   **0, 1, 3, 5, 6, 7** for Copper → Legend — a free self-check that your panel matches this document.
+3. **Distinct brackets are enumerable below Champion.** With the printed pool sizes **15** (Silver–Platinum) / **16**
+   (Champion, +`Ultimate Weapon Durations`) / **17** (Legend, +`Mass Enforcement`), the number of possible random sets is
+   `C(pool, r)`: **1 / 15 / 105 / 455 / 1 820 / 6 188**, and **12 376** for Legend once the Death Defy-or-Energy-Shield
+   half-pair is counted (×2). ⇒ **study burden is finite and tiny where you play**: a Gold bracket can only ever be one of
+   **105** configurations, and a Copper one is a single configuration with zero conditions.
+4. **The Overheat boss ladder is `interval = 11 − k`** ⇒ `10, 9, 8, 7, 6, 5` ✓ the printed boss intervals, i.e. exactly
+   **−1 wave per promotion**, and it is the one Heat modifier that never scales with the wave count (§4).
+
+**The league's `Enemy Level Skip` value in the §4.2 law.** The printed values are **10 / 20 / 30 / 50** for Gold → Legend:
+that is `value(k) = 10·(k − 2)` for **k = 3, 4, 5** and then **Legend jumps to 50** (the +10 ladder breaks exactly once, at the
+top), so keep it as a four-row constant rather than a formula. Inside §4.2's law
+`skip_mult = 1 − 0.01·value·(1 − R)`, with §4.1's ceiling **R = 54.4 %**:
+
+| | Gold | Platinum | Champion | Legend |
+|---|---|---|---|---|
+| value | 10 | 20 | 30 | **50** |
+| `R = 0` | ×0.9000 | ×0.8000 | ×0.7000 | ×0.5000 |
+| `R = 20 %` (generic lab maxed) | ×0.9200 | ×0.8400 | ×0.7600 | ×0.6000 |
+| `R = 54.4 %` (all five lines maxed) | **×0.9544** | ×0.9088 | ×0.8632 | **×0.7720** |
+
+⇒ **maxing the five BC-reduction labs multiplies the skip a bracket actually applies by ×1.06 (Gold), ×1.14 (Platinum),
+×1.23 (Champion), ×1.544 (Legend)** relative to no research (`0.9544/0.9000`, `0.9088/0.8000`, `0.8632/0.7000`,
+`0.7720/0.5000` ✓), and even fully maxed the Legend bracket keeps only **0.772 of the panel number** (Copper keeps 1.000,
+it has no skip condition). §4.2’s **×0.7492** is the same law on the *tier* list’s value **55**, not the bracket’s 50 — keep
+the two prints apart.
+
+**Heat barely touches a beginner’s bracket.** Heat is a **global level 1 → 19** whose **18** increases “finish at wave 1 000”
+(§4.2), so on even spacing `level ≈ 1 + ⌊W ÷ 55.6⌋`: **W = 200 ⇒ level ≈ 4 of 19 (≈ 0.21 of full strength)**, W = 500 ⇒ 10,
+W = 1 000 ⇒ 19. Consequences for the sub-T11 reader: **your bracket is decided while Heat is at roughly a fifth of full
+strength**, so the difference from the normal tier is mostly the faster raw stat ramp (the “tier +” of §4), not the
+modifiers; and any condition whose activation wave is above your finishing wave contributes **exactly zero** (§4.2's rule),
+which is why the four Legend Overheats “appear out of nowhere” at 1 000 / 1 500 / 1 500 / 2 000. The even-spacing assumption
+is [H057](../hypotheses/H057-heat-increase-wave-spacing.md) — one panel read settles it.
+
 ## 5. Steps (UI only)
 
 1. Before 00:00 UTC on **Wednesday / Saturday**, end any active run. On the home screen tap the **Tournament icon** → the **Tournament Start Panel**.
@@ -398,6 +449,12 @@ a **damage** answer, not a control one.
       80 gems + 40 stones paid back), at **Copper 13–15** it is **9**, at Gold bottom **25**.
 - [ ] **§3.2 stones/week:** count the stones credited by one bracket (`t × band stones`) and compare with §3.2’s table —
       **40** for 8 tickets at the Copper bottom band, **540** for 27 at Gold bottom.
+- [ ] **§4.3 condition count:** the **Tournament Conditions Panel** counts exactly **1** condition in **Silver**, **3** in
+      **Gold**, **5** in **Platinum** (`active(k) = (k−1) + [k≥3] + [k≥4]`), and **none** in Copper.
+- [ ] **§4.3 skip values:** the panel prints `Enemy Level Skip` at value **10** in Gold and **50** in Legend; with all five
+      BC-reduction labs maxed the run applies **0.9544 ×** and **0.7720 ×** your skip panel, respectively.
+- [ ] **§4.3 heat:** read the **Heat** level on the run screen at three checkpoints — the first tick should land near wave
+      **56** (H057), and the level at wave 200 should be ≈ **4** of 19.
 
 ## 7. Falsification
 
@@ -432,6 +489,13 @@ a **damage** answer, not a control one.
   panel's last row per league and rebuild the stones/week table from those three numbers.
 - **§3.2:** if the conditions panel of a lower league shows a row count inconsistent with a **15**-entry pool, the pool
   sizes changed → take the pool count from the panel per league; §4.2's `17 + 4 + 5 = 26` Legend closure is independent.
+- **§4.3:** if the panel counts something other than `active(k)` (e.g. **4** in Gold rather than 3), the always-on set moved →
+  rebuild the two indicator terms `[k ≥ 3]`, `[k ≥ 4]` from the panel, then recompute the `C(pool, r)` row; the printed
+  per-league skip values are independent of the count.
+- **§4.3:** if the Legend bracket prints an `Enemy Level Skip` value other than **50**, that ladder was re-versioned →
+  substitute the panel's value into `skip_mult = 1 − 0.01·value·(1 − R)`; the law itself is unaffected.
+- **§4.3:** if the **Heat** level at wave 200 is not ≈ **4**, take the spacing from the observed tick waves (H057's branch 2
+  or 3) — the per-condition value lists are indexed by **level**, so they stay valid either way.
 
 ## Sources
 
@@ -450,7 +514,10 @@ a **damage** answer, not a control one.
 - Tower Hub `wiki/system/tournaments`, **2026-11-02 re-read** — the **complete ten-band tables** for all six leagues
   (Copper 100/20 → 10/5 … Legend 800/425/25 → 200/120/0), the two band-width sets (`…,7,8` and `…,9,6`, both Σ **30**), the
   rank-1 gem/stone ladders (+100/+100/+100/+200/+200 and ×2 four times then +105), the Σ-per-bracket figures of §3.2 and the
-  pool-size prints **15 / 16 / 17**; parsed cell-by-cell with `tools/fandom-rewards-parse.ps1`.
+  pool-size prints **15 / 16 / 17**; parsed cell-by-cell with `tools/fandom-rewards-parse.ps1`. The same page's prose is the
+  source of §4.3's inputs: “Silver adds one random battle condition, Gold adds two, and the count rises by one per league
+  until Legend, which runs five at once”, ELS at **10 % / 20 % / 30 % / 50 %** from Gold, **Death Defy or Energy Shield** from
+  Platinum, bosses every **10 → 5** waves across the six leagues, and Heat at **full strength at wave 1 000**.
 - fandom `Tournaments` (raw page text) — the **seventh** table (**Mythic**, introduced **v29, 2026-08-26**: 900/475/50 →
   335/225/8, Σ 15 935 gems / 10 090 stones / **738** keys) and the copy against which Copper, Silver and Gold re-add
   **20/20 cells**; its Legend copy differs in the gem column and pays **1** key at 16–24 (§3.1's skew rows).

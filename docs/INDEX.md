@@ -19,7 +19,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | T011 | [Perk engine tuning](techniques/T011-perk-engine-tuning.md) | Coins (run multipliers) | **Verified (Rev 6**, arithmetic: the printed ladders + the per-tier perk bill 0 → 1 46…1 056 picks, 8/8 marginals re-added) |
 | T012 | [Card deck order (gems per percentage point)](techniques/T012-card-deck-order.md) | Coins, Cash, Elite Cells | **Verified (Rev 2**, arithmetic) |
 | T013 | [Event window & medal economy](techniques/T013-event-medal-economy.md) | Medals → Gems, Stones, Shards | **Verified (Rev 6**, arithmetic: the ladder + the 21/21 milestone-skin laws + the 83/58/44 bucket table at +95.2 pp) |
-| T014 | [Tournament tickets & league ladder](techniques/T014-tournament-tickets.md) | Gems, Stones, Keys | **Verified (Rev 8**, arithmetic: 130 ladder cells, the two width sets Σ 30, the Σ/mean ledger, `n* = floor(P/10)` at ≥ ×2.00) |
+| T014 | [Tournament tickets & league ladder](techniques/T014-tournament-tickets.md) | Gems, Stones, Keys | **Verified (Rev 9**, arithmetic: 130 ladder cells, the two width sets Σ 30, `n* = floor(P/10)` at ≥ ×2.00, and §4.3's per-league condition/skip laws) |
 | T015 | [Bot economy & cell/coin chain](techniques/T015-bot-economy.md) | Medals, Coins, Elite Cells | **Verified (Rev 6**, arithmetic) |
 | T016 | [Guild tokens & Bits](techniques/T016-guild-tokens-bits.md) | Tokens, Bits, Coins, Gems, Shards | **Verified (Rev 3**, arithmetic) |
 | T017 | [Vault: Keys priority ladder](techniques/T017-vault-keys-priority.md) | Keys → Gems, Coins, Cash, Shards | **Verified (Rev 4**, arithmetic) |
@@ -91,6 +91,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | H054 | [Thorns hits law `⌈100/t⌉` with breakpoints at 100/n?](hypotheses/H054-thorns-breakpoint-hit-law.md) | hits-to-kill at 25 / 26 / 33 / 34 % ⇒ expect 4 / 4 / 4 / **3** |
 | H055 | [Perk defense terms: what order gives exactly 99.1 %?](hypotheses/H055-perk-defense-composition.md) | read `Defense %` at 0 perks → after 5 × `+5 %` → after the −55 % perk: expect 85.5 / 90.5 / 95.5 (additive) or 85.5 flat with ×0.95⁵ damage (multiplicative) |
 | H056 | [Does the 53 547 stone headline include the UW+ ledger?](hypotheses/H056-uw-plus-ledger-in-headline.md) | read GT's per-UW "spent" number vs §2's prefix-sum (**2 520** at 10/15/10) and Golden Combo's per-level prices |
+| H057 | [Heat increases every ≈ 55.6 waves (`level ≈ 1 + ⌊W/55.6⌋`, 19 levels inside wave 1 000)?](hypotheses/H057-heat-increase-wave-spacing.md) — settles how hard a 200-wave bracket really is | read the **Heat** level on the run screen at waves ~56 / ~111 / ~167, then at 200 and 500 |
 
 ## Logs
 
@@ -179,6 +180,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 - [2026-11-02 - session 78 (T011 Rev 6)](log/2026-11-02.md#2026-11-02---session-78-iteration-87-the-per-tier-perk-bill-is-0-picks-through-tier-13-then-146-to-1056-and-all-eight-marginals-re-add-from-the-family-steps)
 - [2026-11-02 - session 79 (T014 Rev 8)](log/2026-11-02.md#2026-11-02---session-79-iteration-88-the-seven-tournament-reward-ladders-are-recorded-cell-for-cell-and-ticket-buying-collapses-to-n-star--floor-of-p-over-10)
 - [2026-11-02 - session 80 (T013 Rev 6)](log/2026-11-02.md#2026-11-02---session-80-iteration-89-the-milestone-skin-table-obeys-paid-iff-tier-is-2-mod-3-so-the-free-cosmetic-leg-collapses-to-one-formula)
+- [2026-11-02 - session 81 (T014 Rev 9)](log/2026-11-02.md#2026-11-02---session-81-iteration-90-a-brackets-contents-derive-from-the-league-index-and-heat-is-only-a-fifth-of-full-strength-at-wave-200)
 
 ## Reference material in this repo
 
