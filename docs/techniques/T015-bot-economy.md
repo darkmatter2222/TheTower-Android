@@ -1,5 +1,12 @@
 # T015 — Bot economy: the three exact cost formulas, and the sync-aware order
 
+Rev: 6 (2026-11-02) — **the Bot+ census closes**: the bot pages now print **Golden Bot+ = 25 levels, 17 500 medals
+(×1.25 → ×2.50)** and **Bot Bot+ = 20 levels, 11 500 medals (×1.25 → ×2.25)** in prose, and both re-add from the family
+law `25L² + 75L` ⇒ the five-line bill **60 100** is confirmed rather than assembled (§1.4); the **lab research-time law
+`time(n) = time(1) × 1.15^(n−1)`** is derived from the printed duration columns (all five Burn-Stack durations reproduce
+**to the minute**, and the Duration lab's rows too) ⇒ a lab line's whole time bill is `t₁(1.15ⁿ−1)/0.15`, so the 20-level
+Duration lab = **853.7 d ≈ 2.34 years** (T006 → *The two clock laws*); and the cap/lab cross-check closes — cooldown
+`120 → 75 → 50 s`, duration `20 + 15 = 35 → 45 s`, exactly what the Golden page prints with labs maxed.
 Rev: 5 (2026-11-02) — **all five bots now closed**: Thunder **30 600** and Flame **46 300** (derived, both value ladders
 doubly determined), five-bot grand bill **231 860** medals (**235 010** with unlocks ⇒ **193.4 events ≈ 7.4 y** F2P), the
 ten bot-lab gates (cooldown labs **W60/W70/W80/W90/T6 W90**, Burn Stack **Σ 567.06 T**), and the placement-deciding
@@ -151,7 +158,38 @@ which is why §1.2's order and the “first 10 levels of each line” (where the
 (The 515.0 M figure is the sum of the five **printed** per-level prices; an earlier note of “519.9 M” came from a cumulative
 print and is superseded.)
 
-## 2. The knee table (medals per unit, by block of 5–10 levels)
+### 1.4 The Bot+ census, closed (two printed totals + the family law)
+
+Every Bot+ line is `cost(n) = 50 + 50n` ⇒ **`Σ = 25L² + 75L`** for `L` levels. The two levels the pages print now confirm
+the law at both ends, and the remaining three are doubly determined by their own value ladders:
+
+| Bot+ (1 250 stones each) | Effect (as printed) | Levels | Value ladder | Medals | Status |
+|---|---|---|---|---|---|
+| **Golden Bot+ — Bonus Cells** | elites killed in range grant more Cells | **25** | 1.25 → **2.5** (+0.05/lv) | **17 500** | **printed** ✓ `25·25²+75·25` |
+| **Bot Bot+ — Maximum Power** | boosts the *other* Bot+ abilities | **20** | 1.25 → **2.25** (+0.05/lv) | **11 500** | **printed** ✓ `25·20²+75·20` |
+| **Amplify Bot+ — Echoing Shot** | tower bullets count as several bullets; **UW projectiles get ⅓ of that** | **9** | 3 → 12 bullets | **8 100** | printed ladder `100 + 200(n−1)` ⇒ `100L²` ✓ |
+| **Flame Bot+ — Wildfire** | hit enemies become **Enflamed** as well as Burned; the amplification lasts as long as the current Flame damage | 20 | ×1.5 → ×3.5 (+0.1/lv) | 11 500 | derived (ladder closes at 20) |
+| **Thunder Bot+ — Titan Shock** | enemy attack speed −5 % → −25 % (× digits of enemy mass) | 20 | −1 %/lv | 11 500 | derived (ladder closes at 20) |
+| | | | **Five lines** | **60 100** ✓ = 17 500 + 11 500 + 8 100 + 11 500 + 11 500 | + **6 250 stones** for the five unlocks |
+
+Two printed anchors (17 500 at L25 and 11 500 at L20) fit `25L² + 75L` with no free parameter, which is what makes the
+three derived numbers safe. Practical read: the two **cell** lines (Golden + Bot Bot) are **29 000 medals ≈ 24 events** and
+carry the whole Elite-Cell multiplier (×2.50 × 2.25 ≈ ×5.6 over the base), so they are bought first and the three combat
+Bot+ lines ride behind them ([T006](T006-lab-queue-packing.md) spends the cells).
+
+**Lab constants cross-check (the two systems agree).** Golden Bot prints “×8 coins, 60 m range, **50 s cooldown and 45 s
+duration with labs**”, and the §1.3 constants reproduce exactly that: `120 − 3 × 15 = 75 s` from the bot levels, −25 s from
+the cooldown lab ⇒ **50 s** ✓; `20 + 0.5 × 30 = 35 s` from the bot, `+0.5 × 20 = +10 s` from the duration lab ⇒ **45 s** ✓.
+
+**Four mechanics that change placement (printed on the same pages).** ① Flame's Damage Reduction is a **separate mechanic
+from Defense %** — it does **not** count toward the 98 % defense cap and is applied **after** `Defense Absolute`.
+② **Stun Decay**: every second an enemy is stunned by Poison Swamp, Inner Land Mine or Thunder Bot makes its next stun
+**0.5 % shorter** ⇒ long runs degrade Thunder's uptime (the field is `Duration / Cooldown` of the time; the bot wanders
+randomly near the tower). ③ **Singularity Harness** (Generator module): enemies hit by Flame Bot take **double** damage.
+④ The **Area of Effect** card gives **+5 % (1★) → +25 % (7★)** to the AoE damage of Flame Bot, Inner Land Mine, Poison
+Swamp, Smart Missile and Land Mine (T012's card ladder).
+
+
 
 Same 4×-worse-per-block shape as the UW stone lines (T008 §3) — finish a block, then stop:
 
@@ -245,6 +283,12 @@ T017), and the refund covers Bot+ levels too — re-unlocking Bot+ after a respe
       **23 % / 72 s / 58× / 34 m** (caps **95 % / 30 s / ×290 / 90 m**).
 - [ ] Flame’s **Burn Stack** lab shows five levels **43 T → 217.69 T** (Σ **567.06 T**) and Thunder’s **Linger Time** lab
       gates at **T10 W60**.
+- [ ] The Burn-Stack lab’s **time** column is 45 d 15 h → 52 d 11 h 15 m → 60 d 8 h 8 m → 69 d 9 h 21 m → 79 d 19 h 10 m
+      (**×1.15** each, T006’s clock law) and the whole line sums to **307.6 d**.
+- [ ] With all labs maxed, Golden Bot reads **50 s** cooldown and **45 s** duration (the §1.4 cross-check), and the two
+      printed Bot+ totals are **17 500** (25 levels) and **11 500** (20 levels).
+- [ ] Flame’s damage reduction shows up as a **separate** line from `Defense %` (it does not push the defense readout to
+      98 %), and a stunned enemy’s next stun is measurably shorter after a long run (**Stun Decay** 0.5 %/s).
 
 ## 7. Falsification
 
@@ -269,6 +313,20 @@ T017), and the refund covers Bot+ levels too — re-unlocking Bot+ after a respe
   sub-stat, relic, Vault line) is in the sum → list them and re-derive the divisor.
 
 ## Sources
+
+- Tower Hub `wiki/bot/golden-bot`, `wiki/bot/amplify-bot`, `wiki/bot/bot-bot`, `wiki/bot/thunder-bot`,
+  `wiki/bot/flame-bot` (all last verified **2026-11-01**) — the second copy of every stat line and the prose totals:
+  Golden “each of its four upgrades starts at **100 medals** per level and rises by **40** … maxing all four takes
+  **56 100 medals**” with the cost table’s header row (`1 100 20.5 117 2.2 22` … `10 460 25.0 90 4.0 40`, “Showing 10 of
+  **31** rows”) and its summary line “**×8 coins, 60 m range, 50 s cooldown and 45 s duration with labs**”;
+  **Golden Bot+ Bonus Cells** “1 250 stones … its **25 levels** … from **1.25×** by **0.05** per level to **2.5×**, for
+  **17 500 medals** in total”; **Bot Bot+ Maximum Power** “**1.25× to 2.25×** (**20 levels**, +0.05); 1 250 stones … then
+  **11 500 medals** to max”; **Amplify** “Medals to max per stat: Bonus 20 400, Range 7 920, Cooldown 5 700, Duration
+  20 400 (together **54 420**” and the Echoing Shot/⅓-UW rule; **Flame** DR “starts at 20 % … 25 levels, adding 3 % …
+  **up to 95 %** … a **separate mechanic** from Defense %, does **not** count toward the 98 % cap and is applied **after**
+  Defense Absolute”, its lab table’s time column (45 d 15 h … 79 d 19 h 10 m) and Wildfire/Singularity Harness/AoE-card
+  notes; **Thunder** 20/15/20/15-level lines, the “never stuns bosses/elites/fleets, linger at 25 % strength (v29.1.2)”
+  rule and **Stun Decay** (−0.5 % per stunned second, shared with Poison Swamp and Inner Land Mine).
 
 - fandom raw wikitext: `Golden Bot`, `Amplify Bot`, `Flame Bot`, `Thunder Bot`, `Bot Bot` — per-line increments/level
   counts (e.g. Golden: Bonus 30 lv +0.2, Duration 30 lv +0.5, Cooldown 15 lv −3, Range 20 lv +2; Flame cooldown starts at

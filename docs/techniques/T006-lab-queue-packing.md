@@ -1,5 +1,10 @@
 # T006 — Pack the Lab queue, then buy the *cheapest* skipped hour
 
+Rev: 5 (2026-11-02) — **the two clock laws added** (above): cost `×1.5/level` and research **time `×1.15/level`**, both
+reproducing the printed rows to the last digit (Burn Stack's five durations = 45 d 15 h · 52 d 11 h 15 m · 60 d 8 h 8 m ·
+69 d 9 h 21 m · 79 d 19 h 10 m ⇒ every ratio 1.150 ✓, Σ = 307.62 d; `Duration` L6 = 16 d 18 h 16 m / 759.38 B and
+L10 = 29 d 7 h 34 m / 3.84 T ⇒ `t₁ = 8 d 8 h`, `c₁ = 100 B`), the **whole-line forecasts** that follow from them
+(20-level line ≈ **853.7 d ≈ 2.34 y** and ≈ **665 T** coins) and the **coins-per-saved-hour drift of ×1.304/level**.
 Rev: 4 (2026-11-02) — the **Elite Cell ledger closes** against Tower Hub’s currency pages (2026-11-01): the T14–T24
 drop table **re-adds 10/10** (`(min+max)/2` = printed average, and the T14 “+50 % = 10.5/7” row proves the T1–13 law ends
 at average **7** on T13), the **full eight-row boost-cost table** is printed (15 → 1 000 000 cells/h), each multiplier’s
@@ -30,7 +35,33 @@ Cost is flat per hour, so the ×8 column is 24 000 / 800 000 / 2 400 000 cells f
 
 Lab research is a **multiplier** on a stat, so it is the strongest coin-per-coin line in the game — but each level also costs wall-clock time that coins cannot compress. The real budget is *slot-hours*, and the whole technique is: (1) never let a slot idle, (2) buy the cheapest skipped hour available, (3) keep the two currencies that buy time (Elite Cells, Gems) at their best exchange rate.
 
+### The two clock laws (cost ×1.5, time ×1.15 per level)
+
+Lab lines are geometric in **both** currencies, and the printed rows pin both ratios exactly:
+
+* **coins:** `cost(n) = c₁ · 1.5^(n−1)` ⇒ `Σ(n) = c₁(1.5ⁿ − 1)/0.5`
+* **wall clock:** `time(n) = t₁ · 1.15^(n−1)` ⇒ `Σ(n) = t₁(1.15ⁿ − 1)/0.15`
+
+| Lab (printed rows) | `c₁` / `t₁` | printed per-level | law | Σ printed vs derived |
+|---|---|---|---|---|
+| `Burn Stack` (Flame, 5 lv) | 43 T / **45 d 15 h** | 43.00 · 64.50 · 96.75 · 145.12 · 217.69 T | ×1.5 ✓ | **567.06 T** = 43(1.5⁵−1)/0.5 ✓ |
+| same rows, time column | — | 45 d 15 h · 52 d 11 h 15 m · 60 d 8 h 8 m · 69 d 9 h 21 m · 79 d 19 h 10 m | ×1.15 ✓ (**all five reproduce to the minute**) | Σ = **307.62 d** |
+| `Duration` (Golden/Amplify, 20 lv) | 100 B / **8 d 8 h** | L6 = 16 d 18 h 16 m and 759.38 B · L10 = 29 d 7 h 34 m and 3.84 T | ×1.5 + ×1.15 ✓ | first-5 = **1.32 T** ✓ · **whole line ≈ 664.9 T and 853.7 d ≈ 2.34 y** |
+
+**Why the pair matters.** Because time rises ×1.15 while coins rise ×1.5, the *coins-per-saved-hour* of a line grows
+**×1.304 per level** — late levels are relatively cheaper in wall-clock time. Practical consequences:
+
+1. **Forecast any lab before starting it**: read `t₁` from the panel, then `Σ = t₁(1.15ⁿ−1)/0.15`. A 20-level line costs
+   ≈ **102 × t₁**, so a lab whose first level is 8 d 8 h ties up a slot for **2.34 years** of real time — which is why
+   the ×1.5 cell boost (30 cells/skipped hour, table above) is worth more on the *long* lines than on the short ones.
+2. A lab's **last** level is 16.4× as slow as its first and 33.3× as expensive ⇒ buy the first 10 levels of many lines
+   before the tail of one (the same knee rule as every other ladder in this repo).
+3. With five slots, one season (8 weeks = 56 d) buys ≈ **280 slot-days**; at `t₁ = 8 d 8 h` that is 4 first-levels per
+   slot per season, so the queue is the scarcest currency in the game — cheaper than coins, cells or gems to refill.
+
 ### Elite Cell income (what you are spending)
+
+
 
 - Elites are **Vampire, Ray, and the full-size Scatter** — and *only* those: Scatter children, Fleets and Bosses drop
   **nothing**. Each one drops `1 … Tier` cells uniformly ⇒ **average (1 + Tier) / 2 per kill** for Tiers 1–13.
@@ -150,6 +181,8 @@ online often (it raises levels/day for all 5 slots: a `3 d 11 h` line becomes **
 
 - [ ] No slot shows “completed, not started” for more than a few minutes; at least one long level is running overnight.
 - [ ] The **Speed Up** menu shows **15** cells for a 1 h ×1.5 boost (that number confirms the table above).
+- [ ] **Clock laws:** a lab's level-2 research time is level 1 × **1.15** while its coin
+      price is × **1.5**; (8 d 8 h ⇒ 9 d 14 h at level 2); and the whole 20-level `Duration` line forecasts to ≈ **853.7 d** from `t₁ = 8 d 8 h`.
 - [ ] All five slots show the green speed-up background while their own timers keep their nominal length.
 - [ ] Elite Cell counter still ends the day **>** 0 after all five ×1.5 renewals (if it hits 0, stop escalating multipliers).
 - [ ] Record: cells at run start / run end ÷ minutes = your measured cells/h — then check it against `(1 + Tier)/2 × elites/h`.
@@ -181,6 +214,12 @@ online often (it raises levels/day for all 5 slots: a `3 d 11 h` line becomes **
   multiplicative → re-derive §“Elite Cell income” rows 2–3 from one timed run.
 
 ## Sources
+
+- Tower Hub `wiki/bot/flame-bot` + `wiki/bot/amplify-bot` (last verified **2026-11-01**) — the lab tables’ three-column
+  rows (`Level | Time | Cost | Value`) that give both clock laws: Burn Stack 43.00/64.50/96.75/145.12/217.69 T with
+  45 d 15 h · 52 d 11 h 15 m · 60 d 8 h 8 m · 69 d 9 h 21 m · 79 d 19 h 10 m (value 1…5), and the Duration lab’s
+  L5–L10 (506.25 B/14 d 13 h 48 m · 759.38 B/16 d 18 h 16 m · 1.14 T/19 d 6 h 37 m · 1.71 T/22 d 4 h · 2.56 T/
+  25 d 11 h 48 m · 3.84 T/29 d 7 h 34 m, value +0.5 s per level) — “Showing 10 of **20** rows” ⇒ 20 levels.
 
 - fandom `Lab_Upgrades` (raw) — boost cost table (flat since v25.5), most-efficient 5-lab ladder, gem-rush bucket prices, gold-box +0.015×, Auto Research / green-bar / search / history UI behaviour.
 - fandom `Currency/Elite Cells` (raw) — elite = Vampire/Ray/Scatter, `1 … Tier` drop range, `(1+X)/2` average, Wave Skip ×1.1, Intro Sprint 20 %, list of cell-flow upgrades.
