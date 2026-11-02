@@ -25,7 +25,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | T017 | [Vault: Keys priority ladder](techniques/T017-vault-keys-priority.md) | Keys → Gems, Coins, Cash, Shards | **Verified (Rev 4**, arithmetic) |
 | T018 | [Relic economy & price rule](techniques/T018-relic-economy.md) | % points (Coins/Cash/Lab) | **Verified (Rev 3**, arithmetic) |
 | T019 | [Milestone claim engine](techniques/T019-milestone-claim-engine.md) | Gems, Stones, Coins, labs | **Verified (Rev 3**, arithmetic; H038 open) |
-| T020 | [Workshop coin-spend order](techniques/T020-workshop-coin-order.md) | Coins → Cash/Coins multipliers | **Verified (Rev 9**, arithmetic: the four value laws `1+0.01L` / `L+1` / `4L`, caps L149 = ×2.49 / 150 / ×2.49 / 596, Σ 19.47 M vs 14.82 M = 0.761, the 9 360× convexity, the 18-row census law `At max = 1 + step × Max` 18/18, per-track bills 2.233 / 2.543 / 7.598 S = 12.374 S, the discount labs' `0.50 % × n` on the shared 30 → 4 190 609 ladder with stop level **L30**) |
+| T020 | [Workshop coin-spend order](techniques/T020-workshop-coin-order.md) | Coins → Cash/Coins multipliers | **Verified (Rev 10**, arithmetic: the four value laws `1+0.01L` / `L+1` / `4L`, caps L149 = ×2.49 / 150 / ×2.49 / 596, Σ 19.47 M vs 14.82 M = 0.761, the 9 360× convexity, the 18-row census law `At max = 1 + step × Max` 18/18, per-track bills 2.233 / 2.543 / 7.598 S = 12.374 S, the discount labs' `0.50 % × n` with stop level **L30**, the **17-line attack ledger** 9 cheap caps = **22.88 M** vs 8 deep caps = **839.30 q**, `Coin Bonus +` to L250 with the **28.6×** second band, enhancement per point **1.03 / 6.17 / 157.8 B**) |
 | T021 | [Dissonant Runs & Echo](techniques/T021-dissonant-runs-echo.md) | Coins (+ damage/health/UW) | **Verified (Rev 3**, arithmetic) |
 | T022 | [Free-currency census & paid ladder](techniques/T022-free-currency-census-paid-ladder.md) | Gems, Stones (budget + bills) | **Verified (Rev 2**, arithmetic) |
 | T023 | [Guardian economy (bit model, Fetch droptable, sync layer)](techniques/T023-guardian-economy.md) | Bits → Gems, Medals, Shards, Coins | **Verified (Rev 5**, arithmetic) |
@@ -190,6 +190,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 - [2026-11-02 - session 85 (T020 Rev 8)](log/2026-11-02.md#2026-11-02---session-85-iteration-94-every-workshop-currency-line-is-one-arithmetic-ladder-and-the-cash-pair-is-a-quarter-cheaper-than-the-coin-pair)
 - [2026-11-02 - session 86 (T020 Rev 9)](log/2026-11-02.md#2026-11-02---session-86-iteration-95-the-enhancement-layer-is-one-arithmetic-law-and-the-three-discount-labs-share-one-ladder-with-starting-cash)
 - [2026-11-02 - session 87 (T006 Rev 18)](log/2026-11-02.md#2026-11-02---session-87-iteration-96-eighteen-cheap-uw-labs-get-one-bill-and-two-ladder-relations)
+- [2026-11-02 - session 88 (T020 Rev 10)](log/2026-11-02.md#2026-11-02---session-88-iteration-97-the-attack-track-ledger-splits-the-workshop-into-two-price-worlds)
 
 ## Reference material in this repo
 

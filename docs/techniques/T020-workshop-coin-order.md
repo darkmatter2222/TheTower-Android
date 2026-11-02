@@ -1,5 +1,14 @@
 # T020 — Workshop coin-spend order: the level-band rule and the knee table
 
+Rev: 10 (2026-11-02) — **§1.8, §1.9, §6.2.1 + §6.4.1.** **§1.8**: the 17 named lines of `wiki/workshop/attack-upgrades`
+priced per line — two price worlds: **9 lines cap for ≤ 5 M each (Σ 22.88 M)** vs **8 lines capping at B–q (Σ 839.30 q)**,
+the L1–L10 pass of the seven long cheap lines is **31 480 coins**, `Total Cost` re-verified as a running total **9/9
+(≤ 0.19 %)**, 11 of 17 `Value` columns are arithmetic, and `Damage` is a **6 000**-level line with whole-line ratio
+**1.0043**. **§1.9**: the printed `eHP` law and the **98 %** `Defense %` ceiling (×50; the page's own example uses 99 %).
+**§6.2.1**: `Coin Bonus +` printed to **L250** — band costs **1.42 T → 40.52 T → 837.01 T → …→ 336.82 s**, so the second
+band is **28.6×** the first at the same +10 pp ⇒ the knee is exactly **L10**. **§6.4.1**: the enhancement layer's per-level
+ladders, two value laws (`1 + 0.01·L`, `1 + 0.06·L`) and the **coins-per-point** order
+`Land Mine Damage +` **1.03 B** < standard **6.17 B** < `Coin Bonus +` **157.8 B**.
 Rev: 9 (2026-11-02) — **§6.4 + §6.5, the enhancement and discount layers closed as arithmetic**: the printed 18-row census
 (`Track · Unlocks at · Max · Per level · At max · Coins to max`) satisfies **`At max = 1 + step × Max` 18/18** with step
 **+0.01 everywhere except `Land Mine Damage +` (+0.06 ⇒ ×37)**, and the **per-track bills** Attack **2 232.82 s** /
@@ -270,6 +279,85 @@ Four consequences, all arithmetic:
    cost `448.41 K − 218.37 K = ` **230.04 K**, and levels 41–50 of a cash line `355.40 K − 174.15 K = ` **181.25 K** — both
    reproducible from the two tables above without any fitted curve.
 
+### 1.8 The attack-track ledger — 17 named lines, two price worlds (new, Rev 10)
+
+`wiki/workshop/attack-upgrades` (last verified **2026-11-01**, “17 data tables”) prints one
+`Level | Value | Cost | Total Cost` ladder per line; each line's own name comes from its per-stat page
+(`wiki/workshop/{damage, attack-speed, critical-hits, damage-per-meter, multishot, rapid-fire, super-critical, rend-armor,
+bounce-shot}`, same day), and the two payloads agree cell-for-cell. Parsed with `tools/workshop-line-census.ps1`.
+
+**The `Total Cost` column is a running total, re-verified here on nine more lines.** Σ of the printed `Cost` column vs the
+printed `Total Cost` at the last level: **9/9 within 0.19 %** (e.g. `Attack Speed` 3 596 300 vs 3.60 M, `Multishot -
+Multishot Targets` 529 950 vs **529.95 K**, exactly). So `Cost` is the price **of that level** and §1.7's
+subtract-two-rows trick applies to this layer too.
+
+**The layer is two worlds.** Nine lines cap for **≤ 5 M coins each**; the other eight cap for **B/q**. Their sums:
+
+| World | Lines | Σ coins to full cap | Σ of the **L1–L10** pass |
+|---|---|---|---|
+| **cheap** (9 lines) | 9 | **22.88 M** | **31 480** coins (the 7 long lines) **+ 1.501 M** (the two 7-level `Targets` caps) |
+| **deep** (8 lines) | 8 | **839.30 q** | — |
+
+Ratio **3.67 × 10¹⁰**: one `Rend Armor` line to cap is ~18 × the entire cheap tier's 37×-deeper version. So the UI plan is
+mechanical — **cap the nine cheap lines first (22.88 M total, i.e. less than the L1–10 pass of `Super Critical - Chance`
+alone, 5.4 M), then spend on the deep lines.**
+
+| Line (printed name) | Levels | Value law | Price at L1 | Price at cap | **Σ to cap** | avg coins/level |
+|---|---|---|---|---|---|---|
+| `Attack Speed` | 99 | `1 + 0.05·L` (1.05 → 5.95) | 30 | 118.80 K | **3.60 M** | 36 326 |
+| `Critical Hit - Critical Chance` | 79 | `0.01·(L + 1)` (0.02 → 0.80) | 50 | 59.18 K | **1.41 M** | 17 834 |
+| `Critical Hit Range` | 79 | `30 M + 0.5 M·L` (30.50 → 69.50 M) | 50 | 61.40 K | **1.46 M** | 18 516 |
+| `Multishot - Multishot Chance` | 99 | `0.5 %·L` (0.5 → 49.5 %) | 60 | 142.00 K | **4.26 M** | 43 076 |
+| `Multishot - Multishot Targets` | 7 | `L + 2` (3 → 9) | 450 | 350.00 K | **529.95 K** | 88 325 |
+| `Rapid Fire - Rapid Fire Chance` | 85 | `0.4 %·L` (0.40 → 34.0 %) | 120 | 108.05 K | **2.79 M** | 32 793 |
+| `Rapid Fire - Rapid Fire Duration` | 99 | `0.60 s + 0.05 s·L` (0.65 → 5.55 s) | 120 | 152.79 K | **4.63 M** | 46 721 |
+| `Bounce Shot - Bounce Shot Chance` | 85 | `0.8 %·L` (0.8 → 68.0 %) | 200 | 125.58 K | **3.23 M** | 38 044 |
+| `Bounce Shot - Bounce Shot Targets` | 7 | `L + 1` (2 → 8) | 700 | 650.00 K | **970.70 K** | 161 783 |
+| `Critical Hit - Critical Factor` | 150 | `1.20 + 0.10·L` (×1.30 → ×16.20) | 50 | 26.24 B | **259.20 B** | 1.74 B |
+| `Damage/Meter` | 200 | 0.00079 → 0.059 (non-arith, saturating) | 50 | 28.36 T | **315.60 T** | 1.58 T |
+| `Bounce Shot - Bounce Shot Range` | 60 | `2.00 M + 0.10 M·L` (2.10 → 8.00 M) | 200 | 1.23 T | **3.81 T** | 63.6 M |
+| `Damage` | **6 000** | 6 → 71.11 M | 30 | 5.10 T | **816.09 T** | 136.0 M |
+| `Super Critical - Super Critical Chance` | 100 | `0.20 %·L` (0.20 → 20.00 %) | 50.00 K | 355.49 B | **5.63 T** | 56.3 M |
+| `Super Critical - Super Critical Multi` | 120 | `1.20 + 0.10·L` (×1.30 → ×13.20) | 30.00 K | 28.70 T | **214.50 T** | 1.79 T |
+| `Rend Armor - Rend Armor Chance` | 299 | `0.10 + 0.10·L` (%): 0.20 → 30.00 % | 600.00 M | 19.83 q | **418.97 q** | 1.40 q |
+| `Rend Armor - Rend Armor Mult` | 299 | `0.001 + 0.001·L` (0.0020 → 0.3000 X) | 600.00 M | 19.83 q | **418.97 q** | 1.40 q |
+
+**Reading notes.** ① Every long cheap line is **convex with a whole-line per-level ratio of 1.0757–1.0955** (geometric mean
+of `price(last) ÷ price(L1)` over the printed span) — near-flat per level, which is why nine full caps cost 22.88 M; the two
+7-level `Targets` lines are the exception (**3.03 / 3.12**), so they are the only cheap lines where the last level is 3× the
+first. ② The `Value` columns are arithmetic on 11 of the 17 lines (`step × L`, or `a + step × L`), and the printed cap
+matches: e.g. `Critical Hit - Critical Factor` `1.20 + 0.10 × 150 = 16.20` ✓, `Rapid Fire - Rapid Fire Duration`
+`0.60 + 0.05 × 99 = 5.55 s` ✓, `Rend Armor - Rend Armor Chance` `0.10 + 0.10 × 299 = 30.00 %` ✓. The three non-arithmetic
+ones are `Damage` (6 → 71.11 M over 6 000 levels, whole-line ratio **1.0043** — the flattest ladder in the game),
+`Damage/Meter` (0.00079 → 0.059, differences **shrink**: 0.00663, 0.00634, 0.00537 ⇒ a saturating curve) and the sampled
+deep lines, whose per-10-level gaps shrink for the same reason. ③ Lines that share a level-1 price share the **head** of the
+ladder (`Rapid Fire` Chance and Duration both start 120 → 183 → 257 → 343; both `Bounce Shot` 200-lines start 200 → 279 →
+368 → 472) but their whole-line ratios diverge (`Bounce Shot - Bounce Shot Range` **1.4653** vs `- Chance` **1.0797**), so
+the head alone does not identify a ladder — read the cap's price too.
+
+**The buy order the table implies (coins per printed step, i.e. average coins per level inside the cheap tier):**
+`Critical Hit - Critical Chance` **18 063** < `Critical Hit Range` **18 754** < `Rapid Fire - Rapid Fire Chance` **33 183** <
+`Attack Speed` **36 697** < `Bounce Shot - Bounce Shot Chance` **38 496** < `Multishot - Multishot Chance` **43 515** <
+`Rapid Fire - Rapid Fire Duration` **47 198** < `Multishot - Multishot Targets` **88 325** <
+`Bounce Shot - Bounce Shot Targets` **161 783**. The three `×multiplier` lines are priced per **whole** unit, so compare them
+to each other only: `Attack Speed` **733 940** coins per ×1.00 vs `Critical Hit - Critical Factor` **17.40 B** per ×1.00
+(a 23 700× gap) — inside the cheap tier `Attack Speed` is the multiplier bargain.
+
+### 1.9 Two printed category facts (the eHP law, and the 98 % ceiling)
+
+`wiki/workshop/defense-upgrades` and `wiki/workshop/utility-upgrades` print **no data tables** (prose only), but two lines of
+their prose are load-bearing:
+
+1. **`eHP = (Health + Defense Absolute) / (1 − Defense %)`**, with the page's own checkpoints **90 % ⇒ 10×**, **95 % ⇒ 20×**,
+   **99 % ⇒ 100×**. Same law as T003's wall/HP arithmetic, printed on the workshop page.
+2. **The `Defense %` cap is printed as 98 %**, i.e. the eHP ceiling is **×50** (`1 ÷ 0.02`), while the page's own example uses
+   99 % ⇒ **×100**. Recorded as a skew: the two numbers come from the same page, so read the panel's `Defense %` line — if it
+   caps at **98 %**, eHP stops at ×50; if it can reach 99 %, the ceiling is ×100. `Defense Absolute` is additive *inside* the
+   numerator, so it is the linear part of the pair and `Defense %` the convex one.
+3. The Defense tab also holds **`Free Defense Upgrades`**, “a chance for a Defense upgrade to level up for free after each
+   wave” — the same free-upgrade mechanism as §1.5, one instance **per track**, which is the printed support for the
+   per-track reading of [H051](../hypotheses/H051-free-upgrade-chance-90-75-decomposition.md).
+
 ## 2. The level-band rule (the actual technique)
 
 Marginal coin cost of each **+1 %** (or +40 cash) band on a currency line, from the printed cumulative totals:
@@ -422,6 +510,23 @@ Coins/Kill product, its effect is **squared**: at L10 (1.42 T coins) a nominal �
 (1.10² ✓); at L50 (×1.50) it is **×2.25**. Practical: 10 levels ≈ **1.42 T** coins for ×1.21, so stop near **L10–L20**
 until the whole 500 T-per-track gate is paid anyway.
 
+**The same line printed to L250 (new, Rev 10).** `wiki/workshop/workshop-upgrades` prints `Coin Bonus +` at 10-level
+checkpoints; its L1 row (**5.00 B**) and L10 row (**477.01 B** / **1.42 T**) match the dense table above cell-for-cell, so the
+two prints are one ladder. `Total Coins` is cumulative, so the band cost is a difference of two printed rows:
+
+| Last level | 10 | 20 | 30 | 40 | 50 | 60 | 70 | 80 | 90 | 100 | 150 | 200 | 250 |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| printed total | 1.42 T | 41.94 T | 878.95 T | 9.64 q | 60.41 q | 379.19 q | 1.92 Q | 6.91 Q | 19.93 Q | 49.31 Q | 1.28 s | 11.19 s | 336.82 s |
+| **band** (last 10 levels) | 1.42 T | **40.52 T** | **837.01 T** | 8.76 q | 50.77 q | 318.78 q | 1.54 Q | 4.99 Q | 13.02 Q | 29.38 Q | 532.62 Q | 3.55 s | 147.40 s |
+| band ÷ previous | — | **28.6** | 20.7 | 10.5 | 5.8 | 6.3 | 4.8 | 3.2 | 2.6 | 2.3 | — | — | 1.6 |
+| multiplier (squared on the run) | ×1.10 (1.21) | ×1.20 (1.44) | ×1.30 (1.69) | ×1.40 (1.96) | ×1.50 (**2.25**) | ×1.60 (2.56) | ×1.70 (2.89) | ×1.80 (3.24) | ×1.90 (3.61) | ×2.00 (**4.00**) | ×2.50 (6.25) | ×3.00 (9.00) | ×3.50 (12.25) |
+
+Three readings. ① The **knee is exactly at L10**: the next 10 points (same +10 pp of printed value) cost **28.6×** the first
+ten levels — **40.52 T** against **1.42 T**. ② ×1.50 (i.e. ×2.25 on the run) needs **L50** = **60.41 q** coins, and ×2.00
+(×4.00) needs **L100** = **49.31 Q** — so the squared effect is real but the coin bill moves fifteen orders of magnitude for
+it, which is why §2's band rule still stops the buy near **L10–L20** below Tier 11. ③ The band-to-band ratios fall from
+**28.6 → 1.6** (print-rounded to three significant digits, so treat them as monotone-decreasing rather than exact).
+
 **Vault cross-check:** the Power-tree nodes for these lines are **250 keys each** with the ladder **10 / 20 / 40 / 70 /
 110** (Σ = 250 ✓), `Cash` and `Coins/Kill` at **+5 %/level (+25 %)** and `Cash/Wave` + `Coins/Wave` at **+100 %/level
 (+500 %)** — the same table T017 §2.2 transcribes from fandom, now second-sourced ([T017](T017-vault-keys-priority.md)).
@@ -541,6 +646,36 @@ the order is robust.
 Practical: a track is “finished” when its own spend counter passes **500 T**, and by (4) that same gate ladder buys
 2.233 S / 2.543 S / **7.598 S** of levels on Attack / Defense / Utility — so **push the Utility track first**, it is 3× the
 Attack track's value for identical gates.
+
+### 6.4.1 The per-level enhancement ladders as printed — two value laws, five price shapes (new, Rev 10)
+
+`wiki/workshop/workshop-upgrades` (**2026-10-28**, “9 data tables”) prints the enhancement lines at 10-level checkpoints and
+at every level, all on the **5.00 B** level-1 base. Both value laws of §6.4 reproduce **every printed cell**:
+
+| Printed value cells | Law | `step` |
+|---|---|---|
+| ×1.01 · ×1.10 · ×1.20 · ×1.30 · ×1.40 · ×1.50 at L 1/10/20/30/40/50 | `1 + 0.01·L` | **+0.01** |
+| ×1.06 · ×1.60 · ×2.20 · ×2.80 · ×3.40 · ×4.00 at L 1/10/20/30/40/50 | `1 + 0.06·L` | **+0.06** (= `Land Mine Damage +`, the only non-0.01 step in §6.4 ✓) |
+
+**Coins per printed point, first ten levels (all five printed shapes are on the same 5.00 B base):**
+
+| Ladder shape (printed prices at L1 … L10 total) | Σ L1–10 | per **step** | per **point** (0.01) |
+|---|---|---|---|
+| 5.00 B → 6.53 B … **55.54 B**, both the +0.01 and the +0.06 lines | **55.54 B** | 6.17 B | 6.17 B |
+| same line with the **+0.06** step ⇒ the **cheapest per point** | 55.54 B | 6.17 B | **1.03 B** |
+| 5.00 B → 6.10 B … (dense, 1.01 → 1.06) | 1.35 T @L6 | — | steeper head (`L2 = 6.10 B`, `L3 = 23.58 B`) |
+| 5.00 B → 6.25 B … **1.42 T @L10** (= `Coin Bonus +`, §6.2.1) | **1.42 T** | 157.8 B | **157.8 B** |
+| 5.00 B → 6.05 B … (dense) / 5.00 B → 15.50 B → 202.98 B → 1.13 T → 3.89 T → 10.14 T (dense) | 15.38 T @L6 | — | steepest head of the layer |
+
+**The ranking that follows (arithmetic, all from the two tables above):** the standard +0.01 line costs `55.54 B ÷ 9` =
+**6.17 B** per point at the head of the layer, `Land Mine Damage +` costs the same coins for **6× the points**
+(**1.03 B**/point ⇒ the cheapest enhancement in the game per point), and `Coin Bonus +` costs **157.8 B** per point —
+**25.6×** the standard line. So on a *per-point* basis the economy enhancement is the most expensive of the three, and its
+×1.10 at L10 is worth **×1.21** on the run (§6.2.1) while 10 standard levels are worth **+10 %** on one stat.
+
+**Where the layer stops paying:** every one of these ladders is convex with no plateau, and the deepest printed checkpoint of
+the economy line reaches **336.82 s** at L250 (§6.2.1), i.e. the last band alone is **147.40 s**. §2's rule therefore stays the
+operative one below Tier 11: buy the head of each track (**L1–L10**, the 1.42 T / 55.54 B bills above) and stop.
 
 ### 6.5 The three Workshop Discount labs — one shared ladder, and the level where they stop paying (new, Rev 9)
 
@@ -685,6 +820,25 @@ Until it is read, use `R = 34.29 M` (⇒ **L30**) for the Utility tab and treat 
       at L100.
 - [ ] `Coin Bonus +` L10 costs **1.42 T** coins in total and reads **×1.10**, while the run's coins move by **×1.21**
       (= 1.10², the squared effect in §6.2.1).
+- [ ] **Attack-track ledger (§1.8):** `Attack Speed` has **99** levels ending at **×5.95** with `Total Cost` **3.60 M**, and
+      Σ of its 99 printed `Cost` cells re-adds to **3 596 300** (0.10 % under the printed total) — the running-total proof.
+- [ ] The nine cheap caps re-add: `Attack Speed` 3.60 M + `Critical Hit - Critical Chance` 1.41 M + `Critical Hit Range`
+      1.46 M + `Multishot Chance` 4.26 M + `Multishot Targets` 529.95 K + `Rapid Fire Chance` 2.79 M + `Rapid Fire Duration`
+      4.63 M + `Bounce Shot Chance` 3.23 M + `Bounce Shot Targets` 970.70 K = **22.88 M**; the seven long lines' **L1–L10**
+      rows read **2.94 K / 2.85 K / 2.99 K / 4.06 K / 5.66 K / 5.66 K / 7.32 K** ⇒ **31 480** coins together.
+- [ ] **Value-law spot checks:** `Critical Hit - Critical Factor` level **150** = **16.20x**, `Rapid Fire - Rapid Fire
+      Duration` level **99** = **5.55 s**, `Rend Armor - Rend Armor Chance` level **299** = **30.00 %**,
+      `Multishot - Multishot Targets` level **7** = **9**, `Bounce Shot - Bounce Shot Targets` level **7** = **8**.
+- [ ] **Shared head ladders:** `Rapid Fire - Rapid Fire Chance` and `- Duration` both print **120 → 183 → 257 → 343** for
+      levels 1–4, and both 200-base `Bounce Shot` lines print **200 → 279 → 368 → 472**.
+- [ ] `Damage` really has **6 000** levels, its level-1 price is **30** coins and the last printed price is **5.10 T** with
+      `Total Cost` **816.09 T**; its value column is **not** arithmetic (6 → 1.05 K → 3.64 K → 7.77 K → 13.44 K).
+- [ ] **Enhancement head bills (§6.4.1):** a standard track's `Total Coins` at L10 reads **55.54 B** while `Coin Bonus +`'s
+      reads **1.42 T** at the same level; the +0.06 line's price column is identical to the standard one
+      (**5.00 B / 6.53 B / 48.30 B / 313.07 B / 2.54 T / 9.59 T** at L 1/10/20/30/40/50) while its value reads
+      **×1.06 → ×1.60 → ×2.20 → ×2.80 → ×3.40 → ×4.00**.
+- [ ] **The 28.6× second band (§6.2.1):** `Coin Bonus +` level **20** totals **41.94 T**, so levels 11–20 alone cost
+      41.94 T − 1.42 T = **40.52 T** = **28.6 ×** the 1.42 T of levels 1–10 for the same +10 pp.
 
 ## 9. Falsification
 
@@ -727,6 +881,18 @@ Until it is read, use `R = 34.29 M` (⇒ **L30**) for the Utility tab and treat 
   re-read the ten cheapest levels of each line and rebuild §2's band table from the panel.
 - If the `Workshop Utility Discount` lab does **not** change those four prices, §4's order collapses: then the utility
   lines are effectively undiscounted and the 1→50 band is the whole budget ([H023](../hypotheses/H023-workshop-tab-discount-applies.md)).
+- If a §1.8 line's `Total Cost` cell is **not** the sum of the `Cost` cells above it (e.g. `Attack Speed` level 99 prints
+  something other than ≈ **3.60 M** while its own 99 prices add to ≈ **3.596 M**), the column became cumulative-per-row →
+  difference the column before using the bills, and re-derive the 22.88 M cheap-tier sum by adding the `Cost` cells.
+- If the nine cheap caps do not re-add to **22.88 M**, one line's cap or ladder moved → re-read the last row of each of the
+  nine tables (levels and price only) and re-add; the per-step order in §1.8 depends only on Σ ÷ value-gained, so a single
+  moved cap re-orders only the lines around it.
+- If a `Value` column stops being arithmetic (e.g. `Critical Hit - Critical Factor` level 2 is not **1.30 + 0.10 = 1.40**),
+  that line was re-versioned → derive its step from levels 1–2 and recompute its cap; the coin side (Σ to cap) is printed and
+  independent of the value column.
+- If `Damage` shows fewer than **6 000** levels, or its last price is far from **5.10 T**, the deepest line in the game was
+  re-binned → re-read its last row and recompute the whole-line ratio `price(last) ÷ 30)^(1/(levels − 1))`; §1.8's “flattest
+  ladder” claim (**1.0043**) is that one number.
 - If a knee is wrong (e.g. Damage/Meter's 71st level costs far less than 1.9× the 70th), re-read that line's next-price
   row and shift the knee — the tables print one price per 10 levels, so a mid-band jump is possible.
 - If a respec resets an enhancement unlock, the “coin spend advances the counters” shortcut needs re-doing after each
@@ -746,8 +912,29 @@ Until it is read, use `R = 34.29 M` (⇒ **L30**) for the Utility tab and treat 
   ([H051](../hypotheses/H051-free-upgrade-chance-90-75-decomposition.md)).
 - If `Coin Bonus +` costs ≈ 2.99 S but its multiplier is not what §6.2 implies, the per-level step differs → read the
   value at level 1 and record it ([H037](../hypotheses/H037-enhancement-per-level-step.md)).
+- If `Coin Bonus +` level **20** does not total ≈ **41.94 T** (or L10 is not **1.42 T**), the two prints are different
+  versions → re-derive the bands from the panel's own running totals; the **28.6×** second-band figure is just
+  `(total₂₀ − total₁₀) ÷ total₁₀`, so it moves with any re-version.
+- If a standard track's L10 total is **not** ≈ **55.54 B** while the +0.06 line's is, the two lines no longer share a price
+  ladder → recompute the per-point table in §6.4.1 from the two printed totals (the **6×** advantage of the +0.06 step holds
+  only while their price columns match).
+- If the panel's `Defense %` caps at something other than **98 %** (e.g. it reaches 99 %), the eHP ceiling is not **×50** →
+  recompute `1 ÷ (1 − cap)` and re-derive which of `Health` / `Defense Absolute` / `Defense %` is worth coins at your tier
+  (§1.9; the numerator is linear, the denominator is the convex part).
 
 ## Sources
+
+- Tower Hub `wiki/workshop/attack-upgrades` (last verified **2026-11-01**, “17 data tables”) plus the nine per-stat pages
+  `wiki/workshop/{damage, attack-speed, critical-hits, damage-per-meter, multishot, rapid-fire, super-critical, rend-armor,
+  bounce-shot}` — the `Level | Value | Cost | Total Cost` ladders behind §1.8 (level counts, L1 and cap prices, the printed
+  totals **3.60 M / 1.41 M / 1.46 M / 4.26 M / 529.95 K / 2.79 M / 4.63 M / 3.23 M / 970.70 K / 259.20 B / 315.60 T /
+  3.81 T / 816.09 T / 5.63 T / 214.50 T / 418.97 q / 418.97 q`); parsed with the new `tools/workshop-line-census.ps1`
+  (rows / level spacing / value law / cost ratios / prefix-sum test / whole-line geometric ratio / L1–L10 bill).
+- Tower Hub `wiki/workshop/{defense-upgrades, utility-upgrades, workshop-upgrades, workshop-respec}` — the two prose facts in
+  §1.9 (the printed `eHP` formula with its 90/95/99 % checkpoints, the **98 %** `Defense %` cap, and `Free Defense Upgrades`
+  as the Defense-tab instance of the free-upgrade mechanism); `workshop-respec` prints one row only
+  (**1** level, **3 000 000** coins, **2 d 13 h 7 m** of slot time). `wiki/workshop/workshop-upgrades` (**2026-10-28**,
+  “9 data tables”) is the source of §6.2.1's 26-row L1→L250 checkpoint ladder and of §6.4.1's five per-level price shapes.
 
 - Tower Hub per-line pages (all last verified **2026-11-02**, payload parsed with `tools/card-tables-parse.ps1`):
   `wiki/workshop/coins-per-kill-bonus`, `wiki/workshop/coins-per-wave`, `wiki/workshop/cash-per-wave`,
