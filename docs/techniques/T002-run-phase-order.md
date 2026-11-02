@@ -1,5 +1,12 @@
 # T002 — Fixed phase order for the in-run Cash bar
 
+Rev: 4 (2026-11-02) — the **wave clock** is now printed-reproduced (`wiki/system/gameplay`): a normal wave = **26 s length +
+9 s cooldown at ×1 speed** ⇒ **35 s**, and the **tournament halves the cooldown** to 30.5 s, so `waves/h = 3600 × s / 35`
+(×1 **102.86**, ×3 **308.57**, ×5 **514.29**, ×6.25 **642.86**) with the tournament worth exactly **×1.1475** more waves. That
+turns every per-wave figure into an hourly rate (`coins/h ≈ (CPW + kills×CPK) × waves/h`) and prices the speed leg from the
+`Game Speed` ladder: values `1.5 + 0.5n` = **×2.0…×5.0** (7/7), **1 714 800** coins, **65 277 min = 45.33 d** of one slot.
+Also banked: `round` ≠ `wave` and a **restart does not refresh** a once-per-round effect; the **Wave Info Menu** (tap the wave
+counter) prints each enemy’s spawn frequency. §The wave clock.
 Rev: 3 (2026-11-02) — **the per-tier build is now printed** (`wiki/guide/tier-specific-guide`): the Blender/Thorns
 tier-push build, the **1.8×** Tier-2 coin multiplier, the **25 → 500 000 000** mission-coin pair for T1/T18, the CPW-early
 / CPK-late split, the Thorns-≥5 % switch trigger, **Plasma 54 % + Thorns** and **Energy Net ×20** as the two boss answers,
@@ -71,6 +78,48 @@ caps at lab L20, so a source that lifts **both** is worth more per level:
 | `Death Wave` | **yes** — coin bonus requires the lab | no | T008 |
 | `Coin Bot` | medals (event shop) | no | T015 |
 
+## The wave clock — the missing time base for every per-wave number (`system/gameplay`, 2026-07-29)
+
+The page prints the timers **at ×1 speed**: a normal wave is a **26.00 s length stage** (enemies spawn and are attacked)
+followed by a **9.00 s cooldown stage** (nothing spawns), and the next wave starts only when **both** timers have run out.
+So one wave costs **35 s** of game time (74.3 % spawning / 25.7 % idle), and **in tournaments the cooldown is halved**
+⇒ **30.5 s** per wave. With the speed cap `s` this is a one-line law:
+
+> **waves/hour = 3600 × s / 35** normally, **3600 × s / 30.5** in a tournament — the tournament's halved cooldown is worth
+> **×1.1475** waves in the same wall-clock time.
+
+| Speed cap | waves / h | Tournament waves / h | Where the cap comes from |
+|---|---|---|---|
+| ×1 | **102.86** | 118.03 | no `Game Speed` level bought |
+| ×2 | 205.71 | 236.07 | `Game Speed` **L1** (300 coins) |
+| ×2.5 | 257.14 | 295.08 | L2 |
+| ×3 | **308.57** | 354.10 | **L3** (cumulative 14 800 coins, T020) |
+| ×3.5 | 360.00 | 413.11 | L4 |
+| ×4 | 411.43 | 472.13 | L5 |
+| ×4.5 | 462.86 | 531.15 | L6 |
+| ×5 | **514.29** | **590.16** | **L7** — the lab cap (`Game Speed` = 7 levels, T020) |
+| ×6.25 | 642.86 | 737.70 | L7 **+** the `Game Speed` perk stack (0.15 × 5 ⇒ +1.25, T011) |
+
+**Why the table is worth having:** every coin figure in this repo is *per wave* or *per kill*, and the two legs of the coin
+formula share this clock —
+
+> **coins/hour ≈ CPW × waves/h + (kills per wave × CPK) × waves/h**
+
+so **the same 14 800 coins that buy `Game Speed` L1–L3 triple the waves/hour term of both legs at once** (102.86 → 308.57),
+which is exactly why T020 puts that line first. The page also prices the whole line: values follow `1.5 + 0.5 × level`
+(**×2.0 … ×5.0**, 7/7 ✓ printed), the seven costs re-add to **1 714 800** coins and the seven times to **65 277 min =
+45.33 d** of one lab slot.
+
+**Two mechanical rules from the same page that change what to tap:**
+
+1. **`round` ≠ `wave`.** A round is the whole run to death; anything “once per round” stays spent **until the tower dies —
+   restarting or advancing waves does not refresh it** (so `Second Wind`-class effects are worth planning around a *death*,
+   and Wave Skip does not give you a fresh charge).
+2. **Two free readouts, both taps away:** tap the **top-left currency display** to flip it between totals and
+   **per-minute rates** (the instrument for every before/after in these docs), and tap the **wave counter** (right of the
+   health bar) to open the **Wave Info Menu**, which lists every enemy type with its stats **including how often it spawns**
+   — that is the on-screen source for the “kills per wave” term above.
+
 ## Priority notes
 
 - **Attack Speed** is the one attack stat that matters early: every hit rolls knockback and every on-hit effect, so hits/second ≈ "more of everything" (the page lists it first among the attack stats).
@@ -108,6 +157,15 @@ caps at lab L20, so a source that lifts **both** is worth more per level:
 3. Tap the top-left **counter** to switch to the per-minute read before starting the comparison run.
 4. Set the **Range** lab slider (1×–4×) *before* pressing `Battle`.
 
+## Reproduction checklist
+
+- [ ] **The wave clock:** at **×1** speed, count the wave counter across a timed **10-minute** span — **≈ 17.1 waves**
+      (102.86/h). At the `Game Speed` **L3** cap (×3) the same ten minutes give **≈ 51.4**; inside a tournament multiply each
+      figure by **1.1475** (the halved cooldown).
+- [ ] **The speed cap ladder:** the `Game Speed` line prints **×2.0 / ×2.5 / ×3.0 / ×3.5 / ×4.0 / ×4.5 / ×5.0** for levels
+      1–7 (`1.5 + 0.5 × level` ✓ 7/7), the seven costs re-add to **1 714 800** coins and the seven times to **45.33 d**.
+- [ ] **Once per round:** after using a once-per-round ability, press **restart** without dying — the charge is still spent ✓;
+      only a tower death refreshes it.
 - [ ] **Per-tier build:** a Tier-2 run pays **1.8×** the coins per wave of the Tier-1 run at the same wave (the HUD’s
       per-minute read after tapping the top-left counter makes this a one-line comparison).
 - [ ] The Scatter chain costs **31** hits (1+2+4+8+16) and a Plasma-Cannon-stripped boss (54 % gone) dies to one Thorns tick.
@@ -127,8 +185,24 @@ caps at lab L20, so a source that lifts **both** is worth more per level:
   is tier-dependent → record coins/min at L20 vs L25 on one tier and re-table the ceiling per tier band.
 - If two UWs that are up *at the same instant* fail to multiply (the kill pays one bonus, not the product), the
   “same enemy” condition is what differs → re-read the two cooldowns; a product only exists when the windows overlap.
+- If the measured wave rate at **×1** comes out nearer **138.5/h** (`3600 / 26`) than **102.86/h**, the wave counter advances
+  at the *end of the length stage*, so the cooldown is not inside the cycle → set the divisor to **26 s** (which also makes the
+  tournament boost exactly **×1.0**, since a halved cooldown would then be free) and rebuild the table from the two counts.
+- If the tournament rate is **not** ≈ **×1.1475** of the non-tournament rate at the same speed cap, the halving applies to a
+  different timer → record both rates and take the divisor from `3600 × s / rate`.
 
 ## Sources
+
+Tower Hub `wiki/system/gameplay` (2026-07-29) — **the wave clock** (`Normal Wave`: length **26.00 s**, cooldown **9.00 s** at
+×1 speed; the cooldown is **halved in tournaments**), the `wave` vs `round` definitions and the rule that restarting or
+advancing waves does **not** refresh a once-per-round effect, the two HUD readouts (tap the **top-left** currency display for
+per-minute rates; tap the **wave counter** for the **Wave Info Menu** with each enemy’s stats and spawn frequency), the tower
+layout (workshop along the bottom, stat summary above it, ability buttons and the wall bar above the main health bar, speed
+control over the wave counter), and the currency census (**7** main currencies + **5** shard varieties, Energy Shield charges
+shown under the gem count).
+Tower Hub `wiki/workshop/game-speed` (2026-11-01) — the `Game Speed` 7-level ladder: values **×2.0 … ×5.0**
+(`1.5 + 0.5 × level`, 7/7 ✓), costs **300 / 2 500 / 12 000 / 50 000 / 150 000 / 500 000 / 1 000 000** = **1 714 800** coins,
+times **10 m … 25 d 11 h 7 m** = **65 277 min = 45.33 d** of one lab slot.
 
 Tower Hub `wiki/guide/beginner-guide` (2026-07-29) — the in-run phase order **with wave ranges** (Cash/Wave 5–9 →
 Coins/Wave 10–20 → Cash Bonus + Coins/Kill → Def Abs → Thorns at the next breakpoint), the step-2 shift to Health, the
