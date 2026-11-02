@@ -1,81 +1,134 @@
-# T015 — Bot economy: what a medal actually buys, and the cell/coin chain
+# T015 — Bot economy: the three exact cost formulas, and the sync-aware order
 
-Rev: 1 (2026-11-01) · Currency: **Coins** (Golden Bot bonus), **Elite Cells** (Golden Bot+), **Coins/damage** (Amplify/Flame/Thunder)
-**Value:** ★★★★ once unlocked — a maxed Golden Bot is **×8 coin bonus** from kills in range with **90 % uptime** at max labs, and **Golden Bot+ adds ×1.25 → ×2.50 to every Elite Cell** dropped in that window ([T006](T006-lab-queue-packing.md)).
-**Confidence:** **Medium** — base/max stats and level counts are the fandom bot pages (transcribed from the live upgrade panel); the cost arithmetic and the uptime/activation figures below are derived. One stat is ambiguous (§5, H015).
-**Ease:** 1 tap per upgrade level · **Prerequisite:** the **Event Shop** must be open (Events, T1 W70); bots are bought there, and the **Bot+** abilities only after **all five bots are owned**.
+Rev: 2 (2026-11-01) — three closed-form cost formulas added (each reproduces the wikis' printed totals exactly), H015
+resolved (**+0.05** per Bot Bot level), the respec price corrected to **300 gems**, and the lab gates + non-respeccable
+cooldown-lab footgun added.
+Currency: **Coins** (Golden Bot bonus), **Elite Cells** (Golden Bot+), **Medals** (the whole bot block) · Status:
+**Unverified** on device, but **model-checked**: 56 100 / 17 500 / 11 500 / 8 100 all reproduced from the formulas in §1.
+
+| | |
+|---|---|
+| **Value** | ★★★★ — Golden Bot is the cheapest coin multiplier in the game (×2.0 → ×8.0 with 90 % uptime once both labs |
+| | are in), and **Golden Bot+ × Bot Bot+ multiplies every Elite Cell by up to ×6.25** on top of the Cells card, which feeds |
+| | the lab-boost loop ([T006](T006-lab-queue-packing.md)). Medal flow is the binding constraint: ≈ 1 215 medals/event. |
+| **Confidence** | **High** — two independent wikis (fandom raw wikitext + Tower Hub, “last verified 2026-11-01”, from a |
+| | Legend account) agree on every per-level increment and on all four printed totals; the formulas below are exact. |
+| | **Medium** on Bot Bot's level *count* (19 vs 30 — §6, the increment itself is settled). |
+| **Ease** | 1 tap per level in the Event Shop's bot panel · **Prerequisite:** Events open (T1 W70); Bot+ needs **all five** |
+| | bots; the cooldown labs come from Milestones at **T5 W80** (Golden) and **T6 W90** (Bot Bot). |
 
 ---
 
-## 1. Cost model (the part that decides the order)
+## 1. The three closed-form cost formulas (all reproduce the printed totals)
 
-- **Unlock** price depends on how many bots you already own: **150 / 300 / 600 / 900 / 1 200** medals (cumulative 150 → 3 150) — see [T013](T013-event-medal-economy.md) §2.
-- **Every upgrade line** starts at **100 medals** and rises **+40 per level**: level *n* costs `100 + 40(n−1)`, so a full line of *L* levels costs `100L + 20L(L−1)`:
-
-| Line length | 15 | 18 | 20 | 25 | 30 |
-|---|---|---|---|---|---|
-| Total medals | 5 700 | 7 920 | 9 600 | 14 500 | **20 400** |
-
-- **The budget:** ≈ **1 215 medals per 2-week event** (T013 §1). One 30-level line = **20 400 medals ≈ 17 events ≈ 34 weeks**; a fully levelled **Golden Bot** (30+15+30+20 levels) = **56 100 medals ≈ 46 events**. Bots are therefore a *multi-year* sink — spend order matters more than volume.
-- **Bots are refundable**: the free once-per-event respec returns every invested medal (T013 §2), so early levels are not locked in.
-- **Bot+** abilities cost **1 250 stones each** (after all five bots are owned) and their own medal line runs **+50 medals per level** (totals: Golden Bot+ 17 500, Flame Bot+ 11 500, Thunder Bot+ 11 500, Bot Bot+ 11 500, Amplify Bot+ 8 100 — **60 100** for all five).
-
-## 2. The five bots (base → max from the upgrade lines)
-
-| Bot | What it does | Base → max (levels) |
-|---|---|---|
-| **Golden Bot** | coin multiplier on enemies killed in range | Bonus **×2.0 → ×8.0** (+0.2 × 30 lv) · Duration **20 → 35 s** (+0.5 × 30) · Cooldown **120 → 75 s** (−3 × 15) · Range **20 → 60 m** (+2 × 20) |
-| **Amplify Bot** | damage amplification on enemies in range | Bonus **×3.5 → ×15.5** (+0.4 × 30) · Duration 20 s (+0.5 × 30) · Cooldown 120 → 75 s (−3 × 15) · Range 25 → 61 m (+2 × 18) |
-| **Flame Bot** | burn area damage (1 tick/s) + damage reduction on burned enemies | Damage **×50 → ×290** tower damage (+8 × 30) · Damage reduction **20 % → 95 %** (+3 % × 25) · Cooldown **75 → 30 s** (−3 × 15) · Range 30 → 90 m (+4 × 15) |
-| **Thunder Bot** | area stun, then a lingering slow (½ effect on bosses/elites) | Linger slow from **20 %** (20 lv) · stun duration (20 lv) · Cooldown 120 → 75 s (15 lv) · Range (15 lv) |
-| **Bot Bot** | multiplies the **bonus** of every other bot inside its range | Bonus **×1.05 →** (30 lv; increment ambiguous — §5) · Duration 20 s · Cooldown 120 → 75 s · Range 25 → 61 m |
-
-Range on every bot is further **amplified by tower range** and by relics/Vault upgrades.
-
-### Why the Cooldown line is the cheapest big multiplier
-
-| Cooldown | Activations/hour | Window | **Uptime** |
+| Line type | per-level cost | Σ to level *L* | reproduces |
 |---|---|---|---|
-| 120 s (base) | 30 | 20 s | 16.7 % |
-| 75 s (medals maxed) | **48** | 35 s | 46.7 % |
-| 50 s (with the cooldown lab) | **72** | 45 s (lab) | **90 %** |
+| **any normal bot stat line** | `100 + 40(n−1)` | `20L² + 80L` | Golden Bot's four lines = **56 100** (20 400 + 5 700 + 20 400 + 9 600) ✓ |
+| **standard Bot+ line** (Bonus Cells, Maximum Power, Wild Fire, Titan Shock) | `50 + 50n` | `25L² + 75L` | 25 levels ⇒ **17 500** ✓ · 20 levels ⇒ **11 500** ✓ |
+| **Echoing Shot (Amplify Bot+)** | `100 + 200(n−1)` | `100L²` | 9 levels ⇒ **8 100** ✓ |
 
-The 15-level Cooldown line costs only **5 700 medals** and raises activations/hour by **1.6×**; the duration/cooldown labs then push uptime to ~90 %. So the *first* meaningful purchase on any bot is its **Cooldown** line, before its Bonus line.
+Every bot line is therefore: **1 level = 100**, 2 = 140, 3 = 180 … (normal), and Bot+ levels 100, 150, 200, 250 … .
+Bot+ unlocks cost **1 250 stones each** ⇒ **6 250 stones** for all five, and the five Bot+ lines together are
+**60 100 medals** ≈ 50 events ≈ **100 weeks**.
 
-## 3. The currency chains (why the order is Golden → Bot Bot → Bot+)
+## 2. The knee table (medals per unit, by block of 5–10 levels)
 
-1. **Coins:** `kills in range × Golden Bot bonus (×2…×8) × Bot Bot multiplier × (Golden Tower UW window, T008)`. These multiply each other, so overlapping windows are the whole game: get the cooldown/duration lines until Golden Bot is up whenever Golden Tower is up.
-2. **Elite Cells:** `Golden Bot+ (Bonus Cells) ×1.25 → ×2.50` for elites killed inside the Golden Bot window, then **Bot Bot+ (Maximum Power) ×1.25 → ×2.50** multiplies that again — potentially **×6.25 cells**, on top of the Cells card and the Elite Balance mastery. Cells buy lab boosts at 30 cells/skipped-hour (T006), so this is a compounding loop.
-3. **Damage/push:** Amplify Bot+ **Echoing Shot** makes bullets in range count as **3 → 12** (UW projectiles get ⅓ of that), which is a near-linear damage increase; Flame Bot+ **Wild Fire** ×1.5 → ×3.5; Thunder Bot+ **Titan Shock** −5 % → −25 % enemy attack speed permanently, multiplied by the number of digits in the enemy's mass.
+Same 4×-worse-per-block shape as the UW stone lines (T008 §3) — finish a block, then stop:
 
-## 4. Steps (UI only)
+| Line | block 1 | block 2 | block 3 | block 4 | block 5 |
+|---|---|---|---|---|---|
+| **Cooldown** (−3 s/lv, 15 lv) | L1–5 = **900** (60 medals/s) | L6–10 = 1 900 (127) | L11–15 = 2 900 (193) | — | — |
+| **Bonus** (+0.2×/lv, 30 lv) | L1–10 = **2 800** (1 400 /×1) | L11–20 = 6 800 (3 400) | L21–30 = 10 800 (5 400) | — | — |
+| **Duration** (+0.5 s/lv, 30 lv) | L1–10 = **2 800** (280 /s) | L11–20 = 6 800 (680) | L21–30 = 10 800 (1 080) | — | — |
+| **Range** (+2 m/lv, 20 lv) | L1–10 = **2 800** (140 /m) | L11–20 = 6 800 (340) | — | — | — |
+| **Bot+ cell/power lines** (+0.05/lv) | L1–5 = **1 000** (×1.25→1.50) | L6–10 = 2 250 (→1.75) | L11–15 = 3 500 (→2.00) | L16–20 = 4 750 (→2.25) | L21–25 = 6 000 (→2.50) |
+| **Echoing Shot** (+1 bullet/lv) | L1–5 = **2 500** (500 /bullet) | L6–9 = 5 600 (1 400) | — | — | — |
 
-1. Home screen → **Events** → **Event Shop** → the **Bots** section (the shop lists the bots; the panel shows the 150/300/600/900/1 200 unlock price).
-2. Unlock **Golden Bot** first (150 medals, the cheapest slot).
-3. Tap it → the upgrade list appears (4 lines with their level counts). Level the **Cooldown** line to 15 (5 700 medals), then the **Bonus** line as far as the medal budget allows (+0.2 ×-bonus per level), leave **Range** last.
-4. Repeat for **Amplify Bot** (its Cooldown line first as well), then Thunder/Flame/Bot Bot as medals accumulate.
-5. Once **all five** are owned, the **Bot+** abilities appear: buy **Golden Bot+ (Bonus Cells)** first for 1 250 stones — it is the Elite-Cell multiplier that feeds T006's lab boosts — then **Bot Bot+ (Maximum Power)** to multiply it.
-6. Save the **Bots → Synchronicity** view (the panel that lists each bot's cooldown/duration) to check window overlap against Golden Tower; use **Bot presets** (`BotPresetsUI`) if you run different bot sets for farming vs pushing.
-7. Remember the free **respec** (once per event) if you want to move medals from a weak line to a strong one — the refund is the whole reason early bot levels are risk-free.
+At ≈ **1 215 medals per 2-week event** (T013 §1): Golden Bot's Cooldown line = 5 700 ≈ 4.7 events; its full 56 100 ≈ 46
+events; Bonus Cells to ×2.00 = 6 750 ≈ 5.6 events; all five Bot+ lines = 60 100 ≈ 50 events.
 
-## 5. Reproduction checklist
+## 3. Uptime and the sync window (this is what actually multiplies coins)
 
-- [ ] The 1st bot unlock reads **150** medals, the 2nd **300**, the 5th **1 200**.
-- [ ] Upgrade level 1 of any line costs **100** medals and level 2 costs **140**.
-- [ ] Golden Bot's Bonus line reads **×2.0** at level 0 and **+0.2** per level.
-- [ ] Golden Bot Cooldown reaches **75 s** at medal level 15 and **50 s** after the cooldown lab.
-- [ ] Elite kills inside the Golden Bot window show the cell multiplier from Bot+ (**×1.25** at level 0, **×2.50** at 1 300 medals).
-- [ ] The respec returns the invested medals in the same event.
+| Golden Bot state | Cooldown | Duration | Activations/h | **Uptime** |
+|---|---|---|---|---|
+| base | 120 s | 20 s | 30 | 16.7 % |
+| Cooldown line 15 + Duration line 30 | 75 s | 35 s | 48 | 46.7 % |
+| + both labs (−25 s, +10 s) | **50 s** | **45 s** | 72 | **90 %** |
 
-## 6. Falsification
+The two labs are **Milestone-gated**: `Golden Bot Cooldown` at **T5 W80** (25 levels, −1 s each, first levels 30 M /
+60.05 M / 91.6 M / 132.15 M / 201.2 M coins) and `Golden Bot Duration` at **T10 W50** (20 levels, +0.5 s each,
+100 B → 150 B → 225 B → 337.5 B → 506.25 B, i.e. **×1.5 per level**). Bot Bot's pair (`Cooldown`, `Duration`) unlocks at
+**T6 W90** with the same shape.
 
-- If an upgrade line's 2nd level does not cost **140**, the +40 increment is stale → recompute §1's line totals from the panel.
-- If **Bot Bot**'s bonus jumps by **0.5** (not 0.05) per level it would reach ×16 at level 30, which is out of line with every other bot's cap — see [H015](../hypotheses/H015-bot-bot-increment.md); read level 1 in the panel to fix the increment.
-- If Golden Bot's max bonus is not **×8.0**, note the value and re-derive the coin chain in §3.
-- If Bot+ abilities appear before all five bots are owned, the “all bots first” gate is wrong and the 1 250-stone purchase can be prioritised earlier.
+**Sync rule (ties into T008 §4):** with the coin trio at GT 200 / BH 100 / DW 200, set Golden Bot's cooldown to a
+**divisor of 200**: **100 s** = 5 medal levels (900 medals) + 5 lab levels (519.9 M coins) ⇒ fires twice per GT cycle and
+is always inside it; the fully-maxed **50 s** (= 15 + 25) is the other clean divisor. Avoid the in-between values —
+75 s vs 200 s only re-aligns every 600 s.
+
+⚠️ **Footgun:** the bot **cooldown labs cannot be respecced** (Tower Hub), so the sync target must be chosen *before*
+researching level 1. The medal lines *are* respeccable, for **300 gems** (T022 §2's respec list; the Vault reduces it to 0,
+T017), and the refund covers Bot+ levels too — re-unlocking Bot+ after a respec costs no stones again.
+
+## 4. What each Bot+ ability is worth
+
+| Bot+ (1 250 stones) | Levels | Effect at 0 → max | Why it ranks |
+|---|---|---|---|
+| **Golden Bot+ — Bonus Cells** | 25 (17 500 m) | ×1.25 → **×2.50** cells | directly multiplies Elite Cells → lab boosts (T006) |
+| **Bot Bot+ — Maximum Power** | 20 (11 500 m) | ×1.25 → **×2.25** to *other* Bot+ | multiplies the line above ⇒ ≈ **×5.6** cells together |
+| **Amplify Bot+ — Echoing Shot** | 9 (8 100 m) | 3 → **12** bullets | near-linear damage (UW projectiles get ⅓) |
+| **Flame Bot+ — Wild Fire** | 20 (11 500 m) | ×1.5 → ×3.5 | damage-on-burn |
+| **Thunder Bot+ — Titan Shock** | 20 (11 500 m) | −5 % → −25 % enemy attack speed (× digits of enemy mass) | permanent, so it is run-independent |
+
+## 5. Steps (UI only)
+
+1. Home → **Events** → **Event Shop** → the bot entries; unlock in this order: **Golden Bot (150)** → **Amplify (300)** →
+   **Thunder (600)** → **Flame (900)** → **Bot Bot (1 200)** (the price is the count you already own).
+2. Open **Golden Bot** in the panel and tap the **Cooldown** line's `+` to level 5 (**900 medals**) — that alone takes
+   uptime from 16.7 % to ≈ 21 % and is the cheapest multiplier per medal in the shop.
+3. Then **Bonus** to 10 (**2 800**, ×2.0 → ×4.0) before touching **Range** (Range is the cheapest *per level* but the
+   least useful while your kills are inside the tower's range anyway).
+4. When the **`Golden Bot Cooldown`** lab appears (Milestones T5 W80), decide the target first (§3): take **5 lab levels**
+   to land on exactly **100 s** — not 8, not 12 (non-divisors break the sync).
+5. Research **`Golden Bot Duration`** at T10 W50 (its first 5 levels cost 100 B → 506.25 B coins, so it is a late-tier
+   purchase; each level is +0.5 s and it is what pushes uptime to 90 %).
+6. After **all five bots**: **Bot+** panel → buy **Golden Bot+** (1 250 stones) and take it to level 15 (**×2.00**, 6 750
+   medals) — the block table says level 16+ costs 24 %–75 % more per +0.05; then **Bot Bot+** to level 10 (**×1.75**).
+7. Take the **300-gem bot respec** only inside an event, and only to move medals from `Range`/`Duration` into
+   `Cooldown`/`Bonus` — the refund returns Bot+ levels too, so a Bot+ re-unlock costs no stones.
+8. Do **not** research bot cooldown lab levels past your sync divisor “because the lab is cheap” — those levels are
+   permanent and are the one bot purchase the respec cannot undo.
+
+## 6. Reproduction checklist
+
+- [ ] Bot unlock prices read **150 / 300 / 600 / 900 / 1 200**; the first upgrade level of any line reads **100**, the
+      second **140**, the third **180** (formula `100 + 40(n−1)`).
+- [ ] Golden Bot's four lines at max read **×8.0 / 35 s / 75 s / 60 m** and the panel's total spent is **56 100** medals.
+- [ ] `Bonus Cells` reads **×1.25** at level 0, **×1.30** at level 1 (**+0.05** per level), and **×2.50** at 25 — the line
+      total is **17 500** medals (this is also the H015 read: 0.05, not 0.5).
+- [ ] `Maximum Power` caps at **×2.25** (20 levels, 11 500 medals).
+- [ ] With 5 cooldown-lab levels + 5 medal levels, Golden Bot's cooldown reads exactly **100 s**.
+- [ ] The respec costs **300 gems** and the medal counter returns in full.
+
+## 7. Falsification
+
+- If a normal line's level 2 costs something other than **140**, the `+40` ladder changed → re-read three levels and
+  rebuild §1 (the whole ranking is ratio-driven, so only the block boundaries matter).
+- If Bot Bot's `Bonus` reads **+0.5** per level, Tower Hub's 19-level/×2.00 table is stale and the fandom's 30-level/×2.55
+  is live → recompute §2's Bot+ rows and note it in [H015](../hypotheses/H015-bot-bot-increment.md).
+- If `Bonus Cells` at level 1 is not ×1.30, the Bot+ ladder is not `50 + 50n` → record the first five prices.
+- If the Golden Bot cooldown reads a value that is not `120 − 3·(medal levels) − (lab levels)`, another source (module
+  sub-stat, relic, Vault line) is in the sum → list them and re-derive the divisor.
 
 ## Sources
 
-- fandom `Golden Bot`, `Amplify Bot`, `Flame Bot`, `Thunder Bot`, `Bot Bot` (raw wikitext) — per-bot stat lines with level counts and per-level increments, the “100 medals +40/level” rule, the 1 250-stone Bot+ gate, and the Bot+ medal ladders (17 500 / 11 500 / 11 500 / 11 500 / 8 100).
-- fandom `Currency/Elite Cells` — Golden Bot+ / Bot Bot+ listed as cell-flow upgrades.
-- `tools/gm_strings.txt` — `Assets\Scripts\Bot.cs`, `BotDescriptionPanel.cs`, `BotPresetsUI.cs`, `Bots.cs`, `UserBotData`; panel strings `Bots`, `Synchronicity`.
+- fandom raw wikitext: `Golden Bot`, `Amplify Bot`, `Flame Bot`, `Thunder Bot`, `Bot Bot` — per-line increments/level
+  counts (e.g. Golden: Bonus 30 lv +0.2, Duration 30 lv +0.5, Cooldown 15 lv −3, Range 20 lv +2; Flame cooldown starts at
+  **75 s**; Amplify Bonus +0.4/lv → ×15.5), the “100 + 40/level” rule, and the five Bot+ tables with their totals
+  (17 500 / 8 100 / 11 500 / 11 500 / 11 500).
+- Tower Hub `wiki/bot/golden-bot` + `wiki/bot/bot-bot` (last verified 2026-11-01) — the **56 100**-medal total,
+  Bot Bot's **19 levels / +0.05 / ×2.00** cap, `Maximum Power` **×1.25→×2.25 / 11 500**, the lab gate waves
+  (**T5 W80**, **T6 W90**, **T10 W50**) with per-level coin costs (30 M → 3.25 B; 100 B → 3.84 T at ×1.5/level), the
+  **300-gem** bot respec that also refunds Bot+, and “lab levels cannot be respecced”.
+- Cross-references: [T013](T013-event-medal-economy.md) (medal income), [T006](T006-lab-queue-packing.md) (what cells buy),
+  [T008](T008-uw-sync-with-stones.md) §4 (the 200-s sync package the bot must divide), [T017](T017-vault-keys-priority.md)
+  (respec-to-0 lines).

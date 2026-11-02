@@ -1,22 +1,24 @@
-# H015 — Bot Bot's bonus increments by 0.05, not 0.5, per level
+# H015 — Bot Bot's Bonus increment: +0.05 or +0.5 per level?
 
-Status: open · Raised: 2026-11-01
+Status: **resolved** (2026-11-01) · Raised: 2026-11-01
 
-**Claim.** The wiki writes “Bonus starts at ×1.05 and has 30 levels. Each level increases bonus by **0.5**”,
-which would make Bot Bot cap at **×16.05** — implausible next to every other bot (Golden Bot caps at ×8.0) and
-to the Bot+ ladders, which top out at ×2.5. The reading that fits the rest of the system is **+0.05 per level**,
-capping at **×2.55** (≈ the ×2.5 seen on the Bot+ lines).
+**Answer: +0.05 per level.** Tower Hub's `wiki/bot/bot-bot` (last verified 2026-11-01, from a live Legend account) prints
+the line as “starts at ×1.05 and has **19 levels**, each adding **0.05**, up to **×2.00**”, and its per-level table shows
+`x1.10` at level 1, `x1.15` at level 2 … — i.e. +0.05 per level. That table is **internally consistent**, which is the
+decisive part: 1.05 + 19 × 0.05 = **2.00**, exactly the stated cap.
 
-**Why it matters.** Bot Bot multiplies the Golden Bot coin bonus and the Amplify Bot damage bonus, so it sits
-*inside* both currency chains (T015 §3). At ×2.55 it is a modest multiplier and belongs behind the cooldown
-lines; at ×16 it would be the single highest-value bot line in the game and would jump to the top of the
-medal queue, ahead of the Golden Bot Bonus line.
+With `+0.5` the same arithmetic would give 1.05 + 19 × 0.5 = **10.55**, matching neither the printed ×2.00 cap nor any
+other bot's range (every other bot line ends between ×2 and ×290 in one or two orders of magnitude). So the fandom page's
+“each level increases bonus by 0.5” is the stale/incorrect entry.
 
-**Settling observation (2 taps).** In the **Event Shop → Bots → Bot Bot** upgrade list, read the Bonus line's
-value at level 0 and after buying **level 1**:
-- `×1.05 → ×1.10` ⇒ +0.05/level, cap **×2.55** (expected).
-- `×1.05 → ×1.55` ⇒ +0.5/level, cap **×16.05** — then re-order T015 §3 with Bot Bot first.
-A third possibility is a percentage-style display (105 % → 110 %), which also means +0.05.
+**Consequence for the technique.** [T015](../techniques/T015-bot-economy.md) §2/§4 use **×2.00** (or ×2.25 for the Bot+
+`Maximum Power` line) as the Bot Bot multiplier, so the coin chain reads
+`kills-in-range × Golden Bot bonus × 2.00 (Bot Bot) × (GT window)` rather than the impossible ×10.55.
 
-**Falsifier.** If the panel shows a cap value directly, transcribe it; the derived chain in T015 §3 should then
-use the panel's cap rather than either reading.
+**What stayed open (moved to [H034](H034-botbot-level-count.md)).** The **level count**: fandom says 30 levels (which with
++0.05 would end at ×2.55), Tower Hub says 19 (ending at ×2.00). The one read that settles it is the Bonus line's cap in
+the bot panel.
+
+**Cross-checks already satisfied:** the normal-line ladder `100 + 40(n−1)` appears in both wikis and reproduces the
+independently printed **56 100**-medal total for Golden Bot exactly (§1 of T015), so the panel's price column itself is
+confirmed.
