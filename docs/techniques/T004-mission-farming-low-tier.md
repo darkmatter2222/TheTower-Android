@@ -1,5 +1,10 @@
 # T004 — Farm daily/weekly missions on the lowest useful tier
 
+Rev: 4 (2026-11-02) — the shard law is **additive in the lab level**: `wiki/module/module-labs` (2026-11-01) prints
+`Daily Mission Shards` as **+1 shard per level** across **50** levels ("across its 50 levels, it adds up to **50 extra
+shards per mission**"), so a mission pays **`base(n) + L`** and the **weekly shard bill is `42 × (base(n) + L)`** —
+at T10 **1 470** at L0 rising to **3 570** at L50, at T18 **3 150 → 5 250**, at T24 **4 410 → 6 510** (each 50 levels of
+the lab is exactly **+2 100 shards/week**). The other five weekly rows are unaffected.
 Rev: 3 (2026-11-02) — the **24-row tier table transcribed in full**, with two derived results: the **shard column is
 arithmetic** from T6 (`15 + 5·(n − 6)`, all 19 rows exact ⇒ T24 = 105) while the **coin column has no closed form** (the
 23 step ratios are 4/10/10/2.5/3.2/3.125/2/2/3/1.667/1.6/1.875/2/2.5/2/2/1.667/1.5/1.667/1.6/5/5/2), and the **weekly
@@ -11,9 +16,9 @@ Rev: 2 (2026-11-02) — the whole daily layer is now printed (Tower Hub `wiki/sy
 (24 rows), the **7-box weekly table with its Total row (Σ coins ×64 · 185 gems · 135 medals · 45 stones · 35 tokens)**
 — the medals total re-adds against the fandom 6-box ladder, and the coins Σ re-adds (3+4+5+7+10+15+20 = 64 ✓) — plus
 the reroll rule (5 gems / T4 W30).
-Value: ★★★★ — at Tier 10 the mission system alone pays ≈ **311 gems + 318 M coins + 1 470 shards + 45 stones + 135
-medals + 35 guild tokens per week** (arithmetic below) — it funds the module and guild economies outright. · Ease:
-5 min per mission set · Prerequisite: Tier 2 (shards only after T2 W90)
+Value: ★★★★ — at Tier 10 the mission system alone pays ≈ **311 gems + 318 M coins + 1 470 shards (3 570 at shard-lab
+L50) + 45 stones + 135 medals + 35 guild tokens per week** (arithmetic below) — it funds the module and guild economies
+outright. · Ease: 5 min per mission set · Prerequisite: Tier 2 (shards only after T2 W90)
 
 ## Why it works
 
@@ -50,7 +55,10 @@ just "how many new missions appear at the 08:00 tick".)*
 rows are hand-set (`3, 5, 8, 12, 15` — the steps there are +2 /+3/+4/+3). The coin column's own step ratios are
 4, 10, 10, 2.5, 3.2, 3.125, 2, 2, 3, 1.667, 1.6, 1.875, 2, 2.5, 2, 2, 1.667, 1.5, 1.667, 1.6, 5, 5, 2 ⇒ **no geometric
 shape**, so read the tier row from the panel rather than extrapolating. The `Daily Mission Shards` lab (**50** levels,
-T006 §census) scales the shard column — its per-level step is the one open read.
+gate **Tier 4 Wave 70**) has a **printed step of +1 shard per level, additive** — “across its 50 levels, it adds up to
+**50 extra shards per mission**” (`wiki/module/module-labs`, 2026-11-01) ⇒
+
+`shards per mission = base(n) + L`  → at **L10**: T10 = **45**, T18 = **85**; at **L50**: T10 = **85**, T24 = **155**
 
 **Weekly totals as one formula each** (42 missions per week = 6/day × 7 days, plus all seven boxes):
 
@@ -58,7 +66,7 @@ T006 §census) scales the shard column — its per-level step is the one open re
 |---|---|---|---|---|
 | coins | **106 × coins(n)** (42 from missions + **64** from the boxes) | **318 M** | **53 B** | **10.6 T** |
 | gems | `42 × 3 + 185 = ` **311** (tier-independent) | 311 | 311 | 311 |
-| shards | `42 × shards(n)` | 1 470 | 3 150 | 4 410 |
+| shards | `42 × (base(n) + L)` — **L = `Daily Mission Shards` level**, so every 50 levels add **+2 100** | 1 470 → **3 570** | 3 150 → **5 250** | 4 410 → **6 510** |
 | stones | **45** (boxes only) | 45 | 45 | 45 |
 | medals | **135** (boxes only) | 135 | 135 | 135 |
 | guild tokens | **35** (7 boxes × 5) | 35 | 35 | 35 |
@@ -80,8 +88,9 @@ The coins column is a **multiplier on the tier-linked base** above (same base as
 T10 = 64 × 3.00 M = **192 M**. **Cross-source check:** the medals Total **135** equals the fandom ladder
 10+15+20+25+30+35 exactly — two prints, one ledger.
 
-**Worked weekly total at Tier 10 (6/day × 7 days + all boxes):** gems 126 (missions) + 185 (boxes) = **311**;
-coins 126 M + 192 M = **318 M**; shards **1 470** (210/day); stones **45**; medals **135**; guild tokens **+35**.
+**Worked weekly total at Tier 10 (6/day × 7 days + all boxes, shard lab at 0):** gems 126 (missions) + 185 (boxes) =
+**311**; coins 126 M + 192 M = **318 M**; shards **1 470** (210/day, or **3 570** at lab level 50 = 510/day); stones
+**45**; medals **135**; guild tokens **+35**.
 The token row means the guild budget in [T016](T016-guild-tokens-bits.md) is **150 + 35 = 185 tokens/week**, not 150.
 
 **Reroll:** **5 gems** per swap (unlocks **T4 W30**, one lab level; costs 20 M coins / 1 d 16 h research), guaranteed
@@ -120,6 +129,8 @@ count now known (`42 × shards(n)`), that node is what decides whether those sha
 - [ ] A reroll costs **5** gems and never returns the same mission.
 - [ ] **Shard law (§daily ledger):** at T6 a mission pays **15** shards and each further tier adds **+5** (T10 = 35,
       T18 = 75, T24 = **105**) — 19 rows from one formula.
+- [ ] **Lab step is additive:** with `Daily Mission Shards` at level **10** a T10 mission pays **45** and a T18 mission
+      **85**; at level **50** → **85** / **155**. Per 50 lab levels the week gains exactly **+2 100** shards.
 - [ ] **Weekly coins = 106 × the tier row:** at T10 the week should land on **318 M** (42 × 3 M from missions +
       64 × 3 M from boxes); at T18 **53 B**.
 - [ ] Gems/medals/stones/tokens are **tier-flat**: 311 / 135 / 45 / 35 whether you sit at T10 or T24.
@@ -132,7 +143,8 @@ the revision — the rest of the technique (low tier = faster counters) is indep
 - If more than **8** missions stack in the panel, the “max 8 open, overflow lost” rule changed → recount the per-tick arrivals (2 or 1).
 - If a mission at T7 pays something other than **20** shards, the `15 + 5·(n − 6)` line is superseded (the
   `Daily Mission Shards` lab, **50** levels, is the likely cause) → read levels 0 and 1 of that lab and record its step,
-  then rebuild the shard column as `base(n) × (1 + step × lab)`.
+  then rebuild the shard column as **`base(n) + step × L`** (the printed step is additive, **+1/level**; if the observed
+  step were multiplicative the two would differ only from level 1 upward: L1 = 36 additive vs 35.35 multiplicative).
 - If the weekly coin total is not **106 ×** the tier row, the box multipliers were re-tuned → re-add the eight box rows
   (the Total row's **×64** is the check) before changing the table.
 - If a completed mission pays something other than **3 gems**, the flat part was re-versioned → record the value; the tier-scaling rows are separate and may stand.
@@ -147,6 +159,8 @@ the revision — the rest of the technique (low tier = faster counters) is indep
   **100 B**; shards – / 3 / 5 / 8 / 12 then **15 → 105** by +5), the 7-box weekly table with
   the Total row (**×64 · 185 · 135 · 45 · 35**), reroll **5 gems** (T4 W30, 20 M / 1 d 16 h lab, guaranteed different,
   free with the 15-key Vault line), shard-type Vault lock.
+- Tower Hub `wiki/module/module-labs` (2026-11-01) — `Daily Mission Shards`: gate **Tier 4 Wave 70**, **50** levels,
+  **+1 shard per level**, additive, "up to **50 extra shards per mission**" (the §ledger's lab step).
 - Tower Hub `wiki/lab/lab-upgrades` (2026-07-29) — `Daily Mission Shards` **Max Lv 50** and `Reroll Daily Missions`
   **Max Lv 1** (the caps the §ledger's shard scaling is taken against).
 - fandom `Daily Missions` (raw wikitext, via T007/T013 tables) — the 10/15/20/25/30/35 = **135** medal ladder that the

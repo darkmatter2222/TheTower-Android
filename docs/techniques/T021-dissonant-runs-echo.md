@@ -1,5 +1,9 @@
 # T021 — Dissonant Runs: one tap-to-lock run that buys a permanent per-tier multiplier
 
+Rev: 3 (2026-11-02) — the **per-tier echo law is closed** with a third print (`wiki/lab/echo-lab`, 2026-11-01, a 21-row
+`Lab | Percent | 3x | 5x` table): `Percent = 0.5 + 0.5·L` and `echoed = (B − 1) × Percent / 100` per contributing tier
+(L0 → **0.01/0.02**, L20 10.5 % → **0.21/0.42**, every cell re-adds), and the page's own prose example is the **10-tier
+sum** (`10 × (3−1) × 0.005 = 0.10` ✓, `10 × (5−1) × 0.005 = 0.20` ✓) ⇒ one formula, three prints.
 Rev: 2 (2026-11-02) — **both Echo-lab ladders now close in closed form** against two independent prints (fandom `Echo Lab`
 per-level rows + Tower Hub's two totals): coins `1q · 2.25^(n−1)` ⇒ Σ = **8.846e21** = the printed **8.85e21**, and time
 **arithmetic** `n × 20 d 20 h` ⇒ Σ = **378 000 000 s** to the second; the §2 milestone table is double-sourced and the
@@ -12,9 +16,10 @@ run on that tier**, plus a small **echo** of that boost onto every other tier.
 **Confidence:** **High** — the curve `1 + (max−1)·(wave/5000)^1.75` reproduces all **sixteen** published milestone values
 exactly, including their `±0.001` overshoots (§2), the echo formula and lab ladder come from two independent sources
 (fandom + Tower Hub, the latter cross-checked against a live account) and now close on both series (§3), and the unlock
-wave matches T019's milestone table. Status: **Verified (arithmetic, Rev 2)** — 16 milestone values + 20 coin rows +
-20 time rows + the two Σ totals + the 3.06 example all re-add; the one open device read is whether the own tier is
-counted inside the echo sum (§3 note).
+wave matches T019's milestone table. Status: **Verified (arithmetic, Rev 3)** — 16 milestone values + 20 coin rows +
+20 time rows + the two Σ totals + the **21-row per-tier table (L0 0.01/0.02 … L20 0.21/0.42)** + both prose 10-tier
+examples (0.10 / 0.20) all re-add; the one open device read is whether the own tier is counted inside the echo sum
+(§3 note).
 **Ease:** 1 run + ≈3 taps per tier (start run, pick category, claim) · **Prerequisite:** **Tier 4 Wave 90** milestone
 (`Unlock Dissonance`, [T019](T019-milestone-claim-engine.md) §3) — usable on every tier you have unlocked.
 
@@ -97,6 +102,22 @@ Utility run stopped “way early” at ≈W2 700 prints f ≈ 0.340 → own boos
     8.8459s — the `Σ = c₁(2.25²⁰−1)/1.25` sum in `q` units), so the first 17 levels are nearly free *as a fraction*.
     For a sub-T11 account the labs are far-future: the *own-tier* boost (§2) is 20–140× larger than anything the 0.5 %
     echo adds, so **finish runs, do not chase the labs**.
+* **The per-tier law is now a single closed form with three prints.** Tower Hub's own `wiki/lab/echo-lab` (2026-11-01)
+  prints a **21-row** table (`Lab | Percent | 3x | 5x`, levels 0…20) whose columns are exactly
+  `Percent = 0.5 + 0.5·L` and `echoed = (B − 1) × Percent / 100`: L0 0.5 % → **0.01 / 0.02**, L1 → 0.02 / 0.04,
+  L16 8.5 % → 0.17 / 0.34, L19 10.0 % → 0.20 / 0.40, **L20 10.5 % → 0.21 / 0.42** ✓ every cell. The same page's prose
+  example (“with the lab at level 0 … a 3x boost echoes a **0.10x** bonus … a 5x boost echoes **0.20x**”) is **not** a
+  fourth convention — it is the *sum over ten contributing tiers*: `10 × (3 − 1) × 0.005 = ` **0.10** ✓ and
+  `10 × (5 − 1) × 0.005 = ` **0.20** ✓, which is also fandom's “10 tiers at max, lab level 0” example to the digit. So:
+
+  ```
+  echo_added_to_a_tier = (B − 1) × (0.5 + 0.5·L)/100 × (number of contributing tiers at boost B)
+  ```
+
+  with `B` the **Dissonance Boost** of the contributing tier, `L` the Echo lab level (0…20), and the result **added** to the
+  receiving tier's own boost (`5x` running at `5.20` in the page's own words). Practical: the law is linear in *three*
+  things at once — lab level, boost, and **how many tiers you have maxed** — so tier count is the cheap lever and the lab
+  is the expensive one (1q → 4.91s per level, §above).
 * Convention note: the **per-tier term is identical** on both wikis — fandom prints `(Dissonant Boost − 1) × Lab Percentage`
   (= `Echo × B`), Tower Hub `Echo × B × Σ f(others)` — and both worked examples re-add: fandom's “10 tiers at max, lab
   level 0 ⇒ +0.10 on the 3× path, +0.20 on the 5× path” is `10 × 0.5 % × 2` and `10 × 0.5 % × 4` ✓; Tower Hub's “Attack
@@ -172,6 +193,9 @@ is small (§2's `f`), so the *order* Attack → Utility → UW → Defense usual
 - [ ] A Utility-locked run's coin counter stays ≈ the Starting Cash value (the lock works), while a Defense-locked run
       dies early (1–13 HP).
 - [ ] With ≥2 tiers finished, the panel's total boost exceeds the own-tier value by ≈`0.005 × B × f` per extra tier.
+- [ ] **§3 law:** with the Echo lab at **L0** and **ten** tiers at max, a 3×-path tier gains **+0.10** and a 5×-path tier
+      **+0.20**; at **L20** (10.5 %) the same tiers gain **+0.21** and **+0.42** — i.e. the gain scales linearly in the
+      lab level and in the number of contributing tiers.
 - [ ] Before Tier 17 W60 the four `Dissonant Echo` labs are **absent** from the Lab list, yet the echo is already
       non-zero (0.5 %).
 - [ ] The overshoot cells: at best wave **4 243** a 5×-path category prints **4.001**, and at **2 265** the Utility path
@@ -192,6 +216,9 @@ is small (§2's `f`), so the *order* Attack → Utility → UW → Defense usual
   push preset can be used in brackets without losing the boost.
 - If the echo total does not move when a second tier gets a finished run, the 0.5 % pre-lab echo is a myth (it starts at
   0) → the four labs become the only echo source; rewrite §3's totals.
+- If a **single** contributing tier at 3× already adds **0.10** with the lab at L0 (not 0.01), then the printed table's
+  `Percent` column is used as `× Percent / 10` and every echo figure here is 10× larger → divide the whole §3 table by 10
+  and re-check with a second tier (the two readings differ by exactly a factor of ten, so one panel read decides).
 - If `Dissonant Echo - X` level 2 costs **2q** rather than **2.25q**, the coin ladder is `×2` not `×2.25` ⇒
   `Σ(20) = 1q(2²⁰ − 1)/1 = 1.0486e21` (a **thousand-fold** difference from the printed 8.85e21, so the two are easy to
   tell apart); the two sources' totals then no longer agree and the ladder is per-save.
@@ -210,6 +237,13 @@ is small (§2's `f`), so the *order* Attack → Utility → UW → Defense usual
 - fandom `Echo_Lab` (raw wikitext) — the four labs (`Dissonant Echo - Attack/Defense/Utility/Ultimate Weapon`),
   **20 levels**, 0.5 % + 0.5 %/level → **10.5 %**, per-level coin ladder `1q → 4.91s` (×2.25/level) and times
   (`20 d 20 h → 1 y 51 d 16 h`), plus `(Dissonant Boost − 1) × Lab Percentage` and the 10-tier worked example (+0.20).
+- Tower Hub `wiki/lab/echo-lab` (last verified **2026-11-01**, 2 data tables) — “There is one lab for each Dissonant
+  category … Each of the four labs has **20 levels**. The echo chance starts at **0.5 %** and every level adds another
+  **0.5 %**, topping out at **10.5 %**”; the level/Value/Time/Coins ladder (**1.0 %** · **20d 20h** · **1q** … **5.5 %** ·
+  **208d 8h** · **1.48Q**) recorded “with level 0 lab speed, no lab discount and no relics”; the **21-row** per-tier table
+  (`Lab | Percent | 3x | 5x`) ending **L20 | 10.5 % | 0.21 | 0.42**; and the printed law “*(Dissonance Boost − 1)*
+  multiplied by your lab percentage … **additive** with the boost already on the receiving tier”, with the 10-tier example
+  “5x would then effectively run at **5.20x**, or **3.10x** if it was at 3x”.
 - Tower Hub `wiki/system/dissonance` (last verified **2026-11-01**, 1 data table) — the code-level form
   `1 + B·f(this tier) + Echo·B·Σf(others)`, B = max − 1, `f = (best wave / 5000)^1.75` capped at 1, **each run type has
   its own Echo**, “with Echo the total can pass the 5×/3× cap”, and the “add together rather than multiply, every other

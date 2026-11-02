@@ -1,5 +1,11 @@
 # T010 — Module economy: level the *slot*, merge by recipe, reroll with few locks
 
+Rev: 7 (2026-11-02) — **§2.2, all twelve module labs with gates and value laws** (`wiki/module/module-labs`, 2026-11-01):
+the **T4 W70** cluster (`Reroll Shards` 100 lv, `Daily Mission Shards` **50 lv at +1 shard/level ⇒ +50**, `Common Drop
+Chance` 10 lv `+0.10 %/lv`) is the cheap one (L1 = 900 K / 1.2 M / 5 M coins, ≤ 4 d 4 h each); the **T10 W40** cluster
+(`Module Shard Cost` and `Module Coin Cost` 30 lv `−1 %/lv ⇒ −30 %`, `Rare Drop Chance` 10 lv, the four **ban** labs
+**4/4/3/7** lv) starts at 5 B; `Unmerge Module` is **1** level for **10,000,000** coins / 2 d at **T8 W20**; and the ban
+ladders are the convex ones (**500 B → 50 T → 5 q → 50 q**, Σ times **495.83 d**) ⇒ take ban level 1–2 per tab only.
 Rev: 6 (2026-11-02) — **`Reroll Shards` priced** (`wiki/module/module-labs-reroll-shards`, 2026-11-01): gate
 **T4 W70**, **100** levels, **+1 shard/level**, level 1 = **900,000** coins / **120 000 s**, level 10 = **755,277,021** /
 **1 d 18 h 6 m** ⇒ Σ10 **2.2404 B** coins and **15.64 d** of slot; the EV consequence at T5 (**1.8 → 3.30**, a doubling for
@@ -150,6 +156,45 @@ prints the **Vault `Module Reroll Discount` = +2.5 % per level, 8 levels (+20 %,
 its **cost** column is irregular (ratios 3.24 / 4.77 / 2.86 / 2.15 / 1.82 / 1.63 / 1.51 / 1.43 / 1.37) ⇒ use the printed
 rows, not an extrapolated ratio.)*
 
+### 2.2 All twelve module labs, with gates and value laws (new, Rev 7)
+
+*(the page prints **11** tables — the twelve lines below are the twelve entries of the Module Research category, the
+`Module Coin Cost` / `Armor Effect Bans` / `Core Effect Bans` rows share a table with their sibling)*
+
+Source: `wiki/module/module-labs` (2026-11-01, 11 data tables). Every **value** column is `step × n`, so each cap re-adds
+as `step × levels`:
+
+| Lab | Milestone gate | Lv | Value law | Cap (✓) | L1 cost / time |
+|---|---|---|---|---|---|
+| `Common Drop Chance` | **T4 W70** | 10 | `+0.10 % × n` | **+1.00 %** (2 % → 3 %) | 5,000,000 / 4 d 4 h |
+| `Reroll Shards` | **T4 W70** | **100** | `+1 × n` | **+100** | 900,000 / 1 d 9 h 20 m |
+| `Daily Mission Shards` | **T4 W70** | **50** | `+1 × n` | **+50 shards/mission** | 1,200,000 / 1 d 9 h 20 m |
+| `Module Shard Cost` | **T10 W40** | 30 | `−1 % × n` | **−30 %** | 5.00 B / 5 d 5 h |
+| `Module Coin Cost` | **T10 W40** | 30 | `−1 % × n` | **−30 %** | per panel |
+| `Rare Drop Chance` | **T10 W40** | 10 | `+0.10 % × n` | **+1.00 %** (0.5 % → 1.5 %) | 70.00 B / 8 d 16 h 20 m |
+| `Unmerge Module` | **T8 W20** | **1** | unlock | Unmerge available | **10,000,000** / 2 d 0 h |
+| `Shatter Shards` | **T16 W40** | 5 | `+20 % × n` | **+100 %** | 10.00 T / 142 d 14 h 13 m |
+| `Cannon Effect Bans` | **T10 W40** | **4** | `+1 ban × n` | **4 bans** | 500.00 B / 37 d 12 h |
+| `Armor Effect Bans` | **T10 W40** | **4** | `+1 ban × n` | **4 bans** | per panel |
+| `Generator Effect Bans` | **T10 W40** | **3** | `+1 ban × n` | **3 bans** | 5.00 T / 62 d 12 h |
+| `Core Effect Bans` | **T10 W40** | **7** | `+1 ban × n` | **7 bans** | per panel |
+
+Three consequences for the queue:
+
+1. **The cheap tier is T4 W70.** Three of the twelve lines unlock together there — `Reroll Shards`, `Daily Mission Shards`
+   and `Common Drop Chance` — and their first levels cost **900 K / 1.2 M / 5 M** coins with **≤ 4 d 4 h** of slot each.
+   That is the cheapest cluster in the whole module layer; the *next* cluster (**T10 W40**) is nine lines but its L1 prices
+   start at **5 B** and its times at **5–8 d**.
+2. **Ban labs are the convex ones.** `Cannon Effect Bans` prints **500.00 B → 50.00 T → 5.00 q → 50.00 q** with
+   **37 d 12 h / 91 d 16 h / 162 d 12 h / 204 d 4 h** of slot per level (cost ratios **×100 / ×100 / ×10**; the four times
+   Σ to **42 840 000 s = 495.83 d** and the four prices to **50.5 T + 55 q** = `0.5 + 50` T and `5 + 50` q), while
+   `Generator Effect Bans` prints
+   **5.00 T → 500.00 T → 50.00 q** over **62 d 12 h / 125 d / 204 d 4 h**. So the **first ban on each tab is nearly the
+   whole value** — take level 1 (and 2 where the price is still in `T`) and leave the **50 q** tail.
+3. **`Daily Mission Shards` is +1 shard per level, additive** (“across its **50** levels, it adds up to **50 extra shards
+   per mission**”), so the mission payout is `base(n) + lab level` — at **L50** a T10 mission pays `35 + 50 = ` **85**
+   shards and a T24 mission `105 + 50 = ` **155** (T004 §daily ledger). Weekly, `42 × (base + L)`.
+
 **Boss-drop expected value (per boss kill)** — this is the steady-state shard tap, and it explains why *reroll* shards,
 not module shards, are the scarce ones:
 
@@ -207,6 +252,11 @@ only matter for filling the 350-slot inventory with merge material.
 - [ ] **`Reroll Shards` ladder (§2.1):** after the **T4 W70** milestone the lab's level 1 costs **900,000** coins with
       **1 d 9 h 20 m** of research, level 10 reads **755,277,021** coins, and a boss drop goes from **12** shards to **22**
       at T5 (EV **1.8 → 3.30**).
+- [ ] **§2.2 gates:** `Reroll Shards`, `Daily Mission Shards` and `Common Drop Chance` all appear after the **T4 W70**
+      milestone (level-1 prices **900,000 / 1,200,000 / 5,000,000** coins), `Unmerge Module` after **T8 W20**
+      (**10,000,000** coins, one level), and the cost/ban labs after **T10 W40**.
+- [ ] **Daily Mission Shards law:** with the lab at **L10** a T10 mission pays `35 + 10 = ` **45** shards; at **L50** it
+      pays **85**, and a T24 mission **155** (base + lab level, additive).
 - [ ] A boss kill yields **12** reroll shards at Tier 5 (or 12 + lab levels), and none for the next 5 waves.
 - [ ] The Standard Banner panel lists **68.5 / 29 / 2.5** and every ×10 pull shows at least one Rare.
 - [ ] The 150-pull pity counter is visible and the 150th pull without an Epic shows an Epic.
@@ -288,6 +338,16 @@ cannot equip a module that shares a name with the primary · `Primary Module Bon
   shard per boss drop**, for a total of **100 additional shards** at max level”, the Level/Time/Cost/Value rows
   (**900,000** … **755,277,021** coins; 1 d 9 h 20 m … 1 d 18 h 6 m; +1 … +10), and the Good-to-know pair
   (**+2.5 % × 8 = +20 %** for **180** Vault keys; **Rare = 10 shards**, typed by module type).
+- Tower Hub `wiki/module/module-labs` (last verified **2026-11-01**, 11 data tables) — per-lab gates and level counts:
+  `Common Drop Chance` “**Tier 4 Wave 70** … **10 levels** … adds a total of **1 %**” (values +0.10 % … +1.00 %, prices
+  5,000,000 → 7.32 B); `Daily Mission Shards` “**Tier 4 Wave 70** … across its **50 levels**, it adds up to **50 extra
+  shards per mission**” (1,200,000 → 2.19 B); `Module Shard Cost` / `Module Coin Cost` “**Tier 10 Wave 40** … **30 levels**
+  … cuts shard costs by **30 %**” (5.00 B → 118.31 B, −1 %/level); `Rare Drop Chance` “**Tier 10 Wave 40** … base rare drop
+  chance is **0.5 %** … **10 levels** … **1 %** at maximum” (70.00 B → 11.01 T); `Unmerge Module` “**Tier 8 Wave 20** …
+  a **single level**” (10,000,000 / 2 d 0 h) with the two unmerge resolutions; `Shatter Shards` “**Tier 16 Wave 40** …
+  **5 levels**, each adding **20 %** … total **100 %**”; and the four **Effect Bans** labs at **T10 W40** with
+  **4 / 4 / 3 / 7** levels (Cannon **500.00 B / 50.00 T / 5.00 q / 50.00 q** at 37 d 12 h / 91 d 16 h / 162 d 12 h /
+  204 d 4 h; Generator **5.00 T / 500.00 T / 50.00 q** at 62 d 12 h / 125 d / 204 d 4 h).
 - fandom `Modules` (raw wikitext, fetched per section 1–12) — slot-level ownership of levels, rarity table (max level /
   sub-stats / Epic copies), shatter yields, 15 % boss drop + 5-wave cooldown, reroll-shard-per-tier ladder (T13–T24 = +5/tier),
   lock-cost ladder, sub-stat rarity odds, ban-lab counts, presets, 350 inventory cap, hard caps; **new this pass**: the

@@ -9,13 +9,13 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | T001 | [Interest idle engine](techniques/T001-interest-idle-engine.md) | Cash, Coins | **Verified (Rev 4**, arithmetic) |
 | T002 | [In-run phase order](techniques/T002-run-phase-order.md) | Cash → Coins | Unverified |
 | T003 | [Turtle build T1–T2](techniques/T003-turtle-build-t1-t2.md) | tier unlocks | Unverified |
-| T004 | [Mission farming on low tier](techniques/T004-mission-farming-low-tier.md) | Gems, Coins, Shards, Medals, Tokens | **Verified (Rev 3**, arithmetic) |
+| T004 | [Mission farming on low tier](techniques/T004-mission-farming-low-tier.md) | Gems, Coins, Shards, Medals, Tokens | **Verified (Rev 4**, arithmetic) |
 | T005 | [Tier-rush then farm](techniques/T005-tier-rush-then-farm.md) | Coins (daily/weekly) | Unverified |
 | T006 | [Lab queue packing + cheapest skipped hour](techniques/T006-lab-queue-packing.md) | all (multipliers) | **Verified (Rev 9**, arithmetic) |
 | T007 | [Ad-gem sweep](techniques/T007-ad-gem-sweep.md) | Gems | Amounts verified (Rev 2) |
 | T008 | [Stone economy: knee-first UW buying + cooldown sync](techniques/T008-uw-sync-with-stones.md) | Stones → Coins | **Verified (Rev 2)** |
 | T009 | [Gem spend order](techniques/T009-gem-spend-order.md) | Coins/min | Unverified (Rev 3) |
-| T010 | [Module economy (slot levels, merges, rerolls)](techniques/T010-module-merge-chain.md) | Modules, shards | **Verified (Rev 6**, arithmetic) |
+| T010 | [Module economy (slot levels, merges, rerolls)](techniques/T010-module-merge-chain.md) | Modules, shards | **Verified (Rev 7**, arithmetic) |
 | T011 | [Perk engine tuning](techniques/T011-perk-engine-tuning.md) | Coins (run multipliers) | **Verified (Rev 4**, arithmetic) |
 | T012 | [Card deck order (gems per percentage point)](techniques/T012-card-deck-order.md) | Coins, Cash, Elite Cells | **Verified (Rev 2**, arithmetic) |
 | T013 | [Event window & medal economy](techniques/T013-event-medal-economy.md) | Medals → Gems, Stones, Shards | **Verified (Rev 5**, arithmetic) |
@@ -26,7 +26,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | T018 | [Relic economy & price rule](techniques/T018-relic-economy.md) | % points (Coins/Cash/Lab) | **Verified (Rev 3**, arithmetic) |
 | T019 | [Milestone claim engine](techniques/T019-milestone-claim-engine.md) | Gems, Stones, Coins, labs | **Verified (Rev 3**, arithmetic; H038 open) |
 | T020 | [Workshop coin-spend order](techniques/T020-workshop-coin-order.md) | Coins → Cash/Coins multipliers | **Verified (Rev 7**, arithmetic) |
-| T021 | [Dissonant Runs & Echo](techniques/T021-dissonant-runs-echo.md) | Coins (+ damage/health/UW) | **Verified (Rev 2**, arithmetic) |
+| T021 | [Dissonant Runs & Echo](techniques/T021-dissonant-runs-echo.md) | Coins (+ damage/health/UW) | **Verified (Rev 3**, arithmetic) |
 | T022 | [Free-currency census & paid ladder](techniques/T022-free-currency-census-paid-ladder.md) | Gems, Stones (budget + bills) | **Verified (Rev 2**, arithmetic) |
 | T023 | [Guardian economy (bit model, Fetch droptable, sync layer)](techniques/T023-guardian-economy.md) | Bits → Gems, Medals, Shards, Coins | **Verified (Rev 5**, arithmetic) |
 
@@ -152,6 +152,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 - [2026-11-02 - session 56 (T010 Rev 5)](log/2026-11-02.md#2026-11-02---session-56-iteration-65-the-shatter-lab-prints-a-fourth-lab-shape-and-every-module-cap-closes)
 - [2026-11-02 - session 57 (T006 Rev 8, T012 Rev 2, T014 Rev 6, T020 Rev 7)](log/2026-11-02.md#2026-11-02---session-57-iteration-66-three-uncited-tower-hub-pages-close-and-four-legend-laws-re-add)
 - [2026-11-02 - session 58 (T006 Rev 9, T010 Rev 6)](log/2026-11-02.md#2026-11-02---session-58-iteration-67-five-lab-pages-print-their-ladders-and-the-per-column-law-falls-out)
+- [2026-11-02 - session 59 (T004 Rev 4, T010 Rev 7, T021 Rev 3)](log/2026-11-02.md#2026-11-02---session-59-iteration-68-the-module-lab-page-prices-the-whole-shard-layer-and-the-echo-law-becomes-one-formula)
 
 ## Reference material in this repo
 
