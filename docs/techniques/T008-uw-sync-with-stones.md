@@ -1,5 +1,9 @@
 # T008 — Stone economy: knee-first UW buying + cooldown sync
 
+Rev: 6 (2026-11-02) - the **Golden Combo income matrix** (`wiki/uw/golden-tower`, 40-80 s x GT+ 1-10, anchored at
+GT+10 @ 60 s = 1.000): the page's three prose claims re-add from the cells (**212.4 / 503.3 / 231.0 %**), the grid closes as
+`r(D) = exp(0.002399 D - 0.012353)` per GT+ level (27/27 printed ratios within 0.0027) and **x1.0241 -> x1.0464** per extra
+second from GT+1 to GT+10, which is why cheap Duration blocks (Σ **467** stones for +10 s) precede deep UW+ levels (§1.⑤).
 Rev: 5 (2026-11-02) - the **nine UW+ ledgers close** (`wiki/uw/<name>` §UW+ Cost Table): caps are **not** uniform
 (**11** Smite/Cover Fire · **13** Chrono Loop · **14** GT/BH/DW/ILM/PS · **19** Light Range, resolving **H033**), every
 value row re-adds from a closed form, the printed `TOTAL` (**12 650 + unlock**, Smite) matches its computed sum, the layer
@@ -145,6 +149,41 @@ Four things this buys the plan:
    **Charged Mine** bottoms at **level 4** (**231.8**, vs 300 at L1, 540.3 at L14). Practical rule: for **DW** and **ILM**
    push to the knee (8 and 4) before touching any other ability; for the other seven, the first levels are the best buy
    they will ever have.
+
+### 1.⑤ The Golden Combo income matrix (Rev 6, `wiki/uw/golden-tower`)
+
+The page prints a **relative-income matrix**: rows are GT **duration** 40 … 80 s, columns are **GT+ level 1 … 10**, and it is
+normalised so that **GT+10 at 60 s = 1.000**. Anchor cells (all printed):
+
+| GT+ level | 1 | 4 | 7 | 10 |
+|---|---|---|---|---|
+| **40 s** | 0.177 | 0.227 | 0.292 | 0.376 |
+| **60 s** | 0.306 | 0.454 | 0.674 | **1.000** |
+| **80 s** | 0.459 | 0.787 | 1.348 | 2.310 |
+
+**The page's three prose claims re-add from those cells** (arithmetic ✓): `0.376 / 0.177 = ` **212.4 %** (printed “roughly
+213 %”), `2.310 / 0.459 = ` **503.3 %** (printed “about 504 %”), `2.310 / 1.000 = ` **231.0 %** (printed “around 231 %” ✓
+exact). Two closed forms reproduce the whole grid:
+
+```
+per GT+ level:   r(D) = exp(0.002399 D - 0.012353)   -> x1.0872 at 40 s, x1.1406 at 60 s, x1.1967 at 80 s
+                 (all 27 printed consecutive level ratios match within 0.0027)
+per +1 s:        x1.0241 at GT+1  ->  x1.0464 at GT+10   (from the 40 s -> 80 s rows, 40 steps)
+```
+
+so the two purchases **multiply each other's value**: one extra second of GT duration is worth **×1.0241** of income at GT+1
+but **×1.0464** at GT+10 (a ×1.0218 advantage *per GT+ level*), and one GT+ level is worth **×1.0872** at 40 s but
+**×1.1967** at 80 s. **Ordering rule that follows:** at the *same* investment stage, finish the cheap
+GT **Duration** blocks before paying for deep GT+ levels, because duration is the term that scales every other term —
+the printed workshop Duration column costs **5 / 14 / 23 / 32 / 41 / 50 / 59 / 68 / 77 / 98 = Σ 467 stones** for
+**+10 s** (15 s → 25 s), which is the cheapest compounding step in the whole UW block (§1.④'s UW+ levels start at 300–400
+stones each and multiply by less per level at short durations).
+
+**Recorded skew.** The bare printed formula `((1 + 0.0003 × (L + 1))^Kills) − 1` with `Kills ∝ D` would give `ln r` exactly
+proportional to `D` (no intercept) and a **per-second value independent of `L`**; the matrix instead has the −0.0124
+intercept and a per-second value that rises with the level, which is what the page's own “100 % uptime” note describes
+(activations = run time ÷ duration, so shortening the cooldown also re-enters). Use the **printed cells**, not the formula,
+whenever a number matters — the formula is only the shape.
 
 ## 2. Per-UW max-out cost (the `Total` rows, verified by summing the per-level columns)
 
@@ -308,6 +347,11 @@ Also: each `Basic_Upgrades` page's `Total` equals the sum of its own column (BH 
 - [ ] **The knee:** buying Kill Wall **level 8** costs **1 300** and the value line moves **31 → 39** (Δ 8 ⇒ **162.5**
       stones/unit, the row's minimum; L1 is 400/unit at `3 → 4` for 400). At **Charged Mine level 4** the row moves
       **×4.7 → ×6.9** (Δ 2.2 for **510** stones = **231.8**/unit, that row's minimum).
+- [ ] **The matrix (§1.⑤):** the GT page’s income table reads **0.177** (GT+1, 40 s), **1.000** (GT+10, 60 s) and
+      **2.310** (GT+10, 80 s); the three printed claims are then 212.4 %, 503.3 % and 231.0 % — a 3-cell spot check of the
+      whole grid.
+- [ ] **Duration block:** the GT **Duration** workshop line prices its first ten levels **5 / 14 / 23 / 32 / 41 / 50 / 59 /
+      68 / 77 / 98** (Σ **467**) and the value column steps **15 s → 25 s**; buy it before GT+ level 4+.
 - [ ] Fully maxed: **Black Hole 50 s**, **Death Wave 50 s**, bots (except Flame) **50 s**, **Golden Tower 100 s**.
 - [ ] **The 2:1 check:** BH at 150 s against GT at 300 s ⇒ BH fires **twice** per GT in the same window (count activations
       over one 300 s span: 2 and 1).
@@ -329,6 +373,8 @@ Also: each `Basic_Upgrades` page's `Total` equals the sum of its own column (BH 
 - If a UW+ line's level counter tops out at **10** (or any number other than §1.④'s 11 / 13 / 14 / 19), the ability's cap is
   version-dependent → re-tabulate the nine caps and re-sum the layer (the per-unit knees are unaffected, they use only the
   two printed rows).
+- If the GT income table’s anchor cell (GT+10 at 60 s) is not **1.000**, the matrix is normalised differently → divide
+  every cell by that anchor before using the two laws; the ratio laws themselves are anchor-free.
 - If a first UW+ level costs something other than **300** (GT / CL / SM / ILM / PS) or **400** (CF / BH / DW / Spotlight),
   the cost tree was re-binned → read the first three cells per line and rebuild the ratio column; the *knee* levels of the
   two quadratic rows (8 and 4) still hold as long as the value increments keep stepping by 1 and 0.4.
@@ -340,6 +386,11 @@ Also: each `Basic_Upgrades` page's `Total` equals the sum of its own column (BH 
 
 - fandom raw wikitext: `Ultimate Weapons` (the 5 … 3 000 unlock ladder, the 3-random-offer rule, the 40-toggle limit), `Ultimate Weapons/Ultimate Weapon Plus` (500 … 3 800 unlock ladder, 10 levels per ability, `Template:TableUWPCOST` → the three trees 23 800 / 18 570 / 19 050), `Golden Tower/Basic Upgrades`, `Black Hole/Basic_Upgrades`, `Death Wave/Basic_Upgrades`, `Chain Lightning/Basic_Upgrades`, `Smart Missiles/Basic_Upgrades`, `Spotlight/Basic_Upgrades`, `Chrono Field/Basic_Upgrades`, `Inner Land Mines/Basic_Upgrades`, `Poison Swamp/Basic_Upgrades` (per-level columns + `Total` rows), `Perks` (the nine perk-UW `stone value` entries and their exact stats).
 - game-vault `Guide:Ultimate_Weapons_Sync` — the independent 910-stone figure for GT 300→200 s and the partial-sync table (250/200 → 1 000 s, 270/180 → 520 s).
+- Tower Hub `wiki/uw/golden-tower` (last verified **2026-11-01**, 6 data tables) — §1.⑤’s **41 × 10** relative-income
+  matrix (durations 40–80 s × GT+ levels 1–10, anchored at 1.000), the three prose ratios, the printed level counts
+  (**Multiplier 20 · Duration 38 · Cooldown 20** for a **27 186**-stone total, matching §2 independently), the printed
+  Golden Combo formula `((1 + 0.0003 × (L + 1))^Kills) - 1` with “only enemies that spawned during the activation count”, and
+  the 100 %-uptime caveat (activations = run time ÷ duration).
 - Tower Hub’s nine `wiki/uw/<name>` pages (last verified **2026-11-01**) — §1.④’s per-ability `UW+ Cost Table` (`Cost` and
   `Value` rows, plus Chain Lightning’s own `TOTAL` row **12 650 + unlock**), the basic-stat `Stones (…)` columns (GT starts
   at 5 / 13 / 22 / 32 / 43 … for 5.0 → 9.0×, which is the **115** block already used in §6), the CL damage/quantity/chance
