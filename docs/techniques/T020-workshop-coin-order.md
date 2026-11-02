@@ -1,5 +1,13 @@
 # T020 — Workshop coin-spend order: the level-band rule and the knee table
 
+Rev: 8 (2026-11-02) — **§1.7, the four currency lines priced from the Hub's per-line payloads**: value laws **all arithmetic**
+(`Coins / Kill Bonus` = `Cash Bonus` = `1 + 0.01L`, `Coins / Wave` = `L + 1`, `Cash / Wave` = `4L`) with caps **L149 = ×2.49 /
+150 / ×2.49 / 596** and **Σ 19.47 M vs 14.82 M** coins (**0.761**, so the cash pair is a 25 % discount on the coin pair),
+the two shared price ladders printed at 15 checkpoints (50 / 838 / 3.58 K … 467.98 K vs 30 / 674 / 2.88 K … 352.36 K, ratio
+0.804 → 0.753), the **9 360× convexity** of the `×`-lines (50 coins/pp at L1 vs 467.98 K at L149 — the knee table's numeric
+form), the **5.2× flat-point gap** (`Cash / Wave` 24.9 K vs `Coins / Wave` 129.8 K coins per point) and the
+**two-row subtraction** rule for partial bands (L41–50 = **230.04 K** coins / **181.25 K**). Also: §1's duplicated subsection
+numbers fixed (now 1.3 · 1.4 · 1.5 · 1.6).
 Rev: 7 (2026-11-02) — **the printed coin laws** added (§1.3): “every coin multiplier multiplies with every other one”,
 with the worked **Black Hole 11× × Golden Tower 20.75× = 228.25×** ✓; the **CPW lab ceiling is printed as level 20**
 (⇒ `Coins/wave` ×1.40 and stop); the sync-funding rule (**1:1** needs one GT + one BH upgrade banked, **2:1** needs two
@@ -138,7 +146,7 @@ Source: Tower Hub `wiki/guide/coin-guide-basics` (last verified 2026-07-29). It 
 (T004 **Rev 3**) ends at **100 B** (T24), and the “tens of millions” band is tiers **13–15** (15 M / 30 M / 75 M) ⇒ read
 that sentence as the low-teens cap and compute with T004's table.
 
-### 1.3 `Starting Cash` — the fifth T1-W30 lab, and the cheapest of the family
+### 1.4 `Starting Cash` — the fifth T1-W30 lab, and the cheapest of the family
 
 | Level | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
 |---|---|---|---|---|---|---|---|---|---|---|
@@ -151,7 +159,7 @@ L10 ✓). Its per-level times are identical to the other T1-W30 labs (0 m / 6 m 
 (30 vs 40, 71 vs 81, 178 vs 188 … 6 165 vs 6 175) — the family shares one curve with a small per-line offset, so the four
 income labs + Starting Cash can be levelled in equal 10-level blocks without re-pricing anything.
 
-### 1.4 `Free Upgrades` — the workshop levels itself for coins
+### 1.5 `Free Upgrades` — the workshop levels itself for coins
 
 Unlock **800 coins** (behind `Coins/Kill Bonus` + `Coins/Wave` in the chain), then **three independent tracks** —
 `Free Attack` / `Free Defense` / `Free Utility Upgrade` — **99 levels each, +0.5 % per level ⇒ 49.5 %** per workshop:
@@ -217,6 +225,42 @@ the cap from ×1 to **×3.0**, i.e. every later coin and cell is earned ≈ 3× 
 **Why `Max` matters for the knee rule (§3).** With `Max` selected, one tap spends the entire banked coin pile on the
 cheapest remaining levels of that line, which is exactly what the per-unit knee table wants — but it stops at the first
 level you cannot afford, so after a `Max` buy the *next* level is still the same one; nothing is skipped.
+
+### 1.7 The four currency lines, one ladder each (new, Rev 8)
+
+The per-line Hub pages (`wiki/workshop/{coins-per-kill-bonus, coins-per-wave, cash-per-wave, cash-bonus}`, all **2026-11-02**,
+payload parsed with `tools/card-tables-parse.ps1`) print `Level / Value / Cost / Total Cost` for every line. Two facts fall out:
+**every value law is arithmetic**, and the four lines share **two** price ladders.
+
+| Line | Printed value law | Checkpoints (printed) | Cap | **Σ coins to cap** |
+|---|---|---|---|---|
+| `Coins / Kill Bonus` | **`1 + 0.01·L`** | L1 ×1.01 · L10 ×1.10 · L50 ×1.50 · L140 ×2.40 | **L149 = ×2.49** | **19.47 M** |
+| `Coins / Wave` | **`L + 1`** | L1 **2** · L10 **11** · L50 **51** · L90 **91** | **L149 = 150** | **19.47 M** |
+| `Cash Bonus` | **`1 + 0.01·L`** | L1 ×1.01 · L10 ×1.10 · L50 ×1.50 | **L149 = ×2.49** | **14.82 M** |
+| `Cash / Wave` | **`4·L`** | L1 **4** · L10 **40** · L50 **200** · L90 **360** | **L149 = 596** | **14.82 M** |
+
+**The two price ladders, printed (per-level cost, and the running total):**
+
+| L | 1 | 10 | 20 | 30 | 40 | 50 | 60 | 70 | 80 | 90 | 110 | 120 | 130 | 140 | **149** |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| **coin lines** | 50 | 838 | 3.58 K | 8.84 K | 17.02 K | 28.41 K | 44.56 K | 63.66 K | 91.10 K | 119.75 K | 206.19 K | 252.45 K | 340.64 K | 404.78 K | **467.98 K** |
+| **cash lines** | 30 | 674 | 2.88 K | 7.06 K | 13.47 K | 22.31 K | 34.77 K | 49.38 K | 70.30 K | 91.98 K | 157.13 K | 191.73 K | 257.88 K | 305.53 K | **352.36 K** |
+| cash ÷ coin | 0.60 | 0.804 | 0.804 | 0.799 | 0.791 | 0.785 | 0.780 | 0.776 | 0.772 | 0.768 | 0.762 | 0.760 | 0.757 | 0.755 | **0.753** |
+
+Four consequences, all arithmetic:
+
+1. **The cash pair is a straight 0.75–0.80 discount on the coin pair** (Σ **14.82 M** vs **19.47 M** = **0.761**), so inside a
+   band, **buy the cash line's next level first** — same shape, ~25 % cheaper, and the ratio *improves* with depth.
+2. **For the two `×`-lines the printed price IS the price per percentage point** (each level = +1 pp): **50** coins/pp at L1,
+   838 at L10, 3.58 K at L20, 8.84 K at L30, 17.02 K at L40, 28.41 K at L50 … **467.98 K at L149** ⇒ the 149th point costs
+   **9 360×** the first one (`467 980 ÷ 50`). That is the numeric form of the knee table in §3: the ladder is convex with no
+   plateau, so “stop at the band” is optimal, not stylistic.
+3. **Per flat point the two `flat`-lines differ by 5.2×**: at the cap, `Cash / Wave` costs `14.82 M ÷ 596 = ` **24.9 K**
+   coins per +1 cash/wave while `Coins / Wave` costs `19.47 M ÷ 150 = ` **129.8 K** per +1 coin/wave — the reason §2's early
+   order is cash-side first. (`Coins / Kill Bonus` = **130.7 K**/pp, `Cash Bonus` = **99.5 K**/pp, both at the cap.)
+4. `Total Cost` is a running total, so a partial band is priced by **subtracting two printed rows**: levels 41–50 of a coin line
+   cost `448.41 K − 218.37 K = ` **230.04 K**, and levels 41–50 of a cash line `355.40 K − 174.15 K = ` **181.25 K** — both
+   reproducible from the two tables above without any fitted curve.
 
 ## 2. The level-band rule (the actual technique)
 
@@ -452,6 +496,14 @@ the enhancement gates — track each of the three separately ([H024](../hypothes
 - [ ] The Utility-tab unlock prices read **40 / 40 / 100 / 100** coins and **800** for Free Upgrades, and the chain is
       enforced (Coins/Kill is not buyable before Cash/Wave).
 - [ ] **Cash** ladder checkpoints: L1 = **30**, L10 = **674** (Σ **2.76 K**), L50 Σ = **355.40 K**, L90 Σ = **2.50 M**.
+- [ ] **§1.7 value laws:** `Coins / Wave` reads **2** at L1, **11** at L10, **51** at L50 (`L + 1`) and `Cash / Wave` reads
+      **4 / 40 / 200** (`4L`); both stop at **level 149** (**150** and **596**).
+- [ ] **§1.7 the `×`-lines:** `Coins / Kill Bonus` and `Cash Bonus` read **×1.01 / ×1.10 / ×1.50 / ×2.49** at L1 / L10 / L50 /
+      L149 — one percentage point per level, no irregular steps.
+- [ ] **§1.7 the two bills:** the last level of a coin line costs **467.98 K** and its running total is **19.47 M**; of a cash
+      line **352.36 K** and **14.82 M** ⇒ ratio **0.753** on the last level, **0.761** overall.
+- [ ] **§1.7 subtraction:** levels **41–50** cost **230.04 K** coins on a coin line and **181.25 K** on a cash line (two-row
+      subtraction of the printed totals), and the in-run workshop's “next level” price sits between the two printed rows.
 - [ ] **Coins** ladder checkpoints: L1 = **50**, L10 = **838** (Σ **3.52 K**), L50 Σ = **448.41 K**, L90 Σ = **3.22 M**.
 - [ ] `Coins/Kill Bonus` **lab**: L1 = **40** coins / **0 m** / value **1.02**; L10 = **6 175** coins / **4 h 33 m**
       cumulative / value **1.20**; its Σ of the first 10 prices is **18 852** coins.
@@ -495,8 +547,15 @@ the enhancement gates — track each of the three separately ([H024](../hypothes
 ## 9. Falsification
 
 - If `Game Speed`'s seven-level total shows **≈ 25 d** of time rather than **≈ 45 d**, the `Time` column is cumulative after
-  all → every slot bill in §1.5 (and T001/T006) must be replaced by the panel total ([H050](../hypotheses/H050-lab-time-column-per-level-vs-cumulative.md)
+  all → every slot bill in §1.6 (and T001/T006) must be replaced by the panel total ([H050](../hypotheses/H050-lab-time-column-per-level-vs-cumulative.md)
   would reopen; the 45.36 d = 45.3 d match is what currently decides it).
+- **§1.7:** if a line's value is **not** `step × level` (+ its offset) at three checkpoints, that line's ladder is not
+  arithmetic → keep the printed rows and price it from the panel's own column; the `Total Cost` subtraction rule survives
+  because it only uses the totals.
+- **§1.7:** if the two lines of a pair (e.g. `Cash Bonus` vs `Cash / Wave`) show *different* per-level prices, the “two ladders”
+  model collapses → take each line's own column and drop the 0.761 comparison (the per-pp table is unaffected).
+- **§1.7:** if a line caps at a level other than **149**, the Σ-to-cap figures (19.47 M / 14.82 M) move with it — re-read the
+  last printed row; the per-pp ladder (50 → 467.98 K) is the part that drives §2–§3 and is cap-independent.
 - If the workshop's quantity selector offers **×100 before Max**, the version ordering in §1.5 is stale → read the selector
   order on the panel and re-derive which lab level is the one worth buying first (the Σ **562 500** is unaffected).
 - If the four income labs' L1 price is not **40** coins (value **1.02**), they are re-versioned → re-read L1/L5/L10 and
@@ -536,6 +595,13 @@ the enhancement gates — track each of the three separately ([H024](../hypothes
   value at level 1 and record it ([H037](../hypotheses/H037-enhancement-per-level-step.md)).
 
 ## Sources
+
+- Tower Hub per-line pages (all last verified **2026-11-02**, payload parsed with `tools/card-tables-parse.ps1`):
+  `wiki/workshop/coins-per-kill-bonus`, `wiki/workshop/coins-per-wave`, `wiki/workshop/cash-per-wave`,
+  `wiki/workshop/cash-bonus`, `wiki/workshop/starting-cash` — the four `Level / Value / Cost / Total Cost` ladders behind
+  §1.7 (checkpoints L1, L10 … L140, L149 and the value columns **×1.01 → ×2.49**, **2 → 150**, **4 → 596**), the shared
+  `Level / Time / Cost / Value` income-ladder (`1 + 0.02n`, **×2.98** at L99), and the `Starting Cash` lab ladder
+  (**5 × level**, 495 at L99, 4 190 609 coins at L99).
 
 - Tower Hub `wiki/guide/coin-guide-basics` (last verified **2026-07-29**) — “Coins per wave … is the weakest coin source
   in the game over the long run … **stop upgrading CPW in the lab by level 20**”; “**Every coin multiplier in the game

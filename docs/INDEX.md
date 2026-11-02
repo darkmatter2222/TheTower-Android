@@ -25,7 +25,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | T017 | [Vault: Keys priority ladder](techniques/T017-vault-keys-priority.md) | Keys → Gems, Coins, Cash, Shards | **Verified (Rev 4**, arithmetic) |
 | T018 | [Relic economy & price rule](techniques/T018-relic-economy.md) | % points (Coins/Cash/Lab) | **Verified (Rev 3**, arithmetic) |
 | T019 | [Milestone claim engine](techniques/T019-milestone-claim-engine.md) | Gems, Stones, Coins, labs | **Verified (Rev 3**, arithmetic; H038 open) |
-| T020 | [Workshop coin-spend order](techniques/T020-workshop-coin-order.md) | Coins → Cash/Coins multipliers | **Verified (Rev 7**, arithmetic) |
+| T020 | [Workshop coin-spend order](techniques/T020-workshop-coin-order.md) | Coins → Cash/Coins multipliers | **Verified (Rev 8**, arithmetic: the four value laws `1+0.01L` / `L+1` / `4L`, caps L149 = ×2.49 / 150 / ×2.49 / 596, Σ 19.47 M vs 14.82 M = 0.761, the 9 360× convexity) |
 | T021 | [Dissonant Runs & Echo](techniques/T021-dissonant-runs-echo.md) | Coins (+ damage/health/UW) | **Verified (Rev 3**, arithmetic) |
 | T022 | [Free-currency census & paid ladder](techniques/T022-free-currency-census-paid-ladder.md) | Gems, Stones (budget + bills) | **Verified (Rev 2**, arithmetic) |
 | T023 | [Guardian economy (bit model, Fetch droptable, sync layer)](techniques/T023-guardian-economy.md) | Bits → Gems, Medals, Shards, Coins | **Verified (Rev 5**, arithmetic) |
@@ -186,6 +186,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 - [2026-11-02 - session 82 (T012 Rev 3)](log/2026-11-02.md#2026-11-02---session-82-iteration-91-the-mastery-layer-is-one-law-and-a-stone-unlock-is-one-tenth-of-the-effect)
 - [2026-11-02 - session 83 (T010 Rev 8)](log/2026-11-02.md#2026-11-02---session-83-iteration-92-reroll-shards-gain-5-per-tier-from-t11-and-one-sub-stat-rarity-step-doubles-the-payout)
 - [2026-11-02 - session 84 (T001 Rev 5)](log/2026-11-02.md#2026-11-02---session-84-iteration-93-the-interest-engine-becomes-two-arithmetic-ladders-and-a-cap-ladder)
+- [2026-11-02 - session 85 (T020 Rev 8)](log/2026-11-02.md#2026-11-02---session-85-iteration-94-every-workshop-currency-line-is-one-arithmetic-ladder-and-the-cash-pair-is-a-quarter-cheaper-than-the-coin-pair)
 
 ## Reference material in this repo
 
