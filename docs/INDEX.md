@@ -14,9 +14,10 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | T006 | [Lab queue packing + cheapest skipped hour](techniques/T006-lab-queue-packing.md) | all (multipliers) | Unverified (Rev 2) |
 | T007 | [Ad-gem sweep](techniques/T007-ad-gem-sweep.md) | Gems | Amounts verified |
 | T008 | [Ultimate Weapon sync](techniques/T008-uw-sync-with-stones.md) | Coins | Verified |
-| T009 | [Gem spend order](techniques/T009-gem-spend-order.md) | Coins/min | Unverified |
+| T009 | [Gem spend order](techniques/T009-gem-spend-order.md) | Coins/min | Unverified (Rev 2) |
 | T010 | [Module merge chain](techniques/T010-module-merge-chain.md) | Modules | Unverified |
 | T011 | [Perk engine tuning](techniques/T011-perk-engine-tuning.md) | Coins (run multipliers) | Unverified |
+| T012 | [Card deck order (gems per percentage point)](techniques/T012-card-deck-order.md) | Coins, Cash, Elite Cells | Unverified |
 
 ## Hypotheses (open)
 
@@ -31,12 +32,14 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | H007 | [Stepped base waves & lab subtraction](hypotheses/H007-stepped-base-waves-lab-subtraction.md) | wave numbers of picks 20/21/22 in one long run |
 | H008 | [Duplicate game-speed perk +0.01](hypotheses/H008-duplicate-game-speed-perk.md) | read game speed in the stats screen after a 2nd copy |
 | H009 | [Elite density per wave → cells/hour](hypotheses/H009-elite-density-per-wave.md) | Δcell counter ÷ minutes, twice in one tier |
+| H010 | [Card drop-rate split & pool re-normalisation](hypotheses/H010-card-drop-rate-renormalisation.md) | read the Cards ℹ panel before/after maxing one Common |
 
 ## Logs
 
 - [2026-11-01 — session 1 (T001–T010)](log/2026-11-01.md)
 - [2026-11-01 — session 2 (T011, H006–H008)](log/2026-11-01.md#2026-11-01--session-2-iteration-11-perks)
 - [2026-11-01 — session 3 (T006 Rev 2, H009)](log/2026-11-01.md#2026-11-01--session-3-iteration-12-elite-cells-vs-gems)
+- [2026-11-01 — session 4 (T012, T009 Rev 2, H010)](log/2026-11-01.md#2026-11-01--session-4-iteration-13-cards)
 
 ## Reference material in this repo
 

@@ -1,7 +1,16 @@
 # T009 — Gem spend order: Enemy Balance first, then alternate Card Slots and Labs
 
-Rev: 1 · Status: **Unverified**
+Rev: 2 (2026-11-01) · Status: **Unverified**
 Value: ★★★★ (compounds every other source) · Ease: 3 taps per purchase · Prerequisite: Gems > first card cost
+
+> **Rev 2 addition — the numeric tie-breaker between the two ladders.** Card level-ups have a fixed
+> copy price per step (2 / 5 / 8 / 12 / 20 / 32 copies = 40 / 100 / 160 / 240 / 400 / 640 gems) while the
+> percentage points they give differ per card, so the two purchase ladders can be compared directly in
+> **gems per +1 percentage point** — e.g. Cash card L1→2 = 2, Enemy Balance L1→2 = 4, Coins L1→2 = 8,
+> but the Coins card's **L6→7 costs 128** while card **slot 7 costs 500 gems for a whole extra card**.
+> Rule of thumb: take every currency card to **L4**, then buy the next slot, then come back for L5–7.
+> Full table, pull mechanics and the pool-shrink effect: [T012](T012-card-deck-order.md). Use **Buy x10**
+> (200 gems) to spend the same gems in a tenth of the taps.
 
 ## Why it works
 
