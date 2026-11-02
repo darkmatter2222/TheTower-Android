@@ -14,7 +14,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | T006 | [Lab queue packing + cheapest skipped hour](techniques/T006-lab-queue-packing.md) | all (multipliers) | **Verified (Rev 17**, arithmetic) |
 | T007 | [Ad-gem sweep](techniques/T007-ad-gem-sweep.md) | Gems | Amounts verified (Rev 2) |
 | T008 | [Stone economy: knee-first UW buying + cooldown sync](techniques/T008-uw-sync-with-stones.md) | Stones → Coins | **Verified (Rev 8**, arithmetic: 9/9 stone values + 4/4 lattice rows + the 53 547 ledger + the 9 UW+ tables closing as 4 sequences (179 240) + the GT matrix + 9/9 workshop totals) |
-| T009 | [Gem spend order](techniques/T009-gem-spend-order.md) | Coins/min | **Double-sourced (Rev 4**; device read pending) |
+| T009 | [Gem spend order](techniques/T009-gem-spend-order.md) | Coins/min | **Three-sourced (Rev 5**; device read pending) |
 | T010 | [Module economy (slot levels, merges, rerolls)](techniques/T010-module-merge-chain.md) | Modules, shards | **Verified (Rev 7**, arithmetic) |
 | T011 | [Perk engine tuning](techniques/T011-perk-engine-tuning.md) | Coins (run multipliers) | **Verified (Rev 5**, arithmetic) |
 | T012 | [Card deck order (gems per percentage point)](techniques/T012-card-deck-order.md) | Coins, Cash, Elite Cells | **Verified (Rev 2**, arithmetic) |
@@ -81,7 +81,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | H044 | [How many assist module slots (4?)](hypotheses/H044-assist-slot-count.md) | count the assist slots + read each unlock price |
 | H045 | [Is the module pity counter per banner or shared?](hypotheses/H045-module-pity-counter-scope.md) | read the counter on both banners around a switch |
 | H046 | [Card rarity-mass redistribution: 85/15 or 97/3?](hypotheses/H046-card-rarity-mass-redistribution-rule.md) | read the ℹ panel right after the 12th Common maxes |
-| H047 | [Land Mine Stun gate: T7 W250 or T11 W10?](hypotheses/H047-land-mine-stun-milestone-gate.md) | read the Card-reward cell in the Milestones screen |
+| H047 | [Land Mine Stun gate: T7 W250 or T11 W10?](hypotheses/H047-land-mine-stun-milestone-gate.md) — also carries the two competing **Death Ray** prints ("any tier, W250" vs W250 on each of the first 10 tiers) | read the Card-reward cell in the Milestones screen |
 | H048 | [Vault Power nodes: additive or multiplicative with the lab?](hypotheses/H048-vault-power-node-stacking-with-lab.md) | buy one Power level, re-read the line's value and the wave cash delta |
 | H049 | [Income lab: multiplies value or increment?](hypotheses/H049-income-lab-multiplies-value-vs-increment.md) | Cash/Wave at workshop L1 with the lab at L10 → 4 or 4.8 |
 | H050 | [Lab `Time` column: per-level or cumulative?](hypotheses/H050-lab-time-column-per-level-vs-cumulative.md) — **resolved** (per-level) | done: `Game Speed`'s 7 times sum to 65 317 min = 45.36 d = its printed total |
@@ -172,6 +172,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 - [2026-11-02 - session 71 (T006 Rev 16)](log/2026-11-02.md#2026-11-02---session-71-iteration-80-the-named-uw-lab-ledger---39-tables-priced-and-eight-unlocks-that-cost-70-days)
 - [2026-11-02 - session 72 (T008 Rev 7, T006 Rev 17)](log/2026-11-02.md#2026-11-02---session-72-iteration-81-the-nine-workshop-stone-ledgers-agree-three-ways-and-the-bill-is-244-542)
 - [2026-11-02 - session 73 (T008 Rev 8)](log/2026-11-02.md#2026-11-02---session-73-iteration-82-the-nine-ultimate-weapon-cost-rows-are-four-sequences-and-the-179-240-ledger-closes-at-every-depth)
+- [2026-11-02 - session 74 (T009 Rev 5, H047)](log/2026-11-02.md#2026-11-02---session-74-iteration-83-the-community-gem-ladder-re-prices-to-9-020-gems-and-matches-path-a-within-three-pulls)
 
 ## Reference material in this repo
 

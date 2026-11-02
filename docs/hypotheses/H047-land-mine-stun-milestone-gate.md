@@ -25,3 +25,11 @@ re-read the whole Tier-5…Tier-14 milestone columns and rebuild T019's card-cel
 
 **Related, cheap extra reads while in the same screen** (all printed-only claims in T012 §3 step 6): does **Tier 4 W40**
 carry the `Cells` card, and does **Death Ray** really come from “any tier, wave 250”?
+
+**Death Ray now has two competing prints** (so the read is worth recording exactly): game-vault says **“any tier, wave
+250”**, Tower Hub's community ladder (`system/icet-s-gem-and-card-priority-list`, 2026-07-29) says **wave 250 cleared on
+each of the first 10 tiers**. The two differ only for a player who pushed past wave 250 in a *subset* of the first ten
+tiers — exactly the tier-rushing case in [T005](../techniques/T005-tier-rush-then-farm.md). Settle it by noting, after N
+tier-sprints, whether the **Cards** panel's pull pool already contains Death Ray and how many of the first ten tiers show
+wave ≥ 250 in their tier row: if it drops with fewer than ten tiers at 250, the “any tier” print wins; if it is still
+missing at ten-or-more, the stricter one wins.

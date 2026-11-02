@@ -1,20 +1,28 @@
 # T009 — Gem spend order: the two paths, priced
 
+Rev: 5 (2026-11-02) — the **community ladder** (`system/icet-s-gem-and-card-priority-list`, the only source that prints both
+slot counters) is re-priced at §1's rates: checkpoints **100 / 310 / 710 / 1 250 / 2 650 / 3 590 / (4 230) / 7 230 / 9 020**
+gems, ending at 10 card slots. It **agrees with Path A to within three pulls** (**2 650** vs **2 590** at the 4-lab/5-slot
+checkpoint) and differs in one place: it buys **lab slot 2 first**. Adds the conditional 8th slot, the Extra Orb → Orb
+Adjuster rule, the stricter Death Ray gate (wave 250 on **each** of the first 10 tiers) and the **lab-speed ≥ 50** target
+with its printed bill (**2 258 611** coins, **16 d 19 h 49 m**, value **2.00**). §2.①.
 Rev: 4 (2026-11-02) — the **printed order corroborates Path A** (same interleaving of lab slots and card slots) and the
 guide **names** the first seven cards: Attack Speed / Enemy Balance / Coins → Health / Cash → two of Crit Coin, Wave Skip,
 Extra Orbs; the card phase ends where **30 maxed cards** unlock Card Masteries.
 Rev: 3 (2026-11-01) — every step is now a **price**, the two paths get **cumulative gem totals** (so you can locate
 yourself with the gem counter alone), and the event/relic/rush budget rules are added.
-Currency: **Gems** → Coins/min · Status: **Double-sourced (Rev 4)** — prices agree across two wikis and the printed order
-is Path A’s shape; a device before/after is still pending
+Currency: **Gems** → Coins/min · Status: **Three-sourced (Rev 5)** — prices agree across two wikis, the printed orders are
+Path A’s shape in two independent lists, and the community ladder’s checkpoints re-add from the same price table; a device
+before/after is still pending
 
 | | |
 |---|---|
 | **Value** | ★★★★ — gems are the scarcest currency (≈ 435/day, T022 §1), and the framework to “5 labs + 5 card |
 | | slots” is only **≈ 5 030–5 590 gems ≈ 12–13 days**, so the order decides whether those two weeks compound or not. |
-| **Confidence** | **High** on prices — Tower Hub (`card-slots`, last verified 2026-07-30) and fandom `Currency/Gems` |
-| | agree on the slot ladder and on **58 400** for slots 2–22; lab slots 100/400/1 400/3 000 also match. **Medium** on |
-| | the path choice (it depends on how often you are in the app). |
+| **Confidence** | **High** on prices — Tower Hub `card-slots` (last verified 2026-07-30) and fandom `Currency/Gems` |
+| | agree on the slot ladder and on **58 400** for slots 2–22; lab slots 100/400/1 400/3 000 also match, and the |
+| | community ladder's checkpoints re-add from those same prices (three sources). **Medium** on the path choice (it depends |
+| | on how often you are in the app). |
 | **Ease** | 3 taps per purchase (open panel → `+`/`Buy` → confirm) · **Prerequisite:** the **Cards** tab (after 2 T1 runs) |
 | | and the **Lab** panel (T1). |
 
@@ -77,6 +85,49 @@ Havoc Bringer / Rend Armor example, and “keep every module below its level cap
 card phase: **maxing 30 cards unlocks Card Masteries** (T012), which is the point where the card line stops being the best
 gem buy.
 
+### 2.① The community ladder (third source), re-priced with §1's rates
+
+`wiki/system/icet-s-gem-and-card-priority-list` (community list, page *last verified* 2026-07-29, written for v0.16/0.17) is
+the only one of the three sources that prints **both** the lab-slot and the card-slot counts at every stage, so it can be
+re-priced straight from §1 and compared with Path A cell for cell:
+
+| Stage | What is bought (price from §1) | Cards named | Σ gems |
+|---|---|---|---|
+| 1 | **lab slot 2** (100) | — | **100** |
+| 2 | card slots 2 + 3 (50 + 100) + 3 pulls | Attack Speed, Enemy Balance, Coins | **310** |
+| 3 | **lab slot 3** (400) | — | **710** |
+| 4 | card slots 4 + 5 (200 + 300) + 2 pulls | Health, Cash | **1 250** |
+| 5 | **lab slot 4** (1 400) | — | **2 650** |
+| 6 | card slots 6 + 7 (400 + 500) + 2 pulls | Extra Orb **or** Death Ray | **3 590** |
+| 6b | *only if you already own both*: card slot 8 (600) + 2 pulls | Wave Skip + Critical Coin together | **4 230** |
+| 7 | **lab slot 5** (3 000) | — | **7 230** |
+| 8 | card slots 9 + 10 (750 + 1 000) + 2 pulls | Plasma Cannon, Wave Accelerator (+ the two above if still missing) | **9 020** |
+
+Three things the comparison gives:
+
+- **Same shape as Path A, one swap:** the community ladder buys **lab slot 2 first**, before any card slot (Path A opens with
+  the three pulls). Everything after that is the same 2 → 3 → 4 → 5 lab interleaving around the card phase.
+- **The two ladders agree to within three pulls.** At the *4 lab slots + 5 card slots* checkpoint the community ladder sits at
+  **2 650** gems and Path A at **2 590** — the **60**-gem gap is exactly the three 20-gem Enemy-Balance pulls Path A counts up
+  front. That is this technique's cross-source numeric check, and it is arithmetic, not interpretation: every Σ above is a
+  sum of §1's printed prices.
+- **Its framework is 3 430 gems longer** than §2's because it ends at **10 card slots** (**9 020**) where §2 stops at 5
+  (**5 590**). At ≈ 435 gems/day (T022 §1): ≈ 13 d to §2's framework, ≈ 21 d to the end of this ladder.
+
+**One conditional and three numbers the same page prints:**
+
+- **Stage 6b is conditional** — the 8th card slot is only a buy when *both* Wave Skip and Critical Coin are in the deck
+  (**640** gems otherwise idle).
+- **Death Ray** (the card) does not enter the pool until **wave 250 cleared on each of the first 10 tiers** — the *stricter*
+  of the two prints in this repo, which also carries “any tier, wave 250” (see **H047** for the one read that settles it).
+- **Extra Orb** wants its **Orb Adjuster** lab first; until that lab is bought the page fills the slot with **Extra Defense**
+  or leaves it locked — i.e. an un-labbed Epic is a worse buy than an empty slot.
+- **Rush lab speed to at least level 50.** The printed ladder (`wiki/lab/labs-speed`) puts **L50 at exactly ×2.00**
+  (`1 + 0.02 × 50` ✓) for **2 258 611 coins** and **16 d 19 h 49 m** of one slot at 1× (≈ 4.5 d under the ×3.725 relic-stacked
+  rate), with **L25 = ×1.50 / 247 704** and **L99 = ×2.98 / 19 355 790** as the neighbours to check against the panel.
+- **A big gem pile re-orders the ladder:** with a Tapjoy offer-wall or stone-pack windfall the page skips ahead to lab slots
+  **3 and 4**, then 5 card slots + lab slot **5**, then resumes at stage 6 — the same order as §2's Path B.
+
 ## 3. Stage rules after the framework (5 labs + 5 slots)
 
 1. **Card slot decision rule:** buy a new slot only if you already own a card that would meaningfully improve the build
@@ -116,6 +167,12 @@ gem buy.
 - [ ] No gem spend on research speed-ups in the log while the framework is incomplete.
 - [ ] The deck’s first three maxing cards are **Attack Speed**, **Enemy Balance**, **Coins** (the printed set), and the
       **Card Masteries** section appears only after **30** cards are maxed.
+- [ ] **Community checkpoints (§2.①):** with the gem counter open, after `lab slot 2 + card slots 2–3 + 3 pulls` the spend is
+      **310** (100 + 50 + 100 + 60), and directly after **lab slot 4** it is **2 650**. If both read as printed, the two
+      ladders are the same plan.
+- [ ] **Lab-speed target check:** `Labs Speed` level **50** shows value **2.00** (`1 + 0.02 × 50`), the next level costs
+      **2 258 611** coins, and level 99 reads **2.98**.
+- [ ] The 8th card slot was bought only once **both** Wave Skip and Critical Coin were in the deck (**600** + 2 pulls).
 
 ## 6. Falsification
 
@@ -126,9 +183,22 @@ gem buy.
   confirmed; if it changes with the *tier* instead, rewrite §3.4 with the tier as the parameter.
 - If Coins/min does not rise measurably after the 2nd lab unlock versus the 3rd card slot, record both values and flip
   the order for the next tier band (this is the A-vs-B tie-breaker).
+- If the §2.① checkpoints come out at **310** / **2 650** the two sources are the same plan; if one slot's price differs from
+  §1, every later checkpoint moves by exactly that delta — rebuild the Σ column from the panel rather than patching one row.
+- If **Death Ray** drops after wave 250 in a *single* tier, the gate is the “any tier, wave 250” print and the stricter
+  “each of the first 10 tiers” wording is wrong → close H047 with that read.
 
 ## Sources
 
+- Tower Hub `wiki/system/icet-s-gem-and-card-priority-list` (last verified **2026-07-29**, a community list written for
+  v0.16/0.17 — so read its *stage names* as historical and its *order* as the current advice) — the interleaved lab-slot /
+  card-slot ladder **2 → 3 slots → 3 → 5 slots → 4 → 7 slots → 8 (conditional) → 5 → 10 slots**, the named card sets per
+  stage, the Extra Orb → Orb Adjuster prerequisite (fill with Extra Defense meanwhile), the Death Ray gate as “wave 250 on
+  each of the first 10 tiers”, the **lab speed ≥ 50** rush target, the “Total lab research time” event mission as the rush
+  window, the Slow Aura note, and the big-pile reorder (lab slots 3 + 4 → 5 slots + lab 5 → resume at stage 6).
+- Tower Hub `wiki/lab/labs-speed` (last verified **2026-11-01**) — the `Labs Speed` 99-level table: value `1 + 0.02 × level`
+  (**2.00** at L50, **2.98** at L99) with the per-level bills (**L25 247 704 / 2 d 19 h 40 m**, **L50 2 258 611 /
+  16 d 19 h 49 m**, **L99 19 355 790 / 97 d 10 h 37 m**) used to price the rush target above.
 - Tower Hub `wiki/guide/gem-guide` (last verified 2026-07-29) — the priority ladder, the two paths, the slot-decision
   rule, the “buy 80 cards = 1 600 gems” event floor, the Epic-module-first advice, the weekly relic rotation, and the
   rush rules (gold-box completed labs improve the rate, longer labs are cheaper per unit time).
