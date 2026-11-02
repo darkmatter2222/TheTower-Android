@@ -1,5 +1,10 @@
 # T020 — Workshop coin-spend order: the level-band rule and the knee table
 
+Rev: 11 (2026-11-02) — **§1.10, the defense-track ledger**: 18 named lines from 12 per-stat pages. Again two price worlds —
+**9** cheap caps (**Σ 10.767 M**, L1–L10 pass **40 710** coins) vs **9** deep caps (**Σ 6.525 q**, `Land Mine Damage` alone
+**2.45 q**); **13 of 18** `Value` columns are exactly `a + step·L` (`20 + 0.1·1800 = 200.00 %`, `1200 − 2·300 = 600 s`,
+`100 + 10·200 = 2100 %`), and the coins-per-point order inside the % group is `Knockback Chance` **20 310** <
+`Thorn Damage` **23 729** < `Defense Percent` **56 461** ≪ `Land Mine Chance` **526 156** ≪ `Death Defy` **58.06 M**.
 Rev: 10 (2026-11-02) — **§1.8, §1.9, §6.2.1 + §6.4.1.** **§1.8**: the 17 named lines of `wiki/workshop/attack-upgrades`
 priced per line — two price worlds: **9 lines cap for ≤ 5 M each (Σ 22.88 M)** vs **8 lines capping at B–q (Σ 839.30 q)**,
 the L1–L10 pass of the seven long cheap lines is **31 480 coins**, `Total Cost` re-verified as a running total **9/9
@@ -357,6 +362,58 @@ their prose are load-bearing:
 3. The Defense tab also holds **`Free Defense Upgrades`**, “a chance for a Defense upgrade to level up for free after each
    wave” — the same free-upgrade mechanism as §1.5, one instance **per track**, which is the printed support for the
    per-track reading of [H051](../hypotheses/H051-free-upgrade-chance-90-75-decomposition.md).
+
+### 1.10 The defense-track ledger — 18 lines from 12 pages, same two price worlds (new, Rev 11)
+
+`wiki/workshop/{health, health-regen, defense-absolute, defense-percent, lifesteal, knockback, land-mine, shockwave,
+thorn-damage, wall, orbs, death-defy}` (all **2026-11-01** except `orbs` 2026-07-29) print one
+`Level | Value | Cost | Total Cost` ladder per stat; the section names come from each page's own nav (`Cost - <stat>`).
+Same tool, same result: **`Total Cost` is the running total** (the dense tables pass the prefix test 5/5; e.g. `Orbs`
+3.00 K + 20.00 K + 120.00 K + 350.00 K = **493.00 K** = the printed total exactly).
+
+| Line (printed name) | Levels | Value at cap | Value law | Price at L1 | Price at cap | **Σ to cap** | avg coins/level |
+|---|---|---|---|---|---|---|---|
+| `Defense Percent` | 99 | 49.50 % | `0.5·L` | 50.00 | 90.73 K | **2.77 M** | 27 945 |
+| `Knockback Chance` | 80 | 80.00 % | `1·L` | 80.00 | 66.33 K | **1.60 M** | 20 056 |
+| `Thorn Damage` | 99 | 99.00 % | `1·L` | 60.00 | 75.55 K | **2.33 M** | 23 489 |
+| `Shockwave Size` | 35 | 2.35 | `0.60 + 0.05·L` | 250.00 | 59.60 K | **600.13 K** | 17 147 |
+| `Shockwave Frequency` | 40 | 14.00 s | `20 − 0.15·L` | 250.00 | 85.60 K | **973.74 K** | 24 344 |
+| `Knockback Force` | 40 | 6.08 | ≈ `+0.142·L` (curved) | 80.00 | 14.01 K | **184.33 K** | 4 609 |
+| `Lifesteal` | 80 | 4.46 % | ≈ `+0.0557·L` (curved) | 60.00 | 61.32 K | **1.48 M** | 18 459 |
+| `Orb Speed` | 38 | 6.10 | `0.40 + 0.15·L` | 125.00 | 29.73 K | **342.98 K** | 9 026 |
+| `Orbs` | 4 | 4 | `L` | 3.00 K | 350.00 K | **493.00 K** | 123 250 |
+| `Land Mine Chance` | 50 | 30.00 % | `0.6·L` | 500.00 | 1.26 M | **15.46 M** | 309 380 |
+| `Death Defy` | 75 | 30 % | `0.4·L` | 1.00 K | 110.50 M | **1.72 B** | 22.9 M |
+| `Land Mine Radius` | 50 | 1.50 | `0.50 + 0.02·L` | 500.00 | 19.82 B | **77.52 B** | 1.55 B |
+| `Health Regen` | 6 000 | 10.17 B | curved (per-100 gaps 269 / 1 141 / 2 460) | 30 | 388.00 B | **74.83 T** | 12.47 B |
+| `Wall Rebuild` | 300 | **600 s** | `1200 − 2·L` | 16.00 M | 923.56 B | **40.37 T** | 134.6 B |
+| `Defense Absolute` | 5 000 | 80.21 M | curved (per-100 gaps 1 019 / 4 970 / 11 170) | 50 | 797.45 M | **1.23 T** | 246 M |
+| `Wall Health` | 1 800 | 200.00 % | `20 + 0.1·L` | 8.00 M | 23.48 T | **3.21 q** | 1.78 q |
+| `Land Mine Damage` | 200 | 2100.00 % | `100 + 10·L` | 500 | 217.61 T | **2.45 q** | 12.25 T |
+| `Health` | 6 000 | 6.71 B | curved (per-100 gaps 21 550 / 121 450 / 288 230) | 30 | 4.68 T | **748.26 T** | 124.7 B |
+
+**Same split as §1.8.** The **9** lines that cap for ≤ 5 M sum to **10.767 M** coins (their L1–L10 pass is **40 710** coins
+for the eight long dense lines, + 493.00 K for `Orbs`); the **9** deep lines sum to **6.525 q**. So the *whole* defense
+cheap tier is again smaller than one deep line (`Land Mine Damage` alone is 2.45 q = **228×** it).
+
+**13 of the 18 `Value` columns are exactly `a + step·L`** and reproduce the printed cap:
+`0.5 × 99 = 49.50` ✓ · `1 × 80 = 80.00` ✓ · `1 × 99 = 99.00` ✓ · `0.60 + 0.05 × 35 = 2.35` ✓ · `20 − 0.15 × 40 = 14.00` ✓ ·
+`0.40 + 0.15 × 38 = 6.10` ✓ · `0.50 + 0.02 × 50 = 1.50` ✓ · `0.6 × 50 = 30.00` ✓ · `0.4 × 75 = 30` ✓ ·
+`100 + 10 × 200 = 2100` ✓ · `20 + 0.1 × 1800 = 200.00` ✓ · `1200 − 2 × 300 = 600` ✓ · `L` to 4 ✓. The five curved lines are
+the *flat-number* lines (`Health`, `Health Regen`, `Defense Absolute`, `Lifesteal`, `Knockback Force`): their per-100-level
+value gaps **grow**, so they are convex like the coin lines' prices — which is why the % lines are the cheap ones.
+
+**Coins per printed percentage point** (the only comparison that is unit-safe inside the % group):
+`Knockback Chance` **20 310** < `Thorn Damage` **23 729** < `Defense Percent` **56 461** ≪ `Land Mine Chance` **526 156** ≪
+`Death Defy` **58.06 M**. Read with §1.9's law this is the defense build order: **`Knockback Chance` and `Thorn Damage` first
+(≈ 20–24 K/pp), then `Defense Percent` (56 K/pp, and it is the term that drives the eHP denominator), then the
+15.46 M/1.72 B pair only once the cheap group is capped.**
+
+**Two closed forms the ledger adds for free:** `Wall Rebuild` = `1200 − 2·L` ⇒ **600 s** at its own cap (L300), so the rest of
+T006's 150-s wall floor must come from the lab reductions on top of the workshop value (**600 × 0.25 = 150** ✓, a second
+arithmetic fit for the same floor); and the three flat-stat lines start at **30 / 30 / 50** coins with whole-line ratios
+**1.0043 / 1.0039 / 1.0033** — the same near-flat family as the attack track's 6 000-level `Damage` line (**1.0043**), so one
+printed ratio describes four different lines.
 
 ## 2. The level-band rule (the actual technique)
 
@@ -839,6 +896,14 @@ Until it is read, use `R = 34.29 M` (⇒ **L30**) for the Utility tab and treat 
       **×1.06 → ×1.60 → ×2.20 → ×2.80 → ×3.40 → ×4.00**.
 - [ ] **The 28.6× second band (§6.2.1):** `Coin Bonus +` level **20** totals **41.94 T**, so levels 11–20 alone cost
       41.94 T − 1.42 T = **40.52 T** = **28.6 ×** the 1.42 T of levels 1–10 for the same +10 pp.
+- [ ] **Defense caps (§1.10):** `Defense Percent` **99** levels → **49.50 %** for **2.77 M**; `Knockback Chance` **80** →
+      **80.00 %** for **1.60 M**; `Thorn Damage` **99** → **99.00 %** for **2.33 M**; `Shockwave Frequency` **40** →
+      **14.00 s** for **973.74 K**; `Orbs` **4** levels → **4** for **493.00 K**; `Wall Rebuild` **300** → **600 s**;
+      `Wall Health` **1 800** → **200.00 %**.
+- [ ] The nine cheap defense caps re-add: 2.77 + 1.60 + 2.33 + 0.60 + 0.97 + 0.18 + 1.48 + 0.34 + 0.49 M = **10.767 M**, and
+      their L1–L10 rows read **2.78 K / 3.54 K / 2.72 K / 9.88 K / 9.88 K / 3.60 K / 2.93 K / 5.38 K** ⇒ **40 710** coins.
+- [ ] `Orbs` proves the prefix-sum reading exactly: **3.00 K + 20.00 K + 120.00 K + 350.00 K = 493.00 K** = the printed
+      `Total Cost` of level 4.
 
 ## 9. Falsification
 
@@ -879,6 +944,14 @@ Until it is read, use `R = 34.29 M` (⇒ **L30**) for the Utility tab and treat 
   superseded → recompute the sync payoff as `1 + Σ(xᵢ − 1)`; the 1:1/2:1 stone-funding rule still stands either way.
 - If a currency line's level-1 price is not **30** (Cash pair) / **50** (Coins pair) coins, the tables are re-versioned →
   re-read the ten cheapest levels of each line and rebuild §2's band table from the panel.
+- If the `Wall Rebuild` line's level-300 value is not **600 s** (or `Wall Health`'s level-1800 value is not **200.00 %**),
+  those two closed forms were re-versioned → re-derive the step from levels 1–2 (`−2 s` and `+0.1 pp` per level) and re-fit
+  the 150-s floor as `value × 0.25`.
+- If the nine cheap defense caps no longer re-add to **10.767 M**, one line's cap moved → re-read the last row of each of the
+  nine tables and re-add; the per-point order in §1.10 uses only Σ ÷ pp-gained, so a single moved cap re-orders only its
+  neighbours.
+- If the `Orbs` totals are **not** 3.00 K / 23.00 K / 143.00 K / 493.00 K, that page's `Total Cost` column is per level
+  rather than cumulative → difference the column and re-add; every Σ in §1.8/§1.10 assumes the cumulative reading.
 - If the `Workshop Utility Discount` lab does **not** change those four prices, §4's order collapses: then the utility
   lines are effectively undiscounted and the 1→50 band is the whole budget ([H023](../hypotheses/H023-workshop-tab-discount-applies.md)).
 - If a §1.8 line's `Total Cost` cell is **not** the sum of the `Cost` cells above it (e.g. `Attack Speed` level 99 prints
@@ -930,6 +1003,13 @@ Until it is read, use `R = 34.29 M` (⇒ **L30**) for the Utility tab and treat 
   totals **3.60 M / 1.41 M / 1.46 M / 4.26 M / 529.95 K / 2.79 M / 4.63 M / 3.23 M / 970.70 K / 259.20 B / 315.60 T /
   3.81 T / 816.09 T / 5.63 T / 214.50 T / 418.97 q / 418.97 q`); parsed with the new `tools/workshop-line-census.ps1`
   (rows / level spacing / value law / cost ratios / prefix-sum test / whole-line geometric ratio / L1–L10 bill).
+- Tower Hub `wiki/workshop/{health, health-regen, defense-absolute, defense-percent, lifesteal, knockback, land-mine,
+  shockwave, thorn-damage, wall, orbs, death-defy}` (**2026-11-01**; `orbs` **2026-07-29**) — §1.10's 18 defense-track ladders:
+  level counts (**99 / 80 / 99 / 35 / 40 / 40 / 80 / 38 / 4 / 50 / 75 / 50 / 6 000 / 300 / 5 000 / 1 800 / 200 / 6 000**), the
+  printed caps (**49.50 % / 80.00 % / 99.00 % / 2.35 / 14.00 s / 6.08 / 4.46 % / 6.10 / 4 / 30.00 % / 30 % / 1.50 / 10.17 B /
+  600 s / 80.21 M / 200.00 % / 2100.00 % / 6.71 B**) and the bills (**2.77 M / 1.60 M / 2.33 M / 600.13 K / 973.74 K /
+  184.33 K / 1.48 M / 342.98 K / 493.00 K / 15.46 M / 1.72 B / 77.52 B / 74.83 T / 40.37 T / 1.23 T / 3.21 q / 2.45 q /
+  748.26 T**); names taken from each page's own `Cost - <stat>` nav entries.
 - Tower Hub `wiki/workshop/{defense-upgrades, utility-upgrades, workshop-upgrades, workshop-respec}` — the two prose facts in
   §1.9 (the printed `eHP` formula with its 90/95/99 % checkpoints, the **98 %** `Defense %` cap, and `Free Defense Upgrades`
   as the Defense-tab instance of the free-upgrade mechanism); `workshop-respec` prints one row only
