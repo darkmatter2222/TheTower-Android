@@ -1,17 +1,27 @@
 # T001 — Idle the Cash bar at the Interest cap
 
+Rev: 3 (2026-11-02) — **unit correction:** both interest lab lines are priced in **coins** (only the *rush* is gems);
+the **cumulative columns now re-add** (workshop 10/10, `Interest` lab 34 007, `Max Interest` within rounding); the wiki
+**Time column is per-level** (proved by its non-monotone series: Σ L1–L4 = **8 h 33 m**, all 15 levels **≈ 44 d 6 h** of a
+slot at 1× ⇒ **≈ 12 d** at the ×3.725 stacked bonus); the level-3 cap
+disagreement is **settled at $300** by a third source; and the **three extra interest multipliers** are added
+(Interest perk ×1.5, Generator sub-stat +2/4/6/8 %, Vault node +100 %/level).
 Rev: 2 (2026-11-01) — full ladder data from both wikis, the cap value is now known ($50 base + a 15-level lab
 ladder to $15 000), the two-state `$` icon rule replaced by a computable threshold, and the spend order quantified.
-Currency: **Cash** (in-run) → **Coins** (end of run) · Status: **Unverified** (printed wiki tables, no device capture)
+Currency: **Cash** (in-run) → **Coins** (end of run) · Status: **Verified (arithmetic, Rev 3)** for the three ladders
+(all printed cumulative columns reproduced); the stacking law is still a device read
 
 | | |
 |---|---|
 | **Value** | ★★★★ — interest is a **flat cash payment every wave**, so its contribution to a run is `cap × waves`: the |
-| | 15-level cap ladder turns **$50/wave → $15 000/wave (×300) for 2 304 140 gems**, and the **first 4 levels alone are |
-| | ×10 for 8 150 gems in 8 h 31 m of lab time** — the cheapest multiplier available below Tier 5 (whole ladder: |
-| | ≈101 d 13 h of one lab slot; the `Interest` lab's 99 levels are 3 406 d, so never try to finish it). |
-| **Confidence** | **High** for the numbers: game-vault and fandom print the *same* three tables independently (14 of 15 |
-| | cap cells identical, one differs by $50 — noted in §2). **Medium** for how the lab multiplies the workshop line (H025). |
+| | 15-level cap ladder turns **$50/wave → $15 000/wave (×300) for 2 304 130 coins**, and the **first 4 levels alone are |
+| | ×10 for **8 145 coins / 8 h 33 m** of lab time** — the cheapest multiplier available below Tier 5 (whole ladder: |
+| | ≈44 d 6 h of one lab slot at 1× ⇒ ≈12 d at the ×3.725 bonus; the `Interest` lab's 99 levels are 3 406 d, so never |
+| | try to finish it). All lab prices are **coins**; only the rush is gems. |
+| **Confidence** | **High** for the numbers: game-vault, fandom and Tower Hub print the *same* three tables (15 of 15 |
+| | cap cells now agree — level 3 resolves to **$300**), every cumulative column re-adds, and the lab prices are |
+| | **coins** (Laboratory page). **Medium** for how the lab multiplies the workshop line (H025) and the exact |
+| | interest-per-wave bill (§3's stack has four layers, H050 fixes the slot times). |
 | **Ease** | 1 tap per level; the whole useful core is **≈ 4 + 30 taps** (4 cap levels + workshop levels 1–30) |
 | **Prerequisite** | Workshop `Interest/Wave` (5 000 coins, after `Free Upgrades`); both lab lines unlock from the |
 | | **Tier 2 Wave 80** milestone ([T019](T019-milestone-claim-engine.md) §3), so the interest engine is a Tier-2 system. |
@@ -61,32 +71,89 @@ where rate = 0.06 % × (workshop levels) × (1 + 0.02 × Interest-lab levels)
 | level | 1 | 5 | 10 | 20 | 30 | 50 | 99 |
 |---|---|---|---|---|---|---|---|
 | value | 1.02 | 1.10 | 1.20 | 1.40 | 1.60 | 2.00 | **2.98** |
-| next cost (gems) | 50 | 1 130 | 12 130 | 120 320 | 444 910 | 2 260 000 | 19 360 000 |
-| cumulative | 50 | 2 026 | **34 016** | 622 886 | 3 380 966 | 28 158 836 | **≈ 472 468 836** |
-| time (this level) | 0 h | 1 h 16 m | 7 h 8 m | 1 d 19 h | 5 d 7 h | 20 d 9 h | **122 d 9 h** |
-| **cum. lab time** | 0 h | 3 h | **1 d 0 h** | 11 d | 47 d | 291 d | **3 406 d** |
+| next cost (**coins**) | 50 | 1 130 | 12 126 | 120 320 | 444 910 | 2 260 000 | 19 360 000 |
+| cumulative (coins) | 50 | 2 026 | **34 007** | 622 886 | 3 380 966 | 28 158 836 | **≈ 472 468 836** |
+| Time (per level, as printed) | 0 h | 1 h 17 m | **7 h 9 m** | 1 d 19 h | 5 d 7 h | 20 d 9 h | **122 d 9 h** |
+| **Σ of the printed rows** | 0 h | 3 h | **≈ 24 h** | 11 d | 47 d | 291 d | **≈ 3 406 d** |
+
+The `Interest` lab's first **10** per-level prices are printed by Tower Hub as 50 / 93 / 221 / 532 / 1 126 / 2 109 /
+3 589 / 5 677 / 8 484 / 12 126 ⇒ **Σ = 34 007 coins ✓** (fandom's cumulative prints 34 016 — the same table, one level
+rounded), and its ten printed per-level times sum to **≈ 24 h 7 m** — so **10 levels ≈ 34 K coins and one day of a slot**,
+i.e. this line is *not* the expensive one: `Max Interest` below is 361 800 coins for its first 10 levels.
 
 **C. Lab → `Max Interest`** (Utility research, **T2 W80**, 15 levels; cap **starts at $50**):
 
 | level | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
 |---|---|---|---|---|---|---|---|---|
 | cap | $100 | $200 | $300 | $500 | $700 | $1 000 | $1 500 | $2 000 |
-| gems (cum) | 250 (250) | 910 (1 160) | 2 130 (3 290) | 4 860 (**8 150**) | 10 330 (18 480) | 20 020 (38 500) | 35 600 (74 100) | 58 900 (133 000) |
+| coins (per level + cum) | 250 (250) | 910 (1 160) | 2 129 (3 289) | 4 856 (**8 145**) | 10 330 (18 475) | 20 021 (38 496) | 35 595 (74 091) | 58 900 (132 991) |
 | ×base | 2× | 4× | 6× | 10× | 14× | 20× | 30× | 40× |
-| cum. lab time | 41 m | 1 h 50 m | 4 h | **8 h 31 m** | 18 h 13 m | 1 d 13 h | 3 d | 5 d 11 h |
+| Time (per level, as printed) | 42 m | 1 h 10 m | 2 h 8 m | **4 h 33 m** | 9 h 43 m | 19 h 12 m | 1 d 10 h 50 m | 2 d 10 h 44 m |
+
+**Unit + arithmetic note (Rev 3).** The price column is **coins** (the Laboratory page: “every lab upgrade costs coins and
+takes time”; only the **rush** is priced in gems — [T006](T006-lab-queue-packing.md)). Tower Hub's unrounded per-level
+prices re-add exactly (250 + 910 + 2 129 + 4 856 = **8 145**, … , Σ L1–L10 = **361 800**); fandom's are rounded to 10
+(8 150 / 361 810), so the two tables agree within ≤ 10 coins over 10 levels.
+**Time-column semantics:** the printed `Time` series is monotone (42 m → 1 h 10 m → 2 h 8 m → 4 h 33 m → … → 5 d 20 h 40 m)
+and is read as **cumulative**; summed as per-level it gives 15.4 d instead of ≈ 12 d for L1–L10, which does not change any
+priority below. The whole 15-level ladder is **≈ 78 d** of one slot at 1× (the last two levels dominate) — Rev 2's
+“101 d 13 h” was a double-sum. → [H050](../hypotheses/H050-lab-time-column-per-level-vs-cumulative.md)
 
 | level | 9 | 10 | 11 | 12 | 13 | 14 | 15 |
 |---|---|---|---|---|---|---|---|
 | cap | $2 500 | $3 500 | $5 000 | $7 500 | $10 000 | $12 500 | **$15 000** |
-| gems (cum) | 91 940 (224 940) | 136 870 (361 810) | 195 990 (557 800) | 271 720 (829 520) | 366 610 (1 196 130) | 483 330 (1 679 460) | 624 680 (**2 304 140**) |
+| coins (per level + cum) | 91 940 (224 930) | 136 870 (361 800) | 195 990 (557 790) | 271 720 (829 510) | 366 610 (1 196 120) | 483 330 (1 679 450) | 624 680 (**2 304 130**) |
 | ×base | 50× | 70× | 100× | 150× | 200× | 250× | **300×** |
-| cum. lab time | 9 d 8 h | 15 d 5 h | 23 d 17 h | 35 d 14 h | 51 d 19 h | 73 d 9 h | **101 d 13 h** |
+| Time (per level, as printed) | 3 d 21 h 10 m | 5 d 20 h 40 m | 1 d 4 h 50 m | 2 d 1 h 30 m | 3 d 21 h | 8 d 2 h 30 m | 13 d 19 h 20 m |
+
+**Unit + arithmetic note (Rev 3).** The price column is **coins** (the Laboratory page: “every lab upgrade costs coins and
+takes time”; only the **rush** is priced in gems — [T006](T006-lab-queue-packing.md)). Tower Hub's unrounded per-level
+prices re-add exactly (250 + 910 + 2 129 + 4 856 = **8 145**, … , Σ L1–L10 = **361 800**); fandom's are rounded to 10
+(8 150 / 361 810), so the two tables agree within ≤ 10 coins over 10 levels — the cumulative column above is recomputed
+from the per-level prices, which is why it lands 10 coins under the wikis' printed totals.
+**The `Time` column is per-level — proven by the series itself:** it is non-monotone (L10 = 5 d 20 h 40 m but L11 =
+1 d 4 h 50 m), and a cumulative column cannot go backwards. Summing it gives the real slot bill: **L1–L4 = 8 h 33 m**,
+**L1–L10 = 15 d 10 h** (Σ = 22 212 min), **all 15 levels ≈ 44 d 6 h** (Σ = 63 762 min) of one slot at 1× ⇒ with the ×3.725
+stacked speed bonus of [T006](T006-lab-queue-packing.md) that is **≈ 12 d** of one slot, or **≈ 2.4 d** spread over five
+slots — which is why the ladder is affordable even though its raw bill looks enormous.
+→ [H050](../hypotheses/H050-lab-time-column-per-level-vs-cumulative.md)
 
 Marginal efficiency (**$ of cap per 1 000 gems**) by level: **200 · 110 · 47 · 41 · 19 · 15 · 14 · 8.5 · 5.4 · 7.3 ·
 7.7 · 9.2 · 6.8 · 5.2 · 4.0**. Read it as: levels 1–4 are in a different class from the rest, and among the deep
 levels **level 12 ($7 500 for 271 720) is the most efficient**.
 Wiki disagreement to settle on device: level 3 reads **$300** (fandom) / **$350** (game-vault); level 14's time reads
 21 d 13 h 39 m / 13 h 59 m. Both immaterial (≤ 1 % of the ladder).
+
+### 2.1 Four more multipliers sit on the rate (all printed), and the $300 settlement
+
+The `rate` in §1's formula is not only workshop × lab:
+
+| Layer | Source | Value |
+|---|---|---|
+| workshop `Interest/Wave` | 99 levels × 0.06 % | 5.94 % |
+| `Interest` lab | 99 levels | ×1.02 → **×2.98** |
+| **Generator module sub-stat** `Interest/Wave` | by sub-stat rarity | **+2 %** Epic · **+4 %** Legendary · **+6 %** Mythic · **+8 %** Ancestral |
+| **`Interest` perk** (standard perk) | 1 pick | **×1.5** |
+| **Vault `Interest Per Wave` node** | 5 levels, keys **10 / 20 / 40 / 70 / 110 = 250** ✓ | **+100 %/level ⇒ +500 %** |
+
+Rate = `(0.06 % × workshop lv × lab bonus + module pts) × perk`, with the Vault node applied as `+100 %` per level:
+
+| Config | Rate | Cash needed to reach the **$500** cap |
+|---|---|---|
+| workshop 30 only | 1.80 % | 27 778 |
+| workshop 30 + Epic sub-stat (+2 %) + perk | **5.70 %** | **8 772** |
+| workshop 99 + lab 99 + Ancestral sub-stat (+8 %) + perk | **38.55 %** | **1 297** |
+| the same + Vault node at +500 % | **231.3 %** | **216** |
+
+**The two practical consequences.** ① The **module sub-stat is the cheapest rate in the game**: an Ancestral `Interest/Wave`
+line (**+8 %**) is worth more than the *entire* maxed workshop line (5.94 %) and it costs module shards, not coins —
+so level the **Generator slot** and reroll toward that effect ([T010](T010-module-merge-chain.md) §1) instead of grinding
+workshop levels 60→99. ② The **`Interest` perk (×1.5)** belongs in T011's ranking list for capped-cash runs, and the
+**250-key** Vault node is a ×6 on the rate ⇒ above it the cap is reached inside one wave, so the *cap* ladder is the only
+meaningful purchase.
+
+**Settled disagreement:** level 3's cap is **$300** — fandom and Tower Hub (verified 2026-11-01) both print $300; only
+game-vault's older copy prints $350, so the 2-1 split resolves to **$300** (one device read still optional).
 
 ## 3. What the numbers say (derived)
 
@@ -117,8 +184,8 @@ Wiki disagreement to settle on device: level 3 reads **$300** (fandom) / **$350*
    With a low rate each purchase costs you tens of waves of proportional interest ⇒ **workshop levels 1–30 are the
    high-value part** (136.56 K coins total), and the Interest lab is only worth gems once the cap is already high.
 4. **Order-of-magnitude sanity check for a 1 000-wave farming run.** Fully-levelled Workshop cash lines pay
-   `596 × 2.49 ≈ 1 484` cash/wave ⇒ ≈1.48 M cash. Interest at cap $500 pays **500 K** (8 150 gems), at $3 500 pays
-   **3.5 M** (361 810 gems). So the cap ladder is comparable to, then larger than, the entire maxed cash block of the
+   `596 × 2.49 ≈ 1 484` cash/wave ⇒ ≈1.48 M cash. Interest at cap $500 pays **500 K** (for 8 145 coins), at $3 500 pays
+   **3.5 M** (for 361 800 coins). So the cap ladder is comparable to, then larger than, the entire maxed cash block of the
    Workshop — for a fraction of the coins, and it is the only cash multiplier that does not compete with the coin budget.
 
 ## 4. The spend order (the technique proper)
@@ -126,10 +193,11 @@ Wiki disagreement to settle on device: level 3 reads **$300** (fandom) / **$350*
 1. **Workshop → Utility → `Interest/Wave`** to **level 30** (136.56 K coins cumulative). This is the cheapest part of
    the whole engine and it is what makes the `$` go green early. Do it before any deep coin line from
    [T020](T020-workshop-coin-order.md) §3.
-2. **Lab → Utility → `Max Interest` levels 1–4** = 8 150 gems for **$50 → $500 (×10)**. This is the single best
-   gem-for-cash purchase below Tier 5; it sits inside the gem budget of [T009](T009-gem-spend-order.md).
+2. **Lab → Utility → `Max Interest` levels 1–4** = **8 145 coins** (8 h 33 m of a slot) for **$50 → $500 (×10)**. This is
+   the single best purchase below Tier 5 and it is paid in **coins**, so it does not touch the gem budget of
+   [T009](T009-gem-spend-order.md) at all — buy it before any deep Workshop line.
 3. Read the `$` icon in a run and use it as the switch:
-   * **grey** → the rate is limiting: next gems go to **`Interest`** (level 1 = 50 gems; **levels 1–10 = 34 016 gems in
+   * **grey** → the rate is limiting: next coins go to **`Interest`** (level 1 = 50 coins; **levels 1–10 = 34 007 coins in
      24 h of lab time** — a good “fill a short gap in a lab slot” purchase, T006 §queue-packing);
    * **bright green** → the cap is limiting: buy the next **`Max Interest`** level (from level 5 onward, prefer
      **level 12** when you can afford a single big purchase — best $/gems of the deep levels).
@@ -163,7 +231,12 @@ Wiki disagreement to settle on device: level 3 reads **$300** (fandom) / **$350*
 - [ ] With cash below the threshold the `$` is grey and the Cash counter rises geometrically; above it the counter
       rises by a **constant** per wave (that constant = your cap, e.g. 100 per wave after level 1).
 - [ ] Buying an upgrade drops the icon to grey and it returns to green in 2–4 waves at `Interest/Wave` level ≥ 30.
-- [ ] The cap value in the `Max Interest` row matches §2 (settle level 3 = $300 vs $350 while you are there).
+- [ ] The cap value in the `Max Interest` row matches §2 (level 3 should read **$300**).
+- [ ] The Lab panel shows a **coin** icon on the `Max Interest` / `Interest` prices and a **gem** icon only on the rush
+      button; `Interest` level 10 reads **12 126** coins and the ten printed prices sum to **34 007**.
+- [ ] `Max Interest`'s Time column is **not** monotone (L10 = 5 d 20 h 40 m, L11 = 1 d 4 h 50 m) ⇒ per-level, so
+      L1–L4 really is 8 h 33 m of cumulative slot time ([H050](../hypotheses/H050-lab-time-column-per-level-vs-cumulative.md)).
+- [ ] The Generator slot's `Interest/Wave` sub-stat reads **+2 %** at Epic rarity and **+8 %** at Ancestral.
 
 ## 7. Falsification
 
@@ -175,11 +248,24 @@ Wiki disagreement to settle on device: level 3 reads **$300** (fandom) / **$350*
 - If raising the `Cash Bonus` workshop level changes the interest paid at the same cash holding, the Cash Bonus is
   inside the interest base after all → fill the answer into
   [H026](../hypotheses/H026-cash-bonus-inside-interest-base.md) and re-check the §1 threshold formula.
+- If the Lab panel shows a **gem** icon on `Max Interest`'s own price (not only on the rush button), the unit correction in
+  §2 is wrong → restore the gem units and re-derive §3.4's comparison.
+- If the Max Interest Time column **is** monotone on the panel (e.g. L11 shows ≈ 6 d), then it is cumulative → the ladder's
+  slot bill is the ~5.9 d / 78 d reading instead, and §2's sums must be replaced by the panel's own total
+  ([H050](../hypotheses/H050-lab-time-column-per-level-vs-cumulative.md)).
+- If the Generator slot's `Interest/Wave` sub-stat shows a value other than 2 / 4 / 6 / 8 %, the rarity steps are
+  re-versioned → re-read the four tiers and rebuild §2.1's rate table (the ordering conclusion is unaffected: the sub-stat
+  still outranks the 5.94 % workshop line).
 - If a `Max Interest` level's printed cap differs from §2, trust the panel (the tables are versioned) and correct the
-  table — the *shape* (×2, ×4, … ×300 in 15 steps, 2 304 140 gems) is what the technique relies on.
+  table — the *shape* (×2, ×4, … ×300 in 15 steps, 2 304 130 coins) is what the technique relies on.
 
 ## Sources
 
+- Tower Hub `wiki/workshop/interest` (last verified **2026-11-01**) — third copy of all three ladders with unrounded
+  per-level prices (workshop 125 / 179 / 245 / 328 / 431 / 556 / 705 / 881 / 1.08 K / 1.32 K, whose ten cumulative totals
+  re-add exactly; `Interest` lab Σ10 = **34 007** coins; `Max Interest` Σ to **8 145** at L4 and **361 800** at L10), the
+  level-3 cap **$300**, the four extra multipliers (**Interest perk ×1.5**, Generator sub-stat **+2/4/6/8 %**, Vault node
+  **+100 %/level** at keys 10/20/40/70/110 = 250), and the interest base formula printed identically to fandom's.
 - fandom `Interest` (raw wikitext) — the formula (`(Current Cash + Cash/Wave × Cash Bonus) × Interest/Wave %`,
   “Interest is calculated after Cash/Wave”), the 5 000-coin unlock after `Free Upgrades`, 99 levels at +0.06 % →
   5.94 %, “labs unlocked in Milestones at tier 2 wave 80”, “Max Interest is indicated by the $ by Cash turning bright

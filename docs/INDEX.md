@@ -6,7 +6,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 
 | ID | File | Currency | Status |
 |---|---|---|---|
-| T001 | [Interest idle engine](techniques/T001-interest-idle-engine.md) | Cash, Coins | Unverified (Rev 2) |
+| T001 | [Interest idle engine](techniques/T001-interest-idle-engine.md) | Cash, Coins | **Verified (Rev 3**, arithmetic) |
 | T002 | [In-run phase order](techniques/T002-run-phase-order.md) | Cash → Coins | Unverified |
 | T003 | [Turtle build T1–T2](techniques/T003-turtle-build-t1-t2.md) | tier unlocks | Unverified |
 | T004 | [Mission farming on low tier](techniques/T004-mission-farming-low-tier.md) | Gems, Coins | Unverified |
@@ -83,6 +83,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | H047 | [Land Mine Stun gate: T7 W250 or T11 W10?](hypotheses/H047-land-mine-stun-milestone-gate.md) | read the Card-reward cell in the Milestones screen |
 | H048 | [Vault Power nodes: additive or multiplicative with the lab?](hypotheses/H048-vault-power-node-stacking-with-lab.md) | buy one Power level, re-read the line's value and the wave cash delta |
 | H049 | [Income lab: multiplies value or increment?](hypotheses/H049-income-lab-multiplies-value-vs-increment.md) | Cash/Wave at workshop L1 with the lab at L10 → 4 or 4.8 |
+| H050 | [Lab `Time` column: per-level or cumulative?](hypotheses/H050-lab-time-column-per-level-vs-cumulative.md) | read the timer for two queued levels in one line |
 
 ## Logs
 
@@ -115,6 +116,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 - [2026-11-02 — session 27 (T010 Rev 4, H044–H045)](log/2026-11-02.md#2026-11-02--session-27-iteration-36-the-module-layer-budgeted)
 - [2026-11-02 — session 28 (T012 Rev 2, H046–H047)](log/2026-11-02.md#2026-11-02--session-28-iteration-37-the-card-deck-budgeted)
 - [2026-11-02 — session 29 (T020 Rev 3, H048–H049)](log/2026-11-02.md#2026-11-02--session-29-iteration-38-the-workshops-income-layer-priced)
+- [2026-11-02 — session 30 (T001 Rev 3, H050)](log/2026-11-02.md#2026-11-02--session-30-iteration-39-the-interest-engines-units-fixed-and-its-stack-completed)
 
 ## Reference material in this repo
 

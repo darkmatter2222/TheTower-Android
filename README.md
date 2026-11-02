@@ -8,7 +8,7 @@ Ease: taps/minutes a human needs. Confidence: how solid the source/derivation is
 
 | # | Technique | Value | Ease | Confidence | Needs |
 |---|---|---|---|---|---|
-| [T001](docs/techniques/T001-interest-idle-engine.md) | Buy `Max Interest` levels 1–4 (8 150 gems ⇒ cap $50→$500 = ×10 flat cash/wave) + Workshop `Interest/Wave` levels 1–30 (136.56 K coins), then hold cash at the `cap ÷ rate` threshold and let the `$` stay green — grey `$` ⇒ buy `Interest`, green ⇒ buy `Max Interest` | ★★★★ | ~34 taps | High tables / Medium interaction | Tier 2 W80 |
+| [T001](docs/techniques/T001-interest-idle-engine.md) | Buy `Max Interest` levels 1–4 (**8 145 coins** / 8 h 33 m ⇒ cap $50→$500 = ×10 flat cash/wave, **no gems**) + Workshop `Interest/Wave` L1–30 (136.56 K coins); the rate stacks 4 layers — workshop × lab (→×2.98) **+ module sub-stat (+8 % Ancestral, more than the whole maxed workshop line)** × perk (×1.5) + Vault node (+500 %) — so hold cash at `cap ÷ rate` and let the `$` stay green: grey ⇒ buy `Interest`, green ⇒ buy `Max Interest` | ★★★★ | ~34 taps | **Verified** (arith.) | Tier 2 W80 |
 | [T002](docs/techniques/T002-run-phase-order.md) | Phase order for the in-run Cash bar: Cash/Wave → Cash Bonus → Coins/Kill → Defense | ★★★ | 0 (order only) | High | Tier 1 |
 | [T003](docs/techniques/T003-turtle-build-t1-t2.md) | Turtle (Defense Absolute + Def % + Thorns breakpoints) to cheap-clear Tier 1–2 | ★★ | 10 min | High | Tier 1 |
 | [T004](docs/techniques/T004-mission-farming-low-tier.md) | Farm daily/weekly missions on the lowest useful tier (`mission tier = max tier − 2`) | ★★★★ | 5 min | Medium | Tier 2 |
