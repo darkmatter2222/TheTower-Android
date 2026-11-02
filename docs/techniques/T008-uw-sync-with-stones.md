@@ -1,5 +1,12 @@
 # T008 — Stone economy: knee-first UW buying + cooldown sync
 
+Rev: 8 (2026-11-02) - the **nine UW+ `Cost` rows collapse to four sequences** (A / A' / B / C), each closed at every depth it
+is used: A -> GT+ **20 070**; A' (same ten cells then a +50 tail) -> ILM+ **18 570**, and **A - A' = 1 500** cell by cell
+(**50 / 200 / 450 / 800**); B -> CF+ **16 350** at 13, BH+/DW+ **19 050** at 14, Spotlight+ **37 050** at 19; C -> SM+/CL+
+**12 650** at 11, PS+ **23 800** at 14. The nine re-add to **179 240** = the §1 line exactly, and CL's printed `TOTAL 12,650
++ unlock` matches family C at cap 11. Each family ends in a **constant-increment tail** (+150 / +50 / +300), so the
+"x1.2-1.27 per level" rule is a middle-of-tree effect. Spotlight+'s value row is **0.01x ... 0.20x** (was noted 0.18x); PS+
+steps are +70 thirteen times with one +80 at the last cell. §1.④.
 Rev: 7 (2026-11-02) - the **workshop stone ledger re-verified end to end**: 9/9 pages where prose total = `Total` row =
 sum of the three per-level columns, so the bill is **244 542** (was 244 302; ILM 23 042 -> **23 032**, Spotlight
 53 236 -> **53 486**, both addition slips) and the UW block total becomes **448 137**. New counting law: **levels =
@@ -106,7 +113,7 @@ Printed coin shares (each measured against the same no-bonus baseline, so they a
 (**46.2 + 17.5 = 63.7 %** of the ledger), then the **wave-skip** layer (T024), then Black Hole — i.e. the order §4's stone
 ladder already uses.
 
-### 1.④ The nine UW+ ledgers, level by level (Rev 5, `wiki/uw/<name>` §“UW+ Cost Table”)
+### 1.④ The nine UW+ ledgers, level by level (Rev 8, `wiki/uw/<name>` §“UW+ Cost Table”)
 
 Each UW page prints its ability's `Cost` row and a `Value` row, and **the caps are not uniform** (this resolves **H033**:
 **11 / 13 / 14 / 19**, not “10 levels each”). Every `Value` row re-adds from a closed form, and the one page that prints its
@@ -118,11 +125,39 @@ own `TOTAL` (Chain Lightning) agrees with the computed sum exactly:
 | **Chrono Loop** (CF) | **13** | **16 350** | 0.10 … 0.75 | `0.10 + 0.05n` | 14/14 ✓ |
 | **Consume** (BH) | **14** | **19 050** | 0.05× … 0.75× | `0.05 + 0.05n` | 15/15 ✓ |
 | **Kill Wall** (DW) | **14** | **19 050** | 3 … 108 | `3 + n(n + 1) / 2` (triangular) | 15/15 ✓ |
-| **Light Range** (Spotlight) | **19** | **37 050** | 0.01× … 0.18× | `0.01 + 0.01n` | ✓ |
+| **Light Range** (Spotlight) | **19** | **37 050** | 0.01× … **0.20×** | `0.01 + 0.01n` | 20/20 ✓ |
 | **Smite** (CL) | **11** | **12 650** | 0.05 % … 0.60 % | `0.05 + 0.05n` | 12/12 ✓, page `TOTAL` = **12 650 + unlock** ✓ |
 | **Charged Mine** (ILM) | **14** | **18 570** | ×0.5 … ×50.9 | `0.5 + n + 0.2n(n − 1)` | 15/15 ✓ |
 | **Cover Fire** (SM) | **11** | **12 650** | 13 s … 2 s | `13 − n` | 12/12 ✓ |
-| **Death Creep** (PS) | **14** | **23 800** | 120 % … 1 110 % | `120 + 70n` (last cell prints **1 110**, the law gives 1 100) | 14/15, +10 skew |
+| **Death Creep** (PS) | **14** | **23 800** | 120 % … 1 110 % | `120 + 70n`, with **one** `+80` at the last step (1 030 → 1 110) | 14/15, +10 skew in the final cell only |
+
+**Four cost families, closed by depth (Rev 8).** The nine `Cost` rows are not nine independent ladders — they are **four**
+step sequences (three of them reused at several caps), so any cell mis-read breaks several sums at once. With
+`step(n) = cost(n) − cost(n−1)`:
+
+| Family | Step list (levels 1 → cap) | Σ 10 | Σ 11 | Σ 13 | Σ 14 | Σ 19 |
+|---|---|---|---|---|---|---|
+| **A** | `60 70 80 110 130 150 200 250 300 400 550 700 850` | **7 970** | | | **20 070** → GT+ | |
+| **A′** | `60 70 80 110 130 150 200 250 300 350 400 450 500` (identical to A for ten cells, then a **+50** tail) | **7 970** | | | **18 570** → ILM+ | |
+| **B** | `100 110 120 130 140 150 150 200 200 250 250 250 250 300 300 300 300 300` | | | **16 350** → CF+ | **19 050** → BH+, DW+ | **37 050** → Spotlight+ |
+| **C** | `75 100 125 125 200 225 300 350 400 450 500 550 600` | | **12 650** → SM+, CL+ | | **23 800** → PS+ | |
+
+Three closure checks, all exact:
+
+- **The nine partial sums re-add to the §1 line**: `20 070 + 16 350 + 19 050 + 19 050 + 37 050 + 12 650 + 18 570 + 12 650 +
+  23 800 =` **179 240** ✓ — and because **B appears at three depths and C at two**, one of five numbers breaks if a single
+  cell is wrong, which is what makes the ledger trustworthy without a printed per-page `TOTAL` (only CL prints one: **12 650**
+  for family C at cap 11 ✓).
+- **A − A′ = 1 500**, cell by cell **50 / 200 / 450 / 800** (levels 11 … 14): the two 14-level trees are priced *identically*
+  for the first ten levels and diverge only in the tail, so the two trees' first-half budget is the same **7 970** stones.
+- **Every family ends in a constant-increment tail** — A runs `+150` (`400 → 550 → 700 → 850`), A′ and C share the `+50`
+  ladder `300, 350, 400, 450, 500, …`, B runs `+300` flat for its last six levels. Deep levels are therefore **arithmetic**,
+  and the “×1.2–1.27 per level” rule in item 2 below is a *middle-of-tree* observation only (A's 13 ratios run **1.186 …
+  1.269** and the last three are 1.268 / 1.269 / 1.258).
+
+**Pricing a tree from two taps.** Family is identified by the **level-1 cost** (300 → A/A′/C, 400 → B), and A / A′ / C are
+separated by the **level-11 cell** (**2 050** GT+, **2 000** ILM+, **3 150** PS+); the cap then fixes the Σ from the table
+above. That reproduces eight of the nine trees from two printed numbers.
 
 Four things this buys the plan:
 
@@ -367,6 +402,12 @@ Also: each `Basic_Upgrades` page's `Total` equals the sum of its own column (BH 
       Combo / Consume / Kill Wall / Charged Mine / Death Creep and **19** on Light Range.
 - [ ] **First-level prices:** the first UW+ level after the unlock costs **300** on Golden Combo, Smite, Cover Fire,
       Charged Mine and Death Creep, and **400** on Chrono Loop, Consume, Kill Wall and Light Range.
+- [ ] **The A / A′ pair:** GT+ reads **2 050 / 2 600 / 3 300 / 4 150** at levels 11 … 14 while ILM+ reads
+      **2 000 / 2 400 / 2 850 / 3 350** — levels 1–10 are identical (**Σ 7 970** each) and the whole difference is **1 500**
+      stones (**50 / 200 / 450 / 800**), so **20 070 − 18 570** is the one check that needs no arithmetic beyond addition.
+- [ ] **Family C at two depths:** CL+ and SM+ stop at **2 650** on level 11 (**Σ 12 650** each) and PS+ carries on
+      **3 150 / 3 700 / 4 300** (**Σ 23 800**); Spotlight+ adds **+300 flat** five times (**3 000 3 300 3 600 3 900 4 200**)
+      to reach **Σ 37 050** against Consume / Kill Wall’s **Σ 19 050** on the same row.
 - [ ] **The knee:** buying Kill Wall **level 8** costs **1 300** and the value line moves **31 → 39** (Δ 8 ⇒ **162.5**
       stones/unit, the row's minimum; L1 is 400/unit at `3 → 4` for 400). At **Charged Mine level 4** the row moves
       **×4.7 → ×6.9** (Δ 2.2 for **510** stones = **231.8**/unit, that row's minimum).
@@ -393,6 +434,9 @@ Also: each `Basic_Upgrades` page's `Total` equals the sum of its own column (BH 
 - If a page’s **prose total** no longer equals the sum of its three `Total` columns, those tables are mid-update → trust the
   `Total` rows, re-derive §2, and stamp the date (the whole §2 ledger rests on that three-way agreement; the Rev-7 pass found
   and fixed two addition slips worth **240** stones there).
+- If the **level-11 cell** of a 300-start tree is neither **2 050** (GT+) nor **2 000** (ILM+) nor **3 150** (PS+), the family
+  map in §1.④ is stale for that tree → re-read its `Cost` row end to end and add the delta to **179 240** (the nine-tree Σ
+  moves by exactly that delta, nothing else in the table changes).
 
 - If a cooldown `+` costs something other than the printed per-level column (10, 28, 46, …), the client uses a different price tree → record the whole column and rescale §3–§4 (the *ratios* between blocks are what the plan needs).
 - If the UW totals row disagrees (e.g. GT ≠ 27 186), the version changed a ladder — trust the panel, keep the block ratios.

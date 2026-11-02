@@ -13,7 +13,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | T005 | [Tier-rush then farm](techniques/T005-tier-rush-then-farm.md) | Coins (daily/weekly) | **Verified (Rev 2**, arithmetic) |
 | T006 | [Lab queue packing + cheapest skipped hour](techniques/T006-lab-queue-packing.md) | all (multipliers) | **Verified (Rev 17**, arithmetic) |
 | T007 | [Ad-gem sweep](techniques/T007-ad-gem-sweep.md) | Gems | Amounts verified (Rev 2) |
-| T008 | [Stone economy: knee-first UW buying + cooldown sync](techniques/T008-uw-sync-with-stones.md) | Stones → Coins | **Verified (Rev 7**, arithmetic: 9/9 stone values + 4/4 lattice rows + the 53 547 ledger + the 9 UW+ tables + the GT matrix + 9/9 workshop totals) |
+| T008 | [Stone economy: knee-first UW buying + cooldown sync](techniques/T008-uw-sync-with-stones.md) | Stones → Coins | **Verified (Rev 8**, arithmetic: 9/9 stone values + 4/4 lattice rows + the 53 547 ledger + the 9 UW+ tables closing as 4 sequences (179 240) + the GT matrix + 9/9 workshop totals) |
 | T009 | [Gem spend order](techniques/T009-gem-spend-order.md) | Coins/min | **Double-sourced (Rev 4**; device read pending) |
 | T010 | [Module economy (slot levels, merges, rerolls)](techniques/T010-module-merge-chain.md) | Modules, shards | **Verified (Rev 7**, arithmetic) |
 | T011 | [Perk engine tuning](techniques/T011-perk-engine-tuning.md) | Coins (run multipliers) | **Verified (Rev 5**, arithmetic) |
@@ -171,6 +171,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 - [2026-11-02 - session 70 (T003 Rev 3)](log/2026-11-02.md#2026-11-02---session-70-iteration-79-the-printed-build-ladder---ehp-to-hybrid-to-glass-cannon-and-every-cf-number-re-adds)
 - [2026-11-02 - session 71 (T006 Rev 16)](log/2026-11-02.md#2026-11-02---session-71-iteration-80-the-named-uw-lab-ledger---39-tables-priced-and-eight-unlocks-that-cost-70-days)
 - [2026-11-02 - session 72 (T008 Rev 7, T006 Rev 17)](log/2026-11-02.md#2026-11-02---session-72-iteration-81-the-nine-workshop-stone-ledgers-agree-three-ways-and-the-bill-is-244-542)
+- [2026-11-02 - session 73 (T008 Rev 8)](log/2026-11-02.md#2026-11-02---session-73-iteration-82-the-nine-ultimate-weapon-cost-rows-are-four-sequences-and-the-179-240-ledger-closes-at-every-depth)
 
 ## Reference material in this repo
 
