@@ -1,13 +1,19 @@
 # T023 — Guardian economy: the bit price model, the Fetch droptable, and the sync layer
 
+Rev: 2 (2026-11-02) — the **per-level bit price model is confirmed by a third source and now reproduces four of four
+printed chip totals exactly** (Attack 13 345, Bounty 13 110, Ally 14 470, Scout 13 850 — §2.1), which yields the **level
+caps of every line** and a **bits-per-point ranking** (§2.2); adds the printed value ladders (steps per level), the
+`rows = cap + 2` table rule (⇒ **Summon's longest line = 71 levels**), and the targeting/proc rules.
 Rev: 1 (2026-11-02) · Currency: **Bits** (spent) → **Gems, Medals, Module Shards, Coins** (Fetch) + **Coins/Cash** (Bounty, Summon)
 **Value:** ★★★★ — Fetch is the only *daily-capped multi-currency drip* after the ad icon (20 gems + 10 medals + ≈ 29 shards
 /day at max, with **coins and shards uncapped**), Bounty is a **×2 coin multiplier** that multiplies with every other coin
 bonus, and the whole layer costs ≈ **80 k bits** — one-time, permanent, and independent of gems.
-**Confidence:** **High** — **Verified (arithmetic)**: all six printed line totals of the two economy chips re-add from the
-per-level prices (§2), and the Bounty chip total derived from them (**13 110**) equals Tower Hub's independently printed
-value. Fetch's droptable sums to exactly **100.0 %** ✓. The per-day expectations in §3 are a model (Medium) until a device
-log — see [H040](../hypotheses/H040-fetch-procs-offline.md).
+**Confidence:** **High** — **Verified (arithmetic, Rev 2)**: the closed form `k·n(n+1)/2` reproduces **four of four** printed
+chip totals exactly (Attack 13 345, Bounty 13 110, Ally 14 470, Scout 13 850) plus Fetch's three line totals, and the price
+law is stated independently by Tower Hub ("each level costs a fixed number of bits more than the one before"). Fetch's
+droptable sums to exactly **100.0 %** ✓. The per-day expectations in §3 are still a model (Medium) until a device log —
+see [H040](../hypotheses/H040-fetch-procs-offline.md); the solved line caps are
+[H052](../hypotheses/H052-guardian-chip-line-caps.md).
 **Ease:** 1 tap per level + 1 tap per day for the claims · **Prerequisite:** a **Guild** (T3 W10, T016) — the Guardian and
 its chips only appear while you are in one — then **200 bits**.
 
@@ -46,6 +52,69 @@ the six-chip set.
 **Knee-first, as everywhere else:** the *first* levels of a line are 1–2 bits, so a fresh line's first 10 levels are ≤ 55
 bits — cheap multipliers that get buried under the 90-level cooldown tail. Take every line's **first 10–20 levels** on every
 chip before deepening any one line.
+
+### 2.1 The price model, closed: four of four printed totals reproduce
+
+Tower Hub's chip pages state the law explicitly: “**every level adds a fixed step, and each level costs a fixed number of
+bits more than the one before**” ⇒ a line's level-*n* price is `k·n` bits and its total to the cap is **`k·n(n+1)/2`**
+(the same closed form as §2's rows, now with a third independent source). With that, the four printed chip totals
+re-add **exactly**:
+
+| Chip | Line A (`k`) | Line B — Cooldown (`k`) | Line C (`k`) | Levels (A, B, C) | Total | Printed |
+|---|---|---|---|---|---|---|
+| **Attack** | % (`25`) | −1 s/lv (`1`) | Targets (`100`) | 19, 90, 9 | 4 750 + 4 095 + 4 500 = **13 345** | 13 345 ✓ |
+| **Bounty** | Multiplier (`1`) | −1 s/lv (`2`) | Targets (`100`) | 99, 60, 9 | 4 950 + 3 660 + 4 500 = **13 110** | 13 110 ✓ |
+| **Ally** | Recovery (`5`) | −1 s/lv (`1`) | Max Recovery (`1`) | **60, 90, 49** | 9 150 + 4 095 + 1 225 = **14 470** | 14 470 ✓ |
+| **Scout** | Range (`5`) | −1 s/lv (`2`) | Duration (`10`) | **16, 70, 40** | 680 + 4 970 + 8 200 = **13 850** | 13 850 ✓ |
+| **Fetch** | Cooldown (`2`) | Find (`5`) | Double Find (`10`) | 60, ≈43, ≈50 | **14 480** ✓ (§2's line totals) | 14 480 ✓ |
+| **Summon** | Cooldown (`2`) | Duration (`2`) | Cash Bonus (`100`) | see below | not printed → H052 | — |
+
+The two new ones (Ally, Scout) are **solved** rather than printed: the Cooldown cap is pinned by its own value ladder
+(Ally 120→30 s = 90 levels, Scout 105→35 s = 70), and the remaining two caps are the integer pair that closes the printed
+total (Ally: `5·n(n+1)/2 + m(m+1)/2 = 10 375` ⇒ `n = 60, m = 49`; Scout: `5·n(n+1)/2 + 10·m(m+1)/2 = 8 880` ⇒ `n = 16,
+m = 40`, and the neighbouring `n` leave non-pronic remainders ⇒ unique). Those caps imply **Ally Max Recovery tops out
+near ×6.0** and **Scout Range near ×3.6** rather than the ×10 / ×6 of the older summary rows →
+[H052](../hypotheses/H052-guardian-chip-line-caps.md).
+
+**Table rule (`rows = cap + 2`).** Tower Hub prints “Showing 10 of N rows”, and `N − 2` is the longest line's level count on
+every chip whose caps are known: Attack/Ally 92 ⇒ 90 ✓, Bounty 101 ⇒ 99 ✓, Fetch 62 ⇒ 60 ✓, Scout 72 ⇒ 70 ✓. Applying it to
+**Summon (73 rows) ⇒ its longest line has 71 levels** — more than its 40 s Cooldown can hold, so that is the **Cash Bonus**
+line: **×1.00 → ≈ ×72** at `k = 100` ⇒ ≈ **255 600 bits** for that one line (H052).
+
+### 2.2 The bits-per-point ranking (the actual buy order)
+
+**Σ of the first 10 levels of a line = `k · 55`** (the closed form `Σ k·n`). Two of the printed ladders start one step high
+— fandom prices Fetch's first Find level at **20** and Double Find's at **10** rather than at `k`, so their first-10 sums are
+**425** and **550** bits (§6 steps 2–3); the ranking below is unaffected.
+
+| Rank | Chip → line | `k` | Value per level | First 10 levels | Why it ranks here |
+|---|---|---|---|---|---|
+| 1 | **Bounty → Multiplier** | 1 | +0.01 (≈ +1 %) coins on tagged kills | **55 bits** | cheapest × in the layer, multiplies the T008 window |
+| 1 | **Ally → Max Recovery / Attack → Cooldown / Bounty → Cooldown** | 1 | +0.1× / −1 s / −1 s | **55 bits** | same price tier, not currency lines |
+| 3 | **Fetch → Cooldown** | 2 | −1 s (120 → 60 s = 1 440 procs/day) | **110 bits** | ×2 on *every* row of the droptable |
+| 3 | **Summon → Cooldown / Duration** | 2 | −1 s / +1 s | **110 bits** | more procs, longer cash window |
+| 5 | **Fetch → Find Chance** | 5 | +1 % find (all 5 currency rows) | **275 bits** | ≈ +12 gems-equivalent/day per +1 % (§3's model) |
+| 5 | **Ally → Recovery / Scout → Range** | 5 | +1 % / +0.1× | **275 bits** | survival lines |
+| 7 | **Fetch → Double Find / Scout → Duration** | 10 | +1 % / +1 s | **550 bits** | Double Find lands *after* the caps bind |
+| 8 | **Bounty/Attack → Targets, Summon → Cash Bonus** | 100 | +1 target / +1.0× cash | **5 500 bits** | the 100-bit lines — last, on every chip |
+
+**So the order is:** every `k = 1` line on the chips you use → Fetch's Cooldown → Find Chance → the `k = 2` proc lines →
+the **100-bit** Targets/Cash Bonus lines only once the cheap ones are exhausted. Same conclusion as §3's rule of thumb, now
+priced: the whole `k ≤ 10` layer of the **coin preset** is ≈ **24 600 bits** — Bounty Multiplier 4 950 + Cooldown 3 660
+(**8 610**), Fetch's three lines (**14 480**, all three are `k ≤ 10`), Summon's Cooldown + Duration (≈ **1 500**, caps
+pending H052) — and it contains every high-value point in the layer.
+
+**Two print reconciliations (same line, two display formats).** ① Bounty's multiplier prints **`×1.01` on the Chips page**
+but **`0.01` in the Guardian page's base column** — these agree: one prints the total multiplier (`1 + 0.01`), the other the
+increment, so level 1 = **+1 %** coins and level 10 = **×1.10**. ② The Chips-page droptable prints **0.45 / 0.12** for the
+two module rows and sums to **100.07 %**, while the fandom print (0.4 / 0.1) sums to **exactly 100.0 %** ✓ ⇒ §3's table stays
+authoritative.
+
+**Proc rules that change the numbers** (Chips page): a chip only reaches enemies inside a **limited range** and **wastes the
+activation** if none are in range; chips **ignore Target Priority** entirely; **Attack** takes the lowest-remaining-HP-%
+targets (as of v29.1.2) and halves damage vs bosses; **Ally** packages are a *separate item type* and do **not** trigger
+package effects such as the Galaxy Compressor module. Practical consequence: keep the chip windows inside a populated tower
+range (§6 step 4), and do not expect Target Priority to steer the Guardian.
 
 ## 3. Fetch — the currency engine (droptable, caps, and the expected flow)
 
@@ -122,9 +191,26 @@ Vault node means a mis-levelled chip line is never a real loss.
 - [ ] A day of Fetch yields **20 gems and 10 medals** and then stops paying those two, while shards/coins keep coming.
 - [ ] Switching from a 3-chip preset to a 1-chip preset **increases** the bit counter by the refunded difference.
 - [ ] With the third Vault respec node owned, the respec button reads **0** gems and can be used twice in one week.
+- [ ] The **value** ladders read as printed for the first 10 levels: Attack 1→10 % / 120→111 s / 1→10 targets; Ally 1→10 % /
+      120→111 s / ×1.1→×2.0; Bounty ×1.01→×1.10 / 120→111 s / 1→10; Fetch 120→111 s / 10→19 % / 2→11 %; Summon 40→31 s /
+      5→14 s / ×1.00→×10.00; Scout 105→96 s / ×2.0→×2.9 / 5→14 s.
+- [ ] The per-level **bit** steps are `k` = **1** (Bounty Multiplier, Ally/Attack/Bounty Cooldown+MaxRec), **2** (Fetch/
+      Summon/Scout Cooldown, Summon Duration), **5** (Ally Recovery, Fetch Find, Scout Range), **10** (Fetch Double Find,
+      Scout Duration), **100** (Targets, Summon Cash Bonus) ⇒ the *level-10 cumulative* should read **55**, **110**, **275**,
+      **550**, **5 500** bits, except where the ladder's first printed price is above `k` (Fetch Find **425**, Fetch Double
+      Find **550**, Bounty Multiplier **55**).
+- [ ] Each chip's total reads **13 345 / 13 110 / 14 470 / 13 850 / 14 480** bits (§2.1) — and the Ally/Scout caps are
+      ≈ 60 / 90 / 49 and 16 / 70 / 40 levels ([H052](../hypotheses/H052-guardian-chip-line-caps.md)).
 
 ## 8. Falsification
 
+- **Price-model fencepost (the one test that separates the two readings).** §2.1 uses `price(level n) = k·n`. If instead the
+  **first level of every line is free** (`k·(n−1)`), the same caps give **Attack 13 219 · Bounty 13 007 · Ally 14 463 ·
+  Scout 13 833** instead of 13 345 / 13 110 / 14 470 / 13 850. So: read a chip's total in its panel — the **13 345**-family
+  means the model here is right, the **13 219**-family means level 1 is free and every `k·55` figure in §2.2 must drop by
+  `k`.
+- If the Ally/Scout caps are not ≈ (60, 90, 49) / (16, 70, 40) levels, the two *solved* rows of §2.1 are provisional —
+  record the three caps per chip (H052); the printed totals themselves do not depend on the solve.
 - If a line's per-level price is not **1** (multiplier) / **2** (cooldown) / **100** (targets), the tables are
   re-versioned → re-read the first 10 levels of each line and rebuild §2's Σ column from the panel.
 - If the day's Fetch output exceeds **20 gems**, the cap counts **procs** rather than items (or resets at another hour
@@ -154,6 +240,17 @@ Vault node means a mis-levelled chip line is never a real loss.
   (**20 gems / 10 medals / 5 common + 2 rare modules per 24 h, coins and shards uncapped**), Fetch's cooldown costing
   **2 extra bits per level** vs the norm, the Fetch upgrade order, the Ally/Attack boss note (half damage), the Summon↔GT
   cash-stacking advice, and “summoned enemies cannot become Ultimate from a Battle Condition”.
+- Tower Hub `wiki/system/chips` + `wiki/system/guardian` (both last verified **2026-11-01**, tables “as of v29.1.2”) — the
+  per-chip price law (“every level adds a fixed step, and each level costs a fixed number of bits more than the one before”)
+  and the first-10 ladders used in §2.1/§2.2 (Attack `25`/`1`/`100`, Ally `5`/`1`/`1`, Bounty `1`/`2`/`100`, Fetch
+  `2`/`5`/`10`, Summon `2`/`2`/`100`, Scout `5`/`2`/`10`); the row counts **92 / 92 / 101 / 62 / 73 / 72**; the
+  “**14 470** bits ≈ **71 weeks** of saving” statement for Ally (⇒ ≈ 204 bits/week of income at that stage); the chip
+  **proc/targeting rules** (limited range, activation wasted if nothing is in range, Target Priority ignored, Attack picks
+  lowest-HP-% as of v29.1.2, Ally packages are a separate item type that ignores Galaxy Compressor); the base-value table
+  (Ally 120 s/1 %/×1.1, Attack 120 s/1 %/1, Bounty 120 s/×0.01/1, Fetch 120 s/10 %/2 %, Summon 140 s/5 s/×1.00, Scout
+  105 s/×2.0/5 s); slot 2 = **200** / slot 3 = **300** bits (4th “TBD”); the chip sources (**Bounty/Fetch 200 tokens**,
+  Summon = Season 5, Scout = Season 7); the 24 h Fetch caps restated (20 gems / 10 medals / 5 common + 2 rare modules);
+  “**Guardian skins add +0.6 % coins**”; and the Fetch droptable print with 0.45/0.12 module rows.
 - `tools/gm_strings.txt` — `Assets\Scripts\Guilds\GuardianChips.cs`, `Guilds\GuardianPresetsUI.cs`,
   `Assets\Scripts\GuardianPresetData.cs` (a preset is its own data object ⇒ per-preset chip levels),
   `Assets\Scripts\RespecGuardianUI.cs` (the dedicated respec screen), `SummonPortal.cs` + `SummonPortalManager.cs`,

@@ -28,7 +28,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | T020 | [Workshop coin-spend order](techniques/T020-workshop-coin-order.md) | Coins → Cash/Coins multipliers | **Verified (Rev 4**, arithmetic) |
 | T021 | [Dissonant Runs & Echo](techniques/T021-dissonant-runs-echo.md) | Coins (+ damage/health/UW) | Unverified |
 | T022 | [Free-currency census & paid ladder](techniques/T022-free-currency-census-paid-ladder.md) | Gems, Stones (budget + bills) | Unverified |
-| T023 | [Guardian economy (bit model, Fetch droptable, sync layer)](techniques/T023-guardian-economy.md) | Bits → Gems, Medals, Shards, Coins | **Verified (arithmetic)** |
+| T023 | [Guardian economy (bit model, Fetch droptable, sync layer)](techniques/T023-guardian-economy.md) | Bits → Gems, Medals, Shards, Coins | **Verified (Rev 2**, arithmetic) |
 
 ## Hypotheses (open)
 
@@ -85,6 +85,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | H049 | [Income lab: multiplies value or increment?](hypotheses/H049-income-lab-multiplies-value-vs-increment.md) | Cash/Wave at workshop L1 with the lab at L10 → 4 or 4.8 |
 | H050 | [Lab `Time` column: per-level or cumulative?](hypotheses/H050-lab-time-column-per-level-vs-cumulative.md) | read the timer for two queued levels in one line |
 | H051 | [Free-upgrade 90.75 % decomposition + ×2.5 multiply point](hypotheses/H051-free-upgrade-chance-90-75-decomposition.md) | read the tab’s summed chance, the perk’s wording, then one Vault level |
+| H052 | [Guardian chip line caps (60/90/49 · 16/70/40 · Summon 71)](hypotheses/H052-guardian-chip-line-caps.md) | read each chip line's last level + its panel total |
 
 ## Logs
 
@@ -119,6 +120,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 - [2026-11-02 — session 29 (T020 Rev 3, H048–H049)](log/2026-11-02.md#2026-11-02--session-29-iteration-38-the-workshops-income-layer-priced)
 - [2026-11-02 — session 30 (T001 Rev 3, H050)](log/2026-11-02.md#2026-11-02--session-30-iteration-39-the-interest-engines-units-fixed-and-its-stack-completed)
 - [2026-11-02 — session 31 (T020 Rev 4, H051)](log/2026-11-02.md#2026-11-02--session-31-iteration-40-the-free-upgrade-engine-priced)
+- [2026-11-02 — session 32 (T023 Rev 2, H052)](log/2026-11-02.md#2026-11-02--session-32-iteration-41-the-guardians-bit-prices-close-as-a-closed-form)
 
 ## Reference material in this repo
 
