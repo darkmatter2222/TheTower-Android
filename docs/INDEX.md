@@ -6,7 +6,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 
 | ID | File | Currency | Status |
 |---|---|---|---|
-| T001 | [Interest idle engine](techniques/T001-interest-idle-engine.md) | Cash, Coins | **Verified (Rev 4**, arithmetic) |
+| T001 | [Interest idle engine](techniques/T001-interest-idle-engine.md) | Cash, Coins | **Verified (Rev 5**, arithmetic: the two rate ladders `0.06 % × L` / `1 + 0.02n`, **5.94 × 2.98 = 17.70 %**, the prefix-sum ledger 10/10, the cap ladder’s marginal table) |
 | T002 | [In-run phase order](techniques/T002-run-phase-order.md) | Cash → Coins | **Verified (Rev 4**, arithmetic: stack law + ceilings + the wave clock 26+9 s ⇒ 102.86 waves/h at ×1) |
 | T003 | [Turtle build T1–T2](techniques/T003-turtle-build-t1-t2.md) | tier unlocks | **Verified (Rev 3**, arithmetic) |
 | T004 | [Mission farming on low tier](techniques/T004-mission-farming-low-tier.md) | Gems, Coins, Shards, Medals, Tokens | **Verified (Rev 4**, arithmetic) |
@@ -185,6 +185,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 - [2026-11-02 - session 81 (T014 Rev 9)](log/2026-11-02.md#2026-11-02---session-81-iteration-90-a-brackets-contents-derive-from-the-league-index-and-heat-is-only-a-fifth-of-full-strength-at-wave-200)
 - [2026-11-02 - session 82 (T012 Rev 3)](log/2026-11-02.md#2026-11-02---session-82-iteration-91-the-mastery-layer-is-one-law-and-a-stone-unlock-is-one-tenth-of-the-effect)
 - [2026-11-02 - session 83 (T010 Rev 8)](log/2026-11-02.md#2026-11-02---session-83-iteration-92-reroll-shards-gain-5-per-tier-from-t11-and-one-sub-stat-rarity-step-doubles-the-payout)
+- [2026-11-02 - session 84 (T001 Rev 5)](log/2026-11-02.md#2026-11-02---session-84-iteration-93-the-interest-engine-becomes-two-arithmetic-ladders-and-a-cap-ladder)
 
 ## Reference material in this repo
 

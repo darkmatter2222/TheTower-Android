@@ -1,5 +1,12 @@
 # T001 — Idle the Cash bar at the Interest cap
 
+Rev: 5 (2026-11-02) — **§2.3, the printed interest ladders**: the workshop line is **`0.06 % × L`** capped at
+**L99 = 5.94 %** (Σ **7.36 M** coins, prefix-sum ledger verified **10/10**), the lab is **`1 + 0.02 n`** capped at
+**×2.98 / L99** (50 → 19 355 800 coins) ⇒ **both maxed = 17.70 % per wave**, the `Max Interest` lab table is **mixed**
+(`Cost` per level, Σ **2 304 121** ≈ printed **2 304 140**; `Time` **cumulative**, L15 = 28 d 2 h 55 m = the published total,
+per-level would be 101.4 d), the marginal **$ of cap per 1 000 gems** ladder (**L1 200 → L4 41.2 → L7 14 → L9 5.4 → L12 9.2**,
+so 7 and 10–12 beat 8–9 and 13–15) and the sibling lines’ end-values **596 / 150 / ×2.49 / ×2.49** with their
+**coins-per-point** prices (24.9 K / 99.5 K / 129.8 K / 130.7 K / 1.239 M).
 Rev: 4 (2026-11-02) — adds the printed **in-run cash laws** (§2.2): enemy value `$ = 1 + ⌊w/10⌋` to W200 (the 16-row
 table re-adds exactly), the **Cash/Wave-before-Interest** payout order, the **`Cash Bonus` enhancement** (free unlock,
 L600 = ×7, +1 %/lv on Cash/Wave + Interest % + Max Interest, cumulative ladder to 15.10 q at L90), and the common-card
@@ -179,6 +186,51 @@ Tower Hub's cash page (2026-11-01) prints the in-run income law:
   `Coins` card **×1.15 → ×1.45** (+0.05/star ✓). And four lab lines (`Cash Bonus`, `Cash/Wave`, `Coins/Kill Bonus`,
   `Coins/Wave`) share the meta-lab shape: **1.00 at L0, +0.02/lv, ×2.98 at L99** — the same 0.02-law as `Labs Speed` (T006).
 
+### 2.3 The interest layer, priced line-by-line (new, Rev 5)
+
+Three printed ladders carry the whole mechanic (`wiki/workshop/interest`, last verified **2026-11-02**; payload parsed with
+`tools/card-tables-parse.ps1`). Each is arithmetic, so the engine is computable from two numbers per line:
+
+| Line | Printed value law | Cap (printed) | Price ladder | Σ at cap |
+|---|---|---|---|---|
+| **`Interest` (workshop)** | **`0.06 % × L`** (L1 0.06 %, L10 0.60 %, L50 3.00 %) | **L99 = 5.94 %** ✓ `0.06 × 99` | **125** coins at L1 → **252.47 K** at L99 | **7.36 M coins** |
+| **`Interest` (lab)** | **`1 + 0.02 n`** (L1 ×1.02 … L99 **×2.98** ✓) | **L99 = ×2.98** | **50** coins at L1 → **19 355 800** at L99 | (time 122 d 9 h 39 m at L99) |
+| **`Max Interest` (lab)** | the cap itself: **$100, 200, 300, 500, 700, 1 000, 1 500, 2 000, 2 500, 3 500, 5 000, 7 500, 10 000, 12 500, 15 000** | **L15 = $15 000** | **250** → **624 676** gems | **2 304 121** gems (printed total **2 304 140**, Δ 19 = per-level rounding) |
+
+**The two caps multiply:** maxed workshop × maxed lab = `5.94 % × 2.98 = ` **17.70 % per wave** — the ceiling of the whole
+mechanic, and both factors are now printed rather than fitted.
+
+**Ledger verification (the reason to trust the columns).**
+① The workshop line's `Total Coins` column is an exact prefix sum of its `Coin` column:
+`125 +179 = 304 · +245 = 549 · +328 = 877 · +431 = 1 308 · +556 = 1 864 · +705 = 2 569 · +881 = 3 450 · +1 080 = 4 530 ·
++1 320 = 5 850` ⇒ the printed 1.31 K / 1.86 K / 2.57 K / 3.45 K / 4.53 K / **5.85 K** at L5…L10 reproduce **10/10** ⇒ for this
+table the price column is **per level**.
+② The `Max Interest` lab table is **mixed**: its `Cost` column is per-level (Σ 2 304 121 ≈ the published 2 304 140 ✓) while its
+`Time` column reads as **cumulative** on the Hub's print — level 15 = **28 d 2 h 55 m** = 674.92 h, which *is* the published
+total, whereas the per-level reading of that column would sum to **2 432.92 h = 101.4 d**. **Skew to keep:** the fandom column of
+the same lab is **non-monotone** (its L11 = 1 d 4 h 50 m after L10 = 5 d 20 h 40 m), which is only possible for a **per-level**
+column, and its rows 1–10 are numerically identical to the Hub's (42 m, 1 h 10 m, 2 h 8 m, 4 h 33 m, 9 h 43 m, 19 h 12 m,
+1 d 10 h 50 m, 2 d 10 h 44 m, 3 d 21 h 10 m, 5 d 20 h 40 m) ⇒ the two prints agree to L10 and split at L11+. Use the **Hub**
+column as a cumulative clock (L1–L4 = 8 h 33 m either way, so the early-order advice is unaffected) and keep the twin open in
+[H050](../hypotheses/H050-lab-time-column-per-level-vs-cumulative.md); the discriminating device read is the remaining-time counter
+while L1 is still counting (42 m ⇒ per-level; 42 m then 28 m at L2 ⇒ cumulative).
+
+**What one $ of cap costs (marginal, from the printed gems), $ of cap per 1 000 gems:**
+
+| L | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| **+$/1 k gems** | **200** | 109.9 | 47.0 | **41.2** | 19.4 | 15.0 | **14.0** | 8.5 | **5.4** | 7.3 | 7.7 | **9.2** | 6.8 | 5.2 | 4.0 |
+
+The curve is **not** monotonic: **L9 is the worst buy of the middle stretch (5.4) and L12 recovers to 9.2**, so the “levels
+1–4 early” rule extends to “**then 7, then 10–12**” rather than a straight sweep; **L15 (4.0)** only pays in a 4 500-wave tier.
+
+**Coins-per-point, for the sibling lines** (same page family, printed `Total …` columns; the cheapest point in the currency
+set is `Cash / Wave`): `Cash / Wave` **24.9 K** coins per +1 cash/wave (Σ 14.82 M ÷ 596) · `Cash Bonus` **99.5 K** per pp
+(Σ 14.82 M ÷ 149) · `Coins / Wave` **129.8 K** per +1 coin/wave (Σ 19.47 M ÷ 150) · `Coins / Kill Bonus` **130.7 K** per pp
+(Σ 19.47 M ÷ 149) · `Interest` **1.239 M** coins per pp (Σ 7.36 M ÷ 5.94). The value laws behind them are all arithmetic:
+`Cash / Wave = 4L`, `Coins / Wave = L + 1`, `Coins / Kill Bonus = Cash Bonus = 1 + 0.01L`, `Starting Cash = 5L`, all capped at
+**L149** except `Interest` and `Starting Cash` at **L99** ⇒ **the four lines’ end-values are 596 / 150 / 2.49× / 2.49×**.
+
 ## 3. What the numbers say (derived)
 
 1. **The cap, not the rate, is the binding constraint** for almost everyone below Tier 11. With the $50 base cap and
@@ -265,11 +317,31 @@ Tower Hub's cash page (2026-11-01) prints the in-run income law:
 - [ ] `Max Interest`'s Time column is **not** monotone (L10 = 5 d 20 h 40 m, L11 = 1 d 4 h 50 m) ⇒ per-level, so
       L1–L4 really is 8 h 33 m of cumulative slot time ([H050](../hypotheses/H050-lab-time-column-per-level-vs-cumulative.md)).
 - [ ] The Generator slot's `Interest/Wave` sub-stat reads **+2 %** at Epic rarity and **+8 %** at Ancestral.
+- [ ] **§2.3 workshop line:** `Interest` level 1 shows **0.06 %**, level 10 shows **0.60 %**, level 50 shows **3.00 %**, and the
+      line stops at **level 99 = 5.94 %**; the line’s total coins at L10 is **5 850** (125+179+245+328+431+556+705+881+1 080+1 320).
+- [ ] **§2.3 lab:** the `Interest` lab reads **×1.02** at level 1, **×1.10** at level 5 (`1 + 0.02n`) and **×2.98** at level 99.
+- [ ] **§2.3 the product:** with both lines maxed the run’s per-wave interest reads **17.70 %** (`5.94 × 2.98`); with the
+      workshop at L50 (3.00 %) and the lab at L50 (×2.00) it reads **6.00 %**.
+- [ ] **§2.3 `Max Interest`:** the cap column is **$100 / 200 / 300** for levels 1–3 (the Hub and fandom agree on **$300** at
+      L3; game-vault’s $350 is the outlier) and **$15 000** at L15, with prices **250 / 910 / 2 129 / 4 856** for L1–L4.
+- [ ] **§2.3 sibling values:** `Cash / Wave` reads **596** and `Coins / Wave` **150** at their level-149 cap; `Cash Bonus` and
+      `Coins / Kill Bonus` both read **×2.49** there.
 
 ## 7. Falsification
 
 - If the `$` icon never turns green (or never greys), the two-regime model is wrong → re-read the icon state against
   the cash value in three runs and rewrite §1.
+- **§2.3:** if the workshop `Interest` line’s value is not `0.06 % × level` (e.g. L10 reads 0.55 %), the ladder is not
+  arithmetic → keep the printed rows and recompute the 17.70 % ceiling as `printed(cap) × printed(lab)`; the two caps are
+  independent facts.
+- **§2.3:** if the line’s `Total Coins` at L10 is **not 5 850**, that column is not a prefix sum (it may include the
+  enhancement or Vault discounts) → recompute the bills from the panel’s own total column and note which discount binds.
+- **§2.3:** if the `Max Interest` lab’s L3 cap reads **$350**, game-vault’s value is current → the L3 gain becomes
+  **150 $ / 2 129 gems = 70.5 $ per 1 000 gems** (the best middle buy instead of L7) and L4’s drops to
+  **150 / 4 856 = 30.9**, so the checkpoint set shifts to **1–3, then 7**.
+- **§2.3:** if the sibling lines cap at a level other than **149** (or `Interest` other than **99**), the end-values
+  (596 / 150 / ×2.49) move with them — they are `4L`, `L + 1`, `1 + 0.01L` at whatever cap the panel shows, so only the
+  coins-per-point prices need recomputing.
 - If the interest paid with `Interest`-lab level 10 is **not** ≈ 1.20/1.02 ≈ 1.18× the level-1 value at the same
   workshop level, the lab *replaces* rather than multiplies the 0.06 %/level increment → fix §3's table
   ([H025](../hypotheses/H025-interest-lab-multiplies-workshop.md)).
@@ -293,6 +365,14 @@ Tower Hub's cash page (2026-11-01) prints the in-run income law:
 
 ## Sources
 
+- Tower Hub `wiki/workshop/interest` (last verified **2026-11-02**, 3 data tables) — the workshop line’s
+  `Level/Value/Coin/Total Coins` ladder (**0.06 % × L**, L99 **5.94 %**, 125 → 252.47 K coins, Σ **7.36 M**), the lab’s
+  `Level/Time/Cost/Value` ladder (**1 + 0.02n**, L99 **×2.98**, 50 → **19 355 800** coins, 122 d 9 h 39 m) and the
+  `Max Interest` ladder (caps **$100 → $15 000**, gems **250 → 624 676**, times 42 m → 28 d 2 h 55 m) — §2.3.
+- Tower Hub `wiki/workshop/{coins-per-kill-bonus, coins-per-wave, cash-per-wave, cash-bonus, starting-cash}`
+  (**2026-11-02**) — the value laws **1 + 0.01L / L + 1 / 4L / 1 + 0.01L / 5L**, the two shared price ladders
+  (coin lines 50 → 467.98 K, cash lines 30 → 352.36 K, ratio 0.804 → 0.768) and the caps **L149** (Σ **19.47 M** / **14.82 M**
+  coins) vs **L99**.
 - Tower Hub `wiki/currency/currency-cash` (last verified **2026-11-01**) — the $1 enemy-value law with the 16-row table,
   the **Cash/Wave-before-Interest** order, the **`Cash Bonus` enhancement** (free unlock after the Workshop Enhancement
   Labs, ×1 + 0.01/lv → **×7 at L600**, +1 %/lv on Cash/Wave · Interest % · Max Interest, printed cumulatives
