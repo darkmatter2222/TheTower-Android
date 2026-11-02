@@ -23,7 +23,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | T015 | [Bot economy & cell/coin chain](techniques/T015-bot-economy.md) | Medals, Coins, Elite Cells | Unverified (Rev 2) |
 | T016 | [Guild tokens & Bits](techniques/T016-guild-tokens-bits.md) | Tokens, Bits, Coins, Gems, Shards | Unverified |
 | T017 | [Vault: Keys priority ladder](techniques/T017-vault-keys-priority.md) | Keys → Gems, Coins, Cash, Shards | **Verified (Rev 2**, arithmetic) |
-| T018 | [Relic economy & price rule](techniques/T018-relic-economy.md) | % points (Coins/Cash/Lab) | Unverified |
+| T018 | [Relic economy & price rule](techniques/T018-relic-economy.md) | % points (Coins/Cash/Lab) | **Verified (Rev 2**, arithmetic) |
 | T019 | [Milestone claim engine](techniques/T019-milestone-claim-engine.md) | Gems, Stones, Coins, labs | **Verified (Rev 3**, arithmetic; H038 open) |
 | T020 | [Workshop coin-spend order](techniques/T020-workshop-coin-order.md) | Coins → Cash/Coins multipliers | **Verified (Rev 5**, arithmetic) |
 | T021 | [Dissonant Runs & Echo](techniques/T021-dissonant-runs-echo.md) | Coins (+ damage/health/UW) | Unverified |
@@ -122,6 +122,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 - [2026-11-02 — session 31 (T020 Rev 4, H051)](log/2026-11-02.md#2026-11-02--session-31-iteration-40-the-free-upgrade-engine-priced)
 - [2026-11-02 — session 32 (T023 Rev 2, H052)](log/2026-11-02.md#2026-11-02--session-32-iteration-41-the-guardians-bit-prices-close-as-a-closed-form)
 - [2026-11-02 — session 33 (T020 Rev 5, H050 resolved)](log/2026-11-02.md#2026-11-02--session-33-iteration-42-the-two-qol-labs-priced-and-h050-settled)
+- [2026-11-02 — session 34 (T018 Rev 2, H051 candidate)](log/2026-11-02.md#2026-11-02--session-34-iteration-43-the-relic-pool-re-summed-row-by-row)
 
 ## Reference material in this repo
 

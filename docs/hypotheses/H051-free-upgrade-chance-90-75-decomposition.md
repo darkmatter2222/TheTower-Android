@@ -17,7 +17,12 @@ The arithmetic that fits: **(49.5 + 10 + 1) × 1.5 = 90.75** ✓ — so the pool
 most likely a relic) multiplied by a **×1.5** perk, and the **×2.5 enhancement is not in that number**. Three sub-questions
 remain, all answerable from the panels:
 
-1. **Where does the +1 % come from?** (relic / mastery / guardian chip)
+1. **Where does the +1 % come from?** → **candidate found (iteration 43): a relic.** The 335-row relic table has exactly three
+   free-upgrade stat lines, in **+1 %** and **+2 %** steps only (T018 §3): `free attack upgrade` **7 × 1 % + 5 × 2 % = 17 %**,
+   `free defense upgrade` **7 × 1 % + 2 × 2 % = 11 %**, `free utility upgrade` **6 × 1 % + 3 × 2 % = 12 %** — so an account
+   holding exactly **one +1 % relic** on the printed track reproduces `49.5 + 10 + 1 = 60.5` ✓, and the ceiling is
+   **per-account** (it rises by 1–2 pp per further relic owned). Read the track's summed chance **and** how many relics of
+   that line are owned.
 2. **Is the Vault’s +25 % inside the pool or outside it?** If inside, the ceiling would be (60.5 + 25) × 1.5 = 128.25 %,
    which would make the > 100 % **rollover** rule fire on every wave.
 3. **Does the enhancement multiply before or after the perk?** `60.5 × 1.5 × 2.5 = 226.9 %` vs `60.5 × 2.5 = 151.25` then

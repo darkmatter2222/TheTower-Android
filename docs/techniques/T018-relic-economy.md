@@ -1,13 +1,19 @@
 # T018 — Relic economy: the free percentage-point pipeline and the gem-vs-medal price rule
 
+Rev: 2 (2026-11-02) — third source (Tower Hub `wiki/system/relics`, “as of v29.1.2”) makes the pool **335 relics**; the
+**channel census closes on 335** (24 + 9 + 8 + 270 + 24 ✓) and an independent re-sum of all 335 rows reproduces **9 of 9**
+printed “Total Bonuses” rows, which also **fixes the coin total to 99 %**, settles the old Ultimate Damage 51-vs-52 split at
+**52**, and gives the exact milestone sums (**T1–T10 = 34.5 pp**, of which only **8.5 pp** is currency; **T11–T24 = 138 pp**).
 Rev: 1 (2026-11-01) · Currency: **Medals** and **Gems** (the only two you spend); the payout is **percentage points**
 on Coins / Cash / Lab Speed
-**Value:** ★★★★ — all **323** relics together are worth **+97 % coins, +79 % lab speed, +41 % cash bonus** (20 of
-21 stat totals reproduced by re-summing the table). Roughly **85 %** of that arrives from *free* gates (event
-medals, guild token spend, wave-4 500 milestones, top-4 league finishes), so the technique is mostly ordering.
-**Confidence:** **Medium-High** — the 323-row table, the six unlock channels, the 200/500-medal and 600/1 200-gem
-prices and the stacking rules are fandom raw wikitext (`Relics`); the totals and the §2 break-even are derived and
-cross-checked. No on-device capture yet → **Unverified**.
+**Value:** ★★★★ — all **335** relics (v29.1.2) together are worth **+99 % coins, +79 % lab speed, +41 % cash bonus**
+(**9 of 9** printed stat totals reproduced by re-summing all 335 rows). Roughly **85 %** of that arrives from *free* gates
+(event medals, guild token spend, wave-4 500 milestones, top-4 league finishes), so the technique is mostly ordering.
+**Confidence:** **High** — the 335-row table, the six unlock channels, the 200/500-medal and 600/1 200-gem prices and the
+stacking rules are printed by **three** sources (fandom raw wikitext, Tower Hub `wiki/system/relics` 2026-11-01, game-vault);
+the totals and the §2 break-even are derived and cross-checked. **Verified (arithmetic, Rev 2):** re-summing all 335 rows
+reproduces **9/9** of the wiki's printed stat totals and the census closure is exact (§1.1). No on-device capture yet for the
+per-relic panel text.
 **Ease:** 0 taps (passives apply themselves) + 1–2 shop buys per event · **Prerequisite:** the **Themes** menu lists
 relics; the four pipelines need Events (T1 W70), a Guild (T3 W10), Tournaments (T1 W60) and tiers 1–10.
 
@@ -20,12 +26,34 @@ relics; the four pipelines need Events (T1 W70), a Guild (T3 W10), Tournaments (
 | **Event (free)** | earn **350** then **700** medals in one event | 1 Rare (+2 %) + 1 Epic (+5 %) | 2 per 2-week event |
 | **Event (Premium)** | **550** and **1 100** medals **+ the paid Event Boost** | 1 Rare + 1 Epic | 2 per event, paywalled |
 | **Guild** | **spend 75** then **150 Tokens** in that season | 1 Rare + 1 Epic | 2 per 8-week season |
-| **Milestone** | beat **wave 4 500** in tier *N* | T1–T5 +2 %, T6–T10 +5 %, T11+ +10 % | 1 per tier (24 exist) |
+| **Milestone** | beat **wave 4 500** in tier *N* | T1–T5 +2 % (T2 = **1.5 %**), T6–T10 +5 %, T11+ +10 % (T20 = **8 %** ultimate damage) | 1 per tier (**24** exist) |
 | **Tournament** | finish **top 4** in a league | +3 % … +10 % | 1 per league you crack |
 | Anniversary / gift | 1 per year played; 1 gift | +2 % each | 1 per year |
 
-Pool census (from the table): **170** free-event + **88** premium-event + 2 purchased = **260** event relics,
-**24** milestone relics, **22** guild relics (2 × 11 seasons), **9** tournament badges, 8 anniversary/gift.
+### 1.1 Pool census — it closes on 335 (v29.1.2)
+
+| Channel | Count | Gate as printed |
+|---|---|---|
+| **Event (free)** | **166** | “Earn **350** …” / “Earn **700** medals during the …” |
+| **Event Premium** | **102** | “Earn **550** …” / “Earn **1 100** medals …” |
+| Event store purchase (medals) | **2** | “Purchase: 200 / 500 medals during the ‘Cherry Blossom (II)’” |
+| **Milestone (wave 4 500)** | **24** | one per tier, **T1–T24** |
+| **Guild (token spend)** | **20** | Seasons 1–10: “Spend **75** / **150** Tokens” |
+| Guild Store purchases | **4** | “Purchased from the Season **11** / **12** Guild Store” (2 each) |
+| Tournament | **7** + **2** | “Finish top 4 in …” / “Win …”, incl. both Mythic rows |
+| Anniversary (years played) + 5th-Anniversary gift | **6** + **2** | “Play for 1…6 years”, “Gift to commemorate 5th Anniversary” |
+| **Total** | **335** ✓ | 24 + 9 + 8 + 270 + 24 = **335** (rarity: 161 Rare + 155 Epic + 19 Legendary = 335 ✓) |
+
+**Milestone arithmetic (exact, from the table):** the T1–T10 relics sum to **34.5 pp** — `2 + 1.5 + 2 + 2 + 2` (T1–T5) +
+`5 × 5` (T6–T10) — **not** the round 35 pp, because **T:II Lumin is 1.5 %** lab speed. Of those 34.5 pp only **8.5 pp** is a
+*currency* stat (**coins 2 + 5 = 7**, **lab speed 1.5**); the other 26 pp is damage/health/defense (the tier-push stats).
+**T11–T24 sum to 138 pp** = 13 relics × 10 % **+ 8** for the one exception, **T:XX Cyber = 8 % ultimate damage**. So the
+below-Tier-11 milestone set is worth **8.5 currency pp** and every further tier adds ~10 pp for one wave-4 500 clear — the
+best pp-per-minute ratio in the game ([T005](T005-tier-rush-then-farm.md)).
+
+**Guild note:** from Season 11 the two season relics moved into the **Guild Store** as purchasable entries (2 each), so
+[T016](T016-guild-tokens-bits.md) §2's shopping queue now feeds **both** the 75/150-token gates (seasons ≤ 10) and the
+store-purchase counter (seasons 11+); the latter is what [H020](../hypotheses/H020-guild-relic-token-counter.md) tests.
 
 **The two pipeline synergies that make relics “free”:**
 1. The **event** gates are already the T013 plan (missions cap at **945** medals ⇒ the 700 gate needs ~16 of 21
@@ -34,13 +62,16 @@ Pool census (from the table): **170** free-event + **88** premium-event + 2 purc
    (4 shard ladders at 5+10+15 = 30 each, plus gems 15/25/40) → **both guild relics per season come out of the
    queue you already run** ([T016](T016-guild-tokens-bits.md) §2). Verify the counter behaviour:
    [H020](../hypotheses/H020-guild-relic-token-counter.md).
-3. Below **Tier 11** the milestone relics alone are worth **35 pp** (5 × 2 % + 5 × 5 %), which is more than any
-   single other system per minute of tapping; tier-rushing ([T005](T005-tier-rush-then-farm.md)) is what unlocks them.
+3. Below **Tier 11** the milestone relics alone are worth **34.5 pp** (§1.1's arithmetic), of which **8.5 pp** is currency
+   (coins 7 + lab 1.5) and 26 pp is combat stats — still more than any single other system per minute of tapping, and
+   tier-rushing ([T005](T005-tier-rush-then-farm.md)) is what unlocks them.
 
 ## 2. The gem-vs-medal price rule (for the rotating older-event relics)
 
 Past-event relics come back on rerun: **Rare 200 medals or 600 gems**, **Epic 500 medals or 1 200 gems**, with up
-to **4** older relics rotating in the **Event Shop** at a time.
+to **4** older relics rotating in the **Event Shop** at a time. Tower Hub's own print of the same section: “**v28: an Event
+Store section with older relics, four per week (two Rare at 600 gems, two Epic at 1,200 gems), started April 14, 2026**” ⇒
+the cadence is **4 per week**, one full event pair per week, and the gem prices match fandom exactly (600 / 1 200 ✓).
 
 Break-even = `gem price ÷ medal price` = **3.0** (Rare) and **2.4** (Epic) **gems per medal**. Compare that with the
 gems-per-medal rate of the **next trade your medals would otherwise fund** (T013 §2):
@@ -63,16 +94,24 @@ Rare = 600 gems / 2 pp = **300 gems per point**; Epic = 1 200 / 5 pp = **240 gem
 
 Totals are the sum over the whole pool, so they also tell you where the pool is *dense*:
 
-| Rank | Stat | Pool total | Relics | Why it is where it is |
+| Rank | Stat | Pool total (335 rows) | Relics | Why it is where it is |
 |---|---|---|---|---|
-| 1 | **Coins earned** | **+97 %** | 24 | every coin in every run; same additive line as the Coins card |
+| 1 | **Coins earned** | **+99 %** | 25 | every coin in every run; same additive line as the Coins card |
 | 2 | **Lab speed** | **+79 %** | 20 | compounds [T006](T006-lab-queue-packing.md): faster research = more boost hours |
 | 3 | **Cash bonus** | **+41 %** | 13 | the in-run engine (T001/T002) |
 | 4 | Recovery amount | +22 % | — | longer runs = more waves = more coins |
-| 5 | Free Attack / Defense / Utility | +16 / +12 / +10 % | 11 / 9 / 8 | cash you never spend |
+| 5 | Free Attack / Defense / Utility | **+17 / +11 / +12 %** | 12 / 9 / 9 | cash you never spend (T020 §1.4) |
 | 6 | Bot range | +12 m | 8 | widens the Golden-Bot coin window (T015 §3) |
-| 7 | Damage / health family | +144 / +136 % | 33 / — | push only (unlocks the next wave-4 500 relic) |
-| — | flat-point stats (Crit Chance +16, Super Crit +6, Defense % +6, enemy level skips +2/+2) | | | sub-1-point per relic ⇒ last |
+| 7 | Damage / health family | +144 / +138 % | 33 / — | push only (unlocks the next wave-4 500 relic) |
+| — | flat-point stats (Crit Chance +20, Super Crit +6, Defense % +6, enemy level skips +2/+2, wall rebuild −2 s) | | | sub-1-point per relic ⇒ last |
+
+**The full re-sum (all 335 rows, computed independently of the wiki's own totals table).** Coins 99 · Lab Speed 79 · Tower
+Damage 144 · Tower Health 138 · Critical Factor 120 · Damage/Meter 98 · Ultimate Damage **52** · Cash Bonus 41 · Health Regen
+41 · Orb Speed 36 · Knockback Force 35 · Recovery Amount 22 · Attack Speed 20 · Critical Chance 20 · Thorns 16 · Free Attack
+17 · Free Defense 11 · Free Utility 12 · Defense Absolute **78** · Defense % 6 · Super Crit Chance 6 · Super Crit Mult 5 · Bot
+Range 12 m · Enemy Attack Skip 2 · Enemy Health Skip 2 · Rend Armor Mult 2 · Wall Rebuild −2 s. **Every one of the 9 stat rows
+the wiki prints matches this list exactly** (79 ✓, 12 m ✓, 144 ✓, 52 ✓, 20 ✓, 20 ✓, 120 ✓, 98 ✓, 6 ✓), so the table above can
+be used as the account's end-state budget.
 
 Because **same-stat relics stack additively**, taking three coin relics is exactly +2 +5 +10 = **+17 pp**; there is
 no duplicate-waste penalty, which is why the queue can be stat-blind across sources but still has to be
@@ -112,6 +151,12 @@ stat-aware inside the 4-slot rotating shop (§5 step 3).
 - [ ] Guild season shows two relic entries gated at **75** and **150** tokens spent (H020 checks what “spent” counts).
 - [ ] A top-4 **Silver** finish grants the **Silver Badge** relic (+5 % coins) — the cheapest coin relic in the game
       (one tournament, no currency spent).
+- [ ] The **T:II Lumin** relic (T1 W4 500) reads **+1.5 %** lab speed (not 2 %) — that single value is what makes the T1–T10
+      sum **34.5 pp**.
+- [ ] **T:XX Cyber** reads **+8 %** ultimate damage and **T:XXI Eclipse +10 %** lab speed (the 138 pp tail is 13 × 10 + 8).
+- [ ] Summing your *owned* relics per stat equals the panel's per-stat total (the additive rule of §4), and with the full
+      335-relic set the totals equal §3's list (Coins **99**, Lab **79**, Cash **41**, Crit Factor **120**, Damage **144**).
+- [ ] The Event Store section shows **4** older relics per week: **two Rare at 600 gems** and **two Epic at 1 200 gems**.
 
 ## 7. Falsification
 
@@ -120,8 +165,16 @@ stat-aware inside the 4-slot rotating shop (§5 step 3).
   redone multiplicatively (the wiki's totals are additive, so a mismatch also invalidates the 97 % figure).
 - If the rotating shop's Rare relic is not **600 gems / 200 medals**, recompute §2's break-even as
   `gem price ÷ medal price` from the panel and re-apply the table.
-- If the wiki's “Ultimate Damage 52 %” total differs from the re-summed **51 %**, one row is missing from the
-  detailed table — record which relic the panel lists as #3xx so the totals can be trusted again.
+- **Resolved (Rev 2):** the Ultimate Damage split is closed at **52 %** — the 335-row table re-sums to 52, matching the
+  printed total; the earlier 51 came from the older **323-row** table (12 rows were added between versions, among them
+  `Starlight Yarn` #299 and `Wolf Paw` #332, both “Increases Defense Absolute by 2 %”, which is also why the old totals list
+  has Defense Absolute 76 while the 335-row re-sum gives **78**). If the panel's Ultimate Damage total is not 52 % with a
+  full set, one row is missing or re-versioned — record the
+  highest `Nr.` the panel lists so the census can be re-based.
+- If the pool's `Nr.` count is **not 335**, the census in §1.1 shifts by the new rows; re-tally the five channels and check
+  that they still close on the panel's row count (that closure is what makes the totals trustworthy).
+- If a **Guild Season 11+** relic is granted without a Guild *Store* purchase, the 75/150-token rule still applies to the
+  store entries as well → re-read the counter text and re-apply H020.
 
 ## Sources
 
@@ -135,6 +188,12 @@ stat-aware inside the 4-slot rotating shop (§5 step 3).
   Knockback 33, Recovery 22, Attack Speed 18, Free Attack 16, Crit Chance 16, Thorns 14, Free Defense 12, Free
   Utility 10, Defense % 6, Super Crit Chance 6, Super Crit Mult 5 — **20 of 21 summary rows match**; Ultimate
   Damage 51 (summary 52).
+- Tower Hub `wiki/system/relics` (last verified **2026-11-01**, table “as of v29.1.2”) — the **335-row** relic table
+  (Nr. / Relic / Rarity / Description / Unlock Requirement), the six channels, the “**Total Bonuses**” summary (30 rows, 9 of
+  them rendered and all 9 reproduced), the “1 plus the sum of the unlocked Ultimate Damage relics” stacking rule, and the v28
+  Event Store print (4 older relics per week, two Rare at 600 gems + two Epic at 1 200, since **2026-04-14**). The totals in
+  §3 and the census in §1.1 come from parsing those 335 rows directly (script re-adds each `Increase … by N %` line by stat,
+  counting the two `Increases Defense Absolute` variants with the rest of their stat).
 - `tools/gm_strings.txt` — `Assets\Scripts\Relics.cs`, `RelicsManager.cs`, `RelicSlotButton.cs`,
   `Guilds\GuildStoreRelicEntry.cs` (guild relics are store entries ⇒ gated on *spent* tokens) and
   `ThemeManager|EventShopGemRelicWindow` (the gem-priced relic window in the Event Shop).
