@@ -1,6 +1,7 @@
 # T019 — Milestone claim engine: the 23-step ladder, the W100 gate, and the pass-timing rule
 
-Rev: 1 (2026-11-01) · Currency: **Gems**, **Power Stones**, **Coins** + one-time **labs**, cards, skins, relics
+Rev: 2 (2026-11-01) — §3's W80 rows corrected (`Interest` + `Max Interest` are **T2 W80**, T1 W80 is a coin cell) ·
+Currency: **Gems**, **Power Stones**, **Coins** + one-time **labs**, cards, skins, relics
 **Value:** ★★★★ — through Tier 12 the free milestones alone are **4 675 gems + 540 stones ≈ 10 075 gem-equivalents**
 (sum of the published per-tier totals), and they are the *only* source of most early labs. All of it is claim-once,
 never expires, and is delivered by one button.
@@ -66,8 +67,8 @@ where a slot suddenly has nothing to research, so push those waves first.
 
 | Tier | Wave → unlocks |
 |---|---|
-| 1 | 30 **Labs** · 60 **Tournaments** · 70 **Events** · 80 Interest % + Max Interest · 150 Lab Speed · 250 More Round Stats · 400 Card Presets |
-| 2 | 20 Buy Multiplier · 30 Range · 40/50/60 Workshop Attack/Defense/Utility Discount · 80 Interest % · 90 **Modules** · 150 **Unlock Perks** · 250 First Perk Choice · 400 Improve Trade-Off Perks · 750 Recovery Package Chance · 1 000 Garlic Thorns |
+| 1 | 30 **Labs** · 60 **Tournaments** · 70 **Events** · 150 Lab Speed · 250 More Round Stats · 400 Card Presets (W80 is 1.5 k coins) |
+| 2 | 20 Buy Multiplier · 30 Range · 40/50/60 Workshop Attack/Defense/Utility Discount · **80 `Interest` + `Max Interest`** · 90 **Modules** · 150 **Unlock Perks** · 250 First Perk Choice · 400 Improve Trade-Off Perks · 750 Recovery Package Chance · 1 000 Garlic Thorns |
 | 3 | 10 **Guilds** · 30 Damage/Meter · 50 Shockwave Size · 80 Orb Speed · 150 Second Wind Blast · 200 Package After Boss · 250 Death Wave Labs · 300 Double Death Ray · 400 Spotlight Missiles |
 | 4 | 30 Workshop Respec + **Reroll Daily Missions** · 40 **Card: Cells** · 50 Auto Pick Perks · **70 Common Drop Chance + Reroll Shards + Daily Mission Shards (3 labs)** · 80 Perk Option Quantity · 90 **Unlock Dissonance** · 150 Target Priority · 200 Golden Tower Bonus + Duration · 300 Energy Shield Extra Hits |
 | 5 | 30 Defense % · 40 Ban Perks · 60/70/80/90 **Flame/Thunder/Golden/Amplify Bot Cooldown** · 150 Black Hole Damage + BH Coins Bonus · 200 Super Crit Chance + Multiplier · 500 Extra Black Hole |
@@ -82,7 +83,9 @@ where a slot suddenly has nothing to research, so push those waves first.
 Currency-relevant highlights: the **four bot-cooldown labs land in Tier 5 (W60–W90)** — the same cooldown lines T015
 rates the cheapest bot multipliers, and they are *free labs* that do not consume medals; the **module-cost labs**
 (shard + coin cost, W40 of T10) directly discount the module engine of T010; `Global Presets` (T11 W60) duplicates
-what T017 sells for 20 keys.
+what T017 sells for 20 keys. **T2 W80 lights two labs at once** — `Interest` and `Max Interest`, the whole
+[T001](T001-interest-idle-engine.md) engine — so the interest engine is a **Tier 2** system: nothing in §2 of T001 is
+buyable in Tier 1, and W80 of Tier 2 is the first milestone worth rushing after W100.
 
 ## 4. Steps (UI only)
 
