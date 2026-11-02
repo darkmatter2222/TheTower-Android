@@ -1,5 +1,10 @@
 # T006 — Pack the Lab queue, then buy the *cheapest* skipped hour
 
+Rev: 14 (2026-11-02) - **the UW-category lab ladders** added from `wiki/uw/<name>` (GT / BH / DW pages): both columns are
+**per level** (costs exactly x2.25 and times exactly x1.2544 on the DW line - impossible for a cumulative column), sibling
+lines are **offset** not rescaled (`DW = GT - 750 000` 10/10 cells; `BH = GT + 19 000 000 + 500 000(n-1)`), the four printed
+lines bill **124.85 B / 34.39 B / 91.92 B / 265.93 T** coins for **466.57 / 214.06 / 214.05 / 283.23 d**, and the knee is at
+**level 10** (**0.5 %** of the 25-level coin bill for **40 %** of the value steps). Section "The UW-category lab ladders".
 Rev: 13 (2026-11-02) - **`Target Priority` ladder printed** (`wiki/guide/target-priority`, 2026-11-01): gate **T4 W150**,
 **2** levels (**2 d / 1 000 000** and **8 d / 1.00 B**), a hand-set x4 time step (not the x1.15 of the clock laws),
 L1 = one focused type vs L2 = full sort with `Closest` and `Spotlight` entries, drag-and-drop since v29. §"The cap table".
@@ -307,6 +312,35 @@ full priority **sort** of all types, including a `Closest` entry and, only if Sp
 Since v29 the list is **drag-and-drop** reorderable. Cheap (≈1 B coins for both levels) and it is the only
 targeting control the Guardian does *not* honour (T023 §5).
 
+### The UW-category lab ladders — a third clock shape, and a brutal knee (Rev 14)
+
+Source: the lab tables on `wiki/uw/golden-tower`, `wiki/uw/black-hole`, `wiki/uw/death-wave` (all 2026-11-01). These pages
+print each line as `Level / Time / Cost / Value`, and both numeric columns are **per level** (H050 again): the ratio test
+settles it, e.g. the DW line’s costs are exactly geometric at **×2.25** per level and its times at **×1.2544**, which a
+cumulative column cannot produce.
+
+| Line (as printed) | Levels | Value law | Σ coins | Σ time |
+|---|---|---|---|---|
+| `Golden Tower Bonus` | 25 | **+0.15** / level ⇒ **+3.75** | **124.85 B** | **466.57 d** |
+| `Golden Tower Duration` | 20 | **+1.0 s** / level ⇒ **+20 s** | **34.39 B** | **214.06 d** |
+| `Black Hole` (×-line) | 20 | **0.5 n + 1** ⇒ ×1.5 at L1 … **×11** at L20 | **91.92 B** | **214.05 d** |
+| `Death Wave` (×2.25 line) | 10 | **+1.00** / level ⇒ **10** | **265.93 T** | **283.23 d** |
+| single-level unlocks | 1 | `Unlocked` | **15 B** / **550 B** | **17 d 8 h 40 m** / **28 d 22 h 27 m** |
+
+**Three facts that only the side-by-side columns show.**
+
+1. **Sibling lines are offset, not rescaled.** Over the ten levels the three pages share, `DW(n) = GT(n) − 750 000` for all
+   **10** cells ✓ and `BH(n) = GT(n) + 19 000 000 + 500 000·(n − 1)` ✓ (the constant and the linear term are the whole
+   difference). The time columns match the same way (`DW = GT − 20 h` per level). So one printed ladder prices most UW labs:
+   take the line’s **level-1 base** and add the shared growth, then the line’s own linear term.
+2. **The knee is at level 10, and it is extreme.** GT’s 25-level bonus line costs **608.03 M** coins for its first ten
+   levels = **0.5 %** of the 124.85 B full-line bill while delivering **40 %** of the value steps (10 of 25); the same split
+   holds for time (**882.7 h** of **11 197.6 h** = 7.9 %). Levels 11–25 cost **124.24 B** for the remaining 15 steps:
+   the per-level price runs **277.37 M** (L10) → **8.84 B** (L20) → **26.19 B** (L25). Buy the first ten, then leave the
+   line — this is the same knee-first rule as §3, now measured on the UW category.
+3. **The single-level unlocks are a different order of magnitude** (**15 B** and **550 B** coins, 17.4 d and 28.9 d) and
+   they gate whole mechanics, so they belong in the queue *as* a level, not as a stretch goal — one slot, one mechanic.
+
 ### The enemy-stat layer, ladder by ladder (Rev 11)
 
 Source: `wiki/enemy/common-enemy-labs`, `fast-enemy-labs`, `protector-labs`, `vampire-labs`, `ray-labs`, `scatter-labs`
@@ -539,6 +573,10 @@ online often (it raises levels/day for all 5 slots: a `3 d 11 h` line becomes **
       ends at **2.00** ([T024](T024-enemy-level-skip-ledger.md) §2).
 - [ ] **`Target Priority`:** the lab's cell reads **Tier 4 W150**, its two levels read **2 d 0h 0m / 1 000 000** and
       **8d 0h 0m / 1.00B**, and the panel offers a `Closest` entry plus (if Spotlight is owned) a `Spotlight` entry.
+- [ ] **UW labs:** `Golden Tower Bonus` level **1** costs **1 000,000** coins and takes **1 d 16 h 0 m**; level **10** costs
+      **277 370 352** and takes **6 d 13 h 32 m**; the value column reads **+0.15 … +1.50**.
+- [ ] **The 2.25 line:** one DW lab line reads **100.00B** at L1 and **147.79T** at L10 with its time going **200 h → 1 538 h**
+      (each level exactly ×2.25 in coins and ×1.2544 in time).
 - [ ] **Wave law:** the elite spawn table’s 0.33 % row reads **500 / 450 / 405 / 365 / 328** for T1–T5, and the 33 % row
       reads **1 830** at T15 (= `8000 × 0.9^14` ✓).
 - [ ] **Elite count:** a T11 run to W1 000 shows roughly **23** elite kills on the counter (the model says 23.26); at T14
@@ -595,6 +633,10 @@ online often (it raises levels/day for all 5 slots: a `3 d 11 h` line becomes **
 - If the elite spawn table’s 0.33 % row does **not** halve-ish per tier (e.g. T2 reads something other than **450**), the
   0.9 compression is version-dependent → recompute the band starts from the two printed tiers’ ratio and keep the
   step-function sum (§“The wave laws” ③ needs only the band starts).
+- If a UW lab’s printed `Time` column does **not** behave per level (e.g. on the ×2.25 line the successive costs stop being
+  ×2.25, or `L(n) − L(n − 1)` stops matching the sibling line’s own deltas), that page’s column is cumulative instead →
+  difference the column before summing, and re-derive the §“UW-category lab ladders” totals (the level-10 knee at
+  **0.5 % / 40 %** is the only number the queue needs, and it is stable under either convention).
 - If the fleet module-shard column jumps by **2** at some wave band (6 → 8), the `5 + (wave − 1)/250` line was re-binned →
   read the band edges and rebuild the arithmetic; the reroll-shard column is independent of it.
 - If a T1 run to W1 000 yields far more than **2** elites, either the run passed W500 twice (Intro Sprint re-counts) or the
@@ -626,6 +668,11 @@ online often (it raises levels/day for all 5 slots: a `3 d 11 h` line becomes **
   ×1.15 health/mass/speed up to 8, Overcharge multiplies its projectile ×1.4 per hit) and the tool-coverage list
   (half-strength: Chrono Field / Chrono Loop / Thunder Bot / both stuns; no connection: Orbs, Death Ray, Shockwave,
   Knockback, Black Hole damage and pull; Plasma Cannon cannot select them).
+- Tower Hub `wiki/uw/golden-tower` · `wiki/uw/black-hole` · `wiki/uw/death-wave` (last verified **2026-11-01**) — the
+  per-line `Level / Time / Cost / Value` ladders behind §“The UW-category lab ladders”: GT Bonus **25** levels
+  (**1 000 000 → 26.19 B**, `1d 16h 0m → 64d 20h 51m`, `+0.15 … +3.75`), GT Duration **20** levels (`+1.0 s … +20 s`), the
+  BH ×-line (**20** levels, `1.50x … 11.00x`) with its two single-level unlock lines (**15 B / 17d 8h 40m**, **550 B /
+  28d 22h 27m**), and the DW line whose costs are exactly **×2.25** and times exactly **×1.2544** per level.
 - Tower Hub `wiki/guide/target-priority` (last verified **2026-11-01**) — the two-level `Target Priority` ladder
   (**2 d 0h 0m / 1 000 000** and **8d 0h 0m / 1.00B**), its **T4 W150** milestone gate, the printed L1/L2 behaviour
   (one focused type vs a full sort with `Closest` and `Spotlight` entries) and the v29 drag-and-drop note.
