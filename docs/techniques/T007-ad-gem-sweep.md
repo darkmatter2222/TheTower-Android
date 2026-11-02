@@ -1,4 +1,4 @@
-# T005 — Ad-gem sweep: harvest every daily ad source in one sitting
+# T007 — Ad-gem sweep: harvest every daily ad source in one sitting
 
 Rev: 1 · Status: **Verified amounts** (wiki table), cap value still open → [H001](../hypotheses/H001-ad-gem-hard-cap.md)
 Value: ★★★ (~20–40 gems/day for ~5 min) · Ease: 5 min · Prerequisite: none

@@ -13,7 +13,7 @@ Ease: taps/minutes a human needs. Confidence: how solid the source/derivation is
 | [T003](docs/techniques/T003-turtle-build-t1-t2.md) | Turtle (Defense Absolute + Def % + Thorns breakpoints) to cheap-clear Tier 1–2 | ★★ | 10 min | High | Tier 1 |
 | [T004](docs/techniques/T004-mission-farming-low-tier.md) | Farm daily/weekly missions on the lowest useful tier (`mission tier = max tier − 2`) | ★★★★ | 5 min | Medium | Tier 2 |
 | [T005](docs/techniques/T005-tier-rush-then-farm.md) | Rush to the next tier's wave-100 milestone first, then farm (daily/weekly coin rewards scale with max tier) | ★★★★ | 15 min | Medium | Tier 1 |
-| [T006](docs/techniques/T006-lab-queue-packing.md) | Pack lab research so a slot is never idle; ≤7 h by day, long ones overnight; spend Elite Cells not Gems | ★★★ | 4 taps | Medium | Lab unlocked |
+| [T006](docs/techniques/T006-lab-queue-packing.md) | Pack lab research so a slot is never idle; boost every slot at ×1.5 (30 cells/skipped hour) before any higher multiplier; cells ≈ 5–6× cheaper than gems | ★★★★ | 4 taps | Medium | Lab unlocked |
 | [T007](docs/techniques/T007-ad-gem-sweep.md) | Sweep all rewarded-ad offers in one sitting; respect the daily ad-gem hard cap | ★★★ | 5 min | Medium | — |
 | [T008](docs/techniques/T008-uw-sync-with-stones.md) | Sync Ultimate-Weapon cooldowns: save 910 Stones, drop GT 300 s → 200 s in one purchase; never touch BH first | ★★★★ | 6 taps | High | UWs unlocked |
 | [T009](docs/techniques/T009-gem-spend-order.md) | Gem order: Enemy Balance card first, then alternate Card Slots and Lab unlocks; never buy speedups with Gems | ★★★★ | 3 taps | Medium | Gems |
