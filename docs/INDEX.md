@@ -20,7 +20,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | T012 | [Card deck order (gems per percentage point)](techniques/T012-card-deck-order.md) | Coins, Cash, Elite Cells | **Verified (Rev 2**, arithmetic) |
 | T013 | [Event window & medal economy](techniques/T013-event-medal-economy.md) | Medals → Gems, Stones, Shards | **Verified (Rev 3**, arithmetic) |
 | T014 | [Tournament tickets & league ladder](techniques/T014-tournament-tickets.md) | Gems, Stones, Keys | Unverified (Rev 3) |
-| T015 | [Bot economy & cell/coin chain](techniques/T015-bot-economy.md) | Medals, Coins, Elite Cells | **Verified (Rev 4**, arithmetic) |
+| T015 | [Bot economy & cell/coin chain](techniques/T015-bot-economy.md) | Medals, Coins, Elite Cells | **Verified (Rev 5**, arithmetic) |
 | T016 | [Guild tokens & Bits](techniques/T016-guild-tokens-bits.md) | Tokens, Bits, Coins, Gems, Shards | **Verified (Rev 2**, arithmetic) |
 | T017 | [Vault: Keys priority ladder](techniques/T017-vault-keys-priority.md) | Keys → Gems, Coins, Cash, Shards | **Verified (Rev 2**, arithmetic) |
 | T018 | [Relic economy & price rule](techniques/T018-relic-economy.md) | % points (Coins/Cash/Lab) | **Verified (Rev 2**, arithmetic) |
@@ -127,6 +127,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 - [2026-11-02 — session 36 (T015 Rev 3)](log/2026-11-02.md#2026-11-02--session-36-iteration-45-the-bot-layer-budgeted-in-events)
 - [2026-11-02 — session 37 (T015 Rev 4, H034 resolved)](log/2026-11-02.md#2026-11-02--session-37-iteration-46-per-bot-line-caps-close-the-bot-layer-h034-resolved)
 - [2026-11-02 — session 38 (T013 Rev 3)](log/2026-11-02.md#2026-11-02--session-38-iteration-47-the-event-layer-double-sourced-t013-verified)
+- [2026-11-02 — session 39 (T015 Rev 5)](log/2026-11-02.md#2026-11-02--session-39-iteration-48-the-bot-layer-closes-all-five-bots-and-ten-labs)
 
 ## Reference material in this repo
 
