@@ -1,6 +1,17 @@
 # H035 — Does the lab-rush gem price improve per fully-completed lab (the “gold box”)?
 
-Status: open · Raised: 2026-11-01
+Status: **resolved** (2026-11-02, by sources) · Raised: 2026-11-01
+
+**Answer.** Both mechanisms exist, and they are independent:
+1. **Duration tiering — confirmed by the printed v0.17 table:** the base rate is **7.5 gems/hour** (0.125/min,
+   0.002 083/s) and the buckets carry printed discount factors **0.91 (1 day) / 0.79 (1 week) / 0.66 (30 days)** ⇒
+   163 / 1 000 / 3 550 gems, i.e. **6.79 / 5.95 / 4.93 gems per hour** — the longer the timer, the cheaper the hour ✓
+   (each bucket reproduces from 7.5 × hours × factor: 163.8 / 995.4 / 3 564, within rounding).
+2. **Completion bonus — confirmed:** every **fully completed (gold-boxed) lab** adds **+0.015×** to the gem-rush
+   efficiency (fandom `Lab_Upgrades`), so finishing categories before rushing is still the right play.
+**Remaining device check (optional):** the two reads in §“Settling observation” below now only *measure* the two factors
+rather than discover them — the value of a run is confirming that the factors are still 0.91/0.79/0.66 in the current
+client and that the +0.015× is per line (not per category).
 
 **Claim.** The gem price of *rushing* a research line is cheaper per unit of time when (a) more of the lab lines in that
 category are **fully completed** (the gold box on the lab screen), and (b) the remaining timer is **long** — i.e. the price
