@@ -1,5 +1,13 @@
 # T010 — Module economy: level the *slot*, merge by recipe, reroll with few locks
 
+Rev: 8 (2026-11-02) — **§8, the printed module layer from three Hub pages**: the per-boss drop rates (**reroll shards 15 %**,
+Common module 2 %, Rare 0.5 %) with the tier quantity ladder closing as **`quantity(t) = 40 + 5·(t − 11)` for t ≥ 11**
+(✓ 11/11 printed rows ⇒ **EV/boss 2.70 at T8, 6.00 at T11, 12.75 at T20**), the four sub-stat laws (rarity ≤ module rarity,
+the `n/a` gate staircase, arithmetic-vs-geometric price families, and the printed roll chances **46.2/40/10/2.5/1/0.3** Σ 100.0 ✓),
+the **13-row currency sub-stat table** (`Cash / Wave` 30 → **1 000** = ×33.3, `Coins / Wave` 20 → **350**,
+`Interest / Wave` **2 → 8 %** from Epic), the **reroll-lock ladder** (10 / 40 / 160 / 500 … ×4, ×4, ×3.125 ⇒ **3 locks = 71×
+the unlocked price, 7 locks = 300×**), the free-`Restore` refund law, the `Main Effect / Substat` lab (30 lv × 0.25 q =
+**7.5 q** for +30 %) and the one-ladder-on-five-UWs print (**8/15/25/50/100/250**) ⇒ [H059](../hypotheses/H059-substat-rarity-roll-chances.md).
 Rev: 7 (2026-11-02) — **§2.2, all twelve module labs with gates and value laws** (`wiki/module/module-labs`, 2026-11-01):
 the **T4 W70** cluster (`Reroll Shards` 100 lv, `Daily Mission Shards` **50 lv at +1 shard/level ⇒ +50**, `Common Drop
 Chance` 10 lv `+0.10 %/lv`) is the cheap one (L1 = 900 K / 1.2 M / 5 M coins, ≤ 4 d 4 h each); the **T10 W40** cluster
@@ -262,6 +270,15 @@ only matter for filling the 350-slot inventory with merge material.
 - [ ] The 150-pull pity counter is visible and the 150th pull without an Epic shows an Epic.
 - [ ] The assist main-effect ladder reads **15 / 18 / 21** stones for 2 % / 3 % / 4 %, its 10 % cumulative is **243**, and
       100 % is **16 038**; the sub-stat ladder ends at **70 %** with **8 073** and “Stones Needed to Max” **0**.
+- [ ] **§8.1 tier law:** a boss drop shows **40** reroll shards at Tier 11, **45** at T12, **50** at T13 (+5/tier), and
+      **85** at T20; the EV per boss is therefore **6.00** at T11 (`0.15 × 40`).
+- [ ] **§8.3 value law:** an Ancestral `Cash / Wave` sub-stat reads **1 000** and a Common one **30** (×33.3), and
+      `Interest / Wave` first appears at **Epic** with **2 %**.
+- [ ] **§8.2 cap law:** on an **Epic** module, ≥ 50 rerolls never produce a Legendary+ sub-stat (the ceiling is the module's
+      own rarity); after merging it to Legendary the same rolls can.
+- [ ] **§8.4 lock ladder:** one lock doubles-plus the price — **10 → 40** with 1 lock, **160** with 2, **500** with 3.
+- [ ] **§8.5 restore:** note the module's spent shards/coins, tap **Restore** — the refund equals the ledger's
+      **Total Shard / Total Coins** for that level and the sub-stats are still listed.
 - [ ] A “+3 quantity” line shows **+0** at 33 % efficiency and **+1** at 34 %.
 - [ ] The reroll price shown with 3 locks is **500** and with 4 locks **1 000**.
 - [ ] **Restore** returns the shard and coin totals listed in the table above to the same slot's type.
@@ -278,6 +295,17 @@ only matter for filling the 350-slot inventory with merge material.
 - If the 150-pull pity counter **does not carry between banners** (a featured banner restarts its own count), the
   782-gems-per-Epic figure must be recomputed per banner → [H045](../hypotheses/H045-module-pity-counter-scope.md).
 - If a 5★ natural Epic shatters for something other than **1 000**, the 3.65× late-game pull-efficiency jump is wrong.
+- **§8.1 quantity skew:** the Hub's tier table prints **6** shards at T5 while the older `Currency/Shards` print (used in §5's
+  boss-drop item) has **12** at T5 — the two are reconcilable only as *base 6 + 6 lab levels*. If a T5 boss shows **12** with the
+  `Reroll Shards` lab at 0, the Hub's quantity column is a different quantity (probably the *per-wave* total); take the in-game
+  number as the base and shift the `40 + 5·(t − 11)` ladder's intercept to match.
+- **§8.1 rate skew:** if a boss drops shards on **every** kill rather than ≈ 15 % of kills, the 15 % print is not the drop
+  chance for this quantity ⇒ record the observed per-kill count and rebuild the EV line without the 0.15 factor.
+- **§8.2:** if a sub-stat on an Epic module shows a Legendary value, the cap law is wrong → the ceiling is the *banner* or the
+  slot level, not the module rarity; rebuild the value table per slot level instead. See [H059](../hypotheses/H059-substat-rarity-roll-chances.md)
+  for the percentage read.
+- **§8.4:** if the lock prices are not 10 / 40 / 160 / 500 …, the reroll-shard budget in §3 must be re-derived from the panel's
+  own column (the 2–3-lock recommendation is a ratio statement and survives as long as the ladder is convex).
 - If the reroll price with locks is not the 10/40/160/500/1 000/1 600/2 250/3 000 ladder, the lock-cost curve changed —
   re-derive the “stop at N locks” rule from the panel.
 
@@ -324,8 +352,123 @@ Other assist facts: assist multipliers are **multiplicative for all four types**
 cannot equip a module that shares a name with the primary · `Primary Module Bonus` labs (30 lv, +1 % each) gate at
 **Tier 23 Wave 500**.
 
+## 8. The printed module layer — drop rates, the four type tables, the lock ladder (new, Rev 8)
+
+Sources: `wiki/module/modules`, `wiki/module/sub-module-effects`, `wiki/module/epic-module-unique-effect` (all last verified
+**2026-11-02**), payload parsed with `tools/card-tables-parse.ps1`.
+
+### 8.1 Where the shards come from, printed
+
+Per **boss kill**: **reroll shards 15 %**, **Common module 2 %**, **Rare module 0.5 %** — and “both of these [module] rates can
+be raised through their respective labs”, i.e. the two §2.2 lines (`Common Drop Chance` 10 lv at **+0.10 %/lv** ⇒ **3 %**
+maxed = **×1.5**, `Rare Drop Chance` 10 lv). The **reroll-shard quantity scales with the tier**, printed for T1 → T21:
+**1, 2, 3, 4, 6, 8, 12, 18, 25, 32, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90**.
+
+```
+quantity(t) = 40 + 5·(t − 11)          for t ≥ 11          (✓ exact on all 11 printed rows T11 … T21)
+EV/boss     = 0.15 × quantity(t)        ⇒ T5 0.90 · T8 2.70 · T11 6.00 · T15 9.00 · T20 12.75
+```
+
+⇒ **one extra tier = +5 shards/drop = +0.75 EV per boss**, linear; the lock prices you pay (§8.4) are geometric, so
+*the highest tier you can hold is always the right farm*. Below T11 the ladder is ≈ ×1.4–2 per tier (printed ratios
+2.0, 1.5, 1.33, 1.5, 1.33, 1.5, 1.5, 1.39), so **T8 → T11 alone is 18 → 40 = ×2.2** on the same number of boss kills.
+
+### 8.2 Four laws of a sub-stat (printed)
+
+1. **Cap law:** “the highest rarity a sub-module can reach is **the module's current rarity**” — an Epic module can roll
+   Common/Rare/Epic sub-stats but never Legendary+. Merge first, then reroll: the same 1 reroll shard buys a higher ceiling.
+2. **Gate law:** a named effect only exists from its printed first rarity (the `n/a` staircase). Currency-relevant gates:
+   `Coins / Kill Bonus`, `Cash Bonus`, `Cash / Wave`, `Coins / Wave`, the three `Free … Upgrade` lines and `Black Hole - Size`
+   exist from **Common**; `Interest / Wave`, `Recovery Amount`, `Max Recovery`, `Package Chance` and both
+   `Enemy … Level Skip` lines need **Epic**; **cooldown-reduction** rows (`Golden Tower − Cooldown`, `Chrono Field − Cooldown`)
+   need **Legendary**.
+3. **Two price families** across the six rarity columns: **arithmetic** (+2 pp per rarity step: `Free Attack/Defense/Utility
+   Upgrade` 2 → 12 %, `Interest / Wave` 2 → 8 %, both Level Skip lines 2 → 8 %, `Coins / Kill Bonus` +0.1 → +0.6,
+   `Black Hole - Size` 2 → 12 m) or **geometric ≈ ×1.7–2 per step** (`Cash / Wave` 30 → 1 000 = **×33.3** over the five steps,
+   `Coins / Wave` 20 → 350 = **×17.5**, `Health Regen` ×20, `Defense Absolute` ×66.7) ⇒ each merge step roughly **doubles** a
+   good sub-stat while the arithmetic lines add a flat 2 pp.
+4. **Rarity roll chances** (printed under Sub-Module Effects): Common **46.2 %** / Rare **40 %** / Epic **10 %** /
+   Legendary **2.5 %** / Mythic **1.0 %** / Ancestral **0.3 %** ⇒ Σ = **100.0 ✓**; “Epic or better” = **13.8 %**, “Legendary or
+   better” = **3.8 %** ⇒ a 6-slot module shows at least one Legendary+ sub-stat in **20.7 %** of rolls
+   (`1 − 0.962⁶`). Ancestral is **1 in 333** — do not plan around it. The page's pull model is separately printed as
+   68.5 / 29 / 2.5 (§1), so the two prints are two *different* distributions → **H059** decides which one the in-game
+   sub-stat panel shows.
+
+### 8.3 The currency sub-stats (Generator/Utility type), printed values by rarity
+
+| Sub-stat | Common | Rare | Epic | Legendary | Mythic | Ancestral |
+|---|---|---|---|---|---|---|
+| **Cash / Wave** | 30 | 50 | 100 | 200 | 500 | **1 000** |
+| **Coins / Wave** | 20 | 35 | 60 | 120 | 200 | **350** |
+| Cash Bonus | 0.1 | 0.2 | 0.3 | 0.5 | 1.2 | **2.5** |
+| Coins / Kill Bonus | 0.1 | 0.2 | 0.3 | 0.4 | 0.5 | **0.6** |
+| Free Attack Upgrade | 2 % | 4 % | 6 % | 8 % | 10 % | **12 %** |
+| Free Defense Upgrade | 2 % | 4 % | 6 % | 8 % | 10 % | **12 %** |
+| Free Utility Upgrade | 2 % | 4 % | 6 % | 8 % | 10 % | **12 %** |
+| **Interest / Wave** | n/a | n/a | 2 % | 4 % | 6 % | **8 %** |
+| Recovery Amount | n/a | n/a | 3 % | 5 % | 7 % | **10 %** |
+| Max Recovery | n/a | n/a | 0.4 | 0.7 | 1.0 | **1.5** |
+| Package Chance | n/a | n/a | 5 % | 8 % | 11 % | **15 %** |
+| Enemy Attack Level Skip | n/a | n/a | 2 % | 4 % | 6 % | **8 %** |
+| Enemy Health Level Skip | n/a | n/a | 2 % | 4 % | 6 % | **8 %** |
+
+**Reading for a sub-T11 account:** four lines are the currency engine — `Coins / Wave`, `Cash / Wave`, `Interest / Wave`, and
+the three `Free … Upgrade` lines. `Cash / Wave` at Ancestral (**1 000**) is **33×** the Common roll (30) on the same 1 reroll
+shard, so **the rarity of the roll is worth more than the number of rolls**: merge the module up (law 1 raises the ceiling)
+before spending the shard. The payload carries **13** Utility rows while the rendered panel claims **17** ⇒ 4 tail rows are
+unprinted here (record them if the in-game panel shows more).
+
+### 8.4 The reroll-lock price ladder (printed)
+
+| Locks | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
+|---|---|---|---|---|---|---|---|---|
+| **reroll shards** | 10 | 40 | 160 | 500 | 1 000 | 1 600 | 2 250* | 3 000* |
+| ratio to previous | — | **×4** | **×4** | ×3.125 | ×2 | ×1.6 | ×1.406 | ×1.333 |
+
+⇒ the first three locks alone are **710** shards per roll (71× the unlocked price); **7 locks = 300×** it. Marginal deltas:
+30 / 120 / 340 / 500 / 600 / 650 / 750. Practical law: **lock 2–3 (≈ 210 shards/roll), never more** — the 4th lock doubles the
+price for one extra stat.
+
+### 8.5 The free `Restore` refund + the `Main Effect / Substat` lab
+
+**“The restore button resets a module for free, refunding every shard and coin you spent on it. Reroll shards are not refunded,
+but all sub-module effects are kept, including ones that normally require higher levels.”** ⇒ levels are freely movable between
+modules (test: the refund must equal the printed **Total Shard / Total Coins** columns of §1's ledger at that level), while
+reroll shards are a one-way spend — another reason for the 2–3-lock rule. Related: the **`Main Effect / Substat` lab** prints
+**30 levels at 0.25 q coins each** (Σ **7.5 q coins**) for **+1 %/level ⇒ +30 %**, with times `259.18 × n h`
+(10 d 19 h 11 m → …, exact +259.18 h steps) ⇒ per-level reading Σ **120 519 h = 5 022 d**, cumulative reading **324 d** — the
+[H050](../hypotheses/H050-lab-time-column-per-level-vs-cumulative.md) twin, unresolved for this table.
+Also printed (Assist Modules): **Epic 1 000 / Legendary 1 000 / Mythic 1 200 / Ancestral 1 400 stones, Σ 4 600**.
+
+### 8.6 The unique-effect and UW tables are ladder-shaped too
+
+`epic-module-unique-effect` prints each module's unique ability as a **4-value ladder** (Epic / Legendary / Mythic / Ancestral)
+that is usually arithmetic: `20 / 40 / 60 / 80` (+20), `25 / 50 / 75 / 100` (+25), `10 / 15 / 20 / 25` (+5),
+`1.0 / 1.5 / 2.0 / 2.5` (+0.5); the non-arithmetic ones are `5 / 7 / 10 / 14` and `2 / 4 / 7 / 15`. In the Core (UW) table
+**five rows share one ladder** — `Death Wave`, `Smart Missiles`, `Inner Land Mines`, `Poison Swamp`, `Chain Lightning` damage
+are all **8 / 15 / 25 / 50 / 100 / 250** (ratios 1.88, 1.67, 2.0, 2.0, 2.5) — so a Core module's *damage* sub-stat is one
+printed ladder on five weapons, while its **cooldown** rows start only at **Legendary** (Golden Tower −5 / −8 / −12 s,
+Chrono Field −4 / −7 / −10 s): the GT/CF cooldown targets in [T008](T008-uw-sync-with-stones.md) need Legendary rolls, and
+the hard caps printed alongside are **98 % defense, 90 % Chrono Field slow, 150 s Wall rebuild, 7 s Shockwave frequency,
+37 s Inner Land Mine cooldown** (assist sub-stats cannot push past them).
+
 ## Sources
 
+- Tower Hub `wiki/module/modules` (**2026-11-02**) — the per-boss drop chances (**reroll shards 15 %**, Common module 2 %,
+  Rare module 0.5 %), the **T1 → T21 shard-quantity ladder**, the rarity table (max level 30 → 300, max sub-stats 2 → 6,
+  Epic copies 1 → 18), the slot-cost ledger with the printed **Total Shard / Total Coins** columns (level 300:
+  **3 136 088** shards / **18.07 s** coins), the six-bucket “Chance” table, the **reroll lock ladder**, the sub-stat unlock
+  levels **41 / 101 / 141 / 161**, the `Restore` refund rule, the assist stone costs by rarity (**1 000 / 1 000 / 1 200 /
+  1 400, Σ 4 600**) and the `Main Effect / Substat` lab ladder (30 × 0.25 q, `+1 % × n`).
+  **Skews vs the older prints kept above:** max sub-stats cap at **6** here (fandom: 8), and the ledger's milestone totals read
+  **1 708 / 23 588 / 91 588 / 163 588 / 592 588 (L201) / 3 136 088 (L300)** where §1's derived table had
+  1 715 / 23 595 / 91 595 / 163 595 / 466 095 / 3 136 095 — the printed column is the authority, the derived one is the model.
+- Tower Hub `wiki/module/sub-module-effects` (**2026-11-02**) — the four type tables (Cannon / Armor / **Generator** / Core)
+  with the six rarity columns (§8.3), the “sub-stat rarity ≤ module rarity” cap, the hard-cap list (**98 % defense, 90 %
+  Chrono Field slow, 150 s Wall rebuild, 7 s Shockwave frequency, 37 s Inner Land Mine cooldown**) and the lock-cost sentence
+  (“each lock increases the cost of the roll”). Payload row counts: Generator **13** (panel claims 17), Core **26**.
+- Tower Hub `wiki/module/epic-module-unique-effect` (**2026-11-02**) — the unique abilities as 4-value ladders by rarity and
+  the repeated **8 / 15 / 25 / 50 / 100 / 250** damage ladder across five UW rows.
 - Tower Hub `wiki/lab/lab-shatter-shards` (last verified **2026-11-01**, 1 data table) — unlock “**reaching tier 16 wave
   40** through Milestones”, “The lab has **5 levels**, and each level adds **20%** more shards from shattering, for a
   maximum increase of **100%** … every module you shatter gives double the shards”, and the Level/Time/Cost/Value rows
