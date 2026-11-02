@@ -24,7 +24,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | T016 | [Guild tokens & Bits](techniques/T016-guild-tokens-bits.md) | Tokens, Bits, Coins, Gems, Shards | Unverified |
 | T017 | [Vault: Keys priority ladder](techniques/T017-vault-keys-priority.md) | Keys → Gems, Coins, Cash, Shards | Unverified |
 | T018 | [Relic economy & price rule](techniques/T018-relic-economy.md) | % points (Coins/Cash/Lab) | Unverified |
-| T019 | [Milestone claim engine](techniques/T019-milestone-claim-engine.md) | Gems, Stones, Coins, labs | Unverified (Rev 2) |
+| T019 | [Milestone claim engine](techniques/T019-milestone-claim-engine.md) | Gems, Stones, Coins, labs | **Verified (Rev 3**, arithmetic; H038 open) |
 | T020 | [Workshop coin-spend order](techniques/T020-workshop-coin-order.md) | Coins → Cash/Coins multipliers | Unverified (Rev 2) |
 | T021 | [Dissonant Runs & Echo](techniques/T021-dissonant-runs-echo.md) | Coins (+ damage/health/UW) | Unverified |
 | T022 | [Free-currency census & paid ladder](techniques/T022-free-currency-census-paid-ladder.md) | Gems, Stones (budget + bills) | Unverified |
@@ -70,6 +70,8 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | H035 | [Lab-rush price improves per completed lab](hypotheses/H035-lab-rush-rate-per-completed-lab.md) | re-read two rush prices after a category gains its gold box |
 | H036 | [Is the 80-card event quest worth 1 600 gems](hypotheses/H036-buy-80-cards-event-roi.md) | read the quest's medal payout + the shop's gems-per-medal rate |
 | H037 | [Per-level step of the six special enhancements](hypotheses/H037-enhancement-per-level-step.md) | read the multiplier line at level 0, 1 and the cap for each |
+| H038 | [Milestone premium track additive (46 cells) or replacement (23)](hypotheses/H038-milestone-two-track-badge.md) | badge delta before/after buying one pass on a fully-cleared group |
+| H039 | [Milestone coin cells flat or run-multiplier scaled](hypotheses/H039-milestone-coin-cell-scaling.md) | coin-counter delta for one cell, low vs high coin multiplier |
 
 ## Logs
 
@@ -94,6 +96,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 - [2026-11-01 — session 19 (T015 Rev 2, H015 resolved, H034)](log/2026-11-01.md#2026-11-01--session-19-iteration-28-bot-ladders)
 - [2026-11-01 — session 20 (T009 Rev 3, H035–H036)](log/2026-11-01.md#2026-11-01--session-20-iteration-29-gem-ladder-priced)
 - [2026-11-01 — session 21 (T020 Rev 2, H037)](log/2026-11-01.md#2026-11-01--session-21-iteration-30-enhancement-layer-priced)
+- [2026-11-02 — session 22 (T019 Rev 3, H038–H039)](log/2026-11-02.md#2026-11-02--session-22-iteration-31-the-milestone-ledger-two-track-model)
 
 ## Reference material in this repo
 
