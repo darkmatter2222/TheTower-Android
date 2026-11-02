@@ -1,5 +1,12 @@
 # T006 — Pack the Lab queue, then buy the *cheapest* skipped hour
 
+Rev: 15 (2026-11-02) - **nine-weapon lab census**: all nine `wiki/uw/<name>` pages parsed (**39** printed lab tables); every
+multi-level line falls into one of **six** printed sequences, five of them exact offsets of another — `L-II = L-I - 750 000`
+(12/12), `= L-I - 20 h` (25/25), SM lines `= L-II + 200 000 + 50 000n` (12/12) and `= L-III + 550 000` (15/15), Spotlight
+`= 200 000 000 + (L-I - 1 000 000)` (12/12), and the DW line **is** the L-IV ladder's odd levels (`L-V(n) = L-IV(2n-1)`,
+20/20 cells) because **2.25 = 1.5²** and **1.2544 = 1.12²**. Family bills: L-I 124.85 B / 466.57 d, L-II 124.84 B /
+445.73 d, L-III 116.24 B / 825.44 d, L-IV 38.34q / 2011.11 d, L-VI 1247.44q / 916.67 d; the first half of a line is
+**0.03-2.7 %** of its bill for a third to a half of its value, on four different price shapes.
 Rev: 14 (2026-11-02) - **the UW-category lab ladders** added from `wiki/uw/<name>` (GT / BH / DW pages): both columns are
 **per level** (costs exactly x2.25 and times exactly x1.2544 on the DW line - impossible for a cumulative column), sibling
 lines are **offset** not rescaled (`DW = GT - 750 000` 10/10 cells; `BH = GT + 19 000 000 + 500 000(n-1)`), the four printed
@@ -341,6 +348,52 @@ cumulative column cannot produce.
 3. **The single-level unlocks are a different order of magnitude** (**15 B** and **550 B** coins, 17.4 d and 28.9 d) and
    they gate whole mechanics, so they belong in the queue *as* a level, not as a stretch goal — one slot, one mechanic.
 
+#### The nine-weapon census — six sequences price every multi-level UW lab (Rev 15)
+
+All nine `wiki/uw/<name>` pages were pulled together and their `Level / Time / Cost / Value` tables parsed (2026-11-01;
+**39** such tables across the nine pages, the rest being 1-level unlock rows or the `UW+ Cost Table`). Every multi-level
+line sampled (≥ 10 levels each) belongs to **one of six printed sequences**, and five of them are exact offsets of another —
+so one printed ladder prices most of the category. Identification is by the line's own **Value** column, which is what the
+player sees in the `Lab` panel.
+
+| Seq. | L1 cost | Per-level law (cost / time) | Σ coins (printed length) | Σ time | Lines observed |
+|---|---|---|---|---|---|
+| **L-I** | 1 000,000 | printed growth (ratios 1.31 → 1.22) | **124.85 B** (25 lv) | **466.57 d** | GT Bonus (+0.15/lv), GT Duration (+1 s/lv) |
+| **L-II** | 250,000 | **= L-I − 750 000** / **= L-I − 20 h** | **124.84 B** (25 lv) | **445.73 d** | DW, CL ×2, ILM ×2, CF, SM (+200 000 + 50 000 n) |
+| **L-III** | 250,000 | own sequence / **time = L-I − (15 + 5n) h** | **116.24 B** (30 lv) | **825.44 d** | CF ×2 (identical), SM, SM (+550 000), PS ×3 |
+| **L-IV** | 100.00B | **×1.5** / **×1.12** | **38.34q** (30 lv) | **2011.11 d** | CL ×2, PS ×2 |
+| **L-V** | 100.00B | **×2.25** / **×1.2544** | **265.93 T** (10 lv) | **283.23 d** | DW (the ×-line) |
+| **L-VI** | 1.00q | **×2.05** / **+ 400 h** (arithmetic) | **1247.44q** (10 lv) | **916.67 d** | ILM (5 s → 50 s) |
+| 20 M-family | 20,000,000 | own sequence (ratios 1.07 → 1.74) | **91.92 B** (20 lv) | **214.05 d** | BH ×-line (1.5x…11x), Spotlight |
+
+**The five offset laws, with the printed cells as the check** (all errors are 0 on the printed range):
+
+```
+L-II(n)   = L-I(n)   - 750 000            (12/12 cost cells)   ;  time = L-I(n) - 20 h   (25/25)
+SM line   = L-II(n)  + 200 000 + 50 000 n (12/12)
+SM line   = L-III(n) + 550 000             (15/15)
+Spotlight = 200 000 000 + (L-I(n) - 1 000 000)                  (12/12)
+L-V(n)    = L-IV(2n - 1)     both columns  (10/10 cost, 10/10 time)
+```
+
+and the same for the clock columns: `L-III time(n) = L-I time(n) − (15 + 5n) h` (**10/10** exact), Spotlight's first line
+runs **120 h** above L-I per level, its second line is L-I's clock column unchanged. The practical consequence is a lookup
+sheet: read a line's level-1 price off the panel, pick its family, and the whole bill and clock follow.
+
+**The knee, family by family** — the same test as fact 2 above (first half of the levels vs the whole printed line):
+
+| Seq. | Σ coins | first 10 lv | first-half share of the **bill** | share of the **value steps** |
+|---|---|---|---|---|
+| L-I (25 lv) | 124.85 B | 608.03 M | **0.5 %** | 40 % |
+| L-II (25 lv) | 124.84 B | 600.53 M | **0.48 %** | 40 % |
+| L-III (30 lv) | 116.24 B | 287.47 M | **0.25 %** | 33 % |
+| L-IV (30 lv) | 38.34q | 11.33T | **0.03 %** | 33 % |
+| L-VI (10 lv) | 1247.44q | 33.53q (5 lv) | **2.7 %** | 50 % |
+
+so across four independent price shapes the first half of a line is **0.03–2.7 %** of its bill while carrying a third to a
+half of its value. That is the strongest single reason to hold every UW line at **level 10** in the mid game: on L-IV the
+per-level price runs **3.84T** at L10 → **221.68T** at L20 for the same **+3 %** step that level 1 costs **100.00B**.
+
 ### The enemy-stat layer, ladder by ladder (Rev 11)
 
 Source: `wiki/enemy/common-enemy-labs`, `fast-enemy-labs`, `protector-labs`, `vampire-labs`, `ray-labs`, `scatter-labs`
@@ -577,6 +630,11 @@ online often (it raises levels/day for all 5 slots: a `3 d 11 h` line becomes **
       **277 370 352** and takes **6 d 13 h 32 m**; the value column reads **+0.15 … +1.50**.
 - [ ] **The 2.25 line:** one DW lab line reads **100.00B** at L1 and **147.79T** at L10 with its time going **200 h → 1 538 h**
       (each level exactly ×2.25 in coins and ×1.2544 in time).
+- [ ] **Family lookup:** on a `Chrono Field` lab the level-1 price is **250 000** / **0d 20h 0m** and level 2 is
+      **285 000** / **0d 23h 21m** (the L-III sequence), while on `Chain Lightning` the same slot reads **250 000** / **560 000**
+      / **1 101 067** (the L-II sequence) — two different ladders, both starting at 250 000.
+- [ ] **The interleave:** DW's ×2.25 line and the Chain Lightning / Poison Swamp ×1.5 line share their odd cells exactly
+      (L1 **100.00B** / **8d 8h 0m**, then **225.00B** at L3, **506.25B** at L5, **1.14T** at L7 …).
 - [ ] **Wave law:** the elite spawn table’s 0.33 % row reads **500 / 450 / 405 / 365 / 328** for T1–T5, and the 33 % row
       reads **1 830** at T15 (= `8000 × 0.9^14` ✓).
 - [ ] **Elite count:** a T11 run to W1 000 shows roughly **23** elite kills on the counter (the model says 23.26); at T14
@@ -637,6 +695,9 @@ online often (it raises levels/day for all 5 slots: a `3 d 11 h` line becomes **
   ×2.25, or `L(n) − L(n − 1)` stops matching the sibling line’s own deltas), that page’s column is cumulative instead →
   difference the column before summing, and re-derive the §“UW-category lab ladders” totals (the level-10 knee at
   **0.5 % / 40 %** is the only number the queue needs, and it is stable under either convention).
+- If two lab lines on the **same** weapon page print different level-1 prices **and** different level-2 prices, they are not
+  one family's offset — read each table on its own (the offset laws above are stated per printed range, and the 3-significant-digit
+  prints after level ~12 are only good to ±0.5 %).
 - If the fleet module-shard column jumps by **2** at some wave band (6 → 8), the `5 + (wave − 1)/250` line was re-binned →
   read the band edges and rebuild the arithmetic; the reroll-shard column is independent of it.
 - If a T1 run to W1 000 yields far more than **2** elites, either the run passed W500 twice (Intro Sprint re-counts) or the
@@ -673,6 +734,12 @@ online often (it raises levels/day for all 5 slots: a `3 d 11 h` line becomes **
   (**1 000 000 → 26.19 B**, `1d 16h 0m → 64d 20h 51m`, `+0.15 … +3.75`), GT Duration **20** levels (`+1.0 s … +20 s`), the
   BH ×-line (**20** levels, `1.50x … 11.00x`) with its two single-level unlock lines (**15 B / 17d 8h 40m**, **550 B /
   28d 22h 27m**), and the DW line whose costs are exactly **×2.25** and times exactly **×1.2544** per level.
+- Tower Hub `wiki/uw/spotlight` · `chrono-field` · `chain-lightning` · `inner-land-mines` · `smart-missiles` ·
+  `poison-swamp` (last verified **2026-11-01**) — the other **28** lab tables behind §“The nine-weapon census”: the two
+  identical `Chrono Field` cost columns (rotation-rate and slow-% lines, **30** levels, `1.00 … 30.00` and
+  `10.50 % … 25.00 %`), the `Smart Missile` pair on the same ladder plus its two offset variants, the `×1.5 / ×1.12` lines on
+  Chain Lightning and Poison Swamp (`100.00B … 12.78q`, `8d 8h … 222d 21h 59m`, values `3 % … 90 %` and `×1.25 … ×37.5`),
+  and the Inner Land Mines `×2.05 / +400 h` line (**1.00q … 639.42q**, `5s … 50s`).
 - Tower Hub `wiki/guide/target-priority` (last verified **2026-11-01**) — the two-level `Target Priority` ladder
   (**2 d 0h 0m / 1 000 000** and **8d 0h 0m / 1.00B**), its **T4 W150** milestone gate, the printed L1/L2 behaviour
   (one focused type vs a full sort with `Closest` and `Spotlight` entries) and the v29 drag-and-drop note.
