@@ -1,5 +1,13 @@
 # T020 — Workshop coin-spend order: the level-band rule and the knee table
 
+Rev: 9 (2026-11-02) — **§6.4 + §6.5, the enhancement and discount layers closed as arithmetic**: the printed 18-row census
+(`Track · Unlocks at · Max · Per level · At max · Coins to max`) satisfies **`At max = 1 + step × Max` 18/18** with step
+**+0.01 everywhere except `Land Mine Damage +` (+0.06 ⇒ ×37)**, and the **per-track bills** Attack **2 232.82 s** /
+Defense **2 543.02 s** / Utility **7 598.29 s** re-add to **12 374.13 s = 12.374 S** (Utility = **61.4 %** of the whole coin
+sink); the three `Workshop {Attack, Defense, Utility} Discount` labs carry the law **`0.50 % × n`** (L99 = **−49.50 %**) on a
+ladder **identical row-for-row to the `Starting Cash` lab** (30 → 4 190 609, Σ **111 682 359** coins / 1 445 d per-level),
+so their marginal rule is **buy level *n* iff `price(n) ≤ 0.005 × R`** ⇒ **L30** pre-layer (1.23 M coins for −15.00 %,
+34.29 M → 29.15 M) and **all 99** once the track's own bill counts (§4's table and the H060 open question follow).
 Rev: 8 (2026-11-02) — **§1.7, the four currency lines priced from the Hub's per-line payloads**: value laws **all arithmetic**
 (`Coins / Kill Bonus` = `Cash Bonus` = `1 + 0.01L`, `Coins / Wave` = `L + 1`, `Cash / Wave` = `4L`) with caps **L149 = ×2.49 /
 150 / ×2.49 / 596** and **Σ 19.47 M vs 14.82 M** coins (**0.761**, so the cash pair is a 25 % discount on the coin pair),
@@ -309,14 +317,16 @@ Three labs discount the Workshop tabs directly, and a discount applies to every 
 
 | Discount | Source | Effect |
 |---|---|---|
-| **Workshop Utility Discount** | lab, milestone **T2 W60**, 99 levels | cuts the coin cost of the four currency lines (Cash Bonus / Cash per Wave / Coins per Kill / Coins per Wave) |
-| Workshop Attack / Defense Discount | labs, **T2 W40 / W50**, 99 levels each | same for the Attack / Defense tabs |
-| **Enhancement Coin Discount** ×3 | lab (100 levels, L1 = **1.00 B coins**, 1 d 1 h 55 m) | cuts enhancement prices |
+| **Workshop Utility Discount** | lab, milestone **T2 W60**, 99 levels | **−0.50 % per level** (law `0.50 % × n`, L99 = **−49.5 %**) on the coin cost of the four currency lines (Cash Bonus / Cash per Wave / Coins per Kill / Coins per Wave) |
+| Workshop Attack / Defense Discount | labs, **T1 W40 / T2 W50** (attack is printed **T1 W40** by Tower Hub + fandom and **T2 W40** by the fandom `Lab/` page and namu ⇒ skew), 99 levels each | same law, on the Attack / Defense tabs |
+| **Enhancement Coin Discount** ×3 | lab (**T21 W60**, 100 levels, L1 = **1.00 B coins**, 1 d 1 h 55 m) | **−0.30 % per level** (L100 = −30 %) on enhancement prices — one lab per track (§6.3) |
 | **Enhancements Discount** ×9 | Vault keys, **2+4+…+18 = 90 keys** for **−22.5 %** | [T017](T017-vault-keys-priority.md) Tier A |
 | Workshop Respec | lab, **T4 W30** (Vault respec discount 3 × 33 %) | lets you move coins between lines without loss |
 
+The three workshop discount labs **share one price-and-time ladder with the `Starting Cash` lab** — 99 rows identical,
+L1 **30** coins → L99 **4,190,609** (Σ **111,682,359** coins; §6.5), so 30 coins buys the first **0.50 %** of the discount.
 Because the four currency lines all share one price ladder, one level of the Utility discount lab moves four lines at
-once — the highest-leverage lab for a coin-heavy account.
+once — the highest-leverage lab for a coin-heavy account (§6.5 prices each level against what it saves).
 
 ## 5. How the coin multipliers combine (so the buys are not wasted)
 
@@ -352,7 +362,9 @@ all three tracks need their own 500 T.
 
 ### 6.1 The 12 standard enhancements — one shared curve
 
-All twelve 600-level enhancements share one price curve; the bonus is linear, **×1 + 0.01 × level** ⇒ **×7 at 600**.
+All twelve 600-level enhancements share one price curve; the bonus is linear, **×1 + 0.01 × level** ⇒ **×7 at 600** — with
+one exception now visible in the printed `Per level` column: `Land Mine Damage +` steps by **+0.06** ⇒ **×37** at 600
+(`1 + 0.06 × 600` ✓), the best ×-per-coin of the 600-level group (§6.4).
 
 | Level | price of that level | total to here | multiplier | cost of this 50-level block |
 |---|---|---|---|---|
@@ -387,9 +399,10 @@ on; a single standard enhancement to 600 costs **441.24 s** and all twelve of th
 All 18 together ≈ **12.37 S coins** before discounts — and that printed total reproduces arithmetically from these rows:
 12 × 441.24 s + 26.62 + 1.51 + 734.30 + 336.82 + 2 990 + 2 990 = **12 374.13 s = 12.37 S** ✓, so the two tables are the
 same version. `Land Mine Damage +` is the standard curve but with **+0.06 per level** ⇒ ×37 at 600 (1 + 0.06 × 600), i.e.
-the best ×-per-coin of the 600-level group. The source prints the track only for the first ten rows, so the six specials'
-track assignment must be read in-game (`Coin Bonus +` and `Cash Bonus` are both economy lines → probably Utility, but the
-lab you buy depends on it — see [H037](../hypotheses/H037-enhancement-per-level-step.md) step 5).
+the best ×-per-coin of the 600-level group. **The tracks are now printed** for all 18 rows (§6.4): `Attack Speed +` = Attack,
+`Orb Size` = **Defense**, `Coin Bonus +` / `Cells / Kill Bonus` / `Free Upgrades +` / `Enemy Level Skip +` = **Utility** — so
+[H037](../hypotheses/H037-enhancement-per-level-step.md) is settled (step **+0.01** on all six specials, `At max` matches
+`1 + 0.01 × max` 6/6, and each enhancement's discount-lab parent is known).
 
 ### 6.2.1 `Coin Bonus +` — the only economy enhancement, first 10 levels priced
 
@@ -469,6 +482,119 @@ Skip +` (1.51 s, the cheapest complete project) → then `Coin Bonus +` / `Cells
 them the last coin sink of the game. The spend counters are per-track, so §2/§3's cheap workshop buys do **not** advance
 the enhancement gates — track each of the three separately ([H024](../hypotheses/H024-enhancement-spend-counter-respec.md)).
 
+### 6.4 The printed 18-row census — `At max = 1 + step × Max` (18/18), and one bill per track (new, Rev 9)
+
+`wiki/workshop/workshop-enhancement` (last verified **2026-11-01**, 5 data tables, payload parsed with
+`tools/card-tables-parse.ps1`) prints **seven columns for all 18 rows**: `Track · Enhancement · Unlocks at · Max level ·
+Per level · At max · Coins to max`. That is the whole layer in one table.
+
+| # | Track | Enhancement | Unlocks at | Max | Per level | At max | Coins to max |
+|---|---|---|---|---|---|---|---|
+| 1 | Attack | `Damage +` | free with the lab | 600 | +0.01x | ×7 | 441.24 s |
+| 2 | Attack | `Rend Armor` | 50 B in track | 600 | +0.01x | ×7 | 441.24 s |
+| 3 | Attack | `Critical Factor +` | 500 B | 600 | +0.01x | ×7 | 441.24 s |
+| 4 | Attack | `Damage/meter +` | 5 T | 600 | +0.01x | ×7 | 441.24 s |
+| 5 | Attack | `Super Crit Mult +` | 50 T | 600 | +0.01x | ×7 | 441.24 s |
+| 6 | Attack | `Attack Speed +` | 500 T | **100** | +0.01x | **×2** | **26.62 s** |
+| 7 | Defense | `Health +` | free with the lab | 600 | +0.01x | ×7 | 441.24 s |
+| 8 | Defense | `Health Regen +` | 50 B | 600 | +0.01x | ×7 | 441.24 s |
+| 9 | Defense | `Defense Absolute +` | 500 B | 600 | +0.01x | ×7 | 441.24 s |
+| 10 | Defense | **`Land Mine Damage +`** | 5 T | 600 | **+0.06x** | **×37** | 441.24 s |
+| 11 | Defense | `Wall Health +` | 50 T | 600 | +0.01x | ×7 | 441.24 s |
+| 12 | Defense | **`Orb Size`** | 500 T | **250** | +0.01x | **×3.5** | **336.82 s** |
+| 13 | Utility | `Cash Bonus +` | free with the lab | 600 | +0.01x | ×7 | 441.24 s |
+| 14 | Utility | **`Coin Bonus +`** | 50 B | **300** | +0.01x | **×4** | **2.99 S** |
+| 15 | Utility | **`Cells / Kill Bonus`** | 500 B | **300** | +0.01x | **×4** | **2.99 S** |
+| 16 | Utility | `Free Upgrades +` | 5 T | **150** | +0.01x | **×2.5** | 734.30 s |
+| 17 | Utility | `Recovery Package +` | 50 T | 600 | +0.01x | ×7 | 441.24 s |
+| 18 | Utility | **`Enemy Level Skip +`** | 500 T | **60** | +0.01x | **×1.6** | **1.51 s** |
+
+Five things this settles:
+
+1. **`At max = 1 + step × Max level`, 18/18** (`1 + 0.01·100 = 2` ✓ · `1 + 0.01·250 = 3.5` ✓ · `1 + 0.01·300 = 4` ✓ ·
+   `1 + 0.01·150 = 2.5` ✓ · `1 + 0.01·60 = 1.6` ✓ · `1 + 0.06·600 = 37` ✓) ⇒ the layer is arithmetic and any unprinted
+   level is interpolable.
+2. **The step is +0.01 everywhere except `Land Mine Damage +` (+0.06)** ⇒ 17 rows follow the ×7-style law, 1 row reaches ×37.
+3. **Tracks are printed**, so each enhancement's discount-lab parent is known: 1–6 Attack, 7–12 Defense, 13–18 Utility.
+4. **One bill per track, and the three re-add to the printed total:**
+   Attack `5 × 441.24 + 26.62 = ` **2 232.82 s (2.233 S)** · Defense `5 × 441.24 + 336.82 = ` **2 543.02 s (2.543 S)** ·
+   Utility `2 × 441.24 + 734.30 + 1.51 + 2 × 2 990 = ` **7 598.29 s (7.598 S)** ⇒ Σ **12 374.13 s = 12.374 S** ✓ (the §6.2
+   total, re-derived from the per-track grouping). **Utility is 61.4 % of the game's whole coin sink**, and
+   `Coin Bonus +` + `Cells / Kill Bonus` alone are **5 980 of its 7 598 s (78.7 %)**.
+5. **Coins per multiplier unit, at each cap** (`total ÷ (At max − 1)`) — a single ranking for the whole layer:
+
+| Enhancement | Total | units above ×1 | **s / unit** |
+|---|---|---|---|
+| `Enemy Level Skip +` | 1.51 s | 0.6 | **2.52** |
+| `Attack Speed +` | 26.62 s | 1.0 | **26.62** |
+| the 12 standard (600-lv) | 441.24 s | 6.0 | **73.54** |
+| `Orb Size` | 336.82 s | 2.5 | 134.73 |
+| `Free Upgrades +` | 734.30 s | 1.5 | 489.53 |
+| `Coin Bonus +` · `Cells / Kill Bonus` | 2 990 s (2.99 S) | 3.0 | **996.67** |
+
+So the two 300-level economy enhancements are **13.6× dearer per multiplier unit** than a standard one at their caps
+(`996.67 ÷ 73.54`), and `Enemy Level Skip +` is **29× cheaper** than a standard — the cheapest complete project in the game,
+which is why it is third in §6.3's order (its multiplier also feeds [T024](T024-enemy-level-skip-ledger.md)'s skip ledger).
+Units are not interchangeable value (only `Coin Bonus +` / `Cells / Kill Bonus` square, §6.2.1), but the spread is 400× so
+the order is robust.
+
+Practical: a track is “finished” when its own spend counter passes **500 T**, and by (4) that same gate ladder buys
+2.233 S / 2.543 S / **7.598 S** of levels on Attack / Defense / Utility — so **push the Utility track first**, it is 3× the
+Attack track's value for identical gates.
+
+### 6.5 The three Workshop Discount labs — one shared ladder, and the level where they stop paying (new, Rev 9)
+
+| Lab | Unlock (printed) | Levels | Value law (printed, 99/99 rows) | Cap |
+|---|---|---|---|---|
+| `Workshop Attack Discount` | **T1 W40** (Hub + fandom) / **T2 W40** (fandom `Lab/`, namu) — skew | 99 | **`0.50 % × n`** (L1 0.50, L10 5.00, L50 25.00) | **−49.50 %** |
+| `Workshop Defense Discount` | **T2 W50** (both sources) | 99 | same | −49.50 % |
+| `Workshop Utility Discount` | **T2 W60** (both sources) | 99 | same | −49.50 % |
+
+**One ladder for four labs.** The `Cost` and `Time` columns of all three tables are **identical, row for row, to the
+`Starting Cash` lab** of §1.4 (99/99 rows), so a single ladder covers four labs:
+
+| L | 1 | 2 | 5 | 10 | 20 | 30 | 40 | 50 | 75 | **99** |
+|---|---|---|---|---|---|---|---|---|---|---|
+| price | **30** | 71 | 772 | 6 165 | 46 537 | 147 950 | 333 402 | 623 893 | 1 936 290 | **4 190 609** |
+| Σ to here | 30 | 101 | 1 449 | 18 752 | 262 316 | 1 225 236 | 3 646 491 | 8 483 276 | 39 219 727 | **111 682 359** |
+| Σ time (per-level reading, as §1.2) | 0 m | 6 m | 53 m | 4 h 33 m | 1 d 0 h | 2 d 17 h | 5 d 11 h | 9 d 9 h | 25 d 1 h | **1 445 d** |
+
+Σ **111 682 359 coins** per lab — the same 111.68 M bill §1.2 uses for the income-lab family (Δ 990 coins, two ladders that
+differ only in the first rows). The printed `Time` column is the **same ambiguity as H050**: summing per-level gives
+**1 445.01 d**, the last row reads **49 d 0 h 58 m** (cumulative), and the fandom column agrees with the Hub
+(L99 = 49 d 0 h 57 m; prices to 4 digits: 4 190 000 vs the Hub's 4 190 609). The discount is multiplicative:
+**price × 0.995ⁿ**, so at L99 every level of that tab costs **×0.505** of its §1.7 price.
+
+**What each level is worth.** Level *n* saves `0.005 × R`, where `R` is that tab's *remaining* bill (itself shrinking by
+×0.995 per level). Buy level *n* iff `price(n) ≤ 0.005 × R`:
+
+| L | price | saving (Utility tab, `R = 34.29 M`) | **return** |
+|---|---|---|---|
+| 1 | 30 | 171 450 | **5 715×** |
+| 5 | 772 | 168 047 | 218× |
+| 10 | 6 165 | 163 887 | 26.6× |
+| 20 | 46 537 | 155 875 | 3.35× |
+| 25 | 88 118 | 152 017 | 1.73× |
+| **30** | **147 950** | 148 254 | **1.00×** |
+| 31 | 162 354 | 147 513 | 0.91× |
+| 40 | 333 402 | 141 006 | 0.42× |
+| 50 | 623 893 | 134 112 | 0.22× |
+| 99 | 4 190 609 | 104 906 | 0.025× |
+
+**⇒ `n* = 30`** before the enhancement layer exists: **1 225 236 coins buys −15.00 %** on the whole Utility tab (the four
+currency lines' 34.29 M becomes **29.15 M**), while levels 31+ are net-negative in coins — whole-lab check: all 99 levels
+save `34.29 × 0.495 = 16.97 M` against a 111.68 M bill = **0.15×**.
+
+**The layer inverts it.** Once the enhancement layer is open, the same lab discounts that track's own bill — the Utility
+track is **7 598.29 s**, so `0.005 × R = 3.8 × 10²²` against a maximum level price of 4.19 M ⇒ **every level 1–99 pays**
+(even L99 returns **5.6 × 10¹⁵×**), and the lab's full −49.50 % turns the track's 7.598 S into **3.761 S** for a 111.68 M
+bill (**≈ 3.4 × 10¹⁶×**). So the order is: **pay the discount lab of the track you are about to grind, before grinding it** —
+`Workshop Attack Discount` before the ×-per-coin standards, `Workshop Utility Discount` before `Coin Bonus +`.
+
+**Open:** whether the tab discount also covers that track's *enhancement* prices or only the tab's normal lines (the separate
+`Enhancement Coin Discount` labs suggest only the tab) — [H060](../hypotheses/H060-workshop-discount-lab-covers-enhancements.md).
+Until it is read, use `R = 34.29 M` (⇒ **L30**) for the Utility tab and treat the 99-level answer as the upside case.
+
 ## 7. Steps (UI only)
 
 1. Home screen → **Lab** → research **`Game Speed` L1–L3** (Main Research, unlocked at the **T1 W30** milestone: **14 800
@@ -504,6 +630,22 @@ the enhancement gates — track each of the three separately ([H024](../hypothes
       line **352.36 K** and **14.82 M** ⇒ ratio **0.753** on the last level, **0.761** overall.
 - [ ] **§1.7 subtraction:** levels **41–50** cost **230.04 K** coins on a coin line and **181.25 K** on a cash line (two-row
       subtraction of the printed totals), and the in-run workshop's “next level” price sits between the two printed rows.
+- [ ] **§6.4 census:** `Coin Bonus +` caps at **level 300 = ×4**, `Free Upgrades +` at **150 = ×2.5**, `Enemy Level Skip +` at
+      **60 = ×1.6**, `Attack Speed +` at **100 = ×2**, `Orb Size` at **250 = ×3.5**, `Land Mine Damage +` at
+      **600 = ×37** — and every one of them reads `1 + step × level` at three sampled levels.
+- [ ] **§6.4 per-track bills:** the Utility tab's enhancement list shows **6** rows (`Cash Bonus +`, `Coin Bonus +`,
+      `Cells / Kill Bonus`, `Free Upgrades +`, `Recovery Package +`, `Enemy Level Skip +`) and their `Coins to max` values
+      sum to **7 598.29 s**; the Attack and Defense lists sum to **2 232.82 s** and **2 543.02 s**.
+- [ ] **§6.4 per-unit:** `Enemy Level Skip +` from 0 to **60** costs **1.51 s** total (0.6 units ⇒ **2.52** s per unit) while
+      `Coin Bonus +` from 0 to **300** costs **2.99 S** (3 units ⇒ **996.67** s per unit) — a **13.6×** gap against the
+      standard line's **73.54**.
+- [ ] **§6.5 ladder identity:** `Workshop Attack / Defense / Utility Discount` levels 1–5 read **30 / 71 / 178 / 398 / 772**
+      coins — the same five numbers as the `Starting Cash` lab — and the value column reads **0.50 % / 1.00 % / 1.50 %**
+      (+0.50 pp per level), reaching **49.50 %** at level 99.
+- [ ] **§6.5 effect:** with `Workshop Utility Discount` at L10 (−5.00 %), the Utility tab's next-level prices read ~5 % below
+      the §1.7 table (e.g. a coin line's L41–50 band ≈ **218.5 K** instead of 230.04 K); at L30 ≈ **195.5 K**.
+- [ ] **§6.5 gate:** the Utility tab's `Coin Bonus +` first level costs **5.00 B** coins at discount level 0 — the number the
+      H060 read compares against.
 - [ ] **Coins** ladder checkpoints: L1 = **50**, L10 = **838** (Σ **3.52 K**), L50 Σ = **448.41 K**, L90 Σ = **3.22 M**.
 - [ ] `Coins/Kill Bonus` **lab**: L1 = **40** coins / **0 m** / value **1.02**; L10 = **6 175** coins / **4 h 33 m**
       cumulative / value **1.20**; its Σ of the first 10 prices is **18 852** coins.
@@ -556,6 +698,17 @@ the enhancement gates — track each of the three separately ([H024](../hypothes
   model collapses → take each line's own column and drop the 0.761 comparison (the per-pp table is unaffected).
 - **§1.7:** if a line caps at a level other than **149**, the Σ-to-cap figures (19.47 M / 14.82 M) move with it — re-read the
   last printed row; the per-pp ladder (50 → 467.98 K) is the part that drives §2–§3 and is cap-independent.
+- **§6.4:** if the three `Coins to max` track sums do not re-add to **12 374.13 s** (or a row's `At max` ≠ `1 + step × Max`),
+  the census mixes two game versions → keep the per-row printed values, recompute only the three track totals, and re-check
+  the v29 cap list (600 / 100 / 250 / 300 / 150 / 60) against the panel.
+- **§6.5:** if a `Workshop … Discount` lab's value column reads **0.30 %/level** instead of 0.50 %, that page is the
+  `Enhancement Coin Discount` ladder (0.30 %/level, 100 levels, L1 = 1.00 B) → the two lab families are easy to confuse in
+  the Lab screen; confirm by the level-1 price (**30** coins vs **1.00 B**).
+- **§6.5:** if the L1 price of the discount lab is **not 30** coins, the ladder differs from `Starting Cash` → price each lab
+  from its own column; the marginal rule (`price(n) ≤ 0.005 × R`) is unaffected.
+- **§6.5:** if `n* = 30` does not match the panel (e.g. the tab's prices stay flat past L30), the discount is **additive**
+  rather than multiplicative per level, or `R` includes lines the tab discount does not cover → recompute `R` from the lines
+  the panel actually discounts and re-solve the crossover.
 - If the workshop's quantity selector offers **×100 before Max**, the version ordering in §1.5 is stale → read the selector
   order on the panel and re-derive which lab level is the one worth buying first (the Σ **562 500** is unaffected).
 - If the four income labs' L1 price is not **40** coins (value **1.02**), they are re-versioned → re-read L1/L5/L10 and
@@ -602,6 +755,14 @@ the enhancement gates — track each of the three separately ([H024](../hypothes
   §1.7 (checkpoints L1, L10 … L140, L149 and the value columns **×1.01 → ×2.49**, **2 → 150**, **4 → 596**), the shared
   `Level / Time / Cost / Value` income-ladder (`1 + 0.02n`, **×2.98** at L99), and the `Starting Cash` lab ladder
   (**5 × level**, 495 at L99, 4 190 609 coins at L99).
+- Tower Hub `wiki/workshop/workshop-enhancement` (last verified **2026-11-01**, 5 data tables) and
+  `wiki/workshop/{workshop-attack-discount, workshop-utility-discount}` (**2026-10-13**) — the printed 18-row census
+  (`Track / Unlocks at / Max level / Per level / At max / Coins to max`) behind §6.4, the standard curve's
+  `Level / Price / Total` ladder (5.00 B → 441.24 s) and the six special curves; the two 99-row discount ladders
+  (**30 / 71 / 178 / 398 / 772 … 4 190 609**, value **0.50 % × n**) behind §6.5, plus the unlock prints
+  (attack **T1 W40**, defense **T2 W50**, utility **T2 W60**). Second source for the defense ladder: fandom
+  `Workshop_Defense_Discount` (all **99 rows**, agrees to 4 significant digits; L99 = 49 d 0 h 57 m / 4 190 000);
+  fandom `Workshop_Attack_Discount` prints **T1 W40**, its `Lab/` twin and namu.wiki print **T2 W40**.
 
 - Tower Hub `wiki/guide/coin-guide-basics` (last verified **2026-07-29**) — “Coins per wave … is the weakest coin source
   in the game over the long run … **stop upgrading CPW in the lab by level 20**”; “**Every coin multiplier in the game

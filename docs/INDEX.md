@@ -25,7 +25,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | T017 | [Vault: Keys priority ladder](techniques/T017-vault-keys-priority.md) | Keys → Gems, Coins, Cash, Shards | **Verified (Rev 4**, arithmetic) |
 | T018 | [Relic economy & price rule](techniques/T018-relic-economy.md) | % points (Coins/Cash/Lab) | **Verified (Rev 3**, arithmetic) |
 | T019 | [Milestone claim engine](techniques/T019-milestone-claim-engine.md) | Gems, Stones, Coins, labs | **Verified (Rev 3**, arithmetic; H038 open) |
-| T020 | [Workshop coin-spend order](techniques/T020-workshop-coin-order.md) | Coins → Cash/Coins multipliers | **Verified (Rev 8**, arithmetic: the four value laws `1+0.01L` / `L+1` / `4L`, caps L149 = ×2.49 / 150 / ×2.49 / 596, Σ 19.47 M vs 14.82 M = 0.761, the 9 360× convexity) |
+| T020 | [Workshop coin-spend order](techniques/T020-workshop-coin-order.md) | Coins → Cash/Coins multipliers | **Verified (Rev 9**, arithmetic: the four value laws `1+0.01L` / `L+1` / `4L`, caps L149 = ×2.49 / 150 / ×2.49 / 596, Σ 19.47 M vs 14.82 M = 0.761, the 9 360× convexity, the 18-row census law `At max = 1 + step × Max` 18/18, per-track bills 2.233 / 2.543 / 7.598 S = 12.374 S, the discount labs' `0.50 % × n` on the shared 30 → 4 190 609 ladder with stop level **L30**) |
 | T021 | [Dissonant Runs & Echo](techniques/T021-dissonant-runs-echo.md) | Coins (+ damage/health/UW) | **Verified (Rev 3**, arithmetic) |
 | T022 | [Free-currency census & paid ladder](techniques/T022-free-currency-census-paid-ladder.md) | Gems, Stones (budget + bills) | **Verified (Rev 2**, arithmetic) |
 | T023 | [Guardian economy (bit model, Fetch droptable, sync layer)](techniques/T023-guardian-economy.md) | Bits → Gems, Medals, Shards, Coins | **Verified (Rev 5**, arithmetic) |
@@ -71,7 +71,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | H034 | [Bot Bot Bonus line: 19 or 30 levels](hypotheses/H034-botbot-level-count.md) — **resolved** (19 levels, cap ×2.00) | done: value ladder closes 1.05 + 19 × 0.05 = 2.00 ✓ |
 | H035 | [Lab-rush price improves per completed lab](hypotheses/H035-lab-rush-rate-per-completed-lab.md) — **resolved** (7.5 gems/h × 0.91/0.79/0.66 buckets + 0.015× per gold box) | done: both factors printed by two sources |
 | H036 | [Is the 80-card event quest worth 1 600 gems](hypotheses/H036-buy-80-cards-event-roi.md) | read the quest's medal payout + the shop's gems-per-medal rate |
-| H037 | [Per-level step of the six special enhancements](hypotheses/H037-enhancement-per-level-step.md) — **`Enemy Level Skip +` settled** (printed `1.01x … 1.60x` ⇒ `1 + 0.01n`, ×1.60 at L60); five still open | read the multiplier line at level 0, 1 and the cap for each of the five |
+| H037 | [Per-level step of the six special enhancements](hypotheses/H037-enhancement-per-level-step.md) — **resolved** (printed census: step **+0.01** on all six, `At max = 1 + step × Max` **18/18**, tracks printed ⇒ `Orb Size` = Defense, the four economy ones = Utility) | done: T020 §6.4 transcribes the 18-row census; panel reads are confirmation only |
 | H038 | [Milestone premium track additive (46 cells) or replacement (23)](hypotheses/H038-milestone-two-track-badge.md) | badge delta before/after buying one pass on a fully-cleared group |
 | H039 | [Milestone coin cells flat or run-multiplier scaled](hypotheses/H039-milestone-coin-cell-scaling.md) | coin-counter delta for one cell, low vs high coin multiplier |
 | H040 | [Does Fetch's cooldown run offline](hypotheses/H040-fetch-procs-offline.md) | gem/shard counters before an app-closed night + per-hour rate |
@@ -94,6 +94,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | H057 | [Heat increases every ≈ 55.6 waves (`level ≈ 1 + ⌊W/55.6⌋`, 19 levels inside wave 1 000)?](hypotheses/H057-heat-increase-wave-spacing.md) — settles how hard a 200-wave bracket really is | read the **Heat** level on the run screen at waves ~56 / ~111 / ~167, then at 200 and 500 |
 | H058 | [Does a card mastery multiply the card's whole printed value (×1.885) or only its bonus (×1.585)?](hypotheses/H058-mastery-multiplies-card-value-or-bonus.md) — sets every mastery's per-stone worth | unlock the `Coins` mastery with the lab untouched and read the **Card Detail** value: **1.4935** (whole) vs **1.4635** (bonus) |
 | H059 | [Are the sub-stat rarity chances 46.2 / 40 / 10 / 2.5 / 1 / 0.3 %, and a different roll from the banner's 68.5 / 29 / 2.5?](hypotheses/H059-substat-rarity-roll-chances.md) — sets the reroll-shard budget per perfect slot | read the percentages in the module panel's ℹ, or tally the highest rarity over **50** rerolls (expect ≈ 23/20/5/1.25/0.5/0.15 vs 34/14.5/1.25) |
+| H060 | [Do the tab `Workshop … Discount` labs also discount that track's enhancement prices?](hypotheses/H060-workshop-discount-lab-covers-enhancements.md) — moves the discount lab's stop level from **L30** to **L99** | read `Coin Bonus +`'s price at level 0 (5.00 B), buy **10** levels of `Workshop Utility Discount`, re-read: 5.00 B (tab only) vs 4.75 B (both) |
 
 ## Logs
 
@@ -187,6 +188,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 - [2026-11-02 - session 83 (T010 Rev 8)](log/2026-11-02.md#2026-11-02---session-83-iteration-92-reroll-shards-gain-5-per-tier-from-t11-and-one-sub-stat-rarity-step-doubles-the-payout)
 - [2026-11-02 - session 84 (T001 Rev 5)](log/2026-11-02.md#2026-11-02---session-84-iteration-93-the-interest-engine-becomes-two-arithmetic-ladders-and-a-cap-ladder)
 - [2026-11-02 - session 85 (T020 Rev 8)](log/2026-11-02.md#2026-11-02---session-85-iteration-94-every-workshop-currency-line-is-one-arithmetic-ladder-and-the-cash-pair-is-a-quarter-cheaper-than-the-coin-pair)
+- [2026-11-02 - session 86 (T020 Rev 9)](log/2026-11-02.md#2026-11-02---session-86-iteration-95-the-enhancement-layer-is-one-arithmetic-law-and-the-three-discount-labs-share-one-ladder-with-starting-cash)
 
 ## Reference material in this repo
 

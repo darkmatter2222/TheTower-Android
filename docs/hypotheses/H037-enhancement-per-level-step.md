@@ -1,10 +1,23 @@
 # H037 — Per-level step of the six “special” enhancements (0.01 / 0.02 / other?)
 
-Status: open · Raised: 2026-11-01
+Status: **resolved** (2026-11-02, from the printed census — the panel reads are now confirmation only) · Raised: 2026-11-01
 
-**Claim.** The six enhancements that are not on the shared 600-level curve keep the same **+0.01 × per level** step as the
-standard twelve, so their multipliers at max are: `Attack Speed +` ×2 (100 lv), `Orb Size` ×? (250 lv), **`Coin Bonus +`
-×4** (300 lv), **`Cells / Kill Bonus` ×4** (300 lv), `Free Upgrades +` ×2.5 (150 lv), `Enemy Level Skip +` ×1.6 (60 lv).
+**Answer.** The claim holds. Tower Hub's `wiki/workshop/workshop-enhancement` (2026-11-02 print) lists **`Per level` and
+`At max` for all 18 rows**, not just the first ten:
+
+| Special enhancement | Track (now printed) | Max | Per level | At max (printed) | `1 + step × Max` |
+|---|---|---|---|---|---|
+| `Attack Speed +` | **Attack** | 100 | +0.01x | ×2 | 1 + 0.01·100 = 2 ✓ |
+| `Orb Size` | **Defense** | 250 | +0.01x | ×3.5 | 3.5 ✓ |
+| `Coin Bonus +` | **Utility** | 300 | +0.01x | ×4 | 4 ✓ |
+| `Cells / Kill Bonus` | **Utility** | 300 | +0.01x | ×4 | 4 ✓ |
+| `Free Upgrades +` | **Utility** | 150 | +0.01x | ×2.5 | 2.5 ✓ |
+| `Enemy Level Skip +` | **Utility** | 60 | +0.01x | ×1.6 | 1.6 ✓ |
+
+So: **step = +0.01 for all six** (and for 11 of the twelve 600-level rows), the **only** different step in the whole layer is
+`Land Mine Damage +` = **+0.06x ⇒ ×37**; `At max = 1 + step × Max` matches on **18/18** rows. The tracks are printed too, so
+each enhancement's discount-lab parent is fixed (rows 1–6 Attack, 7–12 Defense, 13–18 Utility) — which is what step 5 needed.
+Transcribed with the per-track bills in [T020](../techniques/T020-workshop-coin-order.md) §6.4.
 
 **Why it is not settled by the source.** Tower Hub's enhancement table (last verified 2026-11-01) prints `Per level`
 only for the rows on the shared curve (+0.01 x ⇒ ×7 at 600, and **+0.06 x ⇒ ×37** for `Land Mine Damage +`, proving the step
