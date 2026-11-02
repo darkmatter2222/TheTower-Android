@@ -21,7 +21,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | T013 | [Event window & medal economy](techniques/T013-event-medal-economy.md) | Medals → Gems, Stones, Shards | Unverified (Rev 2) |
 | T014 | [Tournament tickets & league ladder](techniques/T014-tournament-tickets.md) | Gems, Stones, Keys | Unverified (Rev 3) |
 | T015 | [Bot economy & cell/coin chain](techniques/T015-bot-economy.md) | Medals, Coins, Elite Cells | Unverified (Rev 2) |
-| T016 | [Guild tokens & Bits](techniques/T016-guild-tokens-bits.md) | Tokens, Bits, Coins, Gems, Shards | Unverified |
+| T016 | [Guild tokens & Bits](techniques/T016-guild-tokens-bits.md) | Tokens, Bits, Coins, Gems, Shards | **Verified (Rev 2**, arithmetic) |
 | T017 | [Vault: Keys priority ladder](techniques/T017-vault-keys-priority.md) | Keys → Gems, Coins, Cash, Shards | **Verified (Rev 2**, arithmetic) |
 | T018 | [Relic economy & price rule](techniques/T018-relic-economy.md) | % points (Coins/Cash/Lab) | **Verified (Rev 2**, arithmetic) |
 | T019 | [Milestone claim engine](techniques/T019-milestone-claim-engine.md) | Gems, Stones, Coins, labs | **Verified (Rev 3**, arithmetic; H038 open) |
@@ -49,7 +49,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | H013 | [Relic gates count only mission medals](hypotheses/H013-relic-gate-medal-source.md) | claim one weekly box first, then read the relic counter |
 | H014 | [Per-ticket tournament payout](hypotheses/H014-per-ticket-payout.md) | buy exactly 2 extra tickets, compare total to 3× reward |
 | H015 | [Bot Bot bonus increment 0.05 vs 0.5](hypotheses/H015-bot-bot-increment.md) — **resolved** (+0.05, cap ×2.00) | done: Tower Hub's level table is internally consistent; level count moved to H034 |
-| H016 | [Guild Store quantity vs price per purchase](hypotheses/H016-guild-store-quantity-vs-price.md) | read the Shards/Gems entry for buys 1, 2 and 3 |
+| H016 | [Guild Store quantity vs price per purchase](hypotheses/H016-guild-store-quantity-vs-price.md) — **resolved** (fixed 100 gems / 250 shards; price escalates; shard types independent) | done: Tower Hub's prose states the rule |
 | H017 | [Ad Gem Stack: bank or per-view multiplier](hypotheses/H017-ad-gem-stack-semantics.md) | claim once, then leave 2 timers unclaimed and read the payout |
 | H018 | [Key payout in <9-player brackets](hypotheses/H018-vault-key-bracket-size.md) | note entrants + rank + keys for two brackets |
 | H019 | [Premium relics granted retroactively by the Boost](hypotheses/H019-premium-relic-retroactivity.md) | read the in-event medal counter before/after buying the Boost |
@@ -123,6 +123,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 - [2026-11-02 — session 32 (T023 Rev 2, H052)](log/2026-11-02.md#2026-11-02--session-32-iteration-41-the-guardians-bit-prices-close-as-a-closed-form)
 - [2026-11-02 — session 33 (T020 Rev 5, H050 resolved)](log/2026-11-02.md#2026-11-02--session-33-iteration-42-the-two-qol-labs-priced-and-h050-settled)
 - [2026-11-02 — session 34 (T018 Rev 2, H051 candidate)](log/2026-11-02.md#2026-11-02--session-34-iteration-43-the-relic-pool-re-summed-row-by-row)
+- [2026-11-02 — session 35 (T016 Rev 2, H016 resolved)](log/2026-11-02.md#2026-11-02--session-35-iteration-44-the-guild-economy-double-sourced-and-h016-closed)
 
 ## Reference material in this repo
 

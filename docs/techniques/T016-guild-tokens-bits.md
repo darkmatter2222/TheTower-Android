@@ -1,8 +1,15 @@
 # T016 — Guild: the 33× token rule and the free contribution
 
+Rev: 2 (2026-11-02) — a **second source** (Tower Hub `wiki/system/guilds`, 2026-07-29) prints the same chest table **with its
+Total row**, and all four column sums re-add (150 tokens ✓ / 185 bits ✓ / 11 coins ✓ / ×60 gems ✓); **H016 is resolved** (the
+store ladder is **per purchase** and each **shard type has its own independent ladder**); and the cosmetic bill is now known:
+**450 tokens/season** for the four seasonal cosmetics.
 Rev: 1 (2026-11-01) · Currency: **Guild Tokens**, **Bits**, **Coins**, **Gems**, **Module Shards**, plus Guardian **Chips**
 **Value:** ★★★★ — the same weekly-box claim that T004/T013 already pay for also feeds the guild chests, and spending Tokens in the Guild Store is worth **15–30 gem-equivalents per token** while letting them auto-cash out pays **0.2**.
-**Confidence:** **Medium-High** — unlock gate, contribution numbers, chest contents, the 5:1 auto-cashout and the shop quantities are fandom raw wikitext; the per-token efficiency table is derived from those numbers.
+**Confidence:** **High** — the unlock gate, contribution numbers, chest contents (incl. the **Total** row), the 5:1
+auto-cashout and the shop ladders are printed by **two** sources (fandom raw wikitext + Tower Hub `wiki/system/guilds`
+2026-07-29), and all four chest-column totals re-add independently (150 / 185 / 11 / 60 ✓). The per-token efficiency table
+is derived from those printed numbers. **Verified (arithmetic, Rev 2)**; no on-device capture yet.
 **Ease:** 1 tap per chest, 1 tap per purchase · **Prerequisite:** **Milestone Tier 3 Wave 10** (creating your own guild costs **50 gems**; joining is free).
 
 ---
@@ -24,6 +31,12 @@ Rev: 1 (2026-11-01) · Currency: **Guild Tokens**, **Bits**, **Coins**, **Gems**
 The coin reward scales with your **highest unlocked tier** — identical to the Daily-Mission coin reward up to
 Tier 18 (500 M) and flat at 500 M above it, so the “11×” above means **eleven copies of that tier's
 daily-mission coin payout** per week. **Per 8-week season:** ≈ **1 200 Tokens, 1 480 Bits, 480 gems, 88× coins**.
+
+**The four chest columns re-add to the printed Total row** (second source, Tower Hub): 10+20+40+80 = **150 tokens** ✓ ·
+10+25+50+100 = **185 bits** ✓ · 1+2+3+5 = **11** coins ✓ · 5+10+15+30 = **60** gems ✓, and the tiers are gated on the guild's
+total contribution of **100 / 250 / 500 / 750**. A fully-active member therefore needs **4 × 750 = 3 000 contribution** in
+one week, i.e. **600 Weekly Challenge boxes' worth** if each box is worth 5 — in practice the guild's members together supply
+it, and every member claims their own copy of all four chests.
 
 ## 2. The 33× rule: never let Tokens auto-cash out
 
@@ -48,7 +61,16 @@ purchases plus the three gem purchases cost **30 + 80 = 110 tokens** and return 
 remaining tokens then go to chips/relics/themes — never to the cash-out.
 
 *Shard purchases are per module type*, so Cannon/Armor/Generator/Core each have their own 5/10/15 ladder: four
-chances at the cheap 5-token price.
+chances at the cheap 5-token price — **confirmed**: “the price rises with each purchase you make and resets when the next
+season begins. … buying one type of shard only raises the cost of that type — the others are unaffected” ⇒ the ladder is
+**per purchase** (not per quantity) and the four types are **independent counters**. That closes
+[H016](../hypotheses/H016-guild-store-quantity-vs-price.md).
+
+**The full season bill** (with 150 tokens/week × 8 = **1 200** tokens available): every store line once — shards 4 types ×
+(5+10+15) = **120**, gems 15+25+40 = **80**, bits 25+50+75 = **150**, relics 75+150 = **225**, one chip **200**, cosmetics
+**450** (tower 100 + background 100 + menu 100 + Guardian skin 150) = **1 225 tokens** (1 425 with a second chip) ⇒ **the
+season's 1 200 tokens do not cover everything**, so the priority is exactly §2's efficiency order and the **cosmetics are the
+marginal item** (skip the Guardian skin first: it is the 150-token entry with the same +0.6 % as a 100-token menu).
 
 ## 3. Bits and the Guardian (why Bits are never wasted)
 
@@ -96,6 +118,11 @@ forever**, which is why they rank above the auto-cashout but below shards/gems i
 - [ ] The first **Gems** purchase costs **15 tokens for 100 gems**.
 - [ ] The Guardian unlock costs **200 Bits**, and the Guardian stops fighting if you leave the guild.
 - [ ] At the season end, leftover tokens arrive by mail as **⌈tokens ÷ 5⌉** gems.
+- [ ] The chest panel's own **Total** line reads **150 tokens / 185 bits / 11 coins / 60 gems** (= the four rows summed).
+- [ ] Buying **Cannon** shards twice leaves **Armor** shards still at **5** tokens (the ladders are per type), and the third
+      purchase of a type costs **15**; next season it is **5** again.
+- [ ] The store offers **one** tower theme, **one** background, **one** menu (**100** each) and **one** Guardian skin
+      (**150**) per season = **450 tokens** of cosmetics, and each purchase adds its permanent coin % (§4).
 
 ## 7. Falsification
 
@@ -115,6 +142,13 @@ forever**, which is why they rank above the auto-cashout but below shards/gems i
   (Bits 25/50/75, Gems 15/25/40, Shards 5/10/15; 100 gems or 250 shards per purchase), themes 100/150 with the
   +0.4 / +0.8 / +0.6 % coin bonuses, relics 75/150, chips 200 with the 13 000–14 500-bit max, and the chip
   table (Ally, Attack, Bounty, Fetch, Scout, Summon).
+- Tower Hub `wiki/system/guilds` (last verified **2026-07-29**) — the second copy of the chest table **with the Total row**
+  (150 / 185 / 11 / ×60), the tier gates 100/250/500/750, the 8-week season with the **5 tokens per gem, rounded up**
+  end-of-season conversion, guild creation at **50 gems** and the **30**-member cap, the store ladders **Bits 25/50/75 ·
+  Gems 15/25/40 · Shards 5/10/15** “limited to 3 purchases per season”, the per-purchase/per-shard-type price rule,
+  “a token exchange gives **100 gems or 250 shards**”, cosmetics at **100/100/100/150** per season, relics at **75/150**,
+  chips at **200** each, and “the coin reward scales with your highest unlocked tier — check the base value via Daily
+  Missions”.
 - fandom `Currency/Elite Cells` / `Currency/Medals` — Fetch chip's ≤10 medals/day and its cell/coin output.
 - `tools\gm_strings.txt` — `Guilds/GuildManager`, `GuildContributionChest`, `ContributionChestData`,
   `GuardianChips`, `GuardianPresetsUI`, `GuildCurrencies`, `ChatUI`, and the remote keys

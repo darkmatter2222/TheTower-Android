@@ -1,8 +1,16 @@
 # H016 — Guild Store: the quantity per purchase is constant while only the price escalates
 
-Status: open · Raised: 2026-11-01
+Status: **resolved 2026-11-02 — fixed quantity, escalating price, and the four shard types are independent counters** ·
+Raised: 2026-11-01
 
-**Claim.** In the Guild Store, buying **Gems** always yields **100 gems** and buying **Shards** always yields
+**Settling print (iteration 44).** Tower Hub `wiki/system/guilds` states the mechanic in prose next to the same table:
+“**The price rises with each purchase you make and resets when the next season begins.** … **A token exchange gives 100
+gems or 250 shards.** … buying **one type of shard only raises the cost of that type — the others are unaffected**”. So:
+quantities are **constant** (100 gems / 250 shards), the **price** escalates (Gems 15 → 25 → 40, Shards 5 → 10 → 15, Bits
+25 → 50 → 75, **3 purchases each per season**), the ladder **resets each season**, and each shard type carries **its own**
+counter ⇒ the four 5-token buys are all available. T016 §2's efficiency table stands as printed.
+
+**Original claim.** In the Guild Store, buying **Gems** always yields **100 gems** and buying **Shards** always yields
 **250 shards**, and only the **token price** escalates with the purchase count (Gems 15 → 25 → 40, Shards
 5 → 10 → 15, three purchases each per season, reset at season start). Under that reading the efficiency table in
 T016 §2 holds: shards are worth 150 → 75 → 50 gem-equivalents per token across their three buys, gems
