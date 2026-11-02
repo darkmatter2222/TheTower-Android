@@ -1,5 +1,9 @@
 # T016 — Guild: the 33× token rule and the free contribution
 
+Rev: 3 (2026-11-02) — the **weekly token income is 185, not 150**: the Daily-Mission weekly boxes each add **5 tokens**
+(7 boxes = **35**, T004 Rev 2's double-sourced box table), so an 8-week season earns **185 × 8 = 1 480 tokens** against
+the **1 225**-token full-shop bill ⇒ the shop now **fits** with ≈ 255 tokens to spare (the second 200-token chip becomes
+reachable); bits still 185/week (they carry over, unspent bits are not lost).
 Rev: 2 (2026-11-02) — a **second source** (Tower Hub `wiki/system/guilds`, 2026-07-29) prints the same chest table **with its
 Total row**, and all four column sums re-add (150 tokens ✓ / 185 bits ✓ / 11 coins ✓ / ×60 gems ✓); **H016 is resolved** (the
 store ladder is **per purchase** and each **shard type has its own independent ladder**); and the cosmetic bill is now known:
@@ -30,7 +34,9 @@ is derived from those printed numbers. **Verified (arithmetic, Rev 2)**; no on-d
 
 The coin reward scales with your **highest unlocked tier** — identical to the Daily-Mission coin reward up to
 Tier 18 (500 M) and flat at 500 M above it, so the “11×” above means **eleven copies of that tier's
-daily-mission coin payout** per week. **Per 8-week season:** ≈ **1 200 Tokens, 1 480 Bits, 480 gems, 88× coins**.
+daily-mission coin payout** per week. **Per 8-week season:** chest tokens **1 200**, Bits **1 480**, gems **480**, coins
+**88×** — plus the Daily-Mission weekly boxes add **+35 tokens and +185 gems per week** (T004 Rev 2), so the true season
+budget is **185 tokens/week = 1 480/season** and **245 gems/week = 1 960/season**.
 
 **The four chest columns re-add to the printed Total row** (second source, Tower Hub): 10+20+40+80 = **150 tokens** ✓ ·
 10+25+50+100 = **185 bits** ✓ · 1+2+3+5 = **11** coins ✓ · 5+10+15+30 = **60** gems ✓, and the tiers are gated on the guild's
@@ -56,7 +62,8 @@ mailed). The Guild Store pays far more per token:
 
 Using the repository's rates (1 shard = 0.6 gems, 1 stone = 10 gems — [T014 §2](T014-tournament-tickets.md)):
 **shards = 30 gem-equivalents for 5 tokens (150/token), gems = 100 for 15 (6.7/token), auto-cashout = 0.2.**
-That is **150× / 33×** better than the “do nothing” default. With 1 200 tokens/season, the first three shard
+That is **150× / 33×** better than the “do nothing” default. With 185 tokens/season-week (T004's box table added at
+Rev 3), the first three shard
 purchases plus the three gem purchases cost **30 + 80 = 110 tokens** and return **750 shards + 300 gems**; the
 remaining tokens then go to chips/relics/themes — never to the cash-out.
 
@@ -66,11 +73,12 @@ season begins. … buying one type of shard only raises the cost of that type �
 **per purchase** (not per quantity) and the four types are **independent counters**. That closes
 [H016](../hypotheses/H016-guild-store-quantity-vs-price.md).
 
-**The full season bill** (with 150 tokens/week × 8 = **1 200** tokens available): every store line once — shards 4 types ×
-(5+10+15) = **120**, gems 15+25+40 = **80**, bits 25+50+75 = **150**, relics 75+150 = **225**, one chip **200**, cosmetics
-**450** (tower 100 + background 100 + menu 100 + Guardian skin 150) = **1 225 tokens** (1 425 with a second chip) ⇒ **the
-season's 1 200 tokens do not cover everything**, so the priority is exactly §2's efficiency order and the **cosmetics are the
-marginal item** (skip the Guardian skin first: it is the 150-token entry with the same +0.6 % as a 100-token menu).
+**The full season bill** (with 185 tokens/week × 8 = **1 480** tokens available, per Rev 3): every store line once —
+shards 4 types × (5+10+15) = **120**, gems 15+25+40 = **80**, bits 25+50+75 = **150**, relics 75+150 = **225**, one chip
+**200**, cosmetics **450** (tower 100 + background 100 + menu 100 + Guardian skin 150) = **1 225 tokens** ⇒ the season
+**covers everything with ≈ 255 left over** (enough for a second 200-token chip), so the priority order of §2 is about
+*speed of first-purchase completion*, not survival: shards → gems → bits → chips → relics → cosmetics; only drop the
+Guardian skin first if the season's boxes lag (it is the 150-token entry with the same +0.6 % as a 100-token menu).
 
 ## 3. Bits and the Guardian (why Bits are never wasted)
 
@@ -123,11 +131,12 @@ forever**, which is why they rank above the auto-cashout but below shards/gems i
       purchase of a type costs **15**; next season it is **5** again.
 - [ ] The store offers **one** tower theme, **one** background, **one** menu (**100** each) and **one** Guardian skin
       (**150**) per season = **450 tokens** of cosmetics, and each purchase adds its permanent coin % (§4).
+- [ ] Each completed Daily-Mission weekly box also grants **5** guild tokens (7 × 5 = 35/week ⇒ season budget **1 480**).
 
 ## 7. Falsification
 
 - If a weekly box raises contribution by something other than **5**, recompute the 35/week cap and the
-  1 200-token season figure.
+  1 480-token season figure (150 chest + 35 box).
 - If the first shard purchase does not give **250** shards, note the real quantity — the whole per-token table
   in §2 rescales.
 - If unclaimed contribution chests are **not** mailed at week end, claiming before Monday 00:00 UTC becomes a
