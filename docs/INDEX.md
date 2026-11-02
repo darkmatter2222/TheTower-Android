@@ -22,7 +22,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | T014 | [Tournament tickets & league ladder](techniques/T014-tournament-tickets.md) | Gems, Stones, Keys | Unverified (Rev 3) |
 | T015 | [Bot economy & cell/coin chain](techniques/T015-bot-economy.md) | Medals, Coins, Elite Cells | Unverified (Rev 2) |
 | T016 | [Guild tokens & Bits](techniques/T016-guild-tokens-bits.md) | Tokens, Bits, Coins, Gems, Shards | Unverified |
-| T017 | [Vault: Keys priority ladder](techniques/T017-vault-keys-priority.md) | Keys → Gems, Coins, Cash, Shards | Unverified |
+| T017 | [Vault: Keys priority ladder](techniques/T017-vault-keys-priority.md) | Keys → Gems, Coins, Cash, Shards | **Verified (Rev 2**, arithmetic) |
 | T018 | [Relic economy & price rule](techniques/T018-relic-economy.md) | % points (Coins/Cash/Lab) | Unverified |
 | T019 | [Milestone claim engine](techniques/T019-milestone-claim-engine.md) | Gems, Stones, Coins, labs | **Verified (Rev 3**, arithmetic; H038 open) |
 | T020 | [Workshop coin-spend order](techniques/T020-workshop-coin-order.md) | Coins → Cash/Coins multipliers | Unverified (Rev 2) |
@@ -75,6 +75,8 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | H039 | [Milestone coin cells flat or run-multiplier scaled](hypotheses/H039-milestone-coin-cell-scaling.md) | coin-counter delta for one cell, low vs high coin multiplier |
 | H040 | [Does Fetch's cooldown run offline](hypotheses/H040-fetch-procs-offline.md) | gem/shard counters before an app-closed night + per-hour rate |
 | H041 | [What Fetch's 20-gem/10-medal cap counts](hypotheses/H041-fetch-cap-semantics.md) | five counter reads across one day — do the shard lines keep rising |
+| H042 | [Enemies-tab Coin Bonus: multiplier or flat add](hypotheses/H042-enemy-tab-coin-bonus-semantics.md) | coin-multiplier breakdown + coins-per-kill before/after 1 level |
+| H043 | [Do the Vault tab totals sum to ≈ 73 000 keys](hypotheses/H043-vault-tab-totals.md) | read the three tab totals (Harmony should be ≈ 1 350) |
 
 ## Logs
 
@@ -101,6 +103,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 - [2026-11-01 — session 21 (T020 Rev 2, H037)](log/2026-11-01.md#2026-11-01--session-21-iteration-30-enhancement-layer-priced)
 - [2026-11-02 — session 22 (T019 Rev 3, H038–H039)](log/2026-11-02.md#2026-11-02--session-22-iteration-31-the-milestone-ledger-two-track-model)
 - [2026-11-02 — session 23 (T023, T022 pointer, H040–H041)](log/2026-11-02.md#2026-11-02--session-23-iteration-32-the-guardian-layer-priced)
+- [2026-11-02 — session 24 (T017 Rev 2, H042–H043)](log/2026-11-02.md#2026-11-02--session-24-iteration-33-the-vault-priced)
 
 ## Reference material in this repo
 

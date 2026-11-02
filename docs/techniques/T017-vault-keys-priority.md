@@ -1,11 +1,16 @@
 # T017 — Vault: the Keys priority ladder (Harmony first, then 6 card slots, then the coin lines)
 
+Rev: 2 (2026-11-02) — every node price of the **Harmony** tab transcribed with its section subtotal, the Power lines'
+**per-level value + knee table** added (L1 = **+100 %** Cash/Wave for **10 keys** ⇒ the cheapest node in the game), the
+73 000-key bill turned into a per-league year table, and the wiki's one total-column typo recorded.
 Rev: 1 (2026-11-01) · Currency: **Keys** (spent) — pays back in **Gems**, **Coins**, **Cash**, **Module Shards**
 **Value:** ★★★★★ once the tab is open — a single Harmony line (**Ad Gem Stack, 130 keys**) multiplies the T007
 ad-gem flow by **5×**, and the three Utility coin lines are **+500 % each** for 250 keys apiece.
-**Confidence:** **Medium-High** — the section list, every per-level cost, the key-per-rank table and the ~73 000-key
-full-max figure are the fandom raw wikitext (`Vault`, `Currency/Keys`); the ordering and the keys/key ratios below
-are derived. No on-device capture yet → **Unverified**.
+**Confidence:** **High** — **Verified (arithmetic)**: the ladder **10/20/40/70/110 = 250** ✓ (the wiki's own `Total`
+column agrees), `Ultimate Damage` **5+10+20+35+55 = 125** ✓, `Wall Rebuild` **20+40+80+140+220 = 500** ✓,
+**Ad Gem Stack 10+20+40+60 = 130** ✓, **card slots 5+10+20+40+60+80 = 215** ✓, **Enhancements Discount 2+4+…+18 = 90**
+(= −22.5 %) ✓, **Utility section 25 + 3 × 250 = 775** ✓, and the Enemies tab's cumulative column re-adds from its
+per-level prices (25/51/79/108/138 ✓). No on-device capture of the *ratios* yet.
 **Ease:** 1 tap per level, but **1** free respec total · **Prerequisite:** promotion into the **Legend** league
 (the Vault icon only appears on the home screen after that — see [T014](T014-tournament-tickets.md)).
 
@@ -54,6 +59,55 @@ Derived consequences:
 * **One free respec** per account refunds all spent keys (the binary's `VaultRespecWindow`), so spend 1–2 keys to
   learn the layout, keep the respec for a real allocation change.
 
+### 2.1 The Harmony tab, priced in full (as printed; section subtotal incl. its unlock)
+
+| Section (unlock) | Nodes, in panel order | Subtotal |
+|---|---|---|
+| **Gameplay (0)** | Auto Restart Run 20 · Ad Gem Stack 10/20/40/60 (= 130) · Damage Cap Slider 25 · Global Presets 20 | **195** |
+| **Cards (5)** | Card Slots 5/10/20/40/60/80 (= 215) · Charge Berserker 5 · Demon Mode Automation 10 + 25 · Nuke Automation 10 + 25 · Death Ray Toggle 15 · Spawn Accelerator Toggle 20 · Life Saving Ordering 50 · Energy Shield Restriction 50 | **430** |
+| **Ultimate Weapons (5)** | Missile Barrage Automation 10 + 25 · Black Hole Size Slider 25 · Swamp Range Slider 25 | **90** |
+| **Modules (5)** | Auto Shatter Rare 5 · Daily Mission Shard Type 10 · **Free Mission Reroll 15** · Module Reroll Discount 5+10+…+40 (= 180, −20 %) · Module Presets 20 | **235** |
+| **Bots (10)** | Bot Respec Discount 5/10/15 + Bot Presets 20 (= 50) · Bot Range 10/20/30/40 (= 100, **+2 m each**) · Bot Cooldown Sliders 15 | **175** |
+| **Workshop (10)** | Workshop Respec Discount 5/10/15 + Workshop Presets 20 (= 50) · **Enhancements Discount 2+4+…+18 = 90** (−22.5 %) · Workshop Orb Adjuster 15 | **165** |
+| **Guardian (10)** | Guardian Respec Discount 5/10/15 + Guardian Presets 20 | **60** |
+| | **Harmony, all seven sections** | **1 350** |
+
+(Rev 1's §4 step 5 listed the last three sections as “50 / 165 / 60”; with the section unlocks they are **175 / 165 / 60**.
+Per-system respecs go **150 → 100 → 51 → 0 gems** across the three discount levels + the Presets node, T023 §5.)
+
+### 2.2 The Power ladder, and where its knee is
+
+Every standard Power line is 5 levels priced **10 / 20 / 40 / 70 / 110 = 250**. For the three currency lines the *value*
+is **+100 % per level** (Cash/Wave, Coins/Wave, Interest/Wave), so the keys-per-+100 % column is the decision:
+
+| Level | 1 | 2 | 3 | 4 | 5 |
+|---|---|---|---|---|---|
+| cumulative value | +100 % | +200 % | +300 % | +400 % | +500 % |
+| cost this level | 10 | 20 | 40 | 70 | 110 |
+| **cumulative keys** | **10** | 30 | **70** | 140 | **250** |
+| keys per +100 % | 10 | 20 | 40 | **70** | **110** |
+
+⇒ **levels 1–3 are the whole purchase** (70 keys for ×4 on that currency), levels 4–5 cost **2.6×** more per percentage
+point. The same shape holds for the +5 %/level lines (Cash Bonus, Coins/Kill, Free X Upgrade, Recovery): **L1 = 10 keys for
++5 %** and the tail is 110. Non-standard lines: `Ultimate Damage` **125** (5/10/20/35/55, the best keys-per-% in the tab),
+`Defense %` 130, `Orbs` and `Shockwave Frequency` 60 each, `Wall Rebuild` 500.
+
+**As-printed tab totals** (sum of the wiki's line totals, useful for the years table below): Harmony **1 350** ·
+Power **≈ 11 255** (Attack 3 000 · Defense 3 250 · Utility 2 780 · UW 2 125, + 4 × 25 unlocks) · Enemies ≈ the rest of the
+**≈ 73 000** whole-Vault bill.
+
+### 2.3 Keys in, years out
+
+| Your league (best weekly result) | Keys/week | Years to 73 000 |
+|---|---|---|
+| Mythic 1st (50 × 2 brackets) | **100** | ≈ 14 |
+| Legend 1st (25 × 2) | 50 | ≈ 28 |
+| Legend 7–8th (8 × 2) | 16 | ≈ 88 |
+| Legend 16–24th / 25–30th (1 / 0) | 2 / 0 | ≈ 700 / ∞ |
+
+⇒ the Vault is a **Harmony-first** game for anyone below a solid Mythic placing: **1 350 keys** covers *all* of Harmony,
+and §3's Tier A list is **745** of them (715 node costs + 30 in section unlocks).
+
 ## 3. The priority ladder (keys ÷ value, derived)
 
 **Tier A — Harmony QoL, all ≤ 25 keys each** (these convert directly into gems or save gems):
@@ -61,7 +115,7 @@ Derived consequences:
 | Buy | Keys | What it returns |
 |---|---|---|
 | **Daily Mission Shard Type** (Modules) | 10 | daily-mission shard rewards become the module type you actually use — no more 40 %-of-value wasted shards |
-| **Free Mission Reroll** (Modules) | 15 | **unlimited** free module rerolls → removes the whole 10/40/160/500/1 000/1 600/2 250/3 000 gem ladder (T010) |
+| **Free Mission Reroll** (Modules) | 15 | **unlimited** daily-mission rerolls — each one normally costs **5 gems** (T004), so 3/day ≈ **15 gems/day ≈ 5 475/yr** back into §T009's ladder; the best keys-per-gem node in the tab |
 | **Auto Shatter Rare Modules** (Modules) | 5 | shards without tapping |
 | **Ad Gem Stack L1–L4** (Gameplay) | 10+20+40+60 = **130** | ad gems bank to **2×/3×/4×/5×** → the T007 ad flow becomes a 5-claim bank (≈ 25 gems in one tap) — see [H017](../hypotheses/H017-ad-gem-stack-semantics.md) |
 | **Global Presets** (Gameplay) | 20 | +3 global presets (T012/T015/T010 all use presets) |
@@ -111,6 +165,11 @@ Take `Basic → Coin Bonus` levels 1–5 (138 keys) before paying any section un
 - [ ] In the Enemies tab, **Basic**'s three options cost **25** keys at level 1 and the Simple section is free.
 - [ ] Buying **Additional Card Slot** immediately raises the slot count on the Cards screen (no gem cost shown).
 - [ ] The respec returns every key spent and the counter shows **0** remaining respecs afterwards.
+- [ ] A Power line's `Total` column walks **10 → 30 → 70 → 140 → 250** as you buy levels 1–5 (§2.2).
+- [ ] Harmony section costs land cumulatively at **195 / 430 / 90 / 235 / 175 / 165 / 60** keys once a section is fully
+      bought (§2.1), and **1 350** for the tab.
+- [ ] In the Enemies tab, **Basic**'s cumulative reads **239** after level 8 (the wiki prints 129 — a typo; the per-level
+      ladder 25/26/28/29/30/32/34/35 re-adds to 239).
 
 ## 6. Falsification
 
@@ -122,13 +181,27 @@ Take `Basic → Coin Bonus` levels 1–5 (138 keys) before paying any section un
   the panel and re-order Tiers B/C.
 - If the key-per-rank table differs in a small bracket, the note in §1 (fewer than 9 players pay less) is the cause
   → capture one small-bracket result ([H018](../hypotheses/H018-vault-key-bracket-size.md)).
+- If the cumulative keys after **3** levels of `Cash / Wave` is not **70**, the Power ladder is re-versioned → rebuild
+  §2.2's keys-per-+100 % row from the panel and re-locate the knee (it is the row that drives the buy order).
+- If a Harmony section's contents are visible **before** its unlock, the “unlock only when you can also buy 1–2 lines”
+  rule relaxes → re-read the prices without paying the unlock (the section costs are the only part hidden).
+- If the whole-Vault figure is not ≈ 73 000, the Enemies tab's four sections are the variable part (§2.3's years table
+  is otherwise unchanged) — record the three tab totals shown in the UI ([H043](../hypotheses/H043-vault-tab-totals.md)).
 
 ## Sources
 
-- fandom `Vault` (raw wikitext) — three tabs, all Harmony section unlock costs and every line's key price, the
-  25-key Power sections with the 10/20/40/70/110 ladder, the Enemies tab sections (0/50/100/150) with per-level
-  prices 25 → 103 and the Basic-Coin-Bonus / Boss-Common-Drop-Chance stats, “upgrades not viewable before the
-  section is unlocked”, and “visible once promoted into Legends”.
+- fandom `The Vault` (raw wikitext, 4 496 lines) — three tabs; **Harmony**'s seven sections with every node's key price
+  (§2.1: Auto Restart Run 20, Ad Gem Stack 10/20/40/60, Damage Cap Slider 25, Global Presets 20, the six card slots
+  5→80, Charge Berserker 5, Demon/Nuke Automation 10+25 each, Death Ray Toggle 15, Spawn Accelerator Toggle 20, Life
+  Saving Ordering 50, Energy Shield Restriction 50, Missile Barrage Automation 10+25, the two UW sliders 25 each, Auto
+  Shatter Rare 5, Daily Mission Shard Type 10, Free Mission Reroll 15, Module Reroll Discount 5→40 (= −20 %), Module
+  Presets 20, Bot Respec Discount 5/10/15 + Bot Presets 20 (“removes bot respec limits”), Bot Range 10/20/30/40 (+2 m
+  each), Bot Cooldown Sliders 15, Workshop Respec Discount 5/10/15 + Workshop Presets 20, Enhancements Discount 2→18
+  (= −22.5 %), Workshop Orb Adjuster 15, Guardian Respec Discount 5/10/15 + Guardian Presets 20); **Power**'s four
+  25-key sections with the full per-level value/cost/total tables (10/20/40/70/110 = 250 everywhere except
+  `Ultimate Damage` 125, `Defense %` 130, `Orbs`/`Shockwave Frequency` 60, `Wall Rebuild` 500, enemy skips 140);
+  **Enemies**' Simple section (free) with the Basic ladder 25, 26, 28, … and its `Total` column (whose L8 entry, 129,
+  is a typo for 239), and “upgrades not viewable before the section is unlocked”, “visible once promoted into Legends”.
 - fandom `Currency/Keys` (raw wikitext) — Legend/Mythic rank→key table (25→0 and 50→8), “fewer than 9 players pay
   less”, **≈ 73 000 keys** to max the Vault, and the **one free respec** per account.
 - `tools/gm_strings.txt` — `Assets\Scripts\Vault\VaultManager.cs`, `VaultConfig.cs` (config asset
