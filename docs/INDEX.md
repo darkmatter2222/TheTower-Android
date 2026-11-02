@@ -29,7 +29,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | T021 | [Dissonant Runs & Echo](techniques/T021-dissonant-runs-echo.md) | Coins (+ damage/health/UW) | **Verified (Rev 3**, arithmetic) |
 | T022 | [Free-currency census & paid ladder](techniques/T022-free-currency-census-paid-ladder.md) | Gems, Stones (budget + bills) | **Verified (Rev 2**, arithmetic) |
 | T023 | [Guardian economy (bit model, Fetch droptable, sync layer)](techniques/T023-guardian-economy.md) | Bits → Gems, Medals, Shards, Coins | **Verified (Rev 5**, arithmetic) |
-| T024 | [Enemy Level Skip ledger (workshop + lab + enhancement)](techniques/T024-enemy-level-skip-ledger.md) | Coins → wave depth | **Verified (Rev 1**, arithmetic) |
+| T024 | [Enemy Level Skip ledger (workshop + lab + enhancement)](techniques/T024-enemy-level-skip-ledger.md) | Coins → wave depth | **Verified (Rev 2**, arithmetic: 14/14 workshop checkpoints + the tier staircase `5 × (tier − 13)`) |
 
 ## Hypotheses (open)
 
@@ -175,6 +175,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 - [2026-11-02 - session 74 (T009 Rev 5, H047)](log/2026-11-02.md#2026-11-02---session-74-iteration-83-the-community-gem-ladder-re-prices-to-9-020-gems-and-matches-path-a-within-three-pulls)
 - [2026-11-02 - session 75 (T005 Rev 3)](log/2026-11-02.md#2026-11-02---session-75-iteration-84-the-printed-tier-ladder-is-one-arithmetic-line-to-t8-then-x123-a-tier-and-tier-13-costs-zero-perk-work)
 - [2026-11-02 - session 76 (T002 Rev 4)](log/2026-11-02.md#2026-11-02---session-76-iteration-85-the-wave-clock-is-26-plus-9-seconds-so-one-wave-costs-35-s-and-tournaments-run-faster-by-a-fixed-factor)
+- [2026-11-02 - session 77 (T024 Rev 2)](log/2026-11-02.md#2026-11-02---session-77-iteration-86-the-els-reduction-tier-staircase-is-exactly-5-times-tier-minus-13-and-the-printed-40-pins-it-to-the-perks-screen)
 
 ## Reference material in this repo
 

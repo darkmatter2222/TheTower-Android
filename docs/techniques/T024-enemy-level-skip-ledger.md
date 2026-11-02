@@ -1,9 +1,15 @@
 # T024 — Enemy Level Skip: the cheapest percentage points in the game, and the only deterministic one
 
+Rev: 2 (2026-11-02) — the **per-tier bill** is added (§3.①): `ELS Reduction` is the only battle condition printed at every
+tier, its required level is exactly **`5 × (tier − 13)`** (8/8 printed values, 5 → 40 for T14 → T21), so the perk is bought in
+**blocks of five**; the printed 40 exceeds the lab line's **10**-level cap, which pins the number to the **Perks** screen; and
+with T014 §4.2's law the same **62.40 %** panel is worth **×0.95 → ×0.60** (or **0.9645 → 0.716** with the BC labs) as the
+staircase climbs, i.e. **0.63–0.74 as much skip at Tier 21 than at Tier 14**.
 Rev: 1 (2026-11-02) · Currency: **Coins** (spent) → **Coins** (deeper runs = more waves paid per hour) ·
 Sources: Tower Hub `wiki/workshop/enemy-level-skip` (last verified **2026-11-01**, 4 data tables),
 `wiki/lab/lab-category-enemy-research`, `wiki/enemy/*` lab pages, `wiki/system/chips` / `wiki/system/relics` (the two +2 %
-relics), milestone row **T11 W200** from [T019](T019-milestone-claim-engine.md) §4.
+relics), milestone row **T11 W200** from [T019](T019-milestone-claim-engine.md) §4, and `wiki/system/tiers`
+(2026-07-29) for the per-tier condition levels (§3.①).
 
 **Value:** ★★★★ — the layer reaches **62.40 %** skip with only four sources, which turns 1 000 enemy stat level-ups into
 **376** ⇒ the same tower clears about **2.66× more waves** than its own stat budget would suggest, and every wave after
@@ -121,6 +127,44 @@ coins, i.e. **7.9× more per point** than the workshop's own tail — but it is 
 is the only line whose effect is instant (one tap at L60 = +23.4 pp at once), which is why it is worth keeping on the
 list after the workshop tail.
 
+## 3.① The per-tier bill for this line (`ELS Reduction`, `wiki/system/tiers`, 2026-07-29)
+
+The tier table prints one **required level** per battle condition, and `ELS Reduction` is the only condition present at
+**every** tier that has conditions at all. Its printed values are one exact line:
+
+| Tier | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 |
+|---|---|---|---|---|---|---|---|---|
+| `ELS Reduction` required level (printed) | **5** | 10 | 15 | 20 | 25 | 30 | 35 | **40** |
+| `5 × (tier − 13)` | 5 ✓ | 10 ✓ | 15 ✓ | 20 ✓ | 25 ✓ | 30 ✓ | 35 ✓ | 40 ✓ |
+
+**Eight for eight.** Four consequences for the buying order:
+
+1. **Buy in blocks of five.** The requirement moves **+5 per tier** and nothing in between, so levels 6–9 of a tier's block
+   are the price of the *next* tier — the line is only ever needed at `5, 10, 15, …`, which is the cleanest
+   “stop buying” signal in the perk engine. Total distance **T14 → T21 = 40 levels**.
+2. **The number is a Perks-screen level, not a lab level** — which the printed ceilings prove: the `Enemy Level Skip`
+   **lab** line (Group 4) caps at **10** levels and the **workshop** lines at **699** (both are levels of a *different*
+   object, §2), so a printed requirement of **40** can only be the perk line's level. If the Perks screen at Tier 14 shows a
+   required level of **5** on `ELS Reduction`, that reading is confirmed.
+3. **The reduction lands after the enhancement.** §1's pipeline applies `− Subtract` then `× Multiply` **after** the
+   `(workshop + lab + module + vault + relic) × enhancement` product, so a fully built panel (**62.40 %**, §3) is still scaled
+   down inside the tier. Using T014 §4.2's own law `skip_mult = 1 − 0.01 · value · (1 − R_total)` with this tier value
+   substituted for `value`:
+
+   | `R_total` | Tier 14 (value 5) | Tier 21 (value 40) | T21 ÷ T14 |
+   |---|---|---|---|
+   | 0 % | ×0.9500 ⇒ **59.28 %** | ×0.6000 ⇒ **37.44 %** | **0.632** |
+   | 20 % (generic lab maxed) | ×0.9600 ⇒ 59.90 % | ×0.6800 ⇒ **42.43 %** | 0.708 |
+   | 29 % (+ the dedicated line, T014 §4.2's own figure) | ×0.9645 ⇒ 60.18 % | ×0.7160 ⇒ **44.68 %** | 0.742 |
+
+   ⇒ **the same panel is worth ≈ 0.63–0.74 as much skip at Tier 21 as at Tier 14**, and the BC-reduction labs recover only
+   about a tenth of that gap. The *panel* number does not move between tiers; only its multiplier does — which is why §6's
+   before/after read is the interesting one.
+4. **It is the one line that never stops.** Of Tier 14's six conditions (`Orb` 50, `Death Ray` 50, `Thorns` 20,
+   `Plasma Cannon` 20, `More Bosses` 1, `ELS Reduction` 5 — T005 §“the Tier-14 bill”), only this one is re-printed at every
+   later tier, and it is the only one whose requirement passes **35** by Tier 21 while the two 50-start lines stall at their
+   **95** cap. Budget the perk points accordingly: this line is a straight staircase, the others are step arrivals.
+
 ## 4. Steps (UI)
 
 1. **Workshop → `Utility` tab**, spend **1 B** coins to unlock the `Enemy Level Skip` pair (it comes after
@@ -156,11 +200,23 @@ list after the workshop tail.
 - [ ] Wave-by-wave check of determinism: with the panel at **50.00 %**, enemy health stops changing on every second wave
       (read the enemy HP line in the run's stats, or the `Enemy Stats` calculator's values for two adjacent waves).
 
+- [ ] **The tier staircase (§3.①):** the **Perks** screen requires `ELS Reduction` level **5** at Tier 14 and **25** at
+      Tier 18 (`5 × (tier − 13)` ✓), with **no** change to that requirement inside a tier.
+- [ ] **Panel vs tier:** with the workshop lines at **L100** and both labs at **L20**, the run's stats panel prints the same
+      **7.05 %** per stat in Tier 14 and in Tier 21 (the panel value is tier-independent) — only the wave-to-wave scaling of
+      enemy health/damage differs.
+
 ## 6. Still open (one term of the printed law)
 
 The law's `module` and `vault` addends are printed as terms but their values are not on this page. If a module substat or
 a Vault node carries “Enemy Level Skip”, the §3 totals rise and the cap (100 %) can be approached — the one read that
 settles it is the run's stats panel with the module set equipped, before/after removing the module.
+
+**A second open term (§3.①):** whether the printed tier number is the **perk level** or that line's **percentage value**. The
+table above treats it as the level (that is what the Perks screen prints beside each condition). One read separates them: at
+Tier 15 note the required level shown for `ELS Reduction`, then read the line’s **value** — if they are **10** and **10 %**
+the two coincide (as here), and if the value line shows something else, substitute that value into
+`skip_mult = 1 − 0.01 · value · (1 − R_total)` and keep the level list for the buying plan.
 
 ## 7. Falsification
 
@@ -176,6 +232,13 @@ settles it is the run's stats panel with the module set equipped, before/after r
 - If the panel's total is **not** the sum of the sources × 1.6 (e.g. the enhancement applies only to the workshop part),
   the clamp/additivity model in §1 is wrong → re-read with exactly one source at a time, in the order workshop → lab →
   relic → enhancement, and record the four deltas; that is the sequence that pins where the multiplier applies.
+- If the **Perks** screen's required level for `ELS Reduction` is not `5 × (tier − 13)` at two tiers, the staircase was
+  re-versioned → take the block size from those two reads (only the buy-again cadence changes; §3's totals are untouched).
+  If the panel instead prints a *percentage* beside the condition, the two tables are misaligned → re-read the condition list
+  per tier and rebuild §3.① from that list.
+- If the run's stats panel prints **different** skip percentages inside Tier 14 and inside Tier 21 with identical
+  investments, the tier value is folded into the panel number rather than applied afterwards → use the panel numbers directly
+  and drop the `skip_mult` column of §3.①'s table.
 
 ## Sources
 
