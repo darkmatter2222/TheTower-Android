@@ -1,6 +1,15 @@
 # H007 — The `Waves Required` lab subtraction also applies to the stepped bases (250/300/350)
 
-Status: open · Raised: 2026-11-01
+Status: **resolved by print 2026-11-02** (device read optional) · Raised: 2026-11-01
+
+**Update (2026-11-02).** Tower Hub `wiki/system/perks` (2026-11-01) prints the law *per base*: “The formula for calculating
+**the first perk at each base wave count** is `Waves Required = (Base Waves Required − Waves Required lab) ×
+(1 − (Perk Wave Required Perk × (1 + Standard Perk Bonus / 100)))`”, with “If the result is a decimal, **round down**” and
+“You can then **multiply that rounded number by the number of perks** to find later thresholds”. So the lab level **is**
+subtracted from the stepped bases too (reading 1, the one T011's table uses ⇒ 47 w / 61 w / 75 w columns stand), and the
+quantisation is now explicit: inside a tier, threshold *k* = **k × floor(interval)** — the interval is floored once and
+then used as a multiple, not re-floored per pick. The base steps are printed as well: 200 → **250 after 20 picks** →
+**300 after 30** → **350 after 40**, and the worked example re-adds (`(200 − 3) × 0.352 = 69.344 → 69` ✓).
 
 **Claim.** The published formula is `N = floor((Base − lab) × (1 − PWR × (1 + SPB/100)))` where `Base` is
 200 / 250 / 300 / 350 depending on how many perks you have already taken. fandom states the formula *"should

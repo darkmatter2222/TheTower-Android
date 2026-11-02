@@ -1,11 +1,19 @@
 # T011 — Tune the Perk engine: more picks per run, deterministic picks
 
+Rev: 4 (2026-11-02) — `wiki/system/perks` (2026-11-01) is a **second copy of every printed ladder** (the §1 Σ figures
+reproduce: `Waves Required` **2.42 B**, `Standard Perk Bonus` **3.63 B**, `Improve Trade-Off` **17.26 B** for the first ten
+levels) **plus** four things this doc did not have: the **two standard-perk laws printed as formulas** with the site's own
+worked example that re-adds (`(200 − 3) × (1 − 0.648) = 69.344 → 69` ✓), the **Quantity 5 cap** on every standard perk, the
+full **perk value tables** (standard 15 rows / UW 9 rows / trade-off rows) including the **nine-UW stone ladder that sums to
+10 638 stones**, and a **category-odds skew** (65 / 20 / 15 here vs 68 / 20 / 12 before — both sum to 100 %, §1.3).
 Rev: 3 (2026-11-02) — the **coin budget level by level** added (what the first 10 levels of each perk lab cost and how many
 days of a slot they eat), the **`Auto Pick Ranking` > `First Perk Choice` precedence** confirmed with the source's worked
 example (**H006 resolved**), and the `Improve Trade-Off Perks` exclusion (the ranged-enemy trade-off perk is not boosted).
 Currency: **Coins** (primary), Cash, Experience — every pick is a run-multiplier, so pick *count* is the compounding lever.
-Status: **Unverified (Rev 3)** — the gates now agree across **three** sources (fandom `Perks`, game-vault, Tower Hub's
-milestone-linked lab pages); the ladder costs are printed values, the Σ sums below are arithmetic.
+Status: **Verified (arithmetic, Rev 4)** — every Σ in §1 re-adds from the printed per-level prices (**2.42 B · 3.63 B ·
+17.26 B** for the first ten levels), the wave formula reproduces the source's own worked example (**69** ✓ from
+`(200 − 3) × (1 − 0.648) = 69.344`), and the ladders now stand on **four** sources (fandom `Perks`, game-vault, Tower Hub's
+milestone-linked lab pages, and `wiki/system/perks` 2026-11-01); the one open read is the value-column convention (§4).
 
 | | |
 |---|---|
@@ -64,6 +72,51 @@ Each offer slot is rolled independently: **68 % standard / 20 % Ultimate-Weapon 
 
 The offer set for each pick is **fixed for the run — there is no perk reroll**, so the only way to improve the menu is more slots and bans. That is why `Perk Option Quantity` is the cheapest quality-per-gem in the whole perk tree.
 
+### The printed perk tables (second source, `wiki/system/perks`, 2026-11-01)
+
+**Category odds, as printed:** standard **65 %** / Ultimate-Weapon **20 %** / trade-off **15 %** (Σ = 100.0 % ✓). The
+earlier copy of this page printed **68 / 20 / 12**; both are internally consistent and both give the same decision, so the
+two probability rows sit side by side: with **65 %**, the chance an offer contains ≥ 1 standard perk is **87.8 % / 95.7 % /
+98.6 %** for 2 / 3 / 4 slots (with 68 %: 89.8 / 96.7 / 99.0 %).
+
+**Standard perks — every row prints `Quantity 5`** (the per-run cap on any one standard perk), value column as printed:
+
+| Perk | Value | | Perk | Value |
+|---|---|---|---|---|
+| Game Speed | ×1.20 | | Cash Bonus | ×1.75 |
+| Max Health | ×1.15 | | Health Regen | ×1.75 |
+| Damage | ×1.15 | | Interest | ×1.50 |
+| All Coin Bonuses | ×1.15 | | Land Mine Damage | ×3.50 |
+| Defense Absolute | ×1.15 | | Free Upgrade Chance for All | +5.0 % |
+| Defense Percent | +4.00 | | (5 more rows behind “Showing 10 of 15 rows”) | |
+
+The two laws the page prints (§1's math block) reconcile several of these at `Quantity = 5`: a multiplicative line is
+`(1 + base × 5) × (1 + SPB)`, so a per-pick base of **0.15** ⇒ **×1.75** and **0.10** ⇒ **×1.50** ✓ exactly the two
+currency rows above, and **0.05** ⇒ **1.25** for Game Speed with a maxed SPB lab — the page's own note “the Game Speed perk
+increases to **1.25**, bringing the maximum game speed to **6.25** (displayed 6.3)” ✓. ⇒ *the value column is the run total
+at Quantity 5, not the per-pick step* (the one device read that would falsify this is in §4).
+
+**Trade-off perks** (`Quantity 1` each, benefit side raised by the `Improve Trade-Off Perks` lab, which explicitly does
+**not** boost the ranged-distance one): **×1.80 coins / tower max health −70 %** · **×12.00 Cash per Wave / kills give no
+cash** · ×1.50 tower damage / bosses 8× health · enemies −50 % health / regen+lifesteal −90 % · enemies −50 % damage /
+tower −50 % damage · ranged distance reduced / ranged enemies ×3 damage · enemy speed −40 % / enemy damage ×2.5 · tower
+regen ×8.00 / max health −60 % · boss health −70 % / boss speed +50 % · lifesteal ×2.50 / knockback −70 %. The two currency
+rows are **#1 (×1.80 coins)** and the **×12.00 Cash/Wave** pair — the latter is the biggest single cash lever in the run
+engine, and it is the one to *ban away* only in a coin-maximising preset ([T001](T001-interest-idle-engine.md)).
+
+**UW perk table + the stone ladder** (nine rows, `Quantity 1` per UW perk): `More Smart Missiles 1`, `Swamp Radius ×1.5`,
+`+1 Wave on Death Wave 1`, `Extra Set of Inner Mines 1`, `Golden Tower Bonus ×1.5`, `Chain Lightning Damage ×2`,
+`Chrono Field Duration +5 s`, `Black Hole Duration +12.0 s`, `Spotlight Damage Bonus ×1.5`; the same page's UW table
+prints the **stones-to-max** per weapon — ILM **600**, CL **700**, PS **715**, SM **741**, BH **984**, DW **1 009**, GT
+**1 639**, CF **1 824**, Spotlight **2 426** ⇒ **Σ = 10 638 stones** for all nine (the bill used in
+[T008](T008-uw-sync-with-stones.md)). The random-UW perk grants a *semi-upgraded* weapon and does **not** unlock its labs,
+and it leaves the pool once all nine are owned.
+
+**Table-reading note:** lab tables print one row per level (`“Showing 10 of 100 rows”` on the 100-level `Waves Required`
+line), unlike the bot tables (`+1`) and the chip tables (`+2`).
+
+
+
 ### The coin budget, level by level (printed ladders + Σ)
 
 Times are the **cumulative** base time of that line's own levels (before `Labs Speed`/relics, T006 §meta-labs).
@@ -80,7 +133,9 @@ Single-level lines: `Unlock Perks` **1.50 M** / 3 d 11 h 20 m · `First Perk Cho
 `Auto Perk Pick` **100 M** / 4 d 23 h 27 m · `Perk Option Quantity` **200 M** (+1) then **2.00 B** (+2, 10 d 4 h 27 m).
 
 **Reading the ratios:** `Waves Required`, `Standard Perk Bonus` and `Auto Pick Ranking` all start at **100 K coins for the
-first level** — the cheapest first levels in the entire lab tree — and each level after that is ~×2–5 dearer, so **the first
+first level** — the cheapest first levels in the entire lab tree — and each level after that is ~×2–5 dearer (the two double-sourced lines share the **same tail shape**: level-to-level
+ratios **3.01 / 2.48 / 2.16 / 1.95 / 1.80** on `Waves Required` and **3.01 / 2.48 / 2.16 / 1.95 / 1.80** on
+`Standard Perk Bonus` — so lab costs are a per-lab table, *not* one geometric law the way the bot labs are, T006), so **the first
 10 levels of those three lines ≈ 7.3 B coins buys essentially the whole engine effect** (interval 61 w ⇒ 16 picks per
 1 000 waves). `Ban Perks` is the outlier: it steps in **decimal** blocks (10 M → 100 M → 1 B → 15 B → 100 B → 1 T →
 100 T → 1 q), so bans 6–8 cost more than everything else combined — take **5 bans** (≈ 116 B coins) and stop.
@@ -162,6 +217,9 @@ Bans, the First Perk Choice and the ranking **cannot be changed while a run is i
 - [ ] `Ban Perks` L3 reads **1.00 B** and L5 **100.00 B** (the decimal ladder), so 5 bans ≈ **116 B** coins.
 - [ ] With both `First Perk Choice` and a higher-ranked perk in the opening offer, the **ranked** one is taken.
 - [ ] No perk button appears in a tournament run (bracket start → the button is hidden).
+- [ ] Every standard perk row shows **Quantity 5** in the panel, and the offer mix behaves like **65 % standard / 20 % UW /
+      15 % trade-off** (§1.3); `Improve Trade-Off Perks` L1 = **600 M** and L10 = **4.92 B** (Σ of the first ten = **17.26 B**),
+      and it leaves the ranged-distance trade-off perk's benefit unchanged.
 
 ## 4. Falsification
 
@@ -170,6 +228,10 @@ Bans, the First Perk Choice and the ranking **cannot be changed while a run is i
 - With Auto Pick on and `Auto Pick Ranking` researched, an obviously-ranked perk is skipped in favour of the left-most slot → `Auto Pick Ranking` is not active (needs T6 W10 milestone), so `First Perk Choice` is doing the work instead.
 - A banned perk appears in an offer → bans only apply from the next run (they cannot change mid-run), or the ban count exceeds your lab level.
 - Perks appear during a **Tournament** → this document's "no perks in tournaments" note is wrong.
+- **Value-column convention (the one read that moves §1.3).** Take `All Coin Bonuses` **1 / 2 / 5** times in one run and
+  read the coin multiplier: **+15 / +30 / +75 %** confirms the printed law `(1 + base × qty) × (1 + SPB)` (so the table's
+  ×1.75 is the Quantity-5 total); **+75 % after five distinct picks of 1.15** (i.e. ×1.15⁵ = **2.01**) means the value
+  column is a per-pick multiplier and every total in §1.3 must be re-derived as `base^qty`.
 
 ## 5. Notes / open items
 
@@ -188,6 +250,19 @@ Bans, the First Perk Choice and the ranking **cannot be changed while a run is i
 - See [H006](../hypotheses/H006-auto-pick-ranking-vs-first-perk-choice.md) and [H007](../hypotheses/H007-stepped-base-waves-lab-subtraction.md).
 
 ## Sources
+
+- Tower Hub `wiki/system/perks` (last verified **2026-11-01**, 13 data tables) — the second copy of every lab ladder
+  (`Waves Required` 100 levels 100 K · 220 K · 940 K · 5.26 M · 20.98 M · 63.1 M · 156.22 M · 336.94 M · 656.26 M · 1.18 B,
+  Σ **2.42 B**; `Standard Perk Bonus` 25 levels … 1.77 B at L10, Σ **3.63 B**; `Improve Trade-Off Perks` 10 levels
+  600 M → 4.92 B, Σ **17.26 B**; `Unlock Perks` 1 lv **1.50 M** / 3 d 11 h 20 m; `First Perk Choice` 1 lv **1.00 B** /
+  4 d 15 h 7 m) **and** the law prints: the wave formula with its worked example (`(200 − 3) × (1 − 0.648) = 69.344 → 69`),
+  the additive/multiplicative perk formulas, **base wave steps 200 → 250 (20 picks) → 300 (30) → 350 (40)**, the
+  **2 → 4 option count**, category odds **65 / 20 / 15**, the standard-perk table (`Quantity 5` on every row), the
+  trade-off table (incl. **×12.00 Cash/Wave** vs no cash from kills), the UW-perk list, the nine-UW stone ladder
+  (**600 / 700 / 715 / 741 / 984 / 1 009 / 1 639 / 1 824 / 2 426** ⇒ **Σ 10 638 stones**), the “semi-upgraded weapon, no lab
+  access, leaves the pool when all nine are owned” rule, the **milestone gates** (`Unlock Perks` T2 W150 · `First Perk
+  Choice` **T2 W250** · `Improve Trade-Off Perks` **T2 W400** · `Auto Perk Pick` **T4 W50**) and the “set First Perk Choice
+  outside a run, from the top-right of the home screen” note.
 
 - https://the-tower-idle-tower-defense.game-vault.net/wiki/Perks (rev. 2025-03-12) — lab tables with exact times/costs, recommended/bad perk lists, waves-required formula.
 - https://the-tower-idle-tower-defense.fandom.com/wiki/Perks (raw wikitext) — offer-slot probabilities (68/20/12), 79-perk schedule and step waves, Auto Pick fallback rule, no-mid-run-editing, trade-off lab max values.

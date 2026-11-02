@@ -16,7 +16,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | T008 | [Stone economy: knee-first UW buying + cooldown sync](techniques/T008-uw-sync-with-stones.md) | Stones → Coins | **Verified (Rev 2)** |
 | T009 | [Gem spend order](techniques/T009-gem-spend-order.md) | Coins/min | Unverified (Rev 3) |
 | T010 | [Module economy (slot levels, merges, rerolls)](techniques/T010-module-merge-chain.md) | Modules, shards | **Verified (Rev 4**, arithmetic) |
-| T011 | [Perk engine tuning](techniques/T011-perk-engine-tuning.md) | Coins (run multipliers) | Unverified (Rev 3) |
+| T011 | [Perk engine tuning](techniques/T011-perk-engine-tuning.md) | Coins (run multipliers) | **Verified (Rev 4**, arithmetic) |
 | T012 | [Card deck order (gems per percentage point)](techniques/T012-card-deck-order.md) | Coins, Cash, Elite Cells | **Verified (Rev 2**, arithmetic) |
 | T013 | [Event window & medal economy](techniques/T013-event-medal-economy.md) | Medals → Gems, Stones, Shards | **Verified (Rev 3**, arithmetic) |
 | T014 | [Tournament tickets & league ladder](techniques/T014-tournament-tickets.md) | Gems, Stones, Keys | **Verified (Rev 5**, arithmetic) |
@@ -40,7 +40,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | H004 | [Daily reward scales with max tier](hypotheses/H004-daily-reward-tier-scaling.md) | log daily claim before/after a tier unlock |
 | H005 | [Autoplayer beats manual at low tier](hypotheses/H005-autoplayer-throughput.md) | coins/hour with and without it |
 | H006 | [Auto Pick Ranking vs First Perk Choice](hypotheses/H006-auto-pick-ranking-vs-first-perk-choice.md) — **resolved** (the ranking takes precedence) | done: Tower Hub states the precedence with the worked example |
-| H007 | [Stepped base waves & lab subtraction](hypotheses/H007-stepped-base-waves-lab-subtraction.md) | wave numbers of picks 20/21/22 in one long run |
+| H007 | [Stepped base waves & lab subtraction](hypotheses/H007-stepped-base-waves-lab-subtraction.md) — **resolved** (the lab subtracts from every base; thresholds are `k × floor(interval)`) | done: Tower Hub prints the law per base + the worked example |
 | H008 | [Duplicate game-speed perk +0.01](hypotheses/H008-duplicate-game-speed-perk.md) | read game speed in the stats screen after a 2nd copy |
 | H009 | [Elite density per wave → cells/hour](hypotheses/H009-elite-density-per-wave.md) | Δcell counter ÷ minutes, twice in one tier |
 | H010 | [Card drop-rate split & pool re-normalisation](hypotheses/H010-card-drop-rate-renormalisation.md) | read the Cards ℹ panel before/after maxing one Common |
@@ -135,6 +135,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 - [2026-11-02 — session 44 (T017 Rev 3, T023 Rev 3)](log/2026-11-02.md#2026-11-02--session-44-iteration-53-the-vault-and-the-chip-grids-are-double-sourced-five-of-five-chip-totals-re-add)
 - [2026-11-02 — session 45 (T015 Rev 6, T006 Rev 5)](log/2026-11-02.md#2026-11-02--session-45-iteration-54-the-bot-census-closes-and-the-lab-clock-law-appears)
 - [2026-11-02 — session 46 (T023 Rev 4, T014 Rev 5)](log/2026-11-02.md#2026-11-02--session-46-iteration-55-the-chip-grid-is-double-sourced-and-the-ticket-rules-get-a-third-print)
+- [2026-11-02 — session 47 (T011 Rev 4, H007 resolved)](log/2026-11-02.md#2026-11-02--session-47-iteration-56-the-perk-engine-closes-with-printed-laws-and-the-nine-uw-stone-bill)
 
 ## Reference material in this repo
 
