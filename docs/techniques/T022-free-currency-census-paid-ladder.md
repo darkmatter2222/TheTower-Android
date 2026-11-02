@@ -29,7 +29,7 @@ store needs your **User ID** from the profile screen).
 | **Daily Missions** | **3** each tile | 3–5 tiles/day (T004); rerolls cost **5** gems each |
 | **Weekly Reward boxes** (Missions) | **185 gems/week** | plus **stones** in boxes 5/6/7 = 10/15/20 = **45/week** |
 | **Tournament** | **100 → 900** (1st, Copper → Mythic) | 2 brackets/week; lower ranks less (T014's full table) |
-| **Guardian `Fetch` ability** | **≤ 20 gems/day** | needs the Guardian chip (T015/T016) |
+| **Guardian `Fetch` ability** | **≤ 20 gems + 10 medals/day** | full droptable & caps in **T023 §3**; shards/coins uncapped |
 | **Guild weekly chest + leftover tokens** | season-dependent | tokens convert **1 gem per 5 tokens** at season end |
 | **Medal trades (Event Shop)** | **150 gems** per trade line | 40-medal first trade (T013); stones **15** per trade |
 | **Milestones** | 4 675 gems free through T12 | one-time (T019) |
