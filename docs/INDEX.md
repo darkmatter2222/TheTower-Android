@@ -17,7 +17,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | T009 | [Gem spend order](techniques/T009-gem-spend-order.md) | Coins/min | Unverified (Rev 3) |
 | T010 | [Module economy (slot levels, merges, rerolls)](techniques/T010-module-merge-chain.md) | Modules, shards | **Verified (Rev 4**, arithmetic) |
 | T011 | [Perk engine tuning](techniques/T011-perk-engine-tuning.md) | Coins (run multipliers) | Unverified (Rev 3) |
-| T012 | [Card deck order (gems per percentage point)](techniques/T012-card-deck-order.md) | Coins, Cash, Elite Cells | Unverified |
+| T012 | [Card deck order (gems per percentage point)](techniques/T012-card-deck-order.md) | Coins, Cash, Elite Cells | **Verified (Rev 2**, arithmetic) |
 | T013 | [Event window & medal economy](techniques/T013-event-medal-economy.md) | Medals → Gems, Stones, Shards | Unverified (Rev 2) |
 | T014 | [Tournament tickets & league ladder](techniques/T014-tournament-tickets.md) | Gems, Stones, Keys | Unverified (Rev 3) |
 | T015 | [Bot economy & cell/coin chain](techniques/T015-bot-economy.md) | Medals, Coins, Elite Cells | Unverified (Rev 2) |
@@ -79,6 +79,8 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | H043 | [Do the Vault tab totals sum to ≈ 73 000 keys](hypotheses/H043-vault-tab-totals.md) | read the three tab totals (Harmony should be ≈ 1 350) |
 | H044 | [How many assist module slots (4?)](hypotheses/H044-assist-slot-count.md) | count the assist slots + read each unlock price |
 | H045 | [Is the module pity counter per banner or shared?](hypotheses/H045-module-pity-counter-scope.md) | read the counter on both banners around a switch |
+| H046 | [Card rarity-mass redistribution: 85/15 or 97/3?](hypotheses/H046-card-rarity-mass-redistribution-rule.md) | read the ℹ panel right after the 12th Common maxes |
+| H047 | [Land Mine Stun gate: T7 W250 or T11 W10?](hypotheses/H047-land-mine-stun-milestone-gate.md) | read the Card-reward cell in the Milestones screen |
 
 ## Logs
 
@@ -109,6 +111,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 - [2026-11-02 — session 25 (T006 Rev 3, H035 resolved)](log/2026-11-02.md#2026-11-02--session-25-iteration-34-the-lab-layers-two-meta-labs)
 - [2026-11-02 — session 26 (T011 Rev 3, H006 resolved)](log/2026-11-02.md#2026-11-02--session-26-iteration-35-the-perk-tree-budgeted)
 - [2026-11-02 — session 27 (T010 Rev 4, H044–H045)](log/2026-11-02.md#2026-11-02--session-27-iteration-36-the-module-layer-budgeted)
+- [2026-11-02 — session 28 (T012 Rev 2, H046–H047)](log/2026-11-02.md#2026-11-02--session-28-iteration-37-the-card-deck-budgeted)
 
 ## Reference material in this repo
 
