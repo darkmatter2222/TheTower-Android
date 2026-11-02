@@ -1,5 +1,9 @@
 # T014 — Tournament tickets: buy them while the marginal value beats the next card slot
 
+Rev: 7 (2026-11-02) — **the reduction layer's ceiling is derived**: `wiki/lab/lab-category-battle-condition` prints the
+five caps **10 / 20 / 20 / 10 / 10** (Σ **70** levels), so with the printed steps **R_max = 54.4 %** ⇒ no condition can
+scale below **0.456**, the Overheat decays stop at **16** and **23** removed levels, and a value-55 skip bottoms out at
+**×0.7492**; the coins-per-point ranking (Group 3 **11.33 q/pp** < generic **62.37** < Group 4 **204.6**) is added to §4.1.
 Rev: 6 (2026-11-02) — **§4.2, the Legend condition table in closed form** (`wiki/guide/legend-battle-conditions`,
 2026-11-02): the table is **26** rows = **17 random + 4 Overheats + 5 fixed** (other leagues **21**), heat is a **global**
 level (1 → +1 at each of **18** heat waves, done at **wave 1 000**) and **22 of 26** entries carry a **19-value** list;
@@ -130,6 +134,23 @@ condition). The random-pool sizes are printed per league: **15** (Silver–Plati
 the full condition list is a 30-row table (“Showing 10 of 30 rows”). The reduction labs exclude the **Ultimate Weapon
 Duration** condition (only Group 4 touches it).
 
+**The layer's ceiling is R = 54.4 % (derived, Rev 7).** `wiki/lab/lab-category-battle-condition` (2026-11-02) prints the
+same five caps (**10 / 20 / 20 / 10 / 10** = Σ **70** levels), so with the printed per-level steps the maximum total
+reduction is
+
+```
+R_max = 10×2 % + 20×0.21 % + 20×0.51 % + 10×1 % + 10×1 % = 20 + 4.2 + 10.2 + 10 + 10 = 54.4 %
+```
+
+and no Legend bracket can scale a condition below `1 − 0.544 = ` **0.456**. Concretely: the two Overheat decays stop at
+`⌈35 × 0.456⌉ = ` **16** and `⌈50 × 0.456⌉ = ` **23** removed levels, and the skip multiplier bottoms out at
+`1 − 0.01·value·0.456` ⇒ **×0.7492** at value 55, **×0.5622** at value 96, while the interval law is untouched
+(`max(1, 101 − value)` does not contain R). Practical read, by **coins per percentage point** on the three lines whose series is printed: Group 3
+`113.33 q / 10 pp = ` **11.33 q/pp**, generic `1 247.44 q / 20 pp = ` **62.37 q/pp**, Group 4
+`2 046 q / 10 pp = ` **204.6 q/pp** ⇒ **Group 3 is 5.5× cheaper than the generic line and 18× cheaper than Group 4 per
+point**, so in a bracket whose conditions are all in Group 3 the group line is the buy, while the generic line is what
+you need when the bracket mixes groups (it is the only one that touches every condition).
+
 ### 4.2 The Legend condition table in closed form (new, Rev 6)
 
 Source: Tower Hub `wiki/guide/legend-battle-conditions` (last verified **2026-11-02**). Everything below is printed with
@@ -253,6 +274,9 @@ a **damage** answer, not a control one.
       rows are the only ones with a single value.
 - [ ] **§4.2 stun decay:** on one long-lived enemy, the 10th stun of a 10-second source lasts **6.85 s** (below the 7-second
       Shockwave interval) while a 2.5-second source is still at **2.25 s**.
+- [ ] **§4.1 R ceiling:** with all five reduction labs maxed (**10 / 20 / 20 / 10 / 10** levels = **70** total, R = **54.4 %**)
+      an Overheat removes **16** and **23** levels, and a value-55 skip reads **×0.7492** — the interval column does not
+      move at all.
 
 ## 7. Falsification
 
@@ -274,6 +298,9 @@ a **damage** answer, not a control one.
 - If a repeatedly-stunned enemy keeps the **full** 10 s after ten applications, the per-enemy stun counter is not shared
   across sources (or the constant is not 0.995/s) → re-derive §4.2's recursion with `Σ Lᵢ` replaced by the number of
   applications; the 0.875 miss and 0.9 Death Defy constants are independent of it.
+- If maxing all five reduction labs leaves the Overheat decays at **15/22** or **17/24** instead of 16/23, the caps or the
+  printed steps changed → re-read each of the five lines' final level and its value, then recompute
+  `R_max = Σ step × cap` (the two floor values are pure arithmetic from that sum).
 
 ## Sources
 
@@ -289,6 +316,9 @@ a **damage** answer, not a control one.
   the entry fee for Tournament Battles… you must spend **one Ticket** per Battle”, “You receive **one Ticket automatically**
   every time a new Tournament begins”, and for more: “watch a **video advertisement**, or purchase a Ticket directly for
   **10 Gems**”; the page lists **no ticket cap**, so the rising price is the only limiter (§3.1).
+- Tower Hub `wiki/lab/lab-category-battle-condition` (last verified **2026-11-02**) — the five reduction lines with their
+  caps in one table: `Battle Condition Reduction` **10**, `… Group 1` **20**, `… Group 2` **20**, `… Group 3` **10**,
+  `… Group 4` **10** (Σ **70** levels), which is what turns §4.1's steps into the derived ceiling **R = 54.4 %**.
 - fandom `Tournaments` (raw wikitext) — 30-player brackets, 7 leagues, Wed/Sat 00:00 UTC, ticket pricing (10 × n gems + ad), promotion top-4 / demotion bottom-6 with protected Copper–Gold, tie rule, Heat ramp to wave 1 000, boss-interval per league (10→5), Enemy Level Skip 10/20/30/50 %, Death Defy/Energy Shield from Platinum, and the complete per-league gem/stone/key reward tables (Mythic added in v29, 26 Aug 2026).
 - fandom `Currency/Keys` (raw wikitext) — the per-rank key table for Legend and Mythic and the “fewer than 9 players pay less” caveat.
 - `tools/gm_strings.txt` — `TournamentManager`, `TournamentAttempt`, `TournamentPrizeEntry`, `TournamentLeaderboardEntry`, `HeatDefinition`, and the exact panel names `Tournament Start Panel`, `Tournament Progress Panel`, `Tournament End Panel`, `Tournament Finished Panel`, `Tournament Conditions Panel`, `Tournament Heat Main Bar`.

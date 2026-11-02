@@ -1,5 +1,11 @@
 # T006 — Pack the Lab queue, then buy the *cheapest* skipped hour
 
+Rev: 10 (2026-11-02) — **the cap table is closed line by line.** All eleven `wiki/lab/lab-category-*` pages
+(fetched 2026-11-02) print every line's `Max Lv`: the per-category counts re-add to the census
+(15 · 9 · 16 · 12 · 39 · 10 · 9 · 8 · 21 · 14 · 5 = **158** ✓), the **whole lab system is Σ 4 693 level-ups**, the twenty
+enemy-stat lines are **30** levels each with the single exception `Protector Damage Reduction` (**20**), and the five
+Battle Condition caps (**10 / 20 / 20 / 10 / 10**) give the maximum condition reduction **R = 54.4 %** — hence the floors
+`removed = 16 / 23` and `skip = ×0.7492` at value 55 (§the cap table, line by line).
 Rev: 9 (2026-11-02) — **four more printed ladders + the per-column law**: the six **Wall** labs (gates T8 W10 / T10 W70 /
 T12 W10 / T14 W60; 50/20/30/20/10/60 levels; value laws `2n`/`−10n`/`10n`/`1n`/`1n`/`20n`), `Garlic Thorns`
 (**T2 W1000**, 10 lv, `0.5 × n`, Σ **1 350 000** coins / **25.45 d**), `Boss Health` + `Boss Attack` (**T9 W20**, 30 lv,
@@ -117,7 +123,7 @@ Every level cap the rest of this repo uses comes from that table, and each one r
 | `Enhancement Coin Discount` (×3 tracks) | **100** | −0.30 % | **−30 %** ✓ (T020 §6.3) |
 | `Module Shard Costs` | **30** | −1 % | **−30 %** ✓ |
 | `Shatter Shards` | **5** | +20 % | **+100 %** ✓ (one step per 100 %-cap = 20 pp) |
-| `Daily Mission Shards` | **50** | +? | the cap value is the one device read left for T004’s shard column |
+| `Daily Mission Shards` | **50** | +1 shard | **+50 shards/mission** ✓ (T004 §ledger, `wiki/module/module-labs`) |
 | `Perk Option Quantity` / `Standard Perks Bonus` / `Waves Required` / `Auto Pick Ranking` / `Ban Perks` / `Improve Trade-Off Perks` | 2 / 25 / 100 / 32 / 8 / 10 | as printed | T011 ✓ |
 | 4 × bot cooldown, 4 × bot duration, `Burn Stacks` | 25 / 20 / **5** | as printed | T015 ✓ |
 | `Battle Condition Reduction` + Groups 1–4 | 10 / 20 / 20 / 10 / 10 | — | T006 §battle-condition ✓ |
@@ -233,6 +239,50 @@ the card):
 | `Cells` card (Rare) | **T4 W40** | **+2 cells/lv, 7 lv** | +14 (additive, post-multiplier) |
 | `Cells Mastery` | **1 000 stones** | ×1.05 → **×1.32** as of v29 (patch note said 1.03 → 1.3) | final multiplier |
 | Enemy Balance / Elite Balance, Wave Skip, Intro Sprint **masteries** | T012 | more elites/wave or faster waves | — |
+
+### The cap table, line by line (Rev 10)
+
+Source: the eleven `wiki/lab/lab-category-*` pages (fetched **2026-11-02**), each printing `Line — Max Lv` for every line
+of that category. The counts re-add to the census (15 · 9 · 16 · 12 · 39 · 10 · 9 · 8 · 21 · 14 · 5 = **158** ✓), and the
+**Σ** column is the sum of that category's printed caps:
+
+| Category | Lines | Σ levels | Printed caps (`line cap`, in the pages' own order) |
+|---|---|---|---|
+| Main Research | 15 | **712** | Game Speed 7 · Starting Cash 99 · Wksp Attack/Defense/Utility Discount 99 · Labs Coin Discount 99 · Labs Speed 99 · Buy multiplier 4 · More Round Stats 1 · Target Priority 2 · Card Presets 1 · Workshop Respec 1 · Reroll Daily Missions 1 · Workshop Enhancement 1 · Enhancement Coin Discount **100** |
+| Attack Research | 9 | **598** | Damage **100** · Attack Speed 99 · Critical Factor 99 · Range **80** · Damage/Meter 99 · Super Crit Chance 50 · Super Crit Mult 40 · Max Rend Armor Multiplier 30 · Light Speed Shots 1 |
+| Defense Research | 16 | **655** | Health 100 · Health Regen 100 · Defense Absolute 100 · Defense % **50** · Orb Speed 20 · Land Mine Damage 20 · Land Mine Decay **35** · Shockwave Size 20 · Orb Boss Hit 10 · Wall Health 50 · Wall Rebuild 20 · Wall Regen 30 · Wall Thorn 20 · Wall Invincibility 10 · Wall Fortification 60 · Garlic Thorns 10 |
+| Utility Research | 12 | **611** | Cash Bonus 99 · Cash / Wave 99 · Coins / Kill Bonus 99 · Coins/wave 99 · Interest 99 · Max Interest 15 · Package After Boss 1 · Recovery Package Amount / Max / Chance 20 · **Enemy Attack Level Skip 20 · Enemy Health Level Skip 20** |
+| Ultimate Weapon | 39 | **669** | eight **1-level** unlocks (Missiles Explosion, Chrono Field Damage Reduction, Swamp Stun, Chain Lightning Shock, Missile Barrage, Inner Mine Stun, Extra Black Hole, Black Hole Disable Ranged Enemies) + nine 25–30-level depth lines (Chrono Field Duration / Reduction % / Range, Swamp Radius / Stun Chance / Stun Time, Death Wave Health, Chain Thunder, Lightning Amplifier) + the rest at 1–20 |
+| Card Research | 10 | **99** | Second Wind Blast 4 · Double Death Ray 30 · Extra Orb Adjuster 1 · Extra Extra Orbs 2 · Energy Shield Extra Hit 2 · Super Tower Bonus 30 · Recharge Second Wind / Demon Mode / Nuke 7 · Card Mastery **9 (one lab per card)** |
+| Perk Research | 9 | **180** | Unlock Perks 1 · Waves Required 100 · Auto Pick Perks 1 · Standard Perks Bonus 25 · Perk Option Quantity 2 · First Perk Choice 1 · Ban Perks **8** · Improve Trade-Off Perks 10 · Auto Pick Ranking 32 |
+| Bot Research | 8 | **165** | four Cooldown lines **25** · Burn Stacks **5** · Linger Time 20 · two Duration lines 20 = `4×25 + 5 + 3×20` ✓ T015 |
+| Enemies Research | 21 | **620** | twenty lines at **30** + `Protector Damage Reduction` at **20** |
+| Module Research | 14 | **314** | the 12 lines of T010 §2.2 (Σ **254**: Reroll Shards 100, Daily Mission Shards 50, the two Cost lines 30, the two Drop Chance lines 10, Shatter 5, Unmerge 1, bans 4/4/3/7) **+ the two assist lines at 30** |
+| Battle Condition | 5 | **70** | generic `Battle Condition Reduction` **10** · Group 1 **20** · Group 2 **20** · Group 3 **10** · Group 4 **10** |
+| **All** | **158** | **4 693** | (= 4 633 if the two assist lines are counted with the module page's 12) |
+
+Four consequences:
+
+1. **Two cap shapes, not one.** The “increment” lines (the ×1.5-cost family: +0.02 or −0.30 % steps — Labs Speed, Labs
+   Coin Discount, the three Workshop discounts, the five coin lines, Attack Speed, Critical Factor, Damage/Meter) cap at
+   **99**, while the “+1 %-style” lines (Damage, Health, Health Regen, Defense Absolute, Waves Required, the three
+   `Enhancement Coin Discount` labs) cap at **100**. A one-level difference, but it is the fingerprint that tells the
+   two clock-law families apart from the Lab screen alone.
+2. **The enemy-stat layer is 620 levels of a uniform 30-level line.** With the printed **−0.30 %/level** step (T009’s
+   boss pages) one maxed line is **−9.00 %**, and the odd one out is `Protector Damage Reduction` (**20** levels).
+3. **The two Utility `* Level Skip` labs cap at 20 each** — each level removes one enemy level from that stat’s growth, so
+   the pair is the cheapest enemy-stat relief in the game and it is *inside* the same 12-line category as the four coin
+   lines (T020 §1.2), which is why they should be queued together.
+4. **Battle Condition: the ceiling is R = 54.4 %.** With T014 §4.1’s printed steps the five caps give
+   `10×2 % + 20×0.21 % + 20×0.51 % + 10×1 % + 10×1 % = 20 + 4.2 + 10.2 + 10 + 10 = ` **54.4 %**, so no Legend bracket can
+   ever scale a condition below `1 − 0.544 = 0.456`: the Overheat decays stop at **⌈35 × 0.456⌉ = 16** and
+   **⌈50 × 0.456⌉ = 23** removed levels, and a skip condition at value 55 bottoms out at `1 − 0.01·55·0.456 = `
+   **×0.7492** (at value 96: **×0.5622**).
+
+**The cap table is a second source for every cap used in this repo:** Main’s `Max Interest` 15 (T001), the five 99-level
+coin lines and the 100-level `Enhancement Coin Discount` trio (T020), the six Wall caps + Garlic 10 (this doc), the perk
+caps 1/100/1/25/2/1/8/10/32 (T011), the bot caps 25/25/25/25/5/20/20/20 (T015), `Card Mastery` 9 (T012), the twelve
+module caps (T010) and the BC caps (T014) — all re-add unchanged.
 
 **The full boost-cost table (printed, as of v29).** A boost costs `rate × hours` (buckets 1 h / 8 h / 24 h) and “saves
 (multiplier − 1) × hours”:
@@ -358,6 +408,15 @@ online often (it raises levels/day for all 5 slots: a `3 d 11 h` line becomes **
 - [ ] `Garlic Thorns` unlocks at the **T2 W1000** milestone, has **10** levels costing **4 500 → 459 900** coins
       (Σ **1 350 000**) and its value column is **0.5 … 5.0**.
 - [ ] `Boss Health` / `Boss Attack` (both **T9 W20**) cap at **−9.00 %** after 30 levels, i.e. `0.30 % × 30`.
+- [ ] **§cap table:** the per-category `Σ levels` re-add on the Lab screen: Main **712** · Attack **598** · Defense **655** ·
+      Utility **611** · UW **669** · Card **99** · Perk **180** · Bot **165** · Enemies **620** · BC **70** · Module **314**
+      ⇒ **4 693** for all 158 lines, and the enemy-stat lines all read **30** levels except `Protector Damage Reduction`
+      (**20**).
+- [ ] **Cap-shape fingerprint:** the increment lines stop at level **99** (`Labs Speed`, the three Workshop discounts, the
+      five coin lines) while the +1 %-style lines stop at **100** (`Damage`, `Health`, `Defense Absolute`, `Waves Required`,
+      the three enhancement-discount labs).
+- [ ] **R ceiling:** with the generic BC lab + all four group lines maxed, an Overheat removes **16** and **23** levels
+      (not 15/22, not 17/24) and a value-55 skip reads **×0.7492**.
 
 ## Falsification
 
@@ -389,9 +448,21 @@ online often (it raises levels/day for all 5 slots: a `3 d 11 h` line becomes **
   record your min/max/mean per tier; the “server can override” caveat is the version marker.
 - If a skipped wave during Intro Sprint pays **0.22×** but the plain-IS wave pays ≠ 20 %, the two rules are not
   multiplicative → re-derive §“Elite Cell income” rows 2–3 from one timed run.
+- If a category’s `Σ levels` is not the §cap-table value, one line’s `Max Lv` was re-versioned (or the category gained a
+  line) → read the last level of each line in that category and re-add; the Σ is the fastest integrity check because it
+  moves only when a cap moves.
+- If the Module category lists **12** lines in your client, the two 30-level assist lines belong to the assist page
+  instead → the total is **4 633**, not 4 693 (the census’s “14” is the 12 + 2 reading).
+- If an Overheat removes **15/22** levels at fully-maxed BC labs, the group labs are not additive with the generic one →
+  re-derive `R_max` as `max(generic, group)` instead of the sum, and re-check the two floor values above.
 
 ## Sources
 
+- Tower Hub’s eleven `wiki/lab/lab-category-<name>` pages (fetched **2026-11-02**) — the per-line `Max Lv` list for
+  Main (15 rows), Attack (9), Defense (16), Utility (12), Ultimate Weapon (39), Card (10), Perk (9), Bot (8), Enemies
+  (21), Battle Condition (5) and the Module page’s 12: the §cap table is transcribed from those tables, including the
+  two **20**-level `Enemy Attack/Health Level Skip` lines, the **20**-level `Protector Damage Reduction`, the
+  **8**-level `Ban Perks` and the BC caps **10 / 20 / 20 / 10 / 10**.
 - Tower Hub `wiki/bot/flame-bot` + `wiki/bot/amplify-bot` (last verified **2026-11-01**) — the lab tables’ three-column
   rows (`Level | Time | Cost | Value`) that give both clock laws: Burn Stack 43.00/64.50/96.75/145.12/217.69 T with
   45 d 15 h · 52 d 11 h 15 m · 60 d 8 h 8 m · 69 d 9 h 21 m · 79 d 19 h 10 m (value 1…5), and the Duration lab’s
