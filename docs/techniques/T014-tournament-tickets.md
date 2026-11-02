@@ -1,5 +1,13 @@
 # T014 — Tournament tickets: buy them while the marginal value beats the next card slot
 
+Rev: 8 (2026-11-02) — **§3.2, the ten-band ladders in full + the ticket law in closed form** (Tower Hub
+`wiki/system/tournaments`, 2026-11-01, double-sourced against the fandom's seven tables): all **130 printed cells** of the six
+Hub tables are recorded, **20/20 cells agree with the fandom in each of Copper/Silver/Gold** (6, 1, 0 above) and all seven
+tables' widths Σ **30** ✓; the rank-1 columns are separate ladders (gems +100/+100/+100/+200/+200; stones **×2 four times**
+then +105 ⇒ the stone share of a rank-1 ticket climbs **67 % → 84 %**), Σ per bracket is banked (**885 / 1 845 / 3 010 /
+5 225 / 7 850 / 12 175** gems, **137** Legend keys) and the ticket purchase has one law: **`n* = floor(P / 10)`** bought
+tickets at ≥ **×2.00** return, with the bracket clock (**72 h ÷ 30.5 s·W**) as the second ceiling — the two meet at
+**8 runs of wave 1 000** for a beginner.
 Rev: 7 (2026-11-02) — **the reduction layer's ceiling is derived**: `wiki/lab/lab-category-battle-condition` prints the
 five caps **10 / 20 / 20 / 10 / 10** (Σ **70** levels), so with the printed steps **R_max = 54.4 %** ⇒ no condition can
 scale below **0.456**, the Overheat decays stop at **16** and **23** removed levels, and a value-55 skip bottoms out at
@@ -26,7 +34,8 @@ cost series that close — ×1.5 to **113.33 q** and ×2 to **2046 q**).
 Rev: 3 (2026-11-01) — added the Dissonance interaction (§1); Rev 2 added the key ladder cross-check · Currency: **Gems**, **Power Stones**, **Keys** (Legend+, the key ladder itself: [T017](T017-vault-keys-priority.md)), plus medal missions that count tournaments
 **Value:** ★★★★ — a bottom-place run in your *current* league is worth 60 → 2 585 gem-equivalents per ticket, and **stones** (the UW sync fuel, T008) come almost entirely from here.
 **Confidence:** **High** — the schedule, ticket ladder, promotion rules, tie rule and the **bottom reward bands** are now
-printed identically by **two** sources (fandom raw wikitext + Tower Hub 2026-11-01), and the three lab cost series close
+printed identically by **two** sources (fandom raw wikitext + Tower Hub 2026-11-01) — **including all twenty cells of the
+Copper, Silver and Gold ladders (§3.2)** — and the three lab cost series close
 as geometric laws (×2.05 / ×1.5 / ×2) with re-added sums; only the top-rank rows carry a version skew (§3.1).
 **Ease:** 2 taps (join, claim) + 1 run per ticket · **Prerequisite:** **Tier 1 Wave 60** milestone.
 
@@ -105,6 +114,109 @@ directly for **10 Gems**”, stating the *first* price; **no per-bracket ticket 
 the price ladder itself is the limiter); promotion “**top 4** move up, **bottom 6** from Platinum, Copper/
 Silver/Gold **protected**” ✓; ties pay the **lower** rank ✓; and each league sits **between two normal tiers** in raw
 enemy stats (Copper between T1–T2 … Champion between T11–T12).
+
+### 3.2 The ten-band ladders in full, and the ticket law in closed form (new, Rev 8)
+
+Two independent prints of the **same ten-band tables**: Tower Hub `wiki/system/tournaments` (last verified **2026-11-01**,
+six leagues, from a live Legend account) and the fandom `Tournaments` page (seven tables, Mythic added — the page dates
+Mythic to **v29, 2026-08-26**). Cells **20/20 identical for Copper, Silver and Gold**, 6/20 Platinum, 1/20 Champion,
+0/20 Legend (⇒ §3.1's skew rows; use your panel, the *structure* is the part both agree on). `gems / stones` (`/ keys`
+from Legend):
+
+| Band (players) | Copper | Silver | Gold | Platinum | Champion | Legend | Mythic (fandom) |
+|---|---|---|---|---|---|---|---|
+| 1 | 100/20 | 200/40 | 300/80 | 400/160 | 600/320 | 800/425/25 | 900/475/50 |
+| 2 | 80/18 | 150/35 | 250/70 | 350/140 | 500/300 | 700/400/20 | 800/450/45 |
+| 3–4 (2) | 65/16 | 100/30 | 200/60 | 300/120 | 400/280 | 600/375/15 | 700/425/40 |
+| 5–6 (2) | 50/12 | 75/20 | 150/40 | 250/70 | 350/200 | 500/350/10 | 650/400/37 |
+| 7–8 (2) | 45/10 | 65/19 | 125/30 | 225/65 | 325/175 | 475/325/8 | 600/385/34 |
+| 9–10 (2) | 40/9 | 60/18 | 100/28 | 200/60 | 300/150 | 450/300/6 | 575/370/31 |
+| 11–12 (2) | 30/8 | 55/17 | 90/26 | 175/56 | 275/125 | 425/275/4 | 550/355/28 |
+| 13–15 (3) | 20/7 | 50/16 | 80/24 | 150/53 | 250/100 | 400/250/2 | 525/340/25 |
+| 16–22 (7) / **16–24 (9)** | 15/6 | 45/14 | 70/22 | 125/50 | 200/90 | 375/225/0 | 500/325/20 |
+| 23–30 (8) / **25–30 (6)** | 10/5 | 40/12 | 50/20 | 100/20 | 150/20 | 200/120/0 | 335/225/8 |
+
+**Four structural laws (all re-add).**
+
+1. **The bands partition 30 players in both prints.** Widths `1,1,2,2,2,2,2,3,7,8` for Copper–Gold and
+   `1,1,2,2,2,2,2,3,9,6` from Platinum up — Σ = **30** both times ✓ (7 tables × 30, `tools/fandom-rewards-parse.ps1`).
+   Above Gold the tail is re-cut into two wider bands (9 + 6 instead of 7 + 8): the same 30 players, **fewer pay steps**, so
+   one extra place in the tail is worth less and one *better* place at a band edge is worth a whole step (§4's tie rule).
+2. **The rank-1 columns are their own ladders.** Gems `100, 200, 300, 400, 600, 800` (Δ +100, +100, +100, **+200**, +200 —
+   the Platinum→Champion step doubles) and stones `20, 40, 80, 160, 320, 425` (**×2 four times**, then +105). Consequence:
+   the stones column doubles per league while the gem column does not, so the **stone share of a rank-1 ticket climbs
+   67 % → 84 %** (Copper → Legend) and the gems-per-stone ratio collapses **5.00 → 3.75 → 1.88**.
+3. **The ladder flattens as you promote**: rank 1 ÷ bottom band = **10×** (Copper), **5×** (Silver), **6×** (Gold), then
+   exactly **4×** in all three of Platinum / Champion / Legend (2.69× Mythic). So in the top leagues *league* dominates
+   *placement*; in Copper, placement dominates — **rank 1 in Copper (300 gem-equiv) is worth exactly a bottom-band
+   Platinum finish (300)**, and rank 1 in Gold (1 100) equals the Champion 16–24 band (1 100).
+4. **Σ per bracket, per player (÷30)** — the two sources agree **cell-for-cell** in the first three leagues:
+
+   | League | Σ gems | Σ stones | Σ keys | mean gems | mean stones | median band's pay | mean ÷ median |
+   |---|---|---|---|---|---|---|---|
+   | Copper | 885 | 251 | – | **29.50** | 8.37 | 20 (13–15) | 1.48 |
+   | Silver | 1 845 | 525 | – | 61.50 | 17.50 | 50 | 1.23 |
+   | Gold | 3 010 | 904 | – | 100.33 | 30.13 | 80 | 1.25 |
+   | Platinum | 5 225 | 1 771 | – | 174.17 | 59.03 | 150 | 1.16 |
+   | Champion | 7 850 | 3 710 | – | 261.67 | 123.67 | 250 | 1.05 |
+   | Legend | 12 175 | 7 570 | **137** | 405.83 | 252.33 | 400 | 1.01 |
+   | Mythic (fandom) | 15 935 | 10 090 | 738 | 531.17 | 336.33 | 525 | 1.01 |
+
+   ⇒ the **mean sits above the median band in every league** (the top bands are loaded), so a “halfway” finish pays
+   *below* the bracket average, and `mean ÷ your pay` is a free read of where you sit in the field. Keys are the most
+   top-heavy column: `25, 20, 15, 10, 8, 6, 4, 2, 0, 0` (the fandom copy prints **1** at 16–24) ⇒ **4.57 per player** with
+   rank 1 on **5.5×** the mean, which is why §3's “promotion beats placement” note holds above Platinum.
+   **Stones floor:** the bottom band's stones are `5, 12, 20, 20, 20, 120` ⇒ **flat at 20 from Gold to Champion**, so in the
+   bottom band Gold → Platinum → Champion promotion adds *gems only*; the stone jump comes from reaching **16–24** (50 /
+   90 / 225).
+
+**The ticket law in closed form.** Let `P = gems + 10 × stones` (the §2 rate; keys excluded) be your band's gem-equivalent.
+The printed price ladder is `10, 20, 30 …` ⇒ `n` bought tickets cost `5n(n + 1)` and, with the **per-ticket** payout model
+([H014](../hypotheses/H014-per-ticket-payout.md)), `t = 2 + n` tickets (free + ad + bought) return `P × t`:
+
+```
+net(n) = P(2 + n) − 5n(n + 1)      maximised at  n* = floor(P / 10)
+```
+
+| Your band | `P` | `n*` | gems in | gems+stones out | net | ratio |
+|---|---|---|---|---|---|---|
+| Copper 23–30 (10/5) | 60 | **6** | 210 | 480 | 270 | **×2.29** |
+| Copper 1 (100/20) | 300 | 30 | 4 650 | 9 600 | 4 950 | ×2.07 |
+| Silver 23–30 (40/12) | 160 | 16 | 1 360 | 2 880 | 1 520 | ×2.12 |
+| Gold 23–30 (50/20) | 250 | 25 | 3 250 | 6 750 | 3 500 | ×2.08 |
+| Platinum 25–30 (100/20) | 300 | 30 | 4 650 | 9 600 | 4 950 | ×2.07 |
+| Champion 25–30 (150/20) | 350 | 35 | 6 300 | 12 950 | 6 650 | ×2.06 |
+| Legend 25–30 (200/120) | 1 400 | 140 | 98 700 | 198 800 | 100 100 | ×2.01 |
+| Legend 1 (800/425/25) | 5 050 | 505 | 1 277 650 | 2 560 350 | 1 282 700 | ×2.01 |
+
+⇒ **the optimal ticket count is `P/10`, the top of the curve is nearly flat** (`net(n) − net(n − 1) = P mod 10` gems, so
+**0** whenever `P` is a multiple of 10 — buy `n*` or `n* − 1`), and the return is **≥ ×2.00 on the gems sunk into tickets**
+— a law that does not depend on which league you are in, only on your band's `P`. The **stones** side is the compounding
+one, because each extra ticket pays its own stones too (`t × band stones` per bracket, 2 brackets/week):
+
+| League, band | `t` | stones/bracket | stones/week | weeks to fund the **910-stone** GT+DW+BH sync ([T008](T008-uw-sync-with-stones.md)) |
+|---|---|---|---|---|
+| Copper 23–30 | 8 | 40 | 80 | **11.4** |
+| Copper 13–15 | 11 | 77 | 154 | 5.9 |
+| Silver 23–30 | 18 | 216 | 432 | 2.1 |
+| Gold 23–30 | 27 | 540 | 1 080 | 0.84 |
+| Platinum 16–24 | 64 | 3 200 | 6 400 | 0.14 |
+| Champion 16–24 | 112 | 10 080 | 20 160 | 0.05 |
+
+(the `t` values come from `n* = floor(P/10)` for that band; e.g. Copper 13–15 has `P = 90` ⇒ `n* = 9`, `t = 11`.)
+
+**Two ceilings, and which one binds.** `n*` is the *gem* optimum; the other is the bracket clock. A bracket lasts **72 h**
+(Wed 00:00 → Sat 00:00 UTC) and, with T002's tournament clock of **30.5 s per wave at ×1**, a run that ends at wave *W*
+occupies `30.5 W / 3 600` hours ⇒ `runs ≤ 72 ÷ that`. Concretely: **W = 500 ⇒ 4.24 h/run ⇒ ≈ 17 runs**, **W = 1 000 ⇒
+8.47 h/run ⇒ 8 runs**, **W = 2 000 ⇒ 16.9 h/run ⇒ 4 runs**. For the sub-T11 reader the two caps **meet**: an 8.47 h run
+allows 8 bracket runs, and 8 is exactly the gem optimum (`t = 2 + 6`) of a bottom-band Copper pay — so “**6 bought tickets
+per bracket, wave ≈ 1 000 each**” is simultaneously the gem-optimal and the clock-optimal plan. Above that, spend on the
+run count only while `10n < P`.
+
+**Also printed on the same page (2026-11-01), and now banked:** the random-condition pool sizes are **15** (Silver, Gold,
+Platinum), **16** (Champion), **17** (Legend *and* Mythic) — the per-league version of §4.2's `17` for Legend, whose
+decomposition `17 + 4 + 5 = 26` closes; the lower leagues' 21-row tables are **not** decomposed on the page. The BC-strength
+law is printed as `M = 1 − Battle Condition Reduction − that condition's own lab`, “the two add up” ✓ = §4.1/§4.2's `R_total`.
 
 ## 4. Tournament-specific build facts (they change the card preset)
 
@@ -277,6 +389,15 @@ a **damage** answer, not a control one.
 - [ ] **§4.1 R ceiling:** with all five reduction labs maxed (**10 / 20 / 20 / 10 / 10** levels = **70** total, R = **54.4 %**)
       an Overheat removes **16** and **23** levels, and a value-55 skip reads **×0.7492** — the interval column does not
       move at all.
+- [ ] **§3.2 ladder:** the Tournament screen’s **Rewards** list for your league shows **10** rows and reads Copper
+      100/20 · 80/18 · 65/16 · 50/12 · 45/10 · 40/9 · 30/8 · 20/7 · 15/6 · 10/5 (Silver 200/40 … 40/12, Gold 300/80 … 50/20).
+- [ ] **§3.2 band re-cut:** the 9th row reads **16 – 22** in Copper/Silver/Gold but **16 – 24** from Platinum up (and the
+      10th 23 – 30 vs 25 – 30) — the widths that make Σ 30 in both sets.
+- [ ] **§3.2 ticket law:** with `P = gems + 10 × stones` for your own band, the ticket button prints **10, 20, 30 …**; buy
+      `floor(P/10)` tickets and the gem counter should drop by `5n(n + 1)` (e.g. bottom-band Copper: **210** for 6 tickets,
+      80 gems + 40 stones paid back), at **Copper 13–15** it is **9**, at Gold bottom **25**.
+- [ ] **§3.2 stones/week:** count the stones credited by one bracket (`t × band stones`) and compare with §3.2’s table —
+      **40** for 8 tickets at the Copper bottom band, **540** for 27 at Gold bottom.
 
 ## 7. Falsification
 
@@ -301,6 +422,16 @@ a **damage** answer, not a control one.
 - If maxing all five reduction labs leaves the Overheat decays at **15/22** or **17/24** instead of 16/23, the caps or the
   printed steps changed → re-read each of the five lines' final level and its value, then recompute
   `R_max = Σ step × cap` (the two floor values are pure arithmetic from that sum).
+- **§3.2:** if your league's **Rewards** list shows a band whose two bounds do not fit `1,1,2,2,2,2,2,3,7,8` (or the
+  `…,9,6` set above Gold), the band structure was re-versioned → re-read all ten rows from the panel and recompute the Σ /
+  mean ledger; the `n* = floor(P/10)` rule is unaffected (it uses only your own band's `P`).
+- **§3.2:** if the ticket button prints **10, 15, 22** (a geometric ladder) rather than **10, 20, 30**, the cost of `n`
+  tickets is no longer `5n(n + 1)` → re-solve `next price > P` from two printed prices; the ≥ ×2.00 shape of the curve
+  survives while the linear ladder holds.
+- **§3.2:** if a **25–30** finish in Platinum or Champion pays stones other than **20** (the “flat floor” claim), read the
+  panel's last row per league and rebuild the stones/week table from those three numbers.
+- **§3.2:** if the conditions panel of a lower league shows a row count inconsistent with a **15**-entry pool, the pool
+  sizes changed → take the pool count from the panel per league; §4.2's `17 + 4 + 5 = 26` Legend closure is independent.
 
 ## Sources
 
@@ -316,6 +447,13 @@ a **damage** answer, not a control one.
   the entry fee for Tournament Battles… you must spend **one Ticket** per Battle”, “You receive **one Ticket automatically**
   every time a new Tournament begins”, and for more: “watch a **video advertisement**, or purchase a Ticket directly for
   **10 Gems**”; the page lists **no ticket cap**, so the rising price is the only limiter (§3.1).
+- Tower Hub `wiki/system/tournaments`, **2026-11-02 re-read** — the **complete ten-band tables** for all six leagues
+  (Copper 100/20 → 10/5 … Legend 800/425/25 → 200/120/0), the two band-width sets (`…,7,8` and `…,9,6`, both Σ **30**), the
+  rank-1 gem/stone ladders (+100/+100/+100/+200/+200 and ×2 four times then +105), the Σ-per-bracket figures of §3.2 and the
+  pool-size prints **15 / 16 / 17**; parsed cell-by-cell with `tools/fandom-rewards-parse.ps1`.
+- fandom `Tournaments` (raw page text) — the **seventh** table (**Mythic**, introduced **v29, 2026-08-26**: 900/475/50 →
+  335/225/8, Σ 15 935 gems / 10 090 stones / **738** keys) and the copy against which Copper, Silver and Gold re-add
+  **20/20 cells**; its Legend copy differs in the gem column and pays **1** key at 16–24 (§3.1's skew rows).
 - Tower Hub `wiki/lab/lab-category-battle-condition` (last verified **2026-11-02**) — the five reduction lines with their
   caps in one table: `Battle Condition Reduction` **10**, `… Group 1` **20**, `… Group 2` **20**, `… Group 3` **10**,
   `… Group 4` **10** (Σ **70** levels), which is what turns §4.1's steps into the derived ceiling **R = 54.4 %**.
