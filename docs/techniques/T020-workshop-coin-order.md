@@ -1,5 +1,10 @@
 # T020 — Workshop coin-spend order: the level-band rule and the knee table
 
+Rev: 4 (2026-11-02) — adds the **`Starting Cash` lab** (T1 W30, 99 lv, value = **5 × level**, cheapest curve of the
+T1-W30 family: 30 → 6 165, Σ10 = 18 752 coins) and the **three `Free Upgrade` tracks** priced per level (**Attack
+75 → 941**, **Utility 100 → 966**; **20/20 cumulative totals reproduce**), their **three-roll mechanic** with the
+Wave-Skip double roll and the > 100 % rollover, the printed **90.75 %** ceiling, the `Free Upgrades` enhancement ladder
+(×2.5 at L150, 10/10 totals re-add), and the **Black Hole Digestor** per-free-level coin bonus.
 Rev: 3 (2026-11-02) — the **two coin ladders** now have a second source and printed checkpoints (Cash pair L1 **30** →
 L10 674 → Σ50 **355.40 K**; Coins pair L1 **50** → L10 838 → Σ50 **448.41 K**), the workshop's own **unlock chain**
 (Cash Bonus → Cash/Wave → Coins/Kill → Coins/Wave), the **four income labs priced** (99 lv, **+0.02 → ×2.98**, **111 683 349**
@@ -87,6 +92,50 @@ and 5 780 days of base time, i.e. with 5 slots ([T009](T009-gem-spend-order.md) 
 Bonus alike). Per multiplier *unit* the two sinks price as: workshop tail (L91–149) = 19.47 M − 3.22 M = **16.25 M** coins
 for +0.59 ⇒ **≈ 27.5 M per unit**; the lab = 111.68 M ÷ 1.98 = **≈ 56.4 M per unit**. So the **workshop line is ≈ 2× cheaper
 per point** — max the workshop line first, then take the lab in 10-level blocks (+20 % each).
+
+### 1.3 `Starting Cash` — the fifth T1-W30 lab, and the cheapest of the family
+
+| Level | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
+|---|---|---|---|---|---|---|---|---|---|---|
+| price (coins) | 30 | 71 | 178 | 398 | 772 | 1 335 | 2 124 | 3 171 | 4 508 | 6 165 |
+| value | 5 | 10 | 15 | 20 | 25 | 30 | 35 | 40 | 45 | 50 |
+
+**Σ of the ten printed prices = 18 752 coins**, and the value column is exactly **5 × level** (20 at L4, 45 at L9, 50 at
+L10 ✓). Its per-level times are identical to the other T1-W30 labs (0 m / 6 m / 16 m / 32 m / 53 m / 1 h 21 m / 1 h 56 m /
+2 h 40 m / 3 h 32 m / 4 h 33 m), and **every price sits exactly 10 coins under the income-lab ladder of §1.2** at L1–L10
+(30 vs 40, 71 vs 81, 178 vs 188 … 6 165 vs 6 175) — the family shares one curve with a small per-line offset, so the four
+income labs + Starting Cash can be levelled in equal 10-level blocks without re-pricing anything.
+
+### 1.4 `Free Upgrades` — the workshop levels itself for coins
+
+Unlock **800 coins** (behind `Coins/Kill Bonus` + `Coins/Wave` in the chain), then **three independent tracks** —
+`Free Attack` / `Free Defense` / `Free Utility Upgrade` — **99 levels each, +0.5 % per level ⇒ 49.5 %** per workshop:
+
+| Level | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | **Σ10** |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| **Free Attack** price | 75 | 118 | 171 | 236 | 314 | 407 | 515 | 639 | 781 | 941 | **4.20 K** |
+| **Free Utility** price | 100 | 143 | 196 | 261 | 339 | 432 | 540 | 664 | 806 | 966 | **4.45 K** |
+
+**20/20 cumulative totals reproduce** (each printed total = the previous total + the printed level price; e.g. Attack
+75 + 118 + 171 + 236 = 600 ✓, Utility 100 + 143 + 196 + 261 = 700 ✓). The **Defense** track's ladder is not printed →
+device read ([H051](../hypotheses/H051-free-upgrade-chance-90-75-decomposition.md)).
+
+**Three mechanics make these the cheapest power in the tab:** after every wave **each** of the three chances rolls
+**independently**; a roll **never** picks an already-maxed stat (so its value *rises* as the tab fills); the **Wave Skip
+card adds one extra roll per skipped wave, per workshop**; and chances **above 100 % roll over** (110 % ⇒ 1 guaranteed
+level + 10 % for a second).
+
+**The per-coin arithmetic:** one track level costs **75–100 coins** for **+0.5 %**, i.e. **5 free workshop levels per
+1 000-wave run per ~100 coins spent**. Practical ladder: workshop 49.5 % ⇒ ≈ 495 free levels per 1 000 waves per workshop;
++ the Vault's `Free *` nodes (5 levels × +5 % = +25 %, **250 keys** each) ⇒ ≈ **745**; the printed ceiling with the **card +
+perk** is **90.75 %** ⇒ ≈ **908**. That printed ceiling factors as **60.5 × 1.5** (workshop 49.5 + card 10 + 1 minor point,
+× the perk's ×1.5), which is the decomposition [H051](../hypotheses/H051-free-upgrade-chance-90-75-decomposition.md)
+settles — and the `Free Upgrades` **enhancement** (×2.5 at L150, §6.2) multiplies the whole chance again, so a maxed
+enhancement pushes the roll past 100 % and starts paying the rollover.
+
+**One UW synergy to remember:** `Black Hole Digestor` pays **+3 / 5 / 7 / 10 % Coins/Kill** (Epic → Ancestral) **per free
+upgrade on the current wave**, and it triggers even when every stat in that workshop is maxed — so with the three tracks
+near 100 % the Digestor's bonus is a per-wave, wave-length-scaled coin multiplier ([T008](T008-uw-sync-with-stones.md)).
 
 ## 2. The level-band rule (the actual technique)
 
@@ -234,6 +283,22 @@ until the whole 500 T-per-track gate is paid anyway.
 110** (Σ = 250 ✓), `Cash` and `Coins/Kill` at **+5 %/level (+25 %)** and `Cash/Wave` + `Coins/Wave` at **+100 %/level
 (+500 %)** — the same table T017 §2.2 transcribes from fandom, now second-sourced ([T017](T017-vault-keys-priority.md)).
 
+### 6.2.2 `Free Upgrades` enhancement — the 150-level curve is steeper than the standard one
+
+Utility track, opened by **5 T** coins spent in that track (§6's gate ladder ✓). **150 levels, ×1 → ×2.5**
+(= 1 + 0.01 × 150 ✓), and it multiplies **all three** free-upgrade chances:
+
+| Level | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
+|---|---|---|---|---|---|---|---|---|---|---|
+| price | 5.00 B | 6.05 B | 22.25 B | 95.56 B | 299.27 B | 739.39 B | 1.56 T | 2.92 T | 5.05 T | 8.18 T |
+| total | 5.00 B | 11.05 B | 33.30 B | 128.85 B | 428.12 B | 1.17 T | 2.72 T | 5.65 T | 10.69 T | **18.87 T** |
+| multiplier | ×1.01 | ×1.02 | ×1.03 | ×1.04 | ×1.05 | ×1.06 | ×1.07 | ×1.08 | ×1.09 | ×1.10 |
+
+**10/10 cumulative totals re-add** (within the wikis' rounding). Budget reading: **L10 = 18.87 T coins for ×1.10** ⇒
+**188.7 T per multiplier unit**, against the standard 600-level curve's **146.5 T per unit** (73.23 T for ×1.50, §6.1) — so
+the 150-level enhancements are **≈ 1.3× dearer per point**, which is why §6.3's order puts them after the ×-per-coin
+standards. Its whole-project price stays the **734.30 s** of §6.2.
+
 **v29 cap changes that stale guides miss:** standard 400 → **600** (×5 → ×7), Attack Speed 75 → **100**, Orb Size
 200 → **250**, Coin Bonus / Cells per Kill 200 → **300**, Free Upgrades 100 → **150**.
 
@@ -294,6 +359,13 @@ the enhancement gates — track each of the three separately ([H024](../hypothes
 - [ ] A standard enhancement's level 50 price reads **9.59 T** with the total **73.23 T**; level 600 reads **5.83 s**
       (total **441.24 s**) and its multiplier reads **×7**.
 - [ ] `Enemy Level Skip +` caps at level **60** and `Coin Bonus +` at **300** (the v29 caps, not 200/75/100).
+- [ ] `Starting Cash` **lab**: L1 = **30** coins at value **5**, L10 = **6 165** at value **50**, and the ten printed prices
+      sum to **18 752** (each is 10 coins under the income labs' ladder).
+- [ ] `Free Attack Upgrade` L1 = **75** coins (Σ10 **4.20 K**) and `Free Utility Upgrade` L1 = **100** coins (Σ10
+      **4.45 K**), each level reading **+0.5 %**; read and record `Free Defense Upgrade`'s own ladder (unprinted).
+- [ ] A wave pays a free level into a not-yet-maxed workshop tab, and **no** level appears once that tab is fully maxed
+      (the “never picks a maxed stat” rule).
+- [ ] The `Free Upgrades` enhancement's L10 cumulative reads **18.87 T** coins at ×1.10, and its cap is **150** (×2.5).
 - [ ] One level of `Enhancement Coin Discount` (Utility) changes printed enhancement prices by −0.30 %, and `Max Buy`
       reflects that discount (the v29 fix).
 
@@ -318,6 +390,15 @@ the enhancement gates — track each of the three separately ([H024](../hypothes
   version → re-read three checkpoints (L1 / L50 / cap) and rebuild §6.1's block column.
 - If a standard enhancement's cap reads **400** (or Attack Speed 75, Coin Bonus 200), the client is pre-v29 → halve the
   “coins to max” column accordingly (the block ratios are unchanged).
+- If `Free Attack Upgrade` L1 is not **75** coins (or Utility not **100**), the three tracks are re-versioned → re-read the
+  ten cheapest levels of each of the three tracks and rebuild §1.4's table; the “5 free levels per 1 000 waves per ~100
+  coins” figure is derived from those prices.
+- If the printed maximum free-upgrade chance in a fully-set-up account is **not 90.75 %**, the decomposition
+  (60.5 × 1.5) is wrong → read the four sources' own values and rebuild §1.4's ladder
+  ([H051](../hypotheses/H051-free-upgrade-chance-90-75-decomposition.md)).
+- If a maxed workshop tab **still** receives free levels, the “never picks a maxed stat” rule is stale → the tracks become
+  strictly per-stat investments and their ordering must be re-derived
+  ([H051](../hypotheses/H051-free-upgrade-chance-90-75-decomposition.md)).
 - If `Coin Bonus +` costs ≈ 2.99 S but its multiplier is not what §6.2 implies, the per-level step differs → read the
   value at level 1 and record it ([H037](../hypotheses/H037-enhancement-per-level-step.md)).
 
@@ -346,6 +427,14 @@ the enhancement gates — track each of the three separately ([H024](../hypothes
   **Vault Power** node table (10/20/40/70/110 = 250; Cash +25 %, Coins/Kill +25 %, Cash/Wave +500 %, Coins/Wave +500 %),
   the printed Coins/Kill formula (2-source with game-vault) and the note that only the **All Coin perk** moves the
   displayed Coin/Kill figure, and the `Coin Bonus +` first-10 ladder (5.00 B → 1.42 T, all ten totals re-add).
+- Tower Hub `wiki/workshop/starting-cash` (2026-10-13) and `wiki/workshop/free-upgrades` (2026-11-01) — the `Starting Cash`
+  lab (T1 W30, 99 lv, per-level prices 30 … 6 165, value column 5 × level, the same per-level time series as the income
+  labs) and the `Free Upgrades` layer: the **800-coin** unlock behind Coins/Kill + Coins/Wave, three 99-level tracks at
+  **+0.5 %/level → 49.5 %**, the two printed track ladders (Attack 75 … 941 / Σ 4.20 K; Utility 100 … 966 / Σ 4.45 K), the
+  three-roll + “never picks a maxed stat” + Wave-Skip double-roll + **> 100 % rollover** rules, the **90.75 %** printed
+  ceiling, the Vault `Free *` nodes (5 × +5 %, 10/20/40/70/110 = 250 keys each), the `Free Upgrades` enhancement (Utility
+  track, 5 T gate, 150 lv × 0.01 → ×2.5, first 10 prices re-adding to **18.87 T**), `Black Hole Digestor`'s
+  **+3/5/7/10 %** Coins/Kill per free upgrade, and the Free Upgrades Mastery lab (1 locked stat at L0 → 10 at L9).
 - Tower Hub `wiki/workshop/workshop-enhancement` (last verified **2026-11-01**, “computed for v29.0.5 from the game's cost
   code”) — the 18-enhancement table with per-track unlock gates (50 B / 500 B / 5 T / 50 T / 500 T), caps and per-level
   steps; the shared 600-level curve (L1 5.00 B · L50 9.59 T / total 73.23 T · L600 5.83 s / total 441.24 s); the six
