@@ -13,7 +13,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | T005 | [Tier-rush then farm](techniques/T005-tier-rush-then-farm.md) | Coins (daily/weekly) | **Verified (Rev 2**, arithmetic) |
 | T006 | [Lab queue packing + cheapest skipped hour](techniques/T006-lab-queue-packing.md) | all (multipliers) | **Verified (Rev 13**, arithmetic) |
 | T007 | [Ad-gem sweep](techniques/T007-ad-gem-sweep.md) | Gems | Amounts verified (Rev 2) |
-| T008 | [Stone economy: knee-first UW buying + cooldown sync](techniques/T008-uw-sync-with-stones.md) | Stones → Coins | **Verified (Rev 4**, arithmetic: 9/9 stone values + 4/4 lattice rows + the 53 547 ledger) |
+| T008 | [Stone economy: knee-first UW buying + cooldown sync](techniques/T008-uw-sync-with-stones.md) | Stones → Coins | **Verified (Rev 5**, arithmetic: 9/9 stone values + 4/4 lattice rows + the 53 547 ledger + the 9 UW+ tables) |
 | T009 | [Gem spend order](techniques/T009-gem-spend-order.md) | Coins/min | **Double-sourced (Rev 4**; device read pending) |
 | T010 | [Module economy (slot levels, merges, rerolls)](techniques/T010-module-merge-chain.md) | Modules, shards | **Verified (Rev 7**, arithmetic) |
 | T011 | [Perk engine tuning](techniques/T011-perk-engine-tuning.md) | Coins (run multipliers) | **Verified (Rev 5**, arithmetic) |
@@ -67,7 +67,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | H030 | [Does the web store's +10 % cover stone offers too](hypotheses/H030-webstore-bonus-applies-to-stones.md) | compare identical price points in-game vs the web **Gems**/**Stones** tabs |
 | H031 | [Does the web Free Gift stack with the 20-gem claim](hypotheses/H031-webstore-weekly-gift-stacking.md) | one week of `G0 → G1 → G2` gem-counter reads |
 | H032 | [Is the perk-granted random UW permanent](hypotheses/H032-perk-random-uw-permanence.md) | take the perk, end the run, re-read the UW owned-list + next offer price |
-| H033 | [How many levels does a UW+ ability have](hypotheses/H033-uwplus-level-count.md) | read the level cap on two UW+ lines from different trees |
+| H033 | [How many levels does a UW+ ability have](hypotheses/H033-uwplus-level-count.md) — **resolved** (per-ability caps **11 / 13 / 14 / 19**; the layer is **179 240** stones, not 184 740) | done: each `wiki/uw/<name>` prints its `UW+ Cost Table`, and CL’s own `TOTAL` row re-adds |
 | H034 | [Bot Bot Bonus line: 19 or 30 levels](hypotheses/H034-botbot-level-count.md) — **resolved** (19 levels, cap ×2.00) | done: value ladder closes 1.05 + 19 × 0.05 = 2.00 ✓ |
 | H035 | [Lab-rush price improves per completed lab](hypotheses/H035-lab-rush-rate-per-completed-lab.md) — **resolved** (7.5 gems/h × 0.91/0.79/0.66 buckets + 0.015× per gold box) | done: both factors printed by two sources |
 | H036 | [Is the 80-card event quest worth 1 600 gems](hypotheses/H036-buy-80-cards-event-roi.md) | read the quest's medal payout + the shop's gems-per-medal rate |
@@ -164,6 +164,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 - [2026-11-02 - session 63 (T006 Rev 12)](log/2026-11-02.md#2026-11-02---session-63-iteration-72-the-wave-axis-becomes-one-law-and-the-fleet-shard-columns-close)
 - [2026-11-02 - session 64 (T011 Rev 5, T002 Rev 3, H055)](log/2026-11-02.md#2026-11-02---session-64-iteration-73-the-tier-guide-prints-the-perk-values-and-the-whole-per-tier-build)
 - [2026-11-02 - session 65 (T008 Rev 4, H056)](log/2026-11-02.md#2026-11-02---session-65-iteration-74-the-uw-stone-ladders-get-a-second-source-and-the-account-ledger-re-adds)
+- [2026-11-02 - session 66 (T008 Rev 5, H033 resolved)](log/2026-11-02.md#2026-11-02---session-66-iteration-75-the-nine-uw-ledgers-close-and-the-stone-layer-re-adds-to-179240)
 
 ## Reference material in this repo
 

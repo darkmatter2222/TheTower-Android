@@ -30,3 +30,31 @@ caps should match across trees if the cap is a constant; and note the stat value
 the tree totals must be rebuilt row by row; if the cap matches the number of stat values in the wiki row (12, 13, 14 or 15
 depending on the ability) then the price columns are per-ability too and §1 of T008 needs the per-ability sums instead of
 3 × / 2 × / 4 ×.
+
+---
+
+## Resolved 2026-11-02 (sources, no device read needed) — **per-ability caps**, not a constant
+
+Tower Hub prints one `UW+ Cost Table` per weapon (`wiki/uw/<name>`, all last verified 2026-11-01), each with `Cost` and
+`Value` rows whose lengths give the cap:
+
+| Ability (UW) | Cap | Σ of the printed `Cost` row |
+|---|---|---|
+| Golden Combo (GT) | 14 | 20 070 |
+| Chrono Loop (CF) | **13** | 16 350 |
+| Consume (BH) | 14 | 19 050 |
+| Kill Wall (DW) | 14 | 19 050 |
+| Light Range (Spotlight) | **19** | 37 050 |
+| Smite (CL) | **11** | 12 650 (the page prints `TOTAL … 12 650 + unlock` ✓) |
+| Charged Mine (ILM) | 14 | 18 570 |
+| Cover Fire (SM) | **11** | 12 650 |
+| Death Creep (PS) | 14 | 23 800 |
+
+Layer total **179 240** stones (vs the fandom uniform model’s **184 740**; the **5 500** gap is precisely the three short
+caps). So both falsifier branches fired: the cap is **per ability**, the price columns are **per ability**, and T008 §1 now
+carries the per-ability sums. The secondary controls also check out without a device: the caps equal the number of printed
+`Value` cells minus the level-0 cell in each table (e.g. Golden Combo’s value row ends at **0.45 %** = `0.03 × (14 + 1)` ✓
+as predicted above), and the 14-cap abilities reproduce the fandom tree totals cell for cell (19 050 / 18 570 / 23 800 ✓).
+
+*Residual, moved to* [H056](H056-uw-plus-ledger-in-headline.md) *: whether the site’s per-UW “spent” column contains these
+UW+ prices.*

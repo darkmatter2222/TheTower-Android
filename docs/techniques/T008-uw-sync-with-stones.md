@@ -1,5 +1,10 @@
 # T008 — Stone economy: knee-first UW buying + cooldown sync
 
+Rev: 5 (2026-11-02) - the **nine UW+ ledgers close** (`wiki/uw/<name>` §UW+ Cost Table): caps are **not** uniform
+(**11** Smite/Cover Fire · **13** Chrono Loop · **14** GT/BH/DW/ILM/PS · **19** Light Range, resolving **H033**), every
+value row re-adds from a closed form, the printed `TOTAL` (**12 650 + unlock**, Smite) matches its computed sum, the layer
+bills **179 240** stones (fandom's uniform model is high by **5 500**), and the per-unit knees are **L8** for Kill Wall and
+**L4** for Charged Mine (§1.④).
 Rev: 4 (2026-11-02) - the stone ladders get a **second source** and a **ledger check**: `wiki/guide/which-uw-do-i-select`
 prints both §1 tables verbatim, `wiki/guide/uw-tier-list` prints their **9 705** sum, and the account table re-adds as
 `43 842 + 9 705 = ` **53 547** (its headline); four `UW+ status = Locked` rows with non-zero stones pin that column to
@@ -31,8 +36,9 @@ Currency: **Power Stones** (and the coin rate they buy) · Status: **Verified** 
 | Unlock all **9 UWs** (price = how many you already own) | **9 705** | 5 + 50 + 150 + 300 + 800 + 1 250 + 1 750 + 2 400 + 3 000 |
 | Unlock all **9 UW+ abilities** (needs all 9 UWs first) | **14 650** | 500 + 625 + 750 + 975 + 1 250 + 1 650 + 2 200 + 2 900 + 3 800 |
 | Max **every basic UW stat** on all 9 UWs | **244 302** | the per-UW table in §2 |
-| Max **all 9 UW+ abilities** (10 levels each, 3 price trees) | **184 740** | 3 × 23 800 (Smite / Cover Fire / Death Creep) + 2 × 18 570 (Golden Combo / Charged Mines) + 4 × 19 050 (Kill Wall / Consume / Chrono Loop / Light Range) |
-| **UW block total** | **≈ 453 400** | + card masteries 28 500, Bot+ 1 250 × 5, Synchronicity 1 500 + 3 × 1 500, assist slots 1 000 each ⇒ **≈ 500 k stones** |
+| Max **all 9 UW+ abilities** — printed per-ability caps (§1.④) | **179 240** | 20 070 (GT) + 16 350 (CF) + 19 050 (BH) + 19 050 (DW) + 37 050 (Spotlight) + 12 650 (CL) + 18 570 (ILM) + 12 650 (SM) + 23 800 (PS) |
+| _…as the fandom uniform model had it_ | _184 740_ | _3 × 23 800 + 2 × 18 570 + 4 × 19 050; the **5 500** gap is the three non-14-level caps (11 / 13 / 19) — recorded as a skew_ |
+| **UW block total** | **≈ 447 900** | 9 705 + 14 650 + 179 240 + 244 302 = **447 897**; + card masteries 28 500, Bot+ 1 250 × 5, Synchronicity 1 500 + 3 × 1 500, assist slots 1 000 each ⇒ **≈ 493 k stones** |
 
 Against ≈ **10 700 stones/year** free (T022 §1) that is **≈ 47 years**, so the only sane policy is: buy each stat's **first cheap block** and stop, and spend the rest on the sync ladder in §4.
 
@@ -89,6 +95,56 @@ Printed coin shares (each measured against the same no-bonus baseline, so they a
 **0.5 %**. Reading for a sub-T11 account: the head of the coin list is the **GT + UW+ + sync** stack
 (**46.2 + 17.5 = 63.7 %** of the ledger), then the **wave-skip** layer (T024), then Black Hole — i.e. the order §4's stone
 ladder already uses.
+
+### 1.④ The nine UW+ ledgers, level by level (Rev 5, `wiki/uw/<name>` §“UW+ Cost Table”)
+
+Each UW page prints its ability's `Cost` row and a `Value` row, and **the caps are not uniform** (this resolves **H033**:
+**11 / 13 / 14 / 19**, not “10 levels each”). Every `Value` row re-adds from a closed form, and the one page that prints its
+own `TOTAL` (Chain Lightning) agrees with the computed sum exactly:
+
+| UW+ ability | Levels | Σ stones | Printed value row | Law in `n` (level) | Check |
+|---|---|---|---|---|---|
+| **Golden Combo** (GT) | **14** | **20 070** | 0.03 % … 0.45 % | `0.03 × (n + 1)` % | 15/15 ✓ |
+| **Chrono Loop** (CF) | **13** | **16 350** | 0.10 … 0.75 | `0.10 + 0.05n` | 14/14 ✓ |
+| **Consume** (BH) | **14** | **19 050** | 0.05× … 0.75× | `0.05 + 0.05n` | 15/15 ✓ |
+| **Kill Wall** (DW) | **14** | **19 050** | 3 … 108 | `3 + n(n + 1) / 2` (triangular) | 15/15 ✓ |
+| **Light Range** (Spotlight) | **19** | **37 050** | 0.01× … 0.18× | `0.01 + 0.01n` | ✓ |
+| **Smite** (CL) | **11** | **12 650** | 0.05 % … 0.60 % | `0.05 + 0.05n` | 12/12 ✓, page `TOTAL` = **12 650 + unlock** ✓ |
+| **Charged Mine** (ILM) | **14** | **18 570** | ×0.5 … ×50.9 | `0.5 + n + 0.2n(n − 1)` | 15/15 ✓ |
+| **Cover Fire** (SM) | **11** | **12 650** | 13 s … 2 s | `13 − n` | 12/12 ✓ |
+| **Death Creep** (PS) | **14** | **23 800** | 120 % … 1 110 % | `120 + 70n` (last cell prints **1 110**, the law gives 1 100) | 14/15, +10 skew |
+
+Four things this buys the plan:
+
+1. **Σ = 179 240 stones** for the whole UW+ layer (§1's table). The fandom uniform model (**184 740**) is high by exactly
+   the three short caps: **Smite** and **Cover Fire** stop at 11 and **Chrono Loop** at 13, while **Light Range** runs to 19
+   — so the *fandom tree totals are only right for the 14-level abilities*, and indeed **Consume/Kill Wall = 19 050**,
+   **Charged Mine = 18 570** and **Death Creep = 23 800** reproduce the fandom's three tree numbers cell for cell ✓.
+2. **The marginal stone is cheapest at the bottom of every tree.** The cost rows grow ≈ **×1.2–1.27 per level** (GT's
+   ratios: 1.200 / 1.194 / 1.186 / 1.216 / 1.210 / 1.200 / 1.222 / 1.227 / 1.222 / 1.242 / 1.268 / 1.269 / 1.258) while the
+   value rows are **linear** in `n` (except the two quadratic rows, Kill Wall and Charged Mine) — so stones/unit-of-value
+   degrades geometrically: for Golden Combo the first
+   level costs **300** for +0.03 pp (**10 000 stones/pp**) and the fourteenth costs **4 150** for the same +0.03 pp
+   (**138 333 stones/pp**), a **13.8×** worse buy. The knee table (§3) applies to UW+ the same way it applies to the basic
+   lines: buy the **first 3–5 levels** of the ability that multiplies your money UW and stop.
+3. **Level 0 is already worth something**: the value rows start *above* zero at level 0 (GT 0.03 %, BH 0.05×, CL 0.05 %),
+   i.e. the **500 … 3 800** unlock (§1) buys the first increment on its own — which is why the unlock ladder is the better
+   buy than deep levels at the same price.
+4. **Which ability to level first is decided by the value law, not the tier list**: only **Golden Combo** (multiplicative
+   on GT kills) and **Consume** scale with what the rest of the tower does; **Kill Wall**'s triangular row (`3 + n(n+1)/2`)
+   means its *later* levels are the only ones whose value keeps pace with the geometric cost, so DW's UW+ is a
+   late-game purchase, while **Smite** (+0.05 pp/level) and **Cover Fire** (−1 s/level, capped at 11) are linear and cheap
+   to first-3-levels.
+
+5. **The per-unit knee, level by level** (`stones(n) / Δvalue(n)`): seven of the nine rows are monotone from **L1** —
+   Golden Combo **10 000 → 138 333** stones/pp (×13.83 by L14), Chrono Loop **8 000 → 49 000** (×6.13), Consume
+   **8 000 → 54 000** (×6.75), Light Range **40 000 → 420 000** (×10.5), Smite **6 000 → 53 000** (×8.83), Cover Fire
+   **300 → 2 650** (×8.83), Death Creep **4.3 → 61.4** (×14.3) — so for those the answer is always “buy the first 1–3
+   levels”. **Two trees have an interior minimum** because their value increments themselves grow: **Kill Wall** bottoms at
+   **level 8** (**162.5** stones/unit vs **400** at L1) and is still cheaper per unit at its cap (**192.9**), and
+   **Charged Mine** bottoms at **level 4** (**231.8**, vs 300 at L1, 540.3 at L14). Practical rule: for **DW** and **ILM**
+   push to the knee (8 and 4) before touching any other ability; for the other seven, the first levels are the best buy
+   they will ever have.
 
 ## 2. Per-UW max-out cost (the `Total` rows, verified by summing the per-level columns)
 
@@ -245,6 +301,13 @@ Also: each `Basic_Upgrades` page's `Total` equals the sum of its own column (BH 
       reads **+20 %** cash and **+20 %** coins.
 - [ ] **The ledger check (paper):** 13 838 + 10 456 + 5 740 + 5 393 + 4 374 + 3 416 + 625 = **43 842**, and
       `43 842 + 9 705 = ` **53 547** ✓ the page's own headline; your own account's per-UW totals should behave the same way.
+- [ ] **UW+ caps (§1.④):** the level counters read **11** on Smite and Cover Fire, **13** on Chrono Loop, **14** on Golden
+      Combo / Consume / Kill Wall / Charged Mine / Death Creep and **19** on Light Range.
+- [ ] **First-level prices:** the first UW+ level after the unlock costs **300** on Golden Combo, Smite, Cover Fire,
+      Charged Mine and Death Creep, and **400** on Chrono Loop, Consume, Kill Wall and Light Range.
+- [ ] **The knee:** buying Kill Wall **level 8** costs **1 300** and the value line moves **31 → 39** (Δ 8 ⇒ **162.5**
+      stones/unit, the row's minimum; L1 is 400/unit at `3 → 4` for 400). At **Charged Mine level 4** the row moves
+      **×4.7 → ×6.9** (Δ 2.2 for **510** stones = **231.8**/unit, that row's minimum).
 - [ ] Fully maxed: **Black Hole 50 s**, **Death Wave 50 s**, bots (except Flame) **50 s**, **Golden Tower 100 s**.
 - [ ] **The 2:1 check:** BH at 150 s against GT at 300 s ⇒ BH fires **twice** per GT in the same window (count activations
       over one 300 s span: 2 and 1).
@@ -263,6 +326,12 @@ Also: each `Basic_Upgrades` page's `Total` equals the sum of its own column (BH 
   per slot → record the nine pairs (ability, price) and rebuild §1's second row; the total bill is what the plan needs.
 - If a freshly unlocked Golden Tower reads something other than **+20 %** cash/coins, the "+20 %" is a *lab* value or a
   level-2 value → read the UW panel's Multiplier line at level 1 and level 2 separately and quote those instead (§1.②).
+- If a UW+ line's level counter tops out at **10** (or any number other than §1.④'s 11 / 13 / 14 / 19), the ability's cap is
+  version-dependent → re-tabulate the nine caps and re-sum the layer (the per-unit knees are unaffected, they use only the
+  two printed rows).
+- If a first UW+ level costs something other than **300** (GT / CL / SM / ILM / PS) or **400** (CF / BH / DW / Spotlight),
+  the cost tree was re-binned → read the first three cells per line and rebuild the ratio column; the *knee* levels of the
+  two quadratic rows (8 and 4) still hold as long as the value increments keep stepping by 1 and 0.4.
 - If the 374-run coin shares stop summing near **156 %** (e.g. they sum to 100 %), the ledger was normalised differently
   → renormalise by the printed baseline before using §1.③'s ranking.
 - If the perk-granted UW is still listed as owned after the run ends, §5.1's “in-run only” note is wrong → see H032.
@@ -271,6 +340,11 @@ Also: each `Basic_Upgrades` page's `Total` equals the sum of its own column (BH 
 
 - fandom raw wikitext: `Ultimate Weapons` (the 5 … 3 000 unlock ladder, the 3-random-offer rule, the 40-toggle limit), `Ultimate Weapons/Ultimate Weapon Plus` (500 … 3 800 unlock ladder, 10 levels per ability, `Template:TableUWPCOST` → the three trees 23 800 / 18 570 / 19 050), `Golden Tower/Basic Upgrades`, `Black Hole/Basic_Upgrades`, `Death Wave/Basic_Upgrades`, `Chain Lightning/Basic_Upgrades`, `Smart Missiles/Basic_Upgrades`, `Spotlight/Basic_Upgrades`, `Chrono Field/Basic_Upgrades`, `Inner Land Mines/Basic_Upgrades`, `Poison Swamp/Basic_Upgrades` (per-level columns + `Total` rows), `Perks` (the nine perk-UW `stone value` entries and their exact stats).
 - game-vault `Guide:Ultimate_Weapons_Sync` — the independent 910-stone figure for GT 300→200 s and the partial-sync table (250/200 → 1 000 s, 270/180 → 520 s).
+- Tower Hub’s nine `wiki/uw/<name>` pages (last verified **2026-11-01**) — §1.④’s per-ability `UW+ Cost Table` (`Cost` and
+  `Value` rows, plus Chain Lightning’s own `TOTAL` row **12 650 + unlock**), the basic-stat `Stones (…)` columns (GT starts
+  at 5 / 13 / 22 / 32 / 43 … for 5.0 → 9.0×, which is the **115** block already used in §6), the CL damage/quantity/chance
+  columns (damage 2× → 3× for 5, 5× for 11, 9× for 17 …; chance +1.5 pp/level at 8 / 26 / 44 / 62 …), the CL lab
+  `Rank`/`Community note` table, and the per-UW lab ladders quoted by §4.
 - Tower Hub `wiki/guide/which-uw-do-i-select` (last verified **2026-11-01**) — both stone ladders printed as the
   “Good to know” lines (**5 … 3 000** by UWs owned, **500 … 3 800** by UW+ owned, plus the “UW+ can only be unlocked once
   all 9 UWs are owned” rule), the community ranking with the printed per-UW numbers (**+20 %** on GT unlock, DW

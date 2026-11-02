@@ -15,9 +15,10 @@ Two readings:
 | **(a)** the headline is `unlocks + stat levels` only (the arithmetic above) | the UW+ ledger is a **third** pool: total invested = `53 547 + (UW+ unlocks + UW+ levels)` |
 | **(b)** the per-UW column *does* carry UW+ spend for the three owned abilities and the `+9 705` match is a coincidence | the stat ledger is smaller than 43 842 and §1/§2's percentages must be recomputed |
 
-**Why the source cannot settle it.** The four `UW+ status = Locked` rows (BH 5 740 · DW 5 393 · CL 3 416 · ILM 625) prove
-*those* cells contain no UW+ price, which favours (a), but the three owned rows are not decomposed, and the page prints no
-UW+ per-level prices at all.
+**Why it is not fully settled.** The **per-level** UW+ prices *are* printed (each `wiki/uw/<name>` page’s `UW+ Cost Table`,
+see [T008](../techniques/T008-uw-sync-with-stones.md) §1.④ — 12 650 for Smite, 20 070 for a fully maxed Golden Combo, etc.),
+so only the **containment** question is open. The four `UW+ status = Locked` rows (BH 5 740 · DW 5 393 · CL 3 416 · ILM
+625) prove *those* cells contain no UW+ price, which favours (a), but the three owned rows are not decomposed.
 
 ## The read that settles it
 
