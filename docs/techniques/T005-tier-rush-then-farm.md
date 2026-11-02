@@ -1,5 +1,11 @@
 # T005 — Tier-rush with a survival build, then farm the new tier
 
+Rev: 3 (2026-11-02) — the **printed tier ladder** (`wiki/system/tiers`) is added: the Coin Bonus column is exactly
+`1 + 0.8 × (tier − 1)` for **Tiers 1–8** (8/8), breaks at T9, and runs to **60 at Tier 21** with every step in the band
+**×1.13 … ×1.25** (geometric mean **×1.227/tier**); **Tiers 1–13 need no battle conditions at all** (1 → 14.7 free), the
+first bill is **Tier 14 = six perk lines for +19.7 %**, and the condition levels follow four entry/step laws (Ultimates enter
+at 20 and step +15; Orb/Death Ray enter at 50, +10, capped 95; Thorns/Plasma +10 from 20; ELS Reduction +5 from 5). The
+`More Bosses` line reads as the boss **interval** (`10 − level`), which reproduces Tier 14’s 9-wave lattice ✓.
 Rev: 2 (2026-11-02) — the rush gets **printed numbers**: the payoff window is **the first ~100 waves** and the hard cutoff
 is **Tier 15** (independently confirmed by T019’s 100/300 gate table); the farming crossover is **Tier 1 W1000 vs Tier 2
 W300** for a ~**2×** payout step at ~**20×** difficulty; and the Tier 14 worked example closes on its own lattice —
@@ -15,6 +21,7 @@ Two mechanics interact:
 1. Reaching **wave 100 of a tier** is a Milestone and unlocks the next tier (**wave 300** from Tier 15 up — T019 §4; the
    rushing guide prints the same “the waves needed to unlock the next tier rise from 100 to 300” at Tier 15).
 2. Your **daily and weekly coin rewards scale with your maximum tier**, and the farming missions use `max tier − 2`.
+   (The in-run scale is the printed **Coin Bonus** column below: **×1 → ×14.7** through Tier 13 and **×60** at Tier 21.)
 
 So a single lucky survival run that clears wave 100 permanently raises the payout of every
 subsequent run and every mission, for a one-off cost of one long run. Farming a tier you already
@@ -34,6 +41,52 @@ cleared is efficient; farming a tier you are *stuck on* is not.
 Because the rush’s whole product is *milestone waves*, and each tier’s gate is a fixed wave (100, then 300 from T15), the
 optimal loop is: **one push run** (survival-only, below) → then **many farm runs** on the *highest tier you can hold to
 its crossover wave*.
+
+## The printed tier ladder: coin bonus and battle-condition bill (Tier 1 … 21)
+
+`wiki/system/tiers` prints both sides of the rush decision in one table: the **Coin Bonus** each tier is worth, and the
+**battle conditions** (with their required perk levels) the tier imposes. Rows 1–13 print `None` for conditions.
+
+| Tier | Coin bonus | Δ | × | BC lines | Tier | Coin bonus | Δ | × | BC lines |
+|---|---|---|---|---|---|---|---|---|---|
+| 1 | 1 | — | — | 0 | 12 | 12.2 | +1.9 | 1.1845 | 0 |
+| 2 | 1.8 | +0.8 | 1.8000 | 0 | 13 | 14.7 | +2.5 | 1.2049 | 0 |
+| 3 | 2.6 | +0.8 | 1.4444 | 0 | **14** | **17.6** | +2.9 | 1.1973 | **6** |
+| 4 | 3.4 | +0.8 | 1.3077 | 0 | 15 | 21.3 | +3.7 | 1.2102 | 8 |
+| 5 | 4.2 | +0.8 | 1.2353 | 0 | 16 | 25.2 | +3.9 | 1.1831 | 9 |
+| 6 | 5 | +0.8 | 1.1905 | 0 | 17 | 29.1 | +3.9 | 1.1548 | 10 |
+| 7 | 5.8 | +0.8 | 1.1600 | 0 | 18 | 33 | +3.9 | 1.1340 | 13 |
+| 8 | 6.6 | +0.8 | 1.1379 | 0 | 19 | 40 | +7.0 | 1.2121 | 14 |
+| 9 | 7.5 | +0.9 | 1.1364 | 0 | 20 | 48 | +8.0 | 1.2000 | 15 |
+| 10 | 8.7 | +1.2 | 1.1600 | 0 | 21 | 60 | +12.0 | 1.2500 | 17 |
+| 11 | 10.3 | +1.6 | 1.1839 | 0 | | | | | |
+
+**Four laws come out of the printed cells:**
+
+1. **Tier 1–8 are exactly `1 + 0.8 × (tier − 1)`** (8/8 printed values, error < 1e-15), so the first eight steps are one
+   arithmetic line; **Tier 9 breaks it** (+0.9) and from there the deltas grow: +1.2, +1.9, +2.5, +2.9, +3.7, +3.9, +3.9,
+   +3.9, +7, +8, +12.
+2. **The marginal ratio sits in a narrow band:** every printed step is **×1.13 … ×1.25**, geometric mean over the 20 steps
+   `60^(1/20)` = **×1.227** ⇒ *each tier is worth ≈ +23 % coins, for ever, from one milestone run.* That is the number the
+   rush-vs-farm decision trades against.
+3. **Tiers 1–13 cost zero perk work** — the condition column is `None` — so through Tier 13 the ladder is pure profit
+   (**1 → 14.7 = ×14.7**). The first bill is **Tier 14: six lines** for **+19.7 %** (14.7 → 17.6).
+4. **Each later tier adds only a few lines** (new lines: T15 +2, T16 +1, T17 +1, T18 +3, T19 +1, T20 +1, T21 +2), while the
+   levels step on fixed ladders: the **`X's Ultimate` family enters at 20 and steps +15** (Protector's 20→95, Tank's
+   20→80, Scatter/Ray/Vampire 20→65, Fast's 20→50, Boss's 20→35, Basic's 20), **Orb / Death Ray Resistance** enter at 50 and
+   step **+10 to a 95 cap**, **Thorns / Plasma Cannon Resistance** enter at 20 and step **+10** (20 → 90 in seven tiers,
+   exact), **Knockback** enters at 40 (+10, 95 at T21), **Armored Enemies** at 10 (+10), **ELS Reduction** enters at **5 and
+   steps +5** (5 → 40, exact — the `Enemy Level Skip` line of T024), and **More Bosses** is hand-set (levels
+   1, 2, 3, 3, 5, 5, 5, 5). Reading that line as the glossary defines it — “bosses spawn every *x* waves instead of 10”, i.e.
+   the value is the **interval**, `interval = 10 − level` — gives intervals **9, 8, 7, 7, 5, 5, 5, 5** waves, and Tier 14’s
+   `More Bosses 1` ⇒ **every 9 waves** is exactly the lattice the worked example below re-adds (11 bosses, last at W99 ✓), so
+   the two tables on the page are consistent.
+
+**The Tier 14 entry bill, verbatim** (six perk lines — this is the whole price of the first BC tier): `Orb Resistance` **50**,
+`Death Ray Resistance` **50**, `Thorns Resistance` **20**, `Plasma Cannon Resistance` **20**, `More Bosses` **1**,
+`ELS Reduction` **5**. Tier 15 adds `Knockback Resistance` **40** and `Armored Enemies` **10** and raises the rest one step;
+Tier 16 adds `Protector's Ultimate` **20**; Tier 17 adds `Tank's Ultimate` **20**; Tier 18 adds `Scatter` / `Ray` /
+`Vampire Ultimate` **20** each.
 
 ## The tool values, as printed
 
@@ -106,6 +159,13 @@ the farming there; the depth you gained from the push is what raises the *missio
       wave counter crosses 100 right after the last (`9 × 11 = 99` ✓)
 - [ ] One Second Wind + one Nuke + one shield-block kill moves your best wave by roughly **20 / 10 / 10**
 - [ ] After a tier unlock, the next tier’s gate reads **W100** (T1–T14) and **W300** at **T15** — the printed 100/300 split
+- [ ] **The ladder:** the tier screen’s bonus reads **1 / 1.8 / 2.6 / 3.4 / 4.2 / 5 / 5.8 / 6.6** for Tiers 1–8 (a clean
+      **+0.8** each), **14.7** at Tier 13 and **17.6** at Tier 14; the 13 → 14 step is **+19.7 %**.
+- [ ] **The Tier-14 bill:** the **Perks** screen requires exactly **six** lines at Tier 14 — `Orb Resistance` 50,
+      `Death Ray Resistance` 50, `Thorns Resistance` 20, `Plasma Cannon Resistance` 20, `More Bosses` 1, `ELS Reduction` 5 —
+      and Tier 13 shows **none**.
+- [ ] **`More Bosses` reads as an interval:** at Tier 14 (`More Bosses 1`) the panel’s value is **9** waves between bosses,
+      i.e. `10 − level` ✓ the same 9 the 11-boss lattice uses.
 
 ## Falsification
 
@@ -115,11 +175,22 @@ the farming there; the depth you gained from the push is what raises the *missio
   becomes 10 bosses ending at W100, and the plan’s rows shift; re-derive from the first boss’s wave.
 - If a Tier-2 run at W300 pays *less* than a Tier-1 run at W1000 by the coin counter, the “nearly double” step is not
   2× at your level → record both totals and set the crossover from the two numbers (it is a per-tier ratio, not a law).
+- If a tier **below 14** shows *any* battle condition, the `None` column is stale → re-read the condition list on each tier
+  row and rebuild the “free through Tier 13” claim (the `+0.8` ladder itself is independent of that column, so keep it).
+- If a condition level in the panel is **above** the printed requirement and the tier still will not open, the requirement is
+  the *minimum* per line but the tier also gates on something else (e.g. a wave gate) → read the tier row’s gate wave; the
+  BC bill is a necessary, not sufficient, condition.
 - If Second Wind is available twice in one rush, its cooldown is not “hundreds of waves” → re-time it in waves and
   re-value the table (it is the largest single leg, so everything else is unaffected).
 
 ## Sources
 
+Tower Hub `wiki/system/gameplay` (2026-07-29) — the two terms the tables hinge on: a **wave** is one segment of enemy
+spawns, a **round** is the whole run to death; the `Normal Wave` table prints **length 26.00 s** and **cooldown 9.00 s**.
+Tower Hub `wiki/system/tiers` (2026-07-29) — the **Tier / Coin Bonus / Battle Conditions** table (Tiers 1–21, `None` through
+Tier 13, the six-line Tier-14 bill, the entry/step ladders) and the condition glossary (`More Bosses`: “bosses spawn every
+*x* waves instead of 10”; `Orb`/`Death Ray Resistance`: “instead of destroying enemies, they deal x % of enemy health as
+damage”; `Knockback Resistance`: applied force reduced by x %; `More Enemies`: x % more spawn).
 Tower Hub `wiki/guide/rushing-tiers` (last verified **2026-07-29**) — the ~100-wave payoff window and Tier-15 cutoff, the
 per-tool wave values (Second Wind +20/≥10, Nuke +10, shield+plasma +10), Death Defy’s 30 % and its resolution order, the
 Energy Shield 1→3 charges, Wave Skip’s 19 % max, the Tier 14 spec (80 % plasma/thorns, 50 % orbs and Death Ray, bosses

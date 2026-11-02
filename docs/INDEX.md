@@ -10,7 +10,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | T002 | [In-run phase order](techniques/T002-run-phase-order.md) | Cash → Coins | **Verified (Rev 3**, arithmetic) |
 | T003 | [Turtle build T1–T2](techniques/T003-turtle-build-t1-t2.md) | tier unlocks | **Verified (Rev 3**, arithmetic) |
 | T004 | [Mission farming on low tier](techniques/T004-mission-farming-low-tier.md) | Gems, Coins, Shards, Medals, Tokens | **Verified (Rev 4**, arithmetic) |
-| T005 | [Tier-rush then farm](techniques/T005-tier-rush-then-farm.md) | Coins (daily/weekly) | **Verified (Rev 2**, arithmetic) |
+| T005 | [Tier-rush then farm](techniques/T005-tier-rush-then-farm.md) | Coins (daily/weekly) | **Verified (Rev 3**, arithmetic: lattice + gate table + the printed tier ladder `1 + 0.8n` T1–T8 → 60 at T21 + the BC bills) |
 | T006 | [Lab queue packing + cheapest skipped hour](techniques/T006-lab-queue-packing.md) | all (multipliers) | **Verified (Rev 17**, arithmetic) |
 | T007 | [Ad-gem sweep](techniques/T007-ad-gem-sweep.md) | Gems | Amounts verified (Rev 2) |
 | T008 | [Stone economy: knee-first UW buying + cooldown sync](techniques/T008-uw-sync-with-stones.md) | Stones → Coins | **Verified (Rev 8**, arithmetic: 9/9 stone values + 4/4 lattice rows + the 53 547 ledger + the 9 UW+ tables closing as 4 sequences (179 240) + the GT matrix + 9/9 workshop totals) |
@@ -173,6 +173,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 - [2026-11-02 - session 72 (T008 Rev 7, T006 Rev 17)](log/2026-11-02.md#2026-11-02---session-72-iteration-81-the-nine-workshop-stone-ledgers-agree-three-ways-and-the-bill-is-244-542)
 - [2026-11-02 - session 73 (T008 Rev 8)](log/2026-11-02.md#2026-11-02---session-73-iteration-82-the-nine-ultimate-weapon-cost-rows-are-four-sequences-and-the-179-240-ledger-closes-at-every-depth)
 - [2026-11-02 - session 74 (T009 Rev 5, H047)](log/2026-11-02.md#2026-11-02---session-74-iteration-83-the-community-gem-ladder-re-prices-to-9-020-gems-and-matches-path-a-within-three-pulls)
+- [2026-11-02 - session 75 (T005 Rev 3)](log/2026-11-02.md#2026-11-02---session-75-iteration-84-the-printed-tier-ladder-is-one-arithmetic-line-to-t8-then-x123-a-tier-and-tier-13-costs-zero-perk-work)
 
 ## Reference material in this repo
 
