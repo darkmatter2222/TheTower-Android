@@ -1,5 +1,9 @@
 # T014 — Tournament tickets: buy them while the marginal value beats the next card slot
 
+Rev: 5 (2026-11-02) — a **third print** for the ticket rules (`wiki/system/tickets`, 2026-07-29): 1 ticket automatically per
+new tournament, more by **ad** or **10 gems**, and **no per-bracket cap printed anywhere** ⇒ §3's marginal-ticket rule is
+the only limiter; the `10` vs `10 rising by 10` difference between the two site pages is a first-purchase vs
+per-purchase print, reconciled in §3.1.
 Rev: 4 (2026-11-02) — the league tables are now **double-sourced** (Tower Hub `wiki/system/seasons`-era pages,
 2026-11-01): **four bottom bands re-add identically** (Copper 60 · Silver 160 · Gold 250 · Platinum 300 gem-equiv.), the
 ticket ladder and promotion rules confirm; a **top-rank version skew** is recorded (§3.1); and the **four
@@ -81,7 +85,10 @@ carry a top-rank skew (the two wikis are weeks apart; the server may also scale 
 The decisions are unaffected (bottom bands 1–4 identical; the marginal-ticket arithmetic in §3 uses them). Record your
 panel's rank-1 row if it matters; the skew is the version marker. Second source also prints: **1 ticket per bracket
 entry**, extra tickets “**from watching an ad or paying gems — 10 gems for the first, rising by 10 each**” ✓ (both the
-ad-ticket and the `10 × n` ladder now double-sourced); promotion “**top 4** move up, **bottom 6** from Platinum, Copper/
+ad-ticket and the `10 × n` ladder now double-sourced — and the **third** print (`wiki/system/tickets`, 2026-07-29) confirms
+“one Ticket automatically every time a new Tournament begins” plus “watch a video advertisement, or purchase a Ticket
+directly for **10 Gems**”, stating the *first* price; **no per-bracket ticket cap is printed on any of the three pages**, so
+the price ladder itself is the limiter); promotion “**top 4** move up, **bottom 6** from Platinum, Copper/
 Silver/Gold **protected**” ✓; ties pay the **lower** rank ✓; and each league sits **between two normal tiers** in raw
 enemy stats (Copper between T1–T2 … Champion between T11–T12).
 
@@ -134,7 +141,9 @@ Duration** condition (only Group 4 touches it).
 - [ ] Keys appear only from **Legend** (0 at rank 25–30, up to 25 at rank 1), and from **Mythic** (floor **8** at rank 25–30, **50** at rank 1) — full table in [T017 §1](T017-vault-keys-priority.md).
 - [ ] A Platinum bottom-band finish reads **100 gems / 20 stones** in **both** wiki copies (§3.1).
 - [ ] One **Group 4** lab level (e.g. `Enemy Level Skip Reduction`) costs **2 q** at level 1 and **1024 q** at level 10
-      (the ×2 series), and the generic `Battle Condition Reduction` L1 = **1 q / +2 %**.
+      (the ×2 series), the generic `Battle Condition Reduction` L1 = **1 q / +2 %**,
+      and a new bracket grants exactly **1** ticket before the panel offers an **ad** and a **10-gem** purchase that rises
+      by 10 per purchase in the same bracket (§3.1; no cap is printed anywhere).
 
 ## 7. Falsification
 
@@ -157,6 +166,10 @@ Duration** condition (only Group 4 touches it).
   battle-condition labs with gates (T18 W1000, T19 W100, T19 W500, T20 W60, T21 W1000) and the three closing cost series
   (**×2.05** Σ 1 247.44 q · **×1.5** Σ 113.33 q · **×2** Σ **2046 q** = 2(2¹⁰−1) ✓). `wiki/system/seasons` (2026-07-29)
   confirms T016: **8-week** season, tokens auto-cash at season end, **bits carry over**.
+- Tower Hub `wiki/system/tickets` (last verified **2026-07-29**) — the third print of the ticket rules: “Tickets function as
+  the entry fee for Tournament Battles… you must spend **one Ticket** per Battle”, “You receive **one Ticket automatically**
+  every time a new Tournament begins”, and for more: “watch a **video advertisement**, or purchase a Ticket directly for
+  **10 Gems**”; the page lists **no ticket cap**, so the rising price is the only limiter (§3.1).
 - fandom `Tournaments` (raw wikitext) — 30-player brackets, 7 leagues, Wed/Sat 00:00 UTC, ticket pricing (10 × n gems + ad), promotion top-4 / demotion bottom-6 with protected Copper–Gold, tie rule, Heat ramp to wave 1 000, boss-interval per league (10→5), Enemy Level Skip 10/20/30/50 %, Death Defy/Energy Shield from Platinum, and the complete per-league gem/stone/key reward tables (Mythic added in v29, 26 Aug 2026).
 - fandom `Currency/Keys` (raw wikitext) — the per-rank key table for Legend and Mythic and the “fewer than 9 players pay less” caveat.
 - `tools/gm_strings.txt` — `TournamentManager`, `TournamentAttempt`, `TournamentPrizeEntry`, `TournamentLeaderboardEntry`, `HeatDefinition`, and the exact panel names `Tournament Start Panel`, `Tournament Progress Panel`, `Tournament End Panel`, `Tournament Finished Panel`, `Tournament Conditions Panel`, `Tournament Heat Main Bar`.

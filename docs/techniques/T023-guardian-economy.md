@@ -1,5 +1,11 @@
 # T023 — Guardian economy: the bit price model, the Fetch droptable, and the sync layer
 
+Rev: 4 (2026-11-02) — the **per-row grid is now double-sourced**: `wiki/system/guardian` (2026-11-01) prints the same six
+tables with the **same row counts (92 / 92 / 101 / 62 / 73 / 72)** and the same ladders, so the `rows = levels + 2` rule and
+every cap rest on two independent prints; it also prints Bounty's multiplier column as **`×0.01 … ×0.10`** (the increment
+form), confirming the ① reconciliation, and restates the two facts that drive §3 (**Find is rolled first**, **skins
++0.6 % coins**) plus the slot table (2nd **200**, 3rd **300**, 4th **TBD**). Neither page prints a total for **Summon**,
+so its bill stays a derivation (H052).
 Rev: 3 (2026-11-02) — the **whole per-row price grid is now printed** (Tower Hub `wiki/system/chips`, 2026-11-01, tables
 “as of v29.1.2”) and it settles the fencepost: **level 1 costs 0 bits** (that row *is* the chip's base state) and the
 ladder then runs arithmetically. With that law + the caps read off the *value* ladders, **five of five printed chip
@@ -89,13 +95,16 @@ the three printed ladders with caps taken from the value steps, and **five of fi
 the price model is no longer a fit, it is transcribed. Two consequences: **Ally's Max Recovery tops out at ×10** (89 paid
 levels, not the 49 implied by Rev 2's solve) and **Scout's Range ends at ×4.0** (20 paid levels).
 
-**Table rule (`rows = longest line's paid levels + 2`).** The site prints “Showing 10 of N rows”. One row is one level
+**Table rule (`rows = longest line's paid levels + 2`).** The site prints “Showing 10 of N rows”, and **two independent
+tables give the same six counts — 92 / 92 / 101 / 62 / 73 / 72** (`wiki/system/chips` and `wiki/system/guardian`, both
+2026-11-01). One row is one level
 plus a header, so **paid levels = N − 2** for the longest line — and this now *closes* on the value ladders rather than
 being assumed: Attack/Ally 92 ⇒ 90 = Cooldown 120→30 ✓; Bounty 101 ⇒ 99 = Multiplier ×1.01→×2.00 ✓; Fetch 62 ⇒ 60 =
 Cooldown 120→60 ✓; Scout 72 ⇒ 70 = Cooldown 105→35 ✓. Therefore **Summon's 73 rows ⇒ 72 paid levels** on its longest
 line, which its Cooldown (140 − 71 = 69 s) cannot reach ⇒ it is the **Cash Bonus** line: `0,100,…` ⇒ **×72.0** and
 `100·T(71) = ` **255 600 bits** for that one line, i.e. ≈ 89 % of the chip's cost and the single most expensive line in
-the layer (H052 keeps the two remaining Summon caps).
+the layer (H052 keeps the two remaining Summon caps). **Neither of the two pages prints a chip total other than Ally's
+14 470**, so the other four totals come from the guide/fandom line totals and Summon's remains a pure derivation.
 
 ### 2.2 The bits-per-point ranking (the actual buy order)
 
@@ -268,8 +277,17 @@ Vault node means a mis-levelled chip line is never a real loss.
   (**20 gems / 10 medals / 5 common + 2 rare modules per 24 h, coins and shards uncapped**), Fetch's cooldown costing
   **2 extra bits per level** vs the norm, the Fetch upgrade order, the Ally/Attack boss note (half damage), the Summon↔GT
   cash-stacking advice, and “summoned enemies cannot become Ultimate from a Battle Condition”.
-- Tower Hub `wiki/system/chips` + `wiki/system/guardian` (both last verified **2026-11-01**, tables “as of v29.1.2”) — the
-  per-chip price law (“every level adds a fixed step, and each level costs a fixed number of bits more than the one before”)
+- Tower Hub `wiki/system/guardian` (last verified **2026-11-01**, 9 data tables) — the **second copy of all six per-row
+  grids** with the **identical** row counts (Ally **92**, Attack **92**, Fetch **62**, Bounty **101**, Summon **73**,
+  Scout **72**) and the same ladders/prices as the Chips page, which is what makes the `rows` rule and the caps two-source
+  facts; the six-chip **base table** (`Ally 120 s / 1 % / 1`, `Attack 120 s / 1 % / 1`, `Bounty 120 s / ×0.01 / 1`,
+  `Fetch 120 s / 10 % / 2 %`, `Summon 140 s / 5 s / ×1.00`, `Scout 105 s / ×2.0 / 5 s`) with the per-chip **source column**
+  (Ally/Attack = Base, Bounty/Fetch = **Guild Shop 200 Tokens**, Summon = **Season 5**, Scout = **Season 7**); the slot
+  table **2nd 200 / 3rd 300 / 4th TBD** bits; Bounty's multiplier column printed in **increment form `×0.01 … ×0.10`**
+  (the Chips page prints the total form `×1.01 … ×1.10` — same ladder, §2.2 ①); Summon's rows (Cooldown 140→131 s on the
+  odd ladder, Duration 5→14 s at `0,15,25…`, Cash Bonus `0,100…900` ⇒ ×10.0 by level 10) with **no chip total printed**;
+  and the two “Good to know” laws restated (**Find first, Double only after a find**; **Guardian skins +0.6 % coins**).
+- Tower Hub `wiki/system/chips` (same date, tables “as of v29.1.2”) — the **per-chip price law** (“every level adds a fixed step, and each level costs a fixed number of bits more than the one before”)
   and the first-10 ladders used in §2.1/§2.2 (Attack `25`/`1`/`100`, Ally `5`/`1`/`1`, Bounty `1`/`2`/`100`, Fetch
   `2`/`5`/`10`, Summon `2`/`2`/`100`, Scout `5`/`2`/`10`); the row counts **92 / 92 / 101 / 62 / 73 / 72**; the
   “**14 470** bits ≈ **71 weeks** of saving” statement for Ally (⇒ ≈ 204 bits/week of income at that stage); the chip
