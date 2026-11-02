@@ -5,7 +5,7 @@ Rev: 4 (2026-11-02) — per-bot line caps + totals (§1.3): **Amplify 54 420 rep
 19** by its own value arithmetic (`1.05 + 19 × 0.05 = 2.00` ✓); plus the **reusable lab constants** (cooldown-lab block 1 =
 **515.0 M** coins on all three bots; Amplify’s cooldown gate is **T5 W90**).
 Rev: 3 (2026-11-02) — adds the **medal budget layer** from Tower Hub’s medals guide: the **3 150**-medal five-bot unlock
-ladder (150/300/600/900/1 200), the per-event **400 medals** for theme + song (**three songs, +0.6 % coins each**), the
+ladder (150/300/600/900/1 200), the per-event **400 medals** for theme + background (**150 + 250**), the
 guide’s **5-step medal spend order**, the per-bot stat priority (**range before bonus** on Golden/Amplify, Thunder must be
 maxed, Flame last) and the “**don’t unlock all five before levelling**” rule; every figure re-expressed in events at
 ≈ 1 215 medals/event.
@@ -49,14 +49,16 @@ Income is ≈ **1 215 medals per 2-week event** ([T013](T013-event-medal-economy
 | Medal sink | Medals | ÷ 1 215 = events | Weeks |
 |---|---|---|---|
 | Five bot **unlocks** (150 + 300 + 600 + 900 + 1 200) | **3 150** | 2.6 | ≈ 5 |
-| **Theme + song** (per event, both) | **400** | 0.33 | 1 |
+| **Theme + background** (per event; 150 + 250) | **400** | 0.33 | 1 |
 | **Golden Bot** four stat lines (20 400 + 5 700 + 20 400 + 9 600) | **56 100** | 46.2 | ≈ 92 |
 | **Golden Bot+** (Bonus Cells, after **1 250 stones**) | **17 500** | 14.4 | ≈ 29 |
 | **All five Bot+ lines** | **60 100** | 49.5 | ≈ 99 |
+| Bot+ **unlocks** (5 × 1 250) + Synchronicity (3 × 1 500) — *in stones* | **10 750 st** | — | stones, not medals |
 
 **Cosmetics first, then the bots.** The guide's order is: **①** older-event relics with lab-speed/coins (T018 §2–3) →
-**②** **theme + song** (both = **400** medals/event; **3 songs** exist, each **+0.6 % coins**, and the theme bonus stacks into
-the same permanent coin line as the guild cosmetics of T016 §4) → **③** **1–2 stone packs at most** (each extra pack is worse
+**②** **theme + background** (**150 + 250 = 400** medals/event; the **3 non-rotating songs** cost **200** each,
+**+0.6 % coins**, one-time — and every cosmetic bonus is **additive and applies even unequipped**, stacking with
+the guild cosmetics of T016 §4) → **③** **1–2 stone packs at most** (each extra pack is worse
 value) → **④** **1 gem pack**, only before all 5 lab slots are open → **⑤** the rest into bots, in the §1.2 order.
 
 ### 1.2 Per-bot priority (the guide's levelling order, with the reason)
@@ -196,7 +198,8 @@ T017), and the refund covers Bot+ levels too — re-unlocking Bot+ after a respe
 - [ ] With 5 cooldown-lab levels + 5 medal levels, Golden Bot's cooldown reads exactly **100 s**.
 - [ ] The respec costs **300 gems** and the medal counter returns in full.
 - [ ] The five unlock prices are **150 / 300 / 600 / 900 / 1 200** ⇒ **Σ 3 150**.
-- [ ] **Theme + song** together cost **400** medals in the current event, and each of the **3** songs reads **+0.6 %** coins.
+- [ ] The **theme** costs **150** and the **background** **250** in the current event (**400** together), and each of the
+      **3** (non-rotating) songs costs **200** and reads **+0.6 %** coins — even while **unequipped**.
 - [ ] Golden Bot's four **level-1** values read **20.5 s / 117 s / ×2.2 / 22 m** (+0.5 s, −3 s, +0.2×, +2 m per level), and
       its level-10 prices are **100 / 140 / 180 / 220 / 260 / 300 / 340 / 380 / 420 / 460** (Σ **2 800** per line).
 - [ ] **Amplify Bot**’s panel total reads **54 420** medals, its **Range** line stops at **18** levels (**61 m**) and its
@@ -212,8 +215,9 @@ T017), and the refund covers Bot+ levels too — re-unlocking Bot+ after a respe
 - If Bot Bot's `Bonus` reads **+0.5** per level, Tower Hub's 19-level/×2.00 table is stale and the fandom's 30-level/×2.55
   is live → recompute §2's Bot+ rows and note it in [H015](../hypotheses/H015-bot-bot-increment.md).
 - If `Bonus Cells` at level 1 is not ×1.30, the Bot+ ladder is not `50 + 50n` → record the first five prices.
-- If **theme + song** do not cost **400** medals together, or a song does not read **+0.6 %**, §1.1's cosmetics row is
-  re-versioned (both rotate per event) → re-read the Event Shop panel; the bot rows are unaffected.
+- If **theme + background** do not cost **400** medals together (**150 + 250**), or a song is not **200** / not
+  **+0.6 %**, §1.1's cosmetics row is re-versioned (theme + background rotate per event; the songs do not) → re-read the
+  Event Shop panel; the bot rows are unaffected.
 - If **Amplify Bot**'s four-line total is not **54 420**, its Range caps at **20** not **18** (that would make the total
   **56 100**, Δ 1 680) → re-read the Range line's max level and re-sum §1.3.
 - If **Bot Bot**'s Bonus line has **30** levels (not 19), the four-line total is **56 100** not **44 440**, and the value
@@ -244,7 +248,10 @@ T017), and the refund covers Bot+ levels too — re-unlocking Bot+ after a respe
 - Tower Hub `wiki/guide/medals-guide` (last verified **2026-11-01**) — the unlock ladder **150/300/600/900/1 200**, the
   “**100 medals plus 40 per level already bought**” rule, the **300-gem** once-per-event respec returning all medals incl.
   Bot+, the 5-step medal spend order (relics → theme+song → ≤ 2 stone packs → 1 gem pack → bots), the **400**-medal
-  theme + song pair, the **3 songs × +0.6 %** coins, and the per-bot priority with reasons (§1.2). The `golden-bot` page also
+  theme + song pair, the **3 songs × +0.6 %** coins, and the per-bot priority with reasons (§1.2). `wiki/system/events`
+  (2026-11-01) sharpens the cosmetics to **150 theme + 250 background = 400/event** and **200 × 3 non-rotating songs**,
+  and prices the Bot+ layer in stones: **5 × 1 250** unlocks + **3 × 1 500** Synchronicity slots = **10 750 stones**.
+  The `golden-bot` page also
   prints the four lines' **level-1 values** (20.5 s / 117 s / ×2.2 / 22 m) and caps (**30 / 15 / 30 / 20**), the maxed
   **×8.0 / 35 s / 75 s / 60 m**, the lab ceilings (**45 s** / **50 s**), and “all bot ranges are amplified by your tower's
   range”; plus `Gilded Sniper` counting a kill as inside Golden Bot **only while the bot is active** and the v28 change
