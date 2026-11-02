@@ -150,6 +150,8 @@ forever**, which is why they rank above the auto-cashout but below shards/gems i
   chips at **200** each, and “the coin reward scales with your highest unlocked tier — check the base value via Daily
   Missions”.
 - fandom `Currency/Elite Cells` / `Currency/Medals` — Fetch chip's ≤10 medals/day and its cell/coin output.
+- Tower Hub `wiki/system/seasons` (2026-07-29) — confirms the **8-week** season, the **end-of-season automatic
+  token cash-out** (“no reason to hoard past the final day”) and that **Bits carry over** unspent into the next season.
 - `tools\gm_strings.txt` — `Guilds/GuildManager`, `GuildContributionChest`, `ContributionChestData`,
   `GuardianChips`, `GuardianPresetsUI`, `GuildCurrencies`, `ChatUI`, and the remote keys
   `guild_store_season_`, `joinGuild`, `createGuild`, `updateGuildApplications`.

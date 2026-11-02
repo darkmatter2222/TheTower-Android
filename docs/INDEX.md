@@ -19,7 +19,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | T011 | [Perk engine tuning](techniques/T011-perk-engine-tuning.md) | Coins (run multipliers) | Unverified (Rev 3) |
 | T012 | [Card deck order (gems per percentage point)](techniques/T012-card-deck-order.md) | Coins, Cash, Elite Cells | **Verified (Rev 2**, arithmetic) |
 | T013 | [Event window & medal economy](techniques/T013-event-medal-economy.md) | Medals → Gems, Stones, Shards | **Verified (Rev 3**, arithmetic) |
-| T014 | [Tournament tickets & league ladder](techniques/T014-tournament-tickets.md) | Gems, Stones, Keys | Unverified (Rev 3) |
+| T014 | [Tournament tickets & league ladder](techniques/T014-tournament-tickets.md) | Gems, Stones, Keys | **Verified (Rev 4**, arithmetic) |
 | T015 | [Bot economy & cell/coin chain](techniques/T015-bot-economy.md) | Medals, Coins, Elite Cells | **Verified (Rev 5**, arithmetic) |
 | T016 | [Guild tokens & Bits](techniques/T016-guild-tokens-bits.md) | Tokens, Bits, Coins, Gems, Shards | **Verified (Rev 2**, arithmetic) |
 | T017 | [Vault: Keys priority ladder](techniques/T017-vault-keys-priority.md) | Keys → Gems, Coins, Cash, Shards | **Verified (Rev 2**, arithmetic) |
@@ -130,6 +130,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 - [2026-11-02 — session 39 (T015 Rev 5)](log/2026-11-02.md#2026-11-02--session-39-iteration-48-the-bot-layer-closes-all-five-bots-and-ten-labs)
 - [2026-11-02 — session 40 (T006 Rev 4)](log/2026-11-02.md#2026-11-02--session-40-iteration-49-the-elite-cell-ledger-closes)
 - [2026-11-02 — session 41 (T001 Rev 4)](log/2026-11-02.md#2026-11-02--session-41-iteration-50-the-in-run-cash-laws-first-printed-closed-forms)
+- [2026-11-02 — session 42 (T014 Rev 4)](log/2026-11-02.md#2026-11-02--session-42-iteration-51-tournaments-double-sourced-the-battle-condition-lab-layer-closes)
 
 ## Reference material in this repo
 

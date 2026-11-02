@@ -1,8 +1,15 @@
 # T014 — Tournament tickets: buy them while the marginal value beats the next card slot
 
+Rev: 4 (2026-11-02) — the league tables are now **double-sourced** (Tower Hub `wiki/system/seasons`-era pages,
+2026-11-01): **four bottom bands re-add identically** (Copper 60 · Silver 160 · Gold 250 · Platinum 300 gem-equiv.), the
+ticket ladder and promotion rules confirm; a **top-rank version skew** is recorded (§3.1); and the **four
+battle-condition labs** join the ledger (§4.1: gates T18 W1000 / T19 W100 / T19 W500 / T20 W60 / T21 W1000, with two
+cost series that close — ×1.5 to **113.33 q** and ×2 to **2046 q**).
 Rev: 3 (2026-11-01) — added the Dissonance interaction (§1); Rev 2 added the key ladder cross-check · Currency: **Gems**, **Power Stones**, **Keys** (Legend+, the key ladder itself: [T017](T017-vault-keys-priority.md)), plus medal missions that count tournaments
 **Value:** ★★★★ — a bottom-place run in your *current* league is worth 60 → 2 585 gem-equivalents per ticket, and **stones** (the UW sync fuel, T008) come almost entirely from here.
-**Confidence:** **Medium-High** — league list, schedule, promotion rules and the full per-league reward tables are fandom raw wikitext (Mythic table dated v29, 26 Aug 2026); the per-ticket arithmetic below is derived from those numbers.
+**Confidence:** **High** — the schedule, ticket ladder, promotion rules, tie rule and the **bottom reward bands** are now
+printed identically by **two** sources (fandom raw wikitext + Tower Hub 2026-11-01), and the three lab cost series close
+as geometric laws (×2.05 / ×1.5 / ×2) with re-added sums; only the top-rank rows carry a version skew (§3.1).
 **Ease:** 2 taps (join, claim) + 1 run per ticket · **Prerequisite:** **Tier 1 Wave 60** milestone.
 
 ---
@@ -56,6 +63,28 @@ Rank 1 for reference: Copper 100 gems/20 stones; Gold 300/80; Platinum 425/180; 
    16–24, while bottom-band Mythic already pays **8** — i.e. a last-place Mythic finish earns as many keys as 7–8th
    in Legend. Chase the promotion, then spend the keys per [T017](T017-vault-keys-priority.md).
 
+### 3.1 Second copy + the version skew (§3 table vs Tower Hub 2026-11-01)
+
+The second source prints ten rank-bands per league. **Bottom bands re-add identically in four of six leagues** — Copper
+10/5, Silver 40/12, Gold 50/20, Platinum 100/20 (⇒ 60 / 160 / 250 / 300 gem-equiv exactly as §3) — while three rows
+carry a top-rank skew (the two wikis are weeks apart; the server may also scale brackets):
+
+| Row | fandom (§3) | Tower Hub (2026-11-01) | note |
+|---|---|---|---|
+| Platinum rank 1 | 425 g / 180 st | **400 g / 160 st** | |
+| Champion rank 1 | 550 g / 300 st | **600 g / 320 st** | |
+| Champion bottom | 175 g / 20 st | **150 g / 20 st** (350 ge) | |
+| Legend rank 1 | 675 g / 375 st / 25 keys | **800 g / 425 st / 25 keys** | |
+| Legend bottom | 250 g / 100 st / 0 keys | **200 g / 120 st / 0 keys** (1 400 ge) | |
+| Legend keys ladder | 1 at 16–24 | **2 / 4 / 6 / 8 / … stopping at rank 13–15, 0 from 16** | keys start at rank 1 from the top |
+
+The decisions are unaffected (bottom bands 1–4 identical; the marginal-ticket arithmetic in §3 uses them). Record your
+panel's rank-1 row if it matters; the skew is the version marker. Second source also prints: **1 ticket per bracket
+entry**, extra tickets “**from watching an ad or paying gems — 10 gems for the first, rising by 10 each**” ✓ (both the
+ad-ticket and the `10 × n` ladder now double-sourced); promotion “**top 4** move up, **bottom 6** from Platinum, Copper/
+Silver/Gold **protected**” ✓; ties pay the **lower** rank ✓; and each league sits **between two normal tiers** in raw
+enemy stats (Copper between T1–T2 … Champion between T11–T12).
+
 ## 4. Tournament-specific build facts (they change the card preset)
 
 - **Perks do not exist in tournaments** (T011) — so the perk-driven coin engine is off; tournaments are a *wave*-score contest, optimise for **wave count**, not coins/min.
@@ -64,6 +93,25 @@ Rank 1 for reference: Copper 100 gems/20 stones; Gold 300/80; Platinum 425/180; 
 - **Enemy Level Skip** is always present at **10 % (Gold) / 20 % (Platinum) / 30 % (Champion) / 50 % (Legend)**, and from **Platinum** up **Death Defy or Energy Shield** is active as a battle condition; Silver adds 1 extra random condition, Gold 2, … Legend 5.
 - Tie rule: **everyone in a tie gets the lowest rank's reward** of the tied group — so beating the player above you by a **single wave** is worth a full step, and the last minute of the run matters most.
 - Card swaps between tickets are cheap when no boss/fleet enemy is alive; use a **push preset** (Energy Net, Second Wind, Demon Mode, Nuke, Plasma Cannon) instead of the farming preset ([T012] step 5). **Slow Aura** is S-tier in tournaments only.
+
+### 4.1 The battle-condition lab layer (printed 2026-11-01, closes in two cost series)
+
+The “Heat” you fight is reduced by **five** lab lines (all costs in **q** = quadrillion coins):
+
+| Lab | Gate | Levels | Per level | Cost series (first → last) | Σ printed |
+|---|---|---|---|---|---|
+| `Battle Condition Reduction` (all conditions) | **T18 W1000** | 10 | **+2 %** (L1 = 2 %, L10 = 20 %) | 1 q → 639.42 q (**×2.05/lv**, all 9 ratios ✓) | **1 247.44 q** |
+| Group 1 (Knockback/Thorns/Orb/Plasma/Death-Ray Res.) | **T19 W100** | 20 | **+0.21 %** | per panel | — |
+| Group 2 (Armored/Enemy Speed/More Enemies/Atk Speed) | **T20 W60** | 20 | **+0.51 %** | per panel | — |
+| Group 3 (enemy-type ultimates) | **T19 W500** | 10 | **+1 %** | 1 q → 38.44 q (**×1.5/lv** ✓) | **113.33 q** |
+| Group 4 (UW Durations, Death Defy/Energy Shield Down, Enemy Level Skip) | **T21 W1000** | 10 | **+1 %** | 2 q → 1024 q (**×2/lv**, Σ = 2(2¹⁰−1) ✓) | **2046 q** |
+
+The site prints the strength law as “**M = 1 − Battle Condition Reduction − the condition's own lab; the two add
+up**” — i.e. generic + own-lab percentages sum *before* scaling the condition (additive inside, multiplicative on the
+condition). The random-pool sizes are printed per league: **15** (Silver–Platinum) / **16** (Champion) / **17**
+(Legend & Mythic), always including **Orb Resistance**, plus Death-Defy-Down *or* Energy-Shields-Down from Platinum;
+the full condition list is a 30-row table (“Showing 10 of 30 rows”). The reduction labs exclude the **Ultimate Weapon
+Duration** condition (only Group 4 touches it).
 
 ## 5. Steps (UI only)
 
@@ -84,6 +132,9 @@ Rank 1 for reference: Copper 100 gems/20 stones; Gold 300/80; Platinum 425/180; 
 - [ ] Two players with the **same** wave both receive the lower of the two reward rows.
 - [ ] Leaving **Gold** for Platinum never drops you back to Copper/Silver/Gold.
 - [ ] Keys appear only from **Legend** (0 at rank 25–30, up to 25 at rank 1), and from **Mythic** (floor **8** at rank 25–30, **50** at rank 1) — full table in [T017 §1](T017-vault-keys-priority.md).
+- [ ] A Platinum bottom-band finish reads **100 gems / 20 stones** in **both** wiki copies (§3.1).
+- [ ] One **Group 4** lab level (e.g. `Enemy Level Skip Reduction`) costs **2 q** at level 1 and **1024 q** at level 10
+      (the ×2 series), and the generic `Battle Condition Reduction` L1 = **1 q / +2 %**.
 
 ## 7. Falsification
 
@@ -91,9 +142,21 @@ Rank 1 for reference: Copper 100 gems/20 stones; Gold 300/80; Platinum 425/180; 
 - If a second ticket's run **does not** pay its own reward (only your best wave counts), then the marginal-value column in §3 over-counts — see [H014](../hypotheses/H014-per-ticket-payout.md) and buy exactly **one** extra ticket.
 - If a bottom-place Gold finish pays something other than 50 gems / 20 stones, record the actual table and correct §3 (the tables are versioned; Mythic only exists since v29).
 - If Heat conditions do not ramp to a cap at wave 1 000, note the real cap — it changes whether long tournament runs are worth it.
+- If the two §3.1 copies disagree on the **bottom band** (not just top ranks), the server re-scaled the brackets → trust
+  the in-game panel and re-derive §3's gem-equiv column; the marginal-ticket rule itself is ratio-based and survives.
+- If a Group-4 lab level 10 costs something other than **1024 q**, the ×2 series changed → re-read the ten printed costs
+  and rebuild §4.1's Σ column; the +1 %/level values are independent of the series.
 
 ## Sources
 
+- Tower Hub `wiki/system/tournaments` (last verified **2026-11-01**, 12 data tables) — the second copy of all six league
+  tables (bottom bands identical, top-rank skew per §3.1), the ticket rule “1 free + ad or gems, **10 rising by 10**”,
+  “top 4 promote / bottom 6 from Platinum / Copper–Gold protected”, tie → lower rank, the between-two-tiers enemy-stat
+  rule, Heat full strength at **W1000** and the static boss ladder **10/9/8/7/6/5**, the 30-row condition list, pool
+  sizes 15/15/15/16/17 with forced Orb Resistance, the **M = 1 − BC-Reduction − own-lab** law, and the four
+  battle-condition labs with gates (T18 W1000, T19 W100, T19 W500, T20 W60, T21 W1000) and the three closing cost series
+  (**×2.05** Σ 1 247.44 q · **×1.5** Σ 113.33 q · **×2** Σ **2046 q** = 2(2¹⁰−1) ✓). `wiki/system/seasons` (2026-07-29)
+  confirms T016: **8-week** season, tokens auto-cash at season end, **bits carry over**.
 - fandom `Tournaments` (raw wikitext) — 30-player brackets, 7 leagues, Wed/Sat 00:00 UTC, ticket pricing (10 × n gems + ad), promotion top-4 / demotion bottom-6 with protected Copper–Gold, tie rule, Heat ramp to wave 1 000, boss-interval per league (10→5), Enemy Level Skip 10/20/30/50 %, Death Defy/Energy Shield from Platinum, and the complete per-league gem/stone/key reward tables (Mythic added in v29, 26 Aug 2026).
 - fandom `Currency/Keys` (raw wikitext) — the per-rank key table for Legend and Mythic and the “fewer than 9 players pay less” caveat.
 - `tools/gm_strings.txt` — `TournamentManager`, `TournamentAttempt`, `TournamentPrizeEntry`, `TournamentLeaderboardEntry`, `HeatDefinition`, and the exact panel names `Tournament Start Panel`, `Tournament Progress Panel`, `Tournament End Panel`, `Tournament Finished Panel`, `Tournament Conditions Panel`, `Tournament Heat Main Bar`.
