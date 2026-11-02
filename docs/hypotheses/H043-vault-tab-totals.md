@@ -28,3 +28,11 @@ the total.
 
 **Falsifier.** If a tab's `x / y` shows `y` changing as levels are bought (i.e. it is not a fixed max), the UI total is a
 running sum rather than a cap → record `y` at three different progress points so the true max can be extrapolated.
+
+**Update (2026-11-02, second print).** Tower Hub `wiki/system/the-vault` (2026-10-28) prints the split exactly:
+**73 022 = 72 577 node levels + 445 group unlocks**, with the Enemy tree = 36 × 1 662 = **59 832**, Harmony re-adding to
+**1 350** and Power ⇒ **11 395** by subtraction (T017 §2.0). So the expected UI reading is
+`Harmony 1 350 + 45 · Power 11 395 + 100 · Enemies 59 832 + 300`, Harmony's share of the bill is **1.91 %**, and the only
+thing left for the device is to confirm that the panels' totals *include* the group unlocks (item 2 above). The 240-key
+gap between 11 395 and the line-by-line Power sum is the one number the panel can arbitrate.
+

@@ -1,16 +1,23 @@
 # T017 — Vault: the Keys priority ladder (Harmony first, then 6 card slots, then the coin lines)
 
+Rev: 3 (2026-11-02) — the Vault is now **double-sourced** (Tower Hub `wiki/system/the-vault`, verified 2026-10-28, v29
+layout): the **Harmony tab re-adds to the same 1 350 keys** node for node, the whole-Vault bill is printed precisely as
+**73 022 = 72 577 node levels + 445 group unlocks** (and the **445 re-adds** 4 × 25 + 45 + 300 ✓, while
+**59 832 + 1 350 ⇒ Power = 11 395** by subtraction), the tree census is printed (4/7/4 groups · 47/35/36 nodes ·
+223/67/1 080 levels), two of the 1 350 (**35 keys**) sit on the unreleased **Bastion** card, and the Ad-Gem-Stack cap
+ladder prints as **`[2,3,5]x`** on that page vs 2/3/4/5× on fandom (§2.4).
 Rev: 2 (2026-11-02) — every node price of the **Harmony** tab transcribed with its section subtotal, the Power lines'
 **per-level value + knee table** added (L1 = **+100 %** Cash/Wave for **10 keys** ⇒ the cheapest node in the game), the
 73 000-key bill turned into a per-league year table, and the wiki's one total-column typo recorded.
 Rev: 1 (2026-11-01) · Currency: **Keys** (spent) — pays back in **Gems**, **Coins**, **Cash**, **Module Shards**
 **Value:** ★★★★★ once the tab is open — a single Harmony line (**Ad Gem Stack, 130 keys**) multiplies the T007
 ad-gem flow by **5×**, and the three Utility coin lines are **+500 % each** for 250 keys apiece.
-**Confidence:** **High** — **Verified (arithmetic)**: the ladder **10/20/40/70/110 = 250** ✓ (the wiki's own `Total`
-column agrees), `Ultimate Damage` **5+10+20+35+55 = 125** ✓, `Wall Rebuild` **20+40+80+140+220 = 500** ✓,
+**Confidence:** **High** — **Verified (arithmetic)**: the ladder **10/20/40/70/110 = 250** ✓ (both wikis' `Total` columns
+agree), `Ultimate Damage` **5+10+20+35+55 = 125** ✓, `Wall Rebuild` **20+40+80+140+220 = 500** ✓,
 **Ad Gem Stack 10+20+40+60 = 130** ✓, **card slots 5+10+20+40+60+80 = 215** ✓, **Enhancements Discount 2+4+…+18 = 90**
 (= −22.5 %) ✓, **Utility section 25 + 3 × 250 = 775** ✓, and the Enemies tab's cumulative column re-adds from its
-per-level prices (25/51/79/108/138 ✓). No on-device capture of the *ratios* yet.
+per-level prices (25/51/79/108/138 ✓); and the two prints' totals reconcile as **59 832 + 1 350 + 11 395 = 72 577** node
+keys **+ 445** group unlocks = **73 022** ✓ (§2.0). No on-device capture of the *ratios* yet.
 **Ease:** 1 tap per level, but **1** free respec total · **Prerequisite:** promotion into the **Legend** league
 (the Vault icon only appears on the home screen after that — see [T014](T014-tournament-tickets.md)).
 
@@ -58,6 +65,27 @@ Derived consequences:
   level 30** (level 1 = 25 keys, i.e. the *most* expensive per-level start in the Vault).
 * **One free respec** per account refunds all spent keys (the binary's `VaultRespecWindow`), so spend 1–2 keys to
   learn the layout, keep the respec for a real allocation change.
+
+### 2.0 The printed census and the exact key bill (second source, v29 layout)
+
+The Tower Hub page prints the tree structure and the total as numbers rather than estimates, and they close:
+
+| Tree | Groups | Nodes | Total levels | Group-unlock bill |
+|---|---|---|---|---|
+| **Power** | 4 | 47 | 223 | 4 × 25 = **100** |
+| **Harmony** | 7 | 35 | **67** | 0 + 5+5+5 + 10+10+10 = **45** |
+| **Enemy** (new in v29) | 4 | 36 | **1 080** (36 × 30) | 0 + 50 + 100 + 150 = **300** |
+| **Whole Vault** | **15** | **118** | **1 370** | **445** ✓ (= 100 + 45 + 300) |
+
+* **15 groups, two open from the start** — the two are Harmony → Gameplay and Enemy → Simple ✓ (both print “unlocked from
+  the start”).
+* **Node keys 72 577** decomposes with no slack: Enemy **36 × 1 662 = 59 832** ✓ (the page also prints “a full group of nine
+  is **14 958** before the group unlock” = 9 × 1 662 ✓) + Harmony **1 350** ✓ (§2.1's own re-add) ⇒ **Power = 11 395** by
+  subtraction, which is the number to plan against (it is **240 keys above** the sum of this doc's Rev 2 per-line Power
+  totals, 11 155 node keys — the gap sits in the five 20-key-start lines, whose exact ladders the v29 rework changed).
+* **73 022 = 72 577 + 445** ⇒ the whole-Vault bill is **73 022 keys**, and **35** of them sit on the two **Bastion** nodes
+  (an unreleased, switched-off card) ⇒ the **usable** bill is **72 987**.
+* The three trees' level counts (223 / 67 / 1 080) are a fast self-check on a partially-bought tab.
 
 ### 2.1 The Harmony tab, priced in full (as printed; section subtotal incl. its unlock)
 
@@ -108,6 +136,25 @@ Power **≈ 11 255** (Attack 3 000 · Defense 3 250 · Utility 2 780 · UW 2 125
 ⇒ the Vault is a **Harmony-first** game for anyone below a solid Mythic placing: **1 350 keys** covers *all* of Harmony,
 and §3's Tier A list is **745** of them (715 node costs + 30 in section unlocks).
 
+### 2.4 What the second print adds, and the two skews to read on-device
+
+**Per-level values now printed for the Power lines** (they confirm §2.2's value row and the Tier B ranking): the three
+economy lines are **+100 % each per level** (`Cash / Wave`, `Coins / Wave`, `Interest / Wave`), `Cash Bonus` /
+`Coins / Kill` / the three `Free X Upgrade` lines / `Recovery Amount` are **+5 %**, `Max Recovery` **+20 %**, and in the
+UW section **`Golden Tower Bonus` is +1 % per level** (250 keys for +5 % GT — a coin-multiplier line that sits *outside*
+the 775-key Utility set, so it is the next purchase after Tier B). Chance lines: `Multishot` / `Rapid Fire` /
+`Bounce Shot` **+4 %**, `Critical Chance` **+1 %**, `Super Crit Chance` **+2 %**, `Defense %` **+0.5 %**, `Orbs` **+1**.
+
+**Both discount lines print +2.5 % per level** — `Module Reroll Discount` 8 levels ⇒ −20 % ✓ and `Enhancements Discount`
+9 levels ⇒ −22.5 % ✓, matching the 180-key and 90-key ladders exactly (two prints, one law).
+
+| Item | fandom (Rev 1/2) | Tower Hub (2026-10-28) | read |
+|---|---|---|---|
+| `Ad Gem Stack` caps | 2 / 3 / 4 / 5× | “stack up **`[2,3,5]x`**”, per-level column “**×2** per level” | three candidate ladders — 2·3·4·5, 2·3·5·(5) or doubling (2/4/8/16); the **bank total after 4 buys** settles it ([H017](../hypotheses/H017-ad-gem-stack-semantics.md)) |
+| Power tree node keys | 11 155 (line-by-line) | **11 395** (by subtraction from 72 577) | 240-key gap, all in the five 20-key-start lines; use 11 395 for the years table |
+| Harmony tab total | **1 350** | **1 350** (67 levels; the two hidden `Cards` rows are 1-level nodes) | identical — §2.1 stands |
+
+
 ## 3. The priority ladder (keys ÷ value, derived)
 
 **Tier A — Harmony QoL, all ≤ 25 keys each** (these convert directly into gems or save gems):
@@ -135,7 +182,8 @@ in the Power tab. `Wall Rebuild` costs 500 keys for −100 s.
 
 **Tier D — Enemies tab:** only **two** of the enemy options carry a currency stat:
 **Basic → Coin Bonus** (+0.01 per level, +30 % at level 30, 1 662 keys) inside the **free** Simple section, and
-**Boss → Common Drop Chance** (needs the 50-key Advanced unlock) which feeds common-card drops (T012).
+**Boss → Common Drop Chance** (needs the 50-key Advanced unlock) which feeds common-card drops (T012). The second print
+adds a third “positive” node name, **Saboteur Miss Chance** (survival, not income).
 Everything else in that tab is enemy Attack/Health/Speed/Mass/Miss/Defence reduction — push help, not income.
 Take `Basic → Coin Bonus` levels 1–5 (138 keys) before paying any section unlock above 50 keys.
 
@@ -170,6 +218,11 @@ Take `Basic → Coin Bonus` levels 1–5 (138 keys) before paying any section un
       bought (§2.1), and **1 350** for the tab.
 - [ ] In the Enemies tab, **Basic**'s cumulative reads **239** after level 8 (the wiki prints 129 — a typo; the per-level
       ladder 25/26/28/29/30/32/34/35 re-adds to 239).
+- [ ] The group-unlock bill is **445** keys (Power 4 × 25 = 100 · Harmony 45 · Enemy 300) inside the **73 022** total, and
+      one maxed Enemy node reads **1 662** keys cumulative (§2.0).
+- [ ] The two **Bastion** nodes exist but are inert while the card is unavailable ⇒ the usable bill is **72 987**.
+- [ ] `Module Reroll Discount` level 8 reads **−20 %** and `Enhancements Discount` level 9 reads **−22.5 %** (both print
+      **+2.5 %** per level).
 
 ## 6. Falsification
 
@@ -185,8 +238,11 @@ Take `Basic → Coin Bonus` levels 1–5 (138 keys) before paying any section un
   §2.2's keys-per-+100 % row from the panel and re-locate the knee (it is the row that drives the buy order).
 - If a Harmony section's contents are visible **before** its unlock, the “unlock only when you can also buy 1–2 lines”
   rule relaxes → re-read the prices without paying the unlock (the section costs are the only part hidden).
-- If the whole-Vault figure is not ≈ 73 000, the Enemies tab's four sections are the variable part (§2.3's years table
-  is otherwise unchanged) — record the three tab totals shown in the UI ([H043](../hypotheses/H043-vault-tab-totals.md)).
+- If the whole-Vault figure is not **73 022** (= 72 577 nodes + 445 unlocks), or a tree total is not 59 832 / 11 395 /
+  1 350, the v29 layout changed → re-read the three tree totals and rebuild §2.0 (the §2.3 years table scales with it) —
+  that is exactly what [H043](../hypotheses/H043-vault-tab-totals.md) asks for.
+- If `Ad Gem Stack` after all four purchases banks something other than **5** gems per ad, the ladder is not 2/3/4/5× →
+  record the banked number and pick §2.4's ladder; the node's 130-key price is unaffected.
 
 ## Sources
 
@@ -202,6 +258,18 @@ Take `Basic → Coin Bonus` levels 1–5 (138 keys) before paying any section un
   `Ultimate Damage` 125, `Defense %` 130, `Orbs`/`Shockwave Frequency` 60, `Wall Rebuild` 500, enemy skips 140);
   **Enemies**' Simple section (free) with the Basic ladder 25, 26, 28, … and its `Total` column (whose L8 entry, 129,
   is a typo for 239), and “upgrades not viewable before the section is unlocked”, “visible once promoted into Legends”.
+- Tower Hub `wiki/system/the-vault` (last verified **2026-10-28**, 16 data tables, “as of v29.0.1”) — the second copy of
+  every price plus the printed census: three trees since the **v29 rework (25 Aug 2026)** — Power **4 groups / 47 nodes /
+  223 levels**, Harmony **7 / 35 / 67**, Enemy **4 / 36 / 1 080** — “**maxing everything adds up to 73 022 Keys — 72 577 for
+  the node levels plus 445 for the group unlocks**”, “**35 of those Keys sit on the two Bastion nodes**, which belong to a
+  card that is not in the game”, “39 of the 47 nodes have 5 levels for 10/20/40/70/110 (250), most of them +5 % per level”,
+  the eight exceptions (`Ultimate Damage` 5/10/20/35/55 = 125 and **seven nodes that start at 20**: `Defense %`, `Orbs`,
+  `Shockwave Frequency`, `Death Defy`, `Wall Rebuild`, two enemy-skip lines), the per-level values used in §2.4 (`Cash/Wave`,
+  `Coins/Wave`, `Interest/Wave` **+100 %**; `Max Recovery` +20 %; `Golden Tower Bonus` +1 %; the four chance lines +4/+4/+4/+2),
+  the Harmony node list re-adding to **1 350** with the same section unlocks (**0 / 5 / 5 / 5 / 10 / 10 / 10**) and the same
+  `Ad Gem Stack` ladder 10/20/40/60 = **130** (cap ladder printed `[2,3,5]x`), both discount lines at **+2.5 %**/level,
+  the Enemy tree's 30-level nodes at 25→103 (**1 662** each, “a full group of nine is **14 958**”), and the two named
+  currency nodes (`Basic → Coin Bonus +0.01`, `Boss → Common Drop Chance`, plus `Saboteur Miss Chance`).
 - fandom `Currency/Keys` (raw wikitext) — Legend/Mythic rank→key table (25→0 and 50→8), “fewer than 9 players pay
   less”, **≈ 73 000 keys** to max the Vault, and the **one free respec** per account.
 - `tools/gm_strings.txt` — `Assets\Scripts\Vault\VaultManager.cs`, `VaultConfig.cs` (config asset
