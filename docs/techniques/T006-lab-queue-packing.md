@@ -1,5 +1,13 @@
 # T006 — Pack the Lab queue, then buy the *cheapest* skipped hour
 
+Rev: 16 (2026-11-02) - **Appendix A: the named ledger.** All **39** UW lab tables named from their own page sections and
+priced from the six shared families: **31 leveled + 8 one-level unlocks**; the unlocks alone are **565.25 B** coins over
+**70.31 d** (mean **8.8 d** each). Two new shapes: `Death Wave Cells Bonus` is a 1.5/1.12 ladder on a **1.00B / 77 h 47 m**
+base (first ten levels re-add to the printed **113.33 B** exactly) and `Death Wave Health` is **two-phase** (L-II to L10,
+then near-linear 334.6 M -> 552.8 M). Family bills at full depth: L-I 124.85 B / 466.6 d, L-II 356.52 B / 916.1 d,
+L-III 116.24 B / 825.4 d, L-IV 38.34q / 2011.1 d, L-V 265.93 T / 283.2 d, L-VI 1247.44q / 916.7 d, 20 M-family
+92.00 B / 214.1 d. Plus `Smart Missiles`' workshop **39,177** stones closing as **3,745 + 33,384 + 2,048** (Damage +6/lv,
+Cooldown +8 then +16/lv, Quantity hand-set by subtraction) and two printed caps: ILM cooldown **37 s**, CL stones **x2 ... x7,961**.
 Rev: 15 (2026-11-02) - **nine-weapon lab census**: all nine `wiki/uw/<name>` pages parsed (**39** printed lab tables); every
 multi-level line falls into one of **six** printed sequences, five of them exact offsets of another — `L-II = L-I - 750 000`
 (12/12), `= L-I - 20 h` (25/25), SM lines `= L-II + 200 000 + 50 000n` (12/12) and `= L-III + 550 000` (15/15), Spotlight
@@ -394,6 +402,85 @@ so across four independent price shapes the first half of a line is **0.03–2.7
 half of its value. That is the strongest single reason to hold every UW line at **level 10** in the mid game: on L-IV the
 per-level price runs **3.84T** at L10 → **221.68T** at L20 for the same **+3 %** step that level 1 costs **100.00B**.
 
+### Appendix A — the named lab ledger: all 39 UW lab tables priced (Rev 16)
+
+Every lab table on the nine pages, named from each page’s own section heading (`Labs - <name>`), with the family it follows
+and its bill summed over its **printed** levels. `1 d = 24 h`; the sums use the printed cells, so 3-significant-digit prints
+from ~level 13 make the big numbers ±0.5 %.
+
+| Weapon | Lab line (printed name) | Seq. | Levels | Σ coins | Σ clock |
+|---|---|---|---|---|---|
+| Golden Tower | `Golden Tower Bonus` | L-I | 25 | 124.85B | 466.6 d |
+| Golden Tower | `Golden Tower Duration` | L-I | 20 | 34.39B | 214.1 d |
+| Death Wave | `Death Wave Health` | L-II → own at L11 | 30 | 4.40B (L1–19) | 165.7 d |
+| Death Wave | `Death Wave Coins Bonus` | L-II | 20 | 34.38B | 197.4 d |
+| Death Wave | `Death Wave Cells Bonus` | ×1.5 / ×1.12 @ 1.00B | 20 | 6.65T | 233.5 d |
+| Death Wave | `Death Wave Damage Amplifier` | L-IV | 30 | 38.34q | 2011.1 d |
+| Death Wave | `Death Wave Armor Stripping` | L-V | 10 | 265.93T | 283.2 d |
+| Black Hole | `Black Hole Damage` | L-I + 19 M + 0.5 M·n | 10 | 820.53M | 36.8 d |
+| Black Hole | `Black Hole Coin Bonus` | 20 M-family | 20 | 92.00B | 214.1 d |
+| Black Hole | `Extra Black Hole` | unlock | 1 | 15.00B | 17.36 d |
+| Black Hole | `Black Hole Disable Ranged Enemies` | unlock | 1 | 550.00B | 28.94 d |
+| Chrono Field | `Chrono Field Duration` | L-III | 30 | 116.24B | 825.4 d |
+| Chrono Field | `Chrono Field Damage Reduction` | unlock | 1 | 750,000 | 0.69 d |
+| Chrono Field | `Chrono Field Reduction %` | L-III | 30 | 116.24B | 825.4 d |
+| Chrono Field | `Chrono Field Range` | L-II | 20 | 34.38B | 197.4 d |
+| Chain Lightning | `Chain Lightning Shock` | unlock | 1 | 950,000 | 1 d |
+| Chain Lightning | `Shock Chance` | L-II | 30 | 356.52B | 916.1 d |
+| Chain Lightning | `Shock Multiplier` | L-II | 14 | 4.32B | 65.2 d |
+| Chain Lightning | `Chain Thunder` | L-IV | 30 | 38.34q | 2011.1 d |
+| Chain Lightning | `Lightning Amplifier-Scatter` | L-IV | 30 | 38.34q | 2011.1 d |
+| Inner Land Mines | `Inner Mine Blast Radius` | L-II | 20 | 34.38B | 197.4 d |
+| Inner Land Mines | `Inner Mine Rotation Speed` | L-II | 20 | 34.38B | 197.4 d |
+| Inner Land Mines | `Inner Mine Stun` | unlock | 1 | 250.00M | 13.90 d |
+| Inner Land Mines | `Inner Land Mine - Chrono Jump` | L-VI | 10 | 1247.44q | 916.7 d |
+| Smart Missiles | `Missile Despawn Time` | L-III | 20 | 12.94B | 157.8 d |
+| Smart Missiles | `Missile Amplifier` | L-II + 200 k + 50 k·n | 25 | 124.86B | 445.7 d |
+| Smart Missiles | `Missiles Explosion` | unlock | 1 | 900,000 | 0.93 d |
+| Smart Missiles | `Missiles Radius` | L-III + 550,000 | 20 | 12.95B | 173.5 d |
+| Smart Missiles | `Missile Barrage` | unlock | 1 | 1,500,000 | 6.67 d |
+| Smart Missiles | `Missile Barrage Quantity` | own (6 lv) | 6 | 59.01M | 19.8 d |
+| Smart Missiles | `Recharge Missile Barrage` | own (7 lv) | 7 | 14.43T | 120.0 d |
+| Poison Swamp | `Swamp Radius` | L-III | 20 | 12.94B | 157.8 d |
+| Poison Swamp | `Poison Swamp Stun` | unlock | 1 | 700,000 | 0.83 d |
+| Poison Swamp | `Swamp Stun Chance` | L-III | 20 | 12.94B | 157.8 d |
+| Poison Swamp | `Swamp Stun Time` | L-III | 20 | 12.94B | 157.8 d |
+| Poison Swamp | `Swamp Rend - Basic Enemies` | L-IV | 30 | 38.34q | 2011.1 d |
+| Poison Swamp | `Swamp Rend - Additional Enemies` | L-IV | 9 | 7.49T | 123.1 d |
+| Spotlight | `Spotlight Missiles` | 200 M + L-I growth | 18 | 22.25B | 243.6 d |
+| Spotlight | `Spotlight Coin Bonus` | 20 M-family | 20 | 92.00B | 214.1 d |
+| **All nine weapons** | **31 leveled + 8 one-level tables = 39** | 6 shared families | — | — | — |
+
+**Sequence bills at full printed depth** (so any new line is priced from its family + cap):
+`L-I` 25 lv **124.85 B / 466.6 d** · `L-II` 30 lv **356.52 B / 916.1 d** (its 20-level prefix = 34.38 B / 197.4 d) ·
+`L-III` 30 lv **116.24 B / 825.4 d** (20-level prefix 12.94 B / 157.8 d) · `L-IV` 30 lv **38.34q / 2011.1 d** ·
+`L-V` 10 lv **265.93 T / 283.2 d** · `L-VI` 10 lv **1247.44q / 916.7 d** · 20 M-family 20 lv **92.00 B / 214.1 d**.
+
+**The eight one-level unlock rows** — cheap in coins, expensive in clock; they are queue slots, not purchases:
+
+`CF Damage Reduction` **750,000 / 0.69 d** · `CL Chain Lightning Shock` **950,000 / 0.995 d** · `PS Poison Swamp Stun`
+**700,000 / 0.83 d** · `SM Missiles Explosion` **900,000 / 0.93 d** · `SM Missile Barrage` **1,500,000 / 6.67 d** ·
+`ILM Inner Mine Stun` **250.00M / 13.90 d** · `BH Extra Black Hole` **15.00B / 17.36 d** · `BH Disable Ranged Enemies`
+**550.00B / 28.94 d**. Sum = **565.25 B** coins over **70.31 d** of clock (mean **8.8 d** per unlock, i.e. each is roughly
+0.4 % of a five-slot year — one slot-week each).
+
+**Three shape notes.** (1) `Death Wave Cells Bonus` is a fourth base: **cost ×1.5, clock ×1.12 from 1.00B / 77 h 47 m**,
+whose first ten levels re-add to the printed **113.33 B** exactly (printed ratios 1.500 1.500 1.502 1.497 1.500 1.501 1.500
+1.500 1.500) — same 1.5/1.12 pair as L-IV, different base. (2) `Death Wave Health` is **two-phase**: levels 1–10 are the L-II
+column exactly, and from L11 the costs flatten to a near-linear run (334.6 M → 552.8 M over nine steps, ratios
+1.038 → 1.089) while the clock keeps its own near-arithmetic step — treat L11+ as hand-set. (3) `Missile Barrage Quantity`
+(6 levels, +5 per level 25 → 50) and `Recharge Missile Barrage` (7 levels, value **decreasing** 1500 → 200, steps
+−250 ×4 then −150 ×2) are hand-set both in cost and value; the recharge line’s cost is arithmetic **+500.00B** for its first
+four steps (550.00B, 1.05T, 1.55T, 2.05T) then +510B/+510B/+530B.
+
+**Workshop stone side, same pages (for cross-reference with T008).** `Smart Missiles` prints **Damage 35 / Quantity 15 /
+Cooldown 16** levels for **39,177** stones: the Damage column is arithmetic **+6** from 5 (Σ = **3,745** over 35) and the
+Cooldown column **+16** after an initial +8 (Σ = **2,048** over 16), which fixes the hand-set Quantity line at
+**39,177 − 3,745 − 2,048 = 33,384** stones by subtraction — the only way to price it without its hidden levels. Its `UW+`
+(`Cover Fire`, 11 levels) prices **300/375/475/600/725/925/1,150/1,450/1,800/2,200/2,650 = Σ 12,650** ✓ matching §1.④.
+Two printed caps worth remembering: `Inner Land Mines`’ activation cooldown **hard-caps at 37 s**, and Chain Lightning’s
+stone Damage multiplier runs **×2 … ×7,961**.
+
 ### The enemy-stat layer, ladder by ladder (Rev 11)
 
 Source: `wiki/enemy/common-enemy-labs`, `fast-enemy-labs`, `protector-labs`, `vampire-labs`, `ray-labs`, `scatter-labs`
@@ -635,6 +722,11 @@ online often (it raises levels/day for all 5 slots: a `3 d 11 h` line becomes **
       / **1 101 067** (the L-II sequence) — two different ladders, both starting at 250 000.
 - [ ] **The interleave:** DW's ×2.25 line and the Chain Lightning / Poison Swamp ×1.5 line share their odd cells exactly
       (L1 **100.00B** / **8d 8h 0m**, then **225.00B** at L3, **506.25B** at L5, **1.14T** at L7 …).
+- [ ] **Ledger spot check:** `Black Hole Damage` level **1** = **20,000,000** coins / **1d 16h 0m** and level **10** =
+      **300,870,352** / **6d 13h 32m** (the line stops at 10), and `Inner Land Mine - Chrono Jump` starts at **1.00q** /
+      **16d 16h 0m** with each level **×2.05** in coins and **+16d 16h** in clock.
+- [ ] **The eight unlock rows** read **750,000 / 700,000 / 900,000 / 950,000 / 1,500,000 / 250M / 15B / 550B** coins
+      (Σ **565.25 B**, ~**70 d** of clock); `Missile Barrage` in particular is **1,500,000** coins / **6d 16h 0m**.
 - [ ] **Wave law:** the elite spawn table’s 0.33 % row reads **500 / 450 / 405 / 365 / 328** for T1–T5, and the 33 % row
       reads **1 830** at T15 (= `8000 × 0.9^14` ✓).
 - [ ] **Elite count:** a T11 run to W1 000 shows roughly **23** elite kills on the counter (the model says 23.26); at T14
@@ -698,6 +790,10 @@ online often (it raises levels/day for all 5 slots: a `3 d 11 h` line becomes **
 - If two lab lines on the **same** weapon page print different level-1 prices **and** different level-2 prices, they are not
   one family's offset — read each table on its own (the offset laws above are stated per printed range, and the 3-significant-digit
   prints after level ~12 are only good to ±0.5 %).
+- If a line’s printed **level count** differs from Appendix A (say `Missile Amplifier` is not **25** levels, or the eight
+  unlock rows are no longer one level each), that family was re-binned → re-read the shared column from a line that still has
+  **30** levels, re-derive the offset from levels **1 and 2** only, and re-sum; the appendix is a snapshot of the printed
+  tables, not an independent law.
 - If the fleet module-shard column jumps by **2** at some wave band (6 → 8), the `5 + (wave − 1)/250` line was re-binned →
   read the band edges and rebuild the arithmetic; the reroll-shard column is independent of it.
 - If a T1 run to W1 000 yields far more than **2** elites, either the run passed W500 twice (Intro Sprint re-counts) or the
@@ -740,6 +836,11 @@ online often (it raises levels/day for all 5 slots: a `3 d 11 h` line becomes **
   `10.50 % … 25.00 %`), the `Smart Missile` pair on the same ladder plus its two offset variants, the `×1.5 / ×1.12` lines on
   Chain Lightning and Poison Swamp (`100.00B … 12.78q`, `8d 8h … 222d 21h 59m`, values `3 % … 90 %` and `×1.25 … ×37.5`),
   and the Inner Land Mines `×2.05 / +400 h` line (**1.00q … 639.42q**, `5s … 50s`).
+- Tower Hub’s nine `wiki/uw/<name>` section headings + workshop tables (last verified **2026-11-01**) — the printed line
+  **names** used by Appendix A (`Labs - <name>` on each page), `Smart Missiles`’ **Damage 35 / Quantity 15 / Cooldown 16 =
+  39,177** stones with the Damage (`0,5,11,…`) and Cooldown (`0,8,24,…`) columns, its `Cover Fire` UW+ table
+  (11 levels, Σ **12,650** ✓ §1.④), the Inner Land Mines **37 s** cooldown hard cap, Chain Lightning’s **×2 … ×7,961**
+  stone range, and the Poison Swamp ramp example (`100x, 150x, 300x, 450x, 600x` at 50 % base ramp).
 - Tower Hub `wiki/guide/target-priority` (last verified **2026-11-01**) — the two-level `Target Priority` ladder
   (**2 d 0h 0m / 1 000 000** and **8d 0h 0m / 1.00B**), its **T4 W150** milestone gate, the printed L1/L2 behaviour
   (one focused type vs a full sort with `Closest` and `Spotlight` entries) and the v29 drag-and-drop note.
