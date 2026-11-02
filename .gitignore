@@ -1,0 +1,14 @@
+# Master Goal runtime state (per-machine, not part of the research)
+.mastergoal-runtime/
+
+# Tool binaries / regenerated dumps
+tools/dotnet/
+tools/jadx-1.5.6/
+tools/*.zip
+
+# Original APKs are >100 MB (GitHub limit); they are reproducible from the Play Store
+/base.apk
+/split_*.apk
+
+# Local logs
+tools/*.log

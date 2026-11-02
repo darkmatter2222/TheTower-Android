@@ -1,0 +1,82 @@
+package com.unity3d.coherence;
+
+/* JADX INFO: loaded from: classes5.dex */
+final class DeviceInfoPqIds {
+    static final int UDL_PQI_ADB_ENABLED = 108;
+    static final int UDL_PQI_AD_ATTRIBUTION_KIT = 115;
+    static final int UDL_PQI_AIRPLANE_MODE = 124;
+    static final int UDL_PQI_ANDROID_EXTENSION_VERSION = 150;
+    static final int UDL_PQI_ANIMATOR_SCALE_X1000 = 145;
+    static final int UDL_PQI_API_LEVEL = 104;
+    static final int UDL_PQI_APP_ACTIVE = 137;
+    static final int UDL_PQI_APP_DEBUGGABLE = 100;
+    static final int UDL_PQI_BATTERY_LEVEL_X1000 = 148;
+    static final int UDL_PQI_BATTERY_STATUS = 134;
+    static final int UDL_PQI_CAN_MAKE_PAYMENTS = 112;
+    static final int UDL_PQI_CHARGING_TYPE = 136;
+    static final int UDL_PQI_CPU_COUNT = 105;
+    static final int UDL_PQI_CURRENT_UI_THEME = 119;
+    static final int UDL_PQI_DISPLAY_DALTONIZER = 152;
+    static final int UDL_PQI_DISPLAY_INVERSION_ENABLED = 143;
+    static final int UDL_PQI_ELAPSED_REALTIME_MS = 132;
+    static final int UDL_PQI_FONT_SCALE_X1000 = 144;
+    static final int UDL_PQI_FREE_DISK = 126;
+    static final int UDL_PQI_FREE_RAM = 128;
+    static final int UDL_PQI_GRAYSCALE = 141;
+    static final int UDL_PQI_INVERT_COLORS = 142;
+    static final int UDL_PQI_JVM_FREE_MEMORY = 129;
+    static final int UDL_PQI_JVM_MAX_MEMORY = 151;
+    static final int UDL_PQI_JVM_TOTAL_MEMORY = 130;
+    static final int UDL_PQI_LIMITED_TRACKING = 114;
+    static final int UDL_PQI_LOW_POWER_MODE = 135;
+    static final int UDL_PQI_MADE_WITH_UNITY = 101;
+    static final int UDL_PQI_NETWORK_CONNECTED = 121;
+    static final int UDL_PQI_NETWORK_METERED = 123;
+    static final int UDL_PQI_NETWORK_REACHABILITY_FLAGS = 153;
+    static final int UDL_PQI_NETWORK_TYPE = 122;
+    static final int UDL_PQI_PHONE_TYPE = 106;
+    static final int UDL_PQI_REDUCE_MOTION = 140;
+    static final int UDL_PQI_ROOTED = 107;
+    static final int UDL_PQI_SCREEN_BRIGHTNESS_X1000 = 147;
+    static final int UDL_PQI_SCREEN_DENSITY = 116;
+    static final int UDL_PQI_SCREEN_HEIGHT = 118;
+    static final int UDL_PQI_SCREEN_SCALE_X1000 = 149;
+    static final int UDL_PQI_SCREEN_SIZE_X1000 = 146;
+    static final int UDL_PQI_SCREEN_WIDTH = 117;
+    static final int UDL_PQI_SD_CARD_PRESENT = 111;
+    static final int UDL_PQI_SIMULATOR = 102;
+    static final int UDL_PQI_STAY_ON_WHILE_PLUGGED_IN = 110;
+    static final int UDL_PQI_TIME_ZONE_OFFSET = 139;
+    static final int UDL_PQI_TOTAL_DISK = 125;
+    static final int UDL_PQI_TOTAL_RAM = 127;
+    static final int UDL_PQI_TRACKING_AUTH_STATUS = 113;
+    static final int UDL_PQI_UPTIME_MS = 131;
+    static final int UDL_PQI_UPTIME_WITHOUT_SLEEP_MS = 154;
+    static final int UDL_PQI_USB_CONNECTED = 109;
+    static final int UDL_PQI_USER_INTERFACE_IDIOM = 120;
+    static final int UDL_PQI_VERSION_CODE = 103;
+    static final int UDL_PQI_VOLUME = 133;
+    static final int UDL_PQI_WIRED_HEADSET = 138;
+    static final int UDL_PQS_APP_INSTALLER = 100;
+    static final int UDL_PQS_BUNDLE_ID = 117;
+    static final int UDL_PQS_BUNDLE_VERSION = 118;
+    static final int UDL_PQS_CONNECTION_TYPE = 104;
+    static final int UDL_PQS_CPU_MODEL = 102;
+    static final int UDL_PQS_DEVICE_MODEL = 115;
+    static final int UDL_PQS_GPU_MODEL = 103;
+    static final int UDL_PQS_IOS_DEVICE_NAME = 116;
+    static final int UDL_PQS_KEYBOARD_LANGUAGES = 111;
+    static final int UDL_PQS_LANGUAGE = 110;
+    static final int UDL_PQS_LOCALE_LIST = 112;
+    static final int UDL_PQS_NETWORK_CAPABILITY_TRANSPORTS = 107;
+    static final int UDL_PQS_NETWORK_OPERATOR = 108;
+    static final int UDL_PQS_NETWORK_OPERATOR_NAME = 109;
+    static final int UDL_PQS_NW_PATH_INTERFACES = 106;
+    static final int UDL_PQS_OS_VERSION = 119;
+    static final int UDL_PQS_PREFERRED_CONTENT_SIZE_CATEGORY = 114;
+    static final int UDL_PQS_RADIO_ACCESS_TECH = 105;
+    static final int UDL_PQS_TIME_ZONE = 113;
+
+    private DeviceInfoPqIds() {
+    }
+}

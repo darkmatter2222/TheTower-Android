@@ -1,0 +1,305 @@
+.class Lcom/google/crypto/tink/signature/SignatureConfigurationV1;
+.super Ljava/lang/Object;
+.source "SignatureConfigurationV1.java"
+
+
+# static fields
+.field private static final INTERNAL_CONFIGURATION:Lcom/google/crypto/tink/internal/InternalConfiguration;
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    .line 54
+    invoke-static {}, Lcom/google/crypto/tink/signature/SignatureConfigurationV1;->create()Lcom/google/crypto/tink/internal/InternalConfiguration;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/google/crypto/tink/signature/SignatureConfigurationV1;->INTERNAL_CONFIGURATION:Lcom/google/crypto/tink/internal/InternalConfiguration;
+
+    return-void
+.end method
+
+.method private constructor <init>()V
+    .locals 0
+
+    .line 52
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+.method private static create()Lcom/google/crypto/tink/internal/InternalConfiguration;
+    .locals 4
+
+    .line 58
+    :try_start_0
+    invoke-static {}, Lcom/google/crypto/tink/internal/PrimitiveRegistry;->builder()Lcom/google/crypto/tink/internal/PrimitiveRegistry$Builder;
+
+    move-result-object v0
+
+    .line 61
+    invoke-static {v0}, Lcom/google/crypto/tink/signature/PublicKeySignWrapper;->registerToInternalPrimitiveRegistry(Lcom/google/crypto/tink/internal/PrimitiveRegistry$Builder;)V
+
+    .line 62
+    invoke-static {v0}, Lcom/google/crypto/tink/signature/PublicKeyVerifyWrapper;->registerToInternalPrimitiveRegistry(Lcom/google/crypto/tink/internal/PrimitiveRegistry$Builder;)V
+
+    .line 63
+    new-instance v1, Lcom/google/crypto/tink/ConfigurationFips140v2$$ExternalSyntheticLambda7;
+
+    invoke-direct {v1}, Lcom/google/crypto/tink/ConfigurationFips140v2$$ExternalSyntheticLambda7;-><init>()V
+
+    const-class v2, Lcom/google/crypto/tink/signature/EcdsaPrivateKey;
+
+    const-class v3, Lcom/google/crypto/tink/PublicKeySign;
+
+    .line 64
+    invoke-static {v1, v2, v3}, Lcom/google/crypto/tink/internal/PrimitiveConstructor;->create(Lcom/google/crypto/tink/internal/PrimitiveConstructor$PrimitiveConstructionFunction;Ljava/lang/Class;Ljava/lang/Class;)Lcom/google/crypto/tink/internal/PrimitiveConstructor;
+
+    move-result-object v1
+
+    .line 63
+    invoke-virtual {v0, v1}, Lcom/google/crypto/tink/internal/PrimitiveRegistry$Builder;->registerPrimitiveConstructor(Lcom/google/crypto/tink/internal/PrimitiveConstructor;)Lcom/google/crypto/tink/internal/PrimitiveRegistry$Builder;
+
+    .line 66
+    new-instance v1, Lcom/google/crypto/tink/ConfigurationFips140v2$$ExternalSyntheticLambda8;
+
+    invoke-direct {v1}, Lcom/google/crypto/tink/ConfigurationFips140v2$$ExternalSyntheticLambda8;-><init>()V
+
+    const-class v2, Lcom/google/crypto/tink/signature/EcdsaPublicKey;
+
+    const-class v3, Lcom/google/crypto/tink/PublicKeyVerify;
+
+    .line 67
+    invoke-static {v1, v2, v3}, Lcom/google/crypto/tink/internal/PrimitiveConstructor;->create(Lcom/google/crypto/tink/internal/PrimitiveConstructor$PrimitiveConstructionFunction;Ljava/lang/Class;Ljava/lang/Class;)Lcom/google/crypto/tink/internal/PrimitiveConstructor;
+
+    move-result-object v1
+
+    .line 66
+    invoke-virtual {v0, v1}, Lcom/google/crypto/tink/internal/PrimitiveRegistry$Builder;->registerPrimitiveConstructor(Lcom/google/crypto/tink/internal/PrimitiveConstructor;)Lcom/google/crypto/tink/internal/PrimitiveRegistry$Builder;
+
+    .line 69
+    new-instance v1, Lcom/google/crypto/tink/ConfigurationV0$$ExternalSyntheticLambda5;
+
+    invoke-direct {v1}, Lcom/google/crypto/tink/ConfigurationV0$$ExternalSyntheticLambda5;-><init>()V
+
+    const-class v2, Lcom/google/crypto/tink/signature/RsaSsaPssPrivateKey;
+
+    const-class v3, Lcom/google/crypto/tink/PublicKeySign;
+
+    .line 70
+    invoke-static {v1, v2, v3}, Lcom/google/crypto/tink/internal/PrimitiveConstructor;->create(Lcom/google/crypto/tink/internal/PrimitiveConstructor$PrimitiveConstructionFunction;Ljava/lang/Class;Ljava/lang/Class;)Lcom/google/crypto/tink/internal/PrimitiveConstructor;
+
+    move-result-object v1
+
+    .line 69
+    invoke-virtual {v0, v1}, Lcom/google/crypto/tink/internal/PrimitiveRegistry$Builder;->registerPrimitiveConstructor(Lcom/google/crypto/tink/internal/PrimitiveConstructor;)Lcom/google/crypto/tink/internal/PrimitiveRegistry$Builder;
+
+    .line 72
+    new-instance v1, Lcom/google/crypto/tink/ConfigurationV0$$ExternalSyntheticLambda6;
+
+    invoke-direct {v1}, Lcom/google/crypto/tink/ConfigurationV0$$ExternalSyntheticLambda6;-><init>()V
+
+    const-class v2, Lcom/google/crypto/tink/signature/RsaSsaPssPublicKey;
+
+    const-class v3, Lcom/google/crypto/tink/PublicKeyVerify;
+
+    .line 73
+    invoke-static {v1, v2, v3}, Lcom/google/crypto/tink/internal/PrimitiveConstructor;->create(Lcom/google/crypto/tink/internal/PrimitiveConstructor$PrimitiveConstructionFunction;Ljava/lang/Class;Ljava/lang/Class;)Lcom/google/crypto/tink/internal/PrimitiveConstructor;
+
+    move-result-object v1
+
+    .line 72
+    invoke-virtual {v0, v1}, Lcom/google/crypto/tink/internal/PrimitiveRegistry$Builder;->registerPrimitiveConstructor(Lcom/google/crypto/tink/internal/PrimitiveConstructor;)Lcom/google/crypto/tink/internal/PrimitiveRegistry$Builder;
+
+    .line 75
+    new-instance v1, Lcom/google/crypto/tink/ConfigurationV0$$ExternalSyntheticLambda3;
+
+    invoke-direct {v1}, Lcom/google/crypto/tink/ConfigurationV0$$ExternalSyntheticLambda3;-><init>()V
+
+    const-class v2, Lcom/google/crypto/tink/signature/RsaSsaPkcs1PrivateKey;
+
+    const-class v3, Lcom/google/crypto/tink/PublicKeySign;
+
+    .line 76
+    invoke-static {v1, v2, v3}, Lcom/google/crypto/tink/internal/PrimitiveConstructor;->create(Lcom/google/crypto/tink/internal/PrimitiveConstructor$PrimitiveConstructionFunction;Ljava/lang/Class;Ljava/lang/Class;)Lcom/google/crypto/tink/internal/PrimitiveConstructor;
+
+    move-result-object v1
+
+    .line 75
+    invoke-virtual {v0, v1}, Lcom/google/crypto/tink/internal/PrimitiveRegistry$Builder;->registerPrimitiveConstructor(Lcom/google/crypto/tink/internal/PrimitiveConstructor;)Lcom/google/crypto/tink/internal/PrimitiveRegistry$Builder;
+
+    .line 78
+    new-instance v1, Lcom/google/crypto/tink/ConfigurationV0$$ExternalSyntheticLambda4;
+
+    invoke-direct {v1}, Lcom/google/crypto/tink/ConfigurationV0$$ExternalSyntheticLambda4;-><init>()V
+
+    const-class v2, Lcom/google/crypto/tink/signature/RsaSsaPkcs1PublicKey;
+
+    const-class v3, Lcom/google/crypto/tink/PublicKeyVerify;
+
+    .line 79
+    invoke-static {v1, v2, v3}, Lcom/google/crypto/tink/internal/PrimitiveConstructor;->create(Lcom/google/crypto/tink/internal/PrimitiveConstructor$PrimitiveConstructionFunction;Ljava/lang/Class;Ljava/lang/Class;)Lcom/google/crypto/tink/internal/PrimitiveConstructor;
+
+    move-result-object v1
+
+    .line 78
+    invoke-virtual {v0, v1}, Lcom/google/crypto/tink/internal/PrimitiveRegistry$Builder;->registerPrimitiveConstructor(Lcom/google/crypto/tink/internal/PrimitiveConstructor;)Lcom/google/crypto/tink/internal/PrimitiveRegistry$Builder;
+
+    .line 81
+    new-instance v1, Lcom/google/crypto/tink/ConfigurationV0$$ExternalSyntheticLambda1;
+
+    invoke-direct {v1}, Lcom/google/crypto/tink/ConfigurationV0$$ExternalSyntheticLambda1;-><init>()V
+
+    const-class v2, Lcom/google/crypto/tink/signature/Ed25519PrivateKey;
+
+    const-class v3, Lcom/google/crypto/tink/PublicKeySign;
+
+    .line 82
+    invoke-static {v1, v2, v3}, Lcom/google/crypto/tink/internal/PrimitiveConstructor;->create(Lcom/google/crypto/tink/internal/PrimitiveConstructor$PrimitiveConstructionFunction;Ljava/lang/Class;Ljava/lang/Class;)Lcom/google/crypto/tink/internal/PrimitiveConstructor;
+
+    move-result-object v1
+
+    .line 81
+    invoke-virtual {v0, v1}, Lcom/google/crypto/tink/internal/PrimitiveRegistry$Builder;->registerPrimitiveConstructor(Lcom/google/crypto/tink/internal/PrimitiveConstructor;)Lcom/google/crypto/tink/internal/PrimitiveRegistry$Builder;
+
+    .line 84
+    new-instance v1, Lcom/google/crypto/tink/ConfigurationV0$$ExternalSyntheticLambda2;
+
+    invoke-direct {v1}, Lcom/google/crypto/tink/ConfigurationV0$$ExternalSyntheticLambda2;-><init>()V
+
+    const-class v2, Lcom/google/crypto/tink/signature/Ed25519PublicKey;
+
+    const-class v3, Lcom/google/crypto/tink/PublicKeyVerify;
+
+    .line 85
+    invoke-static {v1, v2, v3}, Lcom/google/crypto/tink/internal/PrimitiveConstructor;->create(Lcom/google/crypto/tink/internal/PrimitiveConstructor$PrimitiveConstructionFunction;Ljava/lang/Class;Ljava/lang/Class;)Lcom/google/crypto/tink/internal/PrimitiveConstructor;
+
+    move-result-object v1
+
+    .line 84
+    invoke-virtual {v0, v1}, Lcom/google/crypto/tink/internal/PrimitiveRegistry$Builder;->registerPrimitiveConstructor(Lcom/google/crypto/tink/internal/PrimitiveConstructor;)Lcom/google/crypto/tink/internal/PrimitiveRegistry$Builder;
+
+    .line 87
+    new-instance v1, Lcom/google/crypto/tink/signature/SignatureConfigurationV1$$ExternalSyntheticLambda0;
+
+    invoke-direct {v1}, Lcom/google/crypto/tink/signature/SignatureConfigurationV1$$ExternalSyntheticLambda0;-><init>()V
+
+    const-class v2, Lcom/google/crypto/tink/signature/MlDsaPrivateKey;
+
+    const-class v3, Lcom/google/crypto/tink/PublicKeySign;
+
+    .line 88
+    invoke-static {v1, v2, v3}, Lcom/google/crypto/tink/internal/PrimitiveConstructor;->create(Lcom/google/crypto/tink/internal/PrimitiveConstructor$PrimitiveConstructionFunction;Ljava/lang/Class;Ljava/lang/Class;)Lcom/google/crypto/tink/internal/PrimitiveConstructor;
+
+    move-result-object v1
+
+    .line 87
+    invoke-virtual {v0, v1}, Lcom/google/crypto/tink/internal/PrimitiveRegistry$Builder;->registerPrimitiveConstructor(Lcom/google/crypto/tink/internal/PrimitiveConstructor;)Lcom/google/crypto/tink/internal/PrimitiveRegistry$Builder;
+
+    .line 90
+    new-instance v1, Lcom/google/crypto/tink/signature/SignatureConfigurationV1$$ExternalSyntheticLambda1;
+
+    invoke-direct {v1}, Lcom/google/crypto/tink/signature/SignatureConfigurationV1$$ExternalSyntheticLambda1;-><init>()V
+
+    const-class v2, Lcom/google/crypto/tink/signature/MlDsaPublicKey;
+
+    const-class v3, Lcom/google/crypto/tink/PublicKeyVerify;
+
+    .line 91
+    invoke-static {v1, v2, v3}, Lcom/google/crypto/tink/internal/PrimitiveConstructor;->create(Lcom/google/crypto/tink/internal/PrimitiveConstructor$PrimitiveConstructionFunction;Ljava/lang/Class;Ljava/lang/Class;)Lcom/google/crypto/tink/internal/PrimitiveConstructor;
+
+    move-result-object v1
+
+    .line 90
+    invoke-virtual {v0, v1}, Lcom/google/crypto/tink/internal/PrimitiveRegistry$Builder;->registerPrimitiveConstructor(Lcom/google/crypto/tink/internal/PrimitiveConstructor;)Lcom/google/crypto/tink/internal/PrimitiveRegistry$Builder;
+
+    .line 93
+    new-instance v1, Lcom/google/crypto/tink/signature/SignatureConfigurationV1$$ExternalSyntheticLambda2;
+
+    invoke-direct {v1}, Lcom/google/crypto/tink/signature/SignatureConfigurationV1$$ExternalSyntheticLambda2;-><init>()V
+
+    const-class v2, Lcom/google/crypto/tink/signature/SlhDsaPrivateKey;
+
+    const-class v3, Lcom/google/crypto/tink/PublicKeySign;
+
+    .line 94
+    invoke-static {v1, v2, v3}, Lcom/google/crypto/tink/internal/PrimitiveConstructor;->create(Lcom/google/crypto/tink/internal/PrimitiveConstructor$PrimitiveConstructionFunction;Ljava/lang/Class;Ljava/lang/Class;)Lcom/google/crypto/tink/internal/PrimitiveConstructor;
+
+    move-result-object v1
+
+    .line 93
+    invoke-virtual {v0, v1}, Lcom/google/crypto/tink/internal/PrimitiveRegistry$Builder;->registerPrimitiveConstructor(Lcom/google/crypto/tink/internal/PrimitiveConstructor;)Lcom/google/crypto/tink/internal/PrimitiveRegistry$Builder;
+
+    .line 96
+    new-instance v1, Lcom/google/crypto/tink/signature/SignatureConfigurationV1$$ExternalSyntheticLambda3;
+
+    invoke-direct {v1}, Lcom/google/crypto/tink/signature/SignatureConfigurationV1$$ExternalSyntheticLambda3;-><init>()V
+
+    const-class v2, Lcom/google/crypto/tink/signature/SlhDsaPublicKey;
+
+    const-class v3, Lcom/google/crypto/tink/PublicKeyVerify;
+
+    .line 97
+    invoke-static {v1, v2, v3}, Lcom/google/crypto/tink/internal/PrimitiveConstructor;->create(Lcom/google/crypto/tink/internal/PrimitiveConstructor$PrimitiveConstructionFunction;Ljava/lang/Class;Ljava/lang/Class;)Lcom/google/crypto/tink/internal/PrimitiveConstructor;
+
+    move-result-object v1
+
+    .line 96
+    invoke-virtual {v0, v1}, Lcom/google/crypto/tink/internal/PrimitiveRegistry$Builder;->registerPrimitiveConstructor(Lcom/google/crypto/tink/internal/PrimitiveConstructor;)Lcom/google/crypto/tink/internal/PrimitiveRegistry$Builder;
+
+    .line 100
+    invoke-virtual {v0}, Lcom/google/crypto/tink/internal/PrimitiveRegistry$Builder;->build()Lcom/google/crypto/tink/internal/PrimitiveRegistry;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/google/crypto/tink/internal/InternalConfiguration;->createFromPrimitiveRegistry(Lcom/google/crypto/tink/internal/PrimitiveRegistry;)Lcom/google/crypto/tink/internal/InternalConfiguration;
+
+    move-result-object v0
+    :try_end_0
+    .catch Ljava/security/GeneralSecurityException; {:try_start_0 .. :try_end_0} :catch_0
+
+    return-object v0
+
+    :catch_0
+    move-exception v0
+
+    .line 102
+    new-instance v1, Ljava/lang/IllegalStateException;
+
+    invoke-direct {v1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/Throwable;)V
+
+    throw v1
+.end method
+
+.method public static get()Lcom/google/crypto/tink/Configuration;
+    .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/security/GeneralSecurityException;
+        }
+    .end annotation
+
+    .line 108
+    invoke-static {}, Lcom/google/crypto/tink/config/internal/TinkFipsUtil;->useOnlyFips()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    .line 112
+    sget-object v0, Lcom/google/crypto/tink/signature/SignatureConfigurationV1;->INTERNAL_CONFIGURATION:Lcom/google/crypto/tink/internal/InternalConfiguration;
+
+    return-object v0
+
+    .line 109
+    :cond_0
+    new-instance v0, Ljava/security/GeneralSecurityException;
+
+    const-string v1, "Cannot use non-FIPS-compliant SignatureConfigurationV1 in FIPS mode"
+
+    invoke-direct {v0, v1}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+.end method

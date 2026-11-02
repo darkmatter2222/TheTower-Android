@@ -1,0 +1,79 @@
+.class final synthetic Lcom/ironsource/x1$d;
+.super Lkotlin/jvm/internal/FunctionReferenceImpl;
+.source "SourceFile"
+
+# interfaces
+.implements Lkotlin/jvm/functions/Function0;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/ironsource/x1;-><init>(Lcom/ironsource/D7;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lcom/ironsource/z1;Lcom/ironsource/F1;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function1;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x1000
+    name = null
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Lkotlin/jvm/internal/FunctionReferenceImpl;",
+        "Lkotlin/jvm/functions/Function0<",
+        "Lcom/ironsource/B1;",
+        ">;"
+    }
+.end annotation
+
+
+# direct methods
+.method constructor <init>(Ljava/lang/Object;)V
+    .locals 7
+
+    .line 1
+    const-class v3, Lcom/ironsource/wd;
+
+    const-string v5, "read()Lcom/ironsource/services/anr/AnrProcessIdentity;"
+
+    const/4 v6, 0x0
+
+    const/4 v1, 0x0
+
+    const-string v4, "read"
+
+    move-object v0, p0
+
+    move-object v2, p1
+
+    invoke-direct/range {v0 .. v6}, Lkotlin/jvm/internal/FunctionReferenceImpl;-><init>(ILjava/lang/Object;Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;I)V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final a()Lcom/ironsource/B1;
+    .locals 1
+
+    .line 1
+    iget-object v0, p0, Lkotlin/jvm/internal/FunctionReferenceImpl;->receiver:Ljava/lang/Object;
+
+    check-cast v0, Lcom/ironsource/wd;
+
+    invoke-virtual {v0}, Lcom/ironsource/wd;->b()Lcom/ironsource/B1;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic invoke()Ljava/lang/Object;
+    .locals 1
+
+    .line 1
+    invoke-virtual {p0}, Lcom/ironsource/x1$d;->a()Lcom/ironsource/B1;
+
+    move-result-object v0
+
+    return-object v0
+.end method

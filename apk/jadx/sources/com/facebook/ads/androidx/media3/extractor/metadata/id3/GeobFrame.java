@@ -1,0 +1,96 @@
+package com.facebook.ads.androidx.media3.extractor.metadata.id3;
+
+import android.os.Parcel;
+import android.os.Parcelable;
+import com.facebook.ads.redexgen.X.C2073Zz;
+import com.facebook.ads.redexgen.X.N1;
+import com.google.common.base.Ascii;
+import java.util.Arrays;
+
+/* JADX INFO: loaded from: assets/audience_network/classes.dex */
+public final class GeobFrame extends Id3Frame {
+    public static byte[] A04;
+    public static String[] A05 = {"E27OPP", "LQtXMc51IH9cBDSQz4x", "ss0SR7FhOoQBIuQTZ6Qztcjw9jR9hSj2", "nME9IqysYduOLHQ4sDt0IwkSmHeOH0Nr", "Q", "LA", "bdhCKpdRxreOwFGHy8iEphp80sQOO86R", "v"};
+    public static final Parcelable.Creator<GeobFrame> CREATOR;
+    public final String A00;
+    public final String A01;
+    public final String A02;
+    public final byte[] A03;
+
+    static {
+        A01();
+        CREATOR = new C2073Zz();
+    }
+
+    public GeobFrame(Parcel parcel) {
+        super(A00(36, 4, 58));
+        this.A02 = (String) N1.A0f(parcel.readString());
+        this.A01 = (String) N1.A0f(parcel.readString());
+        this.A00 = (String) N1.A0f(parcel.readString());
+        this.A03 = (byte[]) N1.A0f(parcel.createByteArray());
+    }
+
+    public GeobFrame(String str, String str2, String str3, byte[] bArr) {
+        super(A00(36, 4, 58));
+        this.A02 = str;
+        this.A01 = str2;
+        this.A00 = str3;
+        this.A03 = bArr;
+    }
+
+    public static String A00(int i, int i2, int i3) {
+        byte[] bArrCopyOfRange = Arrays.copyOfRange(A04, i, i + i2);
+        for (int i4 = 0; i4 < bArrCopyOfRange.length; i4++) {
+            bArrCopyOfRange[i4] = (byte) ((bArrCopyOfRange[i4] - i3) - 124);
+        }
+        return new String(bArrCopyOfRange);
+    }
+
+    public static void A01() {
+        byte[] bArr = {-50, -62, 6, 7, Ascii.NAK, 5, Ascii.DC4, Ascii.VT, Ascii.DC2, Ascii.SYN, Ascii.VT, 17, Ascii.DLE, -33, -19, -31, 39, 42, 45, 38, 47, 34, 46, 38, -2, -12, -38, 39, 35, 39, Ascii.US, Ascii.SO, 51, 42, Ascii.US, -9, -3, -5, 5, -8};
+        if (A05[3].charAt(10) == 'k') {
+            throw new RuntimeException();
+        }
+        A05[3] = "dTFcQP1Jtz13qPJouOIyfgNERD63vnNj";
+        A04 = bArr;
+    }
+
+    public final boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        GeobFrame geobFrame = (GeobFrame) obj;
+        return N1.A1E(this.A02, geobFrame.A02) && N1.A1E(this.A01, geobFrame.A01) && N1.A1E(this.A00, geobFrame.A00) && Arrays.equals(this.A03, geobFrame.A03);
+    }
+
+    public final int hashCode() {
+        int iHashCode = 0;
+        int iHashCode2 = ((((17 * 31) + (this.A02 != null ? this.A02.hashCode() : 0)) * 31) + (this.A01 != null ? this.A01.hashCode() : 0)) * 31;
+        if (this.A00 != null) {
+            String str = this.A00;
+            String[] strArr = A05;
+            if (strArr[7].length() != strArr[4].length()) {
+                throw new RuntimeException();
+            }
+            A05[2] = "LQfWiwlA0VVt21qytm8GIpYwcSmoc9LN";
+            iHashCode = str.hashCode();
+        }
+        return ((iHashCode2 + iHashCode) * 31) + Arrays.hashCode(this.A03);
+    }
+
+    @Override // com.facebook.ads.androidx.media3.extractor.metadata.id3.Id3Frame
+    public final String toString() {
+        return super.A00 + A00(25, 11, 62) + this.A02 + A00(14, 11, 69) + this.A01 + A00(0, 14, 38) + this.A00;
+    }
+
+    @Override // android.os.Parcelable
+    public final void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(this.A02);
+        parcel.writeString(this.A01);
+        parcel.writeString(this.A00);
+        parcel.writeByteArray(this.A03);
+    }
+}

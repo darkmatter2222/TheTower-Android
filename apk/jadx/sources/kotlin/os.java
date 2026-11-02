@@ -1,0 +1,54 @@
+package kotlin;
+
+import com.google.android.libraries.ads.mobile.sdk.internal.signals.BatterySignals;
+import com.google.android.libraries.ads.mobile.sdk.internal.signals.Signals;
+import p005kotlin.jvm.internal.Intrinsics;
+
+/* JADX INFO: loaded from: classes.dex */
+public final class os implements oe3 {
+    public final double a;
+    public final boolean b;
+
+    public os(double d, boolean z) {
+        this.a = d;
+        this.b = z;
+    }
+
+    @Override // kotlin.oe3
+    public final void a(Signals signals) {
+        Intrinsics.checkNotNullParameter(signals, "signals");
+        BatterySignals batterySignals = signals.deviceSignals.batterySignals;
+        batterySignals.isCharging = this.b;
+        batterySignals.batteryLevel = this.a;
+    }
+
+    public final boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (!(obj instanceof os)) {
+            return false;
+        }
+        os osVar = (os) obj;
+        return Double.compare(this.a, osVar.a) == 0 && this.b == osVar.b;
+    }
+
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r0v3, types: [int] */
+    /* JADX WARN: Type inference failed for: r1v1, types: [int] */
+    /* JADX WARN: Type inference failed for: r1v2 */
+    /* JADX WARN: Type inference failed for: r1v3 */
+    public final int hashCode() {
+        int iHashCode = Double.hashCode(this.a) * 31;
+        boolean z = this.b;
+        ?? r1 = z;
+        if (z) {
+            r1 = 1;
+        }
+        return iHashCode + r1;
+    }
+
+    public final String toString() {
+        return "BatterySignal(batteryLevel=" + this.a + ", isCharging=" + this.b + ")";
+    }
+}

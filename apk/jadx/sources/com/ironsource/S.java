@@ -1,0 +1,108 @@
+package com.ironsource;
+
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.locks.ReadWriteLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
+import org.json.JSONObject;
+import p005kotlin.collections.CollectionsKt;
+import p005kotlin.jvm.internal.DefaultConstructorMarker;
+import p005kotlin.jvm.internal.Intrinsics;
+
+/* JADX INFO: loaded from: classes4.dex */
+public final class S implements P, P.a {
+    private final ReadWriteLock a;
+    private final Map<String, O> b;
+
+    /* JADX WARN: Multi-variable type inference failed */
+    public S() {
+        this(null, 1, 0 == true ? 1 : 0);
+    }
+
+    public S(ReadWriteLock readWriteLock) {
+        Intrinsics.checkNotNullParameter(readWriteLock, "readWriteLock");
+        this.a = readWriteLock;
+        this.b = new LinkedHashMap();
+    }
+
+    public /* synthetic */ S(ReadWriteLock readWriteLock, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this((i & 1) != 0 ? new ReentrantReadWriteLock() : readWriteLock);
+    }
+
+    @Override // com.ironsource.P
+    public O a(String adId) {
+        Intrinsics.checkNotNullParameter(adId, "adId");
+        this.a.readLock().lock();
+        try {
+            return this.b.get(adId);
+        } finally {
+            this.a.readLock().unlock();
+        }
+    }
+
+    @Override // com.ironsource.P
+    public List<O> a() {
+        this.a.readLock().lock();
+        List<O> list = CollectionsKt.toList(this.b.values());
+        this.a.readLock().unlock();
+        return list;
+    }
+
+    @Override // com.ironsource.P.a
+    public void a(O adInfo) {
+        Intrinsics.checkNotNullParameter(adInfo, "adInfo");
+        this.a.writeLock().lock();
+        try {
+            if (this.b.get(adInfo.c()) == null) {
+                this.b.put(adInfo.c(), adInfo);
+            }
+        } finally {
+            this.a.writeLock().unlock();
+        }
+    }
+
+    @Override // com.ironsource.P.a
+    public void a(EnumC3740o0 adStatus, String adId) {
+        Intrinsics.checkNotNullParameter(adStatus, "adStatus");
+        Intrinsics.checkNotNullParameter(adId, "adId");
+        this.a.writeLock().lock();
+        try {
+            O o = this.b.get(adId);
+            if (o == null) {
+                return;
+            }
+            o.a(adStatus);
+            o.a(System.currentTimeMillis() / 1000.0d);
+        } finally {
+            this.a.writeLock().unlock();
+        }
+    }
+
+    @Override // com.ironsource.P.a
+    public void a(JSONObject json, EnumC3740o0 adStatus, String adId) {
+        Intrinsics.checkNotNullParameter(json, "json");
+        Intrinsics.checkNotNullParameter(adStatus, "adStatus");
+        Intrinsics.checkNotNullParameter(adId, "adId");
+        this.a.writeLock().lock();
+        try {
+            O o = this.b.get(adId);
+            if (o == null) {
+                return;
+            }
+            String strOptString = json.optString("bundleId");
+            Intrinsics.checkNotNull(strOptString);
+            if (strOptString.length() > 0) {
+                o.a(strOptString);
+            }
+            String strOptString2 = json.optString("dynamicDemandSource");
+            Intrinsics.checkNotNull(strOptString2);
+            if (strOptString2.length() > 0) {
+                o.a(W7.b.a(strOptString2));
+            }
+            o.a(adStatus);
+        } finally {
+            this.a.writeLock().unlock();
+        }
+    }
+}

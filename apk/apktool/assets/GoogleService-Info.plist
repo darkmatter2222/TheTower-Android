@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>219234862051-4152fil8qt3f8mn48ap0v68an9bjj9t3.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.219234862051-4152fil8qt3f8mn48ap0v68an9bjj9t3</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>219234862051-77mm6okbhdv2ss02uhv6r0achp6o1ncn.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAL7TH_f5tNHSNIfthXCujPQXfO86SRKo8</string>
+	<key>GCM_SENDER_ID</key>
+	<string>219234862051</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.TechTreeGames.TheTower</string>
+	<key>PROJECT_ID</key>
+	<string>the-tower-4f99a</string>
+	<key>STORAGE_BUCKET</key>
+	<string>the-tower-4f99a.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:219234862051:ios:3db454388460bd257c56d6</string>
+	<key>DATABASE_URL</key>
+	<string>https://the-tower-4f99a-default-rtdb.firebaseio.com</string>
+	<key>ADMOB_APP_ID</key>
+	<string>ca-app-pub-1124595048110577~4943869877</string>
+</dict>
+</plist>

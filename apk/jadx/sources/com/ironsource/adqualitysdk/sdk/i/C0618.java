@@ -1,0 +1,25 @@
+package com.ironsource.adqualitysdk.sdk.i;
+
+import com.fyber.fairbid.ads.ImpressionData;
+import java.util.ArrayList;
+
+/* JADX INFO: renamed from: com.ironsource.adqualitysdk.sdk.i.ᓾ, reason: contains not printable characters */
+/* JADX INFO: loaded from: classes4.dex */
+public final class C0618 implements InterfaceC0277 {
+
+    /* JADX INFO: renamed from: ﾒ, reason: contains not printable characters */
+    public final /* synthetic */ C0597 f2495;
+
+    public C0618(C0597 c0597) {
+        this.f2495 = c0597;
+    }
+
+    @Override // com.ironsource.adqualitysdk.sdk.i.InterfaceC0277
+    /* JADX INFO: renamed from: ﾒ */
+    public final Object mo1846(ArrayList arrayList, C0943 c0943) {
+        C0597 c0597 = this.f2495;
+        ImpressionData impressionData = (ImpressionData) arrayList.get(0);
+        c0597.getClass();
+        return impressionData.getVariantId();
+    }
+}

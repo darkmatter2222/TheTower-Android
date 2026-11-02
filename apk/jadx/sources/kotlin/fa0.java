@@ -1,0 +1,8 @@
+package kotlin;
+
+/* JADX INFO: loaded from: classes.dex */
+public final class fa0 extends vz0.a implements uw1 {
+    public fa0() {
+        super(ia0.DEFAULT_INSTANCE);
+    }
+}

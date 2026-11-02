@@ -1,0 +1,71 @@
+.class public final Lads_mobile_sdk/vr3;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+# interfaces
+.implements Ljava/lang/Thread$UncaughtExceptionHandler;
+
+
+# instance fields
+.field public final synthetic a:Lads_mobile_sdk/as3;
+
+.field public final synthetic b:Ljava/lang/Thread$UncaughtExceptionHandler;
+
+
+# direct methods
+.method public constructor <init>(Lads_mobile_sdk/as3;Ljava/lang/Thread$UncaughtExceptionHandler;)V
+    .locals 0
+
+    .line 1
+    iput-object p1, p0, Lads_mobile_sdk/vr3;->a:Lads_mobile_sdk/as3;
+
+    iput-object p2, p0, Lads_mobile_sdk/vr3;->b:Ljava/lang/Thread$UncaughtExceptionHandler;
+
+    .line 197
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final uncaughtException(Ljava/lang/Thread;Ljava/lang/Throwable;)V
+    .locals 1
+
+    .line 1
+    const-string v0, "thread"
+
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    const-string v0, "throwable"
+
+    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 200
+    :try_start_0
+    iget-object v0, p0, Lads_mobile_sdk/vr3;->a:Lads_mobile_sdk/as3;
+
+    invoke-virtual {v0, p2}, Lads_mobile_sdk/as3;->a(Ljava/lang/Throwable;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .line 206
+    iget-object v0, p0, Lads_mobile_sdk/vr3;->b:Ljava/lang/Thread$UncaughtExceptionHandler;
+
+    if-eqz v0, :cond_0
+
+    goto :goto_0
+
+    .line 207
+    :catchall_0
+    iget-object v0, p0, Lads_mobile_sdk/vr3;->b:Ljava/lang/Thread$UncaughtExceptionHandler;
+
+    if-eqz v0, :cond_0
+
+    .line 206
+    :goto_0
+    invoke-interface {v0, p1, p2}, Ljava/lang/Thread$UncaughtExceptionHandler;->uncaughtException(Ljava/lang/Thread;Ljava/lang/Throwable;)V
+
+    :cond_0
+    return-void
+.end method

@@ -1,0 +1,41 @@
+package kotlin;
+
+import com.google.android.gms.ads.AdError;
+import com.google.android.gms.ads.mediation.MediationAdLoadCallback;
+import com.google.android.gms.ads.mediation.UnifiedNativeAdMapper;
+import p005kotlin.jvm.functions.Function1;
+import p005kotlin.jvm.internal.Intrinsics;
+
+/* JADX INFO: loaded from: classes.dex */
+public final class gw1 implements MediationAdLoadCallback {
+    public final /* synthetic */ Function1 a;
+    public final /* synthetic */ bv1 b;
+    public final /* synthetic */ hm0 c;
+
+    public gw1(hm0 hm0Var, do3 do3Var, Function1 function1) {
+        this.a = function1;
+        this.b = do3Var;
+        this.c = hm0Var;
+    }
+
+    @Override // com.google.android.gms.ads.mediation.MediationAdLoadCallback
+    public final void onFailure(AdError adError) {
+        Intrinsics.checkNotNullParameter(adError, "adError");
+        ((do3) this.b).a(adError);
+    }
+
+    @Override // com.google.android.gms.ads.mediation.MediationAdLoadCallback
+    public final void onFailure(String failure) {
+        Intrinsics.checkNotNullParameter(failure, "failure");
+        ((do3) this.b).a(new AdError(0, failure, "undefined"));
+    }
+
+    @Override // com.google.android.gms.ads.mediation.MediationAdLoadCallback
+    public final Object onSuccess(Object obj) {
+        UnifiedNativeAdMapper ad = (UnifiedNativeAdMapper) obj;
+        Intrinsics.checkNotNullParameter(ad, "ad");
+        this.a.invoke(ad);
+        ((do3) this.b).f();
+        return new fw1(this.c);
+    }
+}

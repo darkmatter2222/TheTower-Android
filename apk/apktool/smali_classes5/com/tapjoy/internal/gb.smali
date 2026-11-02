@@ -1,0 +1,371 @@
+.class public final Lcom/tapjoy/internal/gb;
+.super Lcom/tapjoy/internal/gm;
+.source "SourceFile"
+
+
+# static fields
+.field static final a:Ljava/util/Map;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/Map<",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+
+# instance fields
+.field private final c:Lcom/tapjoy/internal/gm$a;
+
+.field private final d:Lcom/tapjoy/internal/gm$a;
+
+.field private final e:Lcom/tapjoy/internal/gm$a;
+
+.field private final f:Lcom/tapjoy/internal/gm$a;
+
+.field private final g:Lcom/tapjoy/internal/gm$a;
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    .line 39
+    new-instance v0, Ljava/util/HashMap;
+
+    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+
+    .line 40
+    invoke-static {v0}, Ljava/util/Collections;->unmodifiableMap(Ljava/util/Map;)Ljava/util/Map;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/tapjoy/internal/gb;->a:Ljava/util/Map;
+
+    return-void
+.end method
+
+.method constructor <init>()V
+    .locals 5
+
+    .line 49
+    invoke-direct {p0}, Lcom/tapjoy/internal/gm;-><init>()V
+
+    .line 51
+    const-string v0, "BuildConfig"
+
+    invoke-virtual {p0, v0}, Lcom/tapjoy/internal/gb;->a(Ljava/lang/String;)Lcom/tapjoy/internal/gm$a;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/tapjoy/internal/gb;->c:Lcom/tapjoy/internal/gm$a;
+
+    .line 52
+    const-string v1, "ServerFinal"
+
+    invoke-virtual {p0, v1}, Lcom/tapjoy/internal/gb;->a(Ljava/lang/String;)Lcom/tapjoy/internal/gm$a;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/tapjoy/internal/gb;->d:Lcom/tapjoy/internal/gm$a;
+
+    .line 53
+    const-string v1, "AppRuntime"
+
+    invoke-virtual {p0, v1}, Lcom/tapjoy/internal/gb;->a(Ljava/lang/String;)Lcom/tapjoy/internal/gm$a;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/tapjoy/internal/gb;->e:Lcom/tapjoy/internal/gm$a;
+
+    .line 54
+    new-instance v2, Ljava/util/concurrent/ConcurrentHashMap;
+
+    invoke-direct {v2}, Ljava/util/concurrent/ConcurrentHashMap;-><init>()V
+
+    iput-object v2, v1, Lcom/tapjoy/internal/gm$a;->b:Ljava/util/Map;
+
+    .line 55
+    const-string v1, "ConnectFlags"
+
+    invoke-virtual {p0, v1}, Lcom/tapjoy/internal/gb;->a(Ljava/lang/String;)Lcom/tapjoy/internal/gm$a;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/tapjoy/internal/gb;->f:Lcom/tapjoy/internal/gm$a;
+
+    .line 56
+    const-string v1, "ServerDefault"
+
+    invoke-virtual {p0, v1}, Lcom/tapjoy/internal/gb;->a(Ljava/lang/String;)Lcom/tapjoy/internal/gm$a;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/tapjoy/internal/gb;->g:Lcom/tapjoy/internal/gm$a;
+
+    .line 57
+    const-string v1, "SDKDefault"
+
+    invoke-virtual {p0, v1}, Lcom/tapjoy/internal/gb;->a(Ljava/lang/String;)Lcom/tapjoy/internal/gm$a;
+
+    move-result-object v1
+
+    .line 59
+    const-string v2, ""
+
+    invoke-virtual {v2}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    .line 62
+    :try_start_0
+    invoke-static {v2}, Lcom/tapjoy/internal/bh;->b(Ljava/lang/String;)Lcom/tapjoy/internal/bh;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/tapjoy/internal/bh;->d()Ljava/util/Map;
+
+    move-result-object v2
+
+    iput-object v2, v0, Lcom/tapjoy/internal/gm$a;->b:Ljava/util/Map;
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v0
+
+    .line 64
+    new-instance v1, Ljava/lang/Error;
+
+    const-string v2, "BuildConfig.TJC_CONFIGURATION malformed"
+
+    invoke-direct {v1, v2, v0}, Ljava/lang/Error;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    throw v1
+
+    .line 1072
+    :cond_0
+    :goto_0
+    new-instance v0, Ljava/util/HashMap;
+
+    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+
+    const/4 v2, -0x1
+
+    .line 1079
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    const-string v3, "placement_request_content_retry_timeout"
+
+    invoke-interface {v0, v3, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const/4 v2, 0x4
+
+    .line 1080
+    new-array v2, v2, [Ljava/lang/Number;
+
+    const-wide/16 v3, 0x0
+
+    .line 1081
+    invoke-static {v3, v4}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v3
+
+    const/4 v4, 0x0
+
+    aput-object v3, v2, v4
+
+    const-wide/16 v3, 0x1f4
+
+    invoke-static {v3, v4}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v3
+
+    const/4 v4, 0x1
+
+    aput-object v3, v2, v4
+
+    const-wide/16 v3, 0x2710
+
+    invoke-static {v3, v4}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v3
+
+    const/4 v4, 0x2
+
+    aput-object v3, v2, v4
+
+    const-wide/high16 v3, 0x4000000000000000L    # 2.0
+
+    invoke-static {v3, v4}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
+
+    move-result-object v3
+
+    const/4 v4, 0x3
+
+    aput-object v3, v2, v4
+
+    invoke-static {v2}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+
+    move-result-object v2
+
+    .line 1080
+    const-string v3, "placement_request_content_retry_backoff"
+
+    invoke-interface {v0, v3, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 68
+    iput-object v0, v1, Lcom/tapjoy/internal/gm$a;->b:Ljava/util/Map;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final a(Ljava/util/Hashtable;)V
+    .locals 4
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Hashtable<",
+            "Ljava/lang/String;",
+            "*>;)V"
+        }
+    .end annotation
+
+    .line 106
+    new-instance v0, Ljava/util/HashMap;
+
+    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+
+    .line 107
+    invoke-virtual {p1}, Ljava/util/Hashtable;->entrySet()Ljava/util/Set;
+
+    move-result-object p1
+
+    invoke-interface {p1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+
+    move-result-object p1
+
+    :goto_0
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/util/Map$Entry;
+
+    .line 108
+    sget-object v2, Lcom/tapjoy/internal/gb;->a:Ljava/util/Map;
+
+    invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+
+    move-result-object v3
+
+    invoke-interface {v2, v3}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/lang/String;
+
+    if-nez v2, :cond_0
+
+    .line 110
+    invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/lang/String;
+
+    .line 112
+    :cond_0
+    iget-object v3, p0, Lcom/tapjoy/internal/gb;->e:Lcom/tapjoy/internal/gm$a;
+
+    iget-object v3, v3, Lcom/tapjoy/internal/gm$a;->b:Ljava/util/Map;
+
+    invoke-interface {v3, v2}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 113
+    invoke-interface {v1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+
+    move-result-object v1
+
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    goto :goto_0
+
+    .line 115
+    :cond_1
+    iget-object p1, p0, Lcom/tapjoy/internal/gb;->f:Lcom/tapjoy/internal/gm$a;
+
+    iput-object v0, p1, Lcom/tapjoy/internal/gm$a;->b:Ljava/util/Map;
+
+    .line 116
+    invoke-virtual {p0}, Lcom/tapjoy/internal/gb;->setChanged()V
+
+    return-void
+.end method
+
+.method public final a(Ljava/util/Map;)V
+    .locals 2
+    .param p1    # Ljava/util/Map;
+        .annotation runtime Ljavax/annotation/Nullable;
+        .end annotation
+    .end param
+
+    if-eqz p1, :cond_0
+
+    .line 93
+    const-string v0, "final"
+
+    invoke-interface {p1, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/util/Map;
+
+    .line 94
+    const-string v1, "default"
+
+    invoke-interface {p1, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Ljava/util/Map;
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    move-object p1, v0
+
+    .line 97
+    :goto_0
+    iget-object v1, p0, Lcom/tapjoy/internal/gb;->d:Lcom/tapjoy/internal/gm$a;
+
+    iput-object v0, v1, Lcom/tapjoy/internal/gm$a;->b:Ljava/util/Map;
+
+    .line 98
+    iget-object v0, p0, Lcom/tapjoy/internal/gb;->g:Lcom/tapjoy/internal/gm$a;
+
+    iput-object p1, v0, Lcom/tapjoy/internal/gm$a;->b:Ljava/util/Map;
+
+    .line 99
+    invoke-virtual {p0}, Lcom/tapjoy/internal/gb;->setChanged()V
+
+    return-void
+.end method

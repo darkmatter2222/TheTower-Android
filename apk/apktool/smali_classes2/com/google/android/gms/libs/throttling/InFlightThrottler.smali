@@ -1,0 +1,267 @@
+.class public final Lcom/google/android/gms/libs/throttling/InFlightThrottler;
+.super Ljava/lang/Object;
+.source "com.google.android.gms:play-services-basement@@18.11.0"
+
+# interfaces
+.implements Lcom/google/android/gms/libs/throttling/GmsThrottler;
+
+
+# instance fields
+.field private zza:J
+
+.field private final zzb:Landroid/util/LongSparseArray;
+
+
+# direct methods
+.method constructor <init>()V
+    .locals 2
+
+    .line 1
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    const-wide/16 v0, 0x0
+
+    iput-wide v0, p0, Lcom/google/android/gms/libs/throttling/InFlightThrottler;->zza:J
+
+    new-instance v0, Landroid/util/LongSparseArray;
+
+    const/16 v1, 0x7d0
+
+    invoke-direct {v0, v1}, Landroid/util/LongSparseArray;-><init>(I)V
+
+    iput-object v0, p0, Lcom/google/android/gms/libs/throttling/InFlightThrottler;->zzb:Landroid/util/LongSparseArray;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public release(J)V
+    .locals 7
+
+    .line 1
+    iget-object v0, p0, Lcom/google/android/gms/libs/throttling/InFlightThrottler;->zzb:Landroid/util/LongSparseArray;
+
+    monitor-enter v0
+
+    :try_start_0
+    invoke-virtual {v0, p1, p2}, Landroid/util/LongSparseArray;->get(J)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, [J
+
+    if-nez v1, :cond_0
+
+    .line 2
+    monitor-exit v0
+
+    return-void
+
+    :cond_0
+    const/4 v2, 0x0
+
+    .line 3
+    aget-wide v3, v1, v2
+
+    const-wide/16 v5, -0x1
+
+    add-long/2addr v3, v5
+
+    aput-wide v3, v1, v2
+
+    const-wide/16 v5, 0x0
+
+    cmp-long v2, v3, v5
+
+    if-gtz v2, :cond_1
+
+    .line 4
+    invoke-virtual {v0, p1, p2}, Landroid/util/LongSparseArray;->delete(J)V
+
+    goto :goto_0
+
+    .line 6
+    :cond_1
+    iget-wide p1, p0, Lcom/google/android/gms/libs/throttling/InFlightThrottler;->zza:J
+
+    const-wide/16 v2, 0x1
+
+    add-long/2addr p1, v2
+
+    iput-wide p1, p0, Lcom/google/android/gms/libs/throttling/InFlightThrottler;->zza:J
+
+    const/4 v2, 0x1
+
+    .line 5
+    aput-wide p1, v1, v2
+
+    .line 6
+    :goto_0
+    monitor-exit v0
+
+    return-void
+
+    :catchall_0
+    move-exception p1
+
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw p1
+.end method
+
+.method public tryAcquire(JLcom/google/android/gms/libs/throttling/ThrottlingLimits;)Z
+    .locals 12
+
+    .line 1
+    invoke-virtual {p3}, Lcom/google/android/gms/libs/throttling/ThrottlingLimits;->getMaxInflight()I
+
+    move-result p3
+
+    const/4 v0, 0x0
+
+    if-gtz p3, :cond_0
+
+    return v0
+
+    :cond_0
+    iget-object v1, p0, Lcom/google/android/gms/libs/throttling/InFlightThrottler;->zzb:Landroid/util/LongSparseArray;
+
+    monitor-enter v1
+
+    .line 2
+    :try_start_0
+    invoke-virtual {v1, p1, p2}, Landroid/util/LongSparseArray;->get(J)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, [J
+
+    const-wide/16 v3, 0x1
+
+    const/4 v5, 0x1
+
+    if-eqz v2, :cond_2
+
+    .line 9
+    aget-wide p1, v2, v0
+
+    iget-wide v6, p0, Lcom/google/android/gms/libs/throttling/InFlightThrottler;->zza:J
+
+    add-long/2addr v6, v3
+
+    iput-wide v6, p0, Lcom/google/android/gms/libs/throttling/InFlightThrottler;->zza:J
+
+    .line 10
+    aput-wide v6, v2, v5
+
+    int-to-long v6, p3
+
+    cmp-long p3, p1, v6
+
+    if-ltz p3, :cond_1
+
+    .line 11
+    monitor-exit v1
+
+    return v0
+
+    :cond_1
+    add-long/2addr p1, v3
+
+    .line 12
+    aput-wide p1, v2, v0
+
+    .line 13
+    monitor-exit v1
+
+    return v5
+
+    .line 3
+    :cond_2
+    invoke-virtual {v1}, Landroid/util/LongSparseArray;->size()I
+
+    move-result p3
+
+    const/16 v2, 0x7d0
+
+    if-lt p3, v2, :cond_6
+
+    .line 4
+    invoke-virtual {v1}, Landroid/util/LongSparseArray;->size()I
+
+    move-result p3
+
+    const-wide v6, 0x7fffffffffffffffL
+
+    move v2, v0
+
+    move v8, v2
+
+    :goto_0
+    if-ge v2, p3, :cond_5
+
+    .line 5
+    invoke-virtual {v1, v2}, Landroid/util/LongSparseArray;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v9
+
+    check-cast v9, [J
+
+    aget-wide v10, v9, v5
+
+    cmp-long v9, v10, v6
+
+    if-gez v9, :cond_3
+
+    move-wide v6, v10
+
+    :cond_3
+    if-gez v9, :cond_4
+
+    move v8, v2
+
+    :cond_4
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_0
+
+    .line 6
+    :cond_5
+    invoke-virtual {v1, v8}, Landroid/util/LongSparseArray;->removeAt(I)V
+
+    :cond_6
+    iget-wide v6, p0, Lcom/google/android/gms/libs/throttling/InFlightThrottler;->zza:J
+
+    add-long/2addr v6, v3
+
+    iput-wide v6, p0, Lcom/google/android/gms/libs/throttling/InFlightThrottler;->zza:J
+
+    const/4 p3, 0x2
+
+    new-array p3, p3, [J
+
+    aput-wide v3, p3, v0
+
+    aput-wide v6, p3, v5
+
+    .line 7
+    invoke-virtual {v1, p1, p2, p3}, Landroid/util/LongSparseArray;->put(JLjava/lang/Object;)V
+
+    .line 8
+    monitor-exit v1
+
+    return v5
+
+    :catchall_0
+    move-exception p1
+
+    .line 14
+    monitor-exit v1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw p1
+.end method

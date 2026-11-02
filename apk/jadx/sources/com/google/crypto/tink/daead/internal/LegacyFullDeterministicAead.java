@@ -1,0 +1,87 @@
+package com.google.crypto.tink.daead.internal;
+
+import com.google.crypto.tink.DeterministicAead;
+import com.google.crypto.tink.InsecureSecretKeyAccess;
+import com.google.crypto.tink.internal.KeyManagerRegistry;
+import com.google.crypto.tink.internal.LegacyProtoKey;
+import com.google.crypto.tink.internal.OutputPrefixUtil;
+import com.google.crypto.tink.internal.ProtoKeySerialization;
+import com.google.crypto.tink.internal.Util;
+import com.google.crypto.tink.proto.OutputPrefixType;
+import com.google.crypto.tink.subtle.Bytes;
+import java.security.GeneralSecurityException;
+import java.util.Arrays;
+
+/* JADX INFO: loaded from: classes3.dex */
+public class LegacyFullDeterministicAead implements DeterministicAead {
+    private final byte[] identifier;
+    private final OutputPrefixType outputPrefixType;
+    private final DeterministicAead rawDaead;
+
+    /* JADX INFO: renamed from: com.google.crypto.tink.daead.internal.LegacyFullDeterministicAead$1, reason: invalid class name */
+    static /* synthetic */ class AnonymousClass1 {
+        static final /* synthetic */ int[] $SwitchMap$com$google$crypto$tink$proto$OutputPrefixType;
+
+        static {
+            int[] iArr = new int[OutputPrefixType.values().length];
+            $SwitchMap$com$google$crypto$tink$proto$OutputPrefixType = iArr;
+            try {
+                iArr[OutputPrefixType.RAW.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                $SwitchMap$com$google$crypto$tink$proto$OutputPrefixType[OutputPrefixType.LEGACY.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                $SwitchMap$com$google$crypto$tink$proto$OutputPrefixType[OutputPrefixType.CRUNCHY.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                $SwitchMap$com$google$crypto$tink$proto$OutputPrefixType[OutputPrefixType.TINK.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+        }
+    }
+
+    private LegacyFullDeterministicAead(DeterministicAead deterministicAead, OutputPrefixType outputPrefixType, byte[] bArr) {
+        this.rawDaead = deterministicAead;
+        this.outputPrefixType = outputPrefixType;
+        this.identifier = bArr;
+    }
+
+    public static DeterministicAead create(LegacyProtoKey legacyProtoKey) throws GeneralSecurityException {
+        byte[] byteArray;
+        ProtoKeySerialization serialization = legacyProtoKey.getSerialization(InsecureSecretKeyAccess.get());
+        DeterministicAead deterministicAead = (DeterministicAead) KeyManagerRegistry.globalInstance().getKeyManager(serialization.getTypeUrl(), DeterministicAead.class).getPrimitive(serialization.getValue());
+        OutputPrefixType outputPrefixType = serialization.getOutputPrefixType();
+        int i = AnonymousClass1.$SwitchMap$com$google$crypto$tink$proto$OutputPrefixType[outputPrefixType.ordinal()];
+        if (i == 1) {
+            byteArray = OutputPrefixUtil.EMPTY_PREFIX.toByteArray();
+        } else if (i == 2 || i == 3) {
+            byteArray = OutputPrefixUtil.getLegacyOutputPrefix(legacyProtoKey.getIdRequirementOrNull().intValue()).toByteArray();
+        } else {
+            if (i != 4) {
+                throw new GeneralSecurityException("unknown output prefix type " + outputPrefixType.getNumber());
+            }
+            byteArray = OutputPrefixUtil.getTinkOutputPrefix(legacyProtoKey.getIdRequirementOrNull().intValue()).toByteArray();
+        }
+        return new LegacyFullDeterministicAead(deterministicAead, outputPrefixType, byteArray);
+    }
+
+    @Override // com.google.crypto.tink.DeterministicAead
+    public byte[] decryptDeterministically(byte[] bArr, byte[] bArr2) throws GeneralSecurityException {
+        if (this.outputPrefixType == OutputPrefixType.RAW) {
+            return this.rawDaead.decryptDeterministically(bArr, bArr2);
+        }
+        if (Util.isPrefix(this.identifier, bArr)) {
+            return this.rawDaead.decryptDeterministically(Arrays.copyOfRange(bArr, 5, bArr.length), bArr2);
+        }
+        throw new GeneralSecurityException("wrong prefix");
+    }
+
+    @Override // com.google.crypto.tink.DeterministicAead
+    public byte[] encryptDeterministically(byte[] bArr, byte[] bArr2) throws GeneralSecurityException {
+        return this.outputPrefixType == OutputPrefixType.RAW ? this.rawDaead.encryptDeterministically(bArr, bArr2) : Bytes.concat(this.identifier, this.rawDaead.encryptDeterministically(bArr, bArr2));
+    }
+}

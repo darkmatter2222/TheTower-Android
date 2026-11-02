@@ -1,0 +1,46 @@
+package kotlin;
+
+import p005kotlin.text.Typography;
+
+/* JADX INFO: loaded from: classes.dex */
+public enum rh implements yh1.a {
+    ENUM_FALSE(0),
+    ENUM_TRUE(1),
+    ENUM_FAILURE(2),
+    ENUM_UNKNOWN(1000);
+
+    public final int a;
+
+    rh(int i) {
+        this.a = i;
+    }
+
+    public static rh a(int i) {
+        if (i == 0) {
+            return ENUM_FALSE;
+        }
+        if (i == 1) {
+            return ENUM_TRUE;
+        }
+        if (i == 2) {
+            return ENUM_FAILURE;
+        }
+        if (i != 1000) {
+            return null;
+        }
+        return ENUM_UNKNOWN;
+    }
+
+    @Override // ads_mobile_sdk.yh1.a
+    public final int getNumber() {
+        return this.a;
+    }
+
+    @Override // java.lang.Enum
+    public final String toString() {
+        StringBuilder sb = new StringBuilder("<");
+        sf.a(rh.class, sb, '@').append(Integer.toHexString(System.identityHashCode(this)));
+        sb.append(" number=").append(this.a);
+        return sb.append(" name=").append(name()).append(Typography.greater).toString();
+    }
+}

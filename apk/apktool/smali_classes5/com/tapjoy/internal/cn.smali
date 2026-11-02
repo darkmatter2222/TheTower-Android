@@ -1,0 +1,46 @@
+.class public final Lcom/tapjoy/internal/cn;
+.super Ljava/lang/Object;
+
+
+# instance fields
+.field public final a:Lcom/tapjoy/internal/cu;
+
+.field public final b:Lcom/tapjoy/internal/cu;
+
+.field final c:Z
+
+.field final d:Lcom/tapjoy/internal/cq;
+
+.field final e:Lcom/tapjoy/internal/ct;
+
+
+# direct methods
+.method public constructor <init>(Lcom/tapjoy/internal/cq;Lcom/tapjoy/internal/ct;Lcom/tapjoy/internal/cu;Lcom/tapjoy/internal/cu;)V
+    .locals 0
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/tapjoy/internal/cn;->d:Lcom/tapjoy/internal/cq;
+
+    iput-object p2, p0, Lcom/tapjoy/internal/cn;->e:Lcom/tapjoy/internal/ct;
+
+    iput-object p3, p0, Lcom/tapjoy/internal/cn;->a:Lcom/tapjoy/internal/cu;
+
+    if-nez p4, :cond_0
+
+    sget-object p1, Lcom/tapjoy/internal/cu;->c:Lcom/tapjoy/internal/cu;
+
+    iput-object p1, p0, Lcom/tapjoy/internal/cn;->b:Lcom/tapjoy/internal/cu;
+
+    goto :goto_0
+
+    :cond_0
+    iput-object p4, p0, Lcom/tapjoy/internal/cn;->b:Lcom/tapjoy/internal/cu;
+
+    :goto_0
+    const/4 p1, 0x0
+
+    iput-boolean p1, p0, Lcom/tapjoy/internal/cn;->c:Z
+
+    return-void
+.end method

@@ -1,0 +1,40 @@
+package com.google.android.gms.games.internal;
+
+import android.os.RemoteException;
+import com.google.android.gms.internal.games_v2.zzfu;
+import java.util.Objects;
+
+/* JADX INFO: compiled from: com.google.android.gms:play-services-games-v2@@22.0.0 */
+/* JADX INFO: loaded from: classes2.dex */
+final class zzt extends com.google.android.gms.internal.games_v2.zzab {
+    final /* synthetic */ zzah zza;
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    zzt(zzah zzahVar) {
+        super(zzahVar.getContext().getMainLooper(), 1000);
+        Objects.requireNonNull(zzahVar);
+        this.zza = zzahVar;
+    }
+
+    @Override // com.google.android.gms.internal.games_v2.zzab
+    protected final void zza(String str, int i) {
+        try {
+            zzah zzahVar = this.zza;
+            if (zzahVar.isConnected()) {
+                ((zzan) zzahVar.getService()).zzJ(str, i);
+                return;
+            }
+            StringBuilder sb = new StringBuilder(String.valueOf(str).length() + 30 + String.valueOf(i).length() + 48);
+            sb.append("Unable to increment event ");
+            sb.append(str);
+            sb.append(" by ");
+            sb.append(i);
+            sb.append(" because the games client is no longer connected");
+            zzfu.zzg("GamesGmsClientImpl", sb.toString());
+        } catch (RemoteException e) {
+            zzah.zzae(e);
+        } catch (SecurityException e2) {
+            zzah.zzaf(e2);
+        }
+    }
+}

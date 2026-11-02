@@ -1,0 +1,8 @@
+package kotlin;
+
+/* JADX INFO: loaded from: classes.dex */
+public final class f90 extends vz0.a implements uw1 {
+    public f90() {
+        super(i90.DEFAULT_INSTANCE);
+    }
+}

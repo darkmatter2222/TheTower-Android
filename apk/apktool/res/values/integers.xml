@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="abc_config_activityDefaultDur">220</integer>
+    <integer name="abc_config_activityShortDur">150</integer>
+    <integer name="birth_year_min">1900</integer>
+    <integer name="cancel_button_image_alpha">127</integer>
+    <integer name="chat_text_length_max">140</integer>
+    <integer name="chat_text_length_min">1</integer>
+    <integer name="comment_text_length_max">140</integer>
+    <integer name="comment_text_length_min">1</integer>
+    <integer name="config_tooltipAnimTime">150</integer>
+    <integer name="direct_message_text_length_max">140</integer>
+    <integer name="direct_message_text_length_min">1</integer>
+    <integer name="google_play_services_version">12451000</integer>
+    <integer name="message_text_length_max">140</integer>
+    <integer name="message_text_length_min">1</integer>
+    <integer name="status_bar_notification_info_maxnum">999</integer>
+    <integer name="user_description_length_max">100</integer>
+    <integer name="user_description_length_min">0</integer>
+    <integer name="user_name_length_max">20</integer>
+    <integer name="user_name_length_min">1</integer>
+    <integer name="user_password_length_max">12</integer>
+    <integer name="user_password_length_min">6</integer>
+</resources>

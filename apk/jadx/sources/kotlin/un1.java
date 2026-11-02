@@ -1,0 +1,52 @@
+package kotlin;
+
+import android.content.Context;
+import com.google.android.libraries.ads.mobile.sdk.common.BaseRequest;
+import com.google.android.libraries.ads.mobile.sdk.rewarded.OnUserEarnedRewardListener;
+import com.google.android.libraries.ads.mobile.sdk.rewarded.ServerSideVerificationOptions;
+import java.util.Optional;
+import p005kotlin.jvm.internal.Intrinsics;
+
+/* JADX INFO: loaded from: classes.dex */
+public final class un1 extends as {
+    public final bc3 q;
+    public final t4 r;
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public un1(String adId, i2 adConfiguration, zy commonConfiguration, ks3 traceMetaSet, Optional webView, v3 adEventEmitter, fm0 delegatingAdListener, zx0 fullScreenAdPresenter, bc3 serverSideVerificationOptionsHolder, t4 adMetadataHolder, bn2 phantomReferences, s93 safeBrowsingManager, eo2 placementIdWrapper, BaseRequest baseRequest) {
+        super(adId, adConfiguration, commonConfiguration, traceMetaSet, webView, adEventEmitter, delegatingAdListener, fullScreenAdPresenter, phantomReferences, safeBrowsingManager, placementIdWrapper, baseRequest);
+        Intrinsics.checkNotNullParameter(adId, "adId");
+        Intrinsics.checkNotNullParameter(adConfiguration, "adConfiguration");
+        Intrinsics.checkNotNullParameter(commonConfiguration, "commonConfiguration");
+        Intrinsics.checkNotNullParameter(traceMetaSet, "traceMetaSet");
+        Intrinsics.checkNotNullParameter(webView, "webView");
+        Intrinsics.checkNotNullParameter(adEventEmitter, "adEventEmitter");
+        Intrinsics.checkNotNullParameter(delegatingAdListener, "delegatingAdListener");
+        Intrinsics.checkNotNullParameter(fullScreenAdPresenter, "fullScreenAdPresenter");
+        Intrinsics.checkNotNullParameter(serverSideVerificationOptionsHolder, "serverSideVerificationOptionsHolder");
+        Intrinsics.checkNotNullParameter(adMetadataHolder, "adMetadataHolder");
+        Intrinsics.checkNotNullParameter(phantomReferences, "phantomReferences");
+        Intrinsics.checkNotNullParameter(safeBrowsingManager, "safeBrowsingManager");
+        Intrinsics.checkNotNullParameter(placementIdWrapper, "placementIdWrapper");
+        Intrinsics.checkNotNullParameter(baseRequest, "baseRequest");
+        this.q = serverSideVerificationOptionsHolder;
+        this.r = adMetadataHolder;
+    }
+
+    public final void a(Context context, OnUserEarnedRewardListener onUserEarnedRewardListener) {
+        Intrinsics.checkNotNullParameter(context, "context");
+        Intrinsics.checkNotNullParameter(onUserEarnedRewardListener, "onUserEarnedRewardListener");
+        fm0 fm0VarJ = j();
+        synchronized (fm0VarJ) {
+            fm0VarJ.o = onUserEarnedRewardListener;
+            p005kotlin.Unit unit = p005kotlin.Unit.INSTANCE;
+        }
+        a(context);
+    }
+
+    public final void a(ServerSideVerificationOptions options) {
+        Intrinsics.checkNotNullParameter(options, "options");
+        bc3 bc3Var = this.q;
+        bc3Var.a.setValue(bc3Var, bc3.b[0], options);
+    }
+}

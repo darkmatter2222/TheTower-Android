@@ -1,0 +1,23 @@
+package com.ironsource.adqualitysdk.sdk.i;
+
+import com.google.android.libraries.ads.mobile.sdk.banner.BannerAd;
+import java.util.ArrayList;
+
+/* JADX INFO: renamed from: com.ironsource.adqualitysdk.sdk.i.յ, reason: contains not printable characters */
+/* JADX INFO: loaded from: classes4.dex */
+public final class C0341 implements InterfaceC0277 {
+
+    /* JADX INFO: renamed from: ﾒ, reason: contains not printable characters */
+    public final /* synthetic */ C0297 f1612;
+
+    public C0341(C0297 c0297) {
+        this.f1612 = c0297;
+    }
+
+    @Override // com.ironsource.adqualitysdk.sdk.i.InterfaceC0277
+    /* JADX INFO: renamed from: ﾒ */
+    public final Object mo1846(ArrayList arrayList, C0943 c0943) {
+        this.f1612.getClass();
+        return ((BannerAd) AbstractC0993.m2388(arrayList, 0, BannerAd.class)).getAdSize();
+    }
+}

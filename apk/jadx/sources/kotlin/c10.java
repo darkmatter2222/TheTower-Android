@@ -1,0 +1,27 @@
+package kotlin;
+
+import java.util.Iterator;
+import p005kotlin.coroutines.Continuation;
+import p005kotlin.coroutines.jvm.internal.ContinuationImpl;
+
+/* JADX INFO: loaded from: classes.dex */
+public final class c10 extends ContinuationImpl {
+    public g30 a;
+    public Iterator b;
+    public /* synthetic */ Object c;
+    public final /* synthetic */ g30 d;
+    public int e;
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public c10(g30 g30Var, Continuation continuation) {
+        super(continuation);
+        this.d = g30Var;
+    }
+
+    @Override // p005kotlin.coroutines.jvm.internal.BaseContinuationImpl
+    public final Object invokeSuspend(Object obj) {
+        this.c = obj;
+        this.e |= Integer.MIN_VALUE;
+        return this.d.v(this);
+    }
+}

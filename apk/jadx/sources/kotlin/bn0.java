@@ -1,0 +1,19 @@
+package kotlin;
+
+import android.content.Context;
+
+/* JADX INFO: loaded from: classes.dex */
+public final class bn0 implements jr0 {
+    public final dw2 a;
+    public final dw2 b;
+
+    public bn0(vh1 vh1Var, dw2 dw2Var) {
+        this.a = vh1Var;
+        this.b = dw2Var;
+    }
+
+    @Override // kotlin.cw2
+    public final Object get() {
+        return new an0((Context) this.a.get(), (ur3) this.b.get());
+    }
+}

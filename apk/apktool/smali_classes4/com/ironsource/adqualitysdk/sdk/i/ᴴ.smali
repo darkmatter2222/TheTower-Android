@@ -1,0 +1,44 @@
+.class public final Lcom/ironsource/adqualitysdk/sdk/i/ᴴ;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+# instance fields
+.field public ｋ:Lcom/ironsource/adqualitysdk/sdk/i/t0;
+
+.field public ﾇ:Lcom/ironsource/adqualitysdk/sdk/i/ḷ;
+
+.field public final ﾒ:Lcom/ironsource/adqualitysdk/sdk/i/ᴿ;
+
+
+# direct methods
+.method public constructor <init>()V
+    .locals 1
+
+    .line 1
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 2
+    new-instance v0, Lcom/ironsource/adqualitysdk/sdk/i/ᴿ;
+
+    invoke-direct {v0}, Lcom/ironsource/adqualitysdk/sdk/i/ᴿ;-><init>()V
+
+    iput-object v0, p0, Lcom/ironsource/adqualitysdk/sdk/i/ᴴ;->ﾒ:Lcom/ironsource/adqualitysdk/sdk/i/ᴿ;
+
+    return-void
+.end method
+
+.method public static ﾒ(II)Z
+    .locals 0
+
+    if-lt p0, p1, :cond_0
+
+    const/4 p0, 0x1
+
+    return p0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    return p0
+.end method

@@ -1,0 +1,20 @@
+package kotlin;
+
+import android.content.Context;
+import java.util.concurrent.ExecutorService;
+
+/* JADX INFO: loaded from: classes.dex */
+public final class gx3 implements jr0 {
+    public final dw2 a;
+    public final dw2 b;
+
+    public gx3(dw2 dw2Var, dw2 dw2Var2) {
+        this.a = dw2Var;
+        this.b = dw2Var2;
+    }
+
+    @Override // kotlin.cw2
+    public final Object get() {
+        return new fx3((Context) this.a.get(), (ExecutorService) this.b.get());
+    }
+}

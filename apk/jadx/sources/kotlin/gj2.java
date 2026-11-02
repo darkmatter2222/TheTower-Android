@@ -1,0 +1,8 @@
+package kotlin;
+
+/* JADX INFO: loaded from: classes.dex */
+public final class gj2 extends vz0.a implements uw1 {
+    public gj2() {
+        super(hj2.DEFAULT_INSTANCE);
+    }
+}

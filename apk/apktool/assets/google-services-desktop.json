@@ -1,0 +1,37 @@
+{
+  "project_info": {
+    "project_number": "219234862051",
+    "firebase_url": "https://the-tower-4f99a-default-rtdb.firebaseio.com",
+    "project_id": "the-tower-4f99a",
+    "storage_bucket": "the-tower-4f99a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:219234862051:ios:3db454388460bd257c56d6",
+        "android_client_info": {
+          "package_name": "com.TechTreeGames.TheTower"
+        }
+      },
+      "api_key": [
+        {
+          "current_key": "AIzaSyAL7TH_f5tNHSNIfthXCujPQXfO86SRKo8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 0
+        },
+        "appinvite_service": {
+          "status": 1
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "219234862051-4152fil8qt3f8mn48ap0v68an9bjj9t3.apps.googleusercontent.com"
+        }
+      ]
+    }
+  ],
+  "configuration_version": "1"
+}

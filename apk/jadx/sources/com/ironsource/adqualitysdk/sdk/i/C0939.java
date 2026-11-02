@@ -1,0 +1,25 @@
+package com.ironsource.adqualitysdk.sdk.i;
+
+import com.amazon.device.ads.DTBAdResponse;
+import java.util.ArrayList;
+
+/* JADX INFO: renamed from: com.ironsource.adqualitysdk.sdk.i.ﭒ, reason: contains not printable characters */
+/* JADX INFO: loaded from: classes4.dex */
+public final class C0939 implements InterfaceC0277 {
+
+    /* JADX INFO: renamed from: ﾒ, reason: contains not printable characters */
+    public final /* synthetic */ C0909 f3345;
+
+    public C0939(C0909 c0909) {
+        this.f3345 = c0909;
+    }
+
+    @Override // com.ironsource.adqualitysdk.sdk.i.InterfaceC0277
+    /* JADX INFO: renamed from: ﾒ */
+    public final Object mo1846(ArrayList arrayList, C0943 c0943) {
+        C0909 c0909 = this.f3345;
+        DTBAdResponse dTBAdResponse = (DTBAdResponse) arrayList.get(0);
+        c0909.getClass();
+        return dTBAdResponse.getDefaultVideoAdsRequestCustomParams();
+    }
+}

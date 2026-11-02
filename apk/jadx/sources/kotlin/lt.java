@@ -1,0 +1,8 @@
+package kotlin;
+
+/* JADX INFO: loaded from: classes.dex */
+public final class lt extends vz0.a implements uw1 {
+    public lt() {
+        super(mt.DEFAULT_INSTANCE);
+    }
+}
