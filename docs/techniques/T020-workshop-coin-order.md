@@ -1,5 +1,9 @@
 # T020 — Workshop coin-spend order: the level-band rule and the knee table
 
+Rev: 6 (2026-11-02) — the **whole-lab closed forms** for the three `Enhancement Coin Discount` labs added to §6.3
+(price **×1.3/level** verified on all nine printed ratios ⇒ `Σ = 10⁹(1.3¹⁰⁰ − 1)/0.3 = ` **8.264e20** coins per lab,
+time **arithmetic** `n × 1 d 1 h 55 m` ⇒ **5 453 d** per lab / **16 360 d ≈ 44.8 y** for all three, and the line's
+**cap −30 %** = `0.30 % × 100` ✓).
 Rev: 5 (2026-11-02) — adds the **two QoL labs** (`Buy multiplier` T2 W20, 4 lv, Σ **562 500**; `Game Speed` T1 W30, 7 lv,
 Σ **1 714 800** — both totals re-add, and `Game Speed`'s seven printed times sum to **45.36 d** = its printed **45.3 d**,
 which **resolves H050: the lab `Time` column is per-level**), the **buy-step order ×5 → ×10 → Max → ×100** with **no bulk
@@ -356,6 +360,23 @@ standards. Its whole-project price stays the **734.30 s** of §6.2.
 rate next to the other labs, so take ~5 levels (−1.50 %, ≈ 9.1 B coins) and move on; the node is worth it only because the
 same 100-level ladder repeats three times.
 
+**Whole-lab forecast (closed form, all three shapes verified against the printed rows).** The printed level prices re-add as
+**×1.3 per level** (the nine level-to-level ratios from the table are 1.30 / 1.30 / 1.3018 / 1.30 / 1.2972 / 1.3019 / 1.2981 /
+1.3014 / 1.299 — the ±0.002 wobble is the print's rounding), and the printed times are **arithmetic**:
+`time(n) = n × 1 d 1 h 55 m` (= `n × 93 300 s`; L10 = 10 d 19 h ✓). So the **whole 100-level lab** is
+
+| Line | Closed form | Value |
+|---|---|---|
+| L100's own price | `10⁹ × 1.3⁹⁹` | **1.907e20** coins (**190.7 s**) |
+| **Σ 100 levels** | `10⁹(1.3¹⁰⁰ − 1)/0.3` | **8.264e20 coins (826.4 s)** |
+| Σ 100 levels of slot time | `93 300 × 100·101/2` | **471 165 000 s = 5 453 d ≈ 14.9 y** |
+| all three tracks | ×3 | **2.479e21 coins / 16 360 d ≈ 44.8 y** |
+| **cap** | `0.30 % × 100` | **−30 %** ✓ (the same “up to 30 %” cap as the `Module Shard Cost` lab) |
+
+Practical: the last 10 levels of one lab cost more than the first 90 combined (geometric price) while their *time* grows
+only linearly — so, as in T006 §clock laws, the **early** levels of these three labs are the only ones that pay
+(≈ 5 levels ≈ 9.1 B coins for −1.50 %) and the −30 % cap is a ≈ 45-year project.
+
 Because both apply multiplicatively, a Utility-heavy account should take the **Utility** lab first (it discounts `Coin
 Bonus +`, whose whole project is 2.99 S). Order: 3 free starters → L50–150 on the ×-per-coin standards → `Enemy Level
 Skip +` (1.51 s, the cheapest complete project) → then `Coin Bonus +` / `Cells / Kill Bonus`, whose 2.99 S price tags make
@@ -418,6 +439,11 @@ the enhancement gates — track each of the three separately ([H024](../hypothes
       and leaves the next level's price unchanged (no bulk discount).
 - [ ] One level of `Enhancement Coin Discount` (Utility) changes printed enhancement prices by −0.30 %, and `Max Buy`
       reflects that discount (the v29 fix).
+- [ ] **Discount-lab ladder (§6.3):** L2 = **1.30 B** / **2 d 3 h 50 m** and L10 = **10.60 B** / **10 d 19 h 11 m** — price
+      ratio exactly **1.3**, time exactly **2 ×** and **10 ×** L1's 1 d 1 h 55 m; the panel's value line reaches **−30 %**
+      at L100.
+- [ ] `Coin Bonus +` L10 costs **1.42 T** coins in total and reads **×1.10**, while the run's coins move by **×1.21**
+      (= 1.10², the squared effect in §6.2.1).
 
 ## 9. Falsification
 
