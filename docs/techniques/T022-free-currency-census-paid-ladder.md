@@ -1,5 +1,12 @@
 # T022 — The full free-currency census + the paid ladder (web store vs in-app)
 
+Rev: 2 (2026-11-02) — the whole census is now **double-sourced** from Tower Hub's nine per-currency pages (all
+2026-11-01): the ad-gem cap **60 × 6 = 360/day with a 00:00 UTC reset**, the daily claim **20 (15 before v29)**, Bob's
+**2 gems × ≤10 per run**, and the closed-form ladders for **Bits** (chest `10/25/50/100` ⇒ **185/week** ⇒ **1 480**/season
++ **75** from the store = **1 555**), **Medals** (**945** missions = the T013 figure, **1 890** with a pack, bots
+**150/300/600/900/1 200 = 3 150**), **stones** (UW unlock Σ **9 705**, UW+ Σ **14 650** ⇒ layer **24 355**) and **Keys**
+(**25** for 1st, ranks **16–24 = 1** since v29). One **skew** recorded, not resolved: the confirmation-dialog threshold is
+printed as **≥ 500 stones** there vs ≥ 100 here (§2).
 Rev: 1 (2026-11-01) · Currency: **Gems** and **Power Stones** (the two that gate everything), plus the spend-side price
 census for both.
 **Value:** ★★★★ — this is the *budget sheet*: the free flow is ≈ **360–435 gems/day** and **≈ 4 400 (Copper) / 10 700
@@ -13,6 +20,10 @@ makes the spend order in T009/T012/T017 actually executable.
 for the web-store bonus on stones (H030). **Unverified** on device.
 **Ease:** 1–2 taps per source per day + 1 web-store login/week · **Prerequisite:** none (Bob needs wave 10, the web
 store needs your **User ID** from the profile screen).
+**Status:** **Verified (arithmetic, Rev 2)** — every ladder in §1.1 re-adds from its own closed form
+(`360 = 60 × 6`, `185 = Σ(10,25,50,100)`, `1 480 = 185 × 8`, `1 555 = 1 480 + 75`, `9 705`, `14 650`, `24 355`,
+`3 150`, `945 = 21 × 45`, `1 890 = 2 × 945`, `1 215 = 945 + 2 × 135`, `1 355 = 1 215 + 140`), so the census is
+internally closed; the **device** reads still open are the two §1.1 notes (confirm-dialog threshold, pre-v29 claim value).
 
 ---
 
@@ -50,6 +61,28 @@ tournament (two brackets, 1st place 100 → 900 by league).
 **Stone budget:** `45/week` from the weekly boxes = **2 340/year**, plus tournament 1st place **20 (Copper) → 475
 (Mythic)** per bracket, ×2/week ⇒ **≈ 4 400 stones/year** in Copper, **≈ 10 700** in Gold (80 × 2 × 52 = 8 320). Medal
 trades add **15** stones per trade line but cost the 150-gem alternative (T013's split).
+
+### 1.1 The same census from the per-currency pages (second source, 2026-11-01)
+
+Tower Hub prints one page per currency (`wiki/currency/<name>`). Everything below is a **second print** of a figure this
+doc already carried, with the ladders re-added here:
+
+| Currency | Printed figures (all re-add ✓) | Where this doc uses it |
+|---|---|---|
+| **Gems** | ad claims **6** each, **≤ 60 claims/day = 360**, reset at **00:00 UTC**; **daily claim 20** (“it was **15** before v29”); **Bob = 2** gems, **≤ 10 per run**, “roughly every **400–500 waves**, cap **one spawn per 15 min**”; spends = card slots, cards, **lab slots**, lab **rushes**, modules, **tickets** | §1 budget (the 00:00 UTC reset is the only new constant — it makes the cap *date*-bound, not *uptime*-bound) |
+| **Bits** | chest ladder `100→10, 250→25, 500→50, 750→100` ⇒ **weekly max 185** (Σ ✓, contribution cap **1 600**); “≈ **740** per four-week month, ≈ **1 480** per eight-week season” ✓ `185 × 4 / 185 × 8`; Guild Store **25 / 50 / 75 tokens → 25 bits each** = **150 tokens for 75 bits** per season | **T023** §1 (bit income): **1 555 bits/season** ceiling ⇒ Ally's 14 470-bit bill ≈ **9.3 seasons** |
+| **Keys** | Legend 1st = **25**, down to **1**; **ranks 16–24 = 1 key since v29**; Vault appears only after promotion to **Legends**; **v29 reworked the Vault and refunded every spent key** | T014 §2, T017 §1 (the refund explains why old saves show odd key balances) |
+| **Medals** | three sources only (event missions, daily-mission **weekly boxes**, Guardian **Fetch**); “a full event pays **945** medals from its missions, **1 890** with an Event Pack” ✓ `2 × 945`; bots **150/300/600/900/1 200 = 3 150** ✓; **bot respec 300 gems, once per event, all medals returned**; relic gates count **only medals earned while that event is live** | T013 §1 — the **945** here + weekly boxes **135 × 2** = **1 215** ✓, + Fetch **10/day** = **1 355** |
+| **Shards** | modules unlock at the **Tier 2 Wave 90** milestone; shattering pays **5** (common) / **10** (rare), a merged module returns everything invested; labs `Shatter Shards` ≤ **+100 %**, `Module Shard Cost` ≤ **−30 %** | T010 §1 (the T2 W90 gate is the earliest shard source in the game) |
+| **Power Stones** | UW unlocks **5 / 50 / 150 / 300 / 800 / 1 250 / 1 750 / 2 400 / 3 000** ⇒ Σ **9 705** ✓; UW+ **500 / 625 / 750 / 975 / 1 250 / 1 650 / 2 200 / 2 900 / 3 800** ⇒ Σ **14 650** ✓ ⇒ **UW layer = 24 355**; “the Vault does not use stones; it uses keys” | §2 and T008 §1–§2 (24 355 of the ≈ 500 k bill is the UW layer itself) |
+| **Elite Cells** | only **Vampire, Ray, full-size Scatter** drop them (Scatter children, **Fleets and Bosses drop none**); mins **7 (T14) / 11 (T15) / 12 (T16–18) / 15 (T19+)**, max = tier, average `= (min+max)/2` with the printed “% increase” column re-adding (`13/10.5 − 1 = 23.8 %` ✓) | T006 §Elite Cell income (the enemy list is new; the drop law was already closed) |
+| **Tokens** | two sources only: **Weekly Challenge boxes** + **Guild Reward Chests**; spent in the Guild shop | T004 §guild ledger |
+
+**Two notes a device read still has to settle.**
+1. **Confirm-dialog threshold:** the Power Stones page prints “any purchase of **500 Power Stones or more** triggers a
+   confirmation”, §2 has **≥ 100 stones** (and ≥ 200 gems) — both are kept until one panel read decides (§6).
+2. **`1 480` is the *season* total for two different currencies** — guild **tokens** (T004) and **bits** (this page's
+   `185 × 8`). They are separate counters that happen to share a number; do not add them.
 
 ## 2. The spend census (what the gems/stones are actually owed for)
 
@@ -110,6 +143,11 @@ Creator** — so “Free Gift” is a first-class section: log in with your **Us
 - [ ] The web store lists **Milestone Passes** and a **Free Gift** section after a User-ID login, with gems **10 %**
       higher than the in-app offer of the same price.
 - [ ] A ≥ 200-gem purchase asks for confirmation, a 199-gem purchase does not (same for 100 stones).
+- [ ] **Second-source reads (§1.1):** the ad counter stops after the **60th** claim and rolls at **00:00 UTC**; the Guild
+      weekly chest prints **185 bits** at the weekly maximum and its store lines cost **25 / 50 / 75** tokens for
+      **25 bits each** (⇒ 75/season, **1 555** with the chests); a Legend finish from rank 16–24 prints **1 key** and 1st
+      prints **25**; the UW panel's cumulative stone bill lands on **9 705** (unlocks) and **14 650** (UW+); an event's
+      mission pool ends at **945 medals** (**1 890** with a pack).
 
 ## 6. Falsification
 
@@ -121,6 +159,12 @@ Creator** — so “Free Gift” is a first-class section: log in with your **Us
   once per week, not per day — re-read after a full week (H031).
 - If the stone ladder in §2 disagrees with the panel (UW+/mastery prices move between versions), trust the panel: the
   *ratio* stones/year : bill (≈ 1 : 47) is the planning number that matters.
+- If the **confirmation dialog** appears at **100** stones the §2 line stands; at **500** the Power-Stones page's print
+  stands (both are in the source set, so this is a skew, not an error — record which one your client shows).
+- If the free daily claim reads **15** rather than **20**, the client is **pre-v29** ⇒ subtract 5 from every daily total
+  in §1 (**≈ 430**/day instead of ≈ 435) and the ad-cap figure is the only version-independent one.
+- If the Guild weekly chest's Bit total is not **185** at max contribution, the chest ladder changed (it is server data)
+  ⇒ re-read the four contribution rows and rebuild `1 480 = Σ × 8`.
 
 ## 7. The binary's own ledger (the authoritative taxonomy, 14 ids)
 
@@ -151,6 +195,22 @@ The offer-wall/creator UI is tier-gated by a remote-config value `offerWallCreat
 offers appear at a fixed Tier-1 wave rather than at a fixed account level.
 
 ## Sources
+
+- Tower Hub per-currency pages, all **last verified 2026-11-01** (`wiki/currency/…`): `currency` (overview, 7 tables — the
+  six-currency map and the four printed Coin sources), `currency-gems` (**6** per ad claim, **60/day = 360**, reset
+  **00:00 UTC**; “the daily Gem claim is **20** (it was **15** before v29)”; Bob **2 gems**, “up to ten … roughly every
+  **400–500 waves**, cap one per **15 min**”; the five-item spend list), `currency-bits` (3 tables: the chest ladder
+  `100/250/500/750 → 10/25/50/100`, **Weekly Total (Max) 185**, **740/month**, **1 480/season**, store
+  **25/50/75 tokens → 25 bits** each, **Season Total 150 tokens / 75 bits**), `currency-keys` (**25** for 1st → **1**,
+  ranks **16–24 = 1 key since v29**, Vault after Legends, **v29 refunded all spent keys**), `currency-medals` (three
+  sources; shop stocks Gems/Stones/Shards/Themes/Music/Bots + Relics on rerun; **relic gates count only live-event
+  medals**; bots **150/300/600/900/1 200**; respec **300 gems** once per event, medals returned; **945** per event,
+  **1 890** with a pack), `currency-shards` (**T2 W90** unlock, shatter **5/10**, merged returns all invested,
+  `Shatter Shards` ≤ **+100 %**, `Module Shard Cost` ≤ **−30 %**), `currency-power-stones` (unlock Σ **9 705**,
+  UW+ Σ **14 650**, confirm at **≥ 500**, “the Vault uses keys, not stones”), `currency-elite-cells` (drop enemies
+  **Vampire/Ray/full-size Scatter** only, children/Fleets/Bosses none; min **7/11/12/12/12/15**, max = tier, the
+  `(min+max)/2` and “% increase” columns both re-add), `currency-tokens` (two sources: Weekly Challenge boxes + Guild
+  Reward Chests).
 
 - fandom `Currency/Gems` (raw wikitext) — every free gem source with its limit (6/claim, 60/day; 20 daily store, doubled
   on holidays; Bob 2 × ≤10 with the 11-min / 30-min / 400-wave gates; 3 per mission tile; 185/week; Fetch ≤20/day;

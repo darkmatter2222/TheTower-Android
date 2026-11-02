@@ -1,5 +1,9 @@
 # T023 — Guardian economy: the bit price model, the Fetch droptable, and the sync layer
 
+Rev: 5 (2026-11-02) — **bit income now has a printed ladder** (`wiki/currency/bits`, 2026-11-01): chest
+`100/250/500/750 → 10/25/50/100` = **185/week** (Σ ✓) ⇒ **1 480/season** + store **75** ⇒ **1 555/season = 194.4/week**,
+which prices Ally's 14 470 at **9.3 seasons** and the five-chip bill at **44.5 seasons**; the site's own “71 weeks” line
+implies 203.8/week, so the ≈ 5 % skew between the two prints is recorded rather than resolved.
 Rev: 4 (2026-11-02) — the **per-row grid is now double-sourced**: `wiki/system/guardian` (2026-11-01) prints the same six
 tables with the **same row counts (92 / 92 / 101 / 62 / 73 / 72)** and the same ladders, so the `rows = levels + 2` rule and
 every cap rest on two independent prints; it also prints Bounty's multiplier column as **`×0.01 … ×0.10`** (the increment
@@ -64,6 +68,13 @@ Printed chip totals (all five on the page or in the per-chip guides): **Fetch 14
 13 110**, **Attack 13 345**, **Ally 14 470** — the page states it twice, “fully upgrading Ally costs 14 470 bits … roughly
 **71 weeks** of saving” ⇒ ≈ **204 bits/week** at that stage — and **Scout 13 850**; Summon's total is not printed (§2.1
 derives ≈ 256 k–287 k). Five-chip bill **69 255 bits**.
+
+**Bit income (printed ladder, `wiki/currency/bits`, 2026-11-01).** The Guild Weekly chest pays `100 → 10`, `250 → 25`,
+`500 → 50`, `750 → 100` bits = **185/week** at max contribution (Σ ✓) ⇒ **740** per four-week month and **1 480** per
+eight-week season (`185 × 8` ✓), plus the Guild Store's three lines **25 + 50 + 75 tokens → 25 bits each** = **75 bits**
+per season ⇒ **1 555 bits/season = 194.4/week**. Against the bills: Ally **14 470 ⇒ 9.3 seasons**, the five-chip bill
+**69 255 ⇒ 44.5 seasons**. The site's own “**71 weeks**” statement for Ally implies **203.8 bits/week** — a ≈ 5 % skew
+against the printed **194.4** (the store's 75 bits plus rounding cover most of it), so both prints are kept (§2; T022 §1.1).
 
 **Knee-first, as everywhere else:** the *first* row of a line is free and the next rows are 1–2 bits, so a fresh `k = 1`
 line's first 10 levels cost **45 bits** (§2.2) — cheap multipliers that get buried under the 90-level cooldown tail. Take every line's **first 10–20 levels** on every
