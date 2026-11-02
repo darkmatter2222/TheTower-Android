@@ -7,14 +7,14 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | ID | File | Currency | Status |
 |---|---|---|---|
 | T001 | [Interest idle engine](techniques/T001-interest-idle-engine.md) | Cash, Coins | **Verified (Rev 4**, arithmetic) |
-| T002 | [In-run phase order](techniques/T002-run-phase-order.md) | Cash → Coins | Unverified |
-| T003 | [Turtle build T1–T2](techniques/T003-turtle-build-t1-t2.md) | tier unlocks | Unverified |
+| T002 | [In-run phase order](techniques/T002-run-phase-order.md) | Cash → Coins | **Verified (Rev 2**, arithmetic) |
+| T003 | [Turtle build T1–T2](techniques/T003-turtle-build-t1-t2.md) | tier unlocks | **Verified (Rev 2**, arithmetic) |
 | T004 | [Mission farming on low tier](techniques/T004-mission-farming-low-tier.md) | Gems, Coins, Shards, Medals, Tokens | **Verified (Rev 4**, arithmetic) |
-| T005 | [Tier-rush then farm](techniques/T005-tier-rush-then-farm.md) | Coins (daily/weekly) | Unverified |
+| T005 | [Tier-rush then farm](techniques/T005-tier-rush-then-farm.md) | Coins (daily/weekly) | **Verified (Rev 2**, arithmetic) |
 | T006 | [Lab queue packing + cheapest skipped hour](techniques/T006-lab-queue-packing.md) | all (multipliers) | **Verified (Rev 11**, arithmetic) |
 | T007 | [Ad-gem sweep](techniques/T007-ad-gem-sweep.md) | Gems | Amounts verified (Rev 2) |
-| T008 | [Stone economy: knee-first UW buying + cooldown sync](techniques/T008-uw-sync-with-stones.md) | Stones → Coins | **Verified (Rev 2)** |
-| T009 | [Gem spend order](techniques/T009-gem-spend-order.md) | Coins/min | Unverified (Rev 3) |
+| T008 | [Stone economy: knee-first UW buying + cooldown sync](techniques/T008-uw-sync-with-stones.md) | Stones → Coins | **Verified (Rev 3**, arithmetic: 9/9 stone values + 4/4 lattice rows) |
+| T009 | [Gem spend order](techniques/T009-gem-spend-order.md) | Coins/min | **Double-sourced (Rev 4**; device read pending) |
 | T010 | [Module economy (slot levels, merges, rerolls)](techniques/T010-module-merge-chain.md) | Modules, shards | **Verified (Rev 7**, arithmetic) |
 | T011 | [Perk engine tuning](techniques/T011-perk-engine-tuning.md) | Coins (run multipliers) | **Verified (Rev 4**, arithmetic) |
 | T012 | [Card deck order (gems per percentage point)](techniques/T012-card-deck-order.md) | Coins, Cash, Elite Cells | **Verified (Rev 2**, arithmetic) |
@@ -87,6 +87,8 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | H050 | [Lab `Time` column: per-level or cumulative?](hypotheses/H050-lab-time-column-per-level-vs-cumulative.md) — **resolved** (per-level) | done: `Game Speed`'s 7 times sum to 65 317 min = 45.36 d = its printed total |
 | H051 | [Free-upgrade 90.75 % decomposition + ×2.5 multiply point](hypotheses/H051-free-upgrade-chance-90-75-decomposition.md) | read the tab’s summed chance, the perk’s wording, then one Vault level |
 | H052 | [Guardian chip caps: Summon's two short lines + Cash Bonus = 72 levels?](hypotheses/H052-guardian-chip-line-caps.md) | hold the Summon chip: Cash Bonus final level/total (255 600?) + Cooldown and Duration final values |
+| H053 | [Bot cooldown steps: medal −3 s / lab −1 s, base 120 s?](hypotheses/H053-bot-cooldown-step-sizes.md) | read one bot’s cooldown at 0 → 1 medal → 1 lab → (6 m + 2 l): expect 120 / 117 / 116 / 100 s |
+| H054 | [Thorns hits law `⌈100/t⌉` with breakpoints at 100/n?](hypotheses/H054-thorns-breakpoint-hit-law.md) | hits-to-kill at 25 / 26 / 33 / 34 % ⇒ expect 4 / 4 / 4 / **3** |
 
 ## Logs
 
@@ -156,6 +158,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 - [2026-11-02 - session 59 (T004 Rev 4, T010 Rev 7, T021 Rev 3)](log/2026-11-02.md#2026-11-02---session-59-iteration-68-the-module-lab-page-prices-the-whole-shard-layer-and-the-echo-law-becomes-one-formula)
 - [2026-11-02 - session 60 (T006 Rev 10, T014 Rev 7)](log/2026-11-02.md#2026-11-02---session-60-iteration-69-the-whole-lab-system-closes-at-4-693-levels-and-the-condition-layer-gets-a-ceiling)
 - [2026-11-02 - session 61 (T024 new, T006 Rev 11, H037 partial)](log/2026-11-02.md#2026-11-02---session-61-iteration-70-the-enemy-scaling-layer-closes-and-the-skip-stat-gets-a-buying-order)
+- [2026-11-02 - session 62 (T002/T003/T005 Verified, T008 Rev 3, T009 Rev 4)](log/2026-11-02.md#2026-11-02---session-62-iteration-71-the-three-unverified-docs-close-and-the-thorns-lattice-falls-out-of-one-formula)
 
 ## Reference material in this repo
 

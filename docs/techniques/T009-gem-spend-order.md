@@ -1,8 +1,12 @@
 # T009 — Gem spend order: the two paths, priced
 
+Rev: 4 (2026-11-02) — the **printed order corroborates Path A** (same interleaving of lab slots and card slots) and the
+guide **names** the first seven cards: Attack Speed / Enemy Balance / Coins → Health / Cash → two of Crit Coin, Wave Skip,
+Extra Orbs; the card phase ends where **30 maxed cards** unlock Card Masteries.
 Rev: 3 (2026-11-01) — every step is now a **price**, the two paths get **cumulative gem totals** (so you can locate
 yourself with the gem counter alone), and the event/relic/rush budget rules are added.
-Currency: **Gems** → Coins/min · Status: **Unverified** (prices from two wikis that agree; no device before/after yet)
+Currency: **Gems** → Coins/min · Status: **Double-sourced (Rev 4)** — prices agree across two wikis and the printed order
+is Path A’s shape; a device before/after is still pending
 
 | | |
 |---|---|
@@ -63,6 +67,16 @@ At **≈ 435 gems/day** (T022 §1): Path A ≈ **13 days**, Path B ≈ **12 days
 per-run multiplier compounds and **A** wins; if the tower mostly runs itself, the lab multipliers are the uptime-bound
 term and **B** wins. Switch back to A after the 5th lab slot either way.
 
+**The printed order is Path A’s shape (second source).** The guide’s own sequence interleaves the two families exactly the
+way Path A does — lab slot **2** → three cards + their slots → lab slot **3** → two more cards + slots → lab slot **4** →
+two more cards + slots → lab slot **5** → one Epic module of each type — and it **names** the cards, which the price table
+cannot: **first three = Attack Speed, Enemy Balance, Coins**; **then Health and Cash**; **then two of {Crit Coin, Wave
+Skip, Extra Orbs}**. Two of its stage rules are already in §3 (the slot-waiting rule, the Epic-module-first rule with the
+Havoc Bringer / Rend Armor example, and “keep every module below its level cap”), and it repeats the two rush rules
+(gold-box completed labs improve the rate; longer labs are cheaper per unit of time). It also fixes the ceiling of the
+card phase: **maxing 30 cards unlocks Card Masteries** (T012), which is the point where the card line stops being the best
+gem buy.
+
 ## 3. Stage rules after the framework (5 labs + 5 slots)
 
 1. **Card slot decision rule:** buy a new slot only if you already own a card that would meaningfully improve the build
@@ -100,6 +114,8 @@ term and **B** wins. Switch back to A after the 5th lab slot either way.
 - [ ] After Path A's step 9 the total spent reads ≈ **5 590** gems (± pull count on Enemy Balance).
 - [ ] The 80th pull of an event completes the card quest and the gem counter dropped by **1 600** across the event.
 - [ ] No gem spend on research speed-ups in the log while the framework is incomplete.
+- [ ] The deck’s first three maxing cards are **Attack Speed**, **Enemy Balance**, **Coins** (the printed set), and the
+      **Card Masteries** section appears only after **30** cards are maxed.
 
 ## 6. Falsification
 

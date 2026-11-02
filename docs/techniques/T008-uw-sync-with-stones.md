@@ -1,5 +1,10 @@
 # T008 — Stone economy: knee-first UW buying + cooldown sync
 
+Rev: 3 (2026-11-02) — the **sync lattice** gets its step sizes: bot medal upgrade **−3 s**, bot lab upgrade **−1 s**
+(the page’s three printed steps `5 s = 1 m + 2 l`, `10 s = 3 m + 1 l`, `20 s = 6 m + 2 l` solve to exactly that, and
+`120 − 20 = 100` ✓), base bot cooldown **120 s**, max **50 s** (bots except Flame, BH, DW) and **100 s** (GT); plus the
+printed base cooldowns **GT 300 s / BH 200 s**, the 1:1 and 2:1 funding rule, MVN’s “training wheels” verdict and the four
+printed footguns (§4, after the ladder table).
 Rev: 2 (2026-11-01) — the whole stone ledger is now numeric (per-level columns read and summed; all 9 UW totals and all 9 perk-UW `stone value` entries reproduced exactly), and the sync ladder is rebuilt from those columns.
 Currency: **Power Stones** (and the coin rate they buy) · Status: **Verified** — the derived model reproduces 9/9 published stone values exactly (§6).
 
@@ -60,6 +65,12 @@ Two structure facts that only the tables show: **the `Stones` column is per leve
 
 Read as a rule: **every stat line is ≈4× cheaper in its first block than in its last** (multiplier 133 → 1 625 st per ×1; GT duration 72 → 1 494 st per s; DW cooldown 8 → 108). So a stat bought to its **first block** is the whole value; the last levels of any line are the worst stones in the game.
 
+**The cooldown lines are a −10 s ladder.** Every block above is 10/5/5 levels and every endpoint is a multiple of 10 s, so
+`cooldown = base − 10 × levels` for the three coin UWs: GT 300 → 100 s in **20** levels, BH 200 → 50 s in **15**, DW
+300 → 50 s in **25** (`300 − 10×20 = 100` ✓, `200 − 10×15 = 50` ✓, `300 − 10×25 = 50` ✓). Those three maxes — **100 / 50 /
+50** — are the same numbers the `footguns` page prints independently for the max lattice, so the sync targets are whole
+numbers of levels: **200 s = 10 levels** of GT, **150 s = 5 levels** of BH, never “half a block”.
+
 ## 4. The sync ladder (what to actually buy, in order)
 
 All UW timers start at 0 when the run starts and reset on each activation, so two UWs share a window every **LCM(cooldowns)**. Multipliers multiply, so the coincidence period is the coin rate.
@@ -74,7 +85,41 @@ All UW timers start at 0 when the run starts and reset on each activation, so tw
 
 Then, per line, take the **first block** of the GT money stats: multiplier to 9.0× (534) and duration to 30 s (1 076). **Stage 3 + both = 4 230 stones ≈ 5 months of free stone income**, and it is the whole reason the coin engine works.
 
-Do **not** insert partial values: 250 vs 200 s aligns only every 1 000 s, 270/180 every 520 s — i.e. a half-finished block costs the same 9.1 st/s and can *worsen* the LCM. Finish a block of 5 or 10 levels in one sitting.
+**The three sync numbers to hit** (from the coin guide, and consistent with §4’s ladder): `Golden Tower` base **300 s**
+(5:00), `Black Hole` base **200 s** (3:20). The two valid targets are **200 s** (GT lowered onto BH ⇒ 1:1 — “it will always
+fire alongside BH”) and **150 s** (BH lowered ⇒ fires **twice** per GT = 2:1). Multiverse Nexus can fake this by averaging
+the Death Wave / GT / BH cooldowns “with a small penalty”, but the guide’s own verdict (in `footguns`) is that **even up to
+mythic MVN adds seconds to your average cooldowns**, so treat it as *training wheels* on the road to natural sync — keep
+buying stones while running it and reach at least a **3 : 20** natural sync.
+
+**The funding rule (why partial buying is a loss).** At **1:1** you must be able to pay GT and BH **one block each in the
+same sitting**; at **2:1** you need **two** GT blocks and **one** BH block together. Spend earlier than that and the sync
+breaks — the combined activations become rarer, not more frequent (the LCM arithmetic is §4’s, and the “do not insert
+partial values” note below is the same rule).
+
+**Bots, in the same lattice** (`footguns`, and the arithmetic closes on the printed pairs): the medal and lab cooldown
+upgrades are **−3 s** and **−1 s** per level — `1 medal + 2 labs = 5 s` and `3 medals + 1 lab = 10 s` are the page’s two
+printed steps, and `6 medals + 2 labs = 20 s` brings a bot from its **120 s** base to the printed **100 s** (✓ all three
+rows re-add). Continue in 5 s or 10 s steps until the bot sits at **half** your GT/DW sync cooldown ⇒ a clean **2:1**
+against any UW sync that is a multiple of 10 s. At max, **all bots (except Flame Bot) + Black Hole + Death Wave = 50 s**
+and **Golden Tower = 100 s**. Because *lab* cooldown levels cannot be respecced (the medal ones can — 300 gems, T009 §1),
+take **6 medal + 2 lab** first and only then spend the 3-medal/1-lab steps, and turn a clashing bot off in the **medals
+menu** rather than labbing it out of place. The 69 s MVN average is a *third* lattice and is why the page calls an MVN
+sync “something a maxed Golden Bot cannot respec down to match”.
+
+**Three footguns that are pure loss, as printed.** (1) Lowering **Black Hole’s** cooldown before GT is synced onto it —
+each second makes the 1:1 more expensive; it self-corrects only when BH maxes at 50 s against a maxed GT at 100 s (2:1).
+(2) Touching **any** UW cooldown before knowing which strategies need 1:1 (e.g. the devo that leans on Smart Missiles).
+(3) Labbing **bot cooldowns** before the UW lattice is fixed. Also printed: the **Chrono Field range** lab zooms the
+screen out (enemies spawn further ⇒ lower coins/hour) yet is still **worth maxing** for tournaments — the one lab where
+the page says “more upgrades are worse” and still says max it.
+
+**A fourth, cheap multiplier leg:** the `Coin` card, `Enemy Balance`, **tier**, **themes** and **relics** all raise both
+CPK and CPW (`coin-guide-basics`), so they enter the same product as the UW bonuses above — the full list is in
+[T002](T002-run-phase-order.md) §printed CPK source list.
+
+Do **not** insert partial values: 250 vs 200 s aligns only every 1 000 s, 270/180 every 520 s — i.e. a half-finished
+block costs the same 9.1 st/s and can *worsen* the LCM. Finish a block of 5 or 10 levels in one sitting.
 
 ## 5. Two free (stone-less) UW sources
 
@@ -129,8 +174,19 @@ Also: each `Basic_Upgrades` page's `Total` equals the sum of its own column (BH 
 - [ ] Coins/hour after Stage 3 is roughly **1.5–3×** the pre-purchase value (the multiplier product is only realised when the windows overlap).
 - [ ] The perk table's stone values appear as the in-run UW panel's levels: e.g. the perk GT shows **×9.0 / 30 s / 230 s** and the panel prices it as if 15 + 15 + 7 levels were bought.
 - [ ] The UW+ tab is still locked with 8/9 UWs owned, and appears the moment the 9th is bought.
+- [ ] **Base cooldowns:** with 0 levels bought, GT reads **300 s (5:00)** and BH **200 s (3:20)**.
+- [ ] **The step law:** a bot at **6 medal + 2 lab** cooldown upgrades reads **100 s**; adding **1 medal + 2 labs** makes
+      it **95 s** (`3 + 1 + 1 = 5` ✓), and **3 medals + 1 lab** makes it **90 s** (`9 + 1 = 10` ✓).
+- [ ] Fully maxed: **Black Hole 50 s**, **Death Wave 50 s**, bots (except Flame) **50 s**, **Golden Tower 100 s**.
+- [ ] **The 2:1 check:** BH at 150 s against GT at 300 s ⇒ BH fires **twice** per GT in the same window (count activations
+      over one 300 s span: 2 and 1).
 
 ## 9. Falsification
+
+- If a bot **medal** level removes something other than **3 s** (or a **lab** level other than **1 s**), the two printed
+  steps belong to a different ladder → read the cooldown at 0→1 in each menu separately and set `m` and `l` from those two
+  deltas; the lattice targets (half your GT/DW sync, 100 s then 50 s) still apply, only the tap counts change. Record it
+  as H053.
 
 - If a cooldown `+` costs something other than the printed per-level column (10, 28, 46, …), the client uses a different price tree → record the whole column and rescale §3–§4 (the *ratios* between blocks are what the plan needs).
 - If the UW totals row disagrees (e.g. GT ≠ 27 186), the version changed a ladder — trust the panel, keep the block ratios.
@@ -141,4 +197,11 @@ Also: each `Basic_Upgrades` page's `Total` equals the sum of its own column (BH 
 
 - fandom raw wikitext: `Ultimate Weapons` (the 5 … 3 000 unlock ladder, the 3-random-offer rule, the 40-toggle limit), `Ultimate Weapons/Ultimate Weapon Plus` (500 … 3 800 unlock ladder, 10 levels per ability, `Template:TableUWPCOST` → the three trees 23 800 / 18 570 / 19 050), `Golden Tower/Basic Upgrades`, `Black Hole/Basic_Upgrades`, `Death Wave/Basic_Upgrades`, `Chain Lightning/Basic_Upgrades`, `Smart Missiles/Basic_Upgrades`, `Spotlight/Basic_Upgrades`, `Chrono Field/Basic_Upgrades`, `Inner Land Mines/Basic_Upgrades`, `Poison Swamp/Basic_Upgrades` (per-level columns + `Total` rows), `Perks` (the nine perk-UW `stone value` entries and their exact stats).
 - game-vault `Guide:Ultimate_Weapons_Sync` — the independent 910-stone figure for GT 300→200 s and the partial-sync table (250/200 → 1 000 s, 270/180 → 520 s).
+- Tower Hub `wiki/guide/coin-guide-basics` (2026-07-29) — GT **300 s** / BH **200 s** base, the 200 s (1:1) and 150 s (2:1)
+  sync targets, the “fund both blocks in the same sitting” rule, MVN’s averaging + small penalty, and the **11× / 20.75× /
+  228.25×** multiplier product.
+- Tower Hub `wiki/guide/footguns` (2026-07-29) — the `1 m + 2 l = 5 s` / `3 m + 1 l = 10 s` / `6 m + 2 l = 20 s` steps and
+  the **100 s** waypoint, the max lattice (bots/BH/DW **50 s**, GT **100 s**), “lab upgrades are permanent and, with the
+  exception of range, cannot be switched off”, the medal-respec contrast, the **69 s** MVN average and its training-wheels
+  verdict, and the Chrono Field range note (lower CPH, still max it).
 - Cross-references: [T022](T022-free-currency-census-paid-ladder.md) §1–§2 (stone income and the masteries/Bot+/Synchronicity bills), [T011](T011-perk-engine-tuning.md) (ranking the random-UW perk), [T014](T014-tournament-tickets.md) (the other stone source).
