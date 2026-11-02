@@ -1,5 +1,8 @@
 # T017 — Vault: the Keys priority ladder (Harmony first, then 6 card slots, then the coin lines)
 
+Rev: 4 (2026-11-02) — the **Enemy tab gains a closed form**: `round(25 × 1.05^(n−1))` reproduces its printed ends
+(**25** → **103**) **and** its node total (**1 662**), so `36 × 1 662 = 59 832` is now derived rather than transcribed; and
+the **Power tab closes** as `39 × 250 + 125 (Ultimate Damage) + 1 520 (seven 20-key-start nodes) = 11 395`.
 Rev: 3 (2026-11-02) — the Vault is now **double-sourced** (Tower Hub `wiki/system/the-vault`, verified 2026-10-28, v29
 layout): the **Harmony tab re-adds to the same 1 350 keys** node for node, the whole-Vault bill is printed precisely as
 **73 022 = 72 577 node levels + 445 group unlocks** (and the **445 re-adds** 4 × 25 + 45 + 300 ✓, while
@@ -86,6 +89,19 @@ The Tower Hub page prints the tree structure and the total as numbers rather tha
 * **73 022 = 72 577 + 445** ⇒ the whole-Vault bill is **73 022 keys**, and **35** of them sit on the two **Bastion** nodes
   (an unreleased, switched-off card) ⇒ the **usable** bill is **72 987**.
 * The three trees' level counts (223 / 67 / 1 080) are a fast self-check on a partially-bought tab.
+* **The Enemy ladder has a closed form (new, Rev 4):** the printed ends of the 30-level ladder are **25** (first) and
+  **103** (last), and `round(25 × 1.05^(n−1))` reproduces **both ends and the sum** — `Σ = 25(1.05³⁰ − 1)/0.05 = 1 661`
+  rounded level-by-level to **1 662** exactly as printed ⇒ the Enemy tree is the one **geometric** tab (`×1.05/level`), and
+  `36 × 1 662 = ` **59 832** ✓ closes the tree. Marginal read: level 1 is 25 keys, level 30 is 103 ⇒ **each level is ~1.7×
+  the previous in keys for the same +1 %**, so a node's first 10 levels hold most of its value (the 5-level Power knee rule
+  of §2.2 carries over).
+* **The Power census now closes instead of subtracting:** **39** of the 47 nodes are the standard 5-level ladder
+  `10 / 20 / 40 / 70 / 110` = **250** ⇒ `39 × 250 = ` **9 750**; the cheapest node is `Ultimate Damage` at
+  `5 / 10 / 20 / 35 / 55` = **125**; and **seven** nodes (per the page: `Defense %`, `Orbs`, `Shockwave Frequency`,
+  `Death Defy`, `Wall Rebuild` + the two enemy-node lines) start at **20** a level and climb, carrying the remaining
+  `11 395 − 9 750 − 125 = ` **1 520** keys between them (≈ **217** each, so their ladders are *not* identical — the
+  250-key shape scaled by 2 would be 500). Rev 2’s 240-key gap against this doc’s per-line totals is therefore the
+  20-key-start group, whose v29 ladders remain the one on-device read (§2.4).
 
 ### 2.1 The Harmony tab, priced in full (as printed; section subtotal incl. its unlock)
 
@@ -218,6 +234,12 @@ Take `Basic → Coin Bonus` levels 1–5 (138 keys) before paying any section un
       bought (§2.1), and **1 350** for the tab.
 - [ ] In the Enemies tab, **Basic**'s cumulative reads **239** after level 8 (the wiki prints 129 — a typo; the per-level
       ladder 25/26/28/29/30/32/34/35 re-adds to 239).
+- [ ] **×1.05 law (§2.0):** those eight printed levels are exactly `round(25 × 1.05^(n−1))`, level **30** reads **103**, and
+      the node total is **1 662** — three independent prints of one geometric ladder, so any other Enemy node should follow
+      the same numbers.
+- [ ] **Power closure (§2.0):** counting the tab gives **39** nodes on the 250-key ladder, one `Ultimate Damage` node at
+      **125** (5/10/20/35/55), and **seven** 20-key-start nodes; the seven must together hold **1 520** keys for the tab to
+      reach **11 395**.
 - [ ] The group-unlock bill is **445** keys (Power 4 × 25 = 100 · Harmony 45 · Enemy 300) inside the **73 022** total, and
       one maxed Enemy node reads **1 662** keys cumulative (§2.0).
 - [ ] The two **Bastion** nodes exist but are inert while the card is unavailable ⇒ the usable bill is **72 987**.

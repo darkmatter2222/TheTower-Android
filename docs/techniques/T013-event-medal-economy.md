@@ -1,5 +1,10 @@
 # T013 — Run the event window: every mission is a double-dip, every trade line is capped
 
+Rev: 5 (2026-11-02) — the **cosmetic law is now printed** (`wiki/system/themes-menu`, 2026-11-01):
+`1 + 0.004·tower + 0.008·background + 0.006·(menu + guardian + songs)`, additive, with v29.0.6 counts
+(**83** tower skins, **43** event pairs, **8** guild seasons, **15** guild guardians, **3** shop songs of **44**) ⇒
+**≈ +89.6 %** coins at full collection (**×1.90**), and the shop prices are calibrated to exactly
+**0.00003 multiplier per medal** = **0.30 pp per 100 medals** ⇒ the 1 000-medal cosmetic bill is **3.0 pp**.
 Rev: 4 (2026-11-02) — the **printed mission parameters** added (log-in and free-store-gem **7/10/13**, tournaments
 **1/2/3**, cards **20/40/80**, research time **12 d/30 d/90 d**, kills **50 K/200 K/900 K** · **6 K/20 K/150 K** ·
 **4 K/15 K/100 K**), with the five lines that complete themselves from T022/T014/T005/T012/T006; the pool is **≈ 52 types**
@@ -111,6 +116,42 @@ bill per event is **150** (tower theme) **+ 250** (background) **+ 200 × 3** (t
 +0.6 %) = **1 000 medals**, and the shop **stays open between events**, so banked medals can be spent any time. (Guild
 cosmetics — T016 §4 — stack into the same additive line.)
 
+**The printed law (Rev 5, `wiki/system/themes-menu`, 2026-11-01).** The same page states the arithmetic outright: “taking
+your base value of **1**, then adding **0.004** for every **tower** theme, **0.008** for every **background** theme, and
+**0.006** for each **menu and guardian** theme you possess”, and “all theme bonuses stack together **additively** into one
+cumulative multiplier … you can see your current total displayed in the **tier multiplier menu**”. So
+
+`cosmetic multiplier = 1 + 0.004·T + 0.008·B + 0.006·(M + G + songs)`
+
+with the counts the same page prints for v29.0.6 (**83** tower skins besides the default; **43** event tower+background
+pairs; **8** guild-season sets, one per season, each with a Tower/Background/Menu/Guardian entry; **15** named guild
+guardians; **3** shop songs at **200 medals** each while the game has **44** songs — “only the three shop songs count
+toward the coin bonus”):
+
+| Bucket | Count × step | pp of coins |
+|---|---|---|
+| Tower skins | 83 × 0.004 | **+33.2** |
+| Backgrounds (43 event + 8 guild) | 51 × 0.008 | **+40.8** |
+| Menu themes (guild, 8) | 8 × 0.006 | +4.8 |
+| Guardian themes (guild, 15) | 15 × 0.006 | +9.0 |
+| The 3 shop songs | 3 × 0.006 | +1.8 |
+| **Total (all four buckets + songs)** | — | **≈ +89.6 %** ⇒ cosmetic multiplier **≈ ×1.90** |
+
+Two consequences worth internalising:
+1. **The prices are calibrated to one rate.** A theme pair is `0.004 + 0.008 = 0.012` for **400** medals and a song is
+   `0.006` for **200** ⇒ both are exactly **0.00003 multiplier per medal** = **0.30 pp per 100 medals** (check:
+   `0.012/400 = 0.006/200 = 3.0e-5` ✓), i.e. **1 pp per 333 medals**, **10 pp per 3 333 medals**. So there is no ordering
+   trick inside the cosmetic shop — spend in any order, and the one-event cosmetic bill (**1 000 medals**, §1 above) buys
+   exactly **3.0 pp** of the ≈ 90 pp line.
+2. **The line is ~90 % of a free permanent coin multiplier** — i.e. nearly as large as the entire *relic* coin pool
+   (+99 %, T018 §3), for ≈ 1 000 medals/event plus the guild-token purchases. It is capped only by the collection size, so
+   unlike the convex trade ladder (§2) it **never gets worse** the more you buy.
+
+Census note: the transcribed subsets add to **24 milestone + 43 event + 8 guild = 75** tower skins against the printed
+**83**, so ≈ **8** skins come from elsewhere (the three unconfirmed pairs *Neuron / Snowstorm / Valentine*, the anniversary
+and other gift skins). The law is what to compute with; the counts are the read-the-panel part (the total is on the
+**tier multiplier menu**, §5).
+
 ## 3. The double-dip list (schedule these inside the event window)
 
 Most event missions *are* the currency actions from the other techniques, so doing them during an event pays twice (the currency + up to 45 medals). Free medals available from the daily sweep alone ([T007](T007-ad-gem-sweep.md)): **“Get the free gem reward in store x times”** (7/10/13), **“Claim AD Gems xx times”** (10/—/60), **“Tap xx Floating Gems”** (12/24/50) = **135 medals for the taps you already do**.
@@ -163,6 +204,9 @@ Most event missions *are* the currency actions from the other techniques, so doi
       (cards) and **12 d / 30 d / 90 d** (total research time) — the two “7 / 10 / 13” lines complete themselves from
       T022 step 1, and the research line completes with five slots on the **×1.5** cell boost (T006).
 - [ ] The mission pool has **no `Death Defy` row** (it was removed in **v28.3**), and the panel counts ≈ **52** mission types.
+- [ ] **Cosmetic law (§2):** the total on the **tier multiplier menu** moves **+0.4 pp** per tower skin, **+0.8 pp** per
+      background and **+0.6 pp** per menu/guardian/song — so after one theme pair + the 3 songs the delta from a clean save
+      is **+1.2 + 1.8 = 3.0 pp** (0.03 on the printed multiplier), and a skin bought but **not equipped** is inside that sum.
 
 ## 6. Falsification
 
@@ -176,6 +220,12 @@ Most event missions *are* the currency actions from the other techniques, so doi
   priority drops behind stat items (it is then a loadout-slot trade-off, not a free stack).
 - If day 8 still shows **new** missions, the “+2/day for days 2–8, then nothing” pacing is re-versioned → the 21-mission
   total (945 medals) still holds, only the daily schedule shifts.
+- If the **tier multiplier menu**'s cosmetic total is not `1 + 0.004·T + 0.008·B + 0.006·(M+G+songs)` on your counts, the
+  steps were re-tuned → read **one** item of each bucket at a time (the delta gives the new step) and rebuild the table; the
+  two ratios to watch are **background : tower = 2 : 1** and **menu = guardian = song**.
+- If the count of coin-counting **songs** turns out to be **44** rather than **3**, the multiplier gains another
+  `41 × 0.006 = +24.6 pp` (§2's census note) → the cosmetic line then exceeds the whole relic pool and cosmetics become the
+  #1 free coin source.
 
 ## Sources
 
@@ -198,6 +248,13 @@ Most event missions *are* the currency actions from the other techniques, so doi
   store gem 7/10/13** · **research time 12 d/30 d/90 d**, “rushed labs count”, tip “all five labs at **1.5×** complete it” ·
   **commons 50 K/200 K/900 K** · **fast 6 000/20 000/150 K** · **ranged 4 000/15 000/100 K**), “Showing 10 of **53** rows”;
   the **Removed Missions** table (`Death Defy … 2/3/5`, **removed in V28.3**); the shop/relic/Bot+/Synchronicity tables.
+- Tower Hub `wiki/system/themes-menu` (last verified **2026-11-01**) — the printed passive-coin law
+  (`1 + 0.004 × tower + 0.008 × background + 0.006 × menu/guardian`, “stack additively”, “shown in the **tier multiplier
+  menu**”, “each tower skin you own adds **0.4 %**”); **83 tower skins** besides the default (v29.0.6); the **43** event
+  tower+background pairs (3 unconfirmed: Neuron / Snowstorm / Valentine) with their rerun flags; the **8** guild-season
+  theme sets (Tower/Background/Menu/Guardian columns, guardians named **Butter, Muse, Finn, Nyra, Rolo, Glenn, Zepe, Iris,
+  Silk, Mickey, Gaia, Arwing, Frank, Earl, Mei**); **44 songs** of which “**only the three shop songs count** toward the
+  coin bonus … they do not rotate and cost **200 medals** each”.
 - Tower Hub `wiki/guide/medals-guide` (2026-11-01) — the five-step spending order (past-event **lab speed / coins** relics
   first → **themes + songs, 400 medals per event** → **≤ 2** stone packs → gems only while labs are missing → **bots**), and
   the bot order: “do not unlock all 5 bots before upgrading them”, `Golden` first with **range** then **bonus**, “leave

@@ -18,11 +18,11 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | T010 | [Module economy (slot levels, merges, rerolls)](techniques/T010-module-merge-chain.md) | Modules, shards | **Verified (Rev 4**, arithmetic) |
 | T011 | [Perk engine tuning](techniques/T011-perk-engine-tuning.md) | Coins (run multipliers) | **Verified (Rev 4**, arithmetic) |
 | T012 | [Card deck order (gems per percentage point)](techniques/T012-card-deck-order.md) | Coins, Cash, Elite Cells | **Verified (Rev 2**, arithmetic) |
-| T013 | [Event window & medal economy](techniques/T013-event-medal-economy.md) | Medals → Gems, Stones, Shards | **Verified (Rev 4**, arithmetic) |
+| T013 | [Event window & medal economy](techniques/T013-event-medal-economy.md) | Medals → Gems, Stones, Shards | **Verified (Rev 5**, arithmetic) |
 | T014 | [Tournament tickets & league ladder](techniques/T014-tournament-tickets.md) | Gems, Stones, Keys | **Verified (Rev 5**, arithmetic) |
 | T015 | [Bot economy & cell/coin chain](techniques/T015-bot-economy.md) | Medals, Coins, Elite Cells | **Verified (Rev 6**, arithmetic) |
 | T016 | [Guild tokens & Bits](techniques/T016-guild-tokens-bits.md) | Tokens, Bits, Coins, Gems, Shards | **Verified (Rev 3**, arithmetic) |
-| T017 | [Vault: Keys priority ladder](techniques/T017-vault-keys-priority.md) | Keys → Gems, Coins, Cash, Shards | **Verified (Rev 3**, arithmetic) |
+| T017 | [Vault: Keys priority ladder](techniques/T017-vault-keys-priority.md) | Keys → Gems, Coins, Cash, Shards | **Verified (Rev 4**, arithmetic) |
 | T018 | [Relic economy & price rule](techniques/T018-relic-economy.md) | % points (Coins/Cash/Lab) | **Verified (Rev 2**, arithmetic) |
 | T019 | [Milestone claim engine](techniques/T019-milestone-claim-engine.md) | Gems, Stones, Coins, labs | **Verified (Rev 3**, arithmetic; H038 open) |
 | T020 | [Workshop coin-spend order](techniques/T020-workshop-coin-order.md) | Coins → Cash/Coins multipliers | **Verified (Rev 6**, arithmetic) |
@@ -144,7 +144,8 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 - [2026-11-02 — session 48 (T021 Rev 2, T006 Rev 6)](log/2026-11-02.md#2026-11-02---session-48-iteration-57-dissonance-closes-on-both-series-and-the-third-lab-time-shape-appears)
 - [2026-11-02 — session 49 (T022 Rev 2, T023 Rev 5)](log/2026-11-02.md#2026-11-02---session-49-iteration-58-the-nine-currency-pages-close-the-census-and-the-bit-ladder)
 - [2026-11-02 — session 50 (T020 Rev 6)](log/2026-11-02.md#2026-11-02---session-50-iteration-59-the-enhancement-discount-labs-close-as-a-third-price-shape)
-- [2026-11-02 � session 51 (T013 Rev 4)](log/2026-11-02.md#2026-11-02---session-51-iteration-60-five-of-the-twenty-one-event-missions-complete-themselves)
+- [2026-11-02 � session 51 (T013 Rev 4)](log/2026-11-02.md#2026-11-02---session-51-iteration-60-five-of-the-twenty-one-event-missions-complete-themselves)
+- [2026-11-02 - session 52 (T017 Rev 4, T013 Rev 5)](log/2026-11-02.md#2026-11-02---session-52-iteration-61-both-vault-trees-close-as-closed-forms-and-the-cosmetic-law-lands-at-90-)
 
 ## Reference material in this repo
 
