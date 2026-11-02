@@ -17,7 +17,7 @@ Ease: taps/minutes a human needs. Confidence: how solid the source/derivation is
 | [T007](docs/techniques/T007-ad-gem-sweep.md) | Sweep all rewarded-ad offers in one sitting; respect the daily ad-gem hard cap | ★★★ | 5 min | Medium | — |
 | [T008](docs/techniques/T008-uw-sync-with-stones.md) | Sync Ultimate-Weapon cooldowns: save 910 Stones, drop GT 300 s → 200 s in one purchase; never touch BH first | ★★★★ | 6 taps | High | UWs unlocked |
 | [T009](docs/techniques/T009-gem-spend-order.md) | Gem order: Enemy Balance card first, then alternate Card Slots and Lab unlocks; never buy speedups with Gems | ★★★★ | 3 taps | Medium | Gems |
-| [T010](docs/techniques/T010-module-merge-chain.md) | Auto Merge boss-dropped Common modules into one high-rarity set instead of leveling commons | ★★★ | 8 taps | Medium | Modules unlocked |
+| [T010](docs/techniques/T010-module-merge-chain.md) | Level the module **slot** (arrow-to-41 trick), merge by recipe, reroll with ≤3 locks + ban labs; Restore is free | ★★★★ | 1 tap/level | Medium-High | Tier 2 Wave 90 |
 | [T011](docs/techniques/T011-perk-engine-tuning.md) | Tune the perk engine: `Waves Required` + 3× PWR + `Standard Perk Bonus` ≈ 3.2× more picks per run; rank/ban the pool so picks are deterministic | ★★★★ | 10 taps once, 1 tap/run | Medium | Tier 2 Wave 150 (Unlock Perks) |
 | [T012](docs/techniques/T012-card-deck-order.md) | Buy card levels by gems-per-percentage-point (L1–L4 first), then widen the deck; `Buy x10`, aligned presets, claim milestone cards | ★★★★ | 1 tap/10 pulls | Medium-High | Cards tab (after 2 T1 runs) |
 
