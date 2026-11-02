@@ -1,5 +1,12 @@
 # T020 — Workshop coin-spend order: the level-band rule and the knee table
 
+Rev: 12 (2026-11-02) — **§1.12, the Packages trio + two printed income laws**: `Package Chance` (**60** lv, 30.00 %,
+**321.28 M**), `Recovery Amount` (**300** lv, `14 + 0.4·L` = 134.00 %, **1.33 T**), `Max Recovery` (**500** lv,
+`1.50 + 0.03·L` = 16.50x, **15.77 T**) all ride **one** price ladder (L1 1.00 K, L1–L10 total **59.12 K** each ⇒
+**2 500 coins per pp** at level 1, the cheapest in the layer); the second 10-level band is **24.7×** the first; `Packages +`
+is `1 + 0.01·L` to **×7.00**/600 lv for **441.24 s**; `Wave Skip` pays **`1.1^n`** (1.21 / 1.331 / 1.611 / 2.594 at
+n = 2/3/5/10), its mastery lab is `10 % + 5 %·L` ⇒ **55 %** at L9 for **1 000** stones; `More Round Stats` is a 1-level
+**T1 W250** lab at **250 000** coins / **12 h**.
 Rev: 11 (2026-11-02) — **§1.10, the defense-track ledger**: 18 named lines from 12 per-stat pages. Again two price worlds —
 **9** cheap caps (**Σ 10.767 M**, L1–L10 pass **40 710** coins) vs **9** deep caps (**Σ 6.525 q**, `Land Mine Damage` alone
 **2.45 q**); **13 of 18** `Value` columns are exactly `a + step·L` (`20 + 0.1·1800 = 200.00 %`, `1200 − 2·300 = 600 s`,
@@ -414,6 +421,53 @@ T006's 150-s wall floor must come from the lab reductions on top of the workshop
 arithmetic fit for the same floor); and the three flat-stat lines start at **30 / 30 / 50** coins with whole-line ratios
 **1.0043 / 1.0039 / 1.0033** — the same near-flat family as the attack track's 6 000-level `Damage` line (**1.0043**), so one
 printed ratio describes four different lines.
+
+### 1.12 The Packages trio, and the two printed income laws (new, Rev 12)
+
+`wiki/workshop/recovery-packages` (**2026-11-01**) prints the last three unnamed workshop ladders, and they are **one price
+ladder on three value laws** — the printed checkpoints are identical, cell for cell:
+
+| L | 1 | 10 | 20 | 30 | 40 | 50 | 60 |
+|---|---|---|---|---|---|---|---|
+| per-level price | 1.00 K | 20.90 K | 334.63 K | 1.66 M | 5.12 M | 12.18 M | 25.40 M |
+| running total | 1.00 K | **59.12 K** | 1.52 M | 10.92 M | 44.23 M | 130.57 M | **321.28 M** |
+
+| Line | Levels | Value at cap | Value law | Price at cap | **Σ to cap** | avg coins/level |
+|---|---|---|---|---|---|---|
+| `Package Chance` | **60** | 30.00 % | `6 + 0.4·L` | 25.40 M | **321.28 M** | 5.35 M |
+| `Recovery Amount` | **300** | 134.00 % | `14 + 0.4·L` | 21.59 B | **1.33 T** | 4.43 B |
+| `Max Recovery` | **500** | 16.50x | `1.50 + 0.03·L` | 151.17 B | **15.77 T** | 31.54 M |
+
+Prefix-sum again verified (5/5 on the dense 60-level table: its own prices add to **321.27 M** vs the printed **321.28 M**,
+0.003 % apart). Consequences, all arithmetic:
+
+1. **Same first ten levels for all three lines: 59.12 K each, 177 360 coins for the trio**, and the head price of **+0.4 pp**
+   is **1.00 K** ⇒ **2 500 coins per printed percentage point** at level 1 — the cheapest pp in the whole Workshop layer.
+2. **Depth is what makes them expensive**: the second 10-level band is already **24.7×** the first (1.46 M vs 59.12 K), the
+   third **6.4×** again (9.40 M), then 3.5× / 2.6× / 2.2×. Averaged over the whole line, `Package Chance` costs
+   **13.61 M**/pp but `Recovery Amount` **11.12 B**/pp (817× worse) purely because it runs to 300 levels, and `Max Recovery`
+   averages **1.053 B** per ×1.00 of its multiplier. **So: cap `Package Chance` (321.28 M), take `Recovery Amount` to
+   ~L30–L50, and leave `Max Recovery` until the 15.77 T is spare.**
+3. The **`Packages +`** enhancement on the same page is printed to its cap: `1 + 0.01·L` ⇒ **×7.00** at **600** levels
+   (exactly §6.4's ×7/600 row ✓) with a bill of **441.24 s** coins — one line alone is **36 %** of §6.4's whole Utility-track
+   bill (7.598 S).
+
+**Printed income laws worth coding into the run model:**
+
+- **`Wave Skip` pays ×1.1 per skipped wave and the factor compounds:** the page states the total as **`1.1^n`** for `n`
+  chained skips ⇒ n = 2 → **1.21**, 3 → **1.331**, 5 → **1.611**, 10 → **2.594** on coins, **cash and cells** of the last
+  completed wave (UW and Golden Bot earnings included). Skip chance by star **1–7** is printed as
+  **9 / 10 / 11 / 13 / 15 / 17 / 19 %** (hand-set: +1, +1, +2, +2, +2, +2), and the **`Wave Skip Mastery` lab** is
+  `10 % + 5 %·L` for **max level 9 ⇒ 55 %** ✓, unlocked for **1 000** stones. Skipped **Boss** waves still roll the
+  reroll-shard and module chances. Caveats that cost currency: **time-based mechanics do not accelerate** (Energy Shield
+  needs the same real time per charge, so each skip is effectively one wave of shield charge lost; Demon Mode persists over
+  more waves), while `Free Upgrades` are rolled for each wave *completed* after a skip and both `Enemy Level Skip` lines can
+  fire up to the number of waves skipped.
+- **`Wave Accelerator`** only shortens the *cooldown* between waves (the 9-s half of T002's `26 + 9` s clock), which is why
+  it also makes Energy Shield charge faster; its card mastery **“Spawn Accelerator” costs 1 000 stones** and is the one that
+  compresses the spawn schedule itself.
+- **`More Round Stats`** is a **1-level** lab gated at **T1 W250**, costing **250 000** coins for **0d 12h 0m** of slot time;
+  it unlocks Battle History, which keeps the last **20** runs.
 
 ## 2. The level-band rule (the actual technique)
 
@@ -904,6 +958,15 @@ Until it is read, use `R = 34.29 M` (⇒ **L30**) for the Utility tab and treat 
       their L1–L10 rows read **2.78 K / 3.54 K / 2.72 K / 9.88 K / 9.88 K / 3.60 K / 2.93 K / 5.38 K** ⇒ **40 710** coins.
 - [ ] `Orbs` proves the prefix-sum reading exactly: **3.00 K + 20.00 K + 120.00 K + 350.00 K = 493.00 K** = the printed
       `Total Cost` of level 4.
+- [ ] **Packages trio (§1.12):** `Package Chance` level 1 = **1.00 K** coins for **6.40 %**, level 10's total **59.12 K** and
+      value **10.00 %**, level 60 = **30.00 %** for **321.28 M** in total; `Recovery Amount` level 300 = **134.00 %** with its
+      per-level price **21.59 B** and total **1.33 T**; `Max Recovery` level 500 = **16.50x** with total **15.77 T**.
+- [ ] `Packages +` (enhancement) level **600** reads **×7.00** and its printed bill is **441.24 s**.
+- [ ] **Wave Skip:** one skip pays exactly **1.1×** the previous wave's coins/cash/cells and two chained skips **1.21×**
+      (1.1²); the panel's double-skip chance reads **10 %** at lab 0 and **55 %** at lab **9**; the mastery unlock price is
+      **1 000** stones; the card's own mastery (“Spawn Accelerator”) is also **1 000** stones.
+- [ ] `More Round Stats` shows **1** level, **250 000** coins, **0d 12h 0m**, gated at **Tier 1 W250**; Battle History lists
+      **20** runs.
 
 ## 9. Falsification
 
@@ -952,6 +1015,13 @@ Until it is read, use `R = 34.29 M` (⇒ **L30**) for the Utility tab and treat 
   neighbours.
 - If the `Orbs` totals are **not** 3.00 K / 23.00 K / 143.00 K / 493.00 K, that page's `Total Cost` column is per level
   rather than cumulative → difference the column and re-add; every Σ in §1.8/§1.10 assumes the cumulative reading.
+- If the three Packages ladders no longer share their checkpoint prices (e.g. `Package Chance` level 10 stops reading
+  **59.12 K** while `Recovery Amount` level 10 still does), they were re-binned onto separate ladders → re-read each table's
+  own rows before using the “same head, different step” ranking.
+- If a chained pair of skips pays **2.2×** rather than **1.21×**, the skip factor became additive (`1 + 0.1·n`) → recompute
+  the compounding column as `1 + 0.1n`; the per-skip 1.1 is printed, the exponent law is the part at issue.
+- If `Package Chance` caps below **60** levels, or its level-60 value is not **30.00 %**, the `6 + 0.4·L` law moved →
+  derive the step from levels 1–2 (**+0.4**) and re-derive the 13.61 M/pp average from the new printed total.
 - If the `Workshop Utility Discount` lab does **not** change those four prices, §4's order collapses: then the utility
   lines are effectively undiscounted and the 1→50 band is the whole budget ([H023](../hypotheses/H023-workshop-tab-discount-applies.md)).
 - If a §1.8 line's `Total Cost` cell is **not** the sum of the `Cost` cells above it (e.g. `Attack Speed` level 99 prints
@@ -1010,6 +1080,12 @@ Until it is read, use `R = 34.29 M` (⇒ **L30**) for the Utility tab and treat 
   600 s / 80.21 M / 200.00 % / 2100.00 % / 6.71 B**) and the bills (**2.77 M / 1.60 M / 2.33 M / 600.13 K / 973.74 K /
   184.33 K / 1.48 M / 342.98 K / 493.00 K / 15.46 M / 1.72 B / 77.52 B / 74.83 T / 40.37 T / 1.23 T / 3.21 q / 2.45 q /
   748.26 T**); names taken from each page's own `Cost - <stat>` nav entries.
+- Tower Hub `wiki/workshop/{recovery-packages, wave-skip, wave-accelerator, more-round-stats}` (**2026-11-01**;
+  `more-round-stats` **2026-10-13**) — §1.12's three `Level | Value | Coins | Total Coins` ladders with their printed caps
+  (**30.00 % / 134.00 % / 16.50x**) and bills (**321.28 M / 1.33 T / 15.77 T**), the `Packages +` enhancement ladder to
+  **×7.00** / **441.24 s**, the `1.1^n` skip law with the **9/10/11/13/15/17/19 %** star ladder and the
+  **`10 % + 5 %·L` ⇒ 55 %** mastery lab, the **1 000**-stone mastery unlocks, and the 1-level **250 000 / 12 h**
+  `More Round Stats` lab with its **T1 W250** milestone gate.
 - Tower Hub `wiki/workshop/{defense-upgrades, utility-upgrades, workshop-upgrades, workshop-respec}` — the two prose facts in
   §1.9 (the printed `eHP` formula with its 90/95/99 % checkpoints, the **98 %** `Defense %` cap, and `Free Defense Upgrades`
   as the Defense-tab instance of the free-upgrade mechanism); `workshop-respec` prints one row only

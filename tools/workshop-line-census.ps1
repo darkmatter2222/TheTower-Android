@@ -4,8 +4,12 @@ param([string]$File, [int]$Line = 0)
 # whether the Total Cost column is a prefix sum (cumulative) or equals the level's own price (per level),
 # the sum of the Cost column, and coins per value unit over the first ten levels.
 function NumOf([string]$t) {
-  $t = $t.Trim() -replace '^\+', '' -replace 'x$', '' -replace 'X$', '' -replace '%$', '' -replace 's$', ''
-  if ($t -notmatch '^([-.\d]+)([KMBTqQsSO])?$') { return $null }
+  $t = $t.Trim() -replace '^\+', '' -replace 'x$', '' -replace 'X$', '' -replace '%$', ''
+  if ($t -notmatch '^([-.\d]+)([KMBTqQsSO])?$') {
+    # `0.65s` style seconds prints: the trailing s is a unit, not the 10^21 suffix
+    $t = $t -replace 's$', ''
+    if ($t -notmatch '^([-.\d]+)([KMBTqQsSO])?$') { return $null }
+  }
   $m = [regex]::Match($t, '^([-.\d]+)([KMBTqQsSO])?$')
   $v = [double]$m.Groups[1].Value
   if ($m.Groups[2].Success) {
@@ -27,7 +31,7 @@ for ($i = 0; $i -lt $L.Count; $i++) {
   if (-not $s.StartsWith('ROWS:')) { continue }
   $ti++
   $prev = $L[$i - 1]
-  if (-not $prev.Contains('"Level","Value","Cost","Total Cost"')) { continue }
+  if (-not ($prev.Contains('"Level","Value","Cost","Total Cost"') -or $prev.Contains('"Level","Value","Coins","Total Coins"'))) { continue }
   if ($Line -gt 0 -and $ti -ne $Line) { continue }
   $rowMatches = [regex]::Matches($s.Substring(6).Trim(), '\["(.*?)"\]')
   $n = 0; $sumC = 0.0; $levels = @(); $vals = @(); $costs = @(); $totals = @()
