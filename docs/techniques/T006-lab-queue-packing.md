@@ -1,5 +1,10 @@
 # T006 — Pack the Lab queue, then buy the *cheapest* skipped hour
 
+Rev: 12 (2026-11-02) — **the wave axis gets a law**: `wave(chance, tier) = base × 0.9^(tier − 1)` (10/10 rows at T15,
+15/15 tiers on the 0.33 % row), the Elite spawn ladder is printed from **0.33 % at W500** to **33 % at W8 000**, the
+predicted cells/run table is computed from it (T11 W1000 ≈ **140**, T14 W1000 ≈ **395**), and the fleet drop columns close
+as `5 + (wave − 1)/250` (21/21 ✓, **25** at W5 000) and **1 080 → 2 100** reroll shards (T14 → T21).
+§“The wave laws”.
 Rev: 11 (2026-11-02) — **the enemy-stat layer closes**: the twenty 30-level enemy-stat lines share **one** time ladder
 (Σ **106 785 720 s = 1 235.95 d** of base slot each), the value steps are **−0.40 %** (Common/Fast/Vampire/Ray/Scatter) or
 **−0.30 %** (Protector pair + Boss pair) so the caps are **−12 % / −9 % / −6 %** ✓, the T19 trio is fully arithmetic
@@ -329,7 +334,57 @@ Four reads that matter for the queue:
 **373 B coins per point**, cheaper per point than *every* enemy-stat line above; full ledger in
 [T024](T024-enemy-level-skip-ledger.md).
 
-**The full boost-cost table (printed, as of v29).** A boost costs `rate × hours` (buckets 1 h / 8 h / 24 h) and “saves
+### The wave laws: 0.9 per tier, and what it predicts for Elite Cells (Rev 12)
+
+Source: `wiki/enemy/enemies` (16 tables) and `wiki/enemy/elite-enemies`, both last verified **2026-11-01**. Both print the
+same grid: rows are the **spawn chance** of an Elite, columns are **T1 … T21/T24**, cells are the **wave** at which that
+chance begins. Two things fall out:
+
+**① The chance ladder (T1).** `0 %` at W0 · **0.33 %** at W500 · **1.33 %** at W1 000 · **3 %** at W1 500 · **5 %** at
+W2 000 · **8 %** at W3 000 · **12 %** at W4 000 · **16 %** at W5 000 · **21 %** at W6 000 · **27 %** at W7 000 ·
+**33 %** at W8 000. A wave inside a band pays that band’s chance (a step function, not a curve).
+
+**② Tier compresses the wave axis by exactly 0.9.** `wave(chance, tier T) = base(chance) × 0.9^(T − 1)`. All **10** non-zero
+rows re-add at T15 (`round(base × 0.9^14)`: 114 / 229 / 343 / 458 / 686 / 915 / 1 144 / 1 373 / 1 601 / 1 830 — every cell
+✓), and the printed 0.33 % ladder re-adds for **15/15** tiers (`500 → 450 → 405 → 365 … 114`). Consequence: **a tier-14 run
+reaches the 33 % elite band at about W1 830, a tier-1 run not until W8 000** — the same 4.4× head start that makes
+T14+ the cell tier (§Elite Cell income).
+
+**③ The predicted elite count** (step-function sum × the printed per-tier average from §Elite Cell income):
+
+| Tier | Depth | Expected elites | × printed avg cells | ≈ cells/run |
+|---|---|---|---|---|
+| T1 | W1 000 | 1.65 | 1 | **2** |
+| T5 | W1 000 | 5.92 | 3 | **18** |
+| T10 | W1 000 | 20.28 | 5.5 | **112** |
+| T11 | W1 000 | 23.26 | 6 | **140** |
+| T13 | W1 000 | 32.92 | 7 | **230** |
+| T14 | W1 000 | 37.63 | 10.5 | **395** |
+| T14 | W2 000 | 223.11 | 10.5 | **2 343** |
+| T18 | W1 000 | 72.16 | 15 | **1 082** |
+
+The reading for a sub-T11 account: at W1 000 the elite bands that have *started* are only the first few (T11’s band starts
+are **174 / 349 / 523 / 697 / 1 046 / …**), so the cells-per-run figure is dominated by how far past the **W500** first
+band the run gets — depth, not luck. Note also the printed mechanics that cap the yield: at most **1** elite per wave early
+(a second becomes possible at higher waves), each type capped at **8** on screen (Scatter children excluded), and every
+elite is immune to **Orbs, Death Ray, Shockwave and Black Hole**.
+
+**④ Fleet numbers (T14+), and they are pure shard income.** `wiki/enemy/fleet-enemies` prints the fleet drop table, and
+both columns close: module shards = **`5 + (wave − 1) / 250`** (all **21** printed band rows ✓, reaching the printed cap
+**25** at W5 000), reroll shards **1 080 → 2 100** for T14 → T21 (the deltas are **+120 then +150/tier** ✓). 80 % of fleet
+drops are reroll shards, 20 % module shards (5 % per type). Spawn first-waves: T1–T13 `15 000 − 250 × (T − 1)` at a
+frequency of **100** waves/fleet (T13 = 12 000 ✓), then **T14 2 495 · T15 1 495 · T16 995 · T17 495 · T18 95 · T19 45 ·
+T20+ 5**, with the “bonus spawn” column closing as **`11 750 − 250 × (T − 14)`** (all 10 deltas = −250 ✓). Fleet
+companions are fixed: **Overcharge + Ranged, Commander + Tank, Saboteur + Fast**. Tool coverage on fleets (printed):
+Chrono Field, Chrono Loop (CF+), Thunder Bot, Poison Swamp stun and Land Mine stun work at **half** strength; Orbs, Death
+Ray, Shockwave, Knockback and both Black Hole damage and pull do **not** connect, and Plasma Cannon cannot even select them.
+
+**Skew, recorded not resolved.** The two pages print the *same* grid but from **T16** onward the columns are offset by one
+row and differ by ±1 (`…/elite-enemies` shows 102 / 205 / 308 / 411 where `…/enemies` shows 103 / 206 / 412 / 618 — i.e.
+`floor` vs `round` of the same `base × 0.9^15/16`). Use ① + ② to compute, and read the panel cell when a T16+ number
+matters.
+
+
 (multiplier − 1) × hours”:
 
 | Boost | ×1.5 | ×2 | ×3 | ×4 | ×5 | ×6 | ×7 | ×8 |
@@ -471,6 +526,12 @@ online often (it raises levels/day for all 5 slots: a `3 d 11 h` line becomes **
       (`1.25 × n`), prices **100.00 B → 12.78 q** (×1.5 every level) and times **8 d 8 h → 222 d 21 h 59 m** (×1.12).
 - [ ] **Level Skip labs:** each of the two 20-level lines sums to **0.745 T** coins / **130.31 d** and its value column
       ends at **2.00** ([T024](T024-enemy-level-skip-ledger.md) §2).
+- [ ] **Wave law:** the elite spawn table’s 0.33 % row reads **500 / 450 / 405 / 365 / 328** for T1–T5, and the 33 % row
+      reads **1 830** at T15 (= `8000 × 0.9^14` ✓).
+- [ ] **Elite count:** a T11 run to W1 000 shows roughly **23** elite kills on the counter (the model says 23.26); at T14
+      the same depth shows ≈ **38**.
+- [ ] **Fleet shards:** the fleet drop column reads **5** module shards at W1, **6** from W250, **7** from W500 … and
+      **25** from W5 000 (`5 + (wave − 1)/250`); the reroll-shard column reads **1 080** at T14 and **2 100** at T21.
 
 ## Falsification
 
@@ -518,6 +579,13 @@ online often (it raises levels/day for all 5 slots: a `3 d 11 h` line becomes **
   **L2 = 0.50 q**, L3 = **0.75 q**, the trio left the arithmetic shape → its Σ becomes
   `0.25q × (1.5^30 − 1)/0.5 = ` **95 875 q** instead of **116.25 q** (an **825×** difference), so re-rank it against the
   T9 lines before queuing.
+- If the elite spawn table’s 0.33 % row does **not** halve-ish per tier (e.g. T2 reads something other than **450**), the
+  0.9 compression is version-dependent → recompute the band starts from the two printed tiers’ ratio and keep the
+  step-function sum (§“The wave laws” ③ needs only the band starts).
+- If the fleet module-shard column jumps by **2** at some wave band (6 → 8), the `5 + (wave − 1)/250` line was re-binned →
+  read the band edges and rebuild the arithmetic; the reroll-shard column is independent of it.
+- If a T1 run to W1 000 yields far more than **2** elites, either the run passed W500 twice (Intro Sprint re-counts) or the
+  band function is per-run rather than cumulative → log the elite counter against the wave counter in one run.
 
 ## Sources
 
@@ -532,6 +600,19 @@ online often (it raises levels/day for all 5 slots: a `3 d 11 h` line becomes **
 - Tower Hub `wiki/workshop/enemy-level-skip` (last verified **2026-11-01**) — the two **20**-level `* Level Skip` labs with
   their `0.10 … 2.00` value column (**900,000,000 → 152.29 B**, `0d 16h 40m → 17d 7h 20m`), which is the step the §cap
   table left open; full ledger in [T024](T024-enemy-level-skip-ledger.md).
+- Tower Hub `wiki/enemy/enemies` (last verified **2026-11-01**, 16 data tables) + `wiki/enemy/elite-enemies` (2 data
+  tables) — the Elite spawn grids behind §“The wave laws”: eleven chance rows with their T1 bases
+  (500 / 1 000 / 1 500 / 2 000 / 3 000 / 4 000 / 5 000 / 6 000 / 7 000 / 8 000) and the tier columns that re-add as
+  `× 0.9^(T−1)`; plus the printed elite rules (1 per wave early and 2 later, **8** on screen per type with Scatter children
+  excluded, immune to Orbs / Death Ray / Shockwave / Black Hole) and the two-page floor-vs-round offset from T16.
+- Tower Hub `wiki/enemy/fleet-enemies` (last verified **2026-11-01**, 5 data tables) — the fleet reward table (reroll shards
+  **1 080 → 2 100** for T14 → T21, module shards **5 → 25** by wave band, split 80 % / 20 % with 5 % per type), the spawn
+  tables (**T1–T13**: first spawn `15 000 − 250·(T−1)` at frequency **100**; **T14+**: first wave 2 495 / 1 495 / 995 /
+  495 / 95 / 45 / 5, bonus-spawn column `11 750 − 250·(T−14)`), the fixed companion pairs (Overcharge+Ranged,
+  Commander+Tank, Saboteur+Fast), the per-type behaviours (Saboteur de-levels one UW per tower hit, Commander pulses
+  ×1.15 health/mass/speed up to 8, Overcharge multiplies its projectile ×1.4 per hit) and the tool-coverage list
+  (half-strength: Chrono Field / Chrono Loop / Thunder Bot / both stuns; no connection: Orbs, Death Ray, Shockwave,
+  Knockback, Black Hole damage and pull; Plasma Cannon cannot select them).
 - Tower Hub’s eleven `wiki/lab/lab-category-<name>` pages (fetched **2026-11-02**) — the per-line `Max Lv` list for
   Main (15 rows), Attack (9), Defense (16), Utility (12), Ultimate Weapon (39), Card (10), Perk (9), Bot (8), Enemies
   (21), Battle Condition (5) and the Module page’s 12: the §cap table is transcribed from those tables, including the
