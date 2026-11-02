@@ -25,7 +25,7 @@ store needs your **User ID** from the profile screen).
 | **Ad gems** (bottom-left icon) | **6** per claim | ≈1 new claim per **10 min** of play, **≤ 60 claims/day = 360 gems** (T007) |
 | **Store → Free Daily Gems** | **20** | once/day, **doubled (40) during holiday sales** |
 | **Web-store Weekly Free Gift** | (weekly) | claim by logging in with your **User ID** — no purchase needed (H031) |
-| **Floating gems (“Bob”)** | **2** each, **≤ 10 per run** | first from **wave 10** if ≥ **11 min** since your last tap; each next needs **≥ 30 min and ≥ 400 waves** |
+| **Floating gems (“Bob”)** | **2** each, **≤ 10 per run** | first from **wave 10** if ≥ **11 min** since your last tap; each next needs **≥ 30 min and ≥ 400 waves** (Tower Hub prints “roughly every **400–500 waves**, cap one spawn per **15 min**” — the gap constants are server-versioned; the ≤ 10/run and 2-gem values agree) |
 | **Daily Missions** | **3** each tile | 3–5 tiles/day (T004); rerolls cost **5** gems each |
 | **Weekly Reward boxes** (Missions) | **185 gems/week** | plus **stones** in boxes 5/6/7 = 10/15/20 = **45/week** |
 | **Tournament** | **100 → 900** (1st, Copper → Mythic) | 2 brackets/week; lower ranks less (T014's full table) |

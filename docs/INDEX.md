@@ -11,7 +11,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | T003 | [Turtle build T1–T2](techniques/T003-turtle-build-t1-t2.md) | tier unlocks | Unverified |
 | T004 | [Mission farming on low tier](techniques/T004-mission-farming-low-tier.md) | Gems, Coins | Unverified |
 | T005 | [Tier-rush then farm](techniques/T005-tier-rush-then-farm.md) | Coins (daily/weekly) | Unverified |
-| T006 | [Lab queue packing + cheapest skipped hour](techniques/T006-lab-queue-packing.md) | all (multipliers) | **Verified (Rev 3**, arithmetic) |
+| T006 | [Lab queue packing + cheapest skipped hour](techniques/T006-lab-queue-packing.md) | all (multipliers) | **Verified (Rev 4**, arithmetic) |
 | T007 | [Ad-gem sweep](techniques/T007-ad-gem-sweep.md) | Gems | Amounts verified (Rev 2) |
 | T008 | [Stone economy: knee-first UW buying + cooldown sync](techniques/T008-uw-sync-with-stones.md) | Stones → Coins | **Verified (Rev 2)** |
 | T009 | [Gem spend order](techniques/T009-gem-spend-order.md) | Coins/min | Unverified (Rev 3) |
@@ -128,6 +128,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 - [2026-11-02 — session 37 (T015 Rev 4, H034 resolved)](log/2026-11-02.md#2026-11-02--session-37-iteration-46-per-bot-line-caps-close-the-bot-layer-h034-resolved)
 - [2026-11-02 — session 38 (T013 Rev 3)](log/2026-11-02.md#2026-11-02--session-38-iteration-47-the-event-layer-double-sourced-t013-verified)
 - [2026-11-02 — session 39 (T015 Rev 5)](log/2026-11-02.md#2026-11-02--session-39-iteration-48-the-bot-layer-closes-all-five-bots-and-ten-labs)
+- [2026-11-02 — session 40 (T006 Rev 4)](log/2026-11-02.md#2026-11-02--session-40-iteration-49-the-elite-cell-ledger-closes)
 
 ## Reference material in this repo
 

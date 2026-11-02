@@ -1,5 +1,10 @@
 # T006 — Pack the Lab queue, then buy the *cheapest* skipped hour
 
+Rev: 4 (2026-11-02) — the **Elite Cell ledger closes** against Tower Hub’s currency pages (2026-11-01): the T14–T24
+drop table **re-adds 10/10** (`(min+max)/2` = printed average, and the T14 “+50 % = 10.5/7” row proves the T1–13 law ends
+at average **7** on T13), the **full eight-row boost-cost table** is printed (15 → 1 000 000 cells/h), each multiplier’s
+ladder closes (DW lab 20 lv = ×3.0 ✓, Bonus Cells 25 lv = ×2.5 ✓, Cells card +2/lv = +14 at lv 7 ✓), and the **Cells/Kill
+enhancement** gets its first 10 coin prices with the cumulative column re-adding to **1.42 T** at level 10.
 Rev: 3 (2026-11-02) — the **two meta-labs** priced (`Labs Speed` ×2.98, `Labs Coin Discount` −29.7 %, one shared coin
 curve), the **multiplicative stacking law** with the worked example, the rush-bucket prices re-derived from the flat rate ×
 the printed discount column, and **H035 resolved** (both mechanisms: +0.015× per gold-boxed lab + the duration tiering).
@@ -27,11 +32,57 @@ Lab research is a **multiplier** on a stat, so it is the strongest coin-per-coin
 
 ### Elite Cell income (what you are spending)
 
-- Elites are **Vampire, Ray, Scatter**. Each one drops `1 … Tier` cells uniformly ⇒ **average (1 + Tier) / 2 per kill** for Tiers 1–13 (Tier 14+ has its own table).
+- Elites are **Vampire, Ray, and the full-size Scatter** — and *only* those: Scatter children, Fleets and Bosses drop
+  **nothing**. Each one drops `1 … Tier` cells uniformly ⇒ **average (1 + Tier) / 2 per kill** for Tiers 1–13.
 - So cell income ≈ `elitesPerWave × wavesPerHour × (1 + Tier)/2`. At 1 elite/wave and 100 waves/h: **T1 ≈ 100 cells/h, T5 ≈ 300 cells/h, T8 ≈ 450, T11 ≈ 600** (see [H009](../hypotheses/H009-elite-density-per-wave.md) for the density to measure).
-- The **Wave Skip** card is cell-*positive*: every wave it skips pays **1.1×** the cells of the current wave.
+- The **Wave Skip** card is cell-*positive*: every wave it skips pays **1.1×** the cells of the current wave — Tower Hub
+  adds “**even during Intro Sprint**”. Combined with the next bullet, an Intro-Sprint-skipped wave pays ≈ `1.1 × 0.20 = 0.22×`.
 - **Intro Sprint is cell-negative**: cells earned while it is active are reduced to **20 %**. If a day's goal is cells, do not start the run with Intro Sprint.
-- Later multipliers, in the order most accounts get them: `Death Wave Cell Bonus` lab → **Cells Bonus** (Workshop Enhancements) → **Enemy Balance / Elite Balance** mastery (more elites per wave) → **Cells** card (+up to 14 cells per elite kill, plus its Cells+ mastery) → Gold Bot + Amplify/Bot Bot overlapping its window.
+
+**The Tier 14+ drop table (printed; every row re-adds).** From T14 the *minimum* jumps while the max stays = tier; the
+printed average is exactly `(min + max) / 2` in all ten visible rows, and the T14 “+50 % (= 10.5 / 7)” row proves the T1–13
+law ends at average **7** (= (1+13)/2) — the two regimes link without a gap:
+
+| Tier | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24* |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| min | 7 | 11 | 12 | 12 | 12 | 15 | 15 | 15 | 15 | 15 | 15* |
+| max | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24* |
+| avg | 10.5 | 13 | 14 | 14.5 | 15 | 17 | 17.5 | 18 | 18.5 | 19 | 19.5* |
+
+\* “Showing 10 of **11** rows” ⇒ the hidden row is T24 (min 15 = max tier law), so 19.5 is extrapolated. These are the
+*default* values — “the server can override them”. The two big step-ups are T14 (+50 % over T13) and **T19 (+13.3 %)**;
+between them T15–T18 pay almost flat, so tier-crawling 15→18 is *not* a cell-pressing strategy.
+
+**The multiplier stack, with every ladder closed.** Cells/kill = `(base · CellsPerKill-enh · DW-lab · BonusCells + card)
+· CellsMastery`, in that order (the card is added **after** the multipliers, the Mastery multiplies the total *including*
+the card):
+
+| Multiplier | Unlock gate | Ladder | Max |
+|---|---|---|---|
+| `Cells/Kill Bonus` (Workshop Enhancement) | after spending **500 B** coins on Utility enhancements | ×1 at unlock, **+0.01/lv** | **L300 = ×4.00** (L200 = ×3 ✓ same law) |
+| `Death Wave Cells Bonus` (lab) | Death Wave lab block | **+0.1/lv, 20 lv** | ×1.0 → **×3.0** ✓ (0.1 × 20 = 2 ✓) |
+| `Bonus Cells` (Golden Bot+) | 1 250 stones | **+0.05/lv, 25 lv** | ×1.25 → **×2.5** ✓ (= the 17 500-medal line of T015) |
+| `Cells` card (Rare) | **T4 W40** | **+2 cells/lv, 7 lv** | +14 (additive, post-multiplier) |
+| `Cells Mastery` | **1 000 stones** | ×1.05 → **×1.32** as of v29 (patch note said 1.03 → 1.3) | final multiplier |
+| Enemy Balance / Elite Balance, Wave Skip, Intro Sprint **masteries** | T012 | more elites/wave or faster waves | — |
+
+**The full boost-cost table (printed, as of v29).** A boost costs `rate × hours` (buckets 1 h / 8 h / 24 h) and “saves
+(multiplier − 1) × hours”:
+
+| Boost | ×1.5 | ×2 | ×3 | ×4 | ×5 | ×6 | ×7 | ×8 |
+|---|---|---|---|---|---|---|---|---|
+| cells/h | **15** | 100 | 840 | 3 360 | 11 900 | 60 000 | 250 000 | 1 000 000 |
+| cells per *saved* hour (1-h bucket) | **30** | 100 | 420 | 1 120 | 2 975 | 12 000 | 41 667 | 142 857 |
+
+So every step above ×1.5 costs **2.7–4.2× more per saved hour** — buy ×1.5 repeatedly and let the big multipliers ride
+on multi-day gate labs. (This is also the derivation of the “30 cells” row in the table below.)
+
+**The two enhancement coin-ladders share one printed series** (first 10 levels, pre-discount): **5 B · 6.25 B · 12.46 B ·
+27.42 B · 54.5 B · 96.85 B · 157.45 B · 239.17 B · 344.79 B · 477.01 B**, cumulative **5 → 11.25 → 23.71 → 51.14 →
+105.64 → 202.49 → 359.94 → 599.11 → 943.90 → 1.42 T** — every printed cumulative re-adds ✓ (10/10), and “Showing 10 of
+**300** rows” confirms the 300-level cap. `Coin Bonus` (gate **50 B** Utility spend, ×1 + 0.01/lv → ×4 at L300) and
+`Cells/Kill` (gate 500 B) cost the same per level; the site notes Coin Bonus applies to *both* the tier bonus and
+Coins/Kill, “so its effective benefit is **squared**” — it is the strongest late-coin enhancement line.
 
 ### The exchange rate that decides Cells vs Gems
 
@@ -108,6 +159,11 @@ online often (it raises levels/day for all 5 slots: a `3 d 11 h` line becomes **
 - [ ] With one lab-speed relic equipped, the effective time shown on a line drops by the **product** (e.g. 3.725× with a
       ×1.25 relic at `Labs Speed` L99), not the sum.
 - [ ] A 1-week lab's rush price is **1 000** gems (never 168 × the 1-hour price of 7.5).
+- [ ] On T14 a run's average drop per Elite lands near **10.5** cells (min 7, max 14); on T13 near **7**.
+- [ ] The ×8 boost line reads **1 000 000** cells/h in the Speed Up menu (it only appears on long gate labs).
+- [ ] The `Coin Bonus` (or `Cells/Kill`) enhancement’s first level costs **5 B** coins and level 10’s **Total** reads
+      **1.42 T**; the 300-level cap is visible in its panel.
+- [ ] A Wave-Skipped wave during **Intro Sprint** still pays cells (≈ 0.22× of a normal wave = 1.1 × 0.20).
 
 ## Falsification
 
@@ -119,6 +175,10 @@ online often (it raises levels/day for all 5 slots: a `3 d 11 h` line becomes **
   level-1 times and re-order the pair (with self-acceleration the speed line dominates even more clearly).
 - If a lab-speed relic and the research bonus **add** (1.25 + 1.98 = 3.23 rather than ×3.725), rebuild the effective-time
   column as `base ÷ (1 + Σbonuses)` — every hours-per-level figure here uses the product form.
+- If T14’s average stops landing on **10.5** (e.g. always 7 or always 14), the server overrode the default drop table →
+  record your min/max/mean per tier; the “server can override” caveat is the version marker.
+- If a skipped wave during Intro Sprint pays **0.22×** but the plain-IS wave pays ≠ 20 %, the two rules are not
+  multiplicative → re-derive §“Elite Cell income” rows 2–3 from one timed run.
 
 ## Sources
 
@@ -135,3 +195,12 @@ online often (it raises levels/day for all 5 slots: a `3 d 11 h` line becomes **
 - Tower Hub `wiki/lab/laboratory` (2026-07-29) — the 5-slot bill (**4 900** gems: 100/400/1 400/3 000) and the **v0.17
   rush table** with its discount column (0.91 / 0.79 / 0.66) against the pre-0.17 flat 7.5 gems/hour — the second source
   for the bucket prices in the exchange-rate table.
+- Tower Hub `wiki/currency/currency-elite-cells` (last verified **2026-11-01**) — the T14–T24 min/max/average table
+  (10 rows, all re-adding; “the server can override them”), the three drop-enemy types and the zero-drop list, the
+  **1.1×-even-during-Intro-Sprint** skip rule, the full boost-cost ladder (**15 … 1 000 000** cells/h) with
+  “`(multiplier − 1) × hours` saved”, the four multiplier ladders with closed caps (DW lab 20 lv → ×3.0, Bonus Cells
+  25 lv → ×2.5, Cells card T4 W40 +2/lv → +14, Cells Mastery 1 000 stones ×1.05→×1.32 v29), and the Cells/Kill
+  enhancement gate (**500 B** Utility spend) + its 10 printed prices with the cumulative **1.42 T**.
+- Tower Hub `wiki/currency/currency-coins` (2026-11-01) — the **Coin Bonus** enhancement (gate **50 B** Utility spend,
+  ×1 + 0.01/lv, L300 = ×4, “applies to both the tier bonus and Coins/Kill → effective benefit is **squared**”), the
+  four coin sources (kills pay on every type *except* Basic), and the tier/farm-depth advice line.
