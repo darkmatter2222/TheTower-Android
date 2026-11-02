@@ -1,5 +1,9 @@
 # T020 — Workshop coin-spend order: the level-band rule and the knee table
 
+Rev: 5 (2026-11-02) — adds the **two QoL labs** (`Buy multiplier` T2 W20, 4 lv, Σ **562 500**; `Game Speed` T1 W30, 7 lv,
+Σ **1 714 800** — both totals re-add, and `Game Speed`'s seven printed times sum to **45.36 d** = its printed **45.3 d**,
+which **resolves H050: the lab `Time` column is per-level**), the **buy-step order ×5 → ×10 → Max → ×100** with **no bulk
+discount**, and the resulting tap counts.
 Rev: 4 (2026-11-02) — adds the **`Starting Cash` lab** (T1 W30, 99 lv, value = **5 × level**, cheapest curve of the
 T1-W30 family: 30 → 6 165, Σ10 = 18 752 coins) and the **three `Free Upgrade` tracks** priced per level (**Attack
 75 → 941**, **Utility 100 → 966**; **20/20 cumulative totals reproduce**), their **three-roll mechanic** with the
@@ -136,6 +140,42 @@ enhancement pushes the roll past 100 % and starts paying the rollover.
 **One UW synergy to remember:** `Black Hole Digestor` pays **+3 / 5 / 7 / 10 % Coins/Kill** (Epic → Ancestral) **per free
 upgrade on the current wave**, and it triggers even when every stat in that workshop is maxed — so with the three tracks
 near 100 % the Digestor's bonus is a per-wave, wave-length-scaled coin multiplier ([T008](T008-uw-sync-with-stones.md)).
+
+### 1.5 The two QoL labs that gate the coin sink (`Buy multiplier`, `Game Speed`)
+
+Both are **coin-priced** lab lines, both are milestone-gated, and neither multiplies anything — they change how fast the
+other lines can be bought and how many waves fit into an hour. Prices below are Tower Hub's, “last verified 2026-10-13 /
+2026-11-01”.
+
+| Lab | Gate | Levels | Per-level prices (coins) | Σ | Per-level times | Σ times |
+|---|---|---|---|---|---|---|
+| `Buy multiplier` | **T2 W20** | 4 | 2 500 · 10 000 · 50 000 · 500 000 | **562 500** | 1 h · 5 h 33 m · 1 d 3 h 47 m · 2 d 7 h 33 m | **3 d 11 h 53 m** |
+| `Game Speed` | **T1 W30** | 7 | 300 · 2 500 · 12 000 · 50 000 · 150 000 · 500 000 · 1 000 000 | **1 714 800** ✓ | 10 m · 2 h 30 m · 10 h · 1 d 10 h 43 m · 3 d 19 h 40 m · 14 d 1 h 47 m · 25 d 11 h 7 m | **45.3 d** ✓ |
+
+**Both totals re-add.** `Game Speed`: 300 + 2 500 + 12 000 + 50 000 + 150 000 + 500 000 + 1 000 000 = **1 714 800** = the
+page's own printed total ✓, and its seven printed times sum to **65 317 min = 45.36 d** = the printed **45.3 d** ✓ — which
+also **proves the wiki `Time` column is per-level** (a cumulative column would end at 25 d 11 h = 25.5 d) →
+[H050](../hypotheses/H050-lab-time-column-per-level-vs-cumulative.md) is **resolved**. `Buy multiplier`: 2 500 + 10 000 +
+50 000 + 500 000 = **562 500** ✓ (its times have only four rows, so the same test is not available there).
+
+**What each level buys.** `Buy multiplier` unlocks the workshop's purchase-quantity steps in the order **×5 → ×10 → Max →
+×100** — `Max` is the **3rd** step and `×100` the 4th because `Max` shipped first and `×100` was appended so that accounts
+which had already paid for it kept their progress. `Max` buys “as many levels as you can currently afford”. Bulk buying
+carries **no discount** (the total is the sum of the individual levels), so §1–§6's coin budget is identical at any step.
+`Game Speed` raises the **speed cap**: **×2.0 at L1 → ×5.0 at L7** (+0.5/level); with the `Increase Max Game Speed by
++1.00` perk and a maxed `Standard Perk Bonus` lab the cap is **5.0 + 1 × 1.25 = 6.25**, shown as **6.3** (T011 §5's “max
+game speed chain”), and the printed caveat is that the number overstates real throughput (5.0 behaves ≈ 4.0).
+
+**The buy order this implies (all coins, no gem budget):** `Game Speed` **L1–L3** first — **14 800 coins / ≈ 13 h** take
+the cap from ×1 to **×3.0**, i.e. every later coin and cell is earned ≈ 3× faster in real time — then `Buy multiplier`
+**L1 + L2** (**12 500 coins / 6 h 33 m**) for the ×5/×10 steps so that the four income lines of §1.1 can be filled in
+**2 taps instead of 200**, then the rest of `Game Speed` (its last two levels are **1.5 M** of the 1.7148 M total for
++1.0× — ≈ 428 700 coins per multiplier unit overall, the cheapest per-unit line in the coin layer) and `Buy multiplier`'s
+**Max / ×100** tail last (550 000 coins for the last two steps).
+
+**Why `Max` matters for the knee rule (§3).** With `Max` selected, one tap spends the entire banked coin pile on the
+cheapest remaining levels of that line, which is exactly what the per-unit knee table wants — but it stops at the first
+level you cannot afford, so after a `Max` buy the *next* level is still the same one; nothing is skipped.
 
 ## 2. The level-band rule (the actual technique)
 
@@ -324,19 +364,24 @@ the enhancement gates — track each of the three separately ([H024](../hypothes
 
 ## 7. Steps (UI only)
 
-1. Home screen → **Workshop** → the **Utility** tab. Tap the four lock icons to unlock **Cash Bonus**, **Cash/Wave**
+1. Home screen → **Lab** → research **`Game Speed` L1–L3** (Main Research, unlocked at the **T1 W30** milestone: **14 800
+   coins / ≈ 13 h** for the ×3.0 cap), then **`Buy multiplier` L1–L2** (unlocked at **T2 W20**: **12 500 coins / 6 h 33 m**
+   for the ×5 and ×10 steps). Both pay back on every later tap (§1.5).
+2. Home screen → **Workshop** → the **Utility** tab. Tap the four lock icons to unlock **Cash Bonus**, **Cash/Wave**
    (40 coins each) then **Coins/Kill**, **Coins/Wave** (100 each), then **Free Upgrades** (800).
-2. Level each of the four to **level 50** in round-robin (10 taps per line per pass). Stop a line when its next 10-level
-   band exceeds ~180 K coins while another line is still under 100 K.
-3. Same for the Attack tab's capped flat lines of §3 (Attack Speed, Critical Chance, Range, Multishot +Targets,
+3. Level each of the four to **level 50** in round-robin (10 levels per pass per line — **one tap** once the ×10/`Max`
+   steps exist). Stop a line when its next 10-level band exceeds ~180 K coins while another line is still under 100 K.
+4. Same for the Attack tab's capped flat lines of §3 (Attack Speed, Critical Chance, Range, Multishot +Targets,
    Rapid Fire +Duration, Bounce Chance +Targets) — max each; they total ~23 M coins.
-4. Only then start the deep lines and stop at the knees: **Damage/Meter 70**, **Critical Factor 100**, **Super Crit
+5. Only then start the deep lines and stop at the knees: **Damage/Meter 70**, **Critical Factor 100**, **Super Crit
    Chance 20**, **Bounce Shot Range 40**, **Damage 2000–3000**.
-5. If the coin budget stalls, do **not** buy more Damage levels: check the discount labs (§4) first — one
+6. If the coin budget stalls, do **not** buy more Damage levels: check the discount labs (§4) first — one
    `Workshop Utility Discount` level is cheaper than the 10 levels it discounts.
-6. Use the **Workshop Respec** (unlocked T4 W30) to rebalance instead of re-buying blind, and note that the Vault
+7. Use the **Workshop Respec** (unlocked T4 W30) to rebalance instead of re-buying blind, and note that the Vault
    sells three respec discounts + 3 presets (T017).
-7. Watch the **per-track** enhancement gates (50 B → 500 B → 5 T → 50 T → 500 T spent in that track) once you reach
+8. Finish the QoL tails when they are cheap relative to the line you are on: `Game Speed` **L4–L7** (1.70 M for ×4.0→×5.0,
+   ≈ 428 700 coins per unit) and `Buy multiplier` **L3–L4** (550 000 for `Max` and ×100).
+9. Watch the **per-track** enhancement gates (50 B → 500 B → 5 T → 50 T → 500 T spent in that track) once you reach
    T12 W60 — they are separate counters, so finish one track before starting the next (§6.3).
 
 ## 8. Reproduction checklist
@@ -366,11 +411,21 @@ the enhancement gates — track each of the three separately ([H024](../hypothes
 - [ ] A wave pays a free level into a not-yet-maxed workshop tab, and **no** level appears once that tab is fully maxed
       (the “never picks a maxed stat” rule).
 - [ ] The `Free Upgrades` enhancement's L10 cumulative reads **18.87 T** coins at ×1.10, and its cap is **150** (×2.5).
+- [ ] `Game Speed` **lab**: L1 = **300** coins at **×2.0**, L7 = **1 000 000** at **×5.0**, the seven prices sum to
+      **1 714 800**, and the panel's total time reads **≈ 45 d** (per-level column) — not 25 d.
+- [ ] `Buy multiplier` **lab**: four levels at **2 500 / 10 000 / 50 000 / 500 000** (Σ **562 500**), and the workshop's
+      quantity selector cycles **1 → 5 → 10 → Max → 100** as those levels are researched; a `Max` buy spends the whole bank
+      and leaves the next level's price unchanged (no bulk discount).
 - [ ] One level of `Enhancement Coin Discount` (Utility) changes printed enhancement prices by −0.30 %, and `Max Buy`
       reflects that discount (the v29 fix).
 
 ## 9. Falsification
 
+- If `Game Speed`'s seven-level total shows **≈ 25 d** of time rather than **≈ 45 d**, the `Time` column is cumulative after
+  all → every slot bill in §1.5 (and T001/T006) must be replaced by the panel total ([H050](../hypotheses/H050-lab-time-column-per-level-vs-cumulative.md)
+  would reopen; the 45.36 d = 45.3 d match is what currently decides it).
+- If the workshop's quantity selector offers **×100 before Max**, the version ordering in §1.5 is stale → read the selector
+  order on the panel and re-derive which lab level is the one worth buying first (the Σ **562 500** is unaffected).
 - If the four income labs' L1 price is not **40** coins (value **1.02**), they are re-versioned → re-read L1/L5/L10 and
   rebuild §1.2's checkpoint table; the “1.80× cheaper than the meta-labs” ratio is derived, not printed.
 - If a `Cash/Wave` Payout at workshop L50 with the lab at L10 is **200** rather than **240**, the lab multiplies only the
@@ -427,6 +482,11 @@ the enhancement gates — track each of the three separately ([H024](../hypothes
   **Vault Power** node table (10/20/40/70/110 = 250; Cash +25 %, Coins/Kill +25 %, Cash/Wave +500 %, Coins/Wave +500 %),
   the printed Coins/Kill formula (2-source with game-vault) and the note that only the **All Coin perk** moves the
   displayed Coin/Kill figure, and the `Coin Bonus +` first-10 ladder (5.00 B → 1.42 T, all ten totals re-add).
+- Tower Hub `wiki/workshop/buy-multiplier` (2026-10-13) and `wiki/workshop/game-speed` (2026-11-01) — the `Buy multiplier`
+  lab (T2 W20 gate, 4 levels, 2 500 → 500 000 coins, values **5 / 10 / Max / 100**, the “×100 was added as the fourth level
+  so existing progress was kept” note, “no discount for buying in bulk”) and the `Game Speed` lab (T1 W30 gate, 7 levels,
+  300 → 1 000 000 coins with the printed totals **1 714 800 coins / 45.3 days**, values ×2.0 → ×5.0, the 6.25 cap with the
+  perk + Standard Perk Bonus and the “displayed multiplier overstates real speed” caveat).
 - Tower Hub `wiki/workshop/starting-cash` (2026-10-13) and `wiki/workshop/free-upgrades` (2026-11-01) — the `Starting Cash`
   lab (T1 W30, 99 lv, per-level prices 30 … 6 165, value column 5 × level, the same per-level time series as the income
   labs) and the `Free Upgrades` layer: the **800-coin** unlock behind Coins/Kill + Coins/Wave, three 99-level tracks at

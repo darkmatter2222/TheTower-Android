@@ -1,8 +1,15 @@
 # H050 — Is the Lab table's `Time` column per-level or cumulative?
 
-Status: open · Raised: 2026-11-02
+Status: **resolved 2026-11-02 — the column is per-level** (arithmetic proof below; one panel read still optional) · Raised: 2026-11-02
 
-**Claim.** The wiki lab tables print one `Time` number per level next to the price. For the `Max Interest` line the series
+**Settling arithmetic (found in iteration 42).** The Tower Hub `Game Speed` lab page prints seven per-level times
+(10 m · 2 h 30 m · 10 h · 1 d 10 h 43 m · 3 d 19 h 40 m · 14 d 1 h 47 m · 25 d 11 h 7 m) **and its own total, “45.3 days in
+total, before Lab Speed”**. Summing the column as *per-level* gives **65 317 min = 45.36 d ✓**, while reading it as
+*cumulative* ends at **25 d 11 h = 25.5 d ✗**. The same page's price column also re-adds as per-level
+(300 + 2 500 + … + 1 000 000 = **1 714 800** = its printed total ✓), so both columns are per-level. The non-monotone
+`Max Interest` series (L10 = 5 d 20 h 40 m, L11 = 1 d 4 h 50 m) is the second, independent proof.
+
+**Original claim (kept for the record).** The wiki lab tables print one `Time` number per level next to the price. For the `Max Interest` line the series
 is **non-monotone** — `… L9 = 3 d 21 h 10 m · L10 = 5 d 20 h 40 m · L11 = 1 d 4 h 50 m · L12 = 2 d 1 h 30 m …` — which is
 only possible if the column is **per-level** (a cumulative column cannot decrease). Under that reading the bills are:
 
