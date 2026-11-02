@@ -1,5 +1,12 @@
 # T006 — Pack the Lab queue, then buy the *cheapest* skipped hour
 
+Rev: 11 (2026-11-02) — **the enemy-stat layer closes**: the twenty 30-level enemy-stat lines share **one** time ladder
+(Σ **106 785 720 s = 1 235.95 d** of base slot each), the value steps are **−0.40 %** (Common/Fast/Vampire/Ray/Scatter) or
+**−0.30 %** (Protector pair + Boss pair) so the caps are **−12 % / −9 % / −6 %** ✓, the T19 trio is fully arithmetic
+(cost `0.25 q × n`, time `n × 10 d 19 h 11 m` ⇒ Σ **116.25 q** / **5 021.68 d** each), and
+`Lightning Amplifier - Scatter` is the cleanest closed form in the repo: value `1.25 × n` ⇒ **×37.5**, cost
+`100 B × 1.5^(n−1)` ⇒ L30 = **12.78 q** ✓, time `720 000 s × 1.12^(n−1)` ⇒ Σ **173 759 640 s = 2 011.11 d** ✓
+— a **×1.5 / ×1.12** pairing (new time constant). Coins-per-point ranking in §enemy-stat layer.
 Rev: 10 (2026-11-02) — **the cap table is closed line by line.** All eleven `wiki/lab/lab-category-*` pages
 (fetched 2026-11-02) print every line's `Max Lv`: the per-category counts re-add to the census
 (15 · 9 · 16 · 12 · 39 · 10 · 9 · 8 · 21 · 14 · 5 = **158** ✓), the **whole lab system is Σ 4 693 level-ups**, the twenty
@@ -284,6 +291,44 @@ coin lines and the 100-level `Enhancement Coin Discount` trio (T020), the six Wa
 caps 1/100/1/25/2/1/8/10/32 (T011), the bot caps 25/25/25/25/5/20/20/20 (T015), `Card Mastery` 9 (T012), the twelve
 module caps (T010) and the BC caps (T014) — all re-add unchanged.
 
+### The enemy-stat layer, ladder by ladder (Rev 11)
+
+Source: `wiki/enemy/common-enemy-labs`, `fast-enemy-labs`, `protector-labs`, `vampire-labs`, `ray-labs`, `scatter-labs`
+(2026-11-01 / one page 2026-07-29). Every **value** column is `step × n`, and the **30-level lines all share one time
+ladder** (`2d 7h 33m → 161d 9h 28m`, Σ **106 785 720 s = 1 235.95 d**), so one line's slot bill is a constant:
+
+| Lab (gate) | Lv | Value law | Cap | Price ladder | Σ coins | Σ time | coins / pp |
+|---|---|---|---|---|---|---|---|
+| `Common Enemy Health` / `Attack` | **T9 W10** | `−0.40 % × n` | **−12.00 %** ✓ “up to -12 %” | 20.00 B → 2.40 T | **21.117 T** | 1 235.95 d | **1.76 T** |
+| `Fast Enemy Health` / `Attack` | **T9 W20** | `−0.40 % × n` | −12.00 % | 30.00 B → 2.70 T | 25.768 T | 1 235.95 d | 2.15 T |
+| `Fast Enemy Speed` | **T9 W300** | `−0.40 % × n` | −12.00 % | 60 B → 3.60 T | 39.716 T | 1 249.83 d | 3.31 T |
+| `Protector Health` / `Radius` | **T9 W20** | `−0.30 % × n` | −9.00 % | 40.00 B → 3.29 T | 34.767 T | 1 235.95 d | 3.86 T |
+| `Protector Damage Reduction` | **T9 W20** | `−0.30 % × n` | **−6.00 %** (20 lv) | 80.00 B → 1.77 T | 16.521 T | 272.60 d | 2.75 T |
+| `Boss Health` / `Boss Attack` | **T9 W20** | `−0.30 % × n` ✓ §four-more-ladders | −9.00 % | (per panel) | — | — | — |
+| `Vampire` · `Ray` · `Scatter` Health + Attack | **T19 W60** | `−0.40 % × n` | −12.00 % | `0.25 q × n`: **0.25 q → 7.50 q** | **116.25 q** each | **5 021.68 d** each | **9.69 q** |
+| `Lightning Amplifier - Scatter` | **T16 W60** | `1.25 × n` ⇒ **×37.5** | ×37.5 | `100 B × 1.5^(n−1)`: 100.00 B → **12.78 q** (×1.5 ✓ 29/29) | **38.344 q** | **2 011.11 d** | 1.02 q per ×1 |
+
+Four reads that matter for the queue:
+
+1. **The cheap band is T9, the expensive band is T19 — by ~5 500× per point.** One `Common Enemy Health` point costs
+   **1.76 T** coins, one `Vampire`/`Ray`/`Scatter` point **9.69 q** (= 9 688 T). With 6 pp of gate difference (T9 → T19)
+   that is the single largest price gap in the lab system, and it is why the T19 trio is a *far-future* line below T11.
+2. **The T19 trio is fully arithmetic**: cost `0.25 q × n` (Σ = `0.25q × 465 = ` **116.25 q** ✓) and time `n × t₁` with
+   `t₁ = 10 d 19 h 11 m = 933 060 s` (Σ = `933 060 × 465 = ` **433 872 900 s = 5 021.68 d** ✓) — the `n · t₁` time shape
+   of T021's Echo labs, here paired with an *arithmetic* cost instead of ×2.25.
+3. **`Lightning Amplifier - Scatter` is the cleanest closed form in this doc**: value `1.25 × n` ⇒ **×37.5**, cost
+   `100 B × 1.5^(n−1)` ⇒ L30 = **12.78 q** ✓ (the printed row) and Σ = `100 B × (1.5^30 − 1)/0.5 = ` **38.34 q** ✓,
+   time `720 000 s × 1.12^(n−1)` ⇒ L30 = **19 259 940 s = 222 d 21 h 59 m** ✓ and Σ = `720 000 × (1.12^30 − 1)/0.12 = `
+   **173 759 640 s = 2 011.11 d** ✓ — a **×1.5 cost / ×1.12 time** pairing, i.e. the cost family of the main lines with a
+   *slower* time constant than the ×1.15 of the bot/perk family (new constant for the shape table).
+4. **The Protector pair's price ladder starts at 40 B, its Damage-Reduction line at 80 B** (double), which is the printed
+   reason the 20-level line is the priciest-per-point of the T9 group after `Fast Enemy Speed`.
+
+**The two `* Level Skip` labs' steps are now printed too** (`wiki/workshop/enemy-level-skip`): **20** levels, value
+`0.10 × n` ⇒ **+2.00** at L20, Σ **0.745 T** coins / **11 258 700 s = 130.31 d** per line — that is
+**373 B coins per point**, cheaper per point than *every* enemy-stat line above; full ledger in
+[T024](T024-enemy-level-skip-ledger.md).
+
 **The full boost-cost table (printed, as of v29).** A boost costs `rate × hours` (buckets 1 h / 8 h / 24 h) and “saves
 (multiplier − 1) × hours”:
 
@@ -417,6 +462,15 @@ online often (it raises levels/day for all 5 slots: a `3 d 11 h` line becomes **
       the three enhancement-discount labs).
 - [ ] **R ceiling:** with the generic BC lab + all four group lines maxed, an Overheat removes **16** and **23** levels
       (not 15/22, not 17/24) and a value-55 skip reads **×0.7492**.
+- [ ] **§enemy-stat layer:** `Common Enemy Health` (T9 W10) has **30** levels whose value column runs
+      **−0.40 % … −12.00 %** with prices **20.00 B → 2.40 T** (Σ **21.117 T**, Σ **1 235.95 d**), and every other
+      30-level enemy line prints the *same* times (**2d 7h 33m** at L1, **161d 9h 28m** at L30).
+- [ ] **T19 arithmetic ladder:** `Vampire Enemy Health` L1 = **0.25 q / 10 d 19 h 11 m** and L30 = **7.50 q /
+      323 d 23 h 39 m** (= `30 × t₁`), Σ **116.25 q** / **5 021.68 d**.
+- [ ] **The ×1.5 / ×1.12 line:** `Lightning Amplifier - Scatter` (T16 W60) prints **×1.25** at L1 and **×37.5** at L30
+      (`1.25 × n`), prices **100.00 B → 12.78 q** (×1.5 every level) and times **8 d 8 h → 222 d 21 h 59 m** (×1.12).
+- [ ] **Level Skip labs:** each of the two 20-level lines sums to **0.745 T** coins / **130.31 d** and its value column
+      ends at **2.00** ([T024](T024-enemy-level-skip-ledger.md) §2).
 
 ## Falsification
 
@@ -455,9 +509,29 @@ online often (it raises levels/day for all 5 slots: a `3 d 11 h` line becomes **
   instead → the total is **4 633**, not 4 693 (the census’s “14” is the 12 + 2 reading).
 - If an Overheat removes **15/22** levels at fully-maxed BC labs, the group labs are not additive with the generic one →
   re-derive `R_max` as `max(generic, group)` instead of the sum, and re-check the two floor values above.
+- If a 30-level enemy-stat line's **times** are not the shared ladder (`2d 7h 33m … 161d 9h 28m`), the constant-time
+  property is version-dependent → recompute that line's Σ from its own printed rows (the per-point table uses only Σ).
+- If `Lightning Amplifier - Scatter` level 2 costs **125 B** (×1.25) rather than **150 B** (×1.5), or its level-2 time is
+  not **9 d 8 h** (= `8 d 8 h × 1.12`), the closed forms are superseded → rebuild from the two printed ratios; the value
+  column `1.25 × n` is independent of both.
+- If a T19 enemy lab's cost column grows geometrically (**L2 = 0.375 q**, L3 = **0.5625 q**) instead of the printed
+  **L2 = 0.50 q**, L3 = **0.75 q**, the trio left the arithmetic shape → its Σ becomes
+  `0.25q × (1.5^30 − 1)/0.5 = ` **95 875 q** instead of **116.25 q** (an **825×** difference), so re-rank it against the
+  T9 lines before queuing.
 
 ## Sources
 
+- Tower Hub `wiki/enemy/common-enemy-labs` · `fast-enemy-labs` · `protector-labs` · `vampire-labs` · `ray-labs` ·
+  `scatter-labs` (last verified **2026-11-01**, `ray-labs` 2026-07-29) — the per-level `Level | Time | Cost | Value`
+  rows behind §enemy-stat layer: Common 20.00 B → 2.40 T with **−0.40 % … −12.00 %**, Fast 30.00 B → 2.70 T,
+  the 60-B line 60,000,000,000 → 3,600,000,000,000, Protector 40.00 B → 3.29 T and its Damage-Reduction twin
+  80.00 B → 1.77 T (**20** levels, “unlike the other two protector labs”), Vampire/Ray/Scatter **0.25 q → 7.50 q**
+  all at **T19 W60**, and `Lightning Amplifier - Scatter` (**T16 W60**) with `×1.25 … ×37.5` and
+  **100.00 B → 12.78 q**; plus the pages’ own “Labs for Basic, Fast, Tank and Ranged Health and Attack: 30 levels, up to
+  -12 %” summary line and the caution that researching enemy-stat labs breaks the default ratios between enemy types.
+- Tower Hub `wiki/workshop/enemy-level-skip` (last verified **2026-11-01**) — the two **20**-level `* Level Skip` labs with
+  their `0.10 … 2.00` value column (**900,000,000 → 152.29 B**, `0d 16h 40m → 17d 7h 20m`), which is the step the §cap
+  table left open; full ledger in [T024](T024-enemy-level-skip-ledger.md).
 - Tower Hub’s eleven `wiki/lab/lab-category-<name>` pages (fetched **2026-11-02**) — the per-line `Max Lv` list for
   Main (15 rows), Attack (9), Defense (16), Utility (12), Ultimate Weapon (39), Card (10), Perk (9), Bot (8), Enemies
   (21), Battle Condition (5) and the Module page’s 12: the §cap table is transcribed from those tables, including the

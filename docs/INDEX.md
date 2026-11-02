@@ -11,7 +11,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | T003 | [Turtle build T1–T2](techniques/T003-turtle-build-t1-t2.md) | tier unlocks | Unverified |
 | T004 | [Mission farming on low tier](techniques/T004-mission-farming-low-tier.md) | Gems, Coins, Shards, Medals, Tokens | **Verified (Rev 4**, arithmetic) |
 | T005 | [Tier-rush then farm](techniques/T005-tier-rush-then-farm.md) | Coins (daily/weekly) | Unverified |
-| T006 | [Lab queue packing + cheapest skipped hour](techniques/T006-lab-queue-packing.md) | all (multipliers) | **Verified (Rev 10**, arithmetic) |
+| T006 | [Lab queue packing + cheapest skipped hour](techniques/T006-lab-queue-packing.md) | all (multipliers) | **Verified (Rev 11**, arithmetic) |
 | T007 | [Ad-gem sweep](techniques/T007-ad-gem-sweep.md) | Gems | Amounts verified (Rev 2) |
 | T008 | [Stone economy: knee-first UW buying + cooldown sync](techniques/T008-uw-sync-with-stones.md) | Stones → Coins | **Verified (Rev 2)** |
 | T009 | [Gem spend order](techniques/T009-gem-spend-order.md) | Coins/min | Unverified (Rev 3) |
@@ -29,6 +29,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | T021 | [Dissonant Runs & Echo](techniques/T021-dissonant-runs-echo.md) | Coins (+ damage/health/UW) | **Verified (Rev 3**, arithmetic) |
 | T022 | [Free-currency census & paid ladder](techniques/T022-free-currency-census-paid-ladder.md) | Gems, Stones (budget + bills) | **Verified (Rev 2**, arithmetic) |
 | T023 | [Guardian economy (bit model, Fetch droptable, sync layer)](techniques/T023-guardian-economy.md) | Bits → Gems, Medals, Shards, Coins | **Verified (Rev 5**, arithmetic) |
+| T024 | [Enemy Level Skip ledger (workshop + lab + enhancement)](techniques/T024-enemy-level-skip-ledger.md) | Coins → wave depth | **Verified (Rev 1**, arithmetic) |
 
 ## Hypotheses (open)
 
@@ -70,7 +71,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | H034 | [Bot Bot Bonus line: 19 or 30 levels](hypotheses/H034-botbot-level-count.md) — **resolved** (19 levels, cap ×2.00) | done: value ladder closes 1.05 + 19 × 0.05 = 2.00 ✓ |
 | H035 | [Lab-rush price improves per completed lab](hypotheses/H035-lab-rush-rate-per-completed-lab.md) — **resolved** (7.5 gems/h × 0.91/0.79/0.66 buckets + 0.015× per gold box) | done: both factors printed by two sources |
 | H036 | [Is the 80-card event quest worth 1 600 gems](hypotheses/H036-buy-80-cards-event-roi.md) | read the quest's medal payout + the shop's gems-per-medal rate |
-| H037 | [Per-level step of the six special enhancements](hypotheses/H037-enhancement-per-level-step.md) | read the multiplier line at level 0, 1 and the cap for each |
+| H037 | [Per-level step of the six special enhancements](hypotheses/H037-enhancement-per-level-step.md) — **`Enemy Level Skip +` settled** (printed `1.01x … 1.60x` ⇒ `1 + 0.01n`, ×1.60 at L60); five still open | read the multiplier line at level 0, 1 and the cap for each of the five |
 | H038 | [Milestone premium track additive (46 cells) or replacement (23)](hypotheses/H038-milestone-two-track-badge.md) | badge delta before/after buying one pass on a fully-cleared group |
 | H039 | [Milestone coin cells flat or run-multiplier scaled](hypotheses/H039-milestone-coin-cell-scaling.md) | coin-counter delta for one cell, low vs high coin multiplier |
 | H040 | [Does Fetch's cooldown run offline](hypotheses/H040-fetch-procs-offline.md) | gem/shard counters before an app-closed night + per-hour rate |
@@ -154,6 +155,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 - [2026-11-02 - session 58 (T006 Rev 9, T010 Rev 6)](log/2026-11-02.md#2026-11-02---session-58-iteration-67-five-lab-pages-print-their-ladders-and-the-per-column-law-falls-out)
 - [2026-11-02 - session 59 (T004 Rev 4, T010 Rev 7, T021 Rev 3)](log/2026-11-02.md#2026-11-02---session-59-iteration-68-the-module-lab-page-prices-the-whole-shard-layer-and-the-echo-law-becomes-one-formula)
 - [2026-11-02 - session 60 (T006 Rev 10, T014 Rev 7)](log/2026-11-02.md#2026-11-02---session-60-iteration-69-the-whole-lab-system-closes-at-4-693-levels-and-the-condition-layer-gets-a-ceiling)
+- [2026-11-02 - session 61 (T024 new, T006 Rev 11, H037 partial)](log/2026-11-02.md#2026-11-02---session-61-iteration-70-the-enemy-scaling-layer-closes-and-the-skip-stat-gets-a-buying-order)
 
 ## Reference material in this repo
 

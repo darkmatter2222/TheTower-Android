@@ -24,6 +24,10 @@ and then level 1:
 3. note whether the two economy enhancements share one step (they share one price curve too);
 4. note `Enemy Level Skip +`'s unit: it may be a **flat** +1 skip per level rather than a multiplier, which would make the
    “×-per-level” framing wrong for it;
+   **→ settled from the printed table (`wiki/workshop/enemy-level-skip`, 2026-11-01): it is a multiplier, value column
+   `1.01x … 1.60x` ⇒ `1 + 0.01 × n`, cap **×1.60** at level **60**, and the page’s own wording is “increases both the Enemy
+   Health and Enemy Damage Level Skip multipliers by x1 when unlocked, then adds 0.01x per level”. Recorded in
+   [T024](../techniques/T024-enemy-level-skip-ledger.md) §2 layer 3; the other five specials still need the reads above.**
 5. record which **track header** each of the six special enhancements sits under — the source table only prints the track
    for the first ten rows (the six Attack and four Defense entries), so `Orb Size`, `Coin Bonus +`, `Cells / Kill Bonus`,
    `Free Upgrades +` and `Enemy Level Skip +` have no printed track. The track decides **which** of the three
