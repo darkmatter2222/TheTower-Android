@@ -1,5 +1,10 @@
 # T011 — Tune the Perk engine: more picks per run, deterministic picks
 
+Rev: 6 (2026-11-02) - the **per-tier perk bill** added: the required condition levels sum to **0 through Tier 13**, then
+**146 / 242 / 328 / 428 / 585 / 735 / 890 / 1 056** picks for Tiers 14 → 21, and **every printed marginal re-adds from the
+family steps** (+10 lines, +15 Ultimate lines, +5 `ELS Reduction`, plus the new lines' entry levels) - 8/8 exact, e.g.
+T18 = 6·10 + 2·15 + 5 + **2** (More Bosses 3→5) + 60 = **157**. Converted with the pick-rate table, the Tier-14 bill costs
+**29 200 / 9 125 / 4 424** waves at 5 / 16 / 33 picks per 1 000 waves (**6.6×** for a tuned engine).
 Rev: 5 (2026-11-02) - the **printed perk values** added (§1.⑦): 200-wave cadence, the three early picks and their stacks
 (3 / 1 / 5), the **x45.6** Health-Regen ceiling, the **16.111x** defense identity re-adding from `0.145 / 0.009`, and the
 **T2 W150** / **T2 W1000** gates (the latter lighting `First Perk Choice` **and** `Garlic Thorns` together).
@@ -212,6 +217,53 @@ anything else).
 
 ---
 
+### The per-tier perk bill (the condition levels each tier demands, `wiki/system/tiers`)
+
+Every battle condition line in the **Perks** screen is printed with a **required level** per tier, and one pick = one level
+(the SPB lab only multiplies the *value* of the level, never the count), so the sum of the required levels **is** the number
+of perk picks the tier costs. Adding the printed columns up:
+
+| Tier | Coin bonus | Condition lines | **Σ picks required** | Marginal picks | Bonus per marginal pick |
+|---|---|---|---|---|---|
+| 1–13 | 1 → 14.7 | **0** | **0** | — | — |
+| 14 | 17.6 | 6 | **146** | +146 | 0.0199 |
+| 15 | 21.3 | 8 | 242 | +96 | **0.0385** |
+| 16 | 25.2 | 9 | 328 | +86 | **0.0453** |
+| 17 | 29.1 | 10 | 428 | +100 | 0.0390 |
+| 18 | 33 | 13 | 585 | +157 | 0.0248 |
+| 19 | 40 | 14 | 735 | +150 | **0.0467** |
+| 20 | 48 | 15 | 890 | +155 | **0.0516** |
+| 21 | 60 | 17 | **1 056** | +166 | **0.0723** |
+
+**The marginal bill decomposes exactly** (every one of the eight printed marginals re-adds), because each line family has
+its own step: `marginal = (10 × count of the +10 lines still below their 95 cap) + (15 × count of Ultimate lines) +
+5 (ELS Reduction) + ΔMore Bosses + the entry levels of the new lines that tier introduces`:
+
+- **T15 = 96** = 4 × 10 (Orb, Death Ray, Thorns, Plasma) + 5 (ELS) + 1 (More Bosses 1 → 2) + **50** of new lines
+  (Knockback 40 + Armored 10).
+- **T16 = 86** = 6 × 10 + 5 + 1 + **20** (Protector's) · **T17 = 100** = 6 × 10 + 15 + 5 + **20** (Tank's, with
+  More Bosses parked at 3 → 3 for 0).
+- **T18 = 157** = 6 × 10 + 2 × 15 + 5 + **2** (More Bosses 3 → 5, the only +2 step) + **60** (Scatter + Ray + Vampire at 20
+  each) — the most expensive step in the ladder, because three lines enter at once.
+- **T19 = 150** = 2 × **5** (Orb and Death Ray now only climb 90 → 95) + 4 × 10 + 5 × 15 + 5 + **20** (Fast's) ⇒ note the
+  two 95-capped lines start contributing **5** instead of 10, and stop contributing entirely from T20.
+- **T20 = 155** = 4 × 10 + 6 × 15 + 5 + **20** (Boss's) · **T21 = 166** = (10 + **5** + 10 + 10) + 7 × 15 + 5 + **21**
+  (Basic's 20 + Mass Enforcement 1).
+
+**Turn the Σ into waves** with the pick-rate table above (`picks per 1 000 waves`): the same bill in cumulative waves —
+
+| Σ picks | untuned (5 / 1 000 w) | Active (16 / 1 000 w) | Near-max (33 / 1 000 w) |
+|---|---|---|---|
+| **146** (Tier 14) | 29 200 w | **9 125 w** | **4 424 w** |
+| 585 (Tier 18) | 117 000 w | 36 563 w | 17 727 w |
+| **1 056** (Tier 21) | 211 200 w | 66 000 w | 32 000 w |
+
+⇒ **the perk tuning in §1 is worth ≈ 6.6× the wave-budget of an untuned account on the same tier ladder**, and through
+Tier 13 the bill is literally zero, so every early pick can go to the coin-percentage perks of §“the printed perk tables”
+without delaying a tier unlock. Two planning rules follow: **buy the Ultimate lines in 15-blocks and the +10 lines in
+10-blocks** (a level between the steps is never needed), and **a tier that introduces several lines at once is the expensive
+step** — T18 (three new lines, +157) is worse value per pick than T16 (+86) even though both raise the bonus by less.
+
 ## 2. Step-by-step (UI only)
 
 ### A. One-time: unlock the perk tree
@@ -299,6 +351,12 @@ Bans, the First Perk Choice and the ranking **cannot be changed while a run is i
       15 % trade-off** (§1.3); `Improve Trade-Off Perks` L1 = **600 M** and L10 = **4.92 B** (Σ of the first ten = **17.26 B**),
       and it leaves the ranged-distance trade-off perk's benefit unchanged.
 
+- [ ] **The tier bill (§“per-tier perk bill”):** the **Perks** screen’s condition list shows **6** lines at Tier 14
+      (50 / 50 / 20 / 20 / 1 / 5, **Σ 146**) and Tier 15 adds exactly **+96** — four lines +10, `ELS Reduction` +5,
+      `More Bosses` +1, and two new lines entering at 40 and 10. Tiers 1–13 show **no** list at all.
+- [ ] **Pick-rate payoff:** that 146-pick bill costs **29 200 / 9 125 / 4 424** waves at the untuned / Active / Near-max
+      tunings (5 / 16 / 33 picks per 1 000 waves) — so counting your own offers per 1 000 waves places you in the table.
+
 ## 4. Falsification
 
 - First offer lands at exactly **wave 200** even though the `Waves Required` lab is level ≥ 1 → the lab is not being applied (wrong category / not completed); the technique's table is wrong for your save.
@@ -314,6 +372,16 @@ Bans, the First Perk Choice and the ranking **cannot be changed while a run is i
   buying it → §1.⑧'s ladder moved; re-read the line's levels before re-pricing §1's quality table.
 - `First Perk Choice` visibly decides a **trade-off** offer (e.g. always takes the ×1.8 coin trade-off) → the printed
   limitation is version-stale, the ban tail becomes less critical, and §1's ban ranking needs re-ordering.
+
+- If a tier’s condition list shows a **different line count** than the table (e.g. Tier 18 prints 12 lines, not 13), the
+  printed ladder was re-versioned → re-sum the panel’s required levels and take the marginals from those sums; the family
+  steps (10 / 15 / 5) are a cross-check, not a law, so only the decomposition needs rebuilding.
+- If **one pick grants more than one level** on some line (its level jumps by 2 per pick), the Σ is no longer the pick count
+  → divide that family’s levels by its printed per-pick step before using the wave table (the Σ column itself still matches
+  the panel).
+- If the coin bonus the game prints for a tier is not the table’s value (e.g. Tier 14 shows something other than **17.6**),
+  the two tables are from different versions → take the bonus column from the panel and recompute only the
+  “bonus per marginal pick” column.
 
 ## 5. Notes / open items
 
@@ -333,6 +401,12 @@ Bans, the First Perk Choice and the ranking **cannot be changed while a run is i
 
 ## Sources
 
+- Tower Hub `wiki/system/tiers` (last verified **2026-07-29**) — the per-tier bill: the `Tier / Coin Bonus / Battle
+  Conditions` table whose condition column is **`None` for Tiers 1–13** and whose required levels per line give the Σ-pick
+  ladder (146 at Tier 14 → 1 056 at Tier 21), the per-line step families (the `X's Ultimate` lines at 20 then +15,
+  `Orb`/`Death Ray Resistance` at 50 with the **+10 / 95-cap** behaviour, `Thorns`/`Plasma Cannon` +10 from 20, `Knockback`
+  from 40, `Armored Enemies` from 10, `ELS Reduction` +5 from 5) and the hand-set `More Bosses` series
+  (**1, 2, 3, 3, 5, 5, 5, 5**, read as the boss interval `10 − level`).
 - Tower Hub `wiki/guide/tier-specific-guide` (last verified **2026-07-29**) — the printed perk values behind §1.⑦: the
   **200**-wave offer cadence with **2** options, “perks reset when a run ends”, **no perks in tournaments** (“at least 16.1×
   more damage”), the **T2 W150** gate with “a lab research that takes three days”, the **T2 W1000** gate lighting

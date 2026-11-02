@@ -16,7 +16,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | T008 | [Stone economy: knee-first UW buying + cooldown sync](techniques/T008-uw-sync-with-stones.md) | Stones → Coins | **Verified (Rev 8**, arithmetic: 9/9 stone values + 4/4 lattice rows + the 53 547 ledger + the 9 UW+ tables closing as 4 sequences (179 240) + the GT matrix + 9/9 workshop totals) |
 | T009 | [Gem spend order](techniques/T009-gem-spend-order.md) | Coins/min | **Three-sourced (Rev 5**; device read pending) |
 | T010 | [Module economy (slot levels, merges, rerolls)](techniques/T010-module-merge-chain.md) | Modules, shards | **Verified (Rev 7**, arithmetic) |
-| T011 | [Perk engine tuning](techniques/T011-perk-engine-tuning.md) | Coins (run multipliers) | **Verified (Rev 5**, arithmetic) |
+| T011 | [Perk engine tuning](techniques/T011-perk-engine-tuning.md) | Coins (run multipliers) | **Verified (Rev 6**, arithmetic: the printed ladders + the per-tier perk bill 0 → 1 46…1 056 picks, 8/8 marginals re-added) |
 | T012 | [Card deck order (gems per percentage point)](techniques/T012-card-deck-order.md) | Coins, Cash, Elite Cells | **Verified (Rev 2**, arithmetic) |
 | T013 | [Event window & medal economy](techniques/T013-event-medal-economy.md) | Medals → Gems, Stones, Shards | **Verified (Rev 5**, arithmetic) |
 | T014 | [Tournament tickets & league ladder](techniques/T014-tournament-tickets.md) | Gems, Stones, Keys | **Verified (Rev 7**, arithmetic) |
@@ -176,6 +176,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 - [2026-11-02 - session 75 (T005 Rev 3)](log/2026-11-02.md#2026-11-02---session-75-iteration-84-the-printed-tier-ladder-is-one-arithmetic-line-to-t8-then-x123-a-tier-and-tier-13-costs-zero-perk-work)
 - [2026-11-02 - session 76 (T002 Rev 4)](log/2026-11-02.md#2026-11-02---session-76-iteration-85-the-wave-clock-is-26-plus-9-seconds-so-one-wave-costs-35-s-and-tournaments-run-faster-by-a-fixed-factor)
 - [2026-11-02 - session 77 (T024 Rev 2)](log/2026-11-02.md#2026-11-02---session-77-iteration-86-the-els-reduction-tier-staircase-is-exactly-5-times-tier-minus-13-and-the-printed-40-pins-it-to-the-perks-screen)
+- [2026-11-02 - session 78 (T011 Rev 6)](log/2026-11-02.md#2026-11-02---session-78-iteration-87-the-per-tier-perk-bill-is-0-picks-through-tier-13-then-146-to-1056-and-all-eight-marginals-re-add-from-the-family-steps)
 
 ## Reference material in this repo
 
