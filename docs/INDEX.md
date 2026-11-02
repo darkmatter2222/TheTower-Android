@@ -27,6 +27,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | T019 | [Milestone claim engine](techniques/T019-milestone-claim-engine.md) | Gems, Stones, Coins, labs | Unverified (Rev 2) |
 | T020 | [Workshop coin-spend order](techniques/T020-workshop-coin-order.md) | Coins → Cash/Coins multipliers | Unverified |
 | T021 | [Dissonant Runs & Echo](techniques/T021-dissonant-runs-echo.md) | Coins (+ damage/health/UW) | Unverified |
+| T022 | [Free-currency census & paid ladder](techniques/T022-free-currency-census-paid-ladder.md) | Gems, Stones (budget + bills) | Unverified |
 
 ## Hypotheses (open)
 
@@ -61,6 +62,8 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | H027 | [One Dissonance boost per tier, or one per category](hypotheses/H027-dissonance-one-boost-per-tier-vs-four.md) | run Attack then Utility on one tier, count the panel lines |
 | H028 | [Which Dissonance terms are live in a tournament](hypotheses/H028-dissonance-boost-in-tournaments.md) | read the run's coin multiplier in a bracket vs a normal run |
 | H029 | [Does the 60-claim cap count taps or timers](hypotheses/H029-ad-gem-cap-counts-taps-or-timers.md) | with the 5× bank, log taps × badge until the icon stops paying |
+| H030 | [Does the web store's +10 % cover stone offers too](hypotheses/H030-webstore-bonus-applies-to-stones.md) | compare identical price points in-game vs the web **Gems**/**Stones** tabs |
+| H031 | [Does the web Free Gift stack with the 20-gem claim](hypotheses/H031-webstore-weekly-gift-stacking.md) | one week of `G0 → G1 → G2` gem-counter reads |
 
 ## Logs
 
@@ -80,6 +83,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 - [2026-11-01 — session 14 (T001 Rev 2, T019 Rev 2, H003 resolved, H025–H026)](log/2026-11-01.md#2026-11-01--session-14-iteration-23-interest)
 - [2026-11-01 — session 15 (T021, H027–H028)](log/2026-11-01.md#2026-11-01--session-15-iteration-24-dissonance)
 - [2026-11-01 — session 16 (T007 Rev 2, T010 Rev 3, H001 resolved, H029)](log/2026-11-01.md#2026-11-01--session-16-iteration-25-ad-gems--v29-notes)
+- [2026-11-01 — session 17 (T022, H030–H031)](log/2026-11-01.md#2026-11-01--session-17-iteration-26-census--paid-ladder)
 
 ## Reference material in this repo
 
