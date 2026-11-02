@@ -1,5 +1,10 @@
 # T018 — Relic economy: the free percentage-point pipeline and the gem-vs-medal price rule
 
+Rev: 3 (2026-11-02) — the **printed combination laws** are in (§3.1): `UW damage from relics = 1 + Σ` ⇒
+**×1.52** at the 52-pp pool, and “similar relics **add**, other types **multiply**”; the totals print is sized
+(**30 rows = 27 value rows + 3 group headers**) and re-summed line by line with **relic counts per stat** —
+**25 of 27 exact**, two ±2 pp skews (`tower health 138 vs 136`, `free defense upgrade 11 vs 13`), and the Ultimate-Damage
+line decomposes as `8 + 8×5 + 2×2 = 52` (nine relics carry 48 of the 52 pp).
 Rev: 2 (2026-11-02) — third source (Tower Hub `wiki/system/relics`, “as of v29.1.2”) makes the pool **335 relics**; the
 **channel census closes on 335** (24 + 9 + 8 + 270 + 24 ✓) and an independent re-sum of all 335 rows reproduces **9 of 9**
 printed “Total Bonuses” rows, which also **fixes the coin total to 99 %**, settles the old Ultimate Damage 51-vs-52 split at
@@ -11,8 +16,9 @@ on Coins / Cash / Lab Speed
 (event medals, guild token spend, wave-4 500 milestones, top-4 league finishes), so the technique is mostly ordering.
 **Confidence:** **High** — the 335-row table, the six unlock channels, the 200/500-medal and 600/1 200-gem prices and the
 stacking rules are printed by **three** sources (fandom raw wikitext, Tower Hub `wiki/system/relics` 2026-11-01, game-vault);
-the totals and the §2 break-even are derived and cross-checked. **Verified (arithmetic, Rev 2):** re-summing all 335 rows
-reproduces **9/9** of the wiki's printed stat totals and the census closure is exact (§1.1). No on-device capture yet for the
+the totals and the §2 break-even are derived and cross-checked. **Verified (arithmetic, Rev 3):** re-summing all 335 rows
+reproduces **25 of the 27** printed stat totals exactly (the two misses are ±2 pp, §3.1), the census closure is exact
+(§1.1), and the §3.1 relic counts re-add to **335**. No on-device capture yet for the
 per-relic panel text.
 **Ease:** 0 taps (passives apply themselves) + 1–2 shop buys per event · **Prerequisite:** the **Themes** menu lists
 relics; the four pipelines need Events (T1 W70), a Guild (T3 W10), Tournaments (T1 W60) and tiers 1–10.
@@ -111,11 +117,49 @@ Damage 144 · Tower Health 138 · Critical Factor 120 · Damage/Meter 98 · Ulti
 17 · Free Defense 11 · Free Utility 12 · Defense Absolute **78** · Defense % 6 · Super Crit Chance 6 · Super Crit Mult 5 · Bot
 Range 12 m · Enemy Attack Skip 2 · Enemy Health Skip 2 · Rend Armor Mult 2 · Wall Rebuild −2 s. **Every one of the 9 stat rows
 the wiki prints matches this list exactly** (79 ✓, 12 m ✓, 144 ✓, 52 ✓, 20 ✓, 20 ✓, 120 ✓, 98 ✓, 6 ✓), so the table above can
-be used as the account's end-state budget.
+be used as the account's end-state budget. **Rev 3 extends the check to the whole 30-row totals print (27 value rows):
+25 lines re-add exactly, 2 are ±2 pp skews, and the relic count per line is new** — see §3.1.
 
 Because **same-stat relics stack additively**, taking three coin relics is exactly +2 +5 +10 = **+17 pp**; there is
 no duplicate-waste penalty, which is why the queue can be stat-blind across sources but still has to be
 stat-aware inside the 4-slot rotating shop (§5 step 3).
+
+### 3.1 The 27-line ledger with relic counts (Rev 3)
+
+The site's own “Total Bonuses” table is **“Showing 10 of 30 rows”** — 30 = **27 value rows + 3 group headers**
+(`Damage | Total`, `Defense | Total`, `Utility | Total`), and a fresh parse of all **335** relic rows produces **exactly 27
+distinct stats**, so the two prints have the same shape. The counts per line are new (the wiki's table does not print them)
+and they are what makes the queue legible: **how many relics have to arrive before a line is fully paid**.
+
+| Stat | Relics | Σ pp | Stat | Relics | Σ pp |
+|---|---|---|---|---|---|
+| Tower damage | 33 | 144 | Attack speed | 14 | 20 |
+| Tower health | 35 | **138**¹ | Critical chance | 12 | 20 |
+| Critical factor | 28 | 120 | Free attack upgrade | 12 | 17 |
+| Coins earned | 25 | 99 | Thorns | 10 | 16 |
+| Damage / meter | 23 | 98 | Bot range (m) | 8 | 12 |
+| Lab speed | 20 | 79 | Free utility upgrade | 9 | 12 |
+| Defense absolute | 20 | 78 | Free defense upgrade | 9 | **11**¹ |
+| **Ultimate damage** | **11** | **52** | Super critical chance | 3 | 6 |
+| Health regen | 13 | 41 | Defense percent | 5 | 6 |
+| Cash bonus | 13 | 41 | Super critical mult | 1 | 5 |
+| Orb speed | 9 | 36 | Enemy attack level skip | 1 | 2 |
+| Knockback force | 10 | 35 | Enemy health skip | 1 | 2 |
+| Recovery amount | 8 | 22 | Rend armor mult | 1 | 2 |
+| | | | Wall rebuild (s) | 1 | −2 |
+
+**Result: 25 of the 27 lines re-add to the printed value exactly**, including every line that matters for currency (coins 99
+with 25 relics, lab speed 79 with 20, cash bonus 41 with 13, ultimate damage 52 with 11). ¹The two remaining lines are
+**±2 pp** off the print (tower health 138 vs **136**, free defense upgrade 11 vs **13**) — one 2 %-relic in each direction,
+recorded as a skew, not resolved; both are push-stats so no spend order changes.
+
+**Ultimate Damage is the one line with a printed combination law:** “*Ultimate Damage from relics multiplies UW damage
+(Death Wave and others): **1 plus the sum** of the unlocked Ultimate Damage relics*” ⇒ at the full pool
+**×1.52** (`1 + 0.52`). Its 11 relics are one 8 % + eight 5 % + two 2 % = `8 + 40 + 4 = ` **52** ✓, so the line is *knee-shaped*
+in the good way: the **nine** best relics out of eleven carry 48 of the 52 pp. The general stacking rule is printed in the
+same section — “bonuses from **similar** relics **add** together, while they **multiply** against other types of bonuses”
+— which is the second print of §4's rule and the reason the relic UW multiplier is applied *on top of* the Dissonant UW
+boost ([T021](T021-dissonant-runs-echo.md) §2) rather than inside it.
 
 ## 4. How to read the panel (stacking rules)
 
@@ -157,6 +201,13 @@ stat-aware inside the 4-slot rotating shop (§5 step 3).
 - [ ] Summing your *owned* relics per stat equals the panel's per-stat total (the additive rule of §4), and with the full
       335-relic set the totals equal §3's list (Coins **99**, Lab **79**, Cash **41**, Crit Factor **120**, Damage **144**).
 - [ ] The Event Store section shows **4** older relics per week: **two Rare at 600 gems** and **two Epic at 1 200 gems**.
+- [ ] **§3.1 counts:** with a full set, **coins** come from **25** relics (+99), **lab speed** from **20** (+79),
+      **ultimate damage** from **11** (+52), **cash bonus** from **13** (+41); the totals table itself lists **30** rows of
+      which **27** are values (three are `Damage / Defense / Utility | Total` headers).
+- [ ] **UW law:** with every Ultimate-Damage relic owned, UW damage from relics reads **×1.52** (`1 + 0.52`), and the eleven
+      rows are `8 + 8 × 5 + 2 × 2` = **52** — the 8 % row is **T:XX Cyber**, the two 2 % rows are the low-rarity tail.
+- [ ] A relic group bonus and a **card** or **workshop** bonus of the same name **multiply** (e.g. relic +99 % coins and a
+      ×1.45 coins card ⇒ `1.99 × 1.45`), per the printed “similar add, other types multiply” rule.
 
 ## 7. Falsification
 
@@ -173,6 +224,11 @@ stat-aware inside the 4-slot rotating shop (§5 step 3).
   highest `Nr.` the panel lists so the census can be re-based.
 - If the pool's `Nr.` count is **not 335**, the census in §1.1 shifts by the new rows; re-tally the five channels and check
   that they still close on the panel's row count (that closure is what makes the totals trustworthy).
+- **Two skews against the site's own totals table (Rev 3):** the row-by-row re-sum gives **tower health 138** where the
+  totals table prints **136**, and **free defense upgrade 11** where it prints **13**. If a panel read shows either total,
+  note which print it follows; the ±2 pp is one relic and changes no decision (both are push-stats).
+- If UW damage from relics is **not** `1 + Σ` (the multiplicative alternative is `1.08 × 1.05⁸ × 1.02² = ` **×1.66** instead of
+  **×1.52**), the “1 plus the sum” line is a simplification → re-derive §3.1's UW row as `Π(1 + xᵢ)` and re-check.
 - If a **Guild Season 11+** relic is granted without a Guild *Store* purchase, the 75/150-token rule still applies to the
   store entries as well → re-read the counter text and re-apply H020.
 
@@ -189,11 +245,14 @@ stat-aware inside the 4-slot rotating shop (§5 step 3).
   Utility 10, Defense % 6, Super Crit Chance 6, Super Crit Mult 5 — **20 of 21 summary rows match**; Ultimate
   Damage 51 (summary 52).
 - Tower Hub `wiki/system/relics` (last verified **2026-11-01**, table “as of v29.1.2”) — the **335-row** relic table
-  (Nr. / Relic / Rarity / Description / Unlock Requirement), the six channels, the “**Total Bonuses**” summary (30 rows, 9 of
-  them rendered and all 9 reproduced), the “1 plus the sum of the unlocked Ultimate Damage relics” stacking rule, and the v28
-  Event Store print (4 older relics per week, two Rare at 600 gems + two Epic at 1 200, since **2026-04-14**). The totals in
-  §3 and the census in §1.1 come from parsing those 335 rows directly (script re-adds each `Increase … by N %` line by stat,
-  counting the two `Increases Defense Absolute` variants with the rest of their stat).
+  (Nr. / Relic / Rarity / Description / Unlock Requirement), the six channels, the “**Total Bonuses**” summary
+  (**30 rows** = 27 values + the three `Damage / Defense / Utility | Total` headers; every value row is now in the embedded
+  payload and 25 of 27 re-add), the “1 plus the sum of the unlocked Ultimate Damage relics” stacking rule, the
+  “bonuses from **similar** relics **add** together, while they **multiply** against other types of bonuses” sentence, the
+  browse-in-**Themes-Menu** note, and the v28 Event Store print (4 older relics per week, two Rare at 600 gems +
+  two Epic at 1 200, since **2026-04-14**). The totals in §3/§3.1 and the census in §1.1 come from parsing those 335 rows
+  directly (script re-adds each `Increase(s) … by N %` line by stat, including the two `Increases Defense Absolute`
+  variants and the metre/second rows).
 - `tools/gm_strings.txt` — `Assets\Scripts\Relics.cs`, `RelicsManager.cs`, `RelicSlotButton.cs`,
   `Guilds\GuildStoreRelicEntry.cs` (guild relics are store entries ⇒ gated on *spent* tokens) and
   `ThemeManager|EventShopGemRelicWindow` (the gem-priced relic window in the Event Shop).
