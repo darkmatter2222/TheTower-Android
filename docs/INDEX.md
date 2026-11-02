@@ -25,7 +25,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | T017 | [Vault: Keys priority ladder](techniques/T017-vault-keys-priority.md) | Keys → Gems, Coins, Cash, Shards | **Verified (Rev 2**, arithmetic) |
 | T018 | [Relic economy & price rule](techniques/T018-relic-economy.md) | % points (Coins/Cash/Lab) | Unverified |
 | T019 | [Milestone claim engine](techniques/T019-milestone-claim-engine.md) | Gems, Stones, Coins, labs | **Verified (Rev 3**, arithmetic; H038 open) |
-| T020 | [Workshop coin-spend order](techniques/T020-workshop-coin-order.md) | Coins → Cash/Coins multipliers | Unverified (Rev 2) |
+| T020 | [Workshop coin-spend order](techniques/T020-workshop-coin-order.md) | Coins → Cash/Coins multipliers | **Verified (Rev 3**, arithmetic) |
 | T021 | [Dissonant Runs & Echo](techniques/T021-dissonant-runs-echo.md) | Coins (+ damage/health/UW) | Unverified |
 | T022 | [Free-currency census & paid ladder](techniques/T022-free-currency-census-paid-ladder.md) | Gems, Stones (budget + bills) | Unverified |
 | T023 | [Guardian economy (bit model, Fetch droptable, sync layer)](techniques/T023-guardian-economy.md) | Bits → Gems, Medals, Shards, Coins | **Verified (arithmetic)** |
@@ -81,6 +81,8 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | H045 | [Is the module pity counter per banner or shared?](hypotheses/H045-module-pity-counter-scope.md) | read the counter on both banners around a switch |
 | H046 | [Card rarity-mass redistribution: 85/15 or 97/3?](hypotheses/H046-card-rarity-mass-redistribution-rule.md) | read the ℹ panel right after the 12th Common maxes |
 | H047 | [Land Mine Stun gate: T7 W250 or T11 W10?](hypotheses/H047-land-mine-stun-milestone-gate.md) | read the Card-reward cell in the Milestones screen |
+| H048 | [Vault Power nodes: additive or multiplicative with the lab?](hypotheses/H048-vault-power-node-stacking-with-lab.md) | buy one Power level, re-read the line's value and the wave cash delta |
+| H049 | [Income lab: multiplies value or increment?](hypotheses/H049-income-lab-multiplies-value-vs-increment.md) | Cash/Wave at workshop L1 with the lab at L10 → 4 or 4.8 |
 
 ## Logs
 
@@ -112,6 +114,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 - [2026-11-02 — session 26 (T011 Rev 3, H006 resolved)](log/2026-11-02.md#2026-11-02--session-26-iteration-35-the-perk-tree-budgeted)
 - [2026-11-02 — session 27 (T010 Rev 4, H044–H045)](log/2026-11-02.md#2026-11-02--session-27-iteration-36-the-module-layer-budgeted)
 - [2026-11-02 — session 28 (T012 Rev 2, H046–H047)](log/2026-11-02.md#2026-11-02--session-28-iteration-37-the-card-deck-budgeted)
+- [2026-11-02 — session 29 (T020 Rev 3, H048–H049)](log/2026-11-02.md#2026-11-02--session-29-iteration-38-the-workshops-income-layer-priced)
 
 ## Reference material in this repo
 

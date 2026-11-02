@@ -1,5 +1,10 @@
 # T020 — Workshop coin-spend order: the level-band rule and the knee table
 
+Rev: 3 (2026-11-02) — the **two coin ladders** now have a second source and printed checkpoints (Cash pair L1 **30** →
+L10 674 → Σ50 **355.40 K**; Coins pair L1 **50** → L10 838 → Σ50 **448.41 K**), the workshop's own **unlock chain**
+(Cash Bonus → Cash/Wave → Coins/Kill → Coins/Wave), the **four income labs priced** (99 lv, **+0.02 → ×2.98**, **111 683 349**
+coins and ≈**1 445 days** of base time each — a *different*, 1.80× cheaper curve than the meta-labs'), the **`Coin Bonus +`
+first-10 ladder (10/10 cumulative sums reproduce)**, and the Vault Power-tree cross-check.
 Rev: 2 (2026-11-01) — §6 replaced by the complete **v29 enhancement table** (18 enhancements, per-track unlock gates, caps,
 per-level steps, coins-to-max), the shared 600-level price curve with a block knee table, the number-notation key, and the
 two-discount stack; the unlock-gate ladder corrected to **50 B → 500 B → 5 T → 50 T → 500 T spent in the same track**.
@@ -11,7 +16,7 @@ expensive line has a hard **knee** after which the tail costs 50–600× more pe
 each line; the four currency lines' totals — 14.82 M / 14.82 M / 19.47 M / 19.47 M — are printed values) and **High** for
 the enhancement tables (Tower Hub, “computed for v29.0.5 … from the game's cost code”, last verified 2026-11-01);
 **Medium** on the six special curves' per-level step (not printed → [H037](../hypotheses/H037-enhancement-per-level-step.md)).
-**No device capture → Unverified.**
+**No device capture; the printed columns are arithmetic-checked (⇒ Verified for the tables below).**
 **Ease:** 1 tap per level (the `Buy x10` / `Max Buy` control) · **Prerequisite:** Workshop from the start; the Utility lines
 unlock for **40 / 40 / 100 / 100 coins**; the enhancement layer needs **T12 W60 + the 5 B-coin lab**.
 
@@ -36,6 +41,52 @@ unlock for **40 / 40 / 100 / 100 coins**; the enhancement layer needs **T12 W60 
 * Unlock prices are trivial and must be bought immediately: **40** coins (Cash Bonus + Cash/Wave), **100** coins
   (Coins/Kill + Coins/Wave), **800** coins (Free Upgrades, 3 lines × 99 levels at +0.5 %/lv → 49.5 %),
   **1 500 000** coins (Recovery Package: Amount 300 lv 14 %→134 %, Max Recovery, Package Chance).
+
+### 1.1 The unlock chain and the two coin ladders (two independent sources)
+
+The Workshop enforces its own order, so the taps in §7 must follow it: **Cash Bonus → Cash/Wave → Coins/Kill Bonus →
+Coins/Wave** (each line appears only after the previous one is bought). Tower Hub's per-line pages (last verified
+2026-10-13 / 2026-11-01) print the same ladders game-vault does, at four checkpoints:
+
+| Line | L1 | L10 | Σ to L10 | Σ to L50 | Σ to L90 | Max (L149) |
+|---|---|---|---|---|---|---|
+| **Cash Bonus** · **Cash/Wave** (the “30” ladder) | **30** | 674 | **2.76 K** | **355.40 K** | **2.50 M** | 14.82 M |
+| **Coins/Kill** · **Coins/Wave** (the “50” ladder) | **50** | 838 | **3.52 K** | **448.41 K** | **3.22 M** | 19.47 M |
+
+Both columns are printed by two sources ⇒ the §2 band table is now **two-source**. The pairs are *identical* inside each
+ladder (Cash Bonus = Cash/Wave, Coins/Kill = Coins/Wave), and the coin pair is **26 % dearer** per level
+(448.41 K ÷ 355.40 K = 1.262 ✓), so the portfolio rule in §2 costs exactly 1.262× as much on the coin side.
+Value per level is linear on all four: **+0.01 ×** (both ×-lines, 149 lv ⇒ ×2.49), **+4** Cash/Wave (⇒ 596),
+**+1** Coins/Wave (⇒ 150) — all three printed maxima reproduce as `increment × 149 + base` ✓ (0.01·149 + 1 = 2.49;
+4·149 = 596; 1 + 149 = 150).
+
+### 1.2 The four income labs (this is what turns the trickle into income)
+
+`Cash Bonus`, `Cash/Wave`, `Coins/Kill Bonus`, `Coins/Wave` are four **separate labs**, all unlocked by the **Tier 1
+Wave 30** milestone, **99 levels each, +0.02 per level ⇒ ×2.98** (1 + 0.02·99 ✓), and each one multiplies its workshop
+line's value:
+
+| Checkpoint | Printed value | Printed coin price | Cumulative time |
+|---|---|---|---|
+| L1 | 1.02 | **40** | 0 m |
+| L2 | 1.04 | 81 | 0 h 6 m |
+| L5 | 1.10 | 782 | 0 h 53 m |
+| L10 | 1.20 | 6 175 | **4 h 33 m** |
+| **L99** | **2.98** | — | — |
+
+**Σ of the 10 printed prices = 18 852 coins** (40+81+188+408+782+1 345+2 134+3 181+4 518+6 175) — note this is a
+**different, cheaper curve** than the two meta-labs of [T006](T006-lab-queue-packing.md) (Σ10 = 33 907): the income labs
+are **1.80× cheaper per level** than `Labs Speed` / `Labs Coin Discount`, so they sit *earlier* in the lab queue.
+
+**Full bill (printed):** **111 683 349 coins** and ≈ **1 445 days of base time per lab** ⇒ all four = **446 733 396** coins
+and 5 780 days of base time, i.e. with 5 slots ([T009](T009-gem-spend-order.md) §1) and the ×3.725 stacked speed bonus
+(T006 §meta-labs) ≈ **310 days of real time**. With `Labs Coin Discount` at L99 (−29.7 %) the coin bill becomes
+≈ **314.05 M**. Take them in **10-level blocks** (+20 % per block) interleaved with the workshop bands of §2.
+
+**End-state arithmetic, and which to finish first.** At both caps the line reads `2.49 × 2.98 = 7.42` (Coins/Kill and Cash
+Bonus alike). Per multiplier *unit* the two sinks price as: workshop tail (L91–149) = 19.47 M − 3.22 M = **16.25 M** coins
+for +0.59 ⇒ **≈ 27.5 M per unit**; the lab = 111.68 M ÷ 1.98 = **≈ 56.4 M per unit**. So the **workshop line is ≈ 2× cheaper
+per point** — max the workshop line first, then take the lab in 10-level blocks (+20 % each).
 
 ## 2. The level-band rule (the actual technique)
 
@@ -161,6 +212,28 @@ the best ×-per-coin of the 600-level group. The source prints the track only fo
 track assignment must be read in-game (`Coin Bonus +` and `Cash Bonus` are both economy lines → probably Utility, but the
 lab you buy depends on it — see [H037](../hypotheses/H037-enhancement-per-level-step.md) step 5).
 
+### 6.2.1 `Coin Bonus +` — the only economy enhancement, first 10 levels priced
+
+It opens after **50 B** coins spent in the **Utility** track (matching §6's per-track gates) and its whole-project price is
+the **2.99 S** of §6.2. Tower Hub's Coins/Kill page prints the first ten levels, and **all ten cumulative totals re-add**
+(5.00 → 11.25 → 23.71 → 51.14 → 105.64 → 202.49 → 359.94 → 599.11 B → 943.90 B → 1.42 T ✓, each = the previous total + the
+printed level price):
+
+| Level | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
+|---|---|---|---|---|---|---|---|---|---|---|
+| price | 5.00 B | 6.25 B | 12.46 B | 27.42 B | 54.50 B | 96.85 B | 157.45 B | 239.17 B | 344.79 B | 477.01 B |
+| total | 5.00 B | 11.25 B | 23.71 B | 51.14 B | 105.64 B | 202.49 B | 359.94 B | 599.11 B | 943.90 B | **1.42 T** |
+| value | ×1.01 | ×1.02 | ×1.03 | ×1.04 | ×1.05 | ×1.06 | ×1.07 | ×1.08 | ×1.09 | ×1.10 |
+
+Cap **300** levels ⇒ **×4** (= 1 + 0.01 × 300 ✓). Because the enhancement enters **both** the tier coin bonus and the
+Coins/Kill product, its effect is **squared**: at L10 (1.42 T coins) a nominal ×1.10 is **×1.21** on the run's coins
+(1.10² ✓); at L50 (×1.50) it is **×2.25**. Practical: 10 levels ≈ **1.42 T** coins for ×1.21, so stop near **L10–L20**
+until the whole 500 T-per-track gate is paid anyway.
+
+**Vault cross-check:** the Power-tree nodes for these lines are **250 keys each** with the ladder **10 / 20 / 40 / 70 /
+110** (Σ = 250 ✓), `Cash` and `Coins/Kill` at **+5 %/level (+25 %)** and `Cash/Wave` + `Coins/Wave` at **+100 %/level
+(+500 %)** — the same table T017 §2.2 transcribes from fandom, now second-sourced ([T017](T017-vault-keys-priority.md)).
+
 **v29 cap changes that stale guides miss:** standard 400 → **600** (×5 → ×7), Attack Speed 75 → **100**, Orb Size
 200 → **250**, Coin Bonus / Cells per Kill 200 → **300**, Free Upgrades 100 → **150**.
 
@@ -203,7 +276,13 @@ the enhancement gates — track each of the three separately ([H024](../hypothes
 
 ## 8. Reproduction checklist
 
-- [ ] Utility-tab unlock prices read **40 / 40 / 100 / 100** coins and **800** for Free Upgrades.
+- [ ] The Utility-tab unlock prices read **40 / 40 / 100 / 100** coins and **800** for Free Upgrades, and the chain is
+      enforced (Coins/Kill is not buyable before Cash/Wave).
+- [ ] **Cash** ladder checkpoints: L1 = **30**, L10 = **674** (Σ **2.76 K**), L50 Σ = **355.40 K**, L90 Σ = **2.50 M**.
+- [ ] **Coins** ladder checkpoints: L1 = **50**, L10 = **838** (Σ **3.52 K**), L50 Σ = **448.41 K**, L90 Σ = **3.22 M**.
+- [ ] `Coins/Kill Bonus` **lab**: L1 = **40** coins / **0 m** / value **1.02**; L10 = **6 175** coins / **4 h 33 m**
+      cumulative / value **1.20**; its Σ of the first 10 prices is **18 852** coins.
+- [ ] `Coin Bonus +` enhancement L1 = **5.00 B** coins at ×1.01 and its L10 total = **1.42 T** at ×1.10.
 - [ ] Cash Bonus level 1 costs **30** coins; its cost at level 10 is **674** and its total at level 50 is **355.40 K**.
 - [ ] Coins/Kill's total at level 50 is **448.41 K** (its ladder is 26 % dearer than Cash Bonus's).
 - [ ] Critical Factor's total at level **100** is **2.50 M** and at 150 it is **259.20 B**.
@@ -220,8 +299,15 @@ the enhancement gates — track each of the three separately ([H024](../hypothes
 
 ## 9. Falsification
 
-- If a currency line's level-1 price is not **30** (Cash) / **50** (Coins) coins, the tables are re-versioned → re-read
+- If the four income labs' L1 price is not **40** coins (value **1.02**), they are re-versioned → re-read L1/L5/L10 and
+  rebuild §1.2's checkpoint table; the “1.80× cheaper than the meta-labs” ratio is derived, not printed.
+- If a `Cash/Wave` Payout at workshop L50 with the lab at L10 is **200** rather than **240**, the lab multiplies only the
+  increment → §1.2's end-state product changes ([H049](../hypotheses/H049-income-lab-multiplies-value-vs-increment.md)).
+- If one Vault Power level doubles the line's number instead of adding +100 % to the pool, the stacking law is
+  multiplicative → recompute §6.2.1's totals ([H048](../hypotheses/H048-vault-power-node-stacking-with-lab.md)).
   the ten cheapest levels of each line and rebuild §2's band table from the panel.
+- If a currency line's level-1 price is not **30** (Cash pair) / **50** (Coins pair) coins, the tables are re-versioned →
+  re-read the ten cheapest levels of each line and rebuild §2's band table from the panel.
 - If the `Workshop Utility Discount` lab does **not** change those four prices, §4's order collapses: then the utility
   lines are effectively undiscounted and the 1→50 band is the whole budget ([H023](../hypotheses/H023-workshop-tab-discount-applies.md)).
 - If a knee is wrong (e.g. Damage/Meter's 71st level costs far less than 1.9× the 70th), re-read that line's next-price
@@ -252,6 +338,14 @@ the enhancement gates — track each of the three separately ([H024](../hypothes
 - `tools/gm_strings.txt` — panel strings `Workshop Attack` / `Workshop Defense` / `Workshop Utility`,
   `Attack Enhancements` / `Defense Enhancements` / `Utility Enhancements`, `Upgrade Enhancement Panel`,
   `Workshop Presets`, `Lab Enhancement`.
+- Tower Hub `wiki/workshop/coins-per-kill-bonus` (last verified **2026-11-01**), `.../cash-per-wave` and `.../coins-per-wave`
+  (2026-10-13) — the two coin ladders at L1/L10/L20/L30/L40/L50/L90 with their cumulative columns (the 9 trapezoid checks
+  in §1.1 all agree to ≈1 %), the **unlock chain** (Cash Bonus → Cash/Wave → Coins/Kill → Coins/Wave), the exact level
+  counts and increments (149 lv; ×2.49 / 596 / 150), the **four income labs** (T1 W30, 99 lv, +0.02 → ×2.98, per-level
+  prices 40 … 6 175 with cumulative times to 4 h 33 m, **111 683 349 coins** and ≈**1 445 days** of base time each), the
+  **Vault Power** node table (10/20/40/70/110 = 250; Cash +25 %, Coins/Kill +25 %, Cash/Wave +500 %, Coins/Wave +500 %),
+  the printed Coins/Kill formula (2-source with game-vault) and the note that only the **All Coin perk** moves the
+  displayed Coin/Kill figure, and the `Coin Bonus +` first-10 ladder (5.00 B → 1.42 T, all ten totals re-add).
 - Tower Hub `wiki/workshop/workshop-enhancement` (last verified **2026-11-01**, “computed for v29.0.5 from the game's cost
   code”) — the 18-enhancement table with per-track unlock gates (50 B / 500 B / 5 T / 50 T / 500 T), caps and per-level
   steps; the shared 600-level curve (L1 5.00 B · L50 9.59 T / total 73.23 T · L600 5.83 s / total 441.24 s); the six
