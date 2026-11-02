@@ -22,6 +22,7 @@ Ease: taps/minutes a human needs. Confidence: how solid the source/derivation is
 | [T012](docs/techniques/T012-card-deck-order.md) | Buy card levels by gems-per-percentage-point (L1–L4 first), then widen the deck; `Buy x10`, aligned presets, claim milestone cards | ★★★★ | 1 tap/10 pulls | Medium-High | Cards tab (after 2 T1 runs) |
 | [T013](docs/techniques/T013-event-medal-economy.md) | Run the daily sweep/lab-rush/card buys inside the event window; take trades 1–3 of all three shop lines (585 medals) and bank the rest | ★★★★ | 2 taps/claim | Medium | Tier 1 Wave 70 |
 | [T014](docs/techniques/T014-tournament-tickets.md) | Buy 1–3 extra tournament tickets (10/20/30 gems) while marginal value beats the next card slot; chase the one-way Copper→Gold promotion | ★★★★ | 2 taps + 1 run | Medium-High | Tier 1 Wave 60 |
+| [T015](docs/techniques/T015-bot-economy.md) | Unlock Golden Bot, max its 15-level Cooldown line first (5 700 medals → 1.6× activations), then Bonus; Golden Bot+ ×2.5 cells once all five are owned | ★★★★ | 1 tap/level | Medium | Event Shop open (T1 W70) |
 
 Open questions being worked: [docs/hypotheses/](docs/hypotheses/) · Session log: [docs/log/](docs/log/)
 
