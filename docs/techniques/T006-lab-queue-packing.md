@@ -1,5 +1,9 @@
 # T006 — Pack the Lab queue, then buy the *cheapest* skipped hour
 
+Rev: 6 (2026-11-02) — the **third time shape** added: the `Dissonant Echo` labs are **not** ×1.15 lines — their printed
+rows are `cost = 1q · 2.25^(n−1)` and **`time = n × 20 d 20 h`** (arithmetic), whose two closed forms reproduce Tower
+Hub's printed totals **8.85e21 coins** and **378 000 000 s** exactly, so the ×1.5/×1.15 pair below is scoped to the
+bot/perk-style stat lines and the family must be identified before forecasting a line.
 Rev: 5 (2026-11-02) — **the two clock laws added** (above): cost `×1.5/level` and research **time `×1.15/level`**, both
 reproducing the printed rows to the last digit (Burn Stack's five durations = 45 d 15 h · 52 d 11 h 15 m · 60 d 8 h 8 m ·
 69 d 9 h 21 m · 79 d 19 h 10 m ⇒ every ratio 1.150 ✓, Σ = 307.62 d; `Duration` L6 = 16 d 18 h 16 m / 759.38 B and
@@ -47,6 +51,12 @@ Lab lines are geometric in **both** currencies, and the printed rows pin both ra
 | `Burn Stack` (Flame, 5 lv) | 43 T / **45 d 15 h** | 43.00 · 64.50 · 96.75 · 145.12 · 217.69 T | ×1.5 ✓ | **567.06 T** = 43(1.5⁵−1)/0.5 ✓ |
 | same rows, time column | — | 45 d 15 h · 52 d 11 h 15 m · 60 d 8 h 8 m · 69 d 9 h 21 m · 79 d 19 h 10 m | ×1.15 ✓ (**all five reproduce to the minute**) | Σ = **307.62 d** |
 | `Duration` (Golden/Amplify, 20 lv) | 100 B / **8 d 8 h** | L6 = 16 d 18 h 16 m and 759.38 B · L10 = 29 d 7 h 34 m and 3.84 T | ×1.5 + ×1.15 ✓ | first-5 = **1.32 T** ✓ · **whole line ≈ 664.9 T and 853.7 d ≈ 2.34 y** |
+| `Dissonant Echo - X` (4 labs, 20 lv) | 1q / **20 d 20 h** | 2.25q · 5.06q · 11.39q … 970.74q · **4.91s** (×**2.25**) · 41 d 16 h · 62 d 12 h · 83 d 8 h … 208 d 8 h (= `n·t₁`) | **mixed**: coins ×2.25, time **arithmetic** | Σ = **8.846e21** ✓ = printed **8.85e21** · Σ = **378 000 000 s** ✓ |
+
+**Three shapes, one page.** The ×1.5/×1.15 pair is the law of the **bot- and perk-style stat lines**; the
+`Dissonant Echo` family prices coins at **×2.25** and *times* **arithmetically** (`n·t₁`, T021 §3), so read the family
+from the first two printed rows before extrapolating a total — a 20-level Echo line is **4 375 d** of base slot time, not
+the **≈102 × t₁** the geometric law predicts.
 
 **Why the pair matters.** Because time rises ×1.15 while coins rise ×1.5, the *coins-per-saved-hour* of a line grows
 **×1.304 per level** — late levels are relatively cheaper in wall-clock time. Practical consequences:
@@ -183,6 +193,9 @@ online often (it raises levels/day for all 5 slots: a `3 d 11 h` line becomes **
 - [ ] The **Speed Up** menu shows **15** cells for a 1 h ×1.5 boost (that number confirms the table above).
 - [ ] **Clock laws:** a lab's level-2 research time is level 1 × **1.15** while its coin
       price is × **1.5**; (8 d 8 h ⇒ 9 d 14 h at level 2); and the whole 20-level `Duration` line forecasts to ≈ **853.7 d** from `t₁ = 8 d 8 h`.
+- [ ] **Family check:** `Dissonant Echo - Utility` (visible from **T17 W60**) prices level 2 at **2.25q** and
+      **41 d 16 h** — coins ×2.25 and time `2 × t₁` (the arithmetic shape), so its level 10 is **208 d 8 h**, not the
+      **73 d 7 h** a ×1.15 ladder would give.
 - [ ] All five slots show the green speed-up background while their own timers keep their nominal length.
 - [ ] Elite Cell counter still ends the day **>** 0 after all five ×1.5 renewals (if it hits 0, stop escalating multipliers).
 - [ ] Record: cells at run start / run end ÷ minutes = your measured cells/h — then check it against `(1 + Tier)/2 × elites/h`.

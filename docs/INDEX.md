@@ -11,7 +11,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | T003 | [Turtle build T1–T2](techniques/T003-turtle-build-t1-t2.md) | tier unlocks | Unverified |
 | T004 | [Mission farming on low tier](techniques/T004-mission-farming-low-tier.md) | Gems, Coins, Shards, Medals, Tokens | **Verified (Rev 2**, arithmetic) |
 | T005 | [Tier-rush then farm](techniques/T005-tier-rush-then-farm.md) | Coins (daily/weekly) | Unverified |
-| T006 | [Lab queue packing + cheapest skipped hour](techniques/T006-lab-queue-packing.md) | all (multipliers) | **Verified (Rev 5**, arithmetic) |
+| T006 | [Lab queue packing + cheapest skipped hour](techniques/T006-lab-queue-packing.md) | all (multipliers) | **Verified (Rev 6**, arithmetic) |
 | T007 | [Ad-gem sweep](techniques/T007-ad-gem-sweep.md) | Gems | Amounts verified (Rev 2) |
 | T008 | [Stone economy: knee-first UW buying + cooldown sync](techniques/T008-uw-sync-with-stones.md) | Stones → Coins | **Verified (Rev 2)** |
 | T009 | [Gem spend order](techniques/T009-gem-spend-order.md) | Coins/min | Unverified (Rev 3) |
@@ -26,7 +26,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | T018 | [Relic economy & price rule](techniques/T018-relic-economy.md) | % points (Coins/Cash/Lab) | **Verified (Rev 2**, arithmetic) |
 | T019 | [Milestone claim engine](techniques/T019-milestone-claim-engine.md) | Gems, Stones, Coins, labs | **Verified (Rev 3**, arithmetic; H038 open) |
 | T020 | [Workshop coin-spend order](techniques/T020-workshop-coin-order.md) | Coins → Cash/Coins multipliers | **Verified (Rev 5**, arithmetic) |
-| T021 | [Dissonant Runs & Echo](techniques/T021-dissonant-runs-echo.md) | Coins (+ damage/health/UW) | Unverified |
+| T021 | [Dissonant Runs & Echo](techniques/T021-dissonant-runs-echo.md) | Coins (+ damage/health/UW) | **Verified (Rev 2**, arithmetic) |
 | T022 | [Free-currency census & paid ladder](techniques/T022-free-currency-census-paid-ladder.md) | Gems, Stones (budget + bills) | Unverified |
 | T023 | [Guardian economy (bit model, Fetch droptable, sync layer)](techniques/T023-guardian-economy.md) | Bits → Gems, Medals, Shards, Coins | **Verified (Rev 4**, arithmetic) |
 
@@ -89,6 +89,11 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 
 ## Logs
 
+> Anchor rule (verified against GitHub's rendered `id=` attributes): a heading's separator contributes **one hyphen per
+> space plus the literal character**, so `2026-11-02 - Session 48 (iteration 57: …)` ⇒ `2026-11-02---session-48-…`
+> (**three** hyphens, because the separator is a plain `-`), while an em-dash separator ⇒ **two**. Always regenerate an
+> anchor from the heading text instead of typing it.
+
 - [2026-11-01 — session 1 (T001–T010)](log/2026-11-01.md)
 - [2026-11-01 — session 2 (T011, H006–H008)](log/2026-11-01.md#2026-11-01--session-2-iteration-11-perks)
 - [2026-11-01 — session 3 (T006 Rev 2, H009)](log/2026-11-01.md#2026-11-01--session-3-iteration-12-elite-cells-vs-gems)
@@ -102,40 +107,41 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 - [2026-11-01 — session 11 (T018, H019–H020)](log/2026-11-01.md#2026-11-01--session-11-iteration-20-relics)
 - [2026-11-01 — session 12 (T019, T011 Rev 2, H021–H022)](log/2026-11-01.md#2026-11-01--session-12-iteration-21-milestones)
 - [2026-11-01 — session 13 (T020, H023–H024)](log/2026-11-01.md#2026-11-01--session-13-iteration-22-workshop)
-- [2026-11-01 — session 14 (T001 Rev 2, T019 Rev 2, H003 resolved, H025–H026)](log/2026-11-01.md#2026-11-01--session-14-iteration-23-interest)
-- [2026-11-01 — session 15 (T021, H027–H028)](log/2026-11-01.md#2026-11-01--session-15-iteration-24-dissonance)
-- [2026-11-01 — session 16 (T007 Rev 2, T010 Rev 3, H001 resolved, H029)](log/2026-11-01.md#2026-11-01--session-16-iteration-25-ad-gems--v29-notes)
-- [2026-11-01 — session 17 (T022, H030–H031)](log/2026-11-01.md#2026-11-01--session-17-iteration-26-census--paid-ladder)
-- [2026-11-01 — session 18 (T008 Rev 2, H032–H033)](log/2026-11-01.md#2026-11-01--session-18-iteration-27-stone-ledger)
-- [2026-11-01 — session 19 (T015 Rev 2, H015 resolved, H034)](log/2026-11-01.md#2026-11-01--session-19-iteration-28-bot-ladders)
-- [2026-11-01 — session 20 (T009 Rev 3, H035–H036)](log/2026-11-01.md#2026-11-01--session-20-iteration-29-gem-ladder-priced)
-- [2026-11-01 — session 21 (T020 Rev 2, H037)](log/2026-11-01.md#2026-11-01--session-21-iteration-30-enhancement-layer-priced)
-- [2026-11-02 — session 22 (T019 Rev 3, H038–H039)](log/2026-11-02.md#2026-11-02--session-22-iteration-31-the-milestone-ledger-two-track-model)
-- [2026-11-02 — session 23 (T023, T022 pointer, H040–H041)](log/2026-11-02.md#2026-11-02--session-23-iteration-32-the-guardian-layer-priced)
-- [2026-11-02 — session 24 (T017 Rev 2, H042–H043)](log/2026-11-02.md#2026-11-02--session-24-iteration-33-the-vault-priced)
-- [2026-11-02 — session 25 (T006 Rev 3, H035 resolved)](log/2026-11-02.md#2026-11-02--session-25-iteration-34-the-lab-layers-two-meta-labs)
-- [2026-11-02 — session 26 (T011 Rev 3, H006 resolved)](log/2026-11-02.md#2026-11-02--session-26-iteration-35-the-perk-tree-budgeted)
-- [2026-11-02 — session 27 (T010 Rev 4, H044–H045)](log/2026-11-02.md#2026-11-02--session-27-iteration-36-the-module-layer-budgeted)
-- [2026-11-02 — session 28 (T012 Rev 2, H046–H047)](log/2026-11-02.md#2026-11-02--session-28-iteration-37-the-card-deck-budgeted)
-- [2026-11-02 — session 29 (T020 Rev 3, H048–H049)](log/2026-11-02.md#2026-11-02--session-29-iteration-38-the-workshops-income-layer-priced)
-- [2026-11-02 — session 30 (T001 Rev 3, H050)](log/2026-11-02.md#2026-11-02--session-30-iteration-39-the-interest-engines-units-fixed-and-its-stack-completed)
-- [2026-11-02 — session 31 (T020 Rev 4, H051)](log/2026-11-02.md#2026-11-02--session-31-iteration-40-the-free-upgrade-engine-priced)
-- [2026-11-02 — session 32 (T023 Rev 2, H052)](log/2026-11-02.md#2026-11-02--session-32-iteration-41-the-guardians-bit-prices-close-as-a-closed-form)
-- [2026-11-02 — session 33 (T020 Rev 5, H050 resolved)](log/2026-11-02.md#2026-11-02--session-33-iteration-42-the-two-qol-labs-priced-and-h050-settled)
-- [2026-11-02 — session 34 (T018 Rev 2, H051 candidate)](log/2026-11-02.md#2026-11-02--session-34-iteration-43-the-relic-pool-re-summed-row-by-row)
-- [2026-11-02 — session 35 (T016 Rev 2, H016 resolved)](log/2026-11-02.md#2026-11-02--session-35-iteration-44-the-guild-economy-double-sourced-and-h016-closed)
-- [2026-11-02 — session 36 (T015 Rev 3)](log/2026-11-02.md#2026-11-02--session-36-iteration-45-the-bot-layer-budgeted-in-events)
-- [2026-11-02 — session 37 (T015 Rev 4, H034 resolved)](log/2026-11-02.md#2026-11-02--session-37-iteration-46-per-bot-line-caps-close-the-bot-layer-h034-resolved)
-- [2026-11-02 — session 38 (T013 Rev 3)](log/2026-11-02.md#2026-11-02--session-38-iteration-47-the-event-layer-double-sourced-t013-verified)
-- [2026-11-02 — session 39 (T015 Rev 5)](log/2026-11-02.md#2026-11-02--session-39-iteration-48-the-bot-layer-closes-all-five-bots-and-ten-labs)
-- [2026-11-02 — session 40 (T006 Rev 4)](log/2026-11-02.md#2026-11-02--session-40-iteration-49-the-elite-cell-ledger-closes)
-- [2026-11-02 — session 41 (T001 Rev 4)](log/2026-11-02.md#2026-11-02--session-41-iteration-50-the-in-run-cash-laws-first-printed-closed-forms)
-- [2026-11-02 — session 42 (T014 Rev 4)](log/2026-11-02.md#2026-11-02--session-42-iteration-51-tournaments-double-sourced-the-battle-condition-lab-layer-closes)
-- [2026-11-02 — session 43 (T004 Rev 2, T016 Rev 3)](log/2026-11-02.md#2026-11-02--session-43-iteration-52-the-daily-mission-ledger-closes-guild-season-budget-rises-to-1-480)
-- [2026-11-02 — session 44 (T017 Rev 3, T023 Rev 3)](log/2026-11-02.md#2026-11-02--session-44-iteration-53-the-vault-and-the-chip-grids-are-double-sourced-five-of-five-chip-totals-re-add)
-- [2026-11-02 — session 45 (T015 Rev 6, T006 Rev 5)](log/2026-11-02.md#2026-11-02--session-45-iteration-54-the-bot-census-closes-and-the-lab-clock-law-appears)
-- [2026-11-02 — session 46 (T023 Rev 4, T014 Rev 5)](log/2026-11-02.md#2026-11-02--session-46-iteration-55-the-chip-grid-is-double-sourced-and-the-ticket-rules-get-a-third-print)
-- [2026-11-02 — session 47 (T011 Rev 4, H007 resolved)](log/2026-11-02.md#2026-11-02--session-47-iteration-56-the-perk-engine-closes-with-printed-laws-and-the-nine-uw-stone-bill)
+- [2026-11-01 — session 14 (T001 Rev 2, T019 Rev 2, H003 resolved, H025–H026)](log/2026-11-01.md#2026-11-01---session-14-iteration-23-interest)
+- [2026-11-01 — session 15 (T021, H027–H028)](log/2026-11-01.md#2026-11-01---session-15-iteration-24-dissonance)
+- [2026-11-01 — session 16 (T007 Rev 2, T010 Rev 3, H001 resolved, H029)](log/2026-11-01.md#2026-11-01---session-16-iteration-25-ad-gems--v29-notes)
+- [2026-11-01 — session 17 (T022, H030–H031)](log/2026-11-01.md#2026-11-01---session-17-iteration-26-census--paid-ladder)
+- [2026-11-01 — session 18 (T008 Rev 2, H032–H033)](log/2026-11-01.md#2026-11-01---session-18-iteration-27-stone-ledger)
+- [2026-11-01 — session 19 (T015 Rev 2, H015 resolved, H034)](log/2026-11-01.md#2026-11-01---session-19-iteration-28-bot-ladders)
+- [2026-11-01 — session 20 (T009 Rev 3, H035–H036)](log/2026-11-01.md#2026-11-01---session-20-iteration-29-gem-ladder-priced)
+- [2026-11-01 — session 21 (T020 Rev 2, H037)](log/2026-11-01.md#2026-11-01---session-21-iteration-30-enhancement-layer-priced)
+- [2026-11-02 — session 22 (T019 Rev 3, H038–H039)](log/2026-11-02.md#2026-11-02---session-22-iteration-31-the-milestone-ledger-two-track-model)
+- [2026-11-02 — session 23 (T023, T022 pointer, H040–H041)](log/2026-11-02.md#2026-11-02---session-23-iteration-32-the-guardian-layer-priced)
+- [2026-11-02 — session 24 (T017 Rev 2, H042–H043)](log/2026-11-02.md#2026-11-02---session-24-iteration-33-the-vault-priced)
+- [2026-11-02 — session 25 (T006 Rev 3, H035 resolved)](log/2026-11-02.md#2026-11-02---session-25-iteration-34-the-lab-layers-two-meta-labs)
+- [2026-11-02 — session 26 (T011 Rev 3, H006 resolved)](log/2026-11-02.md#2026-11-02---session-26-iteration-35-the-perk-tree-budgeted)
+- [2026-11-02 — session 27 (T010 Rev 4, H044–H045)](log/2026-11-02.md#2026-11-02---session-27-iteration-36-the-module-layer-budgeted)
+- [2026-11-02 — session 28 (T012 Rev 2, H046–H047)](log/2026-11-02.md#2026-11-02---session-28-iteration-37-the-card-deck-budgeted)
+- [2026-11-02 — session 29 (T020 Rev 3, H048–H049)](log/2026-11-02.md#2026-11-02---session-29-iteration-38-the-workshops-income-layer-priced)
+- [2026-11-02 — session 30 (T001 Rev 3, H050)](log/2026-11-02.md#2026-11-02---session-30-iteration-39-the-interest-engines-units-fixed-and-its-stack-completed)
+- [2026-11-02 — session 31 (T020 Rev 4, H051)](log/2026-11-02.md#2026-11-02---session-31-iteration-40-the-free-upgrade-engine-priced)
+- [2026-11-02 — session 32 (T023 Rev 2, H052)](log/2026-11-02.md#2026-11-02---session-32-iteration-41-the-guardians-bit-prices-close-as-a-closed-form)
+- [2026-11-02 — session 33 (T020 Rev 5, H050 resolved)](log/2026-11-02.md#2026-11-02---session-33-iteration-42-the-two-qol-labs-priced-and-h050-settled)
+- [2026-11-02 — session 34 (T018 Rev 2, H051 candidate)](log/2026-11-02.md#2026-11-02---session-34-iteration-43-the-relic-pool-re-summed-row-by-row)
+- [2026-11-02 — session 35 (T016 Rev 2, H016 resolved)](log/2026-11-02.md#2026-11-02---session-35-iteration-44-the-guild-economy-double-sourced-and-h016-closed)
+- [2026-11-02 — session 36 (T015 Rev 3)](log/2026-11-02.md#2026-11-02---session-36-iteration-45-the-bot-layer-budgeted-in-events)
+- [2026-11-02 — session 37 (T015 Rev 4, H034 resolved)](log/2026-11-02.md#2026-11-02---session-37-iteration-46-per-bot-line-caps-close-the-bot-layer-h034-resolved)
+- [2026-11-02 — session 38 (T013 Rev 3)](log/2026-11-02.md#2026-11-02---session-38-iteration-47-the-event-layer-double-sourced-t013-verified)
+- [2026-11-02 — session 39 (T015 Rev 5)](log/2026-11-02.md#2026-11-02---session-39-iteration-48-the-bot-layer-closes-all-five-bots-and-ten-labs)
+- [2026-11-02 — session 40 (T006 Rev 4)](log/2026-11-02.md#2026-11-02---session-40-iteration-49-the-elite-cell-ledger-closes)
+- [2026-11-02 — session 41 (T001 Rev 4)](log/2026-11-02.md#2026-11-02---session-41-iteration-50-the-in-run-cash-laws-first-printed-closed-forms)
+- [2026-11-02 — session 42 (T014 Rev 4)](log/2026-11-02.md#2026-11-02---session-42-iteration-51-tournaments-double-sourced-the-battle-condition-lab-layer-closes)
+- [2026-11-02 — session 43 (T004 Rev 2, T016 Rev 3)](log/2026-11-02.md#2026-11-02---session-43-iteration-52-the-daily-mission-ledger-closes-guild-season-budget-rises-to-1-480)
+- [2026-11-02 — session 44 (T017 Rev 3, T023 Rev 3)](log/2026-11-02.md#2026-11-02---session-44-iteration-53-the-vault-and-the-chip-grids-are-double-sourced-five-of-five-chip-totals-re-add)
+- [2026-11-02 — session 45 (T015 Rev 6, T006 Rev 5)](log/2026-11-02.md#2026-11-02---session-45-iteration-54-the-bot-census-closes-and-the-lab-clock-law-appears)
+- [2026-11-02 — session 46 (T023 Rev 4, T014 Rev 5)](log/2026-11-02.md#2026-11-02---session-46-iteration-55-the-chip-grid-is-double-sourced-and-the-ticket-rules-get-a-third-print)
+- [2026-11-02 — session 47 (T011 Rev 4, H007 resolved)](log/2026-11-02.md#2026-11-02---session-47-iteration-56-the-perk-engine-closes-with-printed-laws-and-the-nine-uw-stone-bill)
+- [2026-11-02 — session 48 (T021 Rev 2, T006 Rev 6)](log/2026-11-02.md#2026-11-02---session-48-iteration-57-dissonance-closes-on-both-series-and-the-third-lab-time-shape-appears)
 
 ## Reference material in this repo
 
