@@ -1,5 +1,8 @@
 # T006 — Pack the Lab queue, then buy the *cheapest* skipped hour
 
+Rev: 13 (2026-11-02) - **`Target Priority` ladder printed** (`wiki/guide/target-priority`, 2026-11-01): gate **T4 W150**,
+**2** levels (**2 d / 1 000 000** and **8 d / 1.00 B**), a hand-set x4 time step (not the x1.15 of the clock laws),
+L1 = one focused type vs L2 = full sort with `Closest` and `Spotlight` entries, drag-and-drop since v29. §"The cap table".
 Rev: 12 (2026-11-02) — **the wave axis gets a law**: `wave(chance, tier) = base × 0.9^(tier − 1)` (10/10 rows at T15,
 15/15 tiers on the 0.33 % row), the Elite spawn ladder is printed from **0.33 % at W500** to **33 % at W8 000**, the
 predicted cells/run table is computed from it (T11 W1000 ≈ **140**, T14 W1000 ≈ **395**), and the fleet drop columns close
@@ -296,6 +299,14 @@ coin lines and the 100-level `Enhancement Coin Discount` trio (T020), the six Wa
 caps 1/100/1/25/2/1/8/10/32 (T011), the bot caps 25/25/25/25/5/20/20/20 (T015), `Card Mastery` 9 (T012), the twelve
 module caps (T010) and the BC caps (T014) — all re-add unchanged.
 
+**The two-line `Target Priority` ladder (printed, `wiki/guide/target-priority`, 2026-11-01).** Gate **Tier 4 W150**
+(the T019 milestone row), **2** levels ✓ the cap table: **L1** `2d 0h 0m` / **1 000 000** coins, **L2** `8d 0h 0m` /
+**1.00 B**. The time column is **hand-set** (a **×4** step, not the ×1.15 of §“The clock laws”), so read both cells rather
+than extrapolating. Behaviour is printed too: **L1** = choose **one** enemy type to focus, others by closest; **L2** = a
+full priority **sort** of all types, including a `Closest` entry and, only if Spotlight is unlocked, a `Spotlight` entry.
+Since v29 the list is **drag-and-drop** reorderable. Cheap (≈1 B coins for both levels) and it is the only
+targeting control the Guardian does *not* honour (T023 §5).
+
 ### The enemy-stat layer, ladder by ladder (Rev 11)
 
 Source: `wiki/enemy/common-enemy-labs`, `fast-enemy-labs`, `protector-labs`, `vampire-labs`, `ray-labs`, `scatter-labs`
@@ -526,6 +537,8 @@ online often (it raises levels/day for all 5 slots: a `3 d 11 h` line becomes **
       (`1.25 × n`), prices **100.00 B → 12.78 q** (×1.5 every level) and times **8 d 8 h → 222 d 21 h 59 m** (×1.12).
 - [ ] **Level Skip labs:** each of the two 20-level lines sums to **0.745 T** coins / **130.31 d** and its value column
       ends at **2.00** ([T024](T024-enemy-level-skip-ledger.md) §2).
+- [ ] **`Target Priority`:** the lab's cell reads **Tier 4 W150**, its two levels read **2 d 0h 0m / 1 000 000** and
+      **8d 0h 0m / 1.00B**, and the panel offers a `Closest` entry plus (if Spotlight is owned) a `Spotlight` entry.
 - [ ] **Wave law:** the elite spawn table’s 0.33 % row reads **500 / 450 / 405 / 365 / 328** for T1–T5, and the 33 % row
       reads **1 830** at T15 (= `8000 × 0.9^14` ✓).
 - [ ] **Elite count:** a T11 run to W1 000 shows roughly **23** elite kills on the counter (the model says 23.26); at T14
@@ -613,6 +626,9 @@ online often (it raises levels/day for all 5 slots: a `3 d 11 h` line becomes **
   ×1.15 health/mass/speed up to 8, Overcharge multiplies its projectile ×1.4 per hit) and the tool-coverage list
   (half-strength: Chrono Field / Chrono Loop / Thunder Bot / both stuns; no connection: Orbs, Death Ray, Shockwave,
   Knockback, Black Hole damage and pull; Plasma Cannon cannot select them).
+- Tower Hub `wiki/guide/target-priority` (last verified **2026-11-01**) — the two-level `Target Priority` ladder
+  (**2 d 0h 0m / 1 000 000** and **8d 0h 0m / 1.00B**), its **T4 W150** milestone gate, the printed L1/L2 behaviour
+  (one focused type vs a full sort with `Closest` and `Spotlight` entries) and the v29 drag-and-drop note.
 - Tower Hub’s eleven `wiki/lab/lab-category-<name>` pages (fetched **2026-11-02**) — the per-line `Max Lv` list for
   Main (15 rows), Attack (9), Defense (16), Utility (12), Ultimate Weapon (39), Card (10), Perk (9), Bot (8), Enemies
   (21), Battle Condition (5) and the Module page’s 12: the §cap table is transcribed from those tables, including the

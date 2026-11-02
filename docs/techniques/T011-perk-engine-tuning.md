@@ -1,6 +1,13 @@
 # T011 — Tune the Perk engine: more picks per run, deterministic picks
 
-Rev: 4 (2026-11-02) — `wiki/system/perks` (2026-11-01) is a **second copy of every printed ladder** (the §1 Σ figures
+Rev: 5 (2026-11-02) - the **printed perk values** added (§1.⑦): 200-wave cadence, the three early picks and their stacks
+(3 / 1 / 5), the **x45.6** Health-Regen ceiling, the **16.111x** defense identity re-adding from `0.145 / 0.009`, and the
+**T2 W150** / **T2 W1000** gates (the latter lighting `First Perk Choice` **and** `Garlic Thorns` together).
+The **operating rules** from `wiki/guide/guides-thinking-about-perks` follow as §1.⑧: Option Quantity **1** at **200 M**
+first, then bans; the coin-run and milestone-run priorities; the printed priority templates with their perk counters
+(**3** PWR … **41** UW); pool thinning via a useless UW perk; and the four footguns (Waves Required past **L10**, Auto Pick
+before the other labs, `First Choice` not covering trade-offs).
+Rev: 4 (2026-11-02) - `wiki/system/perks` (2026-11-01) is a **second copy of every printed ladder** (the §1 Σ figures
 reproduce: `Waves Required` **2.42 B**, `Standard Perk Bonus` **3.63 B**, `Improve Trade-Off` **17.26 B** for the first ten
 levels) **plus** four things this doc did not have: the **two standard-perk laws printed as formulas** with the site's own
 worked example that re-adds (`(200 − 3) × (1 − 0.648) = 69.344 → 69` ✓), the **Quantity 5 cap** on every standard perk, the
@@ -10,10 +17,12 @@ Rev: 3 (2026-11-02) — the **coin budget level by level** added (what the first
 days of a slot they eat), the **`Auto Pick Ranking` > `First Perk Choice` precedence** confirmed with the source's worked
 example (**H006 resolved**), and the `Improve Trade-Off Perks` exclusion (the ranged-enemy trade-off perk is not boosted).
 Currency: **Coins** (primary), Cash, Experience — every pick is a run-multiplier, so pick *count* is the compounding lever.
-Status: **Verified (arithmetic, Rev 4)** — every Σ in §1 re-adds from the printed per-level prices (**2.42 B · 3.63 B ·
+Status: **Verified (arithmetic, Rev 5)** — every Σ in §1 re-adds from the printed per-level prices (**2.42 B · 3.63 B ·
 17.26 B** for the first ten levels), the wave formula reproduces the source's own worked example (**69** ✓ from
 `(200 − 3) × (1 − 0.648) = 69.344`), and the ladders now stand on **four** sources (fandom `Perks`, game-vault, Tower Hub's
-milestone-linked lab pages, and `wiki/system/perks` 2026-11-01); the one open read is the value-column convention (§4).
+milestone-linked lab pages, `wiki/system/perks` 2026-11-01, and `wiki/guide/tier-specific-guide` for the printed perk
+values of §1.⑦ whose `0.145 / 0.009` reproduces the printed **16.111×** exactly); the one open read is the value-column
+convention (§4) and the defense-term order (**H055**).
 
 | | |
 |---|---|
@@ -142,6 +151,65 @@ ratios **3.01 / 2.48 / 2.16 / 1.95 / 1.80** on `Waves Required` and **3.01 / 2.4
 The two ×1.00-B single levels (`First Perk Choice`, `Perk Option Quantity` L1 at 200 M) are the cheap quality wins; `Perk
 Option Quantity` L2 at **2.00 B** is the single priciest quality-per-coin step before the Ban tail.
 
+**⑦ The printed perk values and the 16.111× defense identity** (`guide/tier-specific-guide`, last verified 2026-07-29).
+Cadence, gates and the best early picks are all printed:
+
+| Printed fact | Value | Where it bites |
+|---|---|---|
+| Raw perk cadence (no labs) | a forced pick between **2** options every **200** waves | §1.1's base interval |
+| Perks reset at the end of a run | yes (“each attempt unique”) | no permanent perk stock |
+| Perks in tournaments | **none at all** | §“the 16.1× note” below |
+| Gate for the Perks lab | **Tier 2 Wave 150**, **3 days** of research | T019's milestone row |
+| Gate for `First Perk Choice` **and** `Garlic Thorns` | **Tier 2 Wave 1000** (one milestone, both labs) | T006 has Garlic Thorns' ladder |
+| `−20 % Perk Wave Requirement` | stacks **3** times | the cheapest picks-per-run lever |
+| `−50 % damage dealt / −50 % damage taken` | the recommended early trade | orbs/thorns builds |
+| `Defense +5 %` | stacks **5** times | the damage-reduction core |
+| `Health Regen` from perks | up to **×45.6** | the most valuable perk stat |
+| Damage from a full decent perk set | only ≈ **+80 %** | why perks favour a defensive build |
+
+**The defense identity (arithmetic ✓).** The page prints: without perks the `Defense %` cap is **85.5 %**, and the perk
+layer (+25 pp of defense, a −55 % enemy-damage cut) lifts the total to **99.1 %**, “which means you take **16.111×** more
+damage than at 99.1 %”. The ratio re-adds exactly from the two printed percentages:
+
+```
+(1 − 0.855) / (1 − 0.991) = 0.145 / 0.009 = 16.1111…   ✓ the printed 16.111x
+```
+
+so *every point of Defense % above the 85.5 % cap is worth ~111× its face value at the top end* — the reason the perk labs
+rank ahead of nearly every other coin sink in §1, and the reason the tournament build (no perks ⇒ floor **0.145** incoming)
+is a DPS build while the farm build is defensive (T014 §“bracket build”). How the two perk contributions compose into
+exactly **99.1 %** is not printed (neither `85.5 + 25` nor `1 − 0.145 × 0.45` lands there) → **H055**.
+
+**⑧ The printed operating rules (`wiki/guide/guides-thinking-about-perks`, last verified 2026-11-01).** Same
+mechanics, operational form, plus four footguns with prices attached:
+
+| Printed rule | Value | Note |
+|---|---|---|
+| First essential buy | `Perk Option Quantity` **L1 = 200 M** ⇒ **3** options | matches §1's ladder exactly |
+| Then | `Ban Perks` (cheap) — dead-weight trade-offs first, long-investment perks (the investing perk) in ban slot **3–4** | the ban tail is priced in §1 |
+| Coin-run priority | `Perk Wave Requirement` **first** (not guaranteed to reach all 3 copies even with 4 options + first pick, “especially if your maximum wave is still under 2 000”) | §1.②'s law |
+| Coin-run second tier | high tier, short runs → the coin trade-off; low tier, long runs → **distance** perks: `Free Upgrade Chance`, `Game Speed`, the **−50/−50** trade-off | the split is printed |
+| Milestone-run priority | PWR → `Free Upgrades` (target in the thousands of waves) → funnel levels into **Critical Factor / Bounce Range / landmine radius / damage-per-metre**; if owned, prioritise **Super Crit** and the enemy attack/health **skip** (their costs climb quickest) | the workshop-level arbitrage |
+| Short milestone push | **skip** Free Upgrades; use `Defense %`, `Health`, `Damage` | — |
+| Pool thinning | take the **useless UW perk** on purpose: one boost perk per ultimate, so it leaves the pool | the only rival is PWR |
+| Pool-thinning cap | after **20** perks held “the gap between picks grows” | check the panel before relying on it |
+| `Cash` trade-off perk | cash/wave **×12**, **no** cash from kills | pairs with T002's CPW/CPK split |
+| `Standard Perk Bonus` | **25** levels, **0 % → 25 %** | **+1 pp/level** ✓ same ladder as §1 |
+| `Boss Speed/Health` perk | boss health **−70 %**, boss speed **+50 %** | the tournament/DPS perk |
+
+**Priority templates (printed, “perks taken” counters assume ideal picks at max quantity):** standard route
+**(3)** PWR → **(4)** the −50/−50 → **(5)** game speed → **(10)** free upgrades → **(17)** coin perks (the ×1.8 coin and
+Golden Tower ×1.5) → **(23)** Defense % → **(28)** Damage ≈ **(33)** Health → **(41)** UW perks. Front-loaded utility route:
+**(3)** PWR → **(4)** game speed → **(17)** single-quantity perks (the −50/−50, ×1.8 coin, all UW perks) → **(22)** Bounce
+or Orb. Both are “starting templates”, and the counter in brackets is exactly the `Waves Required` law of §1.② evaluated
+at that perk index — a quick sanity check on the panel.
+
+**The four printed footguns.** ① `Waves Required` (the lab) “offers little appeal past **level 10**”; ② `Auto Pick Perks`
+is costly, needs multi-stage preparation, and “only earns its place after your other perk labs are already levelled”;
+③ `First Choice` **does not cover Trade-off perks** — “you cannot use it to cheese the 1.8 coin trade-off”; ④ freshly
+unlocked perks are two-option gambles, and “at this stage your lab slots are precious” (i.e. Option Quantity 1 before
+anything else).
+
 ---
 
 ## 2. Step-by-step (UI only)
@@ -214,6 +282,16 @@ Bans, the First Perk Choice and the ranking **cannot be changed while a run is i
 - [ ] The Perks panel is not editable during a run; the same panel is editable 1 second after the run ends.
 - [ ] `Waves Required` L1 reads **100 000** coins / **1 d 1 h 40 m** and its L10 reads **1.18 B** / **10 d 4 h 5 m**;
       `Standard Perk Bonus` L10 = **1.77 B** / **3 d 7 h 12 m** (the two lines price differently from L3 onward).
+- [ ] **Printed values (§1.⑦):** the two-perk offer repeats every **200** waves in an unmodified run; the Perks lab cell
+      is **Tier 2 Wave 150** and its research reads **3 d**; the T2 W1000 cell lights *both* `First Perk Choice` and
+      `Garlic Thorns`.
+- [ ] **The 16.111× identity:** the stats panel's incoming-damage figure is ≈ **16×** smaller once the defense perks are
+      taken (`0.145 / 0.009 = 16.111` ✓), and in a tournament (no perks) it returns to the 0.145-fraction value.
+- [ ] **⑧ prices:** `Perk Option Quantity` **L1 = 200 000 000** coins and the offer then shows **3** cards; the
+      `Standard Perk Bonus` line has **25** levels whose last reads **+25 %**; `Boss Speed/Health` reads
+      **−70 %** health / **+50 %** speed.
+- [ ] **⑧ trade-off wording:** the `Cash` trade-off perk reads cash/wave **×12** and the Cash-per-kill line stays at 0 for
+      the rest of that run; `First Perk Choice` visibly does **not** act on a trade-off offer.
 - [ ] `Ban Perks` L3 reads **1.00 B** and L5 **100.00 B** (the decimal ladder), so 5 bans ≈ **116 B** coins.
 - [ ] With both `First Perk Choice` and a higher-ranked perk in the opening offer, the **ranked** one is taken.
 - [ ] No perk button appears in a tournament run (bracket start → the button is hidden).
@@ -232,6 +310,10 @@ Bans, the First Perk Choice and the ranking **cannot be changed while a run is i
   read the coin multiplier: **+15 / +30 / +75 %** confirms the printed law `(1 + base × qty) × (1 + SPB)` (so the table's
   ×1.75 is the Quantity-5 total); **+75 % after five distinct picks of 1.15** (i.e. ×1.15⁵ = **2.01**) means the value
   column is a per-pick multiplier and every total in §1.3 must be re-derived as `base^qty`.
+- `Perk Option Quantity` **L1** does not cost **200 000 000** coins undiscounted, or the offer still shows **2** cards after
+  buying it → §1.⑧'s ladder moved; re-read the line's levels before re-pricing §1's quality table.
+- `First Perk Choice` visibly decides a **trade-off** offer (e.g. always takes the ×1.8 coin trade-off) → the printed
+  limitation is version-stale, the ban tail becomes less critical, and §1's ban ranking needs re-ordering.
 
 ## 5. Notes / open items
 
@@ -251,6 +333,18 @@ Bans, the First Perk Choice and the ranking **cannot be changed while a run is i
 
 ## Sources
 
+- Tower Hub `wiki/guide/tier-specific-guide` (last verified **2026-07-29**) — the printed perk values behind §1.⑦: the
+  **200**-wave offer cadence with **2** options, “perks reset when a run ends”, **no perks in tournaments** (“at least 16.1×
+  more damage”), the **T2 W150** gate with “a lab research that takes three days”, the **T2 W1000** gate lighting
+  `First Perk Choice` **and** `Garlic Thorns`, the three recommended early perks with their stacks (**3** / **1** / **5**),
+  `Health Regen` up to **×45.6**, “damage only gains about 80 % from a full set of decent perks”, and the
+  **85.5 % → 99.1 %** pair whose ratio is the printed **16.111×**.
+- Tower Hub `wiki/guide/guides-thinking-about-perks` (last verified **2026-11-01**) — §1.⑧: the **200 M** Option-Quantity
+  entry price and its 3-option effect, the ban-order advice (dead-weight trade-offs first, the investing perk at ban slot
+  3–4), the coin-run and milestone-run priorities with the named funnel targets (`Critical Factor`, `Bounce Range`,
+  landmine radius, damage-per-metre, Super Crit, the enemy skips), both printed priority templates with their perk
+  counters, the **20**-perk pool-thinning note, the four footguns, and the `Cash` trade-off (**×12**/wave, no kill cash),
+  `Standard Perk Bonus` (**25** levels 0→25 %) and `Boss Speed/Health` (**−70 %** / **+50 %**) values.
 - Tower Hub `wiki/system/perks` (last verified **2026-11-01**, 13 data tables) — the second copy of every lab ladder
   (`Waves Required` 100 levels 100 K · 220 K · 940 K · 5.26 M · 20.98 M · 63.1 M · 156.22 M · 336.94 M · 656.26 M · 1.18 B,
   Σ **2.42 B**; `Standard Perk Bonus` 25 levels … 1.77 B at L10, Σ **3.63 B**; `Improve Trade-Off Perks` 10 levels
