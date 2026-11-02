@@ -1,22 +1,28 @@
 # H001 — Rewarded-ad gem income is subject to a daily hard cap
 
-Status: open · Raised: 2026-11-01
+Status: **resolved** (2026-11-01, from the developer's own v29 patch notes) · Raised: 2026-11-01
 
-**Claim.** The number of gem-granting rewarded-ad views per day is capped by a server-side remote
-config value, not by the offers themselves.
+**Answer.** The cap exists and its value is published: **“Ad Gem claims are now capped to 60 claims per day
+(360 gems), resetting at 00:00 UTC”** (v29, 25 Aug 2026) — implemented by the remote-config flag
+`hardCapAdGemsEnabled` (`tools/gm_strings.txt`). With the v29 payout of **6 gems per claim**, the ceiling is
+**60 × 6 = 360 gems/day**. The stated design reason in the same note is “to reduce the disparity of gems earned from
+running the game 24/7”, which also confirms the cap is measured per calendar day in UTC, not per session.
 
-**Evidence.** The string `hardCapAdGemsEnabled` is present in `tools/gm_strings.txt` (line 11297),
-alongside `serverTimeV2` and `tournamentRegisterLoggingEnabled`, in the same block as
-`Log/Currency` → `logCurrencyAudit`. That grouping implies a remote-config/feature-flag set consumed
-by `RemoteConfigDefaults` (`Assets\Scripts\ScriptableObjects\RemoteConfigDefaults.cs`).
+**Numbers now fixed (T007 Rev 2 §1–§2).**
 
-**Why it matters for technique design.** If a cap exists, the optimal daily routine front-loads the
-highest-yield offers (15-gem Store offer first) because later views may pay nothing. If no cap exists,
-extra ad-view slots that appear during long sessions are pure bonus and should be taken.
+| quantity | pre-v29 | v29+ |
+|---|---|---|
+| ad-gem claim payout | 5 | **6** |
+| claims per day | uncapped in practice | **60** |
+| daily ad-gem total | 5 × (uptime/10 min) | **360** |
+| Store free (rewarded) claim | 15 | **20** |
+| reset | — | **00:00 UTC** |
 
-**Settling observation.** In one calendar day, take rewarded-ad views in order and write down the gem
-count granted by each: `15, 5, 5, …`. The first grant of `0` (or the first repeat of the same offer
-without a payout) is the cap N. Record N in T007 and mark this hypothesis closed.
+**What stayed open (moved to H029).** Whether the 60-claim counter counts **tap events** or **accrued timer units**,
+which decides if the Vault's `Ad Gem Stack` (130 keys, bank up to 5×) raises the daily total from 360 to as much as
+**864** gems (144 accrued timers/day × 6) or only reduces the number of taps. See
+[H029](H029-ad-gem-cap-counts-taps-or-timers.md).
 
-**Alternate explanations to rule out.** The icon may simply not have refreshed yet (the bottom-left ad
-gem is on a ~10-minute timer, not a queue); force a fresh app start before concluding the cap was hit.
+**Why it mattered.** It fixes the routine: front-load the 20-gem Store claim, then drain up to 60 ad claims, and stop
+— later taps pay nothing until the 00:00 UTC reset. It also explains why the mission row “Claim AD Gems xx times” has
+a 60-count tier (T013 §4): the mission ladder was built on the same cap.

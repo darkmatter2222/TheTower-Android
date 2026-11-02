@@ -12,10 +12,10 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | T004 | [Mission farming on low tier](techniques/T004-mission-farming-low-tier.md) | Gems, Coins | Unverified |
 | T005 | [Tier-rush then farm](techniques/T005-tier-rush-then-farm.md) | Coins (daily/weekly) | Unverified |
 | T006 | [Lab queue packing + cheapest skipped hour](techniques/T006-lab-queue-packing.md) | all (multipliers) | Unverified (Rev 2) |
-| T007 | [Ad-gem sweep](techniques/T007-ad-gem-sweep.md) | Gems | Amounts verified |
+| T007 | [Ad-gem sweep](techniques/T007-ad-gem-sweep.md) | Gems | Amounts verified (Rev 2) |
 | T008 | [Ultimate Weapon sync](techniques/T008-uw-sync-with-stones.md) | Coins | Verified |
 | T009 | [Gem spend order](techniques/T009-gem-spend-order.md) | Coins/min | Unverified (Rev 2) |
-| T010 | [Module economy (slot levels, merges, rerolls)](techniques/T010-module-merge-chain.md) | Modules, shards | Unverified (Rev 2) |
+| T010 | [Module economy (slot levels, merges, rerolls)](techniques/T010-module-merge-chain.md) | Modules, shards | Unverified (Rev 3) |
 | T011 | [Perk engine tuning](techniques/T011-perk-engine-tuning.md) | Coins (run multipliers) | Unverified (Rev 2) |
 | T012 | [Card deck order (gems per percentage point)](techniques/T012-card-deck-order.md) | Coins, Cash, Elite Cells | Unverified |
 | T013 | [Event window & medal economy](techniques/T013-event-medal-economy.md) | Medals → Gems, Stones, Shards | Unverified (Rev 2) |
@@ -32,7 +32,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 
 | ID | File | Settled by |
 |---|---|---|
-| H001 | [Ad-gem daily hard cap](hypotheses/H001-ad-gem-hard-cap.md) | count views until the payout stops in one day |
+| H001 | [Ad-gem daily hard cap](hypotheses/H001-ad-gem-hard-cap.md) — **resolved** (60 claims/day = 360 gems, 00:00 UTC) | done: v29 patch notes state the cap; semantics of the bank moved to H029 |
 | H002 | [Mission tier offset = max − 2](hypotheses/H002-mission-tier-offset.md) | read 3 wave-based missions vs your max tier |
 | H003 | [Interest cap value](hypotheses/H003-interest-cap-value.md) — **resolved** (base $50, 15-level ladder to $15 000) | done: both wikis print the ladder; one cosmetic device read left |
 | H004 | [Daily reward scales with max tier](hypotheses/H004-daily-reward-tier-scaling.md) | log daily claim before/after a tier unlock |
@@ -60,6 +60,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | H026 | [Is `Cash Bonus` inside the interest base?](hypotheses/H026-cash-bonus-inside-interest-base.md) | Δcash over 3 grey-icon waves, before/after +10 Cash Bonus levels |
 | H027 | [One Dissonance boost per tier, or one per category](hypotheses/H027-dissonance-one-boost-per-tier-vs-four.md) | run Attack then Utility on one tier, count the panel lines |
 | H028 | [Which Dissonance terms are live in a tournament](hypotheses/H028-dissonance-boost-in-tournaments.md) | read the run's coin multiplier in a bracket vs a normal run |
+| H029 | [Does the 60-claim cap count taps or timers](hypotheses/H029-ad-gem-cap-counts-taps-or-timers.md) | with the 5× bank, log taps × badge until the icon stops paying |
 
 ## Logs
 
@@ -78,6 +79,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 - [2026-11-01 — session 13 (T020, H023–H024)](log/2026-11-01.md#2026-11-01--session-13-iteration-22-workshop)
 - [2026-11-01 — session 14 (T001 Rev 2, T019 Rev 2, H003 resolved, H025–H026)](log/2026-11-01.md#2026-11-01--session-14-iteration-23-interest)
 - [2026-11-01 — session 15 (T021, H027–H028)](log/2026-11-01.md#2026-11-01--session-15-iteration-24-dissonance)
+- [2026-11-01 — session 16 (T007 Rev 2, T010 Rev 3, H001 resolved, H029)](log/2026-11-01.md#2026-11-01--session-16-iteration-25-ad-gems--v29-notes)
 
 ## Reference material in this repo
 

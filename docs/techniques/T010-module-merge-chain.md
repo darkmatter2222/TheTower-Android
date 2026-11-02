@@ -1,6 +1,7 @@
 # T010 — Module economy: level the *slot*, merge by recipe, reroll with few locks
 
-Rev: 2 (2026-11-01) · Status: **Unverified** (wiki tables + derived arithmetic; no on-device capture yet)
+Rev: 3 (2026-11-01) — added the v29 patch-note facts (inventory 350, one-tap slot-to-substat button, `Primary Module
+Bonus` labs, Preset ladders) · Status: **Unverified** (wiki tables + derived arithmetic; no on-device capture yet)
 **Value:** ★★★★ — slot levels and sub-stat count are multiplied by every stat on the module, and shard income is the binding constraint.
 **Ease:** 1 tap per level (**the arrow** next to the locked sub-stat), 2–4 taps per merge.
 **Prerequisite:** **Tier 2 Wave 90** (Modules unlocked; you get **10 free module tickets**, first Epic guaranteed inside those 10).
@@ -10,6 +11,13 @@ Rev: 2 (2026-11-01) · Status: **Unverified** (wiki tables + derived arithmetic;
 1. **Levels belong to the slot, not to the module.** Each of the 4 module slots (and each assist slot) levels to **300** with that type's shards + coins; the equipped module uses the slot level **up to its rarity cap** (then it reads “Level Capped by Rarity”). Swapping modules loses nothing, and an **empty slot can be levelled ahead of time**.
 2. **Common modules cannot be merged at all.** The merge ladder starts at Rare. Rare merges to **Legendary+**, a natural **Epic** merges to **Ancestral 5★**.
 3. **Merged Rares never gain a Unique Effect** (only epics *pulled* from a banner do), and a merged Rare keeps its original name, so it can never match a banner epic — it is wildcard material only.
+
+**v29 patch-note facts that pin the numbers** (fandom `Version History/V0.29`, 25 Aug 2026): the module **inventory cap is
+350** (was 300); a **quick button levels a Module Slot to its next Sub-Stat Effect** in one tap (use it instead of
+tapping +1 repeatedly); four new labs **`Primary Module Bonus` (Cannon / Armor / Generator / Core)** exist with **30
+levels, +1 % → +30 %** each, which is a fourth multiplicative layer on top of the slot levels in §1; and **Module
+Presets** come from the **`Presets` lab level 4** (350 B coins) plus 3 more in the Vault (`Module Presets`, 20 keys,
+T017) — presets make the merge/reroll workflow cheap enough to redo after a respec.
 
 ## 1. The three ladders you are spending into
 
