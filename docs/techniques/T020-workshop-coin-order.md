@@ -1,14 +1,19 @@
 # T020 — Workshop coin-spend order: the level-band rule and the knee table
 
+Rev: 2 (2026-11-01) — §6 replaced by the complete **v29 enhancement table** (18 enhancements, per-track unlock gates, caps,
+per-level steps, coins-to-max), the shared 600-level price curve with a block knee table, the number-notation key, and the
+two-discount stack; the unlock-gate ladder corrected to **50 B → 500 B → 5 T → 50 T → 500 T spent in the same track**.
 Rev: 1 (2026-11-01) · Currency: **Coins** (spent) — buys permanent **Cash/Coins multipliers** = the run's starting stats
 **Value:** ★★★★ — the four currency lines reach **×1.5 Cash Bonus, +200 Cash/Wave, ×1.5 Coins/Kill, +50 Coins/Wave for
 ≈ 1.6 M coins total** (levels 1–50 on each), while the *same* 1.6 M buys only ~15 levels on any one of them; and every
 expensive line has a hard **knee** after which the tail costs 50–600× more per point.
-**Confidence:** **High** for the cost tables (game-vault prints every level's price and the cumulative total for each
-line; the four currency lines' totals — 14.82 M / 14.82 M / 19.47 M / 19.47 M — are printed values) and **Medium** for
-the enhancement ladder (only the unlock thresholds are transcribed here). No device capture → **Unverified**.
-**Ease:** 1 tap per level (a `Buy x10`-style repeat) · **Prerequisite:** Workshop from the start; the Utility lines
-unlock for **40 / 40 / 100 / 100 coins**, so they are live from minute one.
+**Confidence:** **High** for the workshop cost tables (game-vault prints every level's price and the cumulative total for
+each line; the four currency lines' totals — 14.82 M / 14.82 M / 19.47 M / 19.47 M — are printed values) and **High** for
+the enhancement tables (Tower Hub, “computed for v29.0.5 … from the game's cost code”, last verified 2026-11-01);
+**Medium** on the six special curves' per-level step (not printed → [H037](../hypotheses/H037-enhancement-per-level-step.md)).
+**No device capture → Unverified.**
+**Ease:** 1 tap per level (the `Buy x10` / `Max Buy` control) · **Prerequisite:** Workshop from the start; the Utility lines
+unlock for **40 / 40 / 100 / 100 coins**; the enhancement layer needs **T12 W60 + the 5 B-coin lab**.
 
 ---
 
@@ -105,15 +110,79 @@ product, so a shard-spent module effect is a *third* independent stack; and the 
 perk is a fixed ×1.8 on the whole product, which is why T011 ranks it high. “Enhancement is double counted in both the
 tier bonus and in CPK” (per the wiki), so enhancement levels are worth ~2× their printed value.
 
-## 6. Enhancements (the late coin sink)
+## 6. The enhancement layer (v29 numbers)
 
-Enhancements are a separate Workshop block with three types (Attack / Defense / Utility) that unlock by **cumulative
-coins spent** on that type — the printed thresholds are **50 B**, **500 B** and **500 T** (e.g. Utility's Enemy-Level-Skip
-enhancement needs 500 T spent on Utility enhancements; the Attack one needs 500 T spent on enhancements) and each
-unlocked enhancement then has its own levels (typically +0.01 per level, 75 levels). Practical order: finish §2 and §3
-first — enhancement unlock thresholds are *coin-spend counters*, so **every coin you spend on the cheap lines above
-also advances the enhancement unlocks** (this is why the cheap-first order beats hoarding coins).
-Check the counter behaviour after a respec: [H024](../hypotheses/H024-enhancement-spend-counter-respec.md).
+**Gate:** **tier 12 wave 60** *and* the `Workshop Enhancement` lab (**5.00 B** coins, 6 d 16 h research). Then the **first
+enhancement of each track is free** (Attack `Damage +`, Defense `Health +`, Utility `Cash Bonus`) and the rest open by
+**coins spent inside that same track** — 50 B → 500 B → 5 T → 50 T → 500 T. Spending in Attack does nothing for Utility, so
+all three tracks need their own 500 T.
+
+**Notation key** (the game's suffixes, needed to read these tables): `K` 10³ · `M` 10⁶ · `B` 10⁹ · `T` 10¹² · `q` 10¹⁵ ·
+`Q` 10¹⁸ · `s` 10²¹ · `S` 10²⁴ · `O` 10²⁷.
+
+### 6.1 The 12 standard enhancements — one shared curve
+
+All twelve 600-level enhancements share one price curve; the bonus is linear, **×1 + 0.01 × level** ⇒ **×7 at 600**.
+
+| Level | price of that level | total to here | multiplier | cost of this 50-level block |
+|---|---|---|---|---|
+| 1 | 5.00 B | 5.00 B | ×1.01 | — |
+| 50 | 9.59 T | **73.23 T** | ×1.50 | 73.23 T |
+| 100 | 2.63 q | 34.88 q | ×2.00 | ≈ 34.81 q (**475×** block 1) |
+| 150 | 32.31 q | 698.20 q | ×2.50 | ≈ 663.32 q |
+| 200 | 172.31 q | 5.13 Q | ×3.00 | ≈ 4.43 Q |
+| 250 | 6.57 Q | 129.09 Q | ×3.50 | ≈ 123.96 Q |
+| 300 | 34.88 Q | 1.03 s | ×4.00 | ≈ 0.90 s |
+| 400 | 330.80 Q | 15.29 s | ×5.00 | ≈ 14.26 s |
+| 500 | 1.65 s | 100.89 s | ×6.00 | ≈ 85.60 s |
+| 600 | 5.83 s | **441.24 s** | ×7.00 | ≈ 340.35 s (**4.6 × 10⁹×** block 1) |
+
+Same rule as every other line in this doc: **the first 50 levels are the whole value** (73.23 T for ×1.50). The blocks
+then grow ≈ 475×, and the last block alone (L551–600 = 340.35 s) is **4.6 × 10⁹×** the entire first block, while level 600
+by itself is 5.83 s ≈ 8 × 10⁷× the first block. Practically: take each enhancement to **L50 / L100 / L150** and move
+on; a single standard enhancement to 600 costs **441.24 s** and all twelve of them together cost **5 294.88 s**
+(= 12 × 441.24) ≈ **5.3 S coins**.
+
+### 6.2 The six special curves (steeper, and the two caps that matter)
+
+| Enhancement | Max | L1 | Mid | Last level | **Total** | Note |
+|---|---|---|---|---|---|---|
+| Attack Speed + | **100** | 5.00 B | 2.05 Q (L50) | 2.50 s | **26.62 s** | cheapest ×2 in the layer |
+| Enemy Level Skip + | **60** | 5.00 B | 271.92 q (L30) | 289.53 Q | **1.51 s** | **cheapest full project**, weakens every enemy |
+| Free Upgrades + | 150 | 5.00 B | 122.66 Q (L75) | 42.82 s | 734.30 s | |
+| Orb Size | 250 | 5.00 B | 18.99 Q (L125) | 17.89 s | 336.82 s | track not printed (H037 step 5) |
+| **Coin Bonus +** | **300** | 5.00 B | 64.05 Q (L150) | 106.12 s | **2.99 S** | the economy one — compounds everything |
+| **Cells / Kill Bonus** | **300** | 5.00 B | 64.05 Q (L150) | 106.12 s | **2.99 S** | the Elite-Cell multiplier (T006/T015) |
+
+All 18 together ≈ **12.37 S coins** before discounts — and that printed total reproduces arithmetically from these rows:
+12 × 441.24 s + 26.62 + 1.51 + 734.30 + 336.82 + 2 990 + 2 990 = **12 374.13 s = 12.37 S** ✓, so the two tables are the
+same version. `Land Mine Damage +` is the standard curve but with **+0.06 per level** ⇒ ×37 at 600 (1 + 0.06 × 600), i.e.
+the best ×-per-coin of the 600-level group. The source prints the track only for the first ten rows, so the six specials'
+track assignment must be read in-game (`Coin Bonus +` and `Cash Bonus` are both economy lines → probably Utility, but the
+lab you buy depends on it — see [H037](../hypotheses/H037-enhancement-per-level-step.md) step 5).
+
+**v29 cap changes that stale guides miss:** standard 400 → **600** (×5 → ×7), Attack Speed 75 → **100**, Orb Size
+200 → **250**, Coin Bonus / Cells per Kill 200 → **300**, Free Upgrades 100 → **150**.
+
+### 6.3 The two discounts stack (buy these before the levels)
+
+| Discount | Source | Value |
+|---|---|---|
+| `Enhancement Coin Discount` ×3 | labs, **T21 W60**, 100 levels each, L1 = **1.00 B** coins (1 d 1 h 55 m) | **−0.30 % per level** (L10 = −3.00 %), one lab per track |
+| Vault enhancement-cost node | keys (**T017** Tier A) | −22.5 % (90 keys, 2+4+…+18) |
+| `Max Buy` fix | v29 | the tab's `Max Buy` now includes the lab discount (before v29 it under-discounted) |
+
+**Discount-lab ladder** (printed, one track): L1 **1.00 B** / −0.30 % · L2 1.30 B / −0.60 % · … · L10 **10.60 B** / −3.00 %
+⇒ price **×1.3 per level** and time **+1 d 1 h 55 m per level** (L10 = 10 d 19 h cumulative). So 10 levels of one track cost
+≈ **42.6 B** coins (1.00 B × (1.3¹⁰ − 1) ÷ 0.3) and ≈ 11 days of one research slot for **−3.00 %** on that track — a poor
+rate next to the other labs, so take ~5 levels (−1.50 %, ≈ 9.1 B coins) and move on; the node is worth it only because the
+same 100-level ladder repeats three times.
+
+Because both apply multiplicatively, a Utility-heavy account should take the **Utility** lab first (it discounts `Coin
+Bonus +`, whose whole project is 2.99 S). Order: 3 free starters → L50–150 on the ×-per-coin standards → `Enemy Level
+Skip +` (1.51 s, the cheapest complete project) → then `Coin Bonus +` / `Cells / Kill Bonus`, whose 2.99 S price tags make
+them the last coin sink of the game. The spend counters are per-track, so §2/§3's cheap workshop buys do **not** advance
+the enhancement gates — track each of the three separately ([H024](../hypotheses/H024-enhancement-spend-counter-respec.md)).
 
 ## 7. Steps (UI only)
 
@@ -129,7 +198,8 @@ Check the counter behaviour after a respec: [H024](../hypotheses/H024-enhancemen
    `Workshop Utility Discount` level is cheaper than the 10 levels it discounts.
 6. Use the **Workshop Respec** (unlocked T4 W30) to rebalance instead of re-buying blind, and note that the Vault
    sells three respec discounts + 3 presets (T017).
-7. Watch the enhancement unlock counters (the coin-spend thresholds) as a by-product — no extra coins needed.
+7. Watch the **per-track** enhancement gates (50 B → 500 B → 5 T → 50 T → 500 T spent in that track) once you reach
+   T12 W60 — they are separate counters, so finish one track before starting the next (§6.3).
 
 ## 8. Reproduction checklist
 
@@ -140,6 +210,13 @@ Check the counter behaviour after a respec: [H024](../hypotheses/H024-enhancemen
 - [ ] Damage/Meter's total at level 70 is **982.41 K** and at 200 it is **315.60 T**.
 - [ ] Bounce Shot Range's total at 40 is **290.60 K** and at 60 is **3.81 T**.
 - [ ] A researched `Workshop Utility Discount` level visibly lowers the printed price of the four currency lines (H023).
+- [ ] The enhancement menu is locked until **T12 W60** + the lab; after that the first enhancement of each track costs
+      **0** and level 1 of any enhancement costs **5.00 B** coins.
+- [ ] A standard enhancement's level 50 price reads **9.59 T** with the total **73.23 T**; level 600 reads **5.83 s**
+      (total **441.24 s**) and its multiplier reads **×7**.
+- [ ] `Enemy Level Skip +` caps at level **60** and `Coin Bonus +` at **300** (the v29 caps, not 200/75/100).
+- [ ] One level of `Enhancement Coin Discount` (Utility) changes printed enhancement prices by −0.30 %, and `Max Buy`
+      reflects that discount (the v29 fix).
 
 ## 9. Falsification
 
@@ -151,6 +228,12 @@ Check the counter behaviour after a respec: [H024](../hypotheses/H024-enhancemen
   row and shift the knee — the tables print one price per 10 levels, so a mid-band jump is possible.
 - If a respec resets an enhancement unlock, the “coin spend advances the counters” shortcut needs re-doing after each
   respec ([H024](../hypotheses/H024-enhancement-spend-counter-respec.md)).
+- If an enhancement's level 1 is not **5.00 B**, or its level-50 price is not **9.59 T**, the tables are for another
+  version → re-read three checkpoints (L1 / L50 / cap) and rebuild §6.1's block column.
+- If a standard enhancement's cap reads **400** (or Attack Speed 75, Coin Bonus 200), the client is pre-v29 → halve the
+  “coins to max” column accordingly (the block ratios are unchanged).
+- If `Coin Bonus +` costs ≈ 2.99 S but its multiplier is not what §6.2 implies, the per-level step differs → read the
+  value at level 1 and record it ([H037](../hypotheses/H037-enhancement-per-level-step.md)).
 
 ## Sources
 
@@ -169,3 +252,9 @@ Check the counter behaviour after a respec: [H024](../hypotheses/H024-enhancemen
 - `tools/gm_strings.txt` — panel strings `Workshop Attack` / `Workshop Defense` / `Workshop Utility`,
   `Attack Enhancements` / `Defense Enhancements` / `Utility Enhancements`, `Upgrade Enhancement Panel`,
   `Workshop Presets`, `Lab Enhancement`.
+- Tower Hub `wiki/workshop/workshop-enhancement` (last verified **2026-11-01**, “computed for v29.0.5 from the game's cost
+  code”) — the 18-enhancement table with per-track unlock gates (50 B / 500 B / 5 T / 50 T / 500 T), caps and per-level
+  steps; the shared 600-level curve (L1 5.00 B · L50 9.59 T / total 73.23 T · L600 5.83 s / total 441.24 s); the six
+  special curves (Attack Speed + 26.62 s · Orb Size 336.82 s · Coin Bonus + and Cells/Kill 2.99 S each · Free Upgrades +
+  734.30 s · Enemy Level Skip + 1.51 s); the **12.37 S** total; the `Enhancement Coin Discount` lab (T21 W60, 3 labs,
+  100 levels, −0.30 %/level, L1 = 1.00 B coins / 1 d 1 h 55 m); the v29 cap changes; and the `Max Buy` discount fix.

@@ -25,7 +25,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | T017 | [Vault: Keys priority ladder](techniques/T017-vault-keys-priority.md) | Keys → Gems, Coins, Cash, Shards | Unverified |
 | T018 | [Relic economy & price rule](techniques/T018-relic-economy.md) | % points (Coins/Cash/Lab) | Unverified |
 | T019 | [Milestone claim engine](techniques/T019-milestone-claim-engine.md) | Gems, Stones, Coins, labs | Unverified (Rev 2) |
-| T020 | [Workshop coin-spend order](techniques/T020-workshop-coin-order.md) | Coins → Cash/Coins multipliers | Unverified |
+| T020 | [Workshop coin-spend order](techniques/T020-workshop-coin-order.md) | Coins → Cash/Coins multipliers | Unverified (Rev 2) |
 | T021 | [Dissonant Runs & Echo](techniques/T021-dissonant-runs-echo.md) | Coins (+ damage/health/UW) | Unverified |
 | T022 | [Free-currency census & paid ladder](techniques/T022-free-currency-census-paid-ladder.md) | Gems, Stones (budget + bills) | Unverified |
 
@@ -69,6 +69,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | H034 | [Bot Bot Bonus line: 19 or 30 levels](hypotheses/H034-botbot-level-count.md) | read the Bonus line's cap and its value at the last level |
 | H035 | [Lab-rush price improves per completed lab](hypotheses/H035-lab-rush-rate-per-completed-lab.md) | re-read two rush prices after a category gains its gold box |
 | H036 | [Is the 80-card event quest worth 1 600 gems](hypotheses/H036-buy-80-cards-event-roi.md) | read the quest's medal payout + the shop's gems-per-medal rate |
+| H037 | [Per-level step of the six special enhancements](hypotheses/H037-enhancement-per-level-step.md) | read the multiplier line at level 0, 1 and the cap for each |
 
 ## Logs
 
@@ -92,6 +93,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 - [2026-11-01 — session 18 (T008 Rev 2, H032–H033)](log/2026-11-01.md#2026-11-01--session-18-iteration-27-stone-ledger)
 - [2026-11-01 — session 19 (T015 Rev 2, H015 resolved, H034)](log/2026-11-01.md#2026-11-01--session-19-iteration-28-bot-ladders)
 - [2026-11-01 — session 20 (T009 Rev 3, H035–H036)](log/2026-11-01.md#2026-11-01--session-20-iteration-29-gem-ladder-priced)
+- [2026-11-01 — session 21 (T020 Rev 2, H037)](log/2026-11-01.md#2026-11-01--session-21-iteration-30-enhancement-layer-priced)
 
 ## Reference material in this repo
 
