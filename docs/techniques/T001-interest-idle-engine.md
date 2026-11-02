@@ -1,5 +1,9 @@
 # T001 — Idle the Cash bar at the Interest cap
 
+Rev: 4 (2026-11-02) — adds the printed **in-run cash laws** (§2.2): enemy value `$ = 1 + ⌊w/10⌋` to W200 (the 16-row
+table re-adds exactly), the **Cash/Wave-before-Interest** payout order, the **`Cash Bonus` enhancement** (free unlock,
+L600 = ×7, +1 %/lv on Cash/Wave + Interest % + Max Interest, cumulative ladder to 15.10 q at L90), and the common-card
+multipliers (Cash ×1.2→×2.4, Coins ×1.15→×1.45).
 Rev: 3 (2026-11-02) — **unit correction:** both interest lab lines are priced in **coins** (only the *rush* is gems);
 the **cumulative columns now re-add** (workshop 10/10, `Interest` lab 34 007, `Max Interest` within rounding); the wiki
 **Time column is per-level** (proved by its non-monotone series: Σ L1–L4 = **8 h 33 m**, all 15 levels **≈ 44 d 6 h** of a
@@ -155,6 +159,26 @@ meaningful purchase.
 **Settled disagreement:** level 3's cap is **$300** — fandom and Tower Hub (verified 2026-11-01) both print $300; only
 game-vault's older copy prints $350, so the 2-1 split resolves to **$300** (one device read still optional).
 
+### 2.2 Where the Cash itself comes from (printed laws, Rev 4)
+
+Tower Hub's cash page (2026-11-01) prints the in-run income law:
+
+- **Enemy value**: base **$1**, rising **+$1 every 10 waves up to wave 200**, then **+$1 every 20 waves**. As a closed
+  form: `$ = 1 + ⌊w/10⌋` for `w ≤ 200` (⇒ **$21 at W200**), `+ ⌊(w−200)/20⌋` after. The printed table (“Showing 10 of
+  **16** rows”: waves 1–9, 10, 20 … 150) is *exactly* 16 rows under this law (W150 ⇒ $16 ✓) — a clean cross-check.
+- **Payout order per wave-end**: **Cash/Wave is applied first, then Interest** on the resulting balance (“the flat
+  payout can push your balance up into a higher Interest payout”) — so spend upgrades *right after* a claim, and let the
+  flat payout refill the balance while the `$` sits near the cap. Interest still stops at the printed **Max Interest** cap.
+- **`Cash Bonus` enhancement** (unlocks **free** after the Workshop Enhancement Labs): ×1 + **0.01/lv**, cap **L600 = ×7**
+  ✓ (`1 + 0.01·600 = 7`), and each level *also* grants **+1 % to Cash/Wave, Interest % and Max Interest** — three extra
+  multiplicative lines from one enhancement. Printed cumulative coins: L10 **55.54 B** · L20 **217.10 B** · L30 **1.95 T**
+  · L40 **14.48 T** · L50 **73.23 T** · L60 **385.56 T** · L70 **1.72 q** · L80 **5.66 q** · L90 **15.10 q** (the 61-row
+  table = level 1, then every 10th to 600 ✓). *Reading note:* game-vault’s “Cash bonus does not increase interest nor
+  max interest” refers to the **workshop Cash Bonus upgrade**, a different line from this enhancement.
+- **Card multipliers** (both **common**, so early-cheap): `Cash` card **×1.2 → ×2.4** over stars 1–7 (+0.2/star ✓) and
+  `Coins` card **×1.15 → ×1.45** (+0.05/star ✓). And four lab lines (`Cash Bonus`, `Cash/Wave`, `Coins/Kill Bonus`,
+  `Coins/Wave`) share the meta-lab shape: **1.00 at L0, +0.02/lv, ×2.98 at L99** — the same 0.02-law as `Labs Speed` (T006).
+
 ## 3. What the numbers say (derived)
 
 1. **The cap, not the rate, is the binding constraint** for almost everyone below Tier 11. With the $50 base cap and
@@ -232,6 +256,10 @@ game-vault's older copy prints $350, so the 2-1 split resolves to **$300** (one 
       rises by a **constant** per wave (that constant = your cap, e.g. 100 per wave after level 1).
 - [ ] Buying an upgrade drops the icon to grey and it returns to green in 2–4 waves at `Interest/Wave` level ≥ 30.
 - [ ] The cap value in the `Max Interest` row matches §2 (level 3 should read **$300**).
+- [ ] An enemy killed at **W100** pays **$11** and at W150 **$16** (the `$` law `1 + ⌊w/10⌋`).
+- [ ] The `Cash Bonus` enhancement’s panel reads **×1.01** at L1 and its L10 **Total** reads **55.54 B** coins; buying one
+      level lifts the printed Cash/Wave, Interest and Max Interest values by ~1 % each.
+- [ ] The **Cash card** at 7★ reads **×2.4** and the **Coins card** at 7★ reads **×1.45**.
 - [ ] The Lab panel shows a **coin** icon on the `Max Interest` / `Interest` prices and a **gem** icon only on the rush
       button; `Interest` level 10 reads **12 126** coins and the ten printed prices sum to **34 007**.
 - [ ] `Max Interest`'s Time column is **not** monotone (L10 = 5 d 20 h 40 m, L11 = 1 d 4 h 50 m) ⇒ per-level, so
@@ -256,11 +284,21 @@ game-vault's older copy prints $350, so the 2-1 split resolves to **$300** (one 
 - If the Generator slot's `Interest/Wave` sub-stat shows a value other than 2 / 4 / 6 / 8 %, the rarity steps are
   re-versioned → re-read the four tiers and rebuild §2.1's rate table (the ordering conclusion is unaffected: the sub-stat
   still outranks the 5.94 % workshop line).
-- If a `Max Interest` level's printed cap differs from §2, trust the panel (the tables are versioned) and correct the
-  table — the *shape* (×2, ×4, … ×300 in 15 steps, 2 304 130 coins) is what the technique relies on.
+- If a `Max Interest` level's printed cap differs from §2, trust the panel (the tables are versioned) and correct the  table — the *shape* (×2, ×4, … ×300 in 15 steps, 2 304 130 coins) is what the technique relies on.
+- If a W100 kill pays something other than **$11**, the enemy-value law was re-versioned (`1 + ⌊w/10⌋` to W200, then
+  +1/20) → read three printed rows (10 / 100 / 210) and restate §2.2's law; nothing else in the technique depends on it.
+- If buying one `Cash Bonus` **enhancement** level moves the printed Interest % value by ≠ +1 %, the "+1 % to three
+  lines" note belongs to a different enhancement → re-read the enhancement's `Value` tooltip; the ×7 cap itself is
+  self-checking (`1 + 0.01 × 600`).
 
 ## Sources
 
+- Tower Hub `wiki/currency/currency-cash` (last verified **2026-11-01**) — the $1 enemy-value law with the 16-row table,
+  the **Cash/Wave-before-Interest** order, the **`Cash Bonus` enhancement** (free unlock after the Workshop Enhancement
+  Labs, ×1 + 0.01/lv → **×7 at L600**, +1 %/lv on Cash/Wave · Interest % · Max Interest, printed cumulatives
+  55.54 B → 15.10 q), and the *Good to know* card values (**Cash ×1.2→×2.4, Coins ×1.15→×1.45**) + the four
+  **×2.98-at-L99** cash/coin lab lines. `wiki/currency/currency-shards` (2026-11-01) corroborates T010’s prints
+  (T2 W90 gate, shatter 5/10, Shatter-Shards +100 %, Shard-Cost −30 %, “merged returns everything”).
 - Tower Hub `wiki/workshop/interest` (last verified **2026-11-01**) — third copy of all three ladders with unrounded
   per-level prices (workshop 125 / 179 / 245 / 328 / 431 / 556 / 705 / 881 / 1.08 K / 1.32 K, whose ten cumulative totals
   re-add exactly; `Interest` lab Σ10 = **34 007** coins; `Max Interest` Σ to **8 145** at L4 and **361 800** at L10), the
