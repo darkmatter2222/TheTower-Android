@@ -18,7 +18,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | T010 | [Module economy (slot levels, merges, rerolls)](techniques/T010-module-merge-chain.md) | Modules, shards | **Verified (Rev 7**, arithmetic) |
 | T011 | [Perk engine tuning](techniques/T011-perk-engine-tuning.md) | Coins (run multipliers) | **Verified (Rev 6**, arithmetic: the printed ladders + the per-tier perk bill 0 → 1 46…1 056 picks, 8/8 marginals re-added) |
 | T012 | [Card deck order (gems per percentage point)](techniques/T012-card-deck-order.md) | Coins, Cash, Elite Cells | **Verified (Rev 2**, arithmetic) |
-| T013 | [Event window & medal economy](techniques/T013-event-medal-economy.md) | Medals → Gems, Stones, Shards | **Verified (Rev 5**, arithmetic) |
+| T013 | [Event window & medal economy](techniques/T013-event-medal-economy.md) | Medals → Gems, Stones, Shards | **Verified (Rev 6**, arithmetic: the ladder + the 21/21 milestone-skin laws + the 83/58/44 bucket table at +95.2 pp) |
 | T014 | [Tournament tickets & league ladder](techniques/T014-tournament-tickets.md) | Gems, Stones, Keys | **Verified (Rev 8**, arithmetic: 130 ladder cells, the two width sets Σ 30, the Σ/mean ledger, `n* = floor(P/10)` at ≥ ×2.00) |
 | T015 | [Bot economy & cell/coin chain](techniques/T015-bot-economy.md) | Medals, Coins, Elite Cells | **Verified (Rev 6**, arithmetic) |
 | T016 | [Guild tokens & Bits](techniques/T016-guild-tokens-bits.md) | Tokens, Bits, Coins, Gems, Shards | **Verified (Rev 3**, arithmetic) |
@@ -178,6 +178,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 - [2026-11-02 - session 77 (T024 Rev 2)](log/2026-11-02.md#2026-11-02---session-77-iteration-86-the-els-reduction-tier-staircase-is-exactly-5-times-tier-minus-13-and-the-printed-40-pins-it-to-the-perks-screen)
 - [2026-11-02 - session 78 (T011 Rev 6)](log/2026-11-02.md#2026-11-02---session-78-iteration-87-the-per-tier-perk-bill-is-0-picks-through-tier-13-then-146-to-1056-and-all-eight-marginals-re-add-from-the-family-steps)
 - [2026-11-02 - session 79 (T014 Rev 8)](log/2026-11-02.md#2026-11-02---session-79-iteration-88-the-seven-tournament-reward-ladders-are-recorded-cell-for-cell-and-ticket-buying-collapses-to-n-star--floor-of-p-over-10)
+- [2026-11-02 - session 80 (T013 Rev 6)](log/2026-11-02.md#2026-11-02---session-80-iteration-89-the-milestone-skin-table-obeys-paid-iff-tier-is-2-mod-3-so-the-free-cosmetic-leg-collapses-to-one-formula)
 
 ## Reference material in this repo
 

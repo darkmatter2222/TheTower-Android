@@ -1,5 +1,11 @@
 # T013 — Run the event window: every mission is a double-dip, every trade line is capped
 
+Rev: 6 (2026-11-02) — the **free leg of the cosmetic line is closed** (same page, 2026-11-01): the 24-row milestone-skin
+table obeys **`paid ⇔ tier ≡ 2 (mod 3)`** (**21/21** classified rows; paid = 2, 5, 8, 11, 14, 17, 20) so the number of
+**free** skins by Tier *N* is **`N − ⌊(N+1)/3⌋`** (**21/21** ✓: 7 at T11 = **+2.8 pp**, 9 at T13 = +3.6 pp), the unlock is
+printed as **wave 2 500** on that tier, and the page's own **printed counts 83 / 58 / 44** replace the subset arithmetic ⇒
+the full-collection figure moves **+89.6 → +95.2 pp (×1.95)**; plus the **half-pair ordering** (background **312.5** medals
+per pp < song/pair **333.3** < tower skin **375**).
 Rev: 5 (2026-11-02) — the **cosmetic law is now printed** (`wiki/system/themes-menu`, 2026-11-01):
 `1 + 0.004·tower + 0.008·background + 0.006·(menu + guardian + songs)`, additive, with v29.0.6 counts
 (**83** tower skins, **43** event pairs, **8** guild seasons, **15** guild guardians, **3** shop songs of **44**) ⇒
@@ -131,19 +137,22 @@ toward the coin bonus”):
 | Bucket | Count × step | pp of coins |
 |---|---|---|
 | Tower skins | 83 × 0.004 | **+33.2** |
-| Backgrounds (43 event + 8 guild) | 51 × 0.008 | **+40.8** |
+| Backgrounds (**printed count**, v29.0.6) | **58** × 0.008 | **+46.4** |
 | Menu themes (guild, 8) | 8 × 0.006 | +4.8 |
 | Guardian themes (guild, 15) | 15 × 0.006 | +9.0 |
 | The 3 shop songs | 3 × 0.006 | +1.8 |
-| **Total (all four buckets + songs)** | — | **≈ +89.6 %** ⇒ cosmetic multiplier **≈ ×1.90** |
+| **Total (all four buckets + songs)** | — | **≈ +95.2 %** ⇒ cosmetic multiplier **≈ ×1.95** |
 
 Two consequences worth internalising:
 1. **The prices are calibrated to one rate.** A theme pair is `0.004 + 0.008 = 0.012` for **400** medals and a song is
    `0.006` for **200** ⇒ both are exactly **0.00003 multiplier per medal** = **0.30 pp per 100 medals** (check:
    `0.012/400 = 0.006/200 = 3.0e-5` ✓), i.e. **1 pp per 333 medals**, **10 pp per 3 333 medals**. So there is no ordering
-   trick inside the cosmetic shop — spend in any order, and the one-event cosmetic bill (**1 000 medals**, §1 above) buys
-   exactly **3.0 pp** of the ≈ 90 pp line.
-2. **The line is ~90 % of a free permanent coin multiplier** — i.e. nearly as large as the entire *relic* coin pool
+   trick inside the cosmetic shop **when you take whole items** — spend in any order, and the one-event cosmetic bill
+   (**1 000 medals**, §1 above) buys exactly **3.0 pp** of the ≈ 95 pp line. *Half-pair exception (Rev 6):* the two halves
+   are **not** individually at the pair rate — the **background** is `250 / 0.8 = 312.5` medals per pp, the **tower skin**
+   `150 / 0.4 = 375`, a **song** `200 / 0.6 = 333.3` ⇒ **if you can only afford part of an event's cosmetics, the order is
+   background → song → tower skin**, and a free milestone skin (0 medals) beats all three.
+2. **The line is ~95 % of a free permanent coin multiplier** — i.e. as large as the entire *relic* coin pool
    (+99 %, T018 §3), for ≈ 1 000 medals/event plus the guild-token purchases. It is capped only by the collection size, so
    unlike the convex trade ladder (§2) it **never gets worse** the more you buy.
 
@@ -151,6 +160,31 @@ Census note: the transcribed subsets add to **24 milestone + 43 event + 8 guild 
 **83**, so ≈ **8** skins come from elsewhere (the three unconfirmed pairs *Neuron / Snowstorm / Valentine*, the anniversary
 and other gift skins). The law is what to compute with; the counts are the read-the-panel part (the total is on the
 **tier multiplier menu**, §5).
+
+### 2.1 The free leg: milestone skins are one law (new, Rev 6)
+
+The same page prints a **24-row** `Tier / Tower skin / Free-Paid` table (tiers 22–24 print “-”). Two laws cover all of it,
+both re-adding from the printed rows:
+
+```
+paid ⇔ tier ≡ 2 (mod 3)      ⇒ paid tiers = 2, 5, 8, 11, 14, 17, 20        (21/21 classified rows ✓)
+free skins by Tier N = N − ⌊(N+1)/3⌋                                              (21/21 rows ✓)
+```
+
+| Tier *N* | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | … | 21 |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| **free** skins (`N − ⌊(N+1)/3⌋`) | 1 | 1 | 2 | 3 | 3 | 4 | 5 | 5 | 6 | **7** | 7 | 8 | **9** | … | **14** |
+| their coin pp (`× 0.4`) | 0.4 | 0.4 | 0.8 | 1.2 | 1.2 | 1.6 | 2.0 | 2.0 | 2.4 | **2.8** | 2.8 | 3.2 | **3.6** | … | **5.6** |
+| paid tiers ≤ *N* (`⌊(N+1)/3⌋`) | 0 | 1 | 1 | 1 | 2 | 2 | 2 | 3 | 3 | 3 | 4 | 4 | 4 | … | 7 |
+
+**How to use it.** Every milestone skin is granted at **wave 2 500 of its own tier** (the printed unlock line; T019's ladder
+already ends each tier at 2 500 = skin, 4 500 = relic), so the *free* cosmetic line is a pure function of **how many tiers
+you have pushed past 2 500**: **Tier 11 ⇒ +2.8 pp, Tier 13 ⇒ +3.6 pp, all 21 tiers ⇒ +5.6 pp**, and each paid row is the
+same **0.4 pp** for **150** medals (7 of them through Tier 21). Since the medal rate is 333–375 medals/pp while the free leg
+is 0 medals/pp, the order is: **push tiers to bank the free skins first, then buy the odd paid one** (and the background
+first if only half a pair fits). Cross-check on the panel: the **tier multiplier menu** prints the total, which should equal
+`1 + 0.004·(skins owned) + …`; the **Profile** screen (tap the **tower** on the home menu) only *displays* **1 skin + 5
+relics** and does **not** activate them, so it is not the place to read the bonus.
 
 ## 3. The double-dip list (schedule these inside the event window)
 
@@ -207,6 +241,14 @@ Most event missions *are* the currency actions from the other techniques, so doi
 - [ ] **Cosmetic law (§2):** the total on the **tier multiplier menu** moves **+0.4 pp** per tower skin, **+0.8 pp** per
       background and **+0.6 pp** per menu/guardian/song — so after one theme pair + the 3 songs the delta from a clean save
       is **+1.2 + 1.8 = 3.0 pp** (0.03 on the printed multiplier), and a skin bought but **not equipped** is inside that sum.
+- [ ] **§2.1 skin law:** the **Themes → Tower** submenu lists **7** owned milestone skins at Tier 11 and **9** at Tier 13
+      (`N − ⌊(N+1)/3⌋` ✓), each worth **+0.4 pp** on the **tier multiplier menu**, arriving at **wave 2 500** of its own tier.
+- [ ] **§2.1 paid rows:** exactly **Tiers 2, 5, 8, 11, 14, 17, 20** show their skin as a **purchase** (**150** medals in the
+      event shop ⇒ **375** medals/pp, worse than the background’s **312.5**), all other tiers free.
+- [ ] **§1 printed counts:** the Themes screen counts **83** tower skins / **58** backgrounds / **44** songs, and the shop’s
+      three songs are **200** medals each and never rotate.
+- [ ] **Profile:** tapping the **tower** on the home menu opens the profile; it displays **1 skin + 5 relics**, and changing
+      those does **not** move the coin multiplier (display ≠ activation).
 
 ## 6. Falsification
 
@@ -223,6 +265,16 @@ Most event missions *are* the currency actions from the other techniques, so doi
 - If the **tier multiplier menu**'s cosmetic total is not `1 + 0.004·T + 0.008·B + 0.006·(M+G+songs)` on your counts, the
   steps were re-tuned → read **one** item of each bucket at a time (the delta gives the new step) and rebuild the table; the
   two ratios to watch are **background : tower = 2 : 1** and **menu = guardian = song**.
+- **§2.1:** if a tier’s skin prints **Paid** where `tier mod 3 ≠ 2` (e.g. Tier **4** paid), the ladder was re-versioned →
+  take the modulus and the offset from those two reads; only the free-skin count (hence the pp total) changes, the
+  **0.004** step is unaffected.
+- **§2.1:** if the **tier multiplier menu** does **not** move **+0.4 pp** when a Tier-`N` wave-2 500 cell is claimed, the
+  milestone skins are not the counted objects (or the menu omits a bucket) → re-read one item per bucket in the order
+  tower → background → menu → guardian → song and keep the four deltas.
+- **§2.1:** if the Themes screen counts something other than **83 / 58 / 44**, the counts are version-dependent → recompute
+  §1’s bucket table from the panel’s counts (the 0.004 / 0.008 / 0.006 law is independent of them).
+- **Profile:** if changing the profile’s displayed skin or relics **does** move the coin total, the display *is* the equip
+  layer → then the active relic set must be read from the **Profile** screen rather than the Relics screen (T018).
 - If the count of coin-counting **songs** turns out to be **44** rather than **3**, the multiplier gains another
   `41 × 0.006 = +24.6 pp` (§2's census note) → the cosmetic line then exceeds the whole relic pool and cosmetics become the
   #1 free coin source.
@@ -239,6 +291,19 @@ Most event missions *are* the currency actions from the other techniques, so doi
   stones** each with the ability-value ladders (Bonus Cells ×1.25→…, Max Power ×1.25→×2.25) and “Showing 10 of 29 rows”;
   **Synchronicity** = 2 free slots + **1 500 stones** per extra slot (max five, **4 500**); “cosmetic bonuses are
   additive… apply without being equipped”; respec **300 gems** once/event, labs not refunded.
+- Tower Hub `wiki/system/themes-menu` (last verified **2026-11-01**, 7 data tables) — the printed cosmetic law
+  (**1 + 0.004 tower + 0.008 background + 0.006 menu/guardian**, “stack additively… shown in the tier multiplier menu”), the
+  **v29.0.6** counts (**83** tower skins, **58** backgrounds, **44** songs with “only the three shop songs count”, **200
+  medals** each, non-rotating), the per-category steps **0.4 / 0.8 / 0.6 %**, the **wave 2 500** milestone unlock plus “buy
+  them during special events”, menu + guardian themes bought with **Guild currency**, the **43** event skin/background pairs,
+  the per-season Guild-shop table, and the **24-row** `Tier / Tower skin / Free-Paid` table behind §2.1.
+- Tower Hub `wiki/system/profile` (2026-07-29) — the profile is opened by **tapping the tower on the home menu**; it shows
+  **1 tower skin + 5 relics** (display only: “displaying a relic or skin here does not activate it or grant its effects”),
+  the highest **tournament ranking** and highest **tier/wave**, an editable **tournament name**, and since **v26.0** the
+  active **guild**.
+- Tower Hub `wiki/system/in-game-support` (2026-07-29) — the **Support** button lives in **Settings**; a ticket attaches the
+  **player ID** and account **email** automatically, prints a **ticket number** in-game and emails it; if the game will not
+  load, the fallback is the Tech Tree support page (purchase issues, lockouts).
 - Tower Hub `wiki/currency/currency-medals` (2026-11-01) — medals **do not expire** with the event; only sources are
   missions, Daily-Mission weekly boxes, Fetch; only in-event medals count toward relic gates.
 - Tower Hub `wiki/system/events` (last verified **2026-11-01**, 9 data tables) — unlock **T1 W70**; the cycle “**new
