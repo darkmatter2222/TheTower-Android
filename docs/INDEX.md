@@ -15,7 +15,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | T007 | [Ad-gem sweep](techniques/T007-ad-gem-sweep.md) | Gems | Amounts verified (Rev 2) |
 | T008 | [Stone economy: knee-first UW buying + cooldown sync](techniques/T008-uw-sync-with-stones.md) | Stones → Coins | **Verified (Rev 2)** |
 | T009 | [Gem spend order](techniques/T009-gem-spend-order.md) | Coins/min | Unverified (Rev 3) |
-| T010 | [Module economy (slot levels, merges, rerolls)](techniques/T010-module-merge-chain.md) | Modules, shards | **Verified (Rev 4**, arithmetic) |
+| T010 | [Module economy (slot levels, merges, rerolls)](techniques/T010-module-merge-chain.md) | Modules, shards | **Verified (Rev 5**, arithmetic) |
 | T011 | [Perk engine tuning](techniques/T011-perk-engine-tuning.md) | Coins (run multipliers) | **Verified (Rev 4**, arithmetic) |
 | T012 | [Card deck order (gems per percentage point)](techniques/T012-card-deck-order.md) | Coins, Cash, Elite Cells | **Verified (Rev 2**, arithmetic) |
 | T013 | [Event window & medal economy](techniques/T013-event-medal-economy.md) | Medals → Gems, Stones, Shards | **Verified (Rev 5**, arithmetic) |
@@ -149,6 +149,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 - [2026-11-02 - session 53 (T018 Rev 3)](log/2026-11-02.md#2026-11-02---session-53-iteration-62-the-relic-totals-table-closes-25-of-27-lines-and-the-uw-law-is-printed)
 - [2026-11-02 - session 54 (T006 Rev 7)](log/2026-11-02.md#2026-11-02---session-54-iteration-63-the-lab-census-closes-at-158-lines-and-the-rush-ladder-gets-a-rate-law)
 - [2026-11-02 - session 55 (T004 Rev 3)](log/2026-11-02.md#2026-11-02---session-55-iteration-64-the-daily-mission-shard-column-is-one-formula-and-the-weekly-bill-is-106-x-the-tier-row)
+- [2026-11-02 - session 56 (T010 Rev 5)](log/2026-11-02.md#2026-11-02---session-56-iteration-65-the-shatter-lab-prints-a-fourth-lab-shape-and-every-module-cap-closes)
 
 ## Reference material in this repo
 

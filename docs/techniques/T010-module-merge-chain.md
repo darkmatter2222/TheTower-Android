@@ -1,5 +1,11 @@
 # T010 — Module economy: level the *slot*, merge by recipe, reroll with few locks
 
+Rev: 5 (2026-11-02) — **§2.1, the three module labs priced**: `Shatter Shards` (unlock **T16 W40**, 5 levels) prints its
+whole ladder — value is the clean `20 × n` (**+20 %/level ⇒ +100 %** ✓), the five prices are **10 T / 87 T / 229.2 T /
+547.36 T / 1.19 q** (Σ **2 063.56 T = 2.06 q**) and the five times Σ to **35 348.5 h = 1 472.9 d ≈ 4.04 y**; its cost
+ratios (**8.7 / 2.6345 / 2.3881 / 2.1741**) match **no** known lab family, so it is recorded as a fourth, hand-set shape.
+Plus the sibling caps from the lab census (`Module Shard Costs` 30 ⇒ −30 %, `Reroll Shards` 100, both drop-chance labs 10,
+`Unmerge Module` 1, `Daily Mission Shards` 50, effect bans 4/4/3/7).
 Rev: 4 (2026-11-02) — **the assist-stone ladders now have a closed form** (`C(n) = 1.5n² + 10.5n − 12`, exact on every
 printed row of both tables), the banner/pity expected-value table, and the boss-drop expected-value split.
 Rev: 3 (2026-11-01) — added the v29 patch-note facts (inventory 350, one-tap slot-to-substat button, `Primary Module
@@ -98,8 +104,30 @@ from the surplus left by [T009](T009-gem-spend-order.md), and **never** start a 
 | Shatter **Rare+** | 30 |
 | Shatter **Epic (merged)** | 90 |
 | Shatter **natural Epic** | **1 000** — but only while still at Epic *and* only once you own a **5★ Ancestral** of that module |
-| `Shatter Shards` lab | +20 % per level (max +100 %) |
+| `Shatter Shards` lab | +20 % per level (max +100 %) — **5 levels ⇒ every yield above doubles at max** (5→10, 10→20, 30→60, 90→180, 1 000→2 000) |
 | Also | daily missions, **fleet enemies**, the Guardian's **Fetch** chip, the Event shop, the Guild store |
+
+### 2.1 The three module labs, priced (Rev 5)
+
+Printed rows, `wiki/lab/lab-shatter-shards` (2026-11-01) — the lab unlocks at the **Tier 16 Wave 40** milestone and its
+`Value` column is a clean arithmetic `+20 pp/level` (**20 / 40 / 60 / 80 / 100 %** ✓ = `20 × n`):
+
+| Level | 1 | 2 | 3 | 4 | 5 | Σ |
+|---|---|---|---|---|---|---|
+| coins | 10.00 T | 87.00 T | 229.20 T | 547.36 T | **1.19 q** | **2 063.56 T = 2.06 q** |
+| slot time | 142 d 14 h 13 m | 191 d 4 h 53 m | 256 d 10 h 59 m | 359 d 8 h 9 m | **523 d 6 h 15 m** | **35 348.5 h = 1 472.9 d ≈ 4.04 y** |
+| value | +20 % | +40 % | +60 % | +80 % | **+100 %** | — |
+
+Two notes. (a) **This line's cost column is not a clean geometric** — the four level-to-level ratios are **8.7 / 2.6345 /
+2.3881 / 2.1741**, so it is neither the ×1.5 bot family nor the ×1.3 discount family (T006 §clock laws); use the rows, and
+read the family from the first two rows of any line before forecasting it. (b) The knee is real: **level 1 is 10 T for the
+first +20 pp**, then the price jumps 8.7× at level 2, so levels 1–2 (97 T, 333 d of slot) are the whole deal for a sub-T11
+account and the last level alone (1.19 q, 523 d) is a late-game project.
+
+The sibling caps, from the same lab census (`wiki/lab/lab-upgrades`, T006 §census): `Module Shard Costs` **30 levels** ⇒
+**−1 %/level ⇒ −30 %** on module purchase prices; `Reroll Shards` **100 levels** (the +1 shard/level line in §2); `Common
+Drop Chance` / `Rare Drop Chance` **10 levels each**; `Unmerge Module` **1**; `Daily Mission Shards` **50 levels** (step
+still a device read); and the four effect-ban labs (**Cannon 4 · Armor 4 · Generator 3 · Core 7**).
 
 **Boss-drop expected value (per boss kill)** — this is the steady-state shard tap, and it explains why *reroll* shards,
 not module shards, are the scarce ones:
@@ -152,6 +180,9 @@ only matter for filling the 350-slot inventory with merge material.
 - [ ] A slot levelled to 41 shows one more unlocked sub-stat than at 40, and the cumulative shard spend is **≈ 1 715**.
 - [ ] Swapping the equipped module leaves the slot's level unchanged.
 - [ ] Shattering a spare Rare+ adds exactly **30** shards (and **60** with `Shatter Shards` at +100 %).
+- [ ] **§2.1 ladder:** `Shatter Shards` appears after the **T16 W40** milestone, level 1 costs **10 T** for **+20 %**, level 2
+      costs **87 T** (ratio **8.7**, not 1.5), and level 5 reads **1.19 q / +100 %**; the five times sum to **≈ 1 473 d**.
+- [ ] `Module Shard Costs` reaches **−30 %** at its 30th level and `Reroll Shards` has **100** levels (+1 shard each).
 - [ ] A boss kill yields **12** reroll shards at Tier 5 (or 12 + lab levels), and none for the next 5 waves.
 - [ ] The Standard Banner panel lists **68.5 / 29 / 2.5** and every ×10 pull shows at least one Rare.
 - [ ] The 150-pull pity counter is visible and the 150th pull without an Epic shows an Epic.
@@ -221,6 +252,13 @@ cannot equip a module that shares a name with the primary · `Primary Module Bon
 
 ## Sources
 
+- Tower Hub `wiki/lab/lab-shatter-shards` (last verified **2026-11-01**, 1 data table) — unlock “**reaching tier 16 wave
+  40** through Milestones”, “The lab has **5 levels**, and each level adds **20%** more shards from shattering, for a
+  maximum increase of **100%** … every module you shatter gives double the shards”, and the Level/Time/Cost/Value rows
+  (10.00 T · 87.00 T · 229.20 T · 547.36 T · 1.19 q / 142 d 14 h 13 m … 523 d 6 h 15 m / 20 % … 100 %).
+- Tower Hub `wiki/lab/lab-category-module-research` (2026-07-29) — the Module Research line list with max levels
+  (`Common Drop Chance` 10, `Reroll Shards` 100, `Daily Mission Shards` 50, `Module Shard Costs` 30, `Module Coin Cost` 30,
+  `Rare Drop Chance` 10, `Unmerge Module` 1, `Shatter Shards` 5, effect bans 4/4/3/7, assist lines 30/30).
 - fandom `Modules` (raw wikitext, fetched per section 1–12) — slot-level ownership of levels, rarity table (max level /
   sub-stats / Epic copies), shatter yields, 15 % boss drop + 5-wave cooldown, reroll-shard-per-tier ladder (T13–T24 = +5/tier),
   lock-cost ladder, sub-stat rarity odds, ban-lab counts, presets, 350 inventory cap, hard caps; **new this pass**: the
