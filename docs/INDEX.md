@@ -11,7 +11,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | T003 | [Turtle build T1–T2](techniques/T003-turtle-build-t1-t2.md) | tier unlocks | Unverified |
 | T004 | [Mission farming on low tier](techniques/T004-mission-farming-low-tier.md) | Gems, Coins, Shards, Medals, Tokens | **Verified (Rev 2**, arithmetic) |
 | T005 | [Tier-rush then farm](techniques/T005-tier-rush-then-farm.md) | Coins (daily/weekly) | Unverified |
-| T006 | [Lab queue packing + cheapest skipped hour](techniques/T006-lab-queue-packing.md) | all (multipliers) | **Verified (Rev 6**, arithmetic) |
+| T006 | [Lab queue packing + cheapest skipped hour](techniques/T006-lab-queue-packing.md) | all (multipliers) | **Verified (Rev 7**, arithmetic) |
 | T007 | [Ad-gem sweep](techniques/T007-ad-gem-sweep.md) | Gems | Amounts verified (Rev 2) |
 | T008 | [Stone economy: knee-first UW buying + cooldown sync](techniques/T008-uw-sync-with-stones.md) | Stones → Coins | **Verified (Rev 2)** |
 | T009 | [Gem spend order](techniques/T009-gem-spend-order.md) | Coins/min | Unverified (Rev 3) |
@@ -147,6 +147,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 - [2026-11-02 � session 51 (T013 Rev 4)](log/2026-11-02.md#2026-11-02---session-51-iteration-60-five-of-the-twenty-one-event-missions-complete-themselves)
 - [2026-11-02 - session 52 (T017 Rev 4, T013 Rev 5)](log/2026-11-02.md#2026-11-02---session-52-iteration-61-both-vault-trees-close-as-closed-forms-and-the-cosmetic-law-lands-at-90-)
 - [2026-11-02 - session 53 (T018 Rev 3)](log/2026-11-02.md#2026-11-02---session-53-iteration-62-the-relic-totals-table-closes-25-of-27-lines-and-the-uw-law-is-printed)
+- [2026-11-02 - session 54 (T006 Rev 7)](log/2026-11-02.md#2026-11-02---session-54-iteration-63-the-lab-census-closes-at-158-lines-and-the-rush-ladder-gets-a-rate-law)
 
 ## Reference material in this repo
 

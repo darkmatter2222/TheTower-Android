@@ -1,5 +1,12 @@
 # T006 — Pack the Lab queue, then buy the *cheapest* skipped hour
 
+Rev: 7 (2026-11-02) — the **printed lab census** added: **158 named labs in 11 categories** (Main 15 · Attack 9 ·
+Defense 16 · Utility 12 · UW 39 · Card 10 · Perk 9 · Bot 8 · Enemies 21 · Module 14 · Battle Condition 5), every
+per-level law in this repo capped-checked against the printed `Max Lv` (`Labs Speed` 99 ⇒ ×2.98, `Labs Coin Discount` 99 ⇒
+−29.7 %, the five 99-level coin lines ⇒ ×2.98, `Starting Cash` 99 ⇒ 495, `Max Interest` 15, `Enhancement Coin Discount`
+100 ⇒ −30 %, `Shatter Shards` 5 ⇒ +100 %, `Module Shard Costs` 30 ⇒ −30 %); the **gem-rush ladder** closes on
+`180 gems/day × (1 − discount)` with the **> 360 d = 25 000 flat** tail (⇒ 25 gems/day on a 1 000-day level), the
+**all-labs = 5 × one-lab** identity on all 18 rows, and the skip law `skip = (m − 1) × duration`.
 Rev: 6 (2026-11-02) — the **third time shape** added: the `Dissonant Echo` labs are **not** ×1.15 lines — their printed
 rows are `cost = 1q · 2.25^(n−1)` and **`time = n × 20 d 20 h`** (arithmetic), whose two closed forms reproduce Tower
 Hub's printed totals **8.85e21 coins** and **378 000 000 s** exactly, so the ×1.5/×1.15 pair below is scoped to the
@@ -69,7 +76,61 @@ the **≈102 × t₁** the geometric law predicts.
 3. With five slots, one season (8 weeks = 56 d) buys ≈ **280 slot-days**; at `t₁ = 8 d 8 h` that is 4 first-levels per
    slot per season, so the queue is the scarcest currency in the game — cheaper than coins, cells or gems to refill.
 
-### Elite Cell income (what you are spending)
+### The printed lab census, the rush-rate law, and the 5× identity (Rev 7)
+
+Source: Tower Hub `wiki/lab/lab-upgrades` (last verified 2026-07-29; “List of Lab Upgrades” table, all categories).
+
+**Census — 158 named labs in 11 categories.** The count per category is the fastest self-check on a Lab screen (a missing
+line means an unclaimed milestone gate, T019):
+
+| Category | Labs | Category | Labs |
+|---|---|---|---|
+| Main Research | **15** | Card Research | **10** |
+| Attack Research | 9 | Perk Research | 9 |
+| Defense Research | 16 | Bot Research | 8 |
+| Utility Research | 12 | Enemies Research | 21 |
+| Ultimate Weapon Research | **39** | Module Research | 14 |
+| Battle Condition | 5 | **Total** | **158** |
+
+Every level cap the rest of this repo uses comes from that table, and each one re-adds from `step × levels`:
+
+| Lab | Max Lv (printed) | Step | Cap re-add |
+|---|---|---|---|
+| `Labs Speed` | **99** | +0.02 | `1 + 0.02×99 = ` **×2.98** ✓ |
+| `Labs Coin Discount` | **99** | −0.30 % | **−29.7 %** ✓ |
+| `Cash Bonus` / `Cash / Wave` / `Coins / Kill Bonus` / `Coins/wave` / `Interest` | **99** each | +0.02 | **×2.98** ✓ (T020 §1.2) |
+| `Starting Cash` | **99** | +5 | **495** ✓ |
+| `Max Interest` | **15** | cap ladder | T001 §2.C ✓ |
+| `Enhancement Coin Discount` (×3 tracks) | **100** | −0.30 % | **−30 %** ✓ (T020 §6.3) |
+| `Module Shard Costs` | **30** | −1 % | **−30 %** ✓ |
+| `Shatter Shards` | **5** | +20 % | **+100 %** ✓ (one step per 100 %-cap = 20 pp) |
+| `Daily Mission Shards` | **50** | +? | the cap value is the one device read left for T004’s shard column |
+| `Perk Option Quantity` / `Standard Perks Bonus` / `Waves Required` / `Auto Pick Ranking` / `Ban Perks` / `Improve Trade-Off Perks` | 2 / 25 / 100 / 32 / 8 / 10 | as printed | T011 ✓ |
+| 4 × bot cooldown, 4 × bot duration, `Burn Stacks` | 25 / 20 / **5** | as printed | T015 ✓ |
+| `Battle Condition Reduction` + Groups 1–4 | 10 / 20 / 20 / 10 / 10 | — | T006 §battle-condition ✓ |
+| `Card Mastery (1 lab per card)` | **9** per card | — | the per-card mastery line, 32 such labs |
+
+**The gem-rush ladder is a flat rate × one discount column.** Printed: 1 h **7.5** gems (**180**/day, 0 %), 1 d **163**
+(163/day, 9 %), 1 w **1 000** (142.9, 21 %), 30 d **3 550** (118.3, 34 %), 90 d **8 000** (88.9, 51 %), 360 d **25 000**
+(69.4, 61 %), **> 360 d = 25 000 flat**. Two derived laws: `gems/day = gems ÷ days` reproduces every middle column
+(1000/7 = 142.86 ✓, 3550/30 = 118.3 ✓, 8000/90 = 88.9 ✓, 25000/360 = 69.4 ✓), and the printed discount is exactly
+`1 − (gems/day)/180` (→ 9.4 / 20.6 / 34.3 / 50.6 / 61.4 %, i.e. the print’s 9/21/34/51/61 rounded) ⇒ **180 gems per day of
+research is the base rate**. Practical consequence of the flat tail: because >360 d stays **25 000**, a 1 000-day level
+rushes at **25 gems/day** — *six times cheaper per hour* than a 1-day level, so rush the long lines first (this is the
+same effect the ×1.304 coin/time drift creates in §clock laws, now on the gem side).
+
+**Buying a boost for five slots is exactly 5× one slot.** In the printed boost table the `Cost All labs` column is
+**5 ×** `Cost One lab` on all **18** rows where both are printed (15→75, 120→600, 360→1 800, 100→500, 800→4 000,
+2 400→12 000, 840→4 200, 6 720→33 600, 20 160→100 800, 3 360→16 800, 26 880→134 400, 80 640→403 200, 11 900→59 500,
+95 200→476 000, 285 600→1 428 000, 60 000→300 000, 480 000→2 400 000, 1 440 000→7 200 000) ⇒ **no bulk discount**, so
+“all labs” is worth buying only when all five slots actually have time left (matching `Buy multiplier`’s no-discount rule,
+T020 §1.5). The `Effective time skip` column is the hours actually removed: 1 h → 0.5, 8 h → 4, 24 h → 12 at ×1.5, i.e.
+the closed form **`skip = (multiplier − 1) × duration`**, which also re-derives this doc’s own
+*cells-per-skipped-hour* column (`×3`: 840 ÷ 2 = **420** ✓, `×4`: 3 360 ÷ 3 = **1 120** ✓, `×5`: 11 900 ÷ 4 = **2 975** ✓,
+`×6`: 60 000 ÷ 5 = **12 000** ✓ — that is why ×1.5 looks cheap per cell but expensive per skipped hour).
+
+**Slot bill check:** `100 + 400 + 1 400 + 3 000 = ` **4 900** gems for slots 2–5 ✓ (the same figure inside T022’s
+≈ 115 k framework bill).
 
 
 
@@ -210,6 +271,15 @@ online often (it raises levels/day for all 5 slots: a `3 d 11 h` line becomes **
 - [ ] The `Coin Bonus` (or `Cells/Kill`) enhancement’s first level costs **5 B** coins and level 10’s **Total** reads
       **1.42 T**; the 300-level cap is visible in its panel.
 - [ ] A Wave-Skipped wave during **Intro Sprint** still pays cells (≈ 0.22× of a normal wave = 1.1 × 0.20).
+- [ ] **Census (§census):** the Lab list’s category counts are Main **15** · Attack **9** · Defense **16** · Utility **12** ·
+      UW **39** · Card **10** · Perk **9** · Bot **8** · Enemies **21** · Module **14** · Battle Condition **5**; a missing
+      line = an unclaimed milestone gate.
+- [ ] **Rush prices:** a 1-day remaining reads **163** gems, 1 week **1 000**, 30 d **3 550**, 90 d **8 000**, and anything
+      past 360 d reads **25 000** (the flat tail ⇒ deep lines are the cheapest gems-per-hour in the game).
+- [ ] The Speed Up menu’s `all labs` price is exactly **5 ×** the single-slot price (e.g. **15 → 75**, **360 → 1 800**), and
+      the skipped hours at ×1.5 are **half** the nominal duration (1 h → 0.5, 24 h → 12).
+- [ ] `Daily Mission Shards` has **50** levels and `Shatter Shards` **5** and `Module Shard Costs` **30** (the last two cap at
+      **+100 %** and **−30 %**).
 
 ## Falsification
 
@@ -221,6 +291,11 @@ online often (it raises levels/day for all 5 slots: a `3 d 11 h` line becomes **
   level-1 times and re-order the pair (with self-acceleration the speed line dominates even more clearly).
 - If a lab-speed relic and the research bonus **add** (1.25 + 1.98 = 3.23 rather than ×3.725), rebuild the effective-time
   column as `base ÷ (1 + Σbonuses)` — every hours-per-level figure here uses the product form.
+- If a **> 360-day** lab’s rush price is **more than 25 000** gems, the flat tail became proportional ⇒ the “rush the long
+  lines first” ranking changes; recompute `gems/day = price ÷ days` for each bucket before re-ordering.
+- If the Lab list’s **category counts** differ from §census (e.g. Utility shows 13 instead of **12**), a lab was added or a
+  milestone gate is unclaimed — the census is the quickest way to spot a missed unlock, and one added line shifts every
+  “Σ levels per season” estimate in this doc.
 - If T14’s average stops landing on **10.5** (e.g. always 7 or always 14), the server overrode the default drop table →
   record your min/max/mean per tier; the “server can override” caveat is the version marker.
 - If a skipped wave during Intro Sprint pays **0.22×** but the plain-IS wave pays ≠ 20 %, the two rules are not
@@ -247,6 +322,12 @@ online often (it raises levels/day for all 5 slots: a `3 d 11 h` line becomes **
 - Tower Hub `wiki/lab/laboratory` (2026-07-29) — the 5-slot bill (**4 900** gems: 100/400/1 400/3 000) and the **v0.17
   rush table** with its discount column (0.91 / 0.79 / 0.66) against the pre-0.17 flat 7.5 gems/hour — the second source
   for the bucket prices in the exchange-rate table.
+- Tower Hub `wiki/lab/lab-upgrades` (2026-07-29, 4 data tables) — the **complete lab list by category with `Max Lv`**
+  (the 158-lab census in §census: 15/9/16/12/39/10/9/8/21/14/5 and the per-line caps 99 / 100 / 50 / 30 / 25 / 20 / 15 / 5 …),
+  “you start with a single lab slot … up to a maximum of five … buying all of them costs **4 900** gems”, the
+  **gem-rush table** (1 h **7.5** / 1 d **163** / 1 w **1 000** / 30 d **3 550** / 90 d **8 000** / 360 d **25 000** /
+  **> 360 d = 25 000**) with its `Gems/Day rate` and `Discount` columns, “gold-boxing … adds **0.015×** to your gem
+  efficiency, stacking additively”, and the boost table’s `Cost One lab` / `Cost All labs` / `Effective time skip` columns.
 - Tower Hub `wiki/currency/currency-elite-cells` (last verified **2026-11-01**) — the T14–T24 min/max/average table
   (10 rows, all re-adding; “the server can override them”), the three drop-enemy types and the zero-drop list, the
   **1.1×-even-during-Intro-Sprint** skip rule, the full boost-cost ladder (**15 … 1 000 000** cells/h) with
