@@ -1,6 +1,6 @@
 # T011 — Tune the Perk engine: more picks per run, deterministic picks
 
-Rev: 1 (2026-11-01)
+Rev: 2 (2026-11-01) — `Auto Pick Ranking` gate corrected to **T6 W10** from the per-tier milestone tables
 Currency: **Coins** (primary), Cash, Experience — every pick is a run-multiplier, so pick *count* is the compounding lever.
 Status: **Unverified** (numbers are derived from the published wave-requirement formula, not yet measured on device).
 
@@ -9,7 +9,7 @@ Status: **Unverified** (numbers are derived from the published wave-requirement 
 | **Value** | ★★★★ — a tuned engine gives **3.2× more perk picks** in a 1,000-wave run (5 → 16) and each pick is itself a multiplier. One pick (`Increase Max Game Speed`) alone is +20 % waves/min. |
 | **Confidence** | **Medium** — two independent wikis (game-vault, fandom) publish the same formula, the same lab tables and the same 200/250/300/350 step points; the arithmetic below is deterministic from them. Not yet checked against a live save. |
 | **Ease** | One-time setup: **~10 taps** across the Lab and the Perks panel, plus **1 tap** per run. 5–10 min. |
-| **Prerequisite tier** | Tier 2 Wave 150 milestone (`Unlock Perks` lab). Full engine needs Tier 5 Wave 40. |
+| **Prerequisite tier** | Tier 2 Wave 150 milestone (`Unlock Perks` lab). Full engine needs Tier 6 Wave 10 (`Auto Pick Ranking`; the last one in the list). |
 
 ---
 
@@ -78,7 +78,7 @@ The offer set for each pick is **fixed for the run — there is no perk reroll**
 | 2 | `Standard Perk Bonus` | after Unlock Perks | 25 | +1 % per level → multiplies *every* pick, incl. PWR itself |
 | 3 | `Perk Option Quantity` | **T4 W80** | 2 | +1 / +2 offer slots → 99 % standard-perk coverage |
 | 4 | `Auto Pick Perks` | **T4 W50** | 1 | hands-free picking (100 M coins, 4 d 23 h — cheap) |
-| 5 | `Auto Pick Ranking` | **T5 W10** | 32 | makes Auto Pick deterministic instead of top-choice |
+| 5 | `Auto Pick Ranking` | **T6 W10** | 32 | makes Auto Pick deterministic instead of top-choice |
 | 6 | `Ban Perks` | **T5 W40** | 8 | removes 8 perks from the pool permanently |
 | 7 | `First Perk Choice` | **T2 W250** | 1 | guarantees one perk in the first offer (1 B coins) |
 | 8 | `Improve Trade-Off Perks` | **T2 W400** | 10 | +10 % to trade-off benefits at L10 |
@@ -130,7 +130,7 @@ Bans, the First Perk Choice and the ranking **cannot be changed while a run is i
 
 - First offer lands at exactly **wave 200** even though the `Waves Required` lab is level ≥ 1 → the lab is not being applied (wrong category / not completed); the technique's table is wrong for your save.
 - Taking `Perk Wave Requirement` mid-run does **not** immediately produce extra pending picks → the retrospective claim is wrong; treat the schedule as fixed and pick PWR at the first offer only.
-- With Auto Pick on and `Auto Pick Ranking` researched, an obviously-ranked perk is skipped in favour of the left-most slot → `Auto Pick Ranking` is not active (needs T5 W10 milestone), so `First Perk Choice` is doing the work instead.
+- With Auto Pick on and `Auto Pick Ranking` researched, an obviously-ranked perk is skipped in favour of the left-most slot → `Auto Pick Ranking` is not active (needs T6 W10 milestone), so `First Perk Choice` is doing the work instead.
 - A banned perk appears in an offer → bans only apply from the next run (they cannot change mid-run), or the ban count exceeds your lab level.
 - Perks appear during a **Tournament** → this document's "no perks in tournaments" note is wrong.
 
@@ -145,7 +145,7 @@ Bans, the First Perk Choice and the ranking **cannot be changed while a run is i
   throughput — x5.0 behaves closer to x4.0 and x6.25 closer to x5.* So budget **~20–25 %** extra waves/hour
   for the whole chain, not 25 % of the nominal 5→6.25 ratio. See [H008](../hypotheses/H008-duplicate-game-speed-perk.md)
   for whether extra copies of the perk are worth taking.
-- Ranking dependency: `Auto Pick Ranking` (T5 W10) only appears **after** `Auto Pick Perks` is completed —
+- Ranking dependency: `Auto Pick Ranking` (T6 W10) only appears **after** `Auto Pick Perks` is completed —
   do not look for it before that.
 - The random-UW perk grants a *semi-upgraded* weapon but does **not** unlock that weapon's own lab research, and it disappears from the pool once all UWs are owned.
 - See [H006](../hypotheses/H006-auto-pick-ranking-vs-first-perk-choice.md) and [H007](../hypotheses/H007-stepped-base-waves-lab-subtraction.md).

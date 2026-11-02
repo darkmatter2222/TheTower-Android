@@ -10,7 +10,7 @@ Choice"* — also a supersedes reading, but it keeps First Perk Choice alive as 
 a guarantee.
 
 **Why it matters.** `First Perk Choice` costs **1.00 B coins** and 4 d 15 h. If it is fully shadowed by
-`Auto Pick Ranking` (T5 W10, 32 levels), those coins belong elsewhere — the same 1 B buys ~4 extra levels
+`Auto Pick Ranking` (T6 W10, 32 levels), those coins belong elsewhere — the same 1 B buys ~4 extra levels
 of `Waves Required`.
 
 **Settling observation.** With both labs researched, set First Perk Choice = `Perk Wave Requirement` and

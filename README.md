@@ -26,6 +26,7 @@ Ease: taps/minutes a human needs. Confidence: how solid the source/derivation is
 | [T016](docs/techniques/T016-guild-tokens-bits.md) | Join an active guild, claim all 7 weekly boxes (5 contribution each), then spend tokens on the 5-token shard buys — 150× the auto-cashout | ★★★★ | 1 tap/claim | Medium-High | Tier 3 Wave 10 |
 | [T017](docs/techniques/T017-vault-keys-priority.md) | Spend keys in Harmony first (Ad Gem Stack 130 keys = 5× the ad flow, 6 card slots for 215), then Power→Utility's three +500 % coin/cash/interest lines (775 keys) | ★★★★★ | 1 tap/level | Medium-High | Legend league (Vault icon) |
 | [T018](docs/techniques/T018-relic-economy.md) | Farm the four free relic pipelines (350/700 event medals, 75/150 guild tokens, wave 4 500 per tier, top-4 league) and pay older-event relics with medals once a line is past trade 1 (break-even 3.0/2.4 gems per medal) | ★★★★ | 0–2 taps/event | Medium-High | Events + Guild |
+| [T019](docs/techniques/T019-milestone-claim-engine.md) | Claim the 23-cell Milestone ladder every tier (W100 is the tier gate), buy each 3-tier Premium Pass right after finishing the group (retroactive) — 10 075 gem-equivalents through T12 | ★★★★ | 23 taps/tier | High structure / Medium numbers | Tier 1 |
 
 Open questions being worked: [docs/hypotheses/](docs/hypotheses/) · Session log: [docs/log/](docs/log/)
 
