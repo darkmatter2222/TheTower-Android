@@ -16,6 +16,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | T008 | [Ultimate Weapon sync](techniques/T008-uw-sync-with-stones.md) | Coins | Verified |
 | T009 | [Gem spend order](techniques/T009-gem-spend-order.md) | Coins/min | Unverified |
 | T010 | [Module merge chain](techniques/T010-module-merge-chain.md) | Modules | Unverified |
+| T011 | [Perk engine tuning](techniques/T011-perk-engine-tuning.md) | Coins (run multipliers) | Unverified |
 
 ## Hypotheses (open)
 
@@ -26,10 +27,14 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | H003 | [Interest cap value](hypotheses/H003-interest-cap-value.md) | watch the `$` icon cross grey/gold |
 | H004 | [Daily reward scales with max tier](hypotheses/H004-daily-reward-tier-scaling.md) | log daily claim before/after a tier unlock |
 | H005 | [Autoplayer beats manual at low tier](hypotheses/H005-autoplayer-throughput.md) | coins/hour with and without it |
+| H006 | [Auto Pick Ranking vs First Perk Choice](hypotheses/H006-auto-pick-ranking-vs-first-perk-choice.md) | which perk Auto Pick takes on the first offer |
+| H007 | [Stepped base waves & lab subtraction](hypotheses/H007-stepped-base-waves-lab-subtraction.md) | wave numbers of picks 20/21/22 in one long run |
+| H008 | [Duplicate game-speed perk +0.01](hypotheses/H008-duplicate-game-speed-perk.md) | read game speed in the stats screen after a 2nd copy |
 
 ## Logs
 
-- [2026-11-01 — session 1](log/2026-11-01.md)
+- [2026-11-01 — session 1 (T001–T010)](log/2026-11-01.md)
+- [2026-11-01 — session 2 (T011, H006–H008)](log/2026-11-01.md#2026-11-01--session-2-iteration-11-perks)
 
 ## Reference material in this repo
 

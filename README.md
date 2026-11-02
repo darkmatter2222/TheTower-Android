@@ -18,6 +18,7 @@ Ease: taps/minutes a human needs. Confidence: how solid the source/derivation is
 | [T008](docs/techniques/T008-uw-sync-with-stones.md) | Sync Ultimate-Weapon cooldowns: save 910 Stones, drop GT 300 s → 200 s in one purchase; never touch BH first | ★★★★ | 6 taps | High | UWs unlocked |
 | [T009](docs/techniques/T009-gem-spend-order.md) | Gem order: Enemy Balance card first, then alternate Card Slots and Lab unlocks; never buy speedups with Gems | ★★★★ | 3 taps | Medium | Gems |
 | [T010](docs/techniques/T010-module-merge-chain.md) | Auto Merge boss-dropped Common modules into one high-rarity set instead of leveling commons | ★★★ | 8 taps | Medium | Modules unlocked |
+| [T011](docs/techniques/T011-perk-engine-tuning.md) | Tune the perk engine: `Waves Required` + 3× PWR + `Standard Perk Bonus` ≈ 3.2× more picks per run; rank/ban the pool so picks are deterministic | ★★★★ | 10 taps once, 1 tap/run | Medium | Tier 2 Wave 150 (Unlock Perks) |
 
 Open questions being worked: [docs/hypotheses/](docs/hypotheses/) · Session log: [docs/log/](docs/log/)
 
