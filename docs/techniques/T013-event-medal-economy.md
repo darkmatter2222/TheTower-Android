@@ -1,6 +1,6 @@
 # T013 — Run the event window: every mission is a double-dip, every trade line is capped
 
-Rev: 1 (2026-11-01) · Currency: **Medals** → converts into **Gems, Stones, Module Shards**; plus the two **Relics** per event
+Rev: 2 (2026-11-01) · Currency: **Medals** → converts into **Gems, Stones, Module Shards**; plus the two **Relics** per event
 **Value:** ★★★★ — the trade ladder costs 2.4× more per unit after trade 3, and ~135 of the ~45 mission-medals are for actions you already do; relic gates (350/700) are the only relic source below Tier 16.
 **Confidence:** **Medium** — the ladder, the per-line counters and the medal totals are fandom raw wikitext; the mission table and the 45-mission totals are game-vault. Two wikis agree on 45 × 21 and on the 150-gem/15-stone/250-shard trades.
 **Ease:** 2 taps per claim, ~10 min/day · **Prerequisite:** **Events unlock at Tier 1 Wave 70**; an event lasts **2 weeks** and a new one usually starts immediately after the old one ends.
@@ -36,6 +36,8 @@ Consequences:
 2. **Because the counters reset each event, a saved medal is not idle**: hoarding into the next event and then taking trade 1 of each line again is better than grinding a line to 7 in one event. Keep **500–700 medals banked** (skins and relics do not appear in every shop; relics only appear during an event **rerun**, at 200 Rare / 500 Epic).
 3. **Stones are the line a sub-T11 account wants most**: the full Golden Tower + Death Wave + Black Hole sync needs **910 stones** ([T008](T008-uw-sync-with-stones.md)) and the stone line yields only 45 per event at trades 1–3 — that is the main reason not to burn medals on skins early.
 4. **Bots** unlock at 150 / 300 / 600 / 900 / 1 200 medals (by how many you already own; cumulative 150 → 3 150 for all five). **Bots can be respec'd once per event for free**, returning every invested medal — so bot levels are a *refundable* store of surplus medals, which is why they are the safest place for odd remainders. Start with the **Golden Bot** (it is the coin/cash engine; its window matters for the sync table).
+
+> **Rev 2:** the exchange rates implied by the 40-medal trades — **1 Stone = 10 gems, 1 Module Shard = 0.6 gems, 1 Medal = 0.267 gems** — are used as the common unit across this repository; the table lives in [T014 §2](T014-tournament-tickets.md).
 
 ## 3. The double-dip list (schedule these inside the event window)
 
