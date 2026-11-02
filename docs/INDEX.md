@@ -11,7 +11,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | T003 | [Turtle build T1–T2](techniques/T003-turtle-build-t1-t2.md) | tier unlocks | **Verified (Rev 3**, arithmetic) |
 | T004 | [Mission farming on low tier](techniques/T004-mission-farming-low-tier.md) | Gems, Coins, Shards, Medals, Tokens | **Verified (Rev 4**, arithmetic) |
 | T005 | [Tier-rush then farm](techniques/T005-tier-rush-then-farm.md) | Coins (daily/weekly) | **Verified (Rev 3**, arithmetic: lattice + gate table + the printed tier ladder `1 + 0.8n` T1–T8 → 60 at T21 + the BC bills) |
-| T006 | [Lab queue packing + cheapest skipped hour](techniques/T006-lab-queue-packing.md) | all (multipliers) | **Verified (Rev 17**, arithmetic) |
+| T006 | [Lab queue packing + cheapest skipped hour](techniques/T006-lab-queue-packing.md) | all (multipliers) | **Verified (Rev 18**, arithmetic: 29/29 value laws + the cheap-tier bill 8.10 B / 462.33 d + the 5 h-per-level relation) |
 | T007 | [Ad-gem sweep](techniques/T007-ad-gem-sweep.md) | Gems | Amounts verified (Rev 2) |
 | T008 | [Stone economy: knee-first UW buying + cooldown sync](techniques/T008-uw-sync-with-stones.md) | Stones → Coins | **Verified (Rev 8**, arithmetic: 9/9 stone values + 4/4 lattice rows + the 53 547 ledger + the 9 UW+ tables closing as 4 sequences (179 240) + the GT matrix + 9/9 workshop totals) |
 | T009 | [Gem spend order](techniques/T009-gem-spend-order.md) | Coins/min | **Three-sourced (Rev 5**; device read pending) |
@@ -189,6 +189,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 - [2026-11-02 - session 84 (T001 Rev 5)](log/2026-11-02.md#2026-11-02---session-84-iteration-93-the-interest-engine-becomes-two-arithmetic-ladders-and-a-cap-ladder)
 - [2026-11-02 - session 85 (T020 Rev 8)](log/2026-11-02.md#2026-11-02---session-85-iteration-94-every-workshop-currency-line-is-one-arithmetic-ladder-and-the-cash-pair-is-a-quarter-cheaper-than-the-coin-pair)
 - [2026-11-02 - session 86 (T020 Rev 9)](log/2026-11-02.md#2026-11-02---session-86-iteration-95-the-enhancement-layer-is-one-arithmetic-law-and-the-three-discount-labs-share-one-ladder-with-starting-cash)
+- [2026-11-02 - session 87 (T006 Rev 18)](log/2026-11-02.md#2026-11-02---session-87-iteration-96-eighteen-cheap-uw-labs-get-one-bill-and-two-ladder-relations)
 
 ## Reference material in this repo
 

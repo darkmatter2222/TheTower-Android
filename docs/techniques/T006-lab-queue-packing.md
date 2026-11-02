@@ -1,5 +1,16 @@
 # T006 — Pack the Lab queue, then buy the *cheapest* skipped hour
 
+Rev: 18 (2026-11-02) - **Appendix A.1: the value laws + the L1–10 bills.** The **31** leveled UW lines are arithmetic on
+their `Value` column too (`cap = v1 + step × (levels − 1)`, **29/29** numeric columns exact), and the beginner's number is
+the **cheap tier**: the **18** labs whose level-1 price is ≤ 1 M coins cost **Σ 8.10 B coins / 462.33 d** of base slot time
+for their **first ten levels each** (≈ **24.8 d** of real time at five slots with the ×3.725 speed stack). Two new ladder
+relations, both reproduced from printed cells: **L-II − L-III = exactly 5 h per level** (Σ10 gap `5 h × 45 = 9.375 d` vs the
+printed `28.45 − 19.07 = 9.38 d` ✓, reading-independent), and a line is **a family plus an offset** (`Missiles Radius`
+− L-III = **550 000** on all six compared levels; `Missile Amplifier` − L-II = **200 000 + 50 000·n**). Plus a
+coins-per-printed-point ranking for the cheap tier, and three **corrections to Appendix A** from the same pull (the three
+`Swamp *` lines are **30**-level: **116.24 B / 825.4 d** — the printed 12.94 B is their 20-level prefix; `Swamp Rend -
+Additional Enemies` prints **11** rows with its 11th at **1.00 Q / 83 d 8 h** ⇒ bill **1.01 Q**; `Death Wave Health` Σ over
+its 30 printed levels = **15.79 B**, the 4.40 B being the L1–19 prefix).
 Rev: 16 (2026-11-02) - **Appendix A: the named ledger.** All **39** UW lab tables named from their own page sections and
 priced from the six shared families: **31 leveled + 8 one-level unlocks**; the unlocks alone are **565.25 B** coins over
 **70.31 d** (mean **8.8 d** each). Two new shapes: `Death Wave Cells Bonus` is a 1.5/1.12 ladder on a **1.00B / 77 h 47 m**
@@ -488,6 +499,82 @@ the DW / SM / ILM cooldowns) but that breaks beyond level ~10, so price from the
 Two printed caps worth remembering: `Inner Land Mines`’ activation cooldown **hard-caps at 37 s**, and Chain Lightning’s
 stone Damage multiplier runs **×2 … ×7,961**.
 
+### Appendix A.1 — the value laws, the L1–10 bills, and the two ladder relations (new, Rev 18)
+
+Same nine pages, same payload (`tools/uw-lab-census.ps1`), this time the **`Value` column** and the **first ten levels**.
+All **31** leveled tables: the benefit is arithmetic — `cap = v1 + step × (levels − 1)` reproduces **29/29** numeric value
+columns exactly (the two exceptions are text-valued or hand-set, flagged below).
+
+| Weapon | Lab line | Lv | `v1` | step | value at cap | **Σ L1–10 coins** | clock L1–10 | family |
+|---|---|---|---|---|---|---|---|---|
+| Golden Tower | `Golden Tower Bonus` | 25 | +0.15 | +0.15 | **+3.75** | **608.03 M** | 36.78 d | L-I |
+| Golden Tower | `Golden Tower Duration` | 20 | +1.0 s | +1.0 s | **+20.0 s** | **608.03 M** | 36.78 d | L-I |
+| Death Wave | `Death Wave Health` | 30 | 525 % | +25 pp | **1 250 %** | **600.53 M** | 28.45 d | L-II → own at L11 |
+| Death Wave | `Death Wave Coins Bonus` | 20 | ×1.55 | +0.05 | **×2.50** | **600.53 M** | 28.45 d | L-II |
+| Death Wave | `Death Wave Cells Bonus` | 20 | ×1.10 | +0.10 | **×3.00** | **113.33 B** | 56.87 d | ×1.5 / ×1.12 @ 1.00 B |
+| Death Wave | `Death Wave Damage Amplifier` | 30 | 6.5 | +1.5 | **50.00** | **11 328 B** | 146.24 d | L-IV |
+| Death Wave | `Death Wave Armor Stripping` | 10 | 1.00 | +1.00 | **10.00** | 265.93 T (all 10) | 283.23 d | L-V |
+| Black Hole | `Black Hole Damage` | 10 | 0.20 % | +0.20 | **2.00 %** | **820.53 M** | 36.78 d | L-I + 19 M + 0.5 M·n |
+| Black Hole | `Black Hole Coin Bonus` | 20 | ×1.50 | +0.50 | **×11.00** | **1.4712 B** | 36.78 d | 20 M-family |
+| Chain Lightning | `Shock Chance` | 30 | 3.00 % | +0.50 | **17.50 %** | **600.53 M** | 28.45 d | L-II |
+| Chain Lightning | `Shock Multiplier` | 14 | ×1.14 | +0.04 | **×1.66** | **600.53 M** | 28.45 d | L-II |
+| Chain Lightning | `Chain Thunder` | 30 | 3 % | +3 | **90 %** | **11 328 B** | 146.24 d | L-IV |
+| Chain Lightning | `Lightning Amplifier-Scatter` | 30 | ×1.25 | +1.25 | **×37.5** | **11 328 B** | 146.24 d | L-IV |
+| Chrono Field | `Chrono Field Duration` | 30 | 1.00 | +1.00 | **30.00** | **287.47 M** | 19.07 d | L-III |
+| Chrono Field | `Chrono Field Reduction %` | 30 | 10.50 % | +0.50 | **25.00 %** | **287.47 M** | 19.07 d | L-III |
+| Chrono Field | `Chrono Field Range` | 20 | 3.00 | +3.00 | **60.00** | **600.53 M** | 28.45 d | L-II |
+| Inner Land Mines | `Inner Mine Blast Radius` | 20 | 0.10 | +0.10 | **2.00** | **600.53 M** | 28.45 d | L-II |
+| Inner Land Mines | `Inner Mine Rotation Speed` | 20 | 0.80 | +0.80 | **16.00** | **600.53 M** | 28.45 d | L-II |
+| Inner Land Mines | `Inner Land Mine - Chrono Jump` | 10 | 5 s | +5 s | **50 s** | 1 247.44 q (all 10) | 916.67 d | L-VI |
+| Poison Swamp | `Swamp Radius` | 30 | 0.04 | +0.04 | **1.20** | **287.47 M** | 19.07 d | L-III |
+| Poison Swamp | `Swamp Stun Chance` | 30 | 7.5 % | +2.5 | **80.0 %** | **287.47 M** | 19.07 d | L-III |
+| Poison Swamp | `Swamp Stun Time` | 30 | 1.3 | +0.3 | **10.0** | **287.47 M** | 19.07 d | L-III |
+| Poison Swamp | `Swamp Rend - Basic Enemies` | 30 | 3 % | +3 | **90 %** | **11 328 B** | 146.24 d | L-IV |
+| Poison Swamp | `Swamp Rend - Additional Enemies` | 11 | text (enemy types) | — | see lab screen | 10.007 B (L1–10) | 164.80 d | L-IV |
+| Smart Missiles | `Missile Despawn Time` | 20 | 1 | +1 | **20** | **287.47 M** | 19.07 d | L-III |
+| Smart Missiles | `Missile Amplifier` | 25 | ×2.50 | +1.50 | **×38.50** | **605.28 M** | 28.45 d | L-II + 200 k + 50 k·n |
+| Smart Missiles | `Missiles Radius` | 20 | 0.35 | +0.05 | **1.30** | **292.97 M** | 26.94 d | L-III + 550,000 |
+| Smart Missiles | `Missile Barrage Quantity` | 6 | 25 | +5 | **50** | **59.01 M** (all 6) | 19.81 d | hand-set |
+| Smart Missiles | `Recharge Missile Barrage` | 7 | 1 500 | **−250 ×4, then −150 ×2** | **200** | 14.43 T (all 7) | 120.05 d | hand-set, piecewise |
+| Spotlight | `Spotlight Missiles` | 18 | 19.00 | **−1.00** | **2.00** (= `20 − n`) | **2.598 B** | 86.78 d | 200 M + L-I growth |
+| Spotlight | `Spotlight Coin Bonus` | 20 | ×1.10 | +0.10 | **×3.00** | **1.4713 B** | 36.78 d | 20 M-family |
+
+**The beginner's number.** The **18 labs whose level-1 price is ≤ 1 M coins** (the four 250 K–1 M families) cost, for their
+**first ten levels each**, Σ **8.10 B coins** and **462.33 d** of base slot time ⇒ with five slots and the ×3.725 speed stack
+≈ **24.8 d of real time**. Split: family **L-II** (7 labs × **600.53 M** / 28.45 d) = 4.204 B + 199.2 d, family
+**L-III** (6 labs × **287.47 M** / 19.07 d) = 1.725 B + 114.4 d, and the six offset/onhand variants = 2.173 B + 148.8 d.
+Everything else in the layer (the 100 B, 1 B, 200 M and q bases) is **≥ 20× one cheap lab**, so the ten-level pass over the
+cheap tier is the whole early UW-lab plan.
+
+**Two ladder relations, both verified from the printed cells.**
+① **L-II vs L-III differ by exactly 5 h of clock per level.** Printed per-level times: L-II `8.35 · 8.53 · 9.03 · 9.90 ·
+11.28 h` vs L-III `3.35 · 3.53 · 4.03 · 4.90 · 6.28 h` ⇒ difference `5, 5, 5, 5, 5` h on all five steps, so over L1–L10 the
+gap must be `5 h × 45 = 225 h = 9.375 d`, and the printed sums differ by `28.45 − 19.07 = ` **9.38 d** ✓ (a reading-independent
+check: it holds for the per-level and the cumulative reading alike).
+② **A lab is a family plus an offset.** `Missiles Radius` (base 800,000) minus L-III (base 250,000) = **550,000 on every one
+of the six compared levels** (= the base difference); `Missile Amplifier` (base 500,000) minus L-II =
+**250 k, 300 k, 350 k, 400 k, 450 k, 500 k** = `200 000 + 50 000·n` exactly — the same “constant, or constant + linear”
+offset pattern the workshop lines show (T020 §1.7).
+
+**Coins per printed point, at the L1–10 pass** (`Σ L1–10 ÷ (step × 10)`), for the cheap tier only — the ranking to use when
+two labs compete for one slot: `Death Wave Health` **2.40 M**/pp · `Swamp Stun Chance` **11.50 M**/pp · `Swamp Radius`
+23.96 M/unit · `Chrono Field Duration` **28.75 M**/s · `Missile Despawn Time` 28.75 M/unit · `Chrono Field Reduction %`
+57.49 M/pp · `Golden Tower Bonus` 405.35 M/unit · `Shock Multiplier` 1 501 M/unit · `Black Hole Coin Bonus` 294.25 M/unit ·
+`Spotlight Coin Bonus` 147.13 M/unit · `Shock Chance` 120.11 M/pp · `Chrono Field Range` 20.02 M/unit ·
+`Inner Mine Rotation Speed` 75.07 M/unit · `Inner Mine Blast Radius` 600.53 M/unit · `Death Wave Coins Bonus` 1 201 M/unit ·
+`Golden Tower Duration` 60.80 M/s · `Missiles Radius` 585.93 M/unit · `Missile Barrage Quantity` 1.97 M/unit.
+The points are different units, so read the pair (M per pp) and (M per multiplier unit) as the two comparable groups: within
+**percentage-point** lines the order is DW Health ≪ PS Stun Chance < CF Reduction % < Shock Chance < Chain Thunder;
+within **multiplier** lines `Spotlight Coin Bonus` (147 M/unit) beats `Black Hole Coin Bonus` (294 M) and `Missile Amplifier`
+(403 M/unit) beats `Shock Multiplier` (1 501 M).
+
+**Corrections to Appendix A from today's pull** (2026-11-02 payload; the table above is the corrected ledger):
+`Swamp Radius`, `Swamp Stun Chance`, `Swamp Stun Time` are **30-level** lines (**116.24 B / 825.4 d** at cap) — Appendix A's
+“20 lv / 12.94 B” is their **20-level prefix** (verified: the L-III 20-level prefix *is* 12.94 B, which is what the 20-level
+`Missile Despawn Time` sums to); `Swamp Rend - Additional Enemies` prints **11** rows today (Rev 16 recorded 9) with its 11th
+level at **1.00 Q / 83 d 8 h**, so the line's bill is **1.01 Q**, not 7.49 T; and `Death Wave Health` sums to **15.79 B** over
+its 30 printed levels (Appendix A's 4.40 B is the L1–19 prefix).
+
 ### The enemy-stat layer, ladder by ladder (Rev 11)
 
 Source: `wiki/enemy/common-enemy-labs`, `fast-enemy-labs`, `protector-labs`, `vampire-labs`, `ray-labs`, `scatter-labs`
@@ -740,6 +827,21 @@ online often (it raises levels/day for all 5 slots: a `3 d 11 h` line becomes **
       the same depth shows ≈ **38**.
 - [ ] **Fleet shards:** the fleet drop column reads **5** module shards at W1, **6** from W250, **7** from W500 … and
       **25** from W5 000 (`5 + (wave − 1)/250`); the reroll-shard column reads **1 080** at T14 and **2 100** at T21.
+- [ ] **Appendix A.1 value laws:** `Shock Chance` reads **3.00 %** at L1 and **17.50 %** at L30 (step **+0.50**),
+      `Swamp Stun Time` **1.3 → 10.0** (step **+0.3**), `Spotlight Missiles` counts **down** **19 → 2** (`20 − n`),
+      `Recharge Missile Barrage` **1 500 → 200** (−250 four times, then −150 twice) and
+      `Missile Barrage Quantity` **25 → 50** (step **+5**).
+- [ ] **The cheap-tier bill:** the four 250 K–1 M families sum, over their first **ten** levels, to **600.53 M**
+      (`Chain Lightning Shock Chance`, `Shock Multiplier`, `Chrono Field Range`, `Death Wave Health` / `Coins Bonus`,
+      both Inner Land Mines) or **287.47 M** (`Chrono Field Duration` / `Reduction %`, the three `Swamp` lines,
+      `Missile Despawn Time`) — and the whole 18-lab tier re-adds to **8.10 B** coins / **462.33 d**.
+- [ ] **The 5-hour relation:** a `Chrono Field Duration` level and a `Shock Chance` level of the *same* number differ by
+      exactly **5 h** in the printed `Time` column (L2: `0d 23h 21m` vs `1d 4h 21m`), on every level you check.
+- [ ] **The offset law:** `Missiles Radius` level 1 = **800 000** = `250 000 + 550 000` and `Missile Amplifier`
+      level 1 = **500 000** = `250 000 + 250 000`, level 2 = **860 000** = `560 000 + 300 000` (the offset grows
+      **+50 000** per level).
+- [ ] **Corrected caps:** the three `Swamp` lines run to **level 30**, `Swamp Rend - Additional Enemies` to **11**,
+      `Death Wave Health` to **30** with its bill **15.79 B**.
 
 ## Falsification
 
@@ -805,9 +907,27 @@ online often (it raises levels/day for all 5 slots: a `3 d 11 h` line becomes **
   read the band edges and rebuild the arithmetic; the reroll-shard column is independent of it.
 - If a T1 run to W1 000 yields far more than **2** elites, either the run passed W500 twice (Intro Sprint re-counts) or the
   band function is per-run rather than cumulative → log the elite counter against the wave counter in one run.
+- If a `Chrono Field Duration` level and a `Shock Chance` level of the same number differ by something other than **5 h**,
+  the two ladders were re-binned independently → drop the shortcut and read each line's own Σ10 clock; the coin side
+  (**600.53 M** / **287.47 M**) is unaffected because it comes from the price column alone.
+- If a `Value` column in Appendix A.1 is **not** arithmetic (e.g. `Swamp Stun Time` level 2 is not **1.6**), that line was
+  re-versioned → derive its step from levels 1–2 only and re-derive its cap; the L1–10 **coin** sums are independent of the
+  value column, so the cheap-tier budget (8.10 B / 462.33 d) still stands while the per-point ranking goes stale.
+- If a line's level-1 price is **not** one of **250 000**, **1 000 000**, **20 000 000**, **100.00 B**, **1.00 B**,
+  **200 000 000**, **1.00q** or a single-level unlock price, the six-family census is incomplete → difference it against both
+  250 K-base ladders before assuming a new family (the two proven offsets are `+550 000` constant and `+200 000 + 50 000·n`).
+- If `Swamp Radius` / `Swamp Stun Chance` / `Swamp Stun Time` stop at **level 20** on your client, the appendix's correction
+  is the newer print → use **12.94 B / 157.8 d** for the 20-level prefix and treat the 30-level figures as the post-patch
+  value (both numbers come off the same page, so note which one your screen shows).
 
 ## Sources
 
+- Tower Hub `wiki/uw/black-hole` · `chain-lightning` · `chrono-field` · `death-wave` · `golden-tower` ·
+  `inner-land-mines` · `poison-swamp` · `smart-missiles` · `spotlight` (last verified **2026-11-01**, pulled 2026-11-02)
+  — the **31** leveled `Level | Time | Cost | Value` tables behind Appendix A/A.1, the per-page section names
+  (`Labs - <line>`) that label the ledger, the printed caps (`Swamp Stun Time` **1.3 → 10.0**,
+  `Spotlight Missiles` **19 → 2**, `Missile Barrage Quantity` **25 → 50**), and the workshop `Total` rows used by T008 §2;
+  parsed with `tools/uw-lab-census.ps1` (rows / L1 / last / step / Σ / Σ L1–10 / coins-per-point).
 - Tower Hub `wiki/enemy/common-enemy-labs` · `fast-enemy-labs` · `protector-labs` · `vampire-labs` · `ray-labs` ·
   `scatter-labs` (last verified **2026-11-01**, `ray-labs` 2026-07-29) — the per-level `Level | Time | Cost | Value`
   rows behind §enemy-stat layer: Common 20.00 B → 2.40 T with **−0.40 % … −12.00 %**, Fast 30.00 B → 2.70 T,
