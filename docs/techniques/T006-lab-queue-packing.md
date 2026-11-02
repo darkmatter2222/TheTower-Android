@@ -6,8 +6,13 @@ priced from the six shared families: **31 leveled + 8 one-level unlocks**; the u
 base (first ten levels re-add to the printed **113.33 B** exactly) and `Death Wave Health` is **two-phase** (L-II to L10,
 then near-linear 334.6 M -> 552.8 M). Family bills at full depth: L-I 124.85 B / 466.6 d, L-II 356.52 B / 916.1 d,
 L-III 116.24 B / 825.4 d, L-IV 38.34q / 2011.1 d, L-V 265.93 T / 283.2 d, L-VI 1247.44q / 916.7 d, 20 M-family
-92.00 B / 214.1 d. Plus `Smart Missiles`' workshop **39,177** stones closing as **3,745 + 33,384 + 2,048** (Damage +6/lv,
-Cooldown +8 then +16/lv, Quantity hand-set by subtraction) and two printed caps: ILM cooldown **37 s**, CL stones **x2 ... x7,961**.
+92.00 B / 214.1 d. Plus `Smart Missiles`' workshop **39,177** stones closing as **29,661 + 6,966 + 2,550 = 39,177** (the
+three printed `Total` rows, see T008 §2) and two printed caps: ILM cooldown **37 s**, CL stones **x2 ... x7,961**.
+Rev: 17 (2026-11-02) - **correction from the T008 §2 re-pull**: `Smart Missiles`' three workshop tracks print `Total` rows
+of **29,661** (Damage 35 lv), **6,966** (Quantity 15 lv) and **2,550** (Cooldown 16 lv), which sum to the page's
+**39,177** - so the Rev-16 aside that priced Quantity "by subtraction" from `+6` and `+16` arithmetic (**3,745 / 2,048 /
+33,384**) was wrong: those steps hold only inside the first ten printed levels. Level counts now come from the counting law
+**levels = numeric cells - 2** (level-0 row + `Total` row). The nine workshop totals sum to **244 542** stones.
 Rev: 15 (2026-11-02) - **nine-weapon lab census**: all nine `wiki/uw/<name>` pages parsed (**39** printed lab tables); every
 multi-level line falls into one of **six** printed sequences, five of them exact offsets of another — `L-II = L-I - 750 000`
 (12/12), `= L-I - 20 h` (25/25), SM lines `= L-II + 200 000 + 50 000n` (12/12) and `= L-III + 550 000` (15/15), Spotlight
@@ -473,11 +478,13 @@ column exactly, and from L11 the costs flatten to a near-linear run (334.6 M →
 −250 ×4 then −150 ×2) are hand-set both in cost and value; the recharge line’s cost is arithmetic **+500.00B** for its first
 four steps (550.00B, 1.05T, 1.55T, 2.05T) then +510B/+510B/+530B.
 
-**Workshop stone side, same pages (for cross-reference with T008).** `Smart Missiles` prints **Damage 35 / Quantity 15 /
-Cooldown 16** levels for **39,177** stones: the Damage column is arithmetic **+6** from 5 (Σ = **3,745** over 35) and the
-Cooldown column **+16** after an initial +8 (Σ = **2,048** over 16), which fixes the hand-set Quantity line at
-**39,177 − 3,745 − 2,048 = 33,384** stones by subtraction — the only way to price it without its hidden levels. Its `UW+`
-(`Cover Fire`, 11 levels) prices **300/375/475/600/725/925/1,150/1,450/1,800/2,200/2,650 = Σ 12,650** ✓ matching §1.④.
+**Workshop stone side, same pages (for cross-reference with T008 §2).** Each page prints its three workshop tracks with a
+`Total` row, and the three totals sum to the page’s prose total on **9 / 9** pages: `Smart Missiles`
+**29,661 + 6,966 + 2,550 = 39,177** (Damage 35 / Quantity 15 / Cooldown 16 levels), `Golden Tower`
+8,434 + 14,052 + 4,700 = **27,186**, `Chrono Field` 5,530 + 2,910 + 1,506 = **9,946**; the nine pages sum to
+**244 542** stones. Inside the first ten printed levels the columns look arithmetic (`+6` for SM Damage, `+16` after `+8` for
+the DW / SM / ILM cooldowns) but that breaks beyond level ~10, so price from the `Total` rows. Its `UW+` (`Cover Fire`,
+11 levels) prices **300/375/475/600/725/925/1,150/1,450/1,800/2,200/2,650 = Σ 12,650** ✓ matching §1.④.
 Two printed caps worth remembering: `Inner Land Mines`’ activation cooldown **hard-caps at 37 s**, and Chain Lightning’s
 stone Damage multiplier runs **×2 … ×7,961**.
 

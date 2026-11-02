@@ -1,5 +1,11 @@
 # T008 — Stone economy: knee-first UW buying + cooldown sync
 
+Rev: 7 (2026-11-02) - the **workshop stone ledger re-verified end to end**: 9/9 pages where prose total = `Total` row =
+sum of the three per-level columns, so the bill is **244 542** (was 244 302; ILM 23 042 -> **23 032**, Spotlight
+53 236 -> **53 486**, both addition slips) and the UW block total becomes **448 137**. New counting law: **levels =
+numeric cells - 2** (a level-0 row plus a `Total` row), which reproduces every printed count (GT 20/38/20, CL 31/4/15,
+SM 35/15/16, ILM 35/3/15, Spotlight Quantity 3). Cooldown steps are **+18 after +10** (GT, BH), **+16 after +8** (DW, SM,
+ILM) and **+18 after +8** (CL, PS) - not one uniform +16. §2.
 Rev: 6 (2026-11-02) - the **Golden Combo income matrix** (`wiki/uw/golden-tower`, 40-80 s x GT+ 1-10, anchored at
 GT+10 @ 60 s = 1.000): the page's three prose claims re-add from the cells (**212.4 / 503.3 / 231.0 %**), the grid closes as
 `r(D) = exp(0.002399 D - 0.012353)` per GT+ level (27/27 printed ratios within 0.0027) and **x1.0241 -> x1.0464** per extra
@@ -12,7 +18,7 @@ bills **179 240** stones (fandom's uniform model is high by **5 500**), and the 
 Rev: 4 (2026-11-02) - the stone ladders get a **second source** and a **ledger check**: `wiki/guide/which-uw-do-i-select`
 prints both §1 tables verbatim, `wiki/guide/uw-tier-list` prints their **9 705** sum, and the account table re-adds as
 `43 842 + 9 705 = ` **53 547** (its headline); four `UW+ status = Locked` rows with non-zero stones pin that column to
-**basic-stat spend only** (**43 842 / 244 302 = 17.9 %** of the stat bill), which leaves the UW+ ledger unaccounted
+**basic-stat spend only** (**43 842 / 244 542 = 17.9 %** of the stat bill), which leaves the UW+ ledger unaccounted
 (**H056**). Also new: the printed pick order with its two **3x-lab-boost** conditional swaps (§1.②), the per-UW printed
 coin/health/cell multipliers, and the **374-run** coin/damage share tables (§1.③, coin shares sum to **155.9 %** by
 construction).
@@ -39,10 +45,10 @@ Currency: **Power Stones** (and the coin rate they buy) · Status: **Verified** 
 |---|---|---|
 | Unlock all **9 UWs** (price = how many you already own) | **9 705** | 5 + 50 + 150 + 300 + 800 + 1 250 + 1 750 + 2 400 + 3 000 |
 | Unlock all **9 UW+ abilities** (needs all 9 UWs first) | **14 650** | 500 + 625 + 750 + 975 + 1 250 + 1 650 + 2 200 + 2 900 + 3 800 |
-| Max **every basic UW stat** on all 9 UWs | **244 302** | the per-UW table in §2 |
+| Max **every basic UW stat** on all 9 UWs | **244 542** | the per-UW table in §2 |
 | Max **all 9 UW+ abilities** — printed per-ability caps (§1.④) | **179 240** | 20 070 (GT) + 16 350 (CF) + 19 050 (BH) + 19 050 (DW) + 37 050 (Spotlight) + 12 650 (CL) + 18 570 (ILM) + 12 650 (SM) + 23 800 (PS) |
 | _…as the fandom uniform model had it_ | _184 740_ | _3 × 23 800 + 2 × 18 570 + 4 × 19 050; the **5 500** gap is the three non-14-level caps (11 / 13 / 19) — recorded as a skew_ |
-| **UW block total** | **≈ 447 900** | 9 705 + 14 650 + 179 240 + 244 302 = **447 897**; + card masteries 28 500, Bot+ 1 250 × 5, Synchronicity 1 500 + 3 × 1 500, assist slots 1 000 each ⇒ **≈ 493 k stones** |
+| **UW block total** | **≈ 448 100** | 9 705 + 14 650 + 179 240 + 244 542 = **448 137**; + card masteries 28 500, Bot+ 1 250 × 5, Synchronicity 1 500 + 3 × 1 500, assist slots 1 000 each ⇒ **≈ 493 k stones** |
 
 Against ≈ **10 700 stones/year** free (T022 §1) that is **≈ 47 years**, so the only sane policy is: buy each stat's **first cheap block** and stop, and spend the rest on the sync ladder in §4.
 
@@ -67,7 +73,7 @@ so the per-UW column is the *stat* ledger and the headline adds the slot costs �
 numbers. **Which pool the column is** is settled by the same table: four rows (**Black Hole**, **Death Wave**, **Chain
 Lightning**, **Inner Land Mines**) print `UW+ status = Locked` and still carry **5 740 / 5 393 / 3 416 / 625** stones, so
 their cells cannot contain any UW+ price ⇒ the column is **basic-stat spend only** (§2's per-level columns), and the
-account sits at **43 842 / 244 302 = 17.9 %** of the full stat bill. The three owned UW+ abilities (GT level 7, CF level 4,
+account sits at **43 842 / 244 542 = 17.9 %** of the full stat bill. The three owned UW+ abilities (GT level 7, CF level 4,
 Spotlight level 0 ⇒ at least **500 + 625 + 750 = 1 875** by the printed ladder) are therefore *outside* the headline
 → **H056**. The account's spend also descends in the recommended pick order, which is the point of the list.
 
@@ -192,15 +198,32 @@ whenever a number matters — the formula is only the shape.
 | Black Hole | **9 723** | Size 2 291 | Duration 5 392 | Cooldown 2 040 |
 | Chrono Field | **9 946** | Duration 5 530 | Slow 2 910 | Cooldown 1 506 |
 | Chain Lightning | **18 375** | Damage 15 710 | Quantity 655 | Chance 2 010 |
-| Inner Land Mines | **23 042** | Damage % 20 817 | Quantity 425 | Cooldown 1 800 |
+| Inner Land Mines | **23 032** | Damage % 20 807 | Quantity 425 | Cooldown 1 800 |
 | Golden Tower | **27 186** | Multiplier 8 434 | Duration 14 052 | Cooldown 4 700 |
 | Death Wave | **29 391** | Damage 17 591 | Quantity 2 950 | Cooldown 8 850 |
 | Poison Swamp | **34 226** | Damage 28 716 | Duration 3 500 | Cooldown 2 010 |
 | Smart Missiles | **39 177** | Damage 29 661 | Quantity 6 966 | Cooldown 2 550 |
-| Spotlight | **53 236** | Bonus 20 071 | Angle 29 690 | Quantity 3 725 |
-| | | | | **244 302** |
+| Spotlight | **53 486** | Bonus 20 071 | Angle 29 690 | Quantity 3 725 |
+| | | | | **244 542** |
 
-Two structure facts that only the tables show: **the `Stones` column is per level, not cumulative** (the sum of the column equals the page's `Total`), and **cooldown lines have an identical cheap shape** — increments 10/28/46/64/82 … (step +18) for GT and BH, 8/24/40/56/72 … (step +16) for DW, SM, ILM, PS.
+**Nine-way verification (Rev 7).** Re-pulled all nine pages on 2026-11-02 and parsed the `Stones` columns programmatically:
+for **9 / 9** pages the page’s prose total, the table’s own `Total` row and the sum of the three per-level columns agree
+exactly — `2 291 + 5 392 + 2 040 = 9 723` (BH), `5 530 + 2 910 + 1 506 = 9 946` (CF), `15 710 + 655 + 2 010 = 18 375` (CL),
+`20 807 + 425 + 1 800 = 23 032` (ILM), `8 434 + 14 052 + 4 700 = 27 186` (GT), `17 591 + 2 950 + 8 850 = 29 391` (DW),
+`28 716 + 3 500 + 2 010 = 34 226` (PS), `29 661 + 6 966 + 2 550 = 39 177` (SM), `20 071 + 29 690 + 3 725 = 53 486`
+(Spotlight). Σ = **244 542**. Two rows were re-cut from that pass: ILM **23 042 → 23 032** (Damage % 20 817 → 20 807) and
+Spotlight **53 236 → 53 486** (the three columns are unchanged, their sum is 53 486) — the earlier figures were addition
+slips, and the UW block total moves 447 897 → **448 137** (+240).
+
+**Counting and shape laws from the same pass.** Each table has a **level-0** row (cost 0) and a trailing `Total` row, so
+**levels = numeric cells − 2**, and that reproduces every printed level count: GT **20 / 38 / 20** ✓, Chain Lightning
+**31 / 4 / 15** ✓ (`Quantity has 4 levels and Chance has 15 levels`), Smart Missiles **35 / 15 / 16** ✓, Inner Land Mines
+**35 / 3 / 15** ✓, Spotlight’s `Quantity` **3** ✓. The `Stones` columns are **per level**, not cumulative (the column sum
+equals the page total, 9/9). Cooldown columns: GT and BH run `0, 10, 28, 46, …` (**+18** after the first +10), DW / SM / ILM
+run `0, 8, 24, 40, …` (**+16** after +8), CL and PS run `0, 8, 26, …` (**+18** after +8) — i.e. the arithmetic step is the
+same within a family but **not** across all nine pages, so read the printed second cell rather than assuming +16. Beyond the
+first ten levels the columns stop being arithmetic (SM’s Damage column prints `+6` for ten levels but totals 29 661 over 35),
+so deeper sums must come from the `Total` row.
 
 ## 3. The knee table (stones per unit of stat, by block of levels)
 
@@ -355,6 +378,11 @@ Also: each `Basic_Upgrades` page's `Total` equals the sum of its own column (BH 
 - [ ] Fully maxed: **Black Hole 50 s**, **Death Wave 50 s**, bots (except Flame) **50 s**, **Golden Tower 100 s**.
 - [ ] **The 2:1 check:** BH at 150 s against GT at 300 s ⇒ BH fires **twice** per GT in the same window (count activations
       over one 300 s span: 2 and 1).
+- [ ] **The nine workshop totals (9 / 9):** each page’s prose total equals its table’s `Total` row equals the sum of its
+      three per-level columns — BH **9 723**, CF **9 946**, CL **18 375**, ILM **23 032**, GT **27 186**, DW **29 391**,
+      PS **34 226**, SM **39 177**, Spotlight **53 486** ⇒ **244 542** stones for all basic UW stats.
+- [ ] **The counting law:** every workshop table starts at **level 0** (cost 0) and ends with a `Total` row, so
+      **levels = numeric cells − 2**; on `Smart Missiles` that gives **35 / 15 / 16**, the same numbers the page prints.
 
 ## 9. Falsification
 
@@ -362,6 +390,9 @@ Also: each `Basic_Upgrades` page's `Total` equals the sum of its own column (BH 
   steps belong to a different ladder → read the cooldown at 0→1 in each menu separately and set `m` and `l` from those two
   deltas; the lattice targets (half your GT/DW sync, 100 s then 50 s) still apply, only the tap counts change. Record it
   as H053.
+- If a page’s **prose total** no longer equals the sum of its three `Total` columns, those tables are mid-update → trust the
+  `Total` rows, re-derive §2, and stamp the date (the whole §2 ledger rests on that three-way agreement; the Rev-7 pass found
+  and fixed two addition slips worth **240** stones there).
 
 - If a cooldown `+` costs something other than the printed per-level column (10, 28, 46, …), the client uses a different price tree → record the whole column and rescale §3–§4 (the *ratios* between blocks are what the plan needs).
 - If the UW totals row disagrees (e.g. GT ≠ 27 186), the version changed a ladder — trust the panel, keep the block ratios.
