@@ -1,5 +1,18 @@
 # T006 — Pack the Lab queue, then buy the *cheapest* skipped hour
 
+Rev: 32 (2026-11-03) — **the Perk Research category closes, and it is a clock-only layer**
+(§Perk Research, `tools/perk-research-family.ps1`): **9 lines / Σ 180 levels** re-add to the census (`100 + 25 + 32 + 10 +
+8 + 2 + 1 + 1 + 1`), total **4.337 329 q** coins for **183 173.9 d** of clock — i.e. **0.07 %** of the bill’s coins but
+**38.65 %** of its clock. Headlines: `Waves Required` is the **most clock-expensive single line in the census**
+(**176 708.27 d** = 37.3 % of the priced bill, ×9.8 the mastery block) with a quasi-geometric tail ratio pair
+(cost **1.052 1** / time **1.036 1**) and a stop-level table whose knee sits between 25 and 50; `Ban Perks` adds a **new
+clock shape** — an exact **doubling** ladder with one break at level 4 — on top of a pure decimal cost ladder
+(`10 M … 1 q`); two **exact shared time cells** (4 d 23 h 26 m on `Perk Option Quantity` 1 = `Auto Pick Perks`;
+4 d 15 h 6 m on `First Perk Choice` = `Ban Perks` 2) while the two long ladders share a **tail but not a head** (their
+step ratios agree to four decimals from level 6); `Improve Trade-Off Perks` is the cheapest per point
+(**1.726 1 × 10⁹** coins per +1 %) with the category’s only accelerating cost ladder; and the eight level-1 buys are
+**1 901 800 000** coins = **2.7 s** of printed income for **21.22 d** of queue. Appendix B row `N`; bill now
+**168 / 189 lines = 6.470 3 Q / 473 959.6 d (88.9 %)**.
 Rev: 31 (2026-11-03) — **the Card Research category closes and the mastery-lab block enters the bill**
 (§Card Research, `tools/card-research-family.ps1`): **four census lines share one 7-level Recharge column**
 (`Second Wind` / `Demon Mode` / `Nuke` / `Missile Barrage`, Σ **14.430 T** / **119.88 d** each) with the buy order set only
@@ -828,25 +841,25 @@ and what the covered part costs. Only layers whose **every** line carries a prin
 | `K` the **Utility Research** category (§Utility Research, Rev 30) | 10 | **8.906 T** | 10 085.4 d |
 | `L` the six newly priced **Card Research** lines (§Card Research, Rev 31) | 6 | **30.848 T** | 1 185.5 d |
 | `M` the **32 mastery labs** — 32 × the printed 50.00 q / 562 d 12 h (§Card Research, Rev 31) | 32 | **1.600 Q** | 18 000 d |
-| **Σ priced** | **159** | **6.466 Q** | **290 785.7 d** |
+| `N` the **Perk Research** category (§Perk Research, Rev 32) | 9 | **4.337 329 q** | **183 173.9 d** |
+| **Σ priced** | **168** | **6.470 3 Q** | **473 959.6 d** |
 
 In income units **(the Rev 25 72-line bill)**: **coins 5 770 d = 15.80 years** at 700 T/day · **clock 104 035.3 d** =
 285 y single-slot = **57.01 y** on five slots = **15.3 y** with the ×3.725 stack · the ×1.5 boost on the whole covered part
 is **2.4968 × 10⁷ cells** = **24 968 d ≈ 68 years** of cell income ⇒ **cells bind by ×4.33** over the coins.
 
-Scaled to the **159-line** bill the same two conversions give **coins 9 237 d = 25.29 y** at 700 T/day and
-**clock 290 785.7 d = 796.1 y** single-slot = **159.2 y** on five slots = **42.7 y** with the ×3.725 stack (the cell bill
+Scaled to the **168-line** bill the same two conversions give **coins 9 243 d = 25.31 y** at 700 T/day and
+**clock 473 959.6 d = 1 297.6 y** single-slot = **259.5 y** on five slots = **69.7 y** with the ×3.725 stack (the cell bill
 is read from the printed boost table rather than re-derived here).
 
 **Three facts the table produces.**
-1. **Coverage is 159 / 189 census lines = 84.1 %** (the 32-mastery-lab reading; on the 12-lab reading it is
-   **139 / 169 = 82.2 %**, see §Card Research finding 4 and H063). Layers `H`–`M` were added from the fandom per-line lab
-   tables at Rev 27–31; the unpriced **30** now sit in `Perk` (9), `Bot` (8),
-   `Module` (6), `Enemies` (the 2 `Boss` lines) and `Battle Condition` (5) — those pages print a ladder but no `Total`,
-   so they need a device read or a per-level product.
+1. **Coverage is 168 / 189 census lines = 88.9 %** (the 32-mastery-lab reading; on the 12-lab reading it is
+   **148 / 169 = 87.6 %**, see §Card Research finding 4 and H063). Layers `H`–`N` were added from the fandom per-line lab
+   tables at Rev 27–32; the unpriced **21** now sit in `Bot` (8), `Module` (6), `Enemies` (the 2 `Boss` lines) and
+   `Battle Condition` (5) — those pages print a ladder but no `Total`, so they need a device read or a per-level product.
 2. **One band dominates the old bill, but not the new one: the fourteen T19-band lines** (`B2` + `C`, the
    `0.25 q × n` / `n × 933 078 s` arithmetic ladders) are **40.29 %** of the covered coins and **67.6 %** of the covered
-   clock **inside the 72-line bill**; with `H`–`M` they are **25.2 %** and **24.2 %** (the mastery-lab block alone takes
+   clock **inside the 72-line bill**; with `H`–`N` they are **25.2 %** and **14.8 %** (the mastery-lab block alone takes
    **24.7 %** of the coins and **6.2 %** of the clock), because `H`’s single
    `Enhancement Coin Discount` line (826.445 q) and `I`’s clock (124 747.5 d, 94.47 % of it in the two Super Crit lines)
    and `J`’s single `Wall Fortification` line (174.666 T) all became major contributors. Because both columns of the T19 band are arithmetic there,
@@ -862,7 +875,11 @@ is read from the printed boost table rather than re-derived here).
    layer’s coins in the single 60-level `Wall Fortification` line (§Defense Research, finding 6). The **Utility layer**
    (10 lines, §Utility Research) splits the same way twice over: **99.98 %** of its coins sit in the three identical
    `Recovery Package …` lines while **57.3 %** of its clock sits in the four cheap 99-level workshop-increment lines —
-   so the four lines that actually multiply coin income are the cheapest per unit in the category.
+   so the four lines that actually multiply coin income are the cheapest per unit in the category. The **Perk layer** `N`
+   is that split taken to its extreme: **0.07 %** of the bill’s coins (**4.337 329 q**) for **38.65 %** of its clock, with
+   **96.5 %** of the category’s clock inside the single 100-level `Waves Required` line (§Perk Research, finding 1) — the
+   most clock-bound layer in the table, and the reason the bill’s clock grew **+63.1 %** while its coins moved by four
+   thousandths of a Q.
 
 ### The enemy-stat layer, ladder by ladder (Rev 11)
 
@@ -1375,6 +1392,64 @@ labs from `Card Masteries`; caps cross-checked against `Lab Category/Card Resear
    `Extra Orb Adjuster` **T6 W50**, `Extra Extra Orbs` **T6 W80**, all four Recharge lines **T14 W60**,
    `Super Tower Bonus` **T8 W300**.
 
+### The Perk Research category priced line by line (new, Rev 32)
+
+Nine lines from `Perk Labs/Unlock Perks`, `Perk Labs/Waves Required`, `Perk Labs/Auto Perk Pick` (the *Auto Pick Perks*
+lab), `Perk Labs/Standard Perk Bonus`, `Perk Labs/Perk Option Quantity`, `Perk Labs/First Perk Choice`,
+`Perk Labs/Ban Perks`, `Perk Labs/Improve Trade-Off Perks`, `Perk Labs/Auto Pick Ranking`; caps re-add to the census
+(`100 + 25 + 32 + 10 + 8 + 2 + 1 + 1 + 1 = 180` over **9** lines ✓). None of these pages prints a `Total` row, so every
+figure below is a fresh re-add — `tools/perk-research-family.ps1`.
+
+| Line | Levels | Σ coins | Σ clock | printed value law | coins per unit of value |
+|---|---|---|---|---|---|
+| `Waves Required` | **100** | **3.234 165 q** (3 234.165 T) | 254 459 903 min = **176 708.27 d** | `−1n` waves ⇒ −100 | 3.234 2 × 10¹³ |
+| `Ban Perks` | 8 | **1.101 116 11 q** | 953 330 min = 662.03 d | `1 … 8` banned slots | 1.376 4 × 10¹⁴ |
+| `Standard Perk Bonus` | 25 | 1.079 14 T | 534 339 min = 371.07 d | `+1n` % ⇒ +25 % | 4.316 6 × 10¹⁰ |
+| `Auto Pick Ranking` | 32 | 948.49 B | 7 721 837 min = 5 362.39 d | ranks the `1n`-th perk | 2.964 0 × 10¹⁰ |
+| `Improve Trade-Off Perks` | 10 | 17.261 35 B | 60 407 min = 41.95 d | `+1n` % ⇒ +10 % | **1.726 1 × 10⁹** |
+| `First Perk Choice` | 1 | 1 B | 6 666 min = 4.63 d | `Unlocked` | 1.0 × 10⁹ |
+| `Perk Option Quantity` | 2 | 2.2 B | 21 832 min = 15.16 d | `+1` / `+2` choices | 1.1 × 10⁹ |
+| `Auto Pick Perks` | 1 | 100 M | 7 166 min = 4.98 d | `Unlocked` | 1.0 × 10⁸ |
+| `Unlock Perks` | 1 | 1.5 M | 4 999 min = 3.47 d | `Unlocked` | 1.5 × 10⁶ |
+| **Σ 9 lines** | **180** | **4.337 329 q** | 263 770 479 min = **183 173.9 d** = 501.5 y | — | — |
+
+1. **`Waves Required` is the most clock-expensive single line in the entire census: 176 708.27 d.** One line carries
+   **37.3 %** of the whole priced bill’s clock (and 74.6 % of this category’s coins, 96.5 % of its clock) — it beats the
+   32-lab mastery block (18 000 d) by **×9.8**. Boosted it is still the longest single thing a player can own:
+   **35 341.7 d** on five slots, **9 487.7 d** with the ×3.725 stack. Yet its level 1 is **100 K / 99 min** ⇒ buy the head
+   and stop; the tail is where the clock goes to die.
+2. **The stop-level table for a sub-T11 queue** (`Waves Required`, Σ through level *k*): *k* = 3 → **0.63 d** for −3
+   waves; *k* = 5 → 27.5 M / **1.89 d**; *k* = 10 → **2.42 B / 11.43 d**; *k* = 25 → **719.40 B / 364.13 d**;
+   *k* = 50 → **49.015 T / 7 776.49 d**; *k* = 100 → **3.234 165 q / 176 708.27 d**. The knee is between 25 and 50: the
+   last level costs 159.25 B at *k* = 25 and 5.1 T at *k* = 50 (**×32** for 25 more waves). Its asymptotic ratios are a
+   new pair — cost **1.052 1**, time **1.036 1** — so the tail is quasi-geometric, not the ×1.15 of the named families.
+3. **`Ban Perks` contributes a new clock shape: an exact doubling ladder.** Its eight times are 3 333 / 6 666 / 13 333 /
+   29 999 / 60 000 / 120 000 / 239 999 / 480 000 min, i.e. ratio **2.0000** on six of seven steps and **2.25** at level 4
+   (the single break) — while its *cost* column is the printed decimal ladder `10 M, 100 M, 1 B, 15 B, 100 B, 1 T, 100 T,
+   1 q` (ratios 10, 10, 15, 6.67, 10, 100, 10). Σ = **1.101 116 11 q** / 662.03 d, of which the last two levels alone are
+   1 100 T (**99.9 %**). Reading: ban slots 1–6 are 1 116 B of coins, slots 7–8 are 1.1 q.
+4. **Two exact shared time cells, and no shared columns otherwise.** `Perk Option Quantity` level 1 and `Auto Pick Perks`
+   both print **4 d 23 h 26 m** (7 166 min, 0 differing cells) and `First Perk Choice` equals `Ban Perks` level 2 at
+   **4 d 15 h 6 m** (6 666 min, 0 differing cells) — so the single-level unlocks share a printed “time alphabet”
+   {4 999, 6 666, 7 166, 14 666} min. The two long ladders are *not* one column: `Standard Perk Bonus` vs `Waves Required`
+   differ on 24 of 25 time cells and 18 of 25 cost cells, yet their **step ratios agree to four decimals from level 6**
+   (2.475 8 vs 2.476 5, 2.156 8 vs 2.157 1, 1.947 7 vs 1.947 8) — the same exponential tail on a different head.
+5. **`Improve Trade-Off Perks` is the best coins-per-point line in the category** (**1.726 1 × 10⁹** per +1 %, 4.19 d per
+   +1 %) and its cost ladder is the only *accelerating* one here: the step ratio dips to **1.136 0** at level 4 then rises
+   to **1.523 2** at level 10, while its time ratios decay monotonically (1.557 0 → 1.188 6). All ten levels are
+   **17.26 B / 41.95 d**, so unlike `Waves Required` there is no reason to stop early.
+6. **`Auto Pick Ranking` is the third humped clock** — ratios 1.116 9 → peak **1.327 4** at level 11 → 1.135 0 at the
+   tail — and the cheapest per printed unit after the Trade-Off line (2.964 0 × 10¹⁰ coins per ranked perk, but 167.57 d
+   each). 5 362.39 d of clock for 32 ranked perks; it is a *clock* purchase, not a coin purchase.
+7. **The early game is a clock problem, not a coin problem.** The eight level-1 buys of the category
+   (`Unlock Perks` 1.5 M, `Auto Pick Perks` 100 M, `First Perk Choice` 1 B, `Perk Option Quantity` 200 M, plus level 1 of
+   the four ladders) sum to **1 901 800 000** coins and **30 560 min = 21.22 d**. At the printed 700 T/day that coin bill
+   is **2.7 seconds** of income, so a sub-T11 player is limited only by queue slots.
+8. **Gates**: `Unlock Perks` and `Waves Required` print none (the second follows the first), `First Perk Choice` **T2
+   W250**, `Improve Trade-Off Perks` **T2 W400**, `Auto Pick Perks` **T4 W50**, `Perk Option Quantity` **T4 W80**,
+   `Ban Perks` **T5 W40**, `Auto Pick Ranking` **T6 W10** — every one below Tier 11, so the whole category is reachable in
+   the reader’s tier band; only the deep `Waves Required` tail is not.
+
 ## Reproduction checklist
 
 - [ ] No slot shows “completed, not started” for more than a few minutes; at least one long level is running overnight.
@@ -1546,6 +1621,14 @@ labs from `Card Masteries`; caps cross-checked against `Lab Category/Card Resear
 - [ ] **§Card Research (Rev 31):** any mastered card’s lab prints level 1 = **1.10 q** / **20 d 20 h** and level 9 =
       **10.00 q** / **104 d 4 h**, and the page’s `Total` row is **50.00 q** / **562 d 12 h**; the Card category shows
       **41** lines (32 of them mastery labs) on the current wiki list.
+- [ ] **§Perk Research (Rev 32):** the **Perk** category lists **9** lines and the two long ladders print **100** /
+      **25** levels; `Waves Required` level 1 is **100 K** / **1 h 39 m** / **−1.00** and level 100 is **190.2 T** /
+      **7 835 d 15 h 13 m** / **−100.00**.
+- [ ] **§Perk Research (Rev 32):** `Ban Perks` prints exactly **8** rows ending **100.00T** / `166d 15h 59m` and
+      **1.00q** / `333d 8h 0m`, and `Improve Trade-Off Perks` prints **10** rows ending **4.92B** / `8d 10h 58m` / **10 %**.
+- [ ] **§Perk Research (Rev 32):** the single-level unlocks print **1,500,000** / `3d 11h 19m`, **100,000,000** /
+      `4d 23h 26m`, **1,000,000,000** / `4d 15h 6m`, and `Perk Option Quantity` **200,000,000** / `4d 23h 26m` then
+      **2,000,000,000** / `10d 4h 26m` — the two `4d 23h 26m` prints are the shared time cell of finding 4.
 
 ## Falsification
 
@@ -1687,6 +1770,13 @@ labs from `Card Masteries`; caps cross-checked against `Lab Category/Card Resear
 - **§Card Research census:** if the Lab screen’s Card category lists **21** lines rather than **41**, the mastery-lab
   block is the 12-lab reading (**0.600 Q** / **6 750 d**), the census is **169** and coverage **139 / 169 = 82.2 %**; the
   whole Appendix B coin column drops by **1.000 Q** to **5.466 Q**.
+- **§Perk Research (Rev 32):** if `Waves Required` has a **Total** row on the page, compare it with the re-add
+  **3.234 165 q / 254 459 903 min**; a different print means the page carries a row the parser dropped (the table is
+  100 rows long) and the line must be summed from the screen instead. If `Ban Perks` prints more than **8** rows the
+  doubling law (finding 3) extends with ratio 2 and only the Σ changes.
+- **§Perk Research census:** if the Lab screen’s **Perk** category lists a number of lines other than **9**, or the
+  `Waves Required` cap is not **100**, the category Σ of **180** levels is stale and layer `N` must be re-summed; every
+  other layer in Appendix B is unaffected.
 - **§Main Research:** if `Starting Cash` and `Workshop Attack Discount` no longer print an identical cost column, the
   shared ladder split ⇒ re-run `tools/main-research-family.ps1` with two arrays; the four per-line figures change but the
   category total does not (each line is still counted once). If `Enhancement Coin Discount` level 1 stops being **1.00B**
@@ -1880,3 +1970,15 @@ labs from `Card Masteries`; caps cross-checked against `Lab Category/Card Resear
   `1.03 … 1.90`), `Lab Category/Card Research` (the 10-row list whose mastery row is `Max Lv 9`) and `Card Masteries`
   (the shared 9-level `Mastery lab costs` table with `Total 50.00q / 562d 12h`, the 32-row stone list totalling 28,500 and
   the per-card 0-to-9 value ladders). New script: `tools/card-research-family.ps1`.
+- fandom lab pages, raw wikitext via `api.php?action=parse&prop=wikitext` (pulled 2026-11-03) — the **Perk Research
+  category** tables, all under the `Perk Labs/` prefix and none of them printing a `Total` row:
+  `Perk Labs/Unlock Perks` (1 row `1,500,000` / `3d 11h 19m`), `Perk Labs/Waves Required` (**100** rows, head
+  `100K` / `0d 1h 39m` / `-1.00`, tail `190.2T` / `7835d 15h 13m` / `-100.00`), `Perk Labs/Auto Perk Pick`
+  (1 row `100,000,000` / `4d 23h 26m`, T4 W50), `Perk Labs/Standard Perk Bonus` (**25** rows `100,000` …
+  `238,880,000,000`), `Perk Labs/Perk Option Quantity` (2 rows `200,000,000` / `4d 23h 26m`, `2,000,000,000` /
+  `10d 4h 26m`, T4 W80), `Perk Labs/First Perk Choice` (1 row `1,000,000,000` / `4d 15h 6m`, T2 W250),
+  `Perk Labs/Ban Perks` (**8** rows `10.00M, 100.00M, 1.00B, 15.00B, 100.00B, 1.00T, 100.00T, 1.00q`, T5 W40),
+  `Perk Labs/Improve Trade-Off Perks` (**10** rows `600,000,000 … 4,920,000,000`, T2 W400),
+  `Perk Labs/Auto Pick Ranking` (**32** rows `100.00K … 154.26B`, whose last six
+  times print with a `y` unit — `1y 24d 20h` … `2y 37d 9h` — read here as 1 y = 365 d, T6 W10).
+  New script: `tools/perk-research-family.ps1`.
