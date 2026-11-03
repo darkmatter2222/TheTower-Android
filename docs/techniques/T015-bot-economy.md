@@ -1,5 +1,13 @@
 # T015 — Bot economy: the three exact cost formulas, and the sync-aware order
 
+Rev: 9 (2026-11-03) — **§3.2: the four-line density system** (new). Under `coins = kills-in-coverage × bonus × uptime`,
+the four lines become `dR(n) = 2/(18+2n)`, `dB(n) = 0.2/(1.8+0.2n)`, `dD(n) = 0.5/(19.5+0.5n)`, `dC(n) = 3/(123−3n)` over
+the price `40n + 60`, and **`dR(n) = dB(n) = 1/(n + 9)` exactly** — Range and Bonus are the *same* ladder while Range is
+open (which is the arithmetic behind the guide's “a couple of levels ahead”). Level 1 densities: **10.00 / 10.00 / 2.50 /
+2.50 × 10⁻⁴**, so Range–Bonus is the densest buy in the medal layer (**34×** the cosmetic par). The par-optimal bot is
+**R 20 / B 24 / D 14 / C 15 = 33 780 medals** (**27.8 events**, **60.2 %** of the capped **56 100**) for **×22.03** on the
+chain (**0.92e-4** average). The only free parameter is the tower-amplification constant `A` (**H067**).
+`tools/bot-four-line-density.ps1`.
 Rev: 8 (2026-11-03) — **§3.1: the uptime density ladder** (new). The two medal lines have **separable** relative gains,
 `0.5/(19.5 + 0.5n)` (Duration) and `3/(123 − 3n)` (Cooldown) over the `40n + 60` price, so **level 1 of each is worth
 exactly 2.5 %** of uptime and the Cooldown line pulls ahead to `dC/dD =` **2.077** by level 15; the greedy order is
@@ -307,6 +315,61 @@ medals for `120 → 105 s` = ×1.143 (**1.48e-4**/medal) while the last five cos
 (**0.63e-4**) — 3.2× the medals for 1.05× the effect. Level 15 is still worth buying (it is above par) but it is not worth
 buying *before* another bot's level 1.
 
+### 3.2 The four-line density system — one Golden Bot, priced end to end (new, Rev 9)
+
+The two lines outside the uptime pair get the same treatment. Under the coin chain of [H015](../hypotheses/H015-bot-bot-increment.md)
+(`kills-in-coverage × Golden bonus × uptime`), a level's relative gain is `+2 m` on the current coverage and `+0.2` on the
+current multiplier:
+
+```
+Range    : dR(n) =    2 /(18 + 2n)     Bonus    : dB(n) = 0.2 /(1.8 + 0.2n)      caps 20 / 30
+Duration : dD(n) =  0.5 /(19.5 + 0.5n)  Cooldown : dC(n) =   3 /(123 − 3n)       caps 30 / 15
+density(n) = gain(n) / (40n + 60)
+```
+
+**1. `dR(n) = dB(n) = 1/(n + 9)` — Range and Bonus are the *same* ladder.** Both start at a **10 %** step on a base that
+grows by the same fraction per level (2 m on 20 m; 0.2× on ×2.0), so with the identical price `40n + 60` the two lines are
+**exactly interchangeable per medal** while Range is still open (verified numerically on every level:
+`tools/bot-four-line-density.ps1`). That is the arithmetic behind the guide's “keep Range only a couple of levels ahead of
+Bonus” — the densities are equal, so any placement that keeps the two counters within a level or two is optimal; the only
+asymmetry is the **cap** (Range stops at 20, Bonus continues to 30).
+
+**2. The four densities, ×10⁻⁴ per medal:**
+
+| *n* | price | Range = Bonus | Duration | Cooldown |
+|---|---|---|---|---|
+| 1 | 100 | **10.000** | 2.500 | 2.500 |
+| 2 | 140 | 6.494 | 1.742 | 1.832 |
+| 5 | 260 | 2.747 | 0.874 | 1.068 |
+| 10 | 460 | 1.144 | 0.444 | 0.701 |
+| 15 | 660 | 0.631 | **0.281** (below par) | 0.583 |
+| 20 | 860 | 0.401 | 0.197 | — (capped) |
+| 24 | 1 020 | 0.297 | 0.156 | — |
+
+⇒ **`Range`/`Bonus` level 1 is the densest medal buy in the game** (**10.0e-4**, 4× the Cooldown's level 1 and **34×** the
+cosmetic par **0.296e-4**), and all four lines stay above par well past the point where the cosmetic line is worth buying.
+
+**3. The par-optimal Golden Bot** (`density ≥ 2.96e-5`, greedy over the four lines):
+
+| line | levels | medals | panel value after | relative gain |
+|---|---|---|---|---|
+| **Range** | **20** | 9 600 | 60 m | ×3.00 |
+| **Bonus** | **24** | 13 440 | ×6.8 | ×3.40 |
+| **Duration** | **14** | 5 040 | 27 s | ×1.35 |
+| **Cooldown** | **15** | 5 700 | 75 s | ×1.60 |
+| **total** | **73** | **33 780** | — | **×22.03** (`Σ ln = 3.092`) |
+
+**33 780 medals = 27.8 events ≈ 56 weeks**, i.e. **60.2 %** of the fully-capped **56 100** (46.2 events) buys **×22.03** of
+the collected-coin chain — average density **0.92e-4** per medal. The purchase order the greedy produces is
+`R1 B1 R2 B2 R3 B3 R4 B4 B5 R5 D1 C1 R6 B6 …` (Range and Bonus in lockstep pairs, the uptime pair entering at level 5–6,
+the Cooldown line finishing first because its density decays slowest).
+
+**4. The one open parameter (`A`, [H067](../hypotheses/H067-bot-range-amplification.md)).** The site says bot ranges are
+“**amplified by the tower's own range**”, which would replace `18 + 2n` by `20 + A + 2n`. `A = 0` reproduces the table
+above; the measured effect is a **uniform down-scaling** of the Range density: level 1 reads **10.00 / 6.67 / 5.00 /
+3.33 / 2.00e-4** for `A = 0 / 10 / 20 / 40 / 80` m, so **at `A ≥ 10` Bonus overtakes Range from level 1** and the Range
+line drops below par at level 16 (`A = 40`) or 12 (`A = 80`). Everything else in the table is `A`-independent.
+
 ## 4. What each Bot+ ability is worth
 
 | Bot+ (1 250 stones) | Levels | Effect at 0 → max | Why it ranks |
@@ -356,6 +419,11 @@ buying *before* another bot's level 1.
 - [ ] **§3.1 the stop rule:** **Cooldown 15 / Duration 14** reads `27 s / 75 s` = **36 %** uptime on
       `5 040 + 5 700 =` **10 740** medals (against **26 100** fully capped) — the last sixteen levels sit below the
       cosmetic par of **0.296e-4**.
+- [ ] **§3.2 the Range–Bonus tie:** one **Range** level must read `22 m` and one **Bonus** level `×2.2`; if the collected
+      coins move by the **same** factor after each (measured over the same wave window), the `1/(n + 9)` identity holds and
+      `A = 0` (**H067**).
+- [ ] **§3.2 the par plan:** at **R 20 / B 24 / D 14 / C 15** the panel reads `60 m / ×6.8 / 27 s / 75 s` on
+      `9 600 + 13 440 + 5 040 + 5 700 =` **33 780** medals (**27.8 events**), against **56 100** fully capped.
 - [ ] The respec costs **300 gems** and the medal counter returns in full.
 - [ ] The five unlock prices are **150 / 300 / 600 / 900 / 1 200** ⇒ **Σ 3 150**.
 - [ ] The **theme** costs **150** and the **background** **250** in the current event (**400** together), and each of the
@@ -407,6 +475,11 @@ buying *before* another bot's level 1.
 - **§3.1:** if the bot's coin output does **not** scale with the on-time fraction (e.g. a fixed number of collections per
   activation), the ranking still orders the lines but the multipliers are no longer the coin multipliers → re-check the
   coin/day counter with the two lines capped (**46.67 %** uptime expected).
+- **§3.2:** if one **Range** level changes the collected coins by other than `2/(20 + A + 2(n−1))` for one constant `A`,
+  coverage is not linear in the printed range → use the measured per-level factors instead of `1/(n + 9)`
+  ([H067](../hypotheses/H067-bot-range-amplification.md)); the Bonus/Duration/Cooldown ladders are unaffected.
+- **§3.2:** if **Bonus** and **Range** do **not** tie at level 1 (both should be a 10 % step), then `A > 0` and Bonus leads
+  — re-run `tools/bot-four-line-density.ps1` with the measured `A`; the par-optimal level counts fall out of the same loop.
 
 ## Sources
 
@@ -469,3 +542,8 @@ buying *before* another bot's level 1.
   (**Cooldown 15 / Duration 14**, `5 040 + 5 700 =` **10 740** medals) and the segment check
   (**900** medals for ×1.143 vs **2 900** for ×1.200). It also re-adds every printed per-line total from
   `Σ(100 + 40(n−1)) = 20L² + 80L`: **20 400** (L30) · **5 700** (L15) · **9 600** (L20) · **7 920** (L18).
+- `tools/bot-four-line-density.ps1` (new, §3.2) — the four density ladders and the `dR = dB = 1/(n + 9)` identity check,
+  the par-optimal plan (**R 20 / B 24 / D 14 / C 15 = 33 780** medals, `Σ ln = 3.092` = **×22.03**, **0.92e-4** average)
+  with its purchase sequence, and the `A`-sensitivity table (**10.00 / 6.67 / 5.00 / 3.33 / 2.00e-4** at level 1 for
+  `A = 0 / 10 / 20 / 40 / 80` m). Prints from Tower Hub `wiki/bot/golden-bot` (the “amplified by your tower's range”
+  sentence) and the fandom `Golden Bot` ladder values (`20 m`, +2 m, cap 60 m; ×2.0, +0.2, cap ×8.0).
