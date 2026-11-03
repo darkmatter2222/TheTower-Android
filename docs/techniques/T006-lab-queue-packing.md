@@ -1,5 +1,15 @@
 # T006 — Pack the Lab queue, then buy the *cheapest* skipped hour
 
+Rev: 30 (2026-11-03) — **the Utility Research category is priced line by line** (§Utility Research,
+`tools/utility-research-family.ps1`): **12 lines / 611 levels**, where the four workshop-increment lines share the
+head-**40** 99-level column at **111 696 509** coins / **1 444.98 d** each (**57** cost cells differ from the head-30
+column by **+570 coins** in total — one ladder, two prints), `Interest` is the `Labs Coin Discount` ladder at head 50
+(Δ **40 670**), `Max Interest` lifts the interest cap **$50 → $15 000** for **2 304 140** coins =
+**154.1 coins per dollar of cap**, the three `Recovery Package …` lines share one 20-level column
+(**2.968 19 T** / **263.34 d**) whose times are the exact 20-level prefix of the enemy-stat ladder and whose prices obey
+**`enemy(n) = Recovery(n) + 10 + 25(n − 1)`** (0 of 20 mismatching), and a fourth **humped** clock shape appears
+(**1.1503 → 1.1909 → 1.1726**); the seven-line coin-side block costs **1 921 559 012** coins = **1.37 y** of five-slot
+boosted clock. Appendix B now covers **121 / 169 lines = 4.866 Q / 270 725.1 d (71.6 %)**.
 Rev: 29 (2026-11-03) — **the Defense Research category is priced line by line** (§Defense Research,
 `tools/defense-research-family.ps1`): **16 lines / 635 levels = 187.228 T coins over 15 076.3 d**, with **three**
 more lines (`Health`, `Health Regen`, `Defense Absolute`) joining the shared 99-level column at
@@ -805,24 +815,25 @@ and what the covered part costs. Only layers whose **every** line carries a prin
 | `H` the **Main Research** category (§Main Research, Rev 27) | 15 | **826.445 q** | 16 806.0 d |
 | `I` the **Attack Research** category (§Attack Research, Rev 28) | 9 | 25.594 T | 124 747.5 d |
 | `J` the **Defense Research** category (§Defense Research, Rev 29) | 15 | **187.228 T** | 15 050.9 d |
-| **Σ priced** | **111** | **4.866 Q** | **260 639.7 d** |
+| `K` the **Utility Research** category (§Utility Research, Rev 30) | 10 | **8.906 T** | 10 085.4 d |
+| **Σ priced** | **121** | **4.866 Q** | **270 725.1 d** |
 
 In income units **(the Rev 25 72-line bill)**: **coins 5 770 d = 15.80 years** at 700 T/day · **clock 104 035.3 d** =
 285 y single-slot = **57.01 y** on five slots = **15.3 y** with the ×3.725 stack · the ×1.5 boost on the whole covered part
 is **2.4968 × 10⁷ cells** = **24 968 d ≈ 68 years** of cell income ⇒ **cells bind by ×4.33** over the coins.
 
-Scaled to the **111-line** bill the same two conversions give **coins 6 951 d = 19.03 y** at 700 T/day and
-**clock 260 639.7 d = 713.6 y** single-slot = **142.7 y** on five slots = **38.3 y** with the ×3.725 stack (the cell bill
+Scaled to the **121-line** bill the same two conversions give **coins 6 951 d = 19.03 y** at 700 T/day and
+**clock 270 725.1 d = 741.2 y** single-slot = **148.2 y** on five slots = **39.8 y** with the ×3.725 stack (the cell bill
 is read from the printed boost table rather than re-derived here).
 
 **Three facts the table produces.**
-1. **Coverage is 111 / 169 census lines = 65.7 %.** Layers `H`, `I` and `J` were added from the fandom per-line lab
-   tables at Rev 27/28/29; the unpriced **58** now sit in `Utility` (10), `Card` (18), `Perk` (9), `Bot` (8),
+1. **Coverage is 121 / 169 census lines = 71.6 %.** Layers `H`–`K` were added from the fandom per-line lab
+   tables at Rev 27/28/29/30; the unpriced **48** now sit in `Card` (18), `Perk` (9), `Bot` (8),
    `Module` (6), `Enemies` (the 2 `Boss` lines) and `Battle Condition` (5) — those pages print a ladder but no `Total`,
    so they need a device read or a per-level product.
 2. **One band dominates the old bill, but not the new one: the fourteen T19-band lines** (`B2` + `C`, the
    `0.25 q × n` / `n × 933 078 s` arithmetic ladders) are **40.29 %** of the covered coins and **67.6 %** of the covered
-   clock **inside the 72-line bill**; with `H`, `I` and `J` they are **33.4 %** and **27.0 %**, because `H`’s single
+   clock **inside the 72-line bill**; with `H`–`K` they are **33.4 %** and **26.0 %**, because `H`’s single
    `Enhancement Coin Discount` line (826.445 q) and `I`’s clock (124 747.5 d, 94.47 % of it in the two Super Crit lines)
    and `J`’s single `Wall Fortification` line (174.666 T) all became major contributors. Because both columns of the T19 band are arithmetic there,
    their clock grows *proportionally* with their coins — unlike the geometric `L-I…L-VI` families, which front-load coins.
@@ -834,7 +845,10 @@ is read from the printed boost table rather than re-derived here).
    coins (**0.0005 %** of the bill, 0.051 % of one 500 T income day) for **124 747.5 d** of clock, i.e. it is the layer
    whose price is *entirely* clock-bound (§Attack Research, finding 7). The **Defense layer** (15 lines) is the mirror
    image: **187.228 T** of coins = **0.0038 %** of the bill for **5.8 %** of its clock, with **93.29 %** of that
-   layer’s coins in the single 60-level `Wall Fortification` line (§Defense Research, finding 6).
+   layer’s coins in the single 60-level `Wall Fortification` line (§Defense Research, finding 6). The **Utility layer**
+   (10 lines, §Utility Research) splits the same way twice over: **99.98 %** of its coins sit in the three identical
+   `Recovery Package …` lines while **57.3 %** of its clock sits in the four cheap 99-level workshop-increment lines —
+   so the four lines that actually multiply coin income are the cheapest per unit in the category.
 
 ### The enemy-stat layer, ladder by ladder (Rev 11)
 
@@ -1231,6 +1245,65 @@ step sequence (`1 + 0.03n`, `0.20n`, `10n`, `0.5n`, …), and the category close
    **T1 W30**; `Shockwave Size` **T3 W50**; `Orb Speed` **T3 W80**; `Defense Percent` **T5 W30**; `Land Mine Damage` and
    `Land Mine Decay` **T6 W30**; `Orb Boss Hit` **T6 W750**; `Wall Fortification` **T14 W60**.
 
+### The Utility Research category priced line by line (new, Rev 30)
+
+Ten new lines, from `Lab/Cash Bonus`, `Lab/Cash Per Wave`, `Lab/Coins Per Kill Bonus`, `Lab/Coins Per Wave`,
+`Lab/Interest`, `Lab/Max Interest`, `Lab/Package After Boss` and `Lab/Recovery Package Amount` / `Max` / `Chance`; caps
+cross-checked against `Lab Category/Utility Research` (12 lines), the two `* Level Skip` lines having been priced already
+as Appendix B layer `F`. Re-added offline by `tools/utility-research-family.ps1`. The category closes at **12 lines /
+611 levels**.
+
+| Line | Levels | Σ coins | Σ clock | printed value law | coins per unit of value |
+|---|---|---|---|---|---|
+| `Cash Bonus` · `Cash / Wave` · `Coins / Kill Bonus` · `Coins/wave` | 99 each | **111 696 509** each | 2 080 774 min = **1 444.98 d** each | `1 + 0.02n` ⇒ **2.98** | **564 124** per +0.01 |
+| `Interest` | 99 | 472 468 836 | 4 904 452 min = 3 405.87 d | `1 + 0.02n` ⇒ 2.98 | 2 386 206 per +0.01 |
+| `Max Interest` | 15 | **2 304 140** | 146 207 min = 101.53 d | cap 50 ⇒ **15 000** | **154.1** per $ of cap |
+| `Package After Boss` | 1 | 1 B | 11 666 min = 8.10 d | `Unlocked` | 1 × 10⁹ |
+| `Recovery Package Amount` | 20 | 2.968 19 T | 379 207 min = 263.34 d | `0.40n` pp ⇒ 8.00 % | 3.710 2 × 10¹¹ |
+| `Recovery Package Max` | 20 | 2.968 19 T | 379 207 min = 263.34 d | `1.00n` pp ⇒ 20 % | **1.484 1 × 10¹¹** |
+| `Recovery Package Chance` | 20 | 2.968 19 T | 379 207 min = 263.34 d | `0.20n` pp ⇒ 4.00 % | 7.420 5 × 10¹¹ |
+| `Enemy Attack Level Skip` · `Enemy Health Level Skip` | 20 each | (layer `F`: 1.49 T) | 260.62 d | 200 − 10n waves | see §the 20-level families |
+| **Σ 12 lines** | **611** | **10.396 T** | **14 898 335 min = 10 346.1 d** = 28.3 y | — | — |
+
+1. **The shared 99-level column recurs a second time, now at head 40.** The four workshop-increment lines are
+   byte-identical tables: **111 696 509** coins / **2 080 774 min = 1 444.98 d** each, L1 **40** coins / **0 m** /
+   **1.02**, L99 **4 190 000** / **49 d 0 h 58 m** / **2.98**. That is the same ladder as the head-30 column of Rev
+   27-29: **57 of 99** cost cells differ but only by **+570 coins** in total, and **9 of 99** time cells by **+9 min** —
+   two prints of one ladder, so coins per +0.01 differ by three coins (564 124 against `Attack Speed`’s 564 121). The
+   block of four costs 446 786 036 coins / 5 779.93 d, i.e. the Main-category block of four (446 783 756) plus 4 × 570.
+2. **`Interest` is the `Labs Coin Discount` ladder at head 50.** Σ **472 468 836** against that line’s 472 509 506 —
+   Δ **−40 670** spread over 47 differing cells, identical tail (19 360 000) and identical value law `1 + 0.02n`. Relative
+   to the 40-head column it is **4.230×** the coins and **2.357×** the clock, so per unit of printed multiplier `Interest`
+   costs **2 386 206** coins where the four workshop lines cost **564 124**.
+3. **The interest-cap question collapses to one 15-level table.** `Max Interest` prints caps 100, 200, 300, 500, 700,
+   1 000, 1 500, 2 000, 2 500, 3 500, 5 000, 7 500, 10 000, 12 500, **15 000** against a **$50** base, for Σ **2 304 140**
+   coins / **101.53 d** ⇒ **154.1 coins per dollar of cap** and **0.0068 d per dollar** — the cheapest line per unit of
+   effect in the whole priced census. The cap ladder is *not* arithmetic: the steps are +100 +100 +200 +200 +300 +500
+   +500 +500 +1 000 +1 500 +2 500 +2 500 +2 500 +2 500.
+4. **The three Recovery lines are one table printed three times.** 20 identical cost cells and 20 identical time cells
+   (Σ **2.968 19 T** / **263.34 d**), with only the value column separating them (`0.40n`, `1.00n`, `0.20n` pp). Priced per
+   printed percentage point the order is `Recovery Package Max` **1.484 1 × 10¹¹** < `Amount` **3.710 2 × 10¹¹** <
+   `Chance` **7.420 5 × 10¹¹** (clock per pp 13.167 / 32.917 / 65.835 d) — same bill, so buy `Max` first.
+5. **Two categories share one generator.** The Recovery time column is the exact 20-level prefix of the 30-level
+   enemy-stat ladder (`Fast Enemy Health` & co.), **0 differing cells** (the enemy tail L21-30 is 1 400 541 min, full
+   ladder 1 779 748 min). Their *price* columns obey the two-parameter relation
+   **`enemy(n) = Recovery(n) + 10 + 25(n − 1)`** — **0 of 20** cells mismatch, and the per-step increments differ by
+   exactly **+25 B** in 19 of 19 steps. One 20-cell array therefore prices five census lines.
+6. **A fourth clock shape: the hump.** Consecutive-time ratios inside the Recovery ladder rise **1.1503 → 1.1909**
+   (step L12→L13) and then fall to **1.1726** — neither the exact ×1.15 law of the 20-level families nor the decaying
+   ratio of `Wall Fortification`. Fit it from the cells, not from a single ratio.
+7. **The coin-side block is the cheapest multiplier block in the census.** `Cash Bonus` + `Cash / Wave` +
+   `Coins / Kill Bonus` + `Coins/wave` + `Interest` + `Max Interest` + `Package After Boss` = **1 921 559 012** coins
+   (1.9216 B = 0.000 04 % of the priced bill) for **9 295.4 d** of raw clock — 25.4 y single-slot, **5.1 y** on five
+   slots, **1.37 y** with the ×3.725 stack — and that is what carries four ×2.98 workshop increments, the interest
+   ×2.98 and the ×300 interest cap. Inside the layer they are **0.02 %** of the coins and **92.2 %** of the clock, so
+   queue them early and pay for them with the ×1.5 cell boost rather than with gems.
+8. **Layer shares.** The three Recovery lines hold **99.98 %** of the layer’s coins for **7.8 %** of its clock; the four
+   40-head lines hold **0.01 %** of its coins for **57.3 %** of its clock. The layer (10 lines) = **8.906 T** =
+   **0.0002 %** of the bill coins and **3.7 %** of its clock.
+9. **Gates** printed on the pages: the four workshop-increment lines **T1 W30** (`Interest`, `Max Interest`, the three
+   Recovery lines and `Package After Boss` print no gate sentence — the Milestones screen is the authority for those).
+
 ## Reproduction checklist
 
 - [ ] No slot shows “completed, not started” for more than a few minutes; at least one long level is running overnight.
@@ -1384,6 +1457,16 @@ step sequence (`1 + 0.03n`, `0.20n`, `10n`, `0.5n`, …), and the category close
 - [ ] **§Defense Research (Rev 29):** `Wall Invincibility` prints ten prices from **300 000 000 000** to
       **783 630 000 000** (steps of about 51 B) with **1.0 s … 10.0 s**, and `Wall Fortification` level 60 reads
       **10 570 000 000 000** / **57 d 10 h 12 m** / **1200 %**.
+- [ ] **§Utility Research (Rev 30):** `Cash Bonus` level 1 reads **40** coins / **0 m** / **1.02** and level 99 reads
+      **4 190 000** / **49 d 0 h 58 m** / **2.98** - and `Cash / Wave`, `Coins / Kill Bonus` and `Coins/wave` print those
+      same two rows.
+- [ ] **§Utility Research (Rev 30):** `Max Interest` level 1 is **250** coins / **41 m** / **$100** and level 15 is
+      **624 680** / **28 d 2 h 55 m** / **$15 000**; `Interest` level 1 is **50** coins / **0 m** / **1.02** and level 99
+      is **19 360 000** / **122 d 9 h 39 m** / **2.98**.
+- [ ] **§Utility Research (Rev 30):** `Recovery Package Max` level 1 is **20 B** / **2 d 7 h 33 m** / **1.00 %** and
+      level 20 is **476.6 B** / **41 d 10 h 16 m** / **20 %**, and `Fast Enemy Health` level 20 shows the *same*
+      **41 d 10 h 16 m** while `Recovery Package Amount` / `Chance` show **476.6 B** and that time too; the two
+      `* Level Skip` lines are the only other 20-level Utility lines.
 
 ## Falsification
 
@@ -1511,6 +1594,14 @@ step sequence (`1 + 0.03n`, `0.20n`, `10n`, `0.5n`, …), and the category close
 - **§Defense Research ladder twins:** `Shockwave Size` and `Land Mine Damage` agree on coins to 0.012 % but not on clock
   (ratio **1.449**); if a version makes those two rows identical in both columns, one of the two tables is being copied
   and only a device read can separate them again.
+- **§Utility Research (Rev 30):** if the four workshop-increment lines stop all printing **4 190 000** /
+  **49 d 0 h 58 m** at level 99, or `Interest` stops printing **19 360 000**, the two-heads-one-ladder model is gone and
+  each 99-cell column must be summed on its own; the coins-per-+0.01 figures 564 124 and 2 386 206 move with them.
+- **§Utility Research cross-category ladder identity:** if `Recovery Package Max` level 20 stops matching
+  `Fast Enemy Health` level 20 on the **time** column, the prefix relation (finding 5) is broken; if the price columns
+  stop obeying **`enemy(n) = Recovery(n) + 10 + 25(n − 1)`** (0 of 20 cells today), re-derive both arrays separately. If
+  `Max Interest` level 15 prints something other than **$15 000**, the cap ladder was rebalanced and the
+  **154.1 coins per dollar of cap** figure must be recomputed from the new cells.
 - **§Main Research:** if `Starting Cash` and `Workshop Attack Discount` no longer print an identical cost column, the
   shared ladder split ⇒ re-run `tools/main-research-family.ps1` with two arrays; the four per-line figures change but the
   category total does not (each line is still counted once). If `Enhancement Coin Discount` level 1 stops being **1.00B**
@@ -1686,3 +1777,11 @@ step sequence (`1 + 0.03n`, `0.20n`, `10n`, `0.5n`, …), and the category close
   `Lab Category/Defense Research` (the 16-line name list with `Max Lv`) and `Lab Category/Utility Research` (the 12-line
   list, used to confirm the census counts). Note the wall tables write decimals with a comma (`48,61B` = 48.61 B), so a
   naive comma-strip mis-scales them by x10 — `tools/defense-research-family.ps1` transcribes the normalized values.
+- fandom lab pages, raw wikitext via `api.php?action=parse&prop=wikitext` (pulled 2026-11-03) — the **Utility Research
+  category** tables: `Lab/Cash Bonus`, `Lab/Cash Per Wave`, `Lab/Coins Per Kill Bonus`, `Lab/Coins Per Wave` (99 rows each,
+  `40 … 4,190,000`, `0m … 49d 0h 58m`, `1.02 … 2.98`), `Lab/Interest` (99 rows `50 … 19,360,000`), `Lab/Max Interest`
+  (15 rows `250 … 624,680`, caps `$100 … $15,000`), `Lab/Package After Boss` (1 row `1,000,000,000` / `8d 2h 26m`),
+  `Lab/Recovery Package Amount` / `Max` / `Chance` (20 rows each `20,000,000,000 … 476,600,000,000`,
+  `2d 7h 33m … 41d 10h 16m`) plus `Lab/Fast Enemy Health` (the 30-row ladder the Recovery times prefix) and
+  `Lab Category/Utility Research` (the 12-line name list with `Max Lv`). New script:
+  `tools/utility-research-family.ps1`.
