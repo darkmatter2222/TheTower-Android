@@ -1,5 +1,13 @@
 # T006 — Pack the Lab queue, then buy the *cheapest* skipped hour
 
+Rev: 39 (2026-11-03) — **§The value side of the cheap layers** (new): `Σ ln` computed from the printed value laws for
+`E` **2.3026** · `D` **2.9957** · `F` **5.9915** · `L` **8.0064** · `M` **40.7349** (32 × `ln(5/1.4)`) · `O` **4.5990** ·
+`G` **0.6123**, which turns the cost ledger into a schedule. Density order: **`E` 0.452 374 > `D` 0.116 339 > `F` 0.114 946
+> medal sheet 0.050 720 > `L` 0.033 768 > par 0.017 957 > `M` 0.011 315 > `O` 0.003 481 > `G` 0.003 412 per day** — three
+lab layers beat the whole medal sheet, and `L` (9.9× `G`) **swaps ahead of `G`** against the cost-side order. `Garlic
+Thorns` is the densest object found anywhere: **1.685 094/day** with the ×3.725 stack, **94×** the par. The two printed
+per-unit figures re-add from the same laws (**373 B**/point for `F`, **1.388 9e16**/multiplier for `M`) ✓.
+`tools/lab-value-layers.ps1`.
 Rev: 38 (2026-11-03) — **§The whole lab tree on the calendar** (new): the same two divisions applied to all **seventeen**
 priced layers of §Appendix B — `coin-days = Σ coins/700 T` and `calendar days = Σ clock/slots`, `cost = max(both)` — so the
 191-line census and the 445-tap medal sheet sit in **one** queue. Totals re-add: `Σ coins` ⇒ **4 634 055.8** coin-days
@@ -1725,6 +1733,50 @@ so this ledger is **cost-side**: it orders the layers by the calendar they consu
 where `Σ ln` is known. `I` (Attack, 9 lines at 2 772 d/line) and `N` (Perk, 4 070 d/line) are the two clock hogs of the
 tree — 61.9 % of the clock between them — so a mistake in either of their shared time columns moves the whole ledger most.
 
+### The value side of the cheap layers — `Σ ln` for `E`, `D`, `F`, `G`, `L`, `M` (new, Rev 39)
+
+The Rev 38 ledger was cost-side. Seven layers carry a **complete printed value law**, so their `Σ ln` and therefore their
+density can be computed and compared with the medal sheet (**0.050 720/day**) and the par (**0.017 957/day**). Convention,
+as in T015 §3.2: `gain = ln(value at max level / value at level 1)` read from the printed law — for a pure `k·n` law that is
+`ln(N)` — and `density = Σ ln / (Σ clock / (1440 × 5 slots))`. `tools/lab-value-layers.ps1`.
+
+| layer | the printed law | Σ ln | cal-days | **per day** | + stack | × par | × sheet |
+|---|---|---|---|---|---|---|---|
+| `E` `Garlic Thorns` | `+0.5 × n` ⇒ 5.0 (10 lv) | 2.302 6 | 5.09 | **0.452 374** | 1.685 094 | 25.2 | 8.92 |
+| `D` Recharge Second Wind + Second Wind Blast | `2 000 → 400` waves · `25n` (4 lv) | 2.995 7 | 25.75 | **0.116 339** | 0.433 363 | 6.5 | 2.29 |
+| `F` the two `* Level Skip` | `0.10 × n` ⇒ +2.00 (20 lv each) | 5.991 5 | 52.12 | **0.114 946** | 0.428 175 | 6.4 | 2.27 |
+| `L` the six named Card lines | `1n`⇒30 pp · `+1/+2` ×2 · `1 500 → 300` ×2 | 8.006 4 | 237.10 | **0.033 768** | 0.125 785 | 1.9 | 0.67 |
+| `M` the 32 mastery labs | ×1.4 → ×5 (9 lv, shared table) | 40.734 9 | 3 600.0 | **0.011 315** | 0.042 149 | 0.63 | 0.22 |
+| `O` Bot Research | (the ten lines of Rev 37) | 4.599 0 | 1 321.16 | **0.003 481** | 0.012 967 | 0.19 | 0.07 |
+| `G` `Super Tower Bonus` | `1 + 0.03n` ⇒ 1.90 (30 lv) | 0.612 3 | 179.46 | **0.003 412** | 0.012 709 | 0.19 | 0.07 |
+
+**1. Three lab layers outrank the whole medal sheet.** Sorted by density (Smith’s rule = the schedule that maximises the
+`Σ ln` delivered by a deadline): `E` 0.452 374 · `D` 0.116 339 · `F` 0.114 946 · **medal sheet** 0.050 720 · `L` 0.033 768 ·
+**par** 0.017 957 · `M` 0.011 315 · `O` 0.003 481 · `G` 0.003 412. So the practical order is
+**`E → D → F → L`, then the medal sheet, then `M`, then `O` and `G`** — one change against the cost-side queue of Rev 38,
+which had `G` ahead of `L`: **`L` is 9.9× the density of `G`** (8.0064/237.1 vs 0.6123/179.46), so `G` drops behind the
+sheet. Concretely, with the stack up: `E` is a **1.4-day** item, `D` **6.9 d**, `F` **14.0 d**, `L` **63.7 d** — the four of
+them are 86 calendar days of slot time for `Σ ln` **19.30**, against the sheet’s 17.755 for 350 days.
+*(`Garlic Thorns` is the highest-density object found anywhere in this research: **1.685 094/day** with the stack,
+**94×** the par — it is a 1 350 000-coin, 10-level line whose whole ladder is 25.45 slot-hours of clock.)*
+
+**2. Convention sensitivity (the two ways to read a `k·n` law).** Taking the level-0 base instead of the level-1 base, i.e.
+`ln((ρ+N)/ρ)` with `ρ = base/increment`, changes `Σ ln` by `+4.1 %` (`E`), `+1.6 %` (`F`), `+4.8 %` (`G`), `+1.0 %` (`L`’s
+Death Ray) and `+16.1 %` (`D`’s Blast) — none of which moves any rank. Only the two-level `+1`/`+2` lines are sensitive
+(`+58.5 %`, `ln 2` → `ln 3`), and they are 0.6931 of `L`’s 8.0064, so `L`’s density stays in the 0.028–0.046 band.
+
+**3. Two printed per-unit figures re-add from these laws** — an independent check that the laws were transcribed right:
+`F` `0.745 T / 2.00 points =` **3.725 × 10¹¹ coins/point** = the printed **373 B** ✓; `M` `50.00 q /(5 − 1.4) =`
+**1.388 9 × 10¹⁶** ✓ = the printed figure, and `ln(5/1.4) = 1.272 966` × 32 = **40.7349** ✓ (assuming all 32 mastered cards
+share the printed 1.4 → 5 table, see below). The layer sums also re-add: `D` `14.430 T + 84.3 M =` **14.430 09 T** vs the
+printed **14.4301 T** ✓; `L`’s six lines = **30.847 1 T** and **1 185.53 d** vs the printed **30.848 T / 1 185.5 d**
+(Δ **0.000 9 T**, 3 × 10⁻⁵ %, the two-significant-figure `890 B` line) and `M` `32 × 562.5 =` **18 000 d** ✓.
+
+**4. Still cost-side for the other ten layers.** `A`, `B`, `B2`, `C`, `H`, `I`, `J`, `K`, `N`, `P`, `Q` have no `Σ ln` yet
+(their per-line laws are printed but not summed), and the two ceilings of Rev 38 hold regardless: `I` and `N` would need
+**140.6** and **206.5** `ln` per line to catch the sheet, while the richest single lab line found here is `E` at **2.3026**
+— so the sheet stays ahead of every unpriced layer by two orders of magnitude.
+
 ### The Battle Condition category and the two `Boss` lines — the census closes at 100 % (new, Rev 34)
 
 Five BC lines (`Lab/Battle Condition Reduction`, `Lab/Battle Conditions Group 1…4`) plus the two `Boss` lines
@@ -2074,6 +2126,13 @@ the §census Module row’s “12 lines, Σ **254**” ✓. `tools/module-named-
       `212 660/607.5 =` **350.06** days of the medal sheet.
 - [ ] **§Rev 38:** the two coin-bound layers are the ones whose appendix `Σ coins` is in the `Q` range (`C` **930.00 Q**,
       `P` **2 307.577 5 Q**) and their coin-days are **1 328 571.4** and **3 296 539.3**, together **99.81 %** of the bill.
+- [ ] **§Rev 39 (the value side):** the four laws read straight off the **Lab** pages — `Garlic Thorns` level **10** prints
+      **5.0** (`+0.5 × n`), `Enemy Attack Level Skip` level **20** prints **+2.00** (`0.10 × n`), `Super Tower Bonus` level
+      **30** prints **1.90** (`1 + 0.03n`), and one `Damage` mastery lab prints **×1.4 → ×5** over **9** levels.
+- [ ] **§Rev 39:** the two printed per-unit figures fall out of those same laws: `0.745 T / 2.00 =` **373 B** coins per
+      point for a `* Level Skip` line, and `50.00 q / 3.6 =` **1.388 9e16** coins per unit of multiplier for a mastery lab.
+- [ ] **§Rev 39:** the schedule is `E → D → F → L`, then the medal sheet, then `M`, then `O`, then `G` — with the stack up
+      their clock legs are **1.4 / 6.9 / 14.0 / 63.7** days, i.e. **86** days for `Σ ln` **19.30**.
 
 ## Falsification
 
@@ -2278,6 +2337,16 @@ the §census Module row’s “12 lines, Σ **254**” ✓. `tools/module-named-
 - **§Rev 38:** if your printed coin `income/day` is between **663.6 T** and **672.4 T**, layers `A` and `Q` are on
   opposite sides of their flips — the two of them are the only order-sensitive layers at the anchor, all others are the
   same in both regimes.
+- **§Rev 39:** if a mastery lab other than `Damage` prints a final multiplier other than **×5** (or a base other than
+  **×1.4**), `Σ ln = 40.7349` for layer `M` is wrong and the layer must be summed from the 32 printed pairs; the other six
+  layers are unaffected. The layer-`M` density only changes the ranking if it moves below **0.003 481** (past `O`) or above
+  **0.017 957** (past the par), i.e. if `Σ ln` leaves **12.53 … 64.65**.
+- **§Rev 39:** if `Garlic Thorns` prints a **`+0.5`** step at a level other than 10 (the cap is **10** in the §cap table),
+  `ln 10` becomes `ln N`; first place survives down to **`N = 2`** (`ln 2 / 5.09 =` **0.136 2** > 0.114 946), so only a
+  one-level cap would move it.
+- **§Rev 39:** the `+1`/`+2` two-level lines (`Energy Shield Extra Hit`, `Extra Extra Orbs`) are the only ones whose `ln`
+  depends on the level-0-vs-level-1 reading (**58.5 %**); if the **Lab** page prints a level-0 value for them, use `ln 3`
+  and `L`’s density rises from 0.033 768 to **0.037 189** (`Σ ln 8.8172 / 237.1`) — still between the par and the sheet.
 
 ## Sources
 
@@ -2526,3 +2595,8 @@ the §census Module row’s “12 lines, Σ **254**” ✓. `tools/module-named-
   **497 359.6** slot-days = **99 471.9** calendar days = **26 703.9** with the stack), the `C`+`P` share (**99.81 %**), the
   cheapest-first queue with the medal sheet inserted, the per-line costs, the per-layer flip incomes
   (**663.6 T** for `A`, **672.4 T** for `Q`) and the with-stack year-one cumulative (**134.1 d** for the first five layers).
+- `tools/lab-value-layers.ps1` (new, Rev 39) — the value side: the seven `Σ ln` values (**2.3026 / 2.9957 / 5.9915 /
+  8.0064 / 40.7349 / 4.5990 / 0.6123**), the density table (**0.452 374 / 0.116 339 / 0.114 946 / 0.033 768 / 0.011 315 /
+  0.003 481 / 0.003 412** per day, and the ×3.725-stack column), the convention-sensitivity list (`+4.1 / +1.6 / +4.8 /
+  +1.0 / +58.5 / +16.1 %`), and the re-adds **373 B** per point, **1.388 9e16** per multiplier, `D` **14.430 09 T**,
+  `L` **30.847 1 T / 1 185.53 d**, `M` **18 000 d**.
