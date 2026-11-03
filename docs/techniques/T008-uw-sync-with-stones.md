@@ -1,5 +1,14 @@
 # T008 — Stone economy: knee-first UW buying + cooldown sync
 
+Rev: 12 (2026-11-03) - **§3.②, stones as the third resource of the day-scale model**: `cost = max(coins/700 T, clock/5,
+stones/income)` on the nine §3.① blocks + the nine §1.④ trees, with `income` = T014 §3.3 ÷ 7 (**13.929 … 2 893.929**
+st/day) and the value convention “a stone buy grants the **level-0** value ⇒ `ln(v(n)/v(0))`”. The 27 basic lines close
+at `Σ ln` **67.468 4** and the UW+ trees at **25.214 6** (fitted caps reproduce every printed cell). Per-stage
+densities **0.041 445 / 0.022 090 / 0.012 283 / 0.003 272** — the first three stages are **20.1 %** of the bill for
+**62.6 %** of the `ln`; the knee package is **328.0 st/ln** against **611.8** for uniform L5 depth (**1.86×**), and its
+`×damage` quintet alone reaches **0.102 515**/day. Merged schedule: the head is now **six** items and invariant in both
+pp readings, `E D F quintet knee-pkg sheet` then `L`; from the **Gold** band up the quintet outranks `E`.
+`tools/stone-day-ledger.ps1`.
 Rev: 11 (2026-11-03) - **§4.①, the orbless acceptance test** (`wiki/guide/orbless-guide`, 2026-11-01): the synced set now
 has printed numbers — **uptime > 50 %** with a **second BH** and **GT bonus ≥ 16×**, **BH size 44–48 m at 30 m range**,
 `Spotlight` **3 beams / ≥ 40° angle / ≥ 20× bonus** (**≥ 60°** before taking SL4), kills **≥ 20×** faster inside the beam,
@@ -421,6 +430,82 @@ PS Cooldown L5 (**440**) + CF Slow / Duration / Cooldown L5 (**635**) + GT Multi
 GT 910 + BH 910 + DW 800 = **2 620** ✓ — the parser's L10 column reproduces §3's hand-read blocks exactly (910 / 910
 / 800 / 534 / 1 076), which is the cross-check between the two readings.
 
+### 3.② The stone layer on the day scale — stones as the third resource (new, Rev 12)
+
+The lab ledger's model (`tools/lab-tree-day-ledger.ps1`) divides each layer by two resources. Stones are the third, and
+they do not substitute for the other two: **`cost_days = max(Σ coins / 700 T , Σ clock / 5 , Σ stones / income_st)`**.
+`income_st` is T014 §3.3's total-week row ÷ 7 — **13.929** st/day with no tournaments (45 + 52.5), **25.357** F2P /
+**28.571** boosted at Copper 23–30, **35.929 / 75.643 / 168.214 / 928.214 / 2 893.929** at the five higher bands. The
+model reproduces T014 §3.3's own answers: 452 282 st ÷ 25.357 = 17 836 d = **48.9 y** (doc **49.0**) and ÷ 28.571 =
+**43.4 y** (doc **43.5**) ✓. `tools/stone-day-ledger.ps1`.
+
+**Convention.** A stone purchase grants the printed **level-0** value (§1.④ item 3, and T012's 10 % law for the
+masteries), so a block of `n` levels is worth **`ln( v(n) / v(0) )`**; `v(n) = min + step·n` for the 22 arithmetic rows
+(§3.①), and for the five geometric `×damage` rows `v(n) = v0 · rⁿ` with `r = (max ÷ min)^(1/levels)` fitted from the two
+printed cells. Σ `ln` at cap: **67.468 4** for the 27 basic lines, **25.214 6** for the nine UW+ trees (92.683 for the
+layer). The four §3.① budget columns re-add exactly (**11 461 / 25 045 / 49 194 / 244 542**) and the nine trees to
+**179 240**, with every fitted cap value equal to its printed cell (only `Death Creep` differs, 1 100 vs **1 110**, the
+known last-cell `+80`).
+
+**1. The four-stage ladder, priced by stage** (marginal, so the densities are the buy order):
+
+| stage | stones | % of the 244 542 | stage `ln` | % of 67.468 4 | st / `ln` | days @ 25.357 | **/day** |
+|---|---|---|---|---|---|---|---|
+| all 27 lines → **L5** | 11 461 | 4.7 % | 18.732 3 | 27.8 % | **611.8** | 452.0 | **0.041 445** |
+| L5 → **L10** | 13 584 | 5.6 % | 11.833 8 | 17.5 % | 1 147.9 | 535.7 | 0.022 090 |
+| L10 → **L15** | 24 149 | 9.9 % | 11.697 6 | 17.3 % | 2 064.4 | 952.4 | 0.012 283 |
+| L15 → **cap** | 195 348 | 79.9 % | 25.204 7 | 37.4 % | 7 750.4 | 7 703.9 | 0.003 272 |
+
+The layer is front-loaded on both sides: the first three stages are **20.1 %** of the bill for **62.6 %** of its `ln`,
+and the last stage is **12.7× dearer per `ln`** than the first. Knee-first (§3) is now a measured number, not a heuristic.
+
+**2. Knee-first selection beats uniform depth, by 1.86×.** The §3.① **8 865**-stone package carries `ln` **27.028 1** =
+**40.1 %** of the layer at **328.0 st/ln**; the same idea bought uniformly (every line to L5) is 11 461 st for `ln`
+18.732 3 = **611.8 st/ln**. Its nine sub-blocks, ranked:
+
+| block | stones | `ln` | st / `ln` | /day @ 25.357 |
+|---|---|---|---|---|
+| the five `×damage` lines to **L15** | 4 205 | 17.000 2 | **247.4** | **0.102 515** |
+| the five `quantity` lines at **L1** | 659 | 2.548 5 | 258.6 | 0.098 062 |
+| `Spotlight` Bonus + Angle **L5** | 244 | 0.782 8 | 311.7 | 0.081 351 |
+| `Chrono Field` trio **L5** | 635 | 1.829 4 | 347.1 | 0.073 053 |
+| `Poison Swamp` Duration **L5** | 220 | 0.606 1 | 363.0 | 0.069 859 |
+| `Black Hole` Size + Duration **L5** | 211 | 0.575 4 | 366.7 | 0.069 149 |
+| `CL Chance` + `PS Cooldown` **L5** | 440 | 1.139 4 | 386.2 | 0.065 663 |
+| the five `−10 s` cooldowns **L5** | 1 060 | 1.265 4 | 837.7 | 0.030 271 |
+| `GT Bonus` L5 + `GT Duration` L15 | 1 191 | 1.280 9 | 929.8 | 0.027 271 |
+
+The nine re-add to **8 865 / 27.028 1** ✓. The five `×damage` lines alone are the densest stones in the game — **85 st**
+per line for `ln` 0.98–1.40 (60–87 st/ln at L5) — and, uniquely, they barely degrade (195–288 st/ln at L15) because their
+value row is geometric with the same ratio as their cost row (§3.① finding 2). The dearest cells at cap are `Spotlight
+Angle` **27 025** st/`ln`, `GT Duration` 11 133, `Spotlight Bonus` 10 952, `SM Quantity` 5 025.
+
+**3. UW+, the unlocks, and where each lands.** The nine trees' first-5 block = **24 265** st for `ln` 14.601 3
+(1 661.8 st/ln, **0.015 258**/day), their tail (L5 → cap) 154 975 st for 10.613 3 (**0.001 737**). Inside the block the
+densest trees are `Charged Mine` **754** st/`ln` and `Golden Combo` 1 239, the dearest `Cover Fire` 5 098. The unlock
+rows: Bot+ (5 × 1 250 = **6 250** st, level-0 multipliers 1.25 / 1.25 / 3 / 1.5 / 0.95 ⇒ `ln` 2.001 7, **0.008 121**/day),
+the eight currency mastery unlocks (**7 000** st, `ln` 0.325 7 in the `ln(1+pp)` form, 1.018 8 counting `Free Upgrades`
+as one step ⇒ 0.001 180 … **0.003 691**), and **32 855** st of pure unlock rows (`UW` slots 9 705 + `UW+` unlocks
+14 650 + four assist slots 4 000 + Synchronicity 4 500), which are `ln 0` by the ledger's convention. The whole stone
+census is **491 387** st (T008 §1's ≈493 k with the 6 000-stone Synchronicity print) = **19 378.6 d = 53.1 y** at the
+Copper-bottom F2P income, and the 8 865 package is **1.8 %** of it for **29.2 %** of its `ln`.
+
+**4. The merged 27-item schedule** (18 lab rows + 9 stone rows, each priced by its own binding resource at the
+Copper-bottom income). Reading R: `E 0.452374 > D 0.116339 > F 0.114946 > ×damage quintet 0.102515 > knee pkg 0.077310 >
+sheet 0.050720 > L 0.033768 > Q 0.025603 > S1b 0.022090 > A 0.018143 > par 0.017957 > UW+ first-5 0.015258 > B 0.014480
+> J 0.014128 > S1c 0.012283 > H 0.011422 > M 0.011315 > K 0.009941 > Bot+ 0.008121 > masteries 0.003691 > O 0.003481 >
+G 0.003412 > B2 0.003387 > S1d 0.003272 > S2b 0.001737 > C 0.000020 > P 0.000006 > unlock rows 0`. Reading P keeps the
+same head and moves `B`/`B2` to the tail as before (T006 Rev 42). **The head is now six items and invariant in both
+readings: `E → D → F → the ×damage quintet → the knee package → the medal sheet`, then `L`.**
+
+**5. The stone rows scale linearly with the band** (their density is `income × ln ÷ stones`), so one table gives every
+league; the lab rows do not move. `×damage quintet`: **0.056 3 / 0.102 5 / 0.145 3 / 0.305 8 / 0.680 1 / 3.752 6 /
+11.699 7** per day at the seven incomes above, and the knee package **0.042 5 / 0.077 3 / 0.109 5 / 0.230 6 / 0.512 9 /
+2.830 0 / 8.823 2**. Two consequences: with **no tournaments** the whole stone layer drops below `L` and the medal sheet
+stays the densest non-lab item, while from the **Gold band up** the `×damage` quintet outranks `E` and becomes the first
+purchase of the entire ledger. Below Gold, buy the stones *between* lab research, not instead of it — the stone flow is
+the slowest of the three resources (19 379 d vs 99 472 d of clock and 4 634 056 d of coins for the whole census).
+
 ## 4. The sync ladder (what to actually buy, in order)
 
 All UW timers start at 0 when the run starts and reset on each activation, so two UWs share a window every **LCM(cooldowns)**. Multipliers multiply, so the coincidence period is the coin rate.
@@ -602,6 +687,15 @@ Also: each `Basic_Upgrades` page's `Total` equals the sum of its own column (BH 
       (percentages of 244 542: **4.69 / 10.2 / 20.1 %**) — re-add from the table in §3.① with a calculator.
 - [ ] **The counting law:** every workshop table starts at **level 0** (cost 0) and ends with a `Total` row, so
       **levels = numeric cells − 2**; on `Smart Missiles` that gives **35 / 15 / 16**, the same numbers the page prints.
+- [ ] **§3.② the two arithmetic anchors:** on `Chain Lightning` the first five cells of the `Damage` column are
+      `5 11 17 23 29` and sum to **85** (the L5 bill used in the density table), and the fifth cell of the `Golden Combo`
+      UW+ row is **620** with the five summing to **2 220** (family A); family B starts `400 500 610 730 860` = **3 100**
+      and family C `300 375 475 600 725` = **2 475** ⇒ the nine-tree first-5 block is **24 265** stones.
+- [ ] **§3.② your own income:** read the four stone sources for one week — your band's ticket pay `2·t·S`, the **45**
+      box stones, the **15 × a** Event-Shop trades, plus any Milestone cells — divide by 7 and use that number in place
+      of **25.357**; every stone row's density scales by your income ÷ 25.357 and their order does not move.
+- [ ] **§3.② the package check:** the nine sub-blocks are 4 205 + 1 060 + 440 + 635 + 1 191 + 211 + 220 + 659 + 244 =
+      **8 865** stones, exactly §3.①'s knee-first package, so the two readings of the ledger agree to the stone.
 
 ## 9. Falsification
 
@@ -649,9 +743,24 @@ Also: each `Basic_Upgrades` page's `Total` equals the sum of its own column (BH 
 - If the 374-run coin shares stop summing near **156 %** (e.g. they sum to 100 %), the ledger was normalised differently
   → renormalise by the printed baseline before using §1.③'s ranking.
 - If the perk-granted UW is still listed as owned after the run ends, §5.1's “in-run only” note is wrong → see H032.
+- **§3.②:** if a `Value` row's first printed cell is the **level-1** value rather than the level-0 value, every block's
+  `ln` loses one step — the `×damage` quintet becomes **15.867** (`−6.7 %`) and its density **0.095 7**, the knee package
+  **25.2** and **0.072 1**. The order inside §3.② is unchanged because all 27 rows shift the same way.
+- **§3.②:** if the panel shows **0** (not `0.03 %`, `0.05×`, `13 s`) beside a freshly unlocked UW+ ability, then the
+  unlock is not a level-0 purchase and the **25** unlock rows become one-step items: `Σ ln` **17.328 7**, density
+  **0.013 374**/day, which lifts them from last place to between `J` and `H`.
+- **§3.②:** if a `×damage` value row is *not* geometric (its per-cell ratios wander), the fitted `r` is wrong → re-add
+  that line's `ln` from its printed cells; the quintet keeps rank as long as it still carries ≥ 15 of its 17.00 `ln`.
+- **§3.②:** if the stone counter does **not** rise by **15** per Event-Shop stone trade (T013's 150-identity), the income
+  side is mis-printed → the whole stone column rescales by measured income ÷ 25.357/day; the lab rows and the `max()`
+  model are unaffected because they divide by coins and slots.
 
 ## Sources
 
+- `tools/stone-day-ledger.ps1` (new, Rev 12) — the three-resource day model: the seven band incomes (T014 §3.3 ÷ 7), the
+  27 basic lines with their block `ln` and st/`ln` in four stages (re-adding **11 461 / 25 045 / 49 194 / 244 542**), the
+  nine UW+ trees from the four family step-lists (re-adding **24 265 + 154 975 = 179 240** and every printed cap), the
+  nine knee sub-blocks (re-adding **8 865**), the unlock rows, and the merged 27-item schedule in both pp readings.
 - fandom raw wikitext: `Ultimate Weapons` (the 5 … 3 000 unlock ladder, the 3-random-offer rule, the 40-toggle limit), `Ultimate Weapons/Ultimate Weapon Plus` (500 … 3 800 unlock ladder, 10 levels per ability, `Template:TableUWPCOST` → the three trees 23 800 / 18 570 / 19 050), `Golden Tower/Basic Upgrades`, `Black Hole/Basic_Upgrades`, `Death Wave/Basic_Upgrades`, `Chain Lightning/Basic_Upgrades`, `Smart Missiles/Basic_Upgrades`, `Spotlight/Basic_Upgrades`, `Chrono Field/Basic_Upgrades`, `Inner Land Mines/Basic_Upgrades`, `Poison Swamp/Basic_Upgrades` (per-level columns + `Total` rows), `Perks` (the nine perk-UW `stone value` entries and their exact stats).
 - game-vault `Guide:Ultimate_Weapons_Sync` — the independent 910-stone figure for GT 300→200 s and the partial-sync table (250/200 → 1 000 s, 270/180 → 520 s).
 - Tower Hub `wiki/uw/golden-tower` (last verified **2026-11-01**, 6 data tables) — §1.⑤’s **41 × 10** relative-income
