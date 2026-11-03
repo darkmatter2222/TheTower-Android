@@ -5,6 +5,8 @@ Rev: 7 (2026-11-03) — **the `nuke` page mined (§2.3 item 8)**: the first **sp
 `Death Defy` → `Energy Shield` → `Second Wind` → `Demon Mode` → `Nuke`, the corrected Recharge Σ
 (**14.43 T / 10 374 360 s = 120 d 1 h 46 m**, `tools/recharge-family.ps1`), and the printed **`Nuke(k) = Second Wind(k + 1)`**
 column law on 6/6 steps. One conflict logged as [H062](../hypotheses/H062-nuke-mastery-ladder-which-print.md).
+Same pass: the **four card gates are double-sourced** from `wiki/guide/milestones` (**T7 W250** `Land Mine Stun`,
+**T11 W10** `Nuke`, **T14 W50** `UW Crit`, **T20 W80** `Area of Effect`), which settles **H047**.
 Rev: 6 (2026-11-03) — **the card layer re-added by one script** (`wiki/card/cards`, 2026-10-13, “9 data tables”, via the new
 `tools/card-mastery.ps1`): the slot ladder is **triple-printed** at **22 rows / Σ 58 400 gems** with new cumulative marks
 **15 900** (slot 16) and **32 400** (slot 19); the **31 × 10** mastery block is linear on **30 rows** (worst residual
@@ -524,6 +526,10 @@ the 31 printed rows plus `Cells`, and `time = 250n + 250 h` per level). Until th
 - [ ] **§2.3 Nuke star ladder:** the `Nuke` page prints **25 % · 35 % · 45 % · 55 % · 65 % · 80 % · 100 %** for stars
       1→7 (gaps **+10 +10 +10 +10 +15 +20**) and its mastery **0.05 → 0.5 in steps of 0.05**
       (= `v(k) = 0.05 × (k + 1)`, the §2.2 law with base 0 — see [H062](../hypotheses/H062-nuke-mastery-ladder-which-print.md)).
+- [ ] **§2.3 card gates (second source, `wiki/guide/milestones`):** the Milestones table prints `Card: Land Mine Stun` in
+      the **T7 W250** free cell, `Card: Nuke` in **T11 W10**, `Card: UW Crit` in **T14 W50** and `Area of Effect Card` in
+      **T20 W80** ⇒ the four special-card unlocks are pinned to two waves each and the “T11 W10 for both Nuke and Land
+      Mine Stun” print is one row’s offset (**H047** resolved at **T7 W250**).
 
 ## 5. Falsification
 
@@ -559,6 +565,9 @@ the 31 printed rows plus `Cells`, and `time = 250n + 250 h` per level). Until th
 - **§2.2 census:** if any *new* card page shows a mastery ladder that is not `base + (k+1) × s` (e.g. a first term other
   than one step above its family's base), the law is per-page after all → keep the printed rows and drop the closed form
   (the stone buckets are independent of the law).
+- **§2.3 card gates:** if the in-game **Milestones** screen puts `Land Mine Stun` at **T11 W10** instead of T7 W250, the
+  wiki's column order is not free/premium per tier ⇒ re-read the block header row (`Tier | Tier N | Tier N+1 | Tier N+2`
+  over `Wave | Standard | Premium | …`) and rebuild the four gate readings from the header, not from the column index.
 - **§2.3:** if the in-game `Second Wind Blast` times read as **cumulative** (level 4 ≈ 3 d 11 h total, not ≈ 8 d total),
   this page family's `Time` column differs from the other lab pages → divide the 892.3 d Double Death Ray Σ accordingly
   (cumulative would make it 116.5 d); the coin Σ (1.10 T) is unaffected either way.
@@ -602,6 +611,14 @@ the 31 printed rows plus `Cells`, and `time = 250n + 250 h` per level). Until th
   **not** destroy projectiles already in flight”, the **v27.3 (18 December 2025)** “**15 seconds of invulnerability**” note,
   and the “**only after** Nuke was used once in that run” rule. Sums reproduced by `tools/recharge-family.ps1`; the fandom
   `Nuke` page (last edited 2026-01-20) is the listed second source.
+- Tower Hub `wiki/guide/milestones` (last verified **2026-07-29**, 10 data tables), re-pulled 2026-11-03 — the second source
+  for the four card gates: the T7/T8/T9 block prints **`Card: Land Mine Stun`** in the **wave 250** free cell, the
+  T10/T11/T12 block **`Card: Nuke`** at **wave 10**, the T13/T14/T15 block **`Card: UW Crit`** at **wave 50**, and the
+  T19/T20/T21 block **`Area of Effect Card`** at **wave 80** (column order = free/premium per tier: odd column = free).
+  Same table’s lab cells double-source `Second Wind Blast` (T3 W150), `Double Death Ray` (T3 W300), `Super Tower Bonus`
+  (T8 W300), `Recovery Package Chance` (T2 W750) and `Garlic Thorns` (T2 W1000) — all as used in
+  [T019](T019-milestone-claim-engine.md) §2.① / [T006](T006-lab-queue-packing.md) /
+  [T012](T012-card-deck-order.md) §2.3. The `Death Ray` **card** is not among the named cells of any of the 244 rows.
 
 - fandom `Cards` (raw wikitext) — 32 cards / 12-9-11 split, 20-gem pull, 80/17/3, level copy table (1/3/8/16/28/48/80), 2 560 pulls = 51 200 gems, slot ladder to 58 400 gems + 6 Vault slots, locked-card list, preset rules, per-card level values, Vault/Keys card upgrades, card-specific labs.
 - Tower Hub `wiki/card/cards` (last verified **2026-10-13**, 9 data tables) — “Each card costs **20 Gems** to buy, and the

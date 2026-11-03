@@ -1,12 +1,20 @@
 # T019 — Milestone claim engine: the 23-step ladder, the W100 gate, and the pass-timing rule
 
+Rev: 4 (2026-11-03) — **§2.①: the page’s own eight block **Totals** rows are transcribed and closed four ways**
+(`tools/milestone-totals.ps1`): free gems **19 230** ✓, free stones **4 430** ✓, paid stones **7 870** ✓, coins
+**1.3436 q** vs the printed `1.3q~`; the **one** open skew is the paid-gem grand row (**23 955** vs **29 495**, the
+difference **5 540** = exactly the T19–21 block) ⇒ the premium layer is **29 495 / 29 515**, the 23 955 print is stale.
+Plus the convexity law (**98.6 %** of the coin ledger is T22–24, T1–T12 = **0.08 %**), the through-T12 figures on both
+bases (**4 735** vs **4 675** free gems, traced to `T4`’s 320/380 cell), and the printed **gate cells** that settle
+**H047** (`Card: Land Mine Stun` = **T7 W250**, `Card: Nuke` = **T11 W10**).
 Rev: 3 (2026-11-01) — the **two-track model** replaces the “+Prem” column reading (the Premium track is *additive*, so a
 pass pays its whole column **on top of** the free one — Tower Hub's own totals prove it: 19 230 + 23 955 = **43 185**);
 the pass values are recomputed, the per-tier sums are re-added and **12/12 checked column totals reproduce** for T1 and T4,
 and the free relic pipeline is named tier by tier.
 Rev: 2 (2026-11-01) — §3's W80 rows corrected (`Interest` + `Max Interest` are **T2 W80**, T1 W80 is a coin cell) ·
 Currency: **Gems**, **Power Stones**, **Coins** + one-time **labs**, cards, skins, relics
-**Value:** ★★★★ — through Tier 12 the **free** track is **4 675 gems + 540 stones ≈ 10 075 gem-equivalents**, and the
+**Value:** ★★★★ — through Tier 12 the **free** track is **4 675 gems + 540 stones ≈ 10 075 gem-equivalents** (per-tier
+rows; **4 735** on the block-totals basis, §2.①, the gap being `T4`'s 320-vs-380 cell), and the
 Premium track on top adds **7 850 gems + 1 380 stones ≈ 21 650 gem-equivalents** (both tracks = **31 725 ge**), so the
 milestone ladder is the single densest tap-source in the game and the *only* source of most early labs. All of it is
 claim-once, never expires, and is delivered by one button.
@@ -64,7 +72,9 @@ passes = 12 525 gems + 1 920 st = **31 725 ge**, i.e. the passes are worth **21 
 (Rev 2's 8 570 / 1 480 were summation slips; 7 850 / 1 380 re-add exactly.) Whole ladder (24 tiers), as published:
 **free 18 790 gems / 4 430 stones** (fandom) vs **19 230 / 4 430** (Tower Hub); **premium 29 515** (fandom) vs
 **23 955** (Tower Hub, whose coins total is **1.3q**). The stones columns agree exactly; the gem columns differ by the
-wiki version — see §6.
+wiki version — see §6. **Rev 4 settles the premium line:** the Hub's own eight block rows add to **29 495**, which is
+within **20** of fandom's **29 515**, so the premium layer is ≈ 29.5 k and the Hub's **23 955** grand cell is the stale
+one (it omits its own T19–21 block, Δ **5 540** — §2.①).
 
 **The pass table, recomputed on the additive model** (one purchase per 3-tier group, retroactive):
 
@@ -87,6 +97,58 @@ wiki version — see §6.
    whole premium column (table above): **later passes are strictly better** — pass 4 is **3.6×** pass 1 for the same
    price ([H021](../hypotheses/H021-premium-pass-price-uniform.md)), and the badge test in
    [H038](../hypotheses/H038-milestone-two-track-badge.md) is what confirms it.
+
+### 2.① The page’s own eight **Totals** rows — the milestone ledger, closed four ways (new, Rev 4)
+
+`wiki/guide/milestones` (2026-07-29, “10 data tables”) prints, besides the per-tier rows, one **Totals** row per currency
+for each of its **eight 3-tier blocks**, six columns each in print order
+(`tierA free | tierA paid | tierB free | tierB paid | tierC free | tierC paid`), plus a grand table
+(`Coins − − 1.3q~`, `Gems 19230 23955 43185`, `Stones 4430 7870 12300`). `tools/milestone-totals.ps1` re-adds all of it:
+
+| Block | Coins free | Coins paid | Gems free / paid | Stones free / paid |
+|---|---|---|---|---|
+| T1–3 | 36 910 | 13.3615 M | **620 / 1 125** | **30 / 130** |
+| T4–6 | 1.7 M | 74.85 M | 1 045 / 1 640 | 80 / 235 |
+| T7–9 | 15 M | 96.5 M | 1 280 / 2 260 | 145 / 425 |
+| T10–12 | 70 M | 805 M | 1 790 / 2 825 | 285 / 590 |
+| T13–15 | 46.8 B | 99.9 B | 3 275 / 5 035 | 855 / 1 395 |
+| T16–18 | 490 B | 1.43 T | 3 415 / 5 195 | **1 000 / 1 685** |
+| T19–21 | 1.9 T | 14.6 T | 3 760 / **5 540** | **1 000 / 1 685** |
+| T22–24 | 285 T | 1.04 q | 4 045 / 5 875 | 1 035 / 1 725 |
+| **Σ** | **1.3436 q** (coins, both tracks) | | **19 230 / 29 495** | **4 430 / 7 870** |
+
+1. **Three of the four columns close exactly against the page’s grand table:** free gems **19 230** ✓, free stones
+   **4 430** ✓, paid stones **7 870** ✓; the grand rows are themselves consistent (`19 230 + 23 955 = 43 185`,
+   `4 430 + 7 870 = 12 300`). The coins close too: Σ **1.34357 × 10¹⁵ = 1.3436 q** against the printed `1.3q~`.
+2. **One skew, and it is localised:** the paid-gem column adds to **29 495** while the grand table prints **23 955**;
+   the difference **5 540** is *exactly* the T19–21 paid gem cell (`1 390 + 1 820 + 2 330`), so the grand row omits one
+   block rather than the block rows being wrong. The block-basis total **29 495** also lands within **20** of fandom’s
+   premium total **29 515**, which the per-tier rows already re-added — so **29 495 / 29 515 is the premium layer and
+   23 955 is the stale print** (§6’s inter-source note updated accordingly).
+3. **Coins are a rounding error before T13.** The 24-tier coin ledger is **98.6 %** the T22–24 block, **1.4 %** the
+   T13–T21 blocks, and T1–T12 contribute **1.076 B = 0.08 %** — so a sub-T13 account should treat every coin cell as
+   free-but-irrelevant and claim for **gems, stones and the lab unlocks** only (the table above is why §2’s
+   “the coin columns can be ignored” is now a measured statement).
+4. **Through T12, in income units** (block basis): free **4 735 gems + 540 stones**, paid **7 850 gems + 1 380 stones**
+   ⇒ the free track is **10.9 days** of gem income (435/day) and **9.8 days** of stone income (55/day); both tracks
+   together = **12 585 gems + 1 920 stones = 31 785 ge**. The per-tier rows give **4 675** free gems for the same window
+   — a **60-gem** skew traced to one cell: `T4` free gems print **320** in the per-tier table and **380** inside the
+   block’s Totals row (`380 + 275 + 390 = 1 045`). The premium column has no such skew (`1 125 + 1 640 + 2 260 + 2 825`
+   `= 7 850` ✓ both ways), and the **stones** columns agree exactly on both bases.
+5. **Two blocks share one stone column:** T16–18 and T19–21 both print `1 000 / 1 685` stones, i.e. the stone yield is
+   flat at 1 000 free / 1 685 paid per 3-tier block from T16 on — the stone ladder has saturated (§T008’s knee rule).
+
+**Gate cells the same table prints** (column position fixes the tier: odd = free, even = premium). T2 W750
+`Recovery Package Chance` · T2 W1000 `Garlic Thorns` · T3 W150 `Second Wind Blast` · T3 W250 `Death Wave Labs` ·
+T3 W300 `Double Death Ray` · T3 W400 `Spotlight Missiles` · T2 W400 `Improve Trade-Off Perks` · **T7 W250
+`Card: Land Mine Stun`** · T8 W300 `Super Tower Bonus` · **T11 W10 `Card: Nuke`** · T11 W200 `Enemy Attack Level Skip` ·
+T12 W60 `Workshop Enhancement` · **T14 W50 `Card: UW Crit`** · T14 W60 `Recharge Barrage` + `Recharge Second Wind` +
+`Recharge Demon Mode` · **T20 W80 `Area of Effect Card`**. Every one of these matches the gate already used in
+[T006](T006-lab-queue-packing.md) / [T011](T011-perk-engine-tuning.md) / [T012](T012-card-deck-order.md) /
+[T020](T020-workshop-coin-order.md); this settles **H047** at **T7 W250** (`Land Mine Stun`) with `Nuke` at T11 W10, so
+the older “T11 W10 for both” print is one row’s offset. One cell boundary stays open: the T13–T15 W60 row carries **four**
+recharge labs and `Recharge Nuke` is printed in the cell *after* the other three (⇒ T15 by column order, while
+`wiki/card/nuke` says T14 W60) — a one-tier ambiguity with no currency effect.
 
 ## 3. The unlock map — which wave lights up which system (free column, T1–T12)
 
@@ -145,6 +207,11 @@ buyable in Tier 1, and W80 of Tier 2 is the first milestone worth rushing after 
 - [ ] Buying a Premium Pass after finishing its 3 tiers pays the premium column for **already-claimed** milestones.
 - [ ] Tier 4 Wave 70 lights **three** module labs at once; Tier 10 Wave 40 lights **four**.
 - [ ] Tier 6 Wave 10 is the `Auto Pick Ranking` lab (not T5 — corrected from Rev 1 of T011).
+- [ ] **§2.① the block ledger:** the eight free-gem cells re-add to **19 230** and the eight paid-stone cells to
+      **7 870**; the free-stone cells to **4 430**; the paid-gem cells to **29 495** (the grand row’s **23 955** is
+      **5 540** short = the T19–21 block); the coin columns re-add to **1.3436 q** against the printed `1.3q~`.
+- [ ] **§2.① the two gate reads:** the **Milestones** screen lists `Card: Land Mine Stun` on **Tier 7 wave 250** and
+      `Card: Nuke` on **Tier 11 wave 10** (one card each, both on the free track).
 
 ## 6. Falsification
 
@@ -164,6 +231,14 @@ buyable in Tier 1, and W80 of Tier 2 is the first milestone worth rushing after 
   run's coin multiplier (or by the tier) rather than flat → re-read one cell with a known multiplier
   ([H039](../hypotheses/H039-milestone-coin-cell-scaling.md)) and rescale §2's coin columns.
 - If `Auto Pick Ranking` appears at T5, the milestone tables were re-versioned → re-read the lab list in the Lab panel.
+- **§2.①:** if the paid-gem block rows no longer exceed the grand row by the T19–21 column, the grand table was
+  regenerated ⇒ re-run `tools/milestone-totals.ps1` and use whichever of **29 495** / **23 955** the per-tier rows support;
+  the *per-block* figures are unaffected either way, so §2’s pass table and the T1–T12 window do not move.
+- **§2.①:** if the in-game Milestones screen pays `Land Mine Stun` at T11 (not T7 W250), the gate print is the stale one
+  ⇒ keep the in-game reading and re-check the column-position rule (odd column = free track of that tier).
+- **§2.① convexity:** if a T1–T12 coin cell pays materially more than printed, the coin cells are run-multiplier
+  scaled rather than flat — that is [H039](../hypotheses/H039-milestone-coin-cell-scaling.md), and only the coin column
+  of this table moves (gems and stones are fixed cells).
 
 ## Sources
 
@@ -174,7 +249,13 @@ buyable in Tier 1, and W80 of Tier 2 is the first milestone worth rushing after 
 - Tower Hub `wiki/guide/milestones` (last verified 2026-07-29, “10 data tables”) — the account-wide **Free / Paid /
   Total** columns (gems **19 230 / 23 955 / 43 185**, stones **4 430 / 7 870 / 12 300**, coins **1.3q**), the additive
   check 19 230 + 23 955 = 43 185, “the badge shows how many rewards are waiting / nothing expires”, and the note that
-  **T23 lights the Fleet Ultimate-Battle-Condition labs** (order unconfirmed).
+  **T23 lights the Fleet Ultimate-Battle-Condition labs** (order unconfirmed). Rev 4 adds the **eight per-block Totals
+  rows** (three rows per block, six columns each, quoted in §2.① and re-added by `tools/milestone-totals.ps1`) and the
+  **named gate cells** — `Card: Land Mine Stun` (T7 W250), `Card: Nuke` (T11 W10), `Card: UW Crit` (T14 W50),
+  `Area of Effect Card` (T20 W80), `Second Wind Blast` (T3 W150), `Double Death Ray` (T3 W300), `Super Tower Bonus`
+  (T8 W300), `Recovery Package Chance` (T2 W750), `Garlic Thorns` (T2 W1000), `Death Wave Labs` (T3 W250),
+  `Enemy Attack Level Skip` (T11 W200), `Workshop Enhancement` (T12 W60), the four `Recharge` labs at T14–T15 W60 — read
+  with the column rule “odd column = that tier’s free track” (244 rows in the combined table).
 - fandom `Milestones/1 2 3`, `/4 5 6`, `/7 8 9`, `/10 11 12` (raw wikitext) — every per-wave cell for Tiers 1–12,
   including the lab unlocks of §3, the per-tier totals used in §2 (all six columns of T1 and of T4 re-add exactly), and
   the named free-track relics of §1.
