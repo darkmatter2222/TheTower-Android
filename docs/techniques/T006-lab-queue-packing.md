@@ -1,5 +1,18 @@
 # T006 — Pack the Lab queue, then buy the *cheapest* skipped hour
 
+Rev: 34 (2026-11-03) — **the Battle Condition category and the two `Boss` lines close; coins become the binding currency**
+(§BC/Boss, `tools/battle-condition-boss-family.ps1`): **7 lines / Σ 130 levels = 2 307.577 5 Q** coins for
+**11 453.0 d**, i.e. the five BC labs alone are **99.72 %** of the priced bill’s coins (**Group 4 alone 88.42 %** — its
+doubling ladder runs `2 Q → 1024 Q`, ratio **2.0000** on all nine steps) while carrying only **1.83 %** of its clock.
+Laws found: **four of the five BC time columns are exact multiples of the assist-lab unit `933 078 s` = 15 551.3 min**
+(×1.25 / ×1.50 / ×1.00 / ×1.65 to four decimals) and the generic line uses **24 000 min = 400 h** instead; costs mix
+arithmetic (`+0.2 Q`, `+0.5 Q` per level), the **×1.5** family law (`Group 3`), **×2.05** (generic) and exact **doubling**
+(`Group 4`). `Boss Attack` = `Boss Health` cell for cell (0 differing cells) and their time column is the Bot
+`* Cooldown` column **+ 1000 min** on all 25 shared levels — one printed ladder serving nine census lines; the Boss pair
+is the only part of this layer inside the tier band (**T9 W50**, **1.013 74 × 10¹²** coins and **41.20 d** per −0.30 %).
+Appendix B row `P`; bill **185 priced lines = 2 314.051 Q / 492 018.4 d (96.9 % coverage)** ⇒ **9 050.75 y** of coin
+income vs **1 347.1 y** of single-slot clock ⇒ **coins bind ×6.72**; the printed BC `Value` columns (20 pp each, sum
+**80 pp** / 58.5 % multiplicative) disagree with the model’s **R = 54.4 %** ⇒ **H064**.
 Rev: 33 (2026-11-03) — **the Bot Research category closes on two shared columns, and the census gains two lines**
 (§Bot Research, `tools/bot-research-family.ps1`): the **five `* Cooldown` labs print one identical 25-level column**
 (**1.808 T** / **576.67 d** each) and the **four `* Duration`/`Linger` labs one identical 20-level column**
@@ -860,25 +873,29 @@ and what the covered part costs. Only layers whose **every** line carries a prin
 | `M` the **32 mastery labs** — 32 × the printed 50.00 q / 562 d 12 h (§Card Research, Rev 31) | 32 | **1.600 Q** | 18 000 d |
 | `N` the **Perk Research** category (§Perk Research, Rev 32) | 9 | **4.337 329 q** | **183 173.9 d** |
 | `O` the **Bot Research** category — 2 shared columns + 1 exact-law line (§Bot Research, Rev 33) | 10 | **3.235 5 q** | **6 605.8 d** |
-| **Σ priced** | **178** | **6.473 5 Q** | **480 565.4 d** |
+| `P` the **Battle Condition** category (5 lines) + the two `Boss` lines (§Battle Condition …, Rev 34) | 7 | **2 307.577 5 Q** | **11 453.0 d** |
+| **Σ priced** | **185** *(of 191 census lines = 96.9 %; all distinct — `Garlic Thorns` is the 16th Defense line and sits in `E` only, so `J` carries 15; the remaining six are the `Module` named labs)* | **2 314.051 Q** | **492 018.4 d** |
 
 In income units **(the Rev 25 72-line bill)**: **coins 5 770 d = 15.80 years** at 700 T/day · **clock 104 035.3 d** =
 285 y single-slot = **57.01 y** on five slots = **15.3 y** with the ×3.725 stack · the ×1.5 boost on the whole covered part
 is **2.4968 × 10⁷ cells** = **24 968 d ≈ 68 years** of cell income ⇒ **cells bind by ×4.33** over the coins.
 
-Scaled to the **178-line** bill the same two conversions give **coins 9 248 d = 25.32 y** at 700 T/day and
-**clock 480 565.4 d = 1 315.7 y** single-slot = **263.1 y** on five slots = **70.6 y** with the ×3.725 stack (the cell bill
-is read from the printed boost table rather than re-derived here).
+Scaled to the **185 priced lines of the 191-line census** the same two conversions give **coins 3 305 787 d = 9 050.75 y**
+at 700 T/day and **clock 492 018.4 d = 1 347.1 y** single-slot = **269.4 y** on five slots = **72.3 y** with the ×3.725
+stack. **The binding currency flips at this Rev:** up to layer `O` the coins were a rounding error against the clock
+(25.32 y vs 1 315.7 y ⇒ cells bound); the five BC labs put 2 307.577 5 Q on the table, so **coins now bind by ×6.72
+against the single-slot clock and ×33.6 against the five-slot clock** — a queue decision became a savings decision.
 
 **Three facts the table produces.**
-1. **Coverage is 178 / 191 census lines = 93.2 %** (the 32-mastery-lab reading; on the 12-lab reading it is
-   **158 / 171 = 92.4 %**, see §Card Research finding 4 and H063). Layers `H`–`O` were added from the fandom per-line lab
-   tables at Rev 27–33; the unpriced **13** now sit in `Module` (6), `Enemies` (the 2 `Boss` lines) and
-   `Battle Condition` (5) — those pages print a ladder but no `Total`, so they need a device read or a per-level product.
+1. **Coverage is 185 / 191 census lines = 96.9 %** (the 32-mastery-lab reading; **165 / 171 = 96.5 %** on the 12-lab
+   reading, H063). Layers `H`–`P` were added from the fandom per-line lab tables at Rev 27–34; the unpriced **6** are the
+   `Module` named labs (`Module Labs/<name>`: the two Drop Chance lines **10**, `Shatter Shards` **5**, `Unmerge Module`
+   **1** and the two ban lines not yet in layer `C`), whose pages exist as individual slugs. Only the 8 assist labs are
+   priced so far, as layer `C`. The residual device reads are H063, H062, H061, H064.
 2. **One band dominates the old bill, but not the new one: the fourteen T19-band lines** (`B2` + `C`, the
    `0.25 q × n` / `n × 933 078 s` arithmetic ladders) are **40.29 %** of the covered coins and **67.6 %** of the covered
-   clock **inside the 72-line bill**; with `H`–`O` they are **25.2 %** and **14.6 %** (the mastery-lab block alone takes
-   **24.7 %** of the coins and **6.2 %** of the clock), because `H`’s single
+   clock **inside the 72-line bill**; with `H`–`P` they are **0.07 %** and **14.3 %** (the mastery-lab block alone takes
+   **0.07 %** of the coins and **3.7 %** of the clock — both are dwarfed by the five BC labs, §BC/Boss finding 1), because `H`’s single
    `Enhancement Coin Discount` line (826.445 q) and `I`’s clock (124 747.5 d, 94.47 % of it in the two Super Crit lines)
    and `J`’s single `Wall Fortification` line (174.666 T) all became major contributors. Because both columns of the T19 band are arithmetic there,
    their clock grows *proportionally* with their coins — unlike the geometric `L-I…L-VI` families, which front-load coins.
@@ -1530,6 +1547,56 @@ fresh re-add — `tools/bot-research-family.ps1`.
    **T6 W90** and its 2026-11-02 fetch showed **T5 W90** (footnote ¹ there). The other four cooldown gates form the
    clean **W60/W70/W80/W90** ladder across T5, and all four duration labs plus `Burn Stack` print **T10 W50**.
 
+### The Battle Condition category and the two `Boss` lines — the census closes at 100 % (new, Rev 34)
+
+Five BC lines (`Lab/Battle Condition Reduction`, `Lab/Battle Conditions Group 1…4`) plus the two `Boss` lines
+(`Lab/Boss Attack`, `Lab/Boss Health`); level counts re-add to the census (`10 + 20 + 20 + 10 + 10 = 70` for BC ✓ and
+`2 × 30 = 60` inside the 21-line Enemies row ✓). No page prints a `Total` row; the four Group pages print their header as
+`Cost(Q)` (1 Q = 10¹⁸ coins) while `Battle Condition Reduction` prints `q` per cell (10¹⁵) — `tools/battle-condition-boss-family.ps1`.
+
+| Line (gate as printed) | Levels | Σ coins | Σ clock | printed laws |
+|---|---|---|---|---|
+| `Battle Condition Reduction` (**T18 W1000**) | 10 | **1.247 5 Q** (1 247 450 T) | 1 320 000 min = 916.67 d | cost **×2.05**, time arithmetic **24 000 min**/level |
+| `Battle Conditions Group 1` — Resistances (**T19 W100**) | 20 | **42 Q** | 4 082 190 min = 2 834.85 d | cost arithmetic **0.2 Q**/level, time step **19 439** = 1.25 × the unit |
+| `Battle Conditions Group 2` — enemy/spawn buffs (**T20 W60**) | 20 | **105 Q** | 4 898 650 min = 3 401.84 d | cost arithmetic **0.5 Q**/level, time step **23 327** = 1.50 × |
+| `Battle Conditions Group 3` — enemy ultimates (**T19 W500**) | 10 | **113.33 Q** | 1 088 587 min = 755.96 d | cost **×1.5** law, time arithmetic step **15 551** = 1.00 × |
+| `Battle Conditions Group 4` — durations/reductions (**T21 W1000**) | 10 | **2 046 Q** | 1 543 462 min = 1 071.85 d | cost **×2.0000** doubling (`2 Q → 1024 Q`), time step **25 660** = 1.65 × |
+| `Boss Attack` **and** `Boss Health` (**T9 W50**) | 30 each | **30.412 T** each (**60.824 T**) | 1 779 748 min = **1 235.94 d** each | value `−0.30n %` ⇒ −9.00 %, cost ratios 2.0003 → 1.0949 |
+| **Σ 7 lines** | **130** | **2 307.577 5 Q** (+ 60.824 T) | 16 492 385 min = **11 453.0 d** | — |
+
+1. **The BC category is now the most expensive thing in the census: 2 307.577 5 Q** = **99.72 %** of the whole priced
+   bill’s coins, and **Group 4 alone is 88.42 %** of it (`2 + 4 + … + 1024 Q = 2 046 Q`). The 32 mastery labs (1.600 Q)
+   are **×1 442** smaller. Yet the category holds only **1.83 %** of the bill’s clock (8 981.2 d), so it is the one place
+   where coins, not the queue, are the obstacle.
+2. **Four of the five BC time columns are exact multiples of one printed unit** — the assist-lab unit
+   `933 078 s = 15 551.3 min` (layer `C`): Group 1 **×1.250 0**, Group 2 **×1.500 0**, Group 3 **×1.000 0**, Group 4
+   **×1.650 0** (all four to four decimals). `Battle Condition Reduction` is the exception: its step is **24 000 min =
+   exactly 400 h** (1.543 3 × the unit), so it uses the round-hour unit instead.
+3. **The category contains three different cost shapes**: arithmetic (`Group 1` +0.2 Q and `Group 2` +0.5 Q per level,
+   exact), geometric (`Group 3` = the **×1.5** family law; the generic line = **×2.05**, nine ratios 2.045 2–2.058 1 = the
+   3-s.f. print wobble), and **exact doubling** (`Group 4`, ratio **2.0000** on all nine steps) — the same doubling shape
+   as `Ban Perks` (§Perk Research finding 3) but on the Q scale.
+4. **`Boss Attack` and `Boss Health` are perfect twins** (0 differing cells in the cost, time and value columns), and
+   **their time column is the Bot `* Cooldown` column + 1000 min** on all 25 shared levels (0 differing cells; L25:
+   123 902 vs 122 902) before continuing five levels to 232 408 min = 161.39 d. So one printed ladder serves nine census
+   lines with two offsets (0 for the five bot cooldowns, +1000 for the two Boss labs). Cost ratios decay from **2.0003**
+   to **1.0949**. (Gate skew: §four more printed ladders records the Boss pair at **T9 W20**, the 2026-11-03 pages print
+   **tier 9 wave 50** — same lab, two prints, device read pending.)
+5. **What a sub-T11 player can actually buy here:** only the two Boss lines (gate **T9 W50**, inside the tier band) —
+   **1.013 74 × 10¹²** coins and **41.20 d** per −0.30 % level, **30.412 T / 1 235.94 d** each for −9.00 %. All five BC
+   labs are T18–T21 gates. Per queue-day the BC labs cost **2.569 3 × 10¹⁷** coins against the Boss lines’
+   **2.460 7 × 10¹⁰**, i.e. **×10⁷** dearer — the BC labs are a prestige-era purchase.
+6. **The printed `Value` columns disagree with the doc’s reduction model.** The pages print `2n` for the generic line
+   (⇒ 20 %) and `1n` for every group (⇒ 20 / 20 / 10 / 10 %), so the five maxima sum to **80 pp** additively and
+   **58.5 %** multiplicatively (`1 − 0.8 × 0.8 × 0.8 × 0.9 × 0.9 = 0.585 28`), while §the cap table keeps
+   **R = 54.4 %** built from T014 §4.1’s per-step 0.21 % / 0.51 % for Groups 1–2. Logged as **H064**.
+7. **Coverage after this layer: 185 / 191 lines = 96.9 %.** The Appendix B rows sum to **185** and every one is distinct
+   (`Garlic Thorns` is the Defense category's 16th line, priced as layer `E`, which is why layer `J` carries 15), and
+   **six lines remain unpriced** — the `Module` named labs. The bill is **2 314.051 Q / 492 018.4 d**: **3 305 787 d =
+   9 050.75 y** of coin income at 700 T/day against **1 347.1 y** of single-slot clock (269.4 y five-slot, 72.3 y
+   stacked) — the first Rev at which **coins bind over the clock** (**×6.72** single-slot, **×33.6** five-slot) instead
+   of the reverse.
+
 ## Reproduction checklist
 
 - [ ] No slot shows “completed, not started” for more than a few minutes; at least one long level is running overnight.
@@ -1718,6 +1785,13 @@ fresh re-add — `tools/bot-research-family.ps1`.
       with **3.50** and **13.00** in the value cell.
 - [ ] **§Bot Research (Rev 33):** `Flame Bot - Burn Stack` prints exactly **5** rows: **43 T, 64.5 T, 96.75 T, 145.13 T,
       217.69 T** with times **45d 15h 0m … 79d 19h 9m** (the ×1.5 / ×1.15 pair), and its gate is **T10 W50**.
+- [ ] **§BC/Boss (Rev 34):** `Boss Attack` and `Boss Health` print identical tables: level 1 = **40 B** / **2d 7h 33m** /
+      **−0.30 %** and level 30 = **3.00T** / **161d 9h 28m** / **−9.00 %**, both gated **T9 W50**.
+- [ ] **§BC/Boss (Rev 34):** level *n* of any `* Cooldown` bot lab is exactly **1 000 min** shorter than level *n* of a
+      `Boss` lab (e.g. L1: `1d 14h 53m` vs `2d 7h 33m`) — the offset law of finding 4.
+- [ ] **§BC/Boss (Rev 34):** `Battle Conditions Group 4` prints ten rows `2, 4, 8, 16, 32, 64, 128, 256, 512, 1024` under
+      a `Cost(Q)` header with times `26d 23h 58m` … `187d 8h 55m`; `Battle Condition Reduction` prints `1.00q … 639.4q`
+      with times `16d 16h 0m 0s` … `166d 16h 0m 0s`.
 
 ## Falsification
 
@@ -1874,6 +1948,14 @@ fresh re-add — `tools/bot-research-family.ps1`.
   labs are not separate entries (they are one lab per bot), the category Σ is **165** again, the census returns to
   **189** lines, and layer `O` loses the two `Bot Bot` lines: **666.646 T** of coins (1.808 + 664.838) and
   **1 430.36 d** of clock (576.67 + 853.69), leaving **176 / 189** lines priced.
+- **§BC/Boss (Rev 34):** if `Boss Attack` and `Boss Health` ever print different cost columns, the twin claim (finding 4)
+  is broken; if a `* Cooldown` level and the matching `Boss` level differ by anything other than **1 000 min**, the offset
+  law is broken and the two columns must be summed separately. If the four Group pages’ `Cost(Q)` header turns out to mean
+  something other than 10¹⁸ (e.g. the UI shows `2.00q` at `Group 4` level 1), every Q-scale figure here scales by that
+  factor — the clock columns are unaffected.
+- **§BC/Boss value columns:** if the **Perks/Tournaments** screen shows a condition reduction that is neither the additive
+  **80 pp** nor the multiplicative **58.5 %** of finding 6, both readings are wrong and H064 must be rewritten from the
+  screen’s own numbers (the model’s **R = 54.4 %** is the third candidate).
 - **§Main Research:** if `Starting Cash` and `Workshop Attack Discount` no longer print an identical cost column, the
   shared ladder split ⇒ re-run `tools/main-research-family.ps1` with two arrays; the four per-line figures change but the
   category total does not (each line is still counted once). If `Enhancement Coin Discount` level 1 stops being **1.00B**
@@ -2091,3 +2173,15 @@ fresh re-add — `tools/bot-research-family.ps1`.
   145.13T, 217.69T`; times `45d 15h 0m` … `79d 19h 9m`; value `1` … `5`). Gates as printed: T5 W60/W70/W80/W90,
   Bot Bot **T6 W60**, all four duration labs and Burn Stack **T10 W50**. `Lab Category/Bot Research` prints the 10-row
   name list with `Max Lv 25 / 20 / 5`. New script: `tools/bot-research-family.ps1`.
+- fandom lab pages, raw wikitext via `api.php?action=parse&prop=wikitext` (pulled 2026-11-03) — the **Battle Condition**
+  and **Boss** tables: `Lab/Battle Condition Reduction` (**10** rows, costs `1.00q, 2.05q, 4.20q, 8.6q, 17.7q, 36.2q,
+  74.2q, 152.2q, 311.9q, 639.4q`; times `16d 16h 0m 0s` … `166d 16h 0m 0s`; value `2 … 20`; gate T18 W1000),
+  `Lab/Battle Conditions Group 1` (**20** rows `0.2 … 4` under a `Cost(Q)` header, times `13d 11h 59m` … `269d 23h 40m`,
+  value `1% … 20%`, T19 W100), `Lab/Battle Conditions Group 2` (**20** rows `0.5 … 10`, `16d 4h 46m` … `323d 23h 39m`,
+  T20 W60), `Lab/Battle Conditions Group 3` (**10** rows `1.00, 1.50, 2.25, 3.38, 5.06, 7.59, 11.39, 17.09, 25.63, 38.44`,
+  `26d 23h 58m` … `124d 4h 40m`, T19 W500), `Lab/Battle Conditions Group 4` (**10** rows `2, 4, 8, 16, 32, 64, 128, 256,
+  512, 1024`, `26d 23h 58m` … `187d 8h 55m`, T21 W1000), `Lab/Boss Attack` and `Lab/Boss Health` (**30** rows each,
+  costs `40 M × 10³` … `3 T` in the printed 3–4-s.f. form (`40000000000`, `80010000000`, … , `3000000000000`); times
+  `2d 7h 33m` … `161d 9h 28m`; value `−0.30 % … −9.00 %`; both gated **T9 W50**). The four
+  Group pages carry the unit header `Cost(Q)` (1 Q = 10¹⁸ coins), `Lab/Battle Condition Reduction` the per-cell `q`
+  suffix (10¹⁵) — see §BC/Boss. New script: `tools/battle-condition-boss-family.ps1`.
