@@ -1,5 +1,12 @@
 # T006 — Pack the Lab queue, then buy the *cheapest* skipped hour
 
+Rev: 22 (2026-11-02) - **the enemy-stat table gains its last five lines** (`wiki/enemy/{ranged,tank}-enemy-labs`,
+2026-11-01): the four `Health`/`Attack` lines of Ranged + Tank (all gated **T9 W20**) print cell-identical ladders to the
+Fast pair (Σ **25.768 T** / 1 235.95 d each, and a **×1.10** cost ratio proved by L30 = 2.70 T = 30 × 1.1²⁹), and
+`Ranged Enemy Range` (**T13 W80**) is a **fifth shape-pair**: value step **−0.50 %** ⇒ cap **−15.00 %** (new constant,
+printed in the page's own cap list), cost **1.0 T × 1.4^(n−1)** (L30 = 17 286.7 = 1.4²⁹ ✓, L24 = 2 295.9 = 1.4²³ ✓; new
+ratio), time arithmetic at **233 280 s**/level ⇒ Σ **60.50 T / 1 245.94 d** — exactly the shared ladder ×**1.00808**.
+Nineteen of twenty 30-level lines now share the one time ladder; the Range line is the sole (scaled) exception.
 Rev: 21 (2026-11-02) - **the UW row of the cap table is now fully enumerated** from `wiki/lab/lab-category-ultimate-weapon-research`
 (all **39** caps printed, Σ re-adds to **669** cell by cell; incl. `Shock Multiplier` **14**, `Missile Barrage Quantity` **6**,
 `Spotlight Missiles` **18**, `Recharge Missile Barrage` **7**) + a three-way skew note on `Swamp Rend - Additional Enemies`
@@ -648,14 +655,18 @@ its 30 printed levels (Appendix A's 4.40 B is the L1–19 prefix).
 ### The enemy-stat layer, ladder by ladder (Rev 11)
 
 Source: `wiki/enemy/common-enemy-labs`, `fast-enemy-labs`, `protector-labs`, `vampire-labs`, `ray-labs`, `scatter-labs`
-(2026-11-01 / one page 2026-07-29). Every **value** column is `step × n`, and the **30-level lines all share one time
-ladder** (`2d 7h 33m → 161d 9h 28m`, Σ **106 785 720 s = 1 235.95 d**), so one line's slot bill is a constant:
+(2026-11-01 / one page 2026-07-29), and (Rev 22) `ranged-enemy-labs` + `tank-enemy-labs` (2026-11-01). Every **value**
+column is `step × n`, and nineteen of the twenty **30-level lines share one time ladder** (`2d 7h 33m → 161d 9h 28m`,
+Σ **106 785 720 s = 1 235.95 d**), so one line's slot bill is a constant — the sole exception is `Ranged Enemy Range`
+(its own ladder — the shared one scaled ×1.00808, see note 5):
 
 | Lab (gate) | Lv | Value law | Cap | Price ladder | Σ coins | Σ time | coins / pp |
 |---|---|---|---|---|---|---|---|
 | `Common Enemy Health` / `Attack` | **T9 W10** | `−0.40 % × n` | **−12.00 %** ✓ “up to -12 %” | 20.00 B → 2.40 T | **21.117 T** | 1 235.95 d | **1.76 T** |
 | `Fast Enemy Health` / `Attack` | **T9 W20** | `−0.40 % × n` | −12.00 % | 30.00 B → 2.70 T | 25.768 T | 1 235.95 d | 2.15 T |
 | `Fast Enemy Speed` | **T9 W300** | `−0.40 % × n` | −12.00 % | 60 B → 3.60 T | 39.716 T | 1 249.83 d | 3.31 T |
+| `Ranged Enemy Health` / `Attack` · `Tank Enemy Health` / `Attack` | **T9 W20** | `−0.40 % × n` | −12.00 % | 30.00 B → 2.70 T (same cells as the Fast pair ✓) | **25.768 T** each | 1 235.95 d | 2.15 T |
+| `Ranged Enemy Range` | **T13 W80** | **`−0.50 % × n`** | **−15.00 %** | **`1.0 T × 1.4^(n−1)`**: L30 = **17 286.7 T** (= 1.4²⁹ ✓) | **≈ 60.50 T** | **80.99 d** (per-level constant **233 280 s**; the printed ladder runs **2d 16h 47m → 80d 23h 54m** — the same shape as the shared ladder, scaled ×**1.00808**, see note 5) | **4.03 T** |
 | `Protector Health` / `Radius` | **T9 W20** | `−0.30 % × n` | −9.00 % | 40.00 B → 3.29 T | 34.767 T | 1 235.95 d | 3.86 T |
 | `Protector Damage Reduction` | **T9 W20** | `−0.30 % × n` | **−6.00 %** (20 lv) | 80.00 B → 1.77 T | 16.521 T | 272.60 d | 2.75 T |
 | `Boss Health` / `Boss Attack` | **T9 W20** | `−0.30 % × n` ✓ §four-more-ladders | −9.00 % | (per panel) | — | — | — |
@@ -677,6 +688,20 @@ Four reads that matter for the queue:
    *slower* time constant than the ×1.15 of the bot/perk family (new constant for the shape table).
 4. **The Protector pair's price ladder starts at 40 B, its Damage-Reduction line at 80 B** (double), which is the printed
    reason the 20-level line is the priciest-per-point of the T9 group after `Fast Enemy Speed`.
+5. **`Ranged Enemy Range` is a fifth shape-pair, with two new constants** (new, Rev 22): the only line whose value step is
+   **−0.50 %** (cap **−15.00 %** — one third deeper than the −12 % standard, printed in the page's own `Good to know`:
+   “Basic, Fast, Tank and Ranged Health and Attack each reach −12 %; Fast Enemy Speed −12 %; **Ranged Enemy Range −15 %**”),
+   its cost is geometric at **×1.4/level** (`1.0 T × 1.4^(n−1)`, L30 = 17 286.7 T = 1.4²⁹ ✓ — a new ratio constant beside
+   ×1.5 and ×1.12, and every intermediate cell re-adds: L24 = 2 295.9 = 1.4²³ ✓) and its time is arithmetic
+   (per-level constant **233 280 s = 2d 16h 48m**; the printed first difference L1→L2 is exactly 233 280 s, the rest sit
+   within minute-truncation) ⇒ **Σ = 60.50 T coins / 1 245.94 d**, i.e. **4.03 T per pp** — the priciest per point of all
+   T9–T13 lines, but the only enemy line that also shortens the *incoming fire distance*. Its time ladder is the shared
+   one scaled by exactly **1.00808** (6 998 040 / 106 785 720 = 1.008080 = 80d 23h 54m ÷ 161d 9h 28m, two independent
+   divisions agreeing), so queue behaviour is identical to the T9 pair. The four `Health`/`Attack` lines of the Ranged and
+   Tank types print cell-for-cell identical ladders to the Fast pair (same **25.768 T** / 1 235.95 d bill, L30 price
+   **2.70 T** = 30 × 1.1²⁹ ⇒ a **×1.10** cost ratio for the whole 30 B family), and their gates are the same **T9 W20**.
+   The page also prints a mechanic worth knowing: these labs **break the fixed stat ratios** between enemy types (boss
+   health is normally a fixed multiple of basic health — after researching the basic line, that multiple no longer holds).
 
 **The two `* Level Skip` labs' steps are now printed too** (`wiki/workshop/enemy-level-skip`): **20** levels, value
 `0.10 × n` ⇒ **+2.00** at L20, Σ **0.745 T** coins / **11 258 700 s = 130.31 d** per line — that is
@@ -891,6 +916,10 @@ online often (it raises levels/day for all 5 slots: a `3 d 11 h` line becomes **
 - [ ] **§enemy-stat layer:** `Common Enemy Health` (T9 W10) has **30** levels whose value column runs
       **−0.40 % … −12.00 %** with prices **20.00 B → 2.40 T** (Σ **21.117 T**, Σ **1 235.95 d**), and every other
       30-level enemy line prints the *same* times (**2d 7h 33m** at L1, **161d 9h 28m** at L30).
+- [ ] **The Range line:** `Ranged Enemy Range` (T13 W80) has **30** levels, its value column steps **−0.50 %** to
+       **−15.00 %**, its price at L30 reads **17 286.7 T** (and **2 295.9 T** at L24), and its time ladder is the shared
+       one scaled ×**1.00808** — printed **2d 16h 47m** at L1 and **80d 23h 54m** at L30 (= 30 × 233 280 s), i.e. the
+       only enemy line whose Σ time is **1 245.94 d** rather than 1 235.95 d.
 - [ ] **T19 arithmetic ladder:** `Vampire Enemy Health` L1 = **0.25 q / 10 d 19 h 11 m** and L30 = **7.50 q /
       323 d 23 h 39 m** (= `30 × t₁`), Σ **116.25 q** / **5 021.68 d**.
 - [ ] **The ×1.5 / ×1.12 line:** `Lightning Amplifier - Scatter` (T16 W60) prints **×1.25** at L1 and **×37.5** at L30
