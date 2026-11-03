@@ -1,5 +1,9 @@
 # T006 — Pack the Lab queue, then buy the *cheapest* skipped hour
 
+Rev: 23 (2026-11-02) - **the census’s Card-lab count reconciled**: the category page prints **10** rows / Σ **99** with
+`Card Mastery` as one row, while the Lab screen lists **one mastery lab per card** ⇒ **21** lines / Σ **198** and the whole
+census becomes **169 lines / Σ 4 792** instead of 158 / 4 693; the Utility category re-adds cell-for-cell (**12** rows,
+Σ **611**, `Max Interest` **15**, both 20-level Level-Skip lines).
 Rev: 22 (2026-11-02) - **the enemy-stat table gains its last five lines** (`wiki/enemy/{ranged,tank}-enemy-labs`,
 2026-11-01): the four `Health`/`Attack` lines of Ranged + Tank (all gated **T9 W20**) print cell-identical ladders to the
 Fast pair (Σ **25.768 T** / 1 235.95 d each, and a **×1.10** cost ratio proved by L30 = 2.70 T = 30 × 1.1²⁹), and
@@ -379,6 +383,15 @@ of that category. The counts re-add to the census (15 · 9 · 16 · 12 · 39 · 
 | Module Research | 14 | **314** | the 12 lines of T010 §2.2 (Σ **254**: Reroll Shards 100, Daily Mission Shards 50, the two Cost lines 30, the two Drop Chance lines 10, Shatter 5, Unmerge 1, bans 4/4/3/7) **+ the two assist lines at 30** |
 | Battle Condition | 5 | **70** | generic `Battle Condition Reduction` **10** · Group 1 **20** · Group 2 **20** · Group 3 **10** · Group 4 **10** |
 | **All** | **158** | **4 693** | (= 4 633 if the two assist lines are counted with the module page's 12) |
+
+**Card-lab count: two consistent readings (Rev 23).** `wiki/lab/lab-category-card-research` prints **10** rows whose `Card
+Mastery (1 lab per card) Max Lv 9` collapses the mastery labs into one row (Σ **99** ✓ re-added term by term). Counted the
+way the Lab screen lists them — **one mastery lab per card** — the category is **21** lines with Σ **198**
+(`99 − 9 + 12 × 9`), and the whole census moves from **158 lines / Σ 4 693** to **169 / 4 792**. Both readings are
+internally consistent; the 12-lab version is what the game shows (T012 §2.1 lists one mastery lab per card).
+`wiki/lab/lab-category-utility-research` re-adds exactly as printed here (**12** lines, Σ **611** ✓), including
+`Max Interest` **15** (the H003 ladder), `Package After Boss` **1**, and the two **20**-level `Enemy … Level Skip` lines
+that T024’s ledger counts.
 
 **Three notes on the category-page prints (Rev 21).** ① The six category pages pulled as individual slugs
 (`lab-category-{main, attack, defense, perk, bot, ultimate-weapon}-research`, 2026-11-01) agree with the census on every

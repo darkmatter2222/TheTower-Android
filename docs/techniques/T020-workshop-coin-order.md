@@ -1,5 +1,11 @@
 # T020 — Workshop coin-spend order: the level-band rule and the knee table
 
+Rev: 15 (2026-11-02) - **§1.13, the `Range` pair printed end to end** (`wiki/workshop/range`, 2026-10-13): the workshop line
+is **79 levels** of **+0.5 m** from **30 m** (max **69.5 m**, whole line **1.46 M** coins, unlocked for **50** after
+`Critical Factor`, `Total Cost` column re-adding 76/79 with the three 3-sig-digit cells as the only drift), and the lab is
+**T2 W30 / 80 levels / `1 + 0.02n` ⇒ ×2.60** with **L1 = 30 coins and 0 s**, **L80 = 2 317 438 / 29 d 7 h 23 m**,
+**Σ 50 027 193 coins**; the card multiplies the lab, so the printed maxima give **180.7 m**, and the lab’s price ratios
+(2.37 → 1.42, decaying) defeat the usual `×1.15` fit by **−19 %** at the cap.
 Rev: 14 (2026-11-02) — **§6.1, the three per-track pages as a second print**: all 18 enhancement names now printed **in
 track order** (Attack `Damage … Attack Speed`, Defense `Health … Orb Size`, Utility `Cash Bonus … Enemy Level Skips`), the
 standard curve and all six special totals re-read identically (**441.24 s / 26.62 s / 1.51 s / 734.30 s / 336.82 s /
@@ -481,6 +487,27 @@ Prefix-sum again verified (5/5 on the dense 60-level table: its own prices add t
   compresses the spawn schedule itself.
 - **`More Round Stats`** is a **1-level** lab gated at **T1 W250**, costing **250 000** coins for **0d 12h 0m** of slot time;
   it unlocks Battle History, which keeps the last **20** runs.
+
+### 1.13 The `Range` pair — the workshop line and its lab, both fully printed (new, Rev 15)
+
+`wiki/workshop/range` (last verified **2026-10-13**, “2 data tables”) prints **both** halves of the line on one page, and
+its `Value` column is in **metres** (on this page the trailing `M` is the unit, not the 10⁶ suffix).
+
+| Half | Printed facts | Check |
+|---|---|---|
+| **Workshop `Range`** | unlocked **for 50 coins once you have `Critical Factor`**; **79 levels**; **starts at 30 m**, **+0.5 m per level**; max **69.5 m**; the `Total Cost` column ends at **1.46 M** coins | value law `30 + 0.5·n` ✓ **79/79**; `Total(n) = Total(n−1) + Cost(n)` ✓ 76/79 (the three misses are 3-significant-digit cells, e.g. L13 `1.15K`); the L1 price **50.00** *is* the unlock price ✓ |
+| **`Range` lab** | gated **Milestones T2 W30**; **80 levels**; **L1 = 30 coins / 0 s** (instant); **L80 = 2 317 438 coins / 29 d 7 h 23 m**; value **`1 + 0.02 × n`** ⇒ **×2.60** | `1 + 0.02n` ✓ **80/80**; the **80** cap is the *second* print of `Range Max Lv 80` on `wiki/lab/lab-category-attack-research` ✓; **Σ = 50 027 193** coins; slot time **700.2 d** (per-level reading) or **29 d 7 h 23 m** (cumulative) ⇒ the [H050](../hypotheses/H050-lab-time-column-per-level-vs-cumulative.md) twin |
+
+Three consequences:
+1. **The stack is multiplicative, and printed that way:** “The Range card … multiplies with the range lab, so the two
+   stack multiplicatively rather than additively” ⇒ `range = (30 + 0.5 n) × (1 + 0.02 L) × card`. Workshop + lab at their
+   caps = **69.5 × 2.60 = 180.7 m** (derived from the two printed maxima).
+2. **The lab’s price ladder is not geometric** — the printed ratios run **2.37 / 2.51 / 2.24 / 1.94 / 1.73 / 1.59 / 1.49 /
+   1.42 …** and decay toward ≈ 1.10, so the usual `30 × 1.15^n` under-predicts the cap (**1.87 M** vs the printed
+   **2 317 438**, −19 %) ⇒ read the cells, don’t fit them (as in §1.10’s two price worlds).
+3. **Range is a two-sided stat:** the page prints that it “also determines the firing distance of enemies that deal ranged
+   damage”, so this line and T006’s `Ranged Enemy Range` lab (−15 %) both move the engagement distance — the reason the
+   `Bounce Shot Range` / `Orb` sub-stats of T010 §8.7 are worth reading against it.
 
 ## 2. The level-band rule (the actual technique)
 
@@ -981,6 +1008,10 @@ on Defense, **L25** on Attack and **L30** (or 99) on Utility. So the taps go: **
 - [ ] **§6.4 per-unit:** `Enemy Level Skip +` from 0 to **60** costs **1.51 s** total (0.6 units ⇒ **2.52** s per unit) while
       `Coin Bonus +` from 0 to **300** costs **2.99 S** (3 units ⇒ **996.67** s per unit) — a **13.6×** gap against the
       standard line's **73.54**.
+- [ ] **§1.13 `Range`:** the Workshop tab shows `Range` at **50 coins** for its first level once `Critical Factor` is owned,
+       its value column reads **30.50 M … 69.50 M** (metres) over **79** levels with the last `Total Cost` **1.46 M**; the
+       lab panel reads **80** levels whose first five prices are **30 / 71 / 178 / 398 / 772** (the same ladder as §6.5’s
+       discount labs) with values **1.02 … 2.60** and L1 time **0 s**.
 - [ ] **§6.5 ladder identity:** `Workshop Attack / Defense / Utility Discount` levels 1–5 read **30 / 71 / 178 / 398 / 772**
       coins — the same five numbers as the `Starting Cash` lab — and the value column reads **0.50 % / 1.00 % / 1.50 %**
       (+0.50 pp per level), reaching **49.50 %** at level 99.
@@ -1160,6 +1191,9 @@ on Defense, **L25** on Attack and **L30** (or 99) on Utility. So the taps go: **
 - If a maxed workshop tab **still** receives free levels, the “never picks a maxed stat” rule is stale → the tracks become
   strictly per-stat investments and their ordering must be re-derived
   ([H051](../hypotheses/H051-free-upgrade-chance-90-75-decomposition.md)).
+- If the Workshop’s `Range` table stops at a level other than **79**, or the `Range` lab’s last value is not **2.60**, the
+  two caps moved → re-read both tables and re-derive §1.13’s **180.7 m** (and re-check `Range Max Lv 80` on the Attack
+  category page, which is the second print of the lab cap).
 - If `Coin Bonus +` costs ≈ 2.99 S but its multiplier is not what §6.2 implies, the per-level step differs → read the
   value at level 1 and record it ([H037](../hypotheses/H037-enhancement-per-level-step.md)).
 - If `Coin Bonus +` level **20** does not total ≈ **41.94 T** (or L10 is not **1.42 T**), the two prints are different
@@ -1219,6 +1253,13 @@ on Defense, **L25** on Attack and **L30** (or 99) on Utility. So the taps go: **
   (attack **T1 W40**, defense **T2 W50**, utility **T2 W60**). Second source for the defense ladder: fandom
   `Workshop_Defense_Discount` (all **99 rows**, agrees to 4 significant digits; L99 = 49 d 0 h 57 m / 4 190 000);
   fandom `Workshop_Attack_Discount` prints **T1 W40**, its `Lab/` twin and namu.wiki print **T2 W40**.
+
+- Tower Hub `wiki/workshop/range` (last verified **2026-10-13**, “2 data tables”) — both halves of the `Range` pair for
+  §1.13: the workshop line (**79** levels, **30 m** start, **+0.5 m**/level, max **69.5 m**, `Level / Value / Cost /
+  Total Cost` with the L1 price **50.00** and the final total **1.46 M**, unlocked “for 50 coins once you have Critical
+  Factor”) and the lab (**T2 W30**, **80** levels, `1 + 0.02n`, L1 **30 / 0 s**, L80 **2 317 438 / 29 d 7 h 23 m**), plus
+  the two printed laws “the Range card … multiplies with the range lab” and that Range “also determines the firing
+  distance of enemies that deal ranged damage”. Parsed by `tools/range-ladders.ps1`.
 
 - Tower Hub `wiki/guide/coin-guide-basics` (last verified **2026-07-29**) — “Coins per wave … is the weakest coin source
   in the game over the long run … **stop upgrading CPW in the lab by level 20**”; “**Every coin multiplier in the game
