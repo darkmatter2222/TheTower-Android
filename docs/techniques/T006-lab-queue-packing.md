@@ -1,5 +1,13 @@
 # T006 — Pack the Lab queue, then buy the *cheapest* skipped hour
 
+Rev: 42 (2026-11-03) — **§The four single-law blocks (`B`, `B2`, `C`, `P`)** (new): `Σ ln` **43.810 1 / 20.407 2 /
+27.209 6 / 19.701 6** (R) and **1.513 4 / 0.743 0 / 21.926 7 / 1.002 4** (P), densities **0.014 480 / 0.003 387 /
+0.000 020 / 0.000 006** per day. New identity: **a line’s `ln` under R is `ln(cap ÷ step)`**, and every shared-ladder line
+is exactly **`ln 30`** ⇒ `B`, `B2`, `C` all at per-line **3.401**. The reading fork is **29×** for `B` (the largest in the
+ledger) and the two coin-bound layers `C`, `P` are **last in both readings** (2.0e-5 and 6.0e-6 per day). Merged schedule:
+**the head `E → D → F → medal sheet → L` is invariant**; rows 6–15 sit in one 8× band (**0.003 … 0.026**), so after the
+head the order matters less than finishing. Coverage **16 rows / 179 of 197 lines / Σ ln 370.610**; only `I` and `N` open.
+`tools/lab-value-blocks.ps1`.
 Rev: 41 (2026-11-03) — **§Layer `A` on the value side** (new): the 39 UW lab tables close as **31 leveled tables +
 8 one-level unlock rows** ✓; `Σ ln` **65.916 2** (R) / **63.482 6** (P), per line **1.690**, density **0.018 143** (R) /
 **0.017 473** (P) per day, **0.067 582** with the stack ⇒ **layer `A` straddles the par** (**1.010×** under R, **0.973×**
@@ -1881,6 +1889,52 @@ law (enemy types) and stays at 0 in every reading.
 (`193.565 + 65.916`) over **18 510.6** calendar days at five slots. What remains is `B`, `B2`, `C`, `I`, `N`, `P`
 (52 lines), of which `I` and `N` still need their per-line value columns re-transcribed.
 
+### The four single-law blocks (`B`, `B2`, `C`, `P`) — sixteen rows value-complete (new, Rev 42)
+
+Each of these layers is one arithmetic law repeated, so their `Σ ln` needs no new transcription: `B` is nine
+`−0.40 % × n` lines (cap `−12.00 %`) plus the `−0.30 %` Protector trio and `Ranged Enemy Range` (`−0.50n`, cap
+`−15.00 %`), `B2` the six T19-trio lines (`−0.40n` to `−12.00 %`), `C` the eight assist labs (`+1 pp/level`, 30 levels),
+`P` the BC line (`2n` to 20 %), the four Groups (`1n` to 20/20/10/10 %) and the two `Boss` twins (`−0.30n` to `−9.00 %`).
+`tools/lab-value-blocks.ps1`, `cost = max(Σ coins / 700 T , Σ clock / 5)`.
+
+| layer | lines | Σ ln (**R**) | Σ ln (**P**) | cost (the `max`) | binds | **/day R** | /day P | per-line R |
+|---|---|---|---|---|---|---|---|---|
+| `B` enemy-stat T9–T13 band | 13 | **43.810 1** | 1.513 4 | 3 025.6 d | clock | **0.014 480** | 0.000 500 | 3.370 |
+| `B2` the T19 trio | 6 | 20.407 2 | 0.743 0 | 6 026.0 d | clock | 0.003 387 | 0.000 123 | 3.401 |
+| `C` the 8 assist labs | 8 | 27.209 6 | 21.926 7 | **1 328 571.4 d** | **coins** | 0.000 020 | 0.000 017 | 3.401 |
+| `P` BC + the two `Boss` lines | 7 | 19.701 6 | 1.002 4 | **3 296 539.3 d** | **coins** | 0.000 006 | 0.000 000 31 | 2.815 |
+
+**1. Every shared-ladder line is exactly `ln 30` per line** — the caps are 30 steps of their own printed step
+(`−12.00 % / −0.40 % = 30`, `−9.00 / 0.30 = 30`, `−15.00 / 0.50 = 30`, and the assist labs' `30 pp / 1 pp = 30`), so
+`B`, `B2` and `C` all sit at per-line **3.401** and `P` at **2.815** (its two 10-level Group lines pull the average down).
+That is a checkable identity: **a lab line's `ln` under reading R is `ln(cap ÷ step)`**, so the value column alone predicts
+the layer totals without re-adding anything.
+
+**2. The reading fork is 29× for `B`, and it is the largest in the ledger.** Under R a `−0.40n %` line is worth
+`ln 30 = 3.401 2`; under P (the physical multiplier, `0.996 → 0.88`) it is **0.123 8**, and the layer moves from
+**0.014 480**/day (just under the par, above `J`) to **0.000 500**/day (14th of 18). The multiplier-law layers are stable
+within **+0 … +16 %**, so: **use reading R for `E D F G L Q A J H M K O`, and treat `B`, `B2`, `P` as “reduce a stat by a
+fixed pp” (P) when the question is what the run actually gains.** The two readings disagree most exactly where the printed
+law is a small pp reduction on a stat that stays near 1.
+
+**3. The two coin-bound layers are last in both readings.** `C` and `P` cost **1 328 571.4** and **3 296 539.3** coin-days
+at the 700 T anchor (their clock is only 8 034.8 d and 2 290.6 d), so their densities are **2.0 × 10⁻⁵** and
+**6.0 × 10⁻⁶** per day — 4 digits below the sheet. With their **T18–T21** gates that is the same answer the cost ledger
+gave at Rev 38, now from the value side: **never let a sub-T11 save spend on `C` or `P` ahead of anything else.**
+
+**4. The merged schedule (sixteen rows).** Reading R:
+`E 0.452374 > D 0.116339 > F 0.114946 > sheet 0.050720 > L 0.033768 > Q 0.025603 > A 0.018143 > par 0.017957 > B 0.014480 >
+J 0.014128 > H 0.011422 > M 0.011315 > K 0.009941 > O 0.003481 > G 0.003412 > B2 0.003387 > C 0.000020 > P 0.000006`.
+Reading P: `E 0.471099 > D 0.125005 > F 0.116818 > sheet 0.050720 > L 0.033768 > par 0.017957 > A 0.017473 > Q 0.014562 >
+M 0.011315 > J 0.008155 > K 0.005625 > H 0.004099 > G 0.003577 > O 0.003481 > B 0.000500 > B2 0.000123 > C 0.000017 > P`.
+**Invariant in both: the head `E → D → F → medal sheet → L`.** Everything from 6th to 15th sits in the band
+**0.003 … 0.026** per day, a factor of 8 across ten layers — so after the head, the order matters far less than finishing
+them; the practical rule is *head first, then the ten middle layers in any order, `C`/`P` last.*
+
+**5. Coverage: 16 of 18 rows, 179 of 197 lines, `Σ ln 370.610`** (mean **2.07** per line). Only `I` (Attack, 9 lines) and
+`N` (Perk, 9 lines) still lack value columns — their pages print the laws as shapes (`L-I … L-VI`, the doubling columns)
+rather than `v1`/step pairs, so they need a re-transcription pass.
+
 ### The Battle Condition category and the two `Boss` lines — the census closes at 100 % (new, Rev 34)
 
 Five BC lines (`Lab/Battle Condition Reduction`, `Lab/Battle Conditions Group 1…4`) plus the two `Boss` lines
@@ -2252,6 +2306,13 @@ the §census Module row’s “12 lines, Σ **254**” ✓. `tools/module-named-
 - [ ] **§Rev 41:** five of those lines print a value column that runs to exactly thirty times its first level (`ln 30 =`
       **3.401 2**): `Chrono Field Duration` `1.00 → 30.00`, `Chain Thunder` `3 % → 90 %`, `Lightning Amplifier-Scatter`
       `×1.25 → ×37.5`, `Swamp Radius` `0.04 → 1.20`, `Swamp Rend - Basic Enemies` `3 % → 90 %`.
+- [ ] **§Rev 42:** the `ln = ln(cap ÷ step)` identity on the screens you already read — `Common Enemy Health` cap
+      **−12.00 %** with step **−0.40 %** (ratio 30), `Protector Health` **−9.00 %** / **−0.30 %** (30), `Ranged Enemy
+      Range` **−15.00 %** / **−0.50 %** (30), one assist lab **30 pp** / **+1 pp** (30), `Battle Conditions Group 1`
+      **20 %** / **1 %** (20), `Group 3` **10 %** / **1 %** (10) — each `ln` is then **3.401 2**, **3.401 2**, **3.401 2**,
+      **3.401 2**, **2.995 7**, **2.302 6**.
+- [ ] **§Rev 42:** the practical order for a sub-Tier-11 save: **`E` → `D` → `F` → the medal sheet → `L`** (invariant in
+      both readings), then the ten middle layers in any order, and **`C`/`P` last**.
 
 ## Falsification
 
@@ -2486,6 +2547,15 @@ the §census Module row’s “12 lines, Σ **254**” ✓. `tools/module-named-
 - **§Rev 41:** if the eight unlock rows are worth one step each rather than `ln 0`, take the sensitivity row
   (**Σ ln 71.461 4**, **0.019 669**/day): `A` then sits above the par in both readings, which is the only rank change this
   section can produce.
+- **§Rev 42:** the identity `ln = ln(cap ÷ step)` breaks if a page prints a cap that is **not** `step × levels` — e.g. a
+  `−0.40 %` line capping at `−11 %` gives `ln 27.5 =` **3.314 1** (−2.6 % on the layer); re-add those lines from the printed
+  value column and the table still holds layer by layer.
+- **§Rev 42:** if the **Lab** screen shows the resulting stat rather than the pp step (a boss at `0.997` health instead of
+  `−0.30 %`), take reading **P** and its order (`B` and `B2` fall to 15th–16th); the head `E D F sheet L` is identical in
+  both, so no instruction changes.
+- **§Rev 42:** if the assist labs multiply the stone track’s efficiency instead of adding `+1 pp` to it, each lab is
+  `ln(100/71) =` **0.342 5**, layer `C` is `Σ ln` **2.740 2** and density **2.1 × 10⁻⁶**/day — still one of the last two
+  places, so the buy order is unchanged.
 
 ## Sources
 
@@ -2747,3 +2817,6 @@ the §census Module row’s “12 lines, Σ **254**” ✓. `tools/module-named-
   `31 + 8 = 39` closure, `Σ ln` **65.916 2 / 63.482 6**, the densities (**0.018 143 / 0.017 473**, stack
   **0.067 582 / 0.065 087**), the internal top-twelve list, the 29.1 % cheap-block share, the `ln 2`-per-unlock
   sensitivity (**71.461 4 → 0.019 669**) and the two merged schedules.
+- `tools/lab-value-blocks.ps1` (new, Rev 42) — the four single-law blocks: `Σ ln` in both readings
+  (**43.810 1 / 20.407 2 / 27.209 6 / 19.701 6** under R), the two-resource cost and bind per layer, the eight densities, the
+  per-line averages, and the sixteen-row schedule under both readings with the sheet and the par inserted.
