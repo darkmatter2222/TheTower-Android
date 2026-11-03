@@ -1,5 +1,14 @@
 # T006 — Pack the Lab queue, then buy the *cheapest* skipped hour
 
+Rev: 38 (2026-11-03) — **§The whole lab tree on the calendar** (new): the same two divisions applied to all **seventeen**
+priced layers of §Appendix B — `coin-days = Σ coins/700 T` and `calendar days = Σ clock/slots`, `cost = max(both)` — so the
+191-line census and the 445-tap medal sheet sit in **one** queue. Totals re-add: `Σ coins` ⇒ **4 634 055.8** coin-days
+(printed 4 634 056 ✓), `Σ clock` **497 359.6** vs the printed 497 359.8 (**0.2-day** rounding skew) ⇒ **99 471.9** calendar
+days at 5 slots = **272.3 y** ✓ = **26 703.9 d = 73.1 y** with the ×3.725 stack ✓. Findings: `C` + `P` carry **99.81 %** of
+the coin bill; the cheapest-first queue is `E D F G L → medal sheet → Q O K J B H M A B2 I N → C P`; the five layers above
+the sheet are **12 of 191 lines** and **0.50 %** of the clock (**134.1 d** with the stack) so they fit **inside** the
+350.06-day medal sheet — that is the year-one plan; and the per-layer flip incomes put `A` (**663.6 T**) and `Q`
+(**672.4 T**) within 6 % of the 700 T anchor. `tools/lab-tree-day-ledger.ps1`.
 Rev: 37 (2026-11-03) — **§The Bot category on a calendar-day scale** (new): the two-resource model
 `cost_days = max(price/income, Σclock/(1440·slots))` puts the ten lab lines and the 25 medal lines in **one** queue.
 The **medal layer is 14.6× the lab category per calendar day** (**0.050 720** vs **0.003 481**, par **0.017 957**), so the
@@ -1647,6 +1656,75 @@ The prefix ladder used above is therefore `k = 1 · 3 · 5 = 43 T · 204.25 T ·
 `181.65 M · 515.0 M · 7.69 B · 80.58 B · 462.95 B · 1 808.24 B` for the cooldown column — every block delta re-adds to the
 line total, and `5 × 1.808 24 T + 4 × 664.838 T + 567.06 T =` **3.235 455 7 q** = the printed **3.235 5 q** ✓.
 
+### The whole lab tree on the calendar — seventeen layers in one queue (new, Rev 38)
+
+The day-scale model of the previous section is not specific to the bots: every layer of §Appendix B already prints
+`Σ coins` and `Σ clock`, so the same two divisions put **all seventeen priced layers** (the 191-line census) in one line
+with the medal sheet. `tools/lab-tree-day-ledger.ps1` prints every cell below.
+
+`coin-days = Σ coins / income_coins` · `calendar days = Σ clock / slots` (and `/ 3.725` again with the lab-speed stack) ·
+`cost = max(both)`, at the anchors **700 T coins/day**, **5 slots**, medals **607.5/day**.
+
+| layer | lines | Σ coins | coin-days | **cal-days** | + stack | binds |
+|---|---|---|---|---|---|---|
+| `E` `Garlic Thorns` | 1 | 1.35 M | 0.00 | **5.1** | 1.4 | clock |
+| `D` Second Wind pair | 2 | 14.4301 T | 0.02 | **25.8** | 6.9 | clock |
+| `F` the two `* Level Skip` | 2 | 1.49 T | 0.00 | **52.1** | 14.0 | clock |
+| `G` `Super Tower Bonus` | 1 | 12.304 T | 0.02 | **179.5** | 48.2 | clock |
+| `L` six named Card lines | 6 | 30.848 T | 0.04 | **237.1** | 63.7 | clock |
+| — the whole medal sheet | 445 taps | — | — | **350.1** | 350.1 | medals |
+| `Q` twelve named `Module` labs | 12 | 0.718 3 Q | 1 026.1 | **1 068.3** | 286.8 | clock |
+| `O` Bot Research (10 lines) | 10 | 3.235 5 q | 4.62 | **1 321.2** | 354.7 | clock |
+| `K` Utility | 10 | 8.906 T | 0.01 | **2 017.1** | 541.5 | clock |
+| `J` Defense | 15 | 187.228 T | 0.27 | **3 010.2** | 808.1 | clock |
+| `B` enemy-stat T9–T13 | 13 | 383.113 T | 0.55 | **3 025.6** | 812.2 | clock |
+| `H` Main Research | 15 | 826.445 q | 1 180.6 | **3 361.2** | 902.3 | clock |
+| `M` the 32 mastery labs | 32 | 1.600 Q | 2 285.7 | **3 600.0** | 966.4 | clock |
+| `A` the 39 UW tables | 39 | 2.4111 Q | 3 444.4 | **3 633.2** | 975.4 | clock |
+| `B2` the T19 trio | 6 | 697.5 q | 996.4 | **6 026.0** | 1 617.7 | clock |
+| `I` Attack Research | 9 | 25.594 T | 0.04 | **24 949.5** | 6 697.9 | clock |
+| `N` Perk Research | 9 | 4.337 329 q | 6.20 | **36 634.8** | 9 834.8 | clock |
+| `C` the 8 assist labs | 8 | 930.00 Q | **1 328 571.4** | 8 034.8 | 2 157.0 | **coins** |
+| `P` BC + the two `Boss` lines | 7 | 2 307.577 5 Q | **3 296 539.3** | 2 290.6 | 614.9 | **coins** |
+
+**1. The totals re-add to the printed census.** `Σ coins = 3 243.839 3 Q` ⇒ `3.2438393e21/700e12` = **4 634 055.8**
+coin-days (Appendix B prints 4 634 056 ✓) and `Σ clock = 497 359.6` slot-days (the table prints 497 359.8 — a **0.2-day**
+skew from the one-decimal prints, 4 × 10⁻⁷ %, logged as a rounding skew) ⇒ `/5` = **99 471.9 calendar days = 272.3 y** ✓
+and `/5/3.725` = **26 703.9 d = 73.1 y** ✓. The two-side ratio is **×46.6**, the same number the Rev 36 bill prints.
+
+**2. Two layers carry the coin side.** `C` + `P` = 1 328 571.4 + 3 296 539.3 = 4 625 110.7 of 4 634 055.8 coin-days =
+**99.81 %** of the whole coin bill of the lab tree. Everything else is a rounding error on the coin axis at the 700 T
+anchor — only `C` and `P` are coin-bound there, which is why the appendix’s “the binding currency flipped at Rev 34”
+is really “two layers arrived”.
+
+**3. The cheapest-first queue** (cost = the `max` column, the medal sheet inserted where it sorts) is the table order
+above: `E · D · F · G · L` then the **medal sheet** (8th item counting it, 6th of the lab layers), cumulative **499.5 d**
+for the five cheap layers and **849.6 d** with the sheet; then `Q · O · K · J · B · H · M · A · B2 · I · N`, and only then
+the two coin-bound layers `C` and `P`. Two useful cuts of it:
+* **per lab line** (cost / lines, the fair comparison when a layer’s `Σ ln` is not yet known): `E` 5.1 · `D` 12.9 ·
+  `F` 26.1 · `L` 39.5 · `Q` 89.0 · `A` 93.2 · `M` 112.5 · `O` 132.1 · `G` 179.5 · `J` 200.7 · `K` 201.7 · `H` 224.1 ·
+  `B` 232.7 · `B2` 1 004.3 · `I` 2 772.2 · `N` 4 070.5 · `C` 166 071 · `P` 470 934 d.
+* **the year-one plan**: the five layers above the sheet are only **12 of 191 lines** and **0.50 %** of the clock
+  (499.6 of 99 471.9 d), and with the ×3.725 stack they need **134.1 calendar days** of slot time — so they fit
+  **entirely inside** the 350.06-day medal sheet. Concretely: keep the stack up, run `E → D → F → G → L` in the five
+  slots, and buy medals in every gap; both are complete in about **350 days**, and the first layer that does *not* fit
+  (`Q`, cumulative 420.9 d with the stack) is the one to start on day 351.
+
+**4. Where the flip happens, per layer** — the same crossover idea as the bot category, now for the whole tree at 5 slots
+(`income* = slots × Σ coins / Σ clock`, so divide by 5 for a single slot): `E` 265.2 K · `I` 1.026 B · `K` 4.415 B ·
+`F` 28.59 B · `G` 68.56 B · `J` 62.20 B · `N` 118.4 B · `B` 126.6 B · `L` 130.1 B · `D` 560.4 B · `O` 2.449 T ·
+`B2` 115.7 T · `H` 245.9 T · `M` 444.4 T · **`A` 663.6 T · `Q` 672.4 T** · `C` 115.7 q · `P` 1.007 Q. Two readings:
+the whole tree is clock-bound until the income climbs past a few hundred T/day, and **`A` and `Q` sit within 6 % of the
+700 T anchor** — they are the two layers whose order genuinely depends on whether the player’s Fetch/stack income reads
+above or below ~664 T (UW tables) and ~672 T (mastery labs) per day. Below 1e11 coins/day (the earliest saves) the
+coin-bound set is `A, B, B2, C, D, H, L, M, N, O, P, Q` — **twelve of the eighteen rows** — so an early save should rank the
+**per-coin** column, not the clock. (Counting: seventeen lettered layers = **18 rows**, because `B2` is a split of `B`.)
+
+**5. Honest limits.** Only layer `O` has a printed `Σ ln` (4.5990, above) and the medal sheet has one (17.755, T015 §3.4),
+so this ledger is **cost-side**: it orders the layers by the calendar they consume, and the value ranking is complete only
+where `Σ ln` is known. `I` (Attack, 9 lines at 2 772 d/line) and `N` (Perk, 4 070 d/line) are the two clock hogs of the
+tree — 61.9 % of the clock between them — so a mistake in either of their shared time columns moves the whole ledger most.
+
 ### The Battle Condition category and the two `Boss` lines — the census closes at 100 % (new, Rev 34)
 
 Five BC lines (`Lab/Battle Condition Reduction`, `Lab/Battle Conditions Group 1…4`) plus the two `Boss` lines
@@ -1989,6 +2067,14 @@ the §census Module row’s “12 lines, Σ **254**” ✓. `tools/module-named-
       (T013 §2.4) and **607.5/day**, so the whole medal sheet is `212 660/607.5 =` **350.06** days and the ten lab lines are
       `9 512 288/(1440 × 5) =` **1 321.2** days ⇒ the ratio **14.6×** is checkable from two divisions.
 
+- [ ] **§Rev 38 (the whole tree):** the two divisions of the appendix re-add — `3 243.8393 Q / 700 T =` **4 634 055.8**
+      days and `497 359.8/(5) =` **99 472.0** days (`= 272.3 y`), `/(5 × 3.725) =` **26 704** days (`= 73.1 y`).
+- [ ] **§Rev 38:** the first five layers of the queue print the clock column `25.45 + 128.75 + 260.62 + 897.30 + 1 185.5`
+      **slot-days** for **12 lines**, i.e. `499.6` calendar days at 5 slots and **134.1** with the stack — all less than
+      `212 660/607.5 =` **350.06** days of the medal sheet.
+- [ ] **§Rev 38:** the two coin-bound layers are the ones whose appendix `Σ coins` is in the `Q` range (`C` **930.00 Q**,
+      `P` **2 307.577 5 Q**) and their coin-days are **1 328 571.4** and **3 296 539.3**, together **99.81 %** of the bill.
+
 ## Falsification
 
 - If a ×2 boost costs **less than ~3.3× the ×1.5 price**, the flat per-hour pricing changed (it was made flat in v25.5) → re-derive the ranking column from the in-game prices.
@@ -2181,6 +2267,17 @@ the §census Module row’s “12 lines, Σ **254**” ✓. `tools/module-named-
 - **§Rev 37:** the model assumes the four medal/cell/stone/gem incomes are the printed ones; if your own counter differs
   (Fetch on, ad gems, guild), rescale each line by the ratio — the statistic is linear in income, so the *ordering* only
   changes if two incomes cross each other.
+- **§Rev 38:** if `Garlic Thorns` (`E`) stops printing **1.35 M / 25.45 d** or the appendix’s 497 359.8 d total moves by
+  more than a day, the queue order is still produced by `max(coin-days, Σ clock/slots)` but the year-one numbers
+  (499.6 d · 134.1 d · 350.06 d) must be re-divided — re-run `tools/lab-tree-day-ledger.ps1`, whose layer array is a
+  literal copy of the §Appendix B table.
+- **§Rev 38:** the ledger is **cost-side**; the value ceiling is computable though — layer `I` reaches the medal sheet’s
+  density (**0.050 720/day**) only at `0.050 720 × 24 949.5 =` **Σ ln 1 265.4**, i.e. **140.6 per line**, and `N` at
+  **Σ ln 1 858.2** (**206.5 per line**). No lab line’s `ln` exceeds **1.4** anywhere in this doc, so the sheet stays ahead
+  of every layer; if a device read ever prints a `Σ ln` above those two numbers, re-sort the queue.
+- **§Rev 38:** if your printed coin `income/day` is between **663.6 T** and **672.4 T**, layers `A` and `Q` are on
+  opposite sides of their flips — the two of them are the only order-sensitive layers at the anchor, all others are the
+  same in both regimes.
 
 ## Sources
 
@@ -2424,3 +2521,8 @@ the §census Module row’s “12 lines, Σ **254**” ✓. `tools/module-named-
   (**2.242e-13 / 1.292e-13 / 2.030e-15 / 1.222e-15 / 6.099e-16**, the cooldown/duration ratio **211.8**), the crossover
   incomes (**15.68 B / 3.894 T / 9.217 T**), and the prefix re-adds (`5 × 1.808 24 T + 4 × 664.838 T + 567.06 T =`
   **3.235 455 7 q**) with the **204.25 T** unit correction.
+- `tools/lab-tree-day-ledger.ps1` (new, Rev 38) — the seventeen-layer calendar ledger: the layer array is a literal copy of
+  the §Appendix B table, and it prints the two cost columns per layer, the totals check (**4 634 055.8** coin-days,
+  **497 359.6** slot-days = **99 471.9** calendar days = **26 703.9** with the stack), the `C`+`P` share (**99.81 %**), the
+  cheapest-first queue with the medal sheet inserted, the per-line costs, the per-layer flip incomes
+  (**663.6 T** for `A`, **672.4 T** for `Q`) and the with-stack year-one cumulative (**134.1 d** for the first five layers).
