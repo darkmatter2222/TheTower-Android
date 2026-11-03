@@ -1,5 +1,12 @@
 # T010 — Module economy: level the *slot*, merge by recipe, reroll with few locks
 
+Rev: 9 (2026-11-02) — **§8.7, all four sub-stat tables in full (73 rows)** from `wiki/module/sub-module-effects`: Cannon
+**17 · Armor 17 · Generator 13 · Core 26**, with the **rarity-pool law** (rows starting at Common **23** · Rare **9** ·
+Epic **24** · Legendary **16** · Mythic **1** ⇒ cumulative pool **23 / 32 / 56 / 72 / 73**), **24 arithmetic rows**,
+**seven shared ladders covering 22 rows**, the rarity-sensitivity ranking (`Defense Absolute` **66.7**, `Cash / Wave`
+**33.3**, Core damage **31.25**, `Coins / Wave` **17.5**) and the one-cooldown exception (**`Poison Swamp - Cooldown`
+starts at Rare**, every other `−N s` row at Legendary); plus the dated model-migration note against the fandom’s
+11-row v0.24 list (four of its rows no longer exist).
 Rev: 8 (2026-11-02) — **§8, the printed module layer from three Hub pages**: the per-boss drop rates (**reroll shards 15 %**,
 Common module 2 %, Rare 0.5 %) with the tier quantity ladder closing as **`quantity(t) = 40 + 5·(t − 11)` for t ≥ 11**
 (✓ 11/11 printed rows ⇒ **EV/boss 2.70 at T8, 6.00 at T11, 12.75 at T20**), the four sub-stat laws (rarity ≤ module rarity,
@@ -277,6 +284,9 @@ only matter for filling the 350-slot inventory with merge material.
 - [ ] **§8.2 cap law:** on an **Epic** module, ≥ 50 rerolls never produce a Legendary+ sub-stat (the ceiling is the module's
       own rarity); after merging it to Legendary the same rolls can.
 - [ ] **§8.4 lock ladder:** one lock doubles-plus the price — **10 → 40** with 1 lock, **160** with 2, **500** with 3.
+- [ ] **§8.7 rarity-pool law:** a **Common** module’s `ℹ` list contains **23** sub-stat names, a **Rare** module’s **32**,
+       an **Epic** one **56**, a **Legendary** one **72** — and the two spot values read **Attack Speed 0.3 (Common) → 5
+       (Ancestral)** on Cannon and **Poison Swamp Cooldown −2 s already at Rare** on Core.
 - [ ] **§8.5 restore:** note the module's spent shards/coins, tap **Restore** — the refund equals the ledger's
       **Total Shard / Total Coins** for that level and the sub-stats are still listed.
 - [ ] A “+3 quantity” line shows **+0** at 33 % efficiency and **+1** at 34 %.
@@ -452,6 +462,116 @@ Chrono Field −4 / −7 / −10 s): the GT/CF cooldown targets in [T008](T008-u
 the hard caps printed alongside are **98 % defense, 90 % Chrono Field slow, 150 s Wall rebuild, 7 s Shockwave frequency,
 37 s Inner Land Mine cooldown** (assist sub-stats cannot push past them).
 
+### 8.7 All four type tables in full — 73 rows, and the rarity-pool law (new, Rev 9)
+
+`wiki/module/sub-module-effects` prints **four** tables under the same header `| Common | Rare | Epic | Legendary | Mythic |
+Ancestral |`: **Cannon 17 · Armor 17 · Generator 13 (§8.3) · Core 26 = 73 rows** (parsed cell-by-cell by
+`tools/substat-census.ps1`). “—” = the page’s `n/a`, i.e. that sub-stat does not exist at that rarity.
+
+**Cannon (attack):**
+
+| Sub-stat | C | R | E | L | M | A |
+|---|---|---|---|---|---|---|
+| `Attack Speed` | 0.3 | 0.5 | 0.7 | 1 | 3 | 5 |
+| `Crit Chance [%]` | 2 | 3 | 4 | 6 | 8 | 10 |
+| `Crit Factor` | 2 | 4 | 6 | 8 | 12 | 15 |
+| `Attack Range [m]` | 2 | 4 | 8 | 12 | 20 | 30 |
+| `Damage / Meter [m]` | 0.005 | 0.01 | 0.025 | 0.04 | 0.075 | 0.15 |
+| `Multishot Chance [%]` | — | 3 | 5 | 7 | 10 | 13 |
+| `Multishot Targets` | — | — | 1 | 2 | 3 | 4 |
+| `Rapid Fire Chance [%]` | — | 2 | 4 | 6 | 9 | 12 |
+| `Rapid Fire Duration` | — | 0.4 s | 0.8 s | 1.4 s | 2.5 s | 3.5 s |
+| `Bounce Shot Chance [%]` | — | 2 | 3 | 5 | 9 | 12 |
+| `Bounce Shot Targets` | — | — | 1 | 2 | 3 | 4 |
+| `Bounce Shot Range [m]` | — | 0.5 | 0.8 | 1.2 | 1.8 | 2.0 |
+| `Super Crit Chance [%]` | — | — | 3 | 5 | 7 | 10 |
+| `Super Crit Multi` | — | — | 2 | 3 | 5 | 7 |
+| `Rend Armor Chance [%]` | — | — | — | 2 | 5 | 8 |
+| `Rend Armor Multi [%]` | — | — | — | 2 | 5 | 8 |
+| `Max Rend Armor Multi [%]` | — | — | — | 200 | 300 | 500 |
+
+**Armor (defense):**
+
+| Sub-stat | C | R | E | L | M | A |
+|---|---|---|---|---|---|---|
+| `Health Regen [%]` | 20 | 40 | 60 | 100 | 200 | 400 |
+| `Defense [%]` | 1 | 2 | 3 | 5 | 6 | 8 |
+| `Defense Absolute [%]` | 15 | 25 | 40 | 100 | 500 | **1 000** |
+| `Thorns Damage` | — | — | 2 | 4 | 7 | 10 |
+| `Lifesteal [%]` | — | — | 0.3 | 0.5 | 1.5 | 2.0 |
+| `Knockback Chance [%]` | — | — | 2 | 4 | 6 | 9 |
+| `Knockback Force` | — | — | 0.1 | 0.4 | 0.9 | 1.5 |
+| `Orb Speed` | — | — | 1 | 1.5 | 2 | 3 |
+| `Orbs` | — | — | — | — | 1 | 2 |
+| `Shockwave Size` | — | — | 0.1 | 0.3 | 0.7 | 1 |
+| `Shockwave Frequency [s]` | — | — | −1 | −2 | −3 | −4 |
+| `Land Mine Damage [%]` | — | 30 | 50 | 150 | 500 | 800 |
+| `Land Mine Chance [%]` | — | 1.5 | 3 | 6 | 9 | 12 |
+| `Land Mine Radius` | — | 0.1 | 0.15 | 0.3 | 0.75 | 1 |
+| `Death Defy [%]` | — | — | — | 1.5 | 3.5 | 5 |
+| `Wall Health [%]` | — | — | 20 | 40 | 90 | 120 |
+| `Wall Rebuild [s]` | — | — | −20 | −40 | −80 | −100 |
+
+**Core (Ultimate Weapons; negative = seconds removed):**
+
+| Sub-stat | C | R | E | L | M | A |
+|---|---|---|---|---|---|---|
+| `Golden Tower - Bonus` | — | — | 1 | 2 | 3 | 4 |
+| `Golden Tower - Duration [s]` | — | — | — | 2 | 4 | 7 |
+| `Golden Tower - Cooldown [s]` | — | — | — | −5 | −8 | −12 |
+| `Black Hole - Size [m]` | 2 | 4 | 6 | 8 | 10 | 12 |
+| `Black Hole - Duration [s]` | — | — | — | 2 | 3 | 4 |
+| `Black Hole - Cooldown [s]` | — | — | — | −2 | −3 | −4 |
+| `Spotlight - Bonus` | 1.2 | 2.5 | 3.5 | 10 | 15 | 20 |
+| `Spotlight - Angle` | — | — | 3 | 6 | 11 | 15 |
+| `Chrono Field - Duration [s]` | — | — | — | 4 | 7 | 10 |
+| `Chrono Field - Speed Reduction [%]` | — | — | 3 | 8 | 11 | 15 |
+| `Chrono Field - Cooldown [s]` | — | — | — | −4 | −7 | −10 |
+| `Death Wave - Damage [x]` | 8 | 15 | 25 | 50 | 100 | 250 |
+| `Death Wave - Quantity` | — | — | — | 1 | 2 | 3 |
+| `Death Wave - Cooldown [s]` | — | — | — | −6 | −10 | −13 |
+| `Smart Missiles - Damage` | 8 | 15 | 25 | 50 | 100 | 250 |
+| `Smart Missiles - Quantity` | — | — | 1 | 2 | 4 | 5 |
+| `Smart Missiles - Cooldown [s]` | — | — | — | −2 | −4 | −6 |
+| `Inner Land Mines - Damage [x]` | 8 | 15 | 25 | 50 | 100 | 250 |
+| `Inner Land Mines - Quantity` | — | — | — | 1 | 2 | 3 |
+| `Inner Land Mines - Cooldown [s]` | — | — | — | −5 | −8 | −10 |
+| `Poison Swamp - Damage [x]` | 8 | 15 | 25 | 50 | 100 | 250 |
+| `Poison Swamp - Duration [s]` | — | — | — | 2 | 5 | 10 |
+| `Poison Swamp - Cooldown [s]` | — | −2 | −4 | −6 | −8 | −10 |
+| `Chain Lightning - Damage [x]` | 8 | 15 | 25 | 50 | 100 | 250 |
+| `Chain Lightning - Quantity` | — | — | 1 | 2 | 3 | 4 |
+| `Chain Lightning - Chance [%]` | 2 | 4 | 6 | 9 | 12 | 15 |
+
+**Five laws the 73 cells give for free.**
+① **The rarity-pool law.** Every row starts at exactly one rarity: **Common 23 · Rare 9 · Epic 24 · Legendary 16 · Mythic 1**
+(`Orbs` is the only Mythic-start row) — Σ **73** ✓. Cumulative pool a module can roll: Common **23** → Rare **32** →
+Epic **56** → Legendary **72** → Mythic and Ancestral **73**, the cap law of §8.2 in numbers (a Common module has only
+**23** possible sub-stats, a Legendary+ one 72).
+② **24 of 73 rows are exactly arithmetic** (constant step across their printed cells): 4 Cannon, 2 Armor, 7 Generator,
+11 Core. The rest are piecewise — a small step for the first two-three rarities then a jump (`Attack Speed` +0.2 ×3 then
++2 ×2; `Cash / Wave` +20 / +50 / +100 / +300 / +500).
+③ **Seven shared ladders** carry **22 rows**: `8/15/25/50/100/250` on the **five** Core damage rows (×31.25 C→A);
+`2/4/6/8/10/12` on the three `Free … Upgrade` rows **and `Black Hole - Size`**; `2/4/6/8` on `Interest / Wave` + both
+Level-Skip rows; `1/2/3/4` on `Multishot Targets`, `Bounce Shot Targets`, `Golden Tower - Bonus`,
+`Chain Lightning - Quantity`; `1/2/3` on `Death Wave` + `Inner Land Mines - Quantity`; `3/5/7/10` on
+`Super Crit Chance` = `Recovery Amount`; `2/5/8` on `Rend Armor Chance` = `Rend Armor Multi`.
+④ **Rarity-sensitivity = Ancestral ÷ Common** (what one reroll is worth on that row): `Defense Absolute` **66.7**,
+`Cash / Wave` **33.3**, the Core damage rows **31.25**, `Cash Bonus` **25**, `Coins / Wave` **17.5**,
+`Coins / Kill Bonus` and the `Free … Upgrade` trio **6**, `Interest / Wave` + the Level Skips **4**,
+`Package Chance` **3**, the cooldown rows **2–2.2** ⇒ for the coin engine, **lock `Cash / Wave` or `Coins / Wave` and
+push module rarity** — the same 10–40 shards buy 2–10× more on those rows than on `Package Chance`.
+⑤ **Cooldown sub-stats are Legendary-gated except one:** every `−N s` row starts at Legendary **except
+`Poison Swamp - Cooldown`, which starts at Rare** (`−2/−4/−6/−8/−10`) ⇒ below Tier 11 the only UW cooldown a module can
+carry is Poison Swamp’s; T008’s Golden Tower (−5/−8/−12) and Chrono Field (−4/−7/−10) cooldown rolls need **Legendary+**
+modules, which is why the §8.6 hard caps only bind late.
+
+**Model-migration note (dated by T005’s timeline).** The fandom’s v0.24 list has **11** rows, and four of them do not
+exist in today’s 73-row print (`Armor Penetration` 5→40, `Coin Drop Rate` +0.5→+3, `Kill Coins` ×5→×30,
+`Energy` 1→50, plus a `Wave Skip` 2→50 that today is a *workshop* line) ⇒ the fandom table is the **v0.24-era** model.
+Where the two agree they agree to the cell (`Coin Bonus +10 % → +50 %` = `Cash Bonus` Common **0.1** → Legendary **0.5** ✓).
+Use these four tables as current.
+
 ## Sources
 
 - Tower Hub `wiki/module/modules` (**2026-11-02**) — the per-boss drop chances (**reroll shards 15 %**, Common module 2 %,
@@ -466,7 +586,9 @@ the hard caps printed alongside are **98 % defense, 90 % Chrono Field slow, 150 
 - Tower Hub `wiki/module/sub-module-effects` (**2026-11-02**) — the four type tables (Cannon / Armor / **Generator** / Core)
   with the six rarity columns (§8.3), the “sub-stat rarity ≤ module rarity” cap, the hard-cap list (**98 % defense, 90 %
   Chrono Field slow, 150 s Wall rebuild, 7 s Shockwave frequency, 37 s Inner Land Mine cooldown**) and the lock-cost sentence
-  (“each lock increases the cost of the roll”). Payload row counts: Generator **13** (panel claims 17), Core **26**.
+  (“each lock increases the cost of the roll”). Payload row counts (**Rev 9, all four tables parsed**): Cannon **17**,
+  Armor **17**, Generator **13** (panel claims 17), Core **26** ⇒ **73** cells per rarity column; the start-rarity
+  histogram is **23 / 9 / 24 / 16 / 1** (Σ 73 ✓) and **24** rows are exactly arithmetic.
 - Tower Hub `wiki/module/epic-module-unique-effect` (**2026-11-02**) — the unique abilities as 4-value ladders by rarity and
   the repeated **8 / 15 / 25 / 50 / 100 / 250** damage ladder across five UW rows.
 - Tower Hub `wiki/lab/lab-shatter-shards` (last verified **2026-11-01**, 1 data table) — unlock “**reaching tier 16 wave

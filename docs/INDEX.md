@@ -15,7 +15,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | T007 | [Ad-gem sweep](techniques/T007-ad-gem-sweep.md) | Gems | Amounts verified (Rev 2) |
 | T008 | [Stone economy: knee-first UW buying + cooldown sync](techniques/T008-uw-sync-with-stones.md) | Stones → Coins | **Verified (Rev 10**, arithmetic: 9/9 stone values + 4/4 lattice rows + the 53 547 ledger + the 9 UW+ tables closing as 4 sequences (179 240) + the GT matrix + 9/9 workshop totals + the **27/27** per-line `Total` rows + the index page's 42/42 family cells and 27/27 value ranges) |
 | T009 | [Gem spend order](techniques/T009-gem-spend-order.md) | Coins/min | **Three-sourced (Rev 5**; device read pending) |
-| T010 | [Module economy (slot levels, merges, rerolls)](techniques/T010-module-merge-chain.md) | Modules, shards | **Verified (Rev 8**, arithmetic: the `40 + 5(t−11)` tier law, the 13-row currency sub-stat table, the lock ladder, the printed ledger) |
+| T010 | [Module economy (slot levels, merges, rerolls)](techniques/T010-module-merge-chain.md) | Modules, shards | **Verified (Rev 9**, arithmetic: the `40 + 5(t−11)` tier law, the **73-row** four-table sub-stat census (start-rarity histogram **23/9/24/16/1**, cumulative pool **23/32/56/72/73**, **24** arithmetic rows, **7** shared ladders over 22 rows, sensitivity `Defense Absolute` **66.7** / `Cash / Wave` **33.3** / Core damage **31.25**, `Poison Swamp - Cooldown` the only Rare-start cooldown), the lock ladder, the printed ledger) |
 | T011 | [Perk engine tuning](techniques/T011-perk-engine-tuning.md) | Coins (run multipliers) | **Verified (Rev 6**, arithmetic: the printed ladders + the per-tier perk bill 0 → 1 46…1 056 picks, 8/8 marginals re-added) |
 | T012 | [Card deck order (gems per percentage point)](techniques/T012-card-deck-order.md) | Coins, Cash, Elite Cells | **Verified (Rev 5**, arithmetic: card ladders double-sourced on 23 per-card pages, the mastery law universal as **v(k) = base + (k+1)s** over 22 two-table pages, Σ 27 500 stones with 22 per-page prints, the 50 q / 562.5 d lab, **Coin Decay**, plus the special-card pages printing **Double Death Ray** Σ 1.10 T / 892.3 d and the **×3.00** mastery product) |
 | T013 | [Event window & medal economy](techniques/T013-event-medal-economy.md) | Medals → Gems, Stones, Shards | **Verified (Rev 6**, arithmetic: the ladder + the 21/21 milestone-skin laws + the 83/58/44 bucket table at +95.2 pp) |
@@ -204,6 +204,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 - [2026-11-02 - session 98 (T006 Rev 21)](log/2026-11-02.md#2026-11-02---session-98-iteration-107-the-uw-cap-row-closes-at-39-of-39-and-a-new-skew-appears)
 - [2026-11-02 - session 99 (T006 Rev 22)](log/2026-11-02.md#2026-11-02---session-99-iteration-108-the-enemy-stat-table-gains-its-last-five-lines)
 - [2026-11-02 - session 100 (T005 Rev 4, H061)](log/2026-11-02.md#2026-11-02---session-100-iteration-109-the-version-timeline-dates-every-printed-number)
+- [2026-11-02 - session 101 (T010 Rev 9)](log/2026-11-02.md#2026-11-02---session-101-iteration-110-the-four-sub-stat-tables-close-at-73-rows)
 
 ## Reference material in this repo
 
