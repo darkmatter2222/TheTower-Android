@@ -1,5 +1,13 @@
 # T013 — Run the event window: every mission is a double-dip, every trade line is capped
 
+Rev: 8 (2026-11-03) — **§2.5: the line choice becomes a table**. Weeks-to-bill per currency
+(**stones 452 282 / shards 82 380 / gems 114 500** against **W** / **1 470 → 3 570** / **3 045** per week) give the leader:
+the **stone line leads at every band up to Platinum 16–24** (cross-over at `W > 8 071` vs no-lab shards, `12 028` vs gems,
+`19 600` vs L50 shards), then it passes to **shards** (no lab) or **gems** (lab L50). The density law
+`units/trade ÷ income` (**0.1701** shards / **0.0493** gems / `15/W` stones) fixes the order inside a round, and the
+density-greedy plans buy **12 / 13 / 11 / 16** trades for the four budgets (**1 800 / 1 950 / 1 650 / 2 400 ge**,
+**1.55 / 1.63 / 1.23 / 1.18 ge/medal**); `150/price ≥ 1` only through **trade 4** ⇒ four rounds per event is break-even
+depth. `tools/event-shop-line-choice.ps1`.
 Rev: 7 (2026-11-03) — **§2.4: the ladder closes against the budget** — `cost(n) = 3·C(q) + r·c(q+1)` for `n = 3q + r`
 (level plan, one counter per line) ⇒ the four printed budgets buy **13 / 14 / 17 / 18** trades
 (**1 950 / 2 100 / 2 550 / 2 700** gem-equivalents, residuals **65 / 30 / 200 / 110**) versus **7 / 7 / 9 / 10** all-in on
@@ -229,6 +237,67 @@ first if only half a pair fits). Cross-check on the panel: the **tier multiplier
 `1 + 0.004·(skins owned) + …`; the **Profile** screen (tap the **tower** on the home menu) only *displays* **1 skin + 5
 relics** and does **not** activate them, so it is not the place to read the bonus.
 
+### 2.5 Which line leads — the binding-currency table (new, Rev 8)
+
+Every trade pays **150 ge** whichever line it sits on, so the line choice is decided entirely by *which currency's bill
+takes longest to cover*. Two objectives, both arithmetic (`tools/event-shop-line-choice.ps1`):
+
+**Objective A — weeks of income to the bill** (`bill ÷ income/week`; the largest binds). The three bills are
+**stones 452 282** ([T025](T025-years-to-max-ledger.md) §1), **shards 82 380** = four equipped slots to L50
+([T010](T010-module-merge-chain.md) §1, `4 × 20 595`), **gems 114 500** = the framework
+([T009](T009-gem-spend-order.md) §1); the incomes are the band week (§3.3 of T014, F2P `a = 3.5`),
+`42 × (35 + L)` shards ⇒ **1 470** unlabbed / **3 570** at lab **L50**, and **3 045** gems/week (435/day):
+
+| Band (stones/week) | stones | shards, no lab | shards, lab L50 | gems | leader (no lab) | leader (lab L50) |
+|---|---|---|---|---|---|---|
+| Copper 23–30 (177.5) | 2 548.1 | 56.0 | 23.1 | 37.6 | **stones** | **stones** |
+| Copper 13–15 (251.5) | 1 798.3 | 56.0 | 23.1 | 37.6 | **stones** | **stones** |
+| Silver 23–30 (529.5) | 854.2 | 56.0 | 23.1 | 37.6 | **stones** | **stones** |
+| Gold 23–30 (1 177.5) | 384.1 | 56.0 | 23.1 | 37.6 | **stones** | **stones** |
+| Platinum 16–24 (6 497.5) | 69.6 | 56.0 | 23.1 | 37.6 | **stones** | **stones** |
+| Champion 16–24 (20 257.5) | 22.3 | 56.0 | 23.1 | 37.6 | shards | gems |
+
+**The law:** the stone line leads while `452 282 / W` beats the other columns, i.e. while
+`W <` **8 071** (against no-lab shards) / **12 028** (against gems) / **19 600** (against lab-L50 shards). Every band a
+sub-T11 account can be in is below all three, so **below Champion 16–24 the stone line is the line to lead with**; from
+Champion 16–24 the lead passes to **shards** without the `Daily Mission Shards` lab and to **gems** with it at L50.
+
+**Objective B — weeks of calendar bought per medal** (the density, `units-per-trade ÷ income/week`, which fixes the order
+*inside* a round because all three counters move together):
+
+| currency | units/trade | weeks per trade |
+|---|---|---|
+| stones | 15 | `15 / W` ⇒ **0.0845** at Copper bottom, **0.0127** at Gold bottom, **0.0007** at Champion 16–24 |
+| shards | 250 | **0.1701** (no lab) / **0.0700** (lab L50) |
+| gems | 150 | **0.0493** |
+
+⇒ the round order is **shards → stones → gems** at the Copper bottom without the shard lab, **stones → shards → gems**
+there with it at L50, and **shards → gems → stones** from the Gold bottom upward (stones fall to last as soon as
+`15 / W < 0.0493`, i.e. `W > 305`).
+
+**The density-greedy plan** (each next trade goes to the currently densest line; budget = §2.4's four medal totals):
+
+| state | budget | trades | spent | residual | stones/shards/gems | ge | ge/medal | calendar bought |
+|---|---|---|---|---|---|---|---|---|
+| Copper bottom, no lab | 1 215 | **12** | 1 160 | 55 | 4 / 6 / 2 | 1 800 | 1.55 | 1.46 w |
+| Copper bottom, lab L50 | 1 215 | **13** | 1 195 | 20 | 5 / 5 / 3 | 1 950 | 1.63 | 0.92 w |
+| Gold bottom, no lab | 1 355 | **11** | 1 345 | 10 | 1 / 7 / 3 | 1 650 | 1.23 | 1.35 w |
+| Champion 16–24, lab L50 | 2 160 | **16** | 2 035 | 125 | 3 / 7 / 6 | 2 400 | 1.18 | 0.79 w |
+
+Worked sequence for the first row: `sh40 sh65 st40 sh90 sh130 st65 ge40 sh175 st90 ge65 sh230 st130`
+= 730 + 325 + 105 = **1 160** medals; the next prices would be 380 (shards), 175 (stones), 90 (gems) and **55** remain, so
+the plan stops there.
+
+**Which objective to follow.** The *ge* count prefers the plain level plan (§2.4: 13 trades, **1 950 ge = 1.70
+ge/medal** at the Copper bottom); the *bill* objective prefers the density plan (**12** trades, 1 800 ge, but the
+**6** shard trades cut the 56-week shard bill by **1.0 week** where the level plan's 4 give 0.68). The two differ by at
+most **150 ge (≈ 8 %)**, so: use the level plan when you just want the most currency, and the density order when one
+currency is the gate for your next upgrade (below Gold that is stones, then shards until `Daily Mission Shards` reaches
+L50, then gems). Either way the ladder's own shape decides the depth: **150/price ≥ 1 only through trade 4**
+(`3.750 / 2.308 / 1.667 / 1.154`, then `0.857 / 0.652 / 0.395`), so four rounds per event is the break-even depth and the
+surplus is better parked in the **bots** (refundable) or banked for the next event's three **40**-cost trades (four rounds
+cost `3 × (40 + 65 + 90 + 130) =` **975** medals and pay **1 800 ge** = **1.846 ge/medal**).
+
 ## 3. The double-dip list (schedule these inside the event window)
 
 Most event missions *are* the currency actions from the other techniques, so doing them during an event pays twice (the currency + up to 45 medals). Free medals available from the daily sweep alone ([T007](T007-ad-gem-sweep.md)): **“Get the free gem reward in store x times”** (7/10/13), **“Claim AD Gems xx times”** (10/—/60), **“Tap xx Floating Gems”** (12/24/50) = **135 medals for the taps you already do**.
@@ -280,6 +349,15 @@ Most event missions *are* the currency actions from the other techniques, so doi
       (`3 × 325 + 175 =` **1 150** spent).
 - [ ] **§2.4 relic counts:** the **350** gate lights up on your **8th** completed mission and **700** on the **16th**
       (F2P; **4th** and **8th** with the boost) — and box medals claimed in between do **not** move the gate.
+- [ ] **§2.5 leader:** at the Copper bottom the stone line should be the one you lead with (its bill is
+      `452 282 / 177.5 =` **2 548 weeks** of income against **56.0** for shards and **37.6** for gems); with
+      `Daily Mission Shards` at L50 the shard bill is `82 380 / 3 570 =` **23.1** weeks and the order becomes
+      stones → gems → shards.
+- [ ] **§2.5 density plan:** after the 12-trade Copper-bottom plan the **Event Shop** counters should read
+      **stones 4, shards 6, gems 2** with **55** medals left (`730 + 325 + 105 =` **1 160** of **1 215**), and the next
+      printed prices should be **380 / 175 / 90** — all unaffordable, which is where the plan stops.
+- [ ] **§2.5 break-even depth:** the fourth trade of a line costs **130** (≥ 1 ge/medal) and the fifth **175** (< 1), so
+      four rounds = **12** trades = **975** medals for **1 800 ge** = **1.846 ge/medal** is the break-even depth.
 - [ ] On day 1 the mission panel shows **7** missions, and by day 8 there are **21** (7 + 2 × 7).
 - [ ] One purchase on each line pays **150 gems / 15 stones / 250 shards** — and with the unit table each equals
       **150 gem-equivalents**.
@@ -316,6 +394,15 @@ Most event missions *are* the currency actions from the other techniques, so doi
 - **§2.4:** if your own event tally is far from **1 215** F2P, first check whether the **Fetch** medals and all seven boxes
   were claimed (they are **140 + 270** of the total); a permanently lower tally means missions are being left unclaimed,
   which also delays the 350/700 gates.
+- **§2.5:** if your **shard** flow is not `42 × (35 + L)` per week (i.e. **1 470** unlabbed, **3 570** at L50), recompute
+  the density `250/income` and the bill `82 380/income` from your own number — the leader column can change hands at
+  `W ≈ 305` stones/week, where the stone density crosses the gem density.
+- **§2.5:** if your measured gem income is far from **435/day** (the census figure), the gem column moves
+  (`114 500/income`, density `150/income`); at **360/day** (8-h uptime) the bill is **45.4 weeks** and the density
+  **0.0595**, which keeps gems **behind** L50-shards (**0.0700**) but **ahead** of stones from the Gold bottom upward.
+- **§2.5:** if the panel's next prices after a density-plan round are not the ladder's own next value for that line, the
+  counters are shared rather than per-line → see the §2.4 bullet; the leader table is unaffected (it uses only bills and
+  incomes).
 - If a **song bought but unequipped** stops showing its bonus, the “apply without being equipped” line is wrong → cosmetic
   priority drops behind stat items (it is then a loadout-slot trade-off, not a free stack).
 - If day 8 still shows **new** missions, the “+2/day for days 2–8, then nothing” pacing is re-versioned → the 21-mission
@@ -399,6 +486,14 @@ Most event missions *are* the currency actions from the other techniques, so doi
 - `tools/medal-weekly-ledger.ps1` (new) — the income ledger (**607.5 / 677.5 / 1 080 / 1 150** medals per week), the
   per-line ladder with `ge/medal` (**3.750 → 0.395**), and the four budget solves (**13 / 14 / 17 / 18** level-plan
   trades vs **7 / 7 / 9 / 10** all-in).
+- `tools/event-shop-line-choice.ps1` (new, §2.5) — the leader table (bills **452 282 / 82 380 / 114 500** over incomes
+  **W / 1 470 → 3 570 / 3 045**), the density law (**0.1701 / 0.0700 / 0.0493 / `15/W`**), the three cross-over points
+  (**8 071 / 12 028 / 19 600** stones per week) and the four density-greedy plans with their purchase sequences. Bills come
+  from [T009](T009-gem-spend-order.md) §1 (gem framework **114 500**), [T010](T010-module-merge-chain.md) §1
+  (slot-level cumulative **20 595** ⇒ four slots **82 380**) and [T025](T025-years-to-max-ledger.md) §1
+  (stones **452 282**, staged first-year target **11 461**); incomes from
+  [T022](T022-free-currency-census-paid-ladder.md) §1 and [T004](T004-mission-farming-low-tier.md) (the shard law
+  `42 × (35 + L)`).
 - `tools/gm_strings.txt` — panel strings `Themed Event UI`, `v25 Themed Event UI`, `Bots`, `Synchronicity`, `Event Shop`, `Featured Banner` / `Standard Banner`, `Free Reward` / `Premium Reward`; the script-side classes behind §2.4 are all present:
   `Assets\Scripts\EventData.cs` + `EventPanelUI.cs` (the shop's per-line counters and the gate tally), `Mission.cs` /
   `MissionEvent.cs` / `MissionTile.cs` (the 21-mission pool), `DailyMissionTile.cs` / `DailyMissionManager.cs` with
