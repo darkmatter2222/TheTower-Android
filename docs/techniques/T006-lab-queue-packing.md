@@ -1,5 +1,13 @@
 # T006 — Pack the Lab queue, then buy the *cheapest* skipped hour
 
+Rev: 41 (2026-11-03) — **§Layer `A` on the value side** (new): the 39 UW lab tables close as **31 leveled tables +
+8 one-level unlock rows** ✓; `Σ ln` **65.916 2** (R) / **63.482 6** (P), per line **1.690**, density **0.018 143** (R) /
+**0.017 473** (P) per day, **0.067 582** with the stack ⇒ **layer `A` straddles the par** (**1.010×** under R, **0.973×**
+under P), the only layer whose side of the par depends on the pp reading. Internally five lines carry `ln 30` (`Chrono Field
+Duration`, `Chain Thunder`, `Lightning Amplifier-Scatter`, `Swamp Radius`, `Swamp Rend - Basic Enemies`) and the six
+287–608 M L-I/L-III lines carry **29.1 %** of the layer. Schedule with `A`: **R** `E D F sheet L Q A par J H M K O G`,
+**P** `E D F sheet L par A Q M J K H O G`. Coverage now **12 rows / 145 of 197 lines / `Σ ln` 259.481 / 18 510.6 days**.
+`tools/lab-value-layer-A.ps1`.
 Rev: 40 (2026-11-03) — **§Four more layers on the value side** (new): `Σ ln` for `Q` **27.351 3** · `J` **42.529 0** ·
 `H` **38.390 5** · `K` **20.051 6** (densities **0.025 603 / 0.014 128 / 0.011 422 / 0.009 941** per day), both readings of
 a pp law carried; the merged **eleven-row** schedule is `E · D · F · sheet · L · Q · par · J · H · M · K · O · G` with the
@@ -1835,6 +1843,44 @@ Coverage: **11 rows / 106 of 197 lines / Σ ln 193.565** for **14 877.4** calend
   **712** levels exactly) it is **36.7811 → 0.010 943**, and `M` sits between the two at **0.011 315** ⇒ `H` and `M` swap.
   Filed as **H069**; one look at the **Lab** screen’s Main category settles it.
 
+### Layer `A` on the value side — the 39 UW lab tables, and the schedule with it (new, Rev 41)
+
+The last large layer whose per-line laws are already printed is `A`: **Appendix A.1 lists 31 leveled tables** and the nine
+pages also print **eight one-level unlock rows** (`565.255 B / 70.32 d` together), so `31 + 8 =` **39** ✓ — the layer's line
+count closes without a new fetch. Each line's `ln` is `ln(v_cap / v_1)` from the printed `v1`/`step` columns
+(`tools/lab-value-layer-A.ps1`), with the two readings of the percentage-point lines carried as in Rev 40.
+
+| quantity | reading **R** (printed values) | reading **P** (`1 + pp`) |
+|---|---|---|
+| `Σ ln` of layer `A` | **65.916 2** | **63.482 6** |
+| per line (39 lines) | **1.690** | 1.628 |
+| calendar days (5 slots) | 3 633.2 | 3 633.2 |
+| **density /day** | **0.018 143** | **0.017 473** |
+| with the ×3.725 stack | **0.067 582** | 0.065 087 |
+| against the par (0.017 957) | **1.010×** | **0.973×** |
+| the medal sheet ÷ layer `A` | 2.796× | 2.900× |
+
+**1. `A` straddles the par — it is the one layer whose side of the par depends on the pp reading** (1.010× under R, 0.973×
+under P). Under R the schedule is `E · D · F · sheet · L · Q · A · par · J · H · M · K · O · G`; under P the par sits above
+`A`: `E · D · F · sheet · L · par · A · Q · M · J · K · H · O · G`. The head (`E D F sheet L`) and the tail (`O > G`) are
+unchanged in both.
+
+**2. Inside the layer the L-IV family dominates the value.** Five lines print `ln 30 = 3.401 197` — `Chrono Field
+Duration`, `Chain Thunder`, `Lightning Amplifier-Scatter`, `Swamp Radius`, `Swamp Rend - Basic Enemies` — then
+`Golden Tower Bonus` at `ln 25 =` **3.218 9**, then five lines at `ln 20 =` **2.995 7** (`Golden Tower Duration`, `Chrono
+Field Range`, `Inner Mine Blast Radius`, `Inner Mine Rotation Speed`, `Missile Despawn Time`) and `Missile Amplifier`
+**2.734 4**. The cheapest block is also dense: the six L-I/L-III lines that cost **287–608 M** for their first ten levels
+carry **19.190 8** of the layer's `ln` = **29.1 %**.
+
+**3. The eight unlock rows are `ln 0` by convention, and that is a real assumption.** If an unlock is instead worth one
+step each (`ln 2`), the layer's `Σ ln` rises to **71.461 4** and its density to **0.019 669**/day — still below `Q`
+(0.025 603) and above the par, so the schedule does not move. `Swamp Rend - Additional Enemies` is the one **text-valued**
+law (enemy types) and stays at 0 in every reading.
+
+**4. Coverage after this pass:** **12 of the 18 rows**, **145 of the 197 lines** (`106 + 39`), `Σ ln` **259.481**
+(`193.565 + 65.916`) over **18 510.6** calendar days at five slots. What remains is `B`, `B2`, `C`, `I`, `N`, `P`
+(52 lines), of which `I` and `N` still need their per-line value columns re-transcribed.
+
 ### The Battle Condition category and the two `Boss` lines — the census closes at 100 % (new, Rev 34)
 
 Five BC lines (`Lab/Battle Condition Reduction`, `Lab/Battle Conditions Group 1…4`) plus the two `Boss` lines
@@ -2197,8 +2243,15 @@ the §census Module row’s “12 lines, Σ **254**” ✓. `tools/module-named-
 - [ ] **§Rev 40:** the two one-line-deep checks: the four `* Effect Bans` labs cost **0.716 2 Q** of the category’s
       **0.718 3 Q** (= **99.70 %**) and `Enhancement Coin Discount` costs **8.264 45 × 10¹⁷** of layer `H`’s
       **8.264 5 × 10¹⁷**; the other lines of each layer cost **117.513 T + 2.063 56 q** and **3.536 09 × 10¹³** coins.
-- [ ] **§Rev 40:** the schedule to follow is `E → D → F → L`, the medal sheet in parallel, then `Q`, then the middle block
-      `J`/`H`/`M`/`K` (order per the pp reading), then `O`, `G`; `A`, `B`, `B2`, `C`, `I`, `N`, `P` are still cost-side only.
+- [ ] **§Rev 40/41:** the schedule to follow is `E → D → F → L`, the medal sheet in parallel, then `Q`, then `A`, then the
+      middle block `J`/`H`/`M`/`K` (order per the pp reading), then `O`, `G`; `B`, `B2`, `C`, `I`, `N`, `P` are still
+      cost-side only.
+- [ ] **§Rev 41:** the UW lab pages print **31** leveled tables across the nine weapons plus **8** one-level unlock rows
+      (`565.255 B / 70.32 d` for the eight together) = the **39** lines of layer `A`, and one line (`Swamp Rend - Additional
+      Enemies`) prints text rather than numbers.
+- [ ] **§Rev 41:** five of those lines print a value column that runs to exactly thirty times its first level (`ln 30 =`
+      **3.401 2**): `Chrono Field Duration` `1.00 → 30.00`, `Chain Thunder` `3 % → 90 %`, `Lightning Amplifier-Scatter`
+      `×1.25 → ×37.5`, `Swamp Radius` `0.04 → 1.20`, `Swamp Rend - Basic Enemies` `3 % → 90 %`.
 
 ## Falsification
 
@@ -2423,6 +2476,16 @@ the §census Module row’s “12 lines, Σ **254**” ✓. `tools/module-named-
 - **§Rev 40:** if the **Defense** category’s itemised list stops summing to **655** (the 16 printed caps are
   `100+100+100+50+20+20+35+20+10+50+20+30+20+10+60+10`), the level restatement above is wrong and layer `J`’s 645 follows
   the new list — the density is unaffected because it divides by the printed `Σ clock`, not by the level count.
+- **§Rev 41:** if the nine UW pages print fewer or more than **31** leveled tables (or the eight one-level unlock rows stop
+  summing to **565.25 B / 70.32 d**), the `31 + 8 = 39` closure fails and layer `A`'s `Σ ln` must be re-added from the pages;
+  the density only leaves the par band (**0.017 957**) if `Σ ln` leaves **65.24 … 93.02** under R (and **52.91 … 65.24**
+  under P), i.e. the layer keeps its place unless roughly five `ln 30` lines go missing or appear.
+- **§Rev 41:** if a value column's first printed cell is not the level-1 value (some pages print the level-0 base), use the
+  `ρ`-form `ln((ρ+N)/ρ)`; for the five `ln 30` lines that is `ln(31/1) = 3.433 98` each, `+0.96 %` on the layer — the
+  schedule is unchanged.
+- **§Rev 41:** if the eight unlock rows are worth one step each rather than `ln 0`, take the sensitivity row
+  (**Σ ln 71.461 4**, **0.019 669**/day): `A` then sits above the par in both readings, which is the only rank change this
+  section can produce.
 
 ## Sources
 
@@ -2680,3 +2743,7 @@ the §census Module row’s “12 lines, Σ **254**” ✓. `tools/module-named-
   lists for `Q` (12), `J` (15), `K` (10) and `H` (15), the two pp readings with both orders, the level re-adds
   (**254** / **645** / **571** / **716–712**), the two one-line-deep ratios (**1 216×** and **171 464×**) and the coverage
   line (**11 rows / 106 of 197 lines / Σ ln 193.565 / 14 877.4 calendar days**).
+- `tools/lab-value-layer-A.ps1` (new, Rev 41) — layer `A`: the 31 printed laws with their `ln` in both readings, the
+  `31 + 8 = 39` closure, `Σ ln` **65.916 2 / 63.482 6**, the densities (**0.018 143 / 0.017 473**, stack
+  **0.067 582 / 0.065 087**), the internal top-twelve list, the 29.1 % cheap-block share, the `ln 2`-per-unlock
+  sensitivity (**71.461 4 → 0.019 669**) and the two merged schedules.
