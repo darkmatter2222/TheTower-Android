@@ -1,5 +1,16 @@
 # T006 — Pack the Lab queue, then buy the *cheapest* skipped hour
 
+Rev: 36 (2026-11-03) — **the assist layer’s unit is Q, not q, and the module tail is pinned** (§The Assist Module Labs,
+§Module named labs findings 8–10, `tools/assist-primary-tail.ps1`): the fandom page prints **`Cost (Q Coins)`**, so the
+eight assist labs are **930.00 Q = 9.30 × 10²⁰** coins (one lab **116.25 Q**), corroborated by the same-tier
+`Battle Conditions Group 1` printing **0.2 Q** at level 1; the time cells re-add **exactly** on `n × 15 551 min`
+(L30 = 466 530 min = 323 d 23 h 30 m), 18 s/level below the Hub’s `933 078 s`. Bill **2 314.769 3 Q → 3 243.839 3 Q**
+(×1.403) ⇒ **coins bind ×9.32** single-slot / **×46.6** five-slot; the T19 band returns as the second pole at **28.7 %**
+of the coins. Beyond the census, the four `Primary Module Bonus` labs print **1 % per level to +30 % at T23 W500**
+(120 levels; **465.00 Q / 20 087.1 d** if the assist ladder applies ⇒ **H065**), the unit ladder extends to
+**`s` = 10²¹** (three-candidate trapezoid test: dev **0.3 %** at 10²¹ vs 104.4 % / 1004.4 % at the neighbours), and the
+module slot ladder prints **L300 = 3 136 095 shards / 18.07 s** coins with slopes 1.4 … 500 per level (top five segments’
+trapezoid sums re-adding to ≤ 1 %).
 Rev: 35 (2026-11-03) — **the twelve named `Module` labs close the census at 100 %** (§Module named labs,
 `tools/module-named-family.ps1`): **12 lines / Σ 254 levels = 0.718 3 Q** for **5 341.4 d**, and 254 re-adds to the
 §census Module row exactly ✓. New shapes: **two master ladders carry all 18 ban levels** — an exact **×10.0000** cost
@@ -873,7 +884,7 @@ and what the covered part costs. Only layers whose **every** line carries a prin
 | `A` the 39 UW lab tables (Appendix A.2) | 39 | **2.4111 Q** | 18 165.95 d |
 | `B` enemy-stat T9–T13 band (§enemy-stat layer) | 13 | 383.113 T | 15 127.87 d |
 | `B2` the T19 trio: `Vampire`/`Ray`/`Scatter` Health+Attack | 6 | 697.5 q | 30 130.08 d |
-| `C` the 8 assist module labs (T19 W50) | 8 | 930 q | 40 174.4 d |
+| `C` the 8 assist module labs (T19 W50) — **unit corrected to Q at Rev 36** | 8 | **930.00 Q** | 40 174.2 d |
 | `D` the Second Wind pair | 2 | 14.4301 T | 128.75 d |
 | `E` `Garlic Thorns` | 1 | 1.35 M | 25.45 d |
 | `F` the two `* Level Skip` labs | 2 | 1.49 T | 260.62 d |
@@ -888,18 +899,19 @@ and what the covered part costs. Only layers whose **every** line carries a prin
 | `O` the **Bot Research** category — 2 shared columns + 1 exact-law line (§Bot Research, Rev 33) | 10 | **3.235 5 q** | **6 605.8 d** |
 | `P` the **Battle Condition** category (5 lines) + the two `Boss` lines (§Battle Condition …, Rev 34) | 7 | **2 307.577 5 Q** | **11 453.0 d** |
 | `Q` the twelve named **Module** labs (§Module named labs, Rev 35) | 12 | **0.718 3 Q** | **5 341.4 d** |
-| **Σ priced** | **191 distinct = 100 % of the census** *(the rows sum to 197: layer `C` carries 8 rows where the Module category prints 2, so +6; `Garlic Thorns` sits in `E` only, so `J` carries 15 of Defense’s 16)* | **2 314.769 3 Q** | **497 359.8 d** |
+| **Σ priced** | **191 distinct = 100 % of the census** *(the rows sum to 197: layer `C` carries 8 rows where the Module category prints 2, so +6; `Garlic Thorns` sits in `E` only, so `J` carries 15 of Defense’s 16)* | **3 243.839 3 Q** *(with layer `C` at 930.00 Q, Rev 36)* | **497 359.8 d** |
 
 In income units **(the Rev 25 72-line bill)**: **coins 5 770 d = 15.80 years** at 700 T/day · **clock 104 035.3 d** =
 285 y single-slot = **57.01 y** on five slots = **15.3 y** with the ×3.725 stack · the ×1.5 boost on the whole covered part
 is **2.4968 × 10⁷ cells** = **24 968 d ≈ 68 years** of cell income ⇒ **cells bind by ×4.33** over the coins.
 
-Scaled to the **closed census (191 lines, layer `Q` at Rev 35)** the same two conversions give **coins 3 306 813 d =
-9 053.56 y** at 700 T/day and **clock 497 359.8 d = 1 361.7 y** single-slot = **272.3 y** on five slots = **73.1 y** with
-the ×3.725 stack. **The binding currency flipped at Rev 34:** up to layer `O` the coins were a rounding error against the
-clock (25.32 y vs 1 315.7 y ⇒ cells bound); the five BC labs put 2 307.577 5 Q on the table, so **coins now bind by ×6.65
-against the single-slot clock and ×33.3 against the five-slot clock** — a queue decision became a savings decision. Layer
-`Q` moves both figures by only **+0.03 %** coins / **+1.07 %** clock, so closing the census did not change the verdict.
+Scaled to the **closed census (191 lines, layer `C` at the corrected Q unit)** the same two conversions give **coins
+4 634 056 d = 12 687.4 y** at 700 T/day and **clock 497 359.8 d = 1 361.7 y** single-slot = **272.3 y** on five slots =
+**73.1 y** with the ×3.725 stack. **The binding currency flipped at Rev 34:** up to layer `O` the coins were a rounding
+error against the clock (25.32 y vs 1 315.7 y ⇒ cells bound); the five BC labs put 2 307.577 5 Q on the table, so **coins
+now bind by ×9.32 against the single-slot clock and ×46.6 against the five-slot clock** — a queue decision became a
+savings decision. Layer `Q` moves both figures by only **+0.03 %** coins / **+1.07 %** clock; the Rev-36 **unit
+correction** multiplies the coin side by **×1.403** (2 314.769 3 Q → 3 243.839 3 Q) and the bind from ×6.65 to **×9.32**.
 
 **Three facts the table produces.**
 1. **Coverage is 191 / 191 census lines = 100 %** (the 32-mastery-lab reading; **171 / 171** on the 12-lab reading, H063).
@@ -908,10 +920,10 @@ against the single-slot clock and ×33.3 against the five-slot clock** — a que
    `Bot`, `Enemies` (the enemy-stat band + the two `Boss` lines), `Battle Condition` and `Module` (the 8 assist labs as
    layer `C`, the 12 named labs as layer `Q`). The residual gaps are **device reads only** (H063, H062, H061, H064) plus
    the printed `Primary Module Bonus` row, which the census does not count.
-2. **One band dominates the old bill, but not the new one: the fourteen T19-band lines** (`B2` + `C`, the
-   `0.25 q × n` / `n × 933 078 s` arithmetic ladders) are **40.29 %** of the covered coins and **67.6 %** of the covered
-   clock **inside the 72-line bill**; with `H`–`P` they are **0.07 %** and **14.3 %** (the mastery-lab block alone takes
-   **0.07 %** of the coins and **3.7 %** of the clock — both are dwarfed by the five BC labs, §BC/Boss finding 1), because `H`’s single
+2. **The T19-band returns as the second pole: the fourteen lines** (`B2` + `C`, the `0.25 Q × n` / `n × 15 551 min`
+   arithmetic ladders) were **40.29 %** of the covered coins and **67.6 %** of the covered clock **inside the 72-line
+   bill**; with `H`–`Q` they are **28.7 %** coins and **14.1 %** clock once layer `C` is read in Q (the mastery-lab block
+   alone takes **0.05 %** of the coins and **3.6 %** of the clock — dwarfed by the five BC labs, §BC/Boss finding 1), because `H`’s single
    `Enhancement Coin Discount` line (826.445 q) and `I`’s clock (124 747.5 d, 94.47 % of it in the two Super Crit lines)
    and `J`’s single `Wall Fortification` line (174.666 T) all became major contributors. Because both columns of the T19 band are arithmetic there,
    their clock grows *proportionally* with their coins — unlike the geometric `L-I…L-VI` families, which front-load coins.
@@ -1071,6 +1083,14 @@ and the printed `Level | Time | Cost (Q Coins) | Value` ladder is exactly linear
 | one lab, all 30 levels | **433 881 270 s = 5 021.8 d** | 933 078 s × 465 |
 | all **8** labs | **930.00 q** coins / **40 174 d** | 8 × each |
 | one **stone track**, 69 levels | **8 073** stones | `cost(k → k+1) = 3k + 15` from k = 0: Σ = 3·2 346 + 15·69 = 7 038 + 1 035 ✓ |
+
+**Unit + time correction (Rev 36, `tools/assist-primary-tail.ps1`).** The fandom page’s own header is **`Cost (Q Coins)`**
+— the same 10¹⁸ convention as the four BC Group pages — so the eight labs are **930.00 Q = 9.30 × 10²⁰** coins, one lab
+**116.25 Q**, not 930 q. The reading is corroborated by the same-tier sibling: `Battle Conditions Group 1` (**T19 W100**)
+prints **0.2 Q** at level 1 against the assist labs’ **0.25 Q**, i.e. one order-of-magnitude family. The fandom time
+cells re-add **exactly** on `n × 15 551 min` (L1 = 15 551, L10 = 155 510, L30 = 466 530 min = **323 d 23 h 30 m**), which
+is **18 s per level** below the Hub’s unrounded `933 078 s` = 15 551.3 min — the source of the 9-min gap between the two
+wikis at L30; both prints are kept. The layer’s clock is unchanged (**40 174.2 d**), only the coin scale moves.
 
 The page's own efficiency law is arithmetic: “a slot's efficiency **starts at 1 %** and gains **1 % per stone-upgrade
 level** and **1 % per lab level**, so a fully upgraded track (**70 %**) with its lab at **30** reaches **100 %**” —
@@ -1666,8 +1686,23 @@ the §census Module row’s “12 lines, Σ **254**” ✓. `tools/module-named-
 7. **The census is closed: 191 / 191 = 100 % coverage.** With layer `Q` the Appendix B rows sum to **197** for **191
    distinct** lines (layer `C` carries 8 rows where the Module category prints 2, so +6), and no census line is unpriced.
    The bill is **2 314.769 3 Q / 497 359.8 d** = **3 306 813 d = 9 053.56 y** of coin income at 700 T/day against
-   **1 361.7 y** of single-slot clock (272.3 y five-slot, 73.1 y stacked) ⇒ **coins bind ×6.65** single-slot, **×33.3**
-   five-slot.
+   **1 361.7 y** of single-slot clock ⇒ **coins bind ×9.32** single-slot, **×46.59** five-slot (after the Rev-36 unit
+   correction to layer `C`, §The Assist Module Labs: bill **3 243.8393 Q**).
+8. **Beyond the census: the four `Primary Module Bonus` labs.** Both the fandom `Modules` page and T010 print the law —
+   one lab per module type, **unlocked at Tier 23 wave 500**, "**increase the main effect of the module in the primary
+   slot by 1 % per level, up to +30 %**" ⇒ **4 × 30 = 120 levels**, +120 pp of primary effect. No per-level table exists
+   (the `Module Labs` tabber does not include them), so on the **assumption** that they share the assist ladder
+   (`0.25 Q × n`, `15 551 min × n`) they cost **465.00 Q** for **20 087.1 d**, i.e. 14.3 % of this layer’s coins for
+   3.76 % of its clock. **H065** carries the read that fixes it: level 1 of any `Primary Module Bonus` lab must show
+   **0.25 Q = 250 000 000 000 000 000** coins and `10d 19h 11m`.
+9. **The unit ladder extends past Q: `s` = 10²¹.** The slot-cost table prints cumulative `804.46Q` at L261, `5.79s` at
+   L281 and `18.07s` at L300. Testing `s ∈ {10²⁰, 10²¹, 10²²}` against the trapezoid sums of the printed per-level coin
+   column (106 Q, 411 Q, 886 Q) gives deviations **104.4 % / 0.3 %** for 10²⁰, **3.6 % / 0.3 %** for **10²¹** and
+   **1004.4 % / 896.6 %** for 10²² ⇒ the ladder is `K M B T q Q s = 10³ … 10²¹`.
+10. **The module slot ladder is printed to L300: 3 136 095 shards / 18.07 s coins** (`Modules/Cost`). Its per-level shard
+    column is piecewise-linear with the implied slopes `1.4, 2, 3.5, 4.5, 6, 7, 10, 15, 20, 30, 50, 70, 100, 125, 250,
+    500` per level; the top five segments’ trapezoid sums re-add to the printed cumulative deltas within **≤ 1 %**, while
+    the early milestone gaps need the full 300-row read (7–22 %), so the printed `Total Shard` column is authoritative.
 
 ## Reproduction checklist
 
@@ -1874,6 +1909,12 @@ the §census Module row’s “12 lines, Σ **254**” ✓. `tools/module-named-
       **5.13B**, and both print level-30 time `20d 7h 39m` / value **−30 %**.
 - [ ] **§Module named labs (Rev 35):** `Shatter Shards` (**T16 W40**) prints `10.00T, 87.00T, 229.20T, 547.36T, 1.19q`
       ending at `1y 158d 6h 15m`; `Unmerge Module` is one level at **10,000,000** coins / `2d 0hr 0m`.
+- [ ] **Rev 36:** the assist lab table’s header reads **`Cost (Q Coins)`**, with level 1 = **0.25** / `10d 19h 11m` and
+      level 30 = **7.5** / `323d 23h 30m`.
+- [ ] **Rev 36:** a `Primary Module Bonus` lab (any type) shows **0.25 Q** and `10d 19h 11m` at level 1, **+1 %** per
+      level, ending at **+30 %** (H065’s read).
+- [ ] **Rev 36:** the module slot ladder’s level **1** price is **7 shards + 10 000 coins** and its printed cumulative at
+      level **300** is **3 136 095 shards** / **18.07 s** coins.
 
 ## Falsification
 
@@ -2044,6 +2085,11 @@ the §census Module row’s “12 lines, Σ **254**” ✓. `tools/module-named-
   columns, the shared-clock finding is broken.
 - **§Module per-point prices:** if a drop-chance line’s per-level step is not **0.10 pp** (say 0.2 pp), the **×1 430**
   gap of finding 5 rescales and the buy order must be rebuilt from the panel’s own numbers.
+- **Rev 36 (units):** if the assist lab table’s header is not `Cost (Q Coins)` (say `Cost (q Coins)`), the layer-`C`
+  figure reverts to **930 q** and the bill back to **2 314.769 3 Q** with **×6.65** binding; the whole Q/q scale of this
+  doc then needs a second look, since the four BC Group pages use the same `Cost(Q)` convention. If a
+  `Primary Module Bonus` level 1 is not **0.25 Q** with `10d 19h 11m`, H065 is killed and the four labs must be summed
+  from their own printed cells (H065’s own falsification).
 - **§Main Research:** if `Starting Cash` and `Workshop Attack Discount` no longer print an identical cost column, the
   shared ladder split ⇒ re-run `tools/main-research-family.ps1` with two arrays; the four per-line figures change but the
   category total does not (each line is still counted once). If `Enhancement Coin Discount` level 1 stops being **1.00B**
@@ -2282,3 +2328,10 @@ the §census Module row’s “12 lines, Σ **254**” ✓. `tools/module-named-
   `… Effect Bans` pages (4/4/3/7 rows). `Module Labs` itself is only a `{{:…}}` transclusion shell (856 bytes) and
   `Lab Category/Module Research` prints **15** rows (the 12 named + 2 assist + `Primary Module Bonus`, the last not in the
   census). New script: `tools/module-named-family.ps1`.
+- fandom raw wikitext (pulled 2026-11-03) for the module tail: **`Assist Module Labs`** (one 30-row table, header
+  `Cost (Q Coins)`, cells `0.25 … 7.5` with times `10d 19h 11m … 323d 23h 30m`), **`Modules`** (the `Main Effect` section,
+  which prints the Ancestral star multipliers **×1.04 / 1.08 / 1.12 / 1.16 / 1.20**, the sub-stat rarity chances
+  **61.2 / 25 / 10 / 2.5 / 1 / 0.3 %**, and “the Primary Module Bonus labs … **Tier 23 Wave 500** … **1 % per level, up to
+  +30 %**”), **`Modules/Cost`** (28 milestone rows, level 1 → 300, `7 → 49 500` shards and `10 000 → 886Q` coins per
+  level, cumulative `3 136 095` shards / `18.07s` coins) and **`Currency/Power Stones`** (the stone income and price
+  lists, used by T010). New script: `tools/assist-primary-tail.ps1`.

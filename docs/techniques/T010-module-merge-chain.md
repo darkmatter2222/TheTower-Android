@@ -1,5 +1,18 @@
 # T010 — Module economy: level the *slot*, merge by recipe, reroll with few locks
 
+Rev: 11 (2026-11-03) — **the stone ledger and the module tail, printed** (`Currency/Power Stones`, `Modules/Cost`,
+`Assist Module Labs`, pulled 2026-11-03; `tools/assist-primary-tail.ps1`). **Income:** daily-mission **weekly boxes 5, 6,
+7 give 10 / 15 / 20 = 45 stones per week** (= 2 340/y with no medals), event-shop medal trades **15 stones each**, and
+tournament **1st place pays 20 / 40 / 80 / 180 / 300 / 375 / 475** by league (Copper → Mythic) — plus milestones and the
+paid packs; **any purchase ≥ 100 stones shows a confirmation dialog** (never refunded). **Prices:** card masteries
+**500–1 250** each, **28 500** for all ✓ (matches the T025 anchor), assist slots **1 000** each ✓, **Bot+ 1 250** each,
+**Synchronicity 1 500 + 3 × 1 500**. **The slot ladder is printed to level 300: 3 136 095 shards and 18.07 s coins**, its
+per-level column being `7, 7, 20, 40, 75, 120, 180, 250, 350, 500, 700, 1 000, 1 300, 1 800, 2 500, 3 000, 4 000, 5 000,
+5 125, 6 250, 7 500, 8 750, 10 000, 15 000, 20 000, 30 000, 40 000, 49 500` shards (implied slopes **1.4 … 500** per
+level), and the unit that follows Q is pinned to **`s` = 10²¹** by the trapezoid test (**0.3 %** vs 104.4 % / 1004.4 % at
+the neighbouring exponents). **Unit note:** the assist lab page prints its header as **`Cost (Q Coins)`** (1 Q = 10¹⁸), so
+the eight labs are **930.00 Q** coins — see [T006](T006-lab-queue-packing.md) Rev 36, and the four `Primary Module Bonus`
+labs (**1 %/level, +30 % max, T23 W500**) have no printed table ⇒ **H065**.
 Rev: 10 (2026-11-03) — **the twelve named lab lines now carry full per-level sums** (cross-checked against
 [T006](T006-lab-queue-packing.md) §Module named labs / Appendix B layer `Q`, `tools/module-named-family.ps1`): the twelve
 lines are **Σ 254 levels = 0.718 3 Q** for **5 341.4 d**; the four **ban** labs are **99.70 %** of that (Core 555.555 q)
