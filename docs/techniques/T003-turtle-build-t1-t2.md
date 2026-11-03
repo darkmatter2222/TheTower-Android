@@ -1,5 +1,12 @@
 # T003 — Turtle build: clear Tier 1–2 almost for free
 
+Rev: 4 (2026-11-02) - **three printed gates** added: the Wall’s readiness conditions (**hundreds of billions of coins per
+day** + at least **three lab slots**, “costs **trillions**” before it pays) from `wiki/guide/frequently-asked-questions`;
+the **Tier 13 / 14 orb breakpoint** from `wiki/guide/guides-100-afk-orb-devo` (below T14 orbs **instantly kill** Basic /
+Fast / Tank / Ranged — not Protectors or shielded — booking the leftover health as orb damage; from T14 the `Orb
+Resistance` BC turns it into a **share of max health**), with Orb Devo hoarding **on** the tower and Reverse Orb Devo
+**outside** range; and the midgame order from `wiki/guide/strategies` with the **−50 % / −50 %** perk trade printed as
+**×2** effective health.
 Rev: 3 (2026-11-02) - **the printed build ladder** added from `wiki/guide/health-build` · `hybrid-guide` · `cf-guide` ·
 `devo-guide` · `orb-devo` · `smax-devo`: the tier windows (**eHP T1-9 -> hybrid T1-11 -> glass cannon T12+**, tournaments
 stay hybrid), the eHP law `1/(1 - Def%)` with **x10 / x20 / x100** at 90/95/99 % (3/3 re-add), the **98 %** cap's four
@@ -152,6 +159,33 @@ you **stop buying Def Abs in-run**. Before attempting Tier 2, Knockback / Lifest
 should each be about half-maxed. Note `Lifesteal` heals **only off tower projectile damage** (orbs and thorns do not
 heal you), `Knockback` gains value once you have orbs, and `Damage/meter` “behaves more like damage per 10 meters”.
 
+## Three printed gates for the turtle layer (new, Rev 4)
+
+**① When the Wall is worth buying — printed, not guessed** (`wiki/guide/frequently-asked-questions`, 2026-07-29):
+“Early on the Wall hurts you more than it helps: it does not apply thorns quickly enough, so enemies survive their hits
+and heat up.” The page gives two readiness conditions and a price tag: **(a)** income in the **hundreds of billions of
+coins per day** so the essential Wall labs are affordable, **(b)** at least **three lab slots** so Wall thorns, Wall
+regen, Wall health and fortification can be pushed together — and “treat the Wall as a **long-term investment** that will
+cost **trillions** of coins before it pays off properly”. Against T001’s per-day coin model those two conditions are the
+cheapest way to pick the week the Wall goes up.
+
+**② The orb breakpoint is Tier 13 / 14** (`wiki/guide/guides-100-afk-orb-devo`, 2026-11-01): on **Tiers 1–13** orbs
+**instantly kill** `Basic`, `Fast`, `Tank` and `Ranged` enemies (**not** `Protectors` or shielded ones), booking the
+remaining health as orb damage; **from Tier 14** the `Orb Resistance` battle condition turns the instant kill into a
+**share of max health**. So the orb half of this build is qualitatively stronger below T14 — same reason T005 prints
+“Tiers 1–13 need no battle conditions”. The same page fixes the two hoard geometries: **Orb Devo** gathers enemies on
+the tower/wall, **Reverse Orb Devo** gathers them **outside tower range** (which is why the `Range` pair of T020 §1.13 is
+a build lever, not a stat: Range also sets the ranged enemies’ firing distance).
+
+**③ The midgame priority list, as printed** (`wiki/guide/strategies`, 2026-07-29): **Health first** (“buy it whenever it is
+available, regardless of how steep the cash and coin costs climb”, and keep the health labs up), kills come from
+**maxed Thorns** + **maxed Orb Speed** with **Shockwave** pushing enemies into the orbs, cards
+`Health` · `Coins` · `Extra Defense` · `Free Upgrades` with `Slow Aura` and `Range` as the strong extras (slower enemies
+spend more waves in orb range), `Plasma Cannon` / `Energy Net` tuned so **one** thorns hit finishes a boss; in perks take
+the requirement perks, then **Health**, the **−50 % enemy damage / −50 % tower damage** trade — printed as “effectively
+doubles your health pool” (✓ `1 / 0.5 = 2`) — then `Defense %`, and only after Health is maxed add `Attack`,
+`Crit Chance`, `Super Tower`.
+
 ## Reproduction checklist
 
 - [ ] Thorns sits exactly on a breakpoint (**6 / 11 / 21 / 26 / 34 %**) rather than an in-between level, and the panel’s
@@ -172,6 +206,9 @@ heal you), `Knockback` gains value once you have orbs, and `Damage/meter` “beh
       duration stone line’s last level is **311** stones (level 35).
 - [ ] **Devo gate:** the Death Wave health bonus reads **×7** on screen, and with ~800 stones spent the BH/GT/DW activations
       land together at **3:20**.
+- [ ] **Rev 4 gates:** the Wall is bought only after the **third** lab slot and a hundreds-of-billions-per-day coin rate;
+       below **Tier 14** an orb kill is instant on Basic / Fast / Tank / Ranged (Protectors and shielded enemies keep their
+       health); the **−50 % / −50 %** perk reads as **×2** effective health.
 
 ## Falsification
 
@@ -206,3 +243,11 @@ Health 1–2/run, Def % after 50), the Thorns “1 % above a fraction breakpoint
 interest at tier 2 wave 80”, the ~20× tier-2 jump and “pays out nearly double the coins”, and the W1000/W300 crossover.
 Earlier: game-vault `Guide:Beginners_Guide` §Health / §Turtle Build Guide; oslink.io strategy summary (4 % per-hit damage
 scaling, Thorns priority, the 34 % breakpoint).
+
+- Tower Hub `wiki/guide/frequently-asked-questions` (**2026-07-29**) â€” the Wall readiness conditions (income in the
+  hundreds of billions per day, >= three lab slots, "costs trillions") and the heat-up law (**x1.04** per surviving hit).
+  Tower Hub `wiki/guide/guides-100-afk-orb-devo` (**2026-11-01**) â€” the Tier 1-13 orb instant-kill set (Basic / Fast /
+  Tank / Ranged, not Protectors or shielded), the Tier 14 `Orb Resistance` share-of-max-health change, and the Orb Devo
+  vs Reverse Orb Devo hoard geometry. Tower Hub `wiki/guide/strategies` (**2026-07-29**) â€” the midgame order (Health
+  first, Thorns and Orb Speed maxed, Shockwave, the four essential cards) and the **-50 % / -50 %** perk trade printed as
+  x2 effective health.

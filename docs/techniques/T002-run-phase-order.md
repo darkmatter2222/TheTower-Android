@@ -1,5 +1,12 @@
 # T002 — Fixed phase order for the in-run Cash bar
 
+Rev: 5 (2026-11-02) — the **stats-page attribution law** plus three FAQ prints (`wiki/guide/frequently-asked-questions`):
+since **v27** the per-source coin rows are *marginal* credits `P − P / m_i` (the page’s own example: base 100 with
+`GT ×20` and `BH ×10` ⇒ true **20 000**, rows **19 000 + 18 000 = 37 000** = **1.85×**, and the closed form
+`n − Σ 1/mᵢ` re-adds to **1.85** ✓, ≈ **4.71×** with five overlapping sources) — so never sum the rows against the total;
+a **negative `(BH, GB, SL)`** row is a printed display bug; and **heat-up is ×1.04 per surviving hit**
+(**1.48** at 10 hits · **2.19** at 20 · **4.80** at 40 · **10.52** at 60 · **50.5** at 100), the printed reason thorns
+outrank Defense % below Tier 11.
 Rev: 4 (2026-11-02) — the **wave clock** is now printed-reproduced (`wiki/system/gameplay`): a normal wave = **26 s length +
 9 s cooldown at ×1 speed** ⇒ **35 s**, and the **tournament halves the cooldown** to 30.5 s, so `waves/h = 3600 × s / 35`
 (×1 **102.86**, ×3 **308.57**, ×5 **514.29**, ×6.25 **642.86**) with the tournament worth exactly **×1.1475** more waves. That
@@ -120,6 +127,29 @@ which is exactly why T020 puts that line first. The page also prices the whole l
    health bar) to open the **Wave Info Menu**, which lists every enemy type with its stats **including how often it spawns**
    — that is the on-screen source for the “kills per wave” term above.
 
+## The stats page’s coin attribution, and three FAQ laws (`guide/frequently-asked-questions`, 2026-07-29; new Rev 5)
+
+**① Why the per-source rows do not sum to the total — since v27 this is by design.** The page prints the attribution law
+and one worked example: base **100** coins on a wave with **Golden Tower ×20** and **Black Hole ×10**, all coins earned
+while both are active ⇒ true total `100 × 20 × 10 =` **20 000**. The stats page then credits each source with what it
+*added*: GT `20 000 − 100 × 10 =` **19 000**, BH `20 000 − 100 × 20 =` **18 000**, so the rows sum to **37 000** —
+**1.85×** the truth. Closed form: `credit(i) = P − P / m_i` with `P` the full product, so the sum is
+`P × (n − Σ 1/m_i)`; here `2 − (1/20 + 1/10) =` **1.85** ✓ reproduces the printed 37 000 exactly. With the five sources
+the page lists as overlapping (`Golden Tower, Black Hole, Spotlight, Death Wave, Golden Bot`) the factor is
+`5 − Σ 1/m_i` ≈ **4.6** at the printed multipliers ⇒ **never** add the rows and compare with the total; each row is still
+individually meaningful as `P × (1 − 1/m_i)`.
+
+**② Negative rows are cosmetic.** A negative figure for `(BH, GB, SL)` is a printed **display bug** with no effect on
+earned coins — do not “fix” a ledger for it.
+
+**③ Heat-up: enemy damage ×1.04 per surviving hit.** “Every time an enemy hits you or your Wall and survives, its damage
+is multiplied by **1.04×**” ⇒ after `k` surviving hits the multiplier is `1.04^k` =
+**1.48** (10) · **2.19** (20) · **3.24** (30) · **4.80** (40) · **10.52** (60) · **50.5** (100). That single constant is
+why the early-build docs push **thorns** first: with low thorns a juggling enemy racks up a double-digit damage
+multiplier and “blows through defense % and absolute defense that would normally reduce its damage to zero”, which is the
+printed explanation for the classic “I had enough absolute defense, why did I die?” — and why the same enemy dies on its
+first or second hit once thorns improve (`k` collapses to 1–2).
+
 ## Priority notes
 
 - **Attack Speed** is the one attack stat that matters early: every hit rolls knockback and every on-hit effect, so hits/second ≈ "more of everything" (the page lists it first among the attack stats).
@@ -169,6 +199,11 @@ which is exactly why T020 puts that line first. The page also prices the whole l
 - [ ] **Per-tier build:** a Tier-2 run pays **1.8×** the coins per wave of the Tier-1 run at the same wave (the HUD’s
       per-minute read after tapping the top-left counter makes this a one-line comparison).
 - [ ] The Scatter chain costs **31** hits (1+2+4+8+16) and a Plasma-Cannon-stripped boss (54 % gone) dies to one Thorns tick.
+- [ ] **Rev 5 attribution:** with **GT and BH both active** the stats page rows sum to **more** than the printed total
+       (with `x20 / x10` on a 100-coin wave: 19 000 + 18 000 vs 20 000); the factor is `n - sum(1/m_i)`, and a
+       **negative** `(BH, GB, SL)` row leaves the total unchanged.
+- [ ] **Rev 5 heat-up:** count the hits one juggling enemy takes before it dies and check its damage against **1.04^k**
+       (10 hits = **1.48x**, 20 = **2.19x**); raising thorns so it dies on hit 1-2 collapses the multiplier.
 
 - [ ] Same tier, same time budget: ordered run ends with more Coins than a "buy what looks good" run
 - [ ] `Coins/Wave` is **≤ level 20** in the Lab list while `Coins/Kill` is being levelled past it (the printed ceiling).
@@ -219,3 +254,7 @@ the **Lv.9 Extra Orbs 1.4×** mastery, the top-left counter tap for the per-minu
 battle, and the perk rows shared with T011 §1.⑦.
 Earlier: game-vault `Guide:Beginners_Guide` §In Run Upgrade Order / §Workshop Upgrades; strategygame.org tier-10
 write-up (Attack Speed priority).
+
+- Tower Hub `wiki/guide/frequently-asked-questions` (last verified **2026-07-29**, fandom cross-check 2025-11-19) â€” the
+  v27 coin-attribution rule with its worked example (100 base, GT x20, BH x10 => 20 000 true; rows 19 000 + 18 000 =
+  37 000), the negative `(BH, GB, SL)` display bug, and the **heat-up** law (**x1.04** per surviving hit).
