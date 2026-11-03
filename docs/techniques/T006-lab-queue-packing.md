@@ -1,5 +1,11 @@
 # T006 — Pack the Lab queue, then buy the *cheapest* skipped hour
 
+Rev: 20 (2026-11-02) - **the Assist Module Labs layer closed** (`wiki/module/assist-module-labs`, 2026-11-01):
+**8 labs** (Bonus + Substats × Cannon/Armor/Generator/Core), **30** levels each, gate **T19 W50**; the printed ladder is
+linear — cost **0.25 q × n** (one lab **116.25 q**, all eight **930.00 q** coins) and time **933 078 s × n** (one lab
+**5 021.8 d**, eight **40 174 d**) — with the **100 % law** `1 + 69 + 30` (base + 69 stone levels + 30 lab levels), the
+stone ladder `3k + 15` re-adding to the printed **8 073** per track, and the printed substat **hard caps**
+(**98 %** defense — the skew number, **90 %** Chrono, **150 s** Wall rebuild, **7 s** Shockwave, **37 s** Inner Land Mine).
 Rev: 19 (2026-11-02) - **a fourth clock shape, from the `Super Tower Bonus` lab** (`wiki/system/the-tower`, T8 W300,
 **30** levels): `Value` = **`1 + 0.03·L`** (10/10 ✓) ⇒ cap **×1.90**; price is **not** the ×1.5 law (first step 1.500,
 then **1.31–1.37**, fit **×1.3451**/level) with **Σ10 = 115.94 B** coins in two blocks of **+0.15** each —
@@ -730,6 +736,28 @@ on multi-day gate labs. (This is also the derivation of the “30 cells” row i
 **300** rows” confirms the 300-level cap. `Coin Bonus` (gate **50 B** Utility spend, ×1 + 0.01/lv → ×4 at L300) and
 `Cells/Kill` (gate 500 B) cost the same per level; the site notes Coin Bonus applies to *both* the tier bonus and
 Coins/Kill, “so its effective benefit is **squared**” — it is the strongest late-coin enhancement line.
+
+**The Assist Module Labs — 8 labs, one printed ladder, and the 100 % law (new, Rev 20).** `wiki/module/assist-module-labs`
+(2026-11-01) is fully numeric and closes the assist layer. **Eight labs** (two families × four slot types: `Assist Module
+Bonus` and `Assist Module Substats` for Cannon/Armor/Generator/Core), **30 levels** each, unlock at **Tier 19 wave 50**,
+and the printed `Level | Time | Cost (Q Coins) | Value` ladder is exactly linear: **cost = 0.25 q × n** and **time =
+933 078 s × n** per level, value **+1 pp/level** (the printed cells are those values to the minute: L1 = 10 d 19 h 11 m =
+933 060 s, L10 = 107 d 23 h 53 m, L30 = 323 d 23 h 39 m ✓ each within the minute-truncation of `n × 933 078 s`).
+| quantity | value | how |
+|---|---|---|
+| one lab, all 30 levels | **116.25 q** coins | 0.25 q × Σn = 0.25 × 465 |
+| one lab, all 30 levels | **433 881 270 s = 5 021.8 d** | 933 078 s × 465 |
+| all **8** labs | **930.00 q** coins / **40 174 d** | 8 × each |
+| one **stone track**, 69 levels | **8 073** stones | `cost(k → k+1) = 3k + 15` from k = 0: Σ = 3·2 346 + 15·69 = 7 038 + 1 035 ✓ |
+
+The page's own efficiency law is arithmetic: “a slot's efficiency **starts at 1 %** and gains **1 % per stone-upgrade
+level** and **1 % per lab level**, so a fully upgraded track (**70 %**) with its lab at **30** reaches **100 %**” —
+1 + 69 + 30 = 100 ✓ (69 stone levels + base, then the 30-level lab). And it prints the **hard caps** the substats stop at:
+**98 % defense** (the number this repo's 98-vs-99 skew was about — Tower Hub prints **98**), **90 % Chrono Field slow**,
+**150 s Wall rebuild**, **7 s Shockwave Frequency**, **37 s Inner Land Mine cooldown**. Practical ordering: the eight lab
+bills are pure-coin (930 q is small against §6's S-scale enhancement bills), but **40 174 d** of shared-slot lab time
+makes these the classic *buy-the-first-few-levels* labs — each level is +1 pp on one slot type, so the eight are
+interchangeable per stone but the stone tracks (8 073 each) carry most of the efficiency.
 
 ### The exchange rate that decides Cells vs Gems
 

@@ -1,5 +1,11 @@
 # T020 — Workshop coin-spend order: the level-band rule and the knee table
 
+Rev: 14 (2026-11-02) — **§6.1, the three per-track pages as a second print**: all 18 enhancement names now printed **in
+track order** (Attack `Damage … Attack Speed`, Defense `Health … Orb Size`, Utility `Cash Bonus … Enemy Level Skips`), the
+standard curve and all six special totals re-read identically (**441.24 s / 26.62 s / 1.51 s / 734.30 s / 336.82 s /
+2.99 S**), the per-row gates are per-track counters, and the defense page prints both lab gates in one block
+(discount **T21 W60** max 100, unlock lab **5 B coins / 576 000 s = 6 d 16 h / T12 W60**); `Orb Size` = Defense from its
+page header.
 Rev: 13 (2026-11-02) — **§6.5.1, the 99-row tab-discount ladder as printed**: the defense lab's whole `Level / Time /
 Cost / Value` table is parsed (99/99 rows on `0.50 % × n`, last cell **4 190 609**, column Σ **111 682 359**, gate
 **T2 W50**); the `Time` cells sum to **1 445.0 d** = the five-lab bill ⇒ per-level again, and `111 683 349 − 111 682 359 =
@@ -590,6 +596,21 @@ then grow ≈ 475×, and the last block alone (L551–600 = 340.35 s) is **4.6 �
 by itself is 5.83 s ≈ 8 × 10⁷× the first block. Practically: take each enhancement to **L50 / L100 / L150** and move
 on; a single standard enhancement to 600 costs **441.24 s** and all twelve of them together cost **5 294.88 s**
 (= 12 × 441.24) ≈ **5.3 S coins**.
+
+**Double-sourced, and now named per track (new, Rev 14).** The three per-track pages `wiki/workshop/workshop-enhancement-{attack, defense, utility}`
+(2026-11-01) print their rows in order with the same `Level | Value | Coins | Total Coins` tables; every value above is a
+second print: the standard curve (L10 total **55.54 B**, L100 **34.88 q**, L600 **441.24 s** ✓) appears on **all three**
+pages, and the six special curves match §6.2 exactly (Attack Speed L100 **26.62 s**, ELS L60 **1.51 s**, Free Upgrades
+L150 **734.30 s**, Orb Size L250 **336.82 s**, Coin Bonus/Cells-Kill L300 **2.99 S** ✓). Printed names in order — **Attack**:
+`Damage · Rend Max · Critical Factor · Damage/Meter · Super Crit Multi · Attack Speed` — **Defense**: `Health · Health Regen ·
+Defense Absolute · Land Mines · Wall Health · Orb Size` — **Utility**: `Cash Bonus · Coin Bonus · Cells/Kill Bonus · Free
+Upgrades · Packages · Enemy Level Skips`; the gate ladder 50 B → 500 B → 5 T → 50 T → 500 T is printed *per row*
+(“50 billion coins spent … on [track] enhancements” ⇒ per-track counters ✓ §6.3's model). The defense page’s `Good to know`
+also prints the two gates in one block: “**Enhancement Coin Discount labs (Attack, Defense, Utility; max 100 each, unlocked
+at Tier 21 Wave 60): 0 % at level 0, +0.3 % per level, 30 % at level 100**. The unlock lab *Workshop Enhancements* costs
+**5,000,000,000** coins and **576,000 s** (= exactly **6 d 16 h** ✓), and needs **Tier 12 Wave 60**” — every figure of §6's
+gate line is now a second print. `Orb Size` additionally gets its **Defense**-track assignment from sitting under that
+page's header (H037 step 5's remaining question).
 
 ### 6.2 The six special curves (steeper, and the two caps that matter)
 
