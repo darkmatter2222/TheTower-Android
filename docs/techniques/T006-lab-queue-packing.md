@@ -1,5 +1,10 @@
 # T006 — Pack the Lab queue, then buy the *cheapest* skipped hour
 
+Rev: 24 (2026-11-03) - **Appendix A.2: the 39 UW lab tables get their grand totals.** Σ **2.4111 Q** coins and
+Σ **18 165.95 d** of base slot clock, closed three ways (lines, nine per-weapon subtotals, cheap/q split), with the two
+new laws: **six lines carry 99.99 %** of the coin bill (`Inner Land Mine - Chrono Jump` alone is **51.74 %** = 8.134× the
+four `L-IV` lines) and **the binding currency flips** — cells bind the 33 cheap lines by **×5 203**, coins bind the six
+q-scale lines by **×1.56**.
 Rev: 23 (2026-11-02) - **the census’s Card-lab count reconciled**: the category page prints **10** rows / Σ **99** with
 `Card Mastery` as one row, while the Lab screen lists **one mastery lab per card** ⇒ **21** lines / Σ **198** and the whole
 census becomes **169 lines / Σ 4 792** instead of 158 / 4 693; the Utility category re-adds cell-for-cell (**12** rows,
@@ -665,6 +670,54 @@ within **multiplier** lines `Spotlight Coin Bonus` (147 M/unit) beats `Black Hol
 level at **1.00 Q / 83 d 8 h**, so the line's bill is **1.01 Q**, not 7.49 T; and `Death Wave Health` sums to **15.79 B** over
 its 30 printed levels (Appendix A's 4.40 B is the L1–19 prefix).
 
+### Appendix A.2 — the grand totals of the 39 UW lab tables, and which currency binds (new, Rev 24)
+
+Same 39 tables, now summed once, using **Appendix A.1's corrected** cells (`Swamp Radius` / `Swamp Stun Chance` /
+`Swamp Stun Time` at their 30-level bills, `Swamp Rend - Additional Enemies` at **1.01 Q**, `Death Wave Health` at
+**15.79 B**). Script: `tools/lab-summit2.ps1` (+ `tools/lab-summit-d.ps1` for the two ratios).
+
+| Bill | Value | In income units |
+|---|---|---|
+| **Σ coins, all 39 tables** | **2.4111 Q** (= **2 411.09 q**) | **3 444 d = 9.43 y** at 700 T coins/day |
+| **Σ base slot clock, all 39** | **18 165.95 d** = 49.8 y single-slot | **9.95 y** on five slots · **6.64 y** with the ×1.5 boost · **975.4 d = 2.67 y** with the ×3.725 speed stack |
+| **Σ cells to run it all at ×1.5** | **4.3598 M** cells (`145 328` skipped h × 30) | **4 360 d = 11.94 y** at 1 000 cells/day · 2 422 d at 1 800/day |
+
+**Three closures hold, so the totals are reading-independent.** (1) line-by-line Σ = **2.4111 Q / 18 165.95 d**;
+(2) Σ of the nine **per-weapon** subtotals below = the same pair, 39/39 lines; (3) the cheap split + the q-scale split =
+the same pair again. One printed lock re-adds: the eight one-level unlock rows give **565.255 B / 70.32 d** against the
+page's **565.25 B / 70.31 d** — a **4.8 M** and **0.01 d** residual, i.e. pure print rounding.
+
+| Weapon | Lines | Σ coins | Σ clock | years on five slots |
+|---|---|---|---|---|
+| Black Hole | 4 | 657.82 B | 297.2 d | 0.16 |
+| Golden Tower | 2 | 159.24 B | 680.7 d | 0.37 |
+| Chain Lightning | 5 | 76.68 q | 5 004.5 d | **2.74** |
+| Inner Land Mines | 4 | 1.2474 Q | 1 325.4 d | 0.73 |
+| Death Wave | 5 | 38.61 q | 2 890.9 d | 1.58 |
+| Smart Missiles | 7 | 14.58 T | 924.4 d | 0.51 |
+| Chrono Field | 4 | 266.86 B | 1 848.89 d | 1.01 |
+| Spotlight | 2 | 114.25 B | 457.7 d | 0.25 |
+| Poison Swamp | 6 | 1.0483 Q | 4 736.26 d | **2.60** |
+| **Σ** | **39** | **2.4111 Q** | **18 165.95 d** | **9.95** |
+
+**Law A — the layer has a two-tier price.** Six lines carry **99.99 %** of the coins (**2.4108 Q**) and 50.7 % of the
+clock; the other **33 lines together cost 289.2 T = 0.41 days** of coin income. Inside the six: `Inner Land Mine - Chrono
+Jump` alone is **51.74 %** of the whole layer (**1 247.44 q**, = **8.134×** the four `L-IV` lines put together, which are
+**153.36 q**), and `Swamp Rend - Additional Enemies` adds **1.01 Q** (**0.81×** Chrono Jump). Purchase order follows from
+that: **exhaust the 33 cheap lines → the four `L-IV` lines (38.34 q each) → then the two Q-scale singles, Chrono Jump last.**
+
+**Law B — the binding currency flips between the two tiers.** Cells are priced at **30 per skipped hour** at ×1.5:
+
+| Group | coin days (÷ 700 T/day) | cell days (÷ 1 000/day) | binds | by |
+|---|---|---|---|---|
+| whole layer | 3 444 d (9.43 y) | 4 360 d (11.94 y) | **cells** | ×1.27 |
+| the 33 cheap lines | **0.413 d** | 2 150 d | **cells** | **×5 203** |
+| the six q-scale lines | 3 444 d | 2 210 d | **coins** | ×1.56 |
+
+Read: for the cheap tier the coins are a rounding error and *only* slot-hours matter ⇒ boost those lines with cells
+(×1.5, auto-queued) and never wait on them; for the six q-scale lines the coin price is what makes them late-game, so let
+them run unboosted overnight — a 2 210-day cell bill buys nothing that the clock would not have covered.
+
 ### The enemy-stat layer, ladder by ladder (Rev 11)
 
 Source: `wiki/enemy/common-enemy-labs`, `fast-enemy-labs`, `protector-labs`, `vampire-labs`, `ray-labs`, `scatter-labs`
@@ -981,6 +1034,16 @@ online often (it raises levels/day for all 5 slots: a `3 d 11 h` line becomes **
       **21.37 B** (L1–5) and **94.57 B** (L6–10) = **×4.43**, and the Lab panel's level counter tops out at **30**.
 - [ ] **Time reading:** at STB L1 the Lab panel's `Research time` reads **0d 5h 0m** (= 300 min) — the per-level reading
       confirmed (Σ10 = 22.2 d), matching the `Game Speed` lab's own printed-total proof (T020 §1.6).
+- [ ] **Appendix A.2 arithmetic:** the nine per-weapon subtotals re-add to **2.4111 Q** coins and **18 165.95 d**;
+       `18 165.95 / 5 =` **3 633.19 d**, `/ 3.725 =` **975.4 d = 2.67 y**; the cell bill is
+       `18 165.95 × 24 × (1 − 1/1.5) × 30 =` **4.3598 M cells** (`4 360 d` at 1 000/day).
+- [ ] **Appendix A.2 two-tier law:** the four `L-IV` lines are **38.34 q** each ⇒ `4 × 38.34 =` **153.36 q**, and
+       `1 247.44 / 153.36 =` **8.134**; `1 247.44 q / 2 411.09 q =` **51.74 %**; the 33-cheap subtotal is
+       `2.4111 Q − 2.4108 Q =` **289.2 T**, i.e. `/ 700 T =` **0.41 days** of income.
+- [ ] **Device spot-reads for Appendix A.2:** `Inner Land Mine - Chrono Jump` totals **1 247.44 q** over its ten levels —
+       the largest *line* total on the nine UW lab pages, ahead of `Swamp Rend - Additional Enemies` (**1.01 Q** =
+       **1 010 q**) — and `Chain Thunder` L30 reads **38.34 q / 2 011.1 d**, the three `Swamp` 30-level lines read
+       **116.24 B / 825.4 d** each.
 
 ## Falsification
 
@@ -1065,6 +1128,12 @@ online often (it raises levels/day for all 5 slots: a `3 d 11 h` line becomes **
 - **§STB clock:** if the Lab panel's `Research time` at level 1 reads **5 d 2 h 32 m**-style numbers already (i.e. the first
   cell is not 5 h), the `Time` column is cumulative for this family → the ten levels take **5.1 d**, not **22.2 d**, and the
   slot-hours table in §the two clock laws needs the cumulative total for B-scale lines.
+- **§Appendix A.2:** if the nine per-weapon subtotals no longer re-add to **2.4111 Q / 18 165.95 d**, one page's `Total`
+  changed → rebuild from the 39 printed line totals (Appendix A + A.1's corrections are the authoritative prints), not from
+  this summary; the two-tier law survives as long as `Inner Land Mine - Chrono Jump` stays the single largest line total.
+- **§Appendix A.2 boost price:** if the Lab panel prices a ×1.5 boost at something other than **30 cells per skipped
+  hour**, the whole-layer cell bill moves with it (`cells = clock_h × (1 − 1/m) × price_per_skipped_h` at that multiplier)
+  while the coin bill is unchanged ⇒ re-check which currency binds, the flip point is the ratio in the A.2 table.
 
 ## Sources
 
@@ -1082,7 +1151,9 @@ online often (it raises levels/day for all 5 slots: a `3 d 11 h` line becomes **
   — the **31** leveled `Level | Time | Cost | Value` tables behind Appendix A/A.1, the per-page section names
   (`Labs - <line>`) that label the ledger, the printed caps (`Swamp Stun Time` **1.3 → 10.0**,
   `Spotlight Missiles` **19 → 2**, `Missile Barrage Quantity` **25 → 50**), and the workshop `Total` rows used by T008 §2;
-  parsed with `tools/uw-lab-census.ps1` (rows / L1 / last / step / Σ / Σ L1–10 / coins-per-point).
+  parsed with `tools/uw-lab-census.ps1` (rows / L1 / last / step / Σ / Σ L1–10 / coins-per-point) and totalled by
+  `tools/lab-summit2.ps1` + `tools/lab-summit-d.ps1` for Appendix A.2 (`tools/lab-summit.ps1` / `-b` / `-c` are the
+  pre-correction passes, kept for comparison).
 - Tower Hub `wiki/enemy/common-enemy-labs` · `fast-enemy-labs` · `protector-labs` · `vampire-labs` · `ray-labs` ·
   `scatter-labs` (last verified **2026-11-01**, `ray-labs` 2026-07-29) — the per-level `Level | Time | Cost | Value`
   rows behind §enemy-stat layer: Common 20.00 B → 2.40 T with **−0.40 % … −12.00 %**, Fast 30.00 B → 2.70 T,

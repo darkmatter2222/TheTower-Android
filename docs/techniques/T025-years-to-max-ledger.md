@@ -1,6 +1,9 @@
 # T025 — The years-to-max ledger: what every sink costs in days of income
 
-Rev: 2 (2026-11-03) — Rev 1 put the printed bills on one time axis (`tools/years-ledger.ps1`). **Rev 2** adds
+Rev: 3 (2026-11-03) — adds **§1.③**, the UW lab layer from [T006](T006-lab-queue-packing.md) Appendix A.2:
+**2.4111 Q** coins and **18 165.95 d** of clock for 39 tables, of which **six lines carry 99.99 %** of the coins, and the
+two-tier binding-currency law (cells bind the 33 cheap lines by **×5 203**, coins bind the six by **×1.56**).
+Rev: 2 (2026-11-03) — Rev 1 put the printed bills on one time axis (`tools/years-ledger.ps1`). Rev 2 adds
 **§1.①** (the stone bill closes at *line* level — 27 lines → nine page `Total`s → **244 542** — and its stage ladder,
 which is 80 % front-loaded into one leg), **§1.②** (the **four-slot** shard fleet bill) and **§2.①** (what one calendar
 year of free income buys, per league band), plus the label fix that the **3 570**-shard week comes from
@@ -33,6 +36,7 @@ at 8 h uptime, **≈ 435/day** at 24 h; **≈ 1 000 Elite Cells/day** at T5).
 | **Coins — cheap legs** | tier-scaled; missions alone pay **318 M/week** at T10 | the four Utility lines L1→50 = **1.607 M**; the whole `Range` pair = **51 487 193** | days | always affordable ⇒ [T020](T020-workshop-coin-order.md) §2 order |
 | **Coins — enhancement layer** | same | all 18 enhancements = **12.374 S** coins | **4.84 × 10⁷ years** at 700 T/day | effectively infinite ⇒ buy to the printed knees only |
 | **Coins — module slots** | same | to L41 = **7.45 M** · to L300 = **18.07 s** | L41 is a two-week leg, the cap is another scale | **L41** is the first real wall (one extra sub-stat) |
+| **Coins + Cells — the 39 UW lab tables** | 700 T coins/day · ≈ 1 000 cells/day | **2.4111 Q** coins, **or** **4.36 M** cells for the ×1.5 boost bill, **or** **18 165.95 d** of slot clock | **9.43 y** of coin income · **11.94 y** of cell income · **9.95 y** of five-slot clock (**2.67 y** with the ×3.725 stack) | six lines carry **99.99 %** of the coin bill ⇒ exhaust the **33** cheap lines first (**§1.③**) |
 | **Medals** | **945**/event + **270**/week (boxes) + **10/day** (`Fetch`) | event-shop trade lines cost **40** medals each | ≈ **1 355** medals per event cycle | spend inside the live event ([T013](T013-event-medal-economy.md)) |
 
 ### 1.① The stone bill closes at *line* level, and it is front-loaded (Rev 2)
@@ -87,6 +91,26 @@ its first year **5 940 shards short** of four slots at L50, while the labbed acc
 `Daily Mission Shards` (T4 W70) outranks every other early stone/coin line: it is a **×2.43** income multiplier
 (`1 470 → 3 570`), the largest single multiplier in §1.
 
+### 1.③ The UW lab layer: two price tiers, and the currency that binds (Rev 3)
+
+[T006](T006-lab-queue-packing.md) Appendix A.2 sums all **39** named UW lab tables: **2.4111 Q** coins and
+**18 165.95 d** of base slot clock. Both are dominated by a handful of lines:
+
+| Group | Σ coins | share | Σ clock | coin days @ 700 T/day | cell days @ 1 000/day | binds |
+|---|---|---|---|---|---|---|
+| the **33** cheap lines | **289.2 T** | 0.01 % | 8 956.7 d | **0.41** | 2 150 | **cells**, ×5 203 |
+| the **six** q-scale lines | **2.4108 Q** | **99.99 %** | 9 209.2 d | 3 444 | 2 210 | **coins**, ×1.56 |
+
+Inside the six: `Inner Land Mine - Chrono Jump` = **1 247.44 q** = **51.74 %** of the whole layer, which is **8.134×** the
+four `L-IV` lines combined (**153.36 q**); then `Swamp Rend - Additional Enemies` **1.01 Q**. Two consequences for the
+sub-T11 plan, arithmetic rather than taste:
+
+1. **Coins are free below the q-scale.** All 33 non-q lines together are **0.41 days** of income, so their only real cost
+   is slot-hours ⇒ boost them at ×1.5 (**2 150 days** of cell income for the whole tier, against 0.41 of coins).
+2. **Above the knee coins bind and the clock is nearly a coincidence.** The six need **9.43 years** of coin income but
+   only **6.05 years** of cell income, so boosting them changes little — let `Chrono Jump` (10 levels, **916.7 d**) run
+   overnight and pay the coins.
+
 ## 2. The three ratios this ledger is for
 
 1. **Gem side vs stone side = 263 days vs 8–109 years.** Everything on the *gem* side of the framework (slots, card
@@ -132,7 +156,8 @@ not the 452 282 total.
 2. **Missions** screen → claim the **35** daily-mission tiles for the week so the weekly boxes pay (gems **185**, stones
    **45**, medals **135**, tokens **35**).
 3. Spend in ledger order: **gem framework** → **910-stone** UW sync (T008 §4) → **shards to L50** on the equipped four →
-   then whatever row of §1 has the smallest remaining payoff time.
+   **all 33 cheap UW lab lines** with their ×1.5 boost on (§1.③) → then whatever row of §1 has the smallest remaining
+   payoff time.
 4. Refresh the two income figures twice a year by reading the counters again (the ad cap is **60 claims/day** and resets
    at **00:00 UTC**, so the daily figures are date-bound, not uptime-bound).
 
@@ -160,6 +185,11 @@ not the 452 282 total.
        one-slot (`/ 360`) and **202 h** five-slot (`/ 1 800`), i.e. **11.5 %** / **2.3 %** of 8 760 h;
        `20 160 × 52 =` **1 048 320 = 2.32 ×** the whole stone bill.
 - [ ] **§2.① guild rows:** `185 × 52 =` **9 620** tokens and bits per year; `1 225 / 185 =` **6.6 weeks** per full shop.
+- [ ] **§1.③ UW lab layer:** `4 × 38.34 =` **153.36 q** for the four `L-IV` lines, `1 247.44 / 153.36 =` **8.134**,
+       `1 247.44 / 2 411.09 =` **51.74 %**; the two tiers re-add (`289.2 T + 2.4108 Q =` **2.4111 Q**) and
+       `8 956.7 + 9 209.2 =` **18 165.9 d** ≈ the printed **18 165.95**; the clock conversions are
+       `18 165.95 / 5 =` **3 633.19 d**, `/ 3.725 =` **975.4 d = 2.67 y**, and the cell bill is
+       `18 165.95 × 24 × (1 − 1/1.5) × 30 =` **4.3598 M cells**.
 
 ## 5. Falsification
 
@@ -179,6 +209,10 @@ not the 452 282 total.
   re-read the tournament panel's last row per league (T014 §3.2) and rebuild §2.① from those three numbers.
 - If `Daily Mission Shards` at L50 does **not** print **3 570** shards/week at T10 (i.e. `42 × (35 + L)`), the mission
   shard law changed ⇒ use T004's own tier table, and re-derive the 23.1-week L50 fleet leg from it.
+- **§1.③:** if the six q-scale lines' coin bill is no longer **99.99 %** of the layer, a q-scale line was re-priced ⇒
+  rebuild from T006 Appendix A/A.1's per-line cells; the order (33 cheap → four `L-IV` → the two Q-scale singles) is the
+  part that survives, only the year figures move. If a ×1.5 boost is not **30 cells per skipped hour**, the “binds”
+  column flips where the two day-counts cross (the crossover is at ~**1.56** for the six lines).
 
 ## Sources
 
@@ -193,9 +227,10 @@ not the 452 282 total.
   [T023](T023-guardian-economy.md) §1 (1 555 bits/season, 14 470 for `Ally`),
   [T016](T016-guild-tokens-bits.md) Rev 3 (**185** tokens/week, the **1 225**-token full shop, **255** spare),
   [T022](T022-free-currency-census-paid-ladder.md) §1 (the free income census),
-  [T006](T006-lab-queue-packing.md) (the boost table **15 cells/h** per slot at ×1.5, the **7.5 gems/h** gem rush, and the
-  ≈ 1 000 cells/day figure), [T020](T020-workshop-coin-order.md) §6 (the enhancement bills),
+  [T006](T006-lab-queue-packing.md) (the boost table **15 cells/h** per slot at ×1.5 = **30 cells per skipped hour**, the
+  **7.5 gems/h** gem rush, the ≈ 1 000 cells/day figure, and **Appendix A.2**'s 39-table totals **2.4111 Q / 18 165.95 d**),
+  [T020](T020-workshop-coin-order.md) §6 (the enhancement bills),
   [T013](T013-event-medal-economy.md) (medals).
 - Arithmetic: `tools/years-ledger.ps1` (§4 in order), `tools/ledger-year1.ps1` (§1.①/§1.② and the 52-week totals),
   `tools/ledger-year1b.ps1` (surpluses, leftovers, the cell-hour split), `tools/ledger-year1c.ps1` (the stage ladder in
-  weeks per band).
+  weeks per band), `tools/lab-summit2.ps1` + `tools/lab-summit-d.ps1` (§1.③, shared with T006 Appendix A.2).
