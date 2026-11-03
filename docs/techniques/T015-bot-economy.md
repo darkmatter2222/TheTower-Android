@@ -1,5 +1,14 @@
 # T015 — Bot economy: the three exact cost formulas, and the sync-aware order
 
+Rev: 10 (2026-11-03) — **§3.3: the cross-bot ranking** (new). Every bot line collapses to **one** parameter
+**`ρ = base / increment`**: `gain(n) = 1/(ρ + n − 1)` for the growing lines and `1/(ρ − n + 1)` for the Cooldown lines, so
+the first step of any line is **100/ρ × 10⁻⁴** — **Flame Damage 16.00 > Flame DmgRed = Thunder Linger 15.00 > Flame Range
+13.33 > Thunder Range 12.00 > Amplify Bonus 11.43 > the four ρ = 10 lines 10.00**. Bot-vs-bot (`Σ ln / medals` at the par):
+**Thunder 1.30 > Flame 1.28 > Amplify 0.93 > Golden 0.92 > Bot Bot 0.86 e-4**, with Thunder's bill **100.0 %** above par
+(which derives “max it or leave it”) and Bot Bot last because its Bonus is a 4.76 % step (`ρ = 21`). The merged
+feasibility-constrained sheet is **367 taps / 169 110 medals = 139.2 events ≈ 278 weeks** F2P, with the five unlocks landing
+after **0 / 150 / 2 790 / 10 330 / 116 090** medals and only the **Bot Bot** unlock (`0.41e-4`) falling under the best level
+lines. `tools/bot-cross-ranking.ps1`.
 Rev: 9 (2026-11-03) — **§3.2: the four-line density system** (new). Under `coins = kills-in-coverage × bonus × uptime`,
 the four lines become `dR(n) = 2/(18+2n)`, `dB(n) = 0.2/(1.8+0.2n)`, `dD(n) = 0.5/(19.5+0.5n)`, `dC(n) = 3/(123−3n)` over
 the price `40n + 60`, and **`dR(n) = dB(n) = 1/(n + 9)` exactly** — Range and Bonus are the *same* ladder while Range is
@@ -370,6 +379,93 @@ above; the measured effect is a **uniform down-scaling** of the Range density: l
 3.33 / 2.00e-4** for `A = 0 / 10 / 20 / 40 / 80` m, so **at `A ≥ 10` Bonus overtakes Range from level 1** and the Range
 line drops below par at level 16 (`A = 40`) or 12 (`A = 80`). Everything else in the table is `A`-independent.
 
+### 3.3 The cross-bot ranking — every line collapses to one parameter `ρ` (new, Rev 10)
+
+For a line with printed base *b* and printed increment *i*, put **`ρ = b / i`**. Then the relative gain of level *n* is
+
+```
+growing  lines (Range, Bonus, Duration, Linger, Damage, DmgRed) :  gain(n) = i/(b + i(n−1)) = 1/(ρ + n − 1)
+shrinking lines (all five Cooldown lines)                        :  gain(n) = i/(b − i(n−1)) = 1/(ρ − n + 1)
+density(n) = gain(n) / (40n + 60)        level-1 density = (100/ρ) × 10⁻⁴        Σcost(L) = 20L² + 80L
+```
+
+so **each of the 19 bot lines is fully described by two printed numbers** (`ρ` and its level cap), and `100/ρ` is the whole
+first-step ranking. `tools/bot-cross-ranking.ps1` builds the table from the §1.3 prints only:
+
+| # | line | base → +i | `ρ` | cap | **stop** | first-step (e-4) | medals to stop | ln | e-4/medal |
+|---|---|---|---|---|---|---|---|---|---|
+| 1 | Flame **Damage** | 50 → +8 | 6.25 | 30 | **25** | **16.00** | 14 500 | 1.6094 | **1.11** |
+| 2 | Flame **DmgRed** | 20 % → +3 | 6.667 | 25 | 25 (cap) | 15.00 | 14 500 | 1.5581 | 1.07 |
+| 2 | Thunder **Linger** | 20 % → +3 | 6.667 | 20 | 20 (cap) | 15.00 | 9 600 | 1.3863 | **1.44** |
+| 4 | Flame **Range** | 30 → +4 m | 7.5 | 15 | 15 (cap) | 13.33 | 5 700 | 1.0986 | **1.93** |
+| 5 | Thunder **Range** | 25 → +3 m | 8.333 | 15 | 15 (cap) | 12.00 | 5 700 | 1.0296 | 1.81 |
+| 6 | Amplify **Bonus** | ×3.5 → +0.4 | 8.75 | 30 | **24** | 11.43 | 13 440 | 1.3198 | 0.98 |
+| 7 | Golden **Range** | 20 → +2 m | 10 | 20 | 20 (cap) | 10.00 | 9 600 | 1.0986 | 1.14 |
+| 7 | Golden **Bonus** | ×2.0 → +0.2 | 10 | 30 | **24** | 10.00 | 13 440 | 1.2238 | 0.91 |
+| 7 | Bot Bot **Range** | 20 → +2 m | 10 | 20 | 20 (cap) | 10.00 | 9 600 | 1.0986 | 1.14 |
+| 7 | Thunder **Duration** | 5 → +0.5 s | 10 | 20 | 20 (cap) | 10.00 | 9 600 | 1.0986 | 1.14 |
+| 11 | Amplify **Range** | 25 → +2 m | 12.5 | 18 | 18 (cap) | 8.00 | 7 920 | 0.8920 | 1.13 |
+| 12 | Bot Bot **Bonus** | ×1.05 → +0.05 | 21 | 19 | 19 (cap) | 4.76 | 8 740 | 0.6444 | 0.74 |
+| 13 | Flame **Cooldown** | 75 → −3 s | 25 | 15 | 15 (cap) | 4.00 | 5 700 | 0.9163 | **1.61** |
+| 14 | the four **120-s Cooldowns** | 120 → −3 s | 40 | 15 | 15 (cap) | 2.50 | 5 700 each | 0.4700 | 0.82 |
+| 15 | the three **20-s Durations** | 20 → +0.5 s | 40 | 30 | **14** | 2.50 | 5 040 each | 0.3001 | 0.60 |
+
+**1. The ties are exact, and so is the split.** Four lines share `ρ = 10` (Golden Range, Golden Bonus, Bot Bot Range,
+Thunder Duration) ⇒ their ladders are cell-for-cell identical, which is the §1.2 “keep Range a couple of levels ahead of
+Bonus” rule as an identity. Seven lines share `ρ = 40` (all four 120-s Cooldowns + the three 20-s Durations) and therefore
+**start** at the same `2.500e-4`, but the two laws then diverge: the Cooldown lines *rise* to `0.583e-4` and run to their
+cap 15, the Duration lines *fall* and stop at 14 (`0.304e-4` above par at 14, `0.281e-4` below at 15).
+
+**2. The bot-vs-bot ranking** (each bot at the par, statistic = `Σ ln / medals`):
+
+| Bot | levels | medals | events F2P / boosted | Σ ln | **e-4/medal** | % of its capped bill |
+|---|---|---|---|---|---|---|
+| **Thunder** | 70 | **30 600** | 25.2 / 14.2 | 3.985 | **1.30** | **100.0 %** |
+| **Flame** | 80 | 40 400 | 33.3 / 18.7 | 5.182 | **1.28** | 87.3 % |
+| **Amplify** | 71 | 32 100 | 26.4 / 14.9 | 2.982 | 0.93 | 59.0 % |
+| **Golden** | 73 | 33 780 | 27.8 / 15.6 | 3.092 | 0.92 | 60.2 % |
+| **Bot Bot** | 68 | 29 080 | 23.9 / 13.5 | 2.513 | 0.86 | 65.4 % |
+
+Three readings: **(a)** **Thunder's entire bill is above par** (`100.0 %` of 30 600) — the guide's “max it or leave it” is
+now derived, not quoted; **(b)** **Amplify (0.93) edges Golden (0.92)** because its Range caps at 18 levels (7 920 not
+9 600) and its Bonus starts at `ρ = 8.75` instead of 10; **(c)** **Bot Bot is last** solely because its Bonus line is a
+**4.76 %** step (`ρ = 21`, a `+0.05` increment on a `×1.05` base). For the coin chain itself only Golden/Amplify/Bot Bot
+multiply coins, and there the order is Amplify > Golden > Bot Bot; Thunder's `×53.76` and Flame's `×178.13` are products of
+mixed-unit stats (linger %, DR %) and are only used for their line order.
+
+**3. The merged tap sheet** (density-greedy over all 19 ladders **plus** the five unlock prices, with the feasibility rule
+that a level comes after its own unlock). The first 24 taps:
+
+```
+UNLOCK-Golden@150 UNLOCK-Amplify@300 Amplify.Bonus1@100 Golden.Range1@100 Golden.Bonus1@100 Amplify.Range1@100
+Amplify.Bonus2@140 Golden.Range2@140 Golden.Bonus2@140 Amplify.Range2@140 Amplify.Bonus3@180 Golden.Range3@180
+Golden.Bonus3@180 Amplify.Bonus4@220 Amplify.Range3@180 Golden.Range4@220 Golden.Bonus4@220 UNLOCK-Thunder@600
+Thunder.Linger1@100 Thunder.Range1@100 Thunder.Duration1@100 Thunder.Linger2@140 Thunder.Range2@140 Thunder.Duration2@140
+```
+
+Priced against the levels, each unlock's own density is `ln(base)/price`: **Golden 46.21 · Amplify 41.76 · Thunder 3.04 ·
+Flame 2.03 · Bot Bot 0.41 × 10⁻⁴**, and the sheet places them after **0 · 150 · 2 790 · 10 330 · 116 090** medals of levels.
+Only the **Bot Bot** unlock (`×1.05` for 1 200 medals) falls under the best level lines — that single number is why the
+guide's “unlock one, level it, then unlock the next” beats “unlock all five first”: 1 200 medals on that unlock buys
+`0.41e-4`, the same 1 200 on `Flame.Damage`-style lines buys `1.11e-4`.
+Total sheet: **367 taps / 169 110 medals** (362 levels + 5 unlocks) = **139.2 events ≈ 278 weeks** F2P, or **78.3 events ≈
+157 weeks** at the boosted 2 160/event; the level part is **165 960 = 71.6 %** of the five-bot grand bill **231 860** for
+`Σ ln = 17.755`, i.e. **1.07e-4** on average.
+
+**4. The tail split** (why the par stops where it does — the last levels are 1/3 of the bill for 1/9 of the effect):
+
+| line | stop / cap | medals | % of the line's bill | % of the line's gain | tail density |
+|---|---|---|---|---|---|
+| Golden Bonus | 24 / 30 | 13 440 / 20 400 | 65.9 % | **88.3 %** | 6 960 medals → 0.23e-4 |
+| Amplify Bonus | 24 / 30 | 13 440 / 20 400 | 65.9 % | 88.7 % | 6 960 → 0.24e-4 |
+| Flame Damage | 25 / 30 | 14 500 / 20 400 | 71.1 % | 91.6 % | 5 900 → 0.25e-4 |
+| each 20-s Duration | 14 / 30 | 5 040 / 20 400 | **24.7 %** | 53.6 % | 15 360 → 0.17e-4 |
+
+**5. `A` sensitivity ([H067](../hypotheses/H067-bot-range-amplification.md)).** Tower amplification only changes the Range
+lines' `ρ` to `(base + A)/i`, so it *moves the Range lines down the table* and nothing else: with `A = 40` m,
+`Flame.Range` 13.33 → 5.71, `Thunder.Range` 12.00 → 4.62, `Golden/Bot Bot Range` 10.00 → 3.33, `Amplify.Range` 8.00 →
+3.08e-4 — at that point every Range line sits below `Bot Bot.Bonus` (4.76) and the tap order flips to Bonus-first.
+
 ## 4. What each Bot+ ability is worth
 
 | Bot+ (1 250 stones) | Levels | Effect at 0 → max | Why it ranks |
@@ -424,6 +520,14 @@ line drops below par at level 16 (`A = 40`) or 12 (`A = 80`). Everything else in
       `A = 0` (**H067**).
 - [ ] **§3.2 the par plan:** at **R 20 / B 24 / D 14 / C 15** the panel reads `60 m / ×6.8 / 27 s / 75 s` on
       `9 600 + 13 440 + 5 040 + 5 700 =` **33 780** medals (**27.8 events**), against **56 100** fully capped.
+- [ ] **§3.3 the ρ read:** one level on each of these lines must print exactly `base + one increment` — Amplify Bonus
+      **×3.9**, Thunder Linger **23 %**, Thunder Range **28 m**, Flame Damage **×58**, Flame DmgRed **23 %**, Flame Range
+      **34 m**; those six prints are the whole input of the ranking (`ρ = base/increment`).
+- [ ] **§3.3 the first-event checkpoint:** the sheet's event 1 is **8 taps for 1 130 medals** (2 unlocks + 6 levels) and
+      leaves **85** of the **1 215**; the cumulative ledger is **1 130 / 2 350 / 3 590 / 4 690 / 5 830** after events
+      1–5 (**8 / 15 / 20 / 27 / 32** taps).
+- [ ] **§3.3 the unlock milestones:** the Thunder unlock becomes the best buy after **2 790** medals of levels, the Flame
+      unlock after **10 330**, the Bot Bot unlock only after **116 090**; the whole sheet is **367 taps / 169 110 medals**.
 - [ ] The respec costs **300 gems** and the medal counter returns in full.
 - [ ] The five unlock prices are **150 / 300 / 600 / 900 / 1 200** ⇒ **Σ 3 150**.
 - [ ] The **theme** costs **150** and the **background** **250** in the current event (**400** together), and each of the
@@ -480,6 +584,14 @@ line drops below par at level 16 (`A = 40`) or 12 (`A = 80`). Everything else in
   ([H067](../hypotheses/H067-bot-range-amplification.md)); the Bonus/Duration/Cooldown ladders are unaffected.
 - **§3.2:** if **Bonus** and **Range** do **not** tie at level 1 (both should be a 10 % step), then `A > 0` and Bonus leads
   — re-run `tools/bot-four-line-density.ps1` with the measured `A`; the par-optimal level counts fall out of the same loop.
+- **§3.3:** the `ρ` reduction fails for any line whose level-1 print is **not** `base + one increment` (e.g. a line that
+  prints `+3 %` on one level and `+2 %` on the next) → that line is re-inserted with its measured two-point ladder and the
+  other lines keep their `100/ρ` first step.
+- **§3.3:** if the five unlock prices are not **150 / 300 / 600 / 900 / 1 200**, the sheet's unlock positions
+  (**0 / 150 / 2 790 / 10 330 / 116 090**) move — they are pure prefix sums of the price ladder — but the line ranking and
+  the block totals do not.
+- **§3.3:** if Thunder's Linger prints a per-level increment other than **+3 %**, its `ρ = 6.667` and its
+  **1.44e-4**-per-medal block leave the table (the block total 30 600 is unaffected, it is a cap sum).
 
 ## Sources
 
@@ -547,3 +659,8 @@ line drops below par at level 16 (`A = 40`) or 12 (`A = 80`). Everything else in
   with its purchase sequence, and the `A`-sensitivity table (**10.00 / 6.67 / 5.00 / 3.33 / 2.00e-4** at level 1 for
   `A = 0 / 10 / 20 / 40 / 80` m). Prints from Tower Hub `wiki/bot/golden-bot` (the “amplified by your tower's range”
   sentence) and the fandom `Golden Bot` ladder values (`20 m`, +2 m, cap 60 m; ×2.0, +0.2, cap ×8.0).
+- `tools/bot-cross-ranking.ps1` (new, §3.3) — the `ρ` reduction and the 19-line table (first step = `100/ρ × 10⁻⁴`), the
+  tie groups (`ρ = 10` on four lines, `ρ = 40` on seven), the bot-vs-bot ranking (**1.30 / 1.28 / 0.93 / 0.92 / 0.86e-4**),
+  the feasibility-constrained 367-tap sheet with the five unlock positions (**0 / 150 / 2 790 / 10 330 / 116 090**) and the
+  per-event ledger, the tail-split table, and the `A` sensitivity of the five Range lines. Its inputs are the §1.3 prints
+  only, and it re-adds all five capped bills (**56 100 / 54 420 / 44 440 / 30 600 / 46 300 = 231 860**) from `20L² + 80L`.
