@@ -1,5 +1,10 @@
 # T012 — Buy card levels by gems-per-percentage-point, not by card
 
+Rev: 10 (2026-11-03) — **the two stone-bucket readings reconciled by row count**: the mastery stone column is
+`500 ×2 + 750 ×13 + 1 000 ×13 + 1 250 ×3 = 27 500` on the **31-row** list and
+`500 ×2 + 750 ×13 + 1 000 ×14 + 1 250 ×3 = 28 500` on the current **32-row** `Card Masteries` page — the extra card
+(`Area of Effect`, 1 000 stones) is the whole difference, so both prints are correct for their own list (annotated in
+§2.1 and §2.3). Cross-checked by `tools/card-research-family.ps1` in T006.
 Rev: 9 (2026-11-03) — **the mastery layer gets its second source and closes (§2.3 item 10)**: fandom `Card Masteries`
 prints **32** mastery rows × 10 values plus the shared lab ladder; the stones column re-adds to the printed
 **28 500** exactly (`500 ×2 + 750 ×13 + 1 000 ×14 + 1 250 ×3`), the lab clock has the closed form
@@ -269,7 +274,8 @@ last 5 / step **0.4**, `Attack Speed` 1.03 → 1.30 step **0.03**, `Health` and 
 and the single non-linear row is **`Ultimate Crit`** with worst residual **0.0667** = the rounded **⅓ pp** ladder
 (+0.3 / +0.7 / +1.0 / +1.3 / +1.7 …, i.e. ⅓·k printed to one decimal) — the same 30-of-31 + one-break pattern §2.1
 reports, from a second page. The stone column re-adds to **27 500** with the buckets **500 ×2 / 750 ×13 / 1 000 ×13 /
-1 250 ×3** ✓, and the shared lab’s nine levels give times **30 000 → 150 000 min** with a single distinct difference
+1 250 ×3** ✓ on the **31-row** list (the current page adds `Area of Effect` at 1 000 stones, giving **32 rows** and
+**28 500** with **1 000 ×14** — see §2.1 and Rev 10), and the shared lab’s nine levels give times **30 000 → 150 000 min** with a single distinct difference
 (**15 000 min = 250 h**) and a coin column summing to exactly **50.00 q** ✓.
 
 **The stone census.** The 31 printed costs fall in **four buckets** — 500 ×2 (`Cash`, `Free Upgrades`), 750 ×13, 1 000 ×13,
@@ -294,7 +300,8 @@ time-bound ones**.
 **One script, three prints (new, Rev 6).** `tools/card-mastery.ps1` parses the `card/cards` page end to end and re-adds all
 of it: the **31 × 10** mastery block is **exactly linear on 30 rows** (worst residual **0.0000**) with the single break at
 `Ultimate Crit` (**0.0667** = the rounded ⅓ pp ladder), the stone column sums to **27 500** on the buckets
-**500 ×2 · 750 ×13 · 1 000 ×13 · 1 250 ×3**, the shared lab’s nine times have **exactly one distinct difference
+**500 ×2 · 750 ×13 · 1 000 ×13 · 1 250 ×3** (**31 rows**; the current 32-row page gives **28 500** with
+**1 000 ×14**), the shared lab’s nine times have **exactly one distinct difference
 (15 000 min = 250 h)** ⇒ the `250n + 250` law, its nine coin cells sum to **exactly 50.00 q**, and the slot column
 (22 rows, `1 = Free` … `22 = 10 000`) sums to **58 400** with the cumulative marks **3 900** at slot 10,
 **15 900** at slot 16, **32 400** at slot 19 and **48 400** at slot 21 (the two 16/19 marks are new). The same script’s

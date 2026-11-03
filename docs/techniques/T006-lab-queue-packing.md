@@ -1,5 +1,15 @@
 # T006 — Pack the Lab queue, then buy the *cheapest* skipped hour
 
+Rev: 31 (2026-11-03) — **the Card Research category closes and the mastery-lab block enters the bill**
+(§Card Research, `tools/card-research-family.ps1`): **four census lines share one 7-level Recharge column**
+(`Second Wind` / `Demon Mode` / `Nuke` / `Missile Barrage`, Σ **14.430 T** / **119.88 d** each) with the buy order set only
+by the printed wave count (**9.018 8 × 10⁹** coins per 100 waves saved on `Second Wind`); `Super Tower Bonus` prints
+**30** levels now (**12.304 T** / **897.30 d**, its 10-level prefix re-adding to the Rev 11 print **115.95 B** /
+**22.19 d**), and the **32** mastery labs at the printed **50.00 q / 562 d 12 h** each are the census’s largest block —
+**1.600 Q** over **18 000 d** = **24.7 %** of the bill’s coins for **6.2 %** of its clock, with a constant **250 h** time
+step and **mirror-symmetric** coin increments (+0.20 +0.70 +1.40 +2.20 +2.10 +1.40 +0.70 +0.20 q); the stone re-add pins
+the 1 000-stone bucket at **14** cards (fixed at T012 Rev 7). Appendix B now covers
+**159 / 189 lines = 6.466 Q / 290 785.7 d (84.1 %)**.
 Rev: 30 (2026-11-03) — **the Utility Research category is priced line by line** (§Utility Research,
 `tools/utility-research-family.ps1`): **12 lines / 611 levels**, where the four workshop-increment lines share the
 head-**40** 99-level column at **111 696 509** coins / **1 444.98 d** each (**57** cost cells differ from the head-30
@@ -811,29 +821,33 @@ and what the covered part costs. Only layers whose **every** line carries a prin
 | `D` the Second Wind pair | 2 | 14.4301 T | 128.75 d |
 | `E` `Garlic Thorns` | 1 | 1.35 M | 25.45 d |
 | `F` the two `* Level Skip` labs | 2 | 1.49 T | 260.62 d |
-| `G` `Super Tower Bonus`, printed ten levels | 1 | 115.94 B | 22.2 d |
+| `G` `Super Tower Bonus`, printed **30** levels (restated at Rev 31 from the 10-level print) | 1 | **12.304 T** | 897.30 d |
 | `H` the **Main Research** category (§Main Research, Rev 27) | 15 | **826.445 q** | 16 806.0 d |
 | `I` the **Attack Research** category (§Attack Research, Rev 28) | 9 | 25.594 T | 124 747.5 d |
 | `J` the **Defense Research** category (§Defense Research, Rev 29) | 15 | **187.228 T** | 15 050.9 d |
 | `K` the **Utility Research** category (§Utility Research, Rev 30) | 10 | **8.906 T** | 10 085.4 d |
-| **Σ priced** | **121** | **4.866 Q** | **270 725.1 d** |
+| `L` the six newly priced **Card Research** lines (§Card Research, Rev 31) | 6 | **30.848 T** | 1 185.5 d |
+| `M` the **32 mastery labs** — 32 × the printed 50.00 q / 562 d 12 h (§Card Research, Rev 31) | 32 | **1.600 Q** | 18 000 d |
+| **Σ priced** | **159** | **6.466 Q** | **290 785.7 d** |
 
 In income units **(the Rev 25 72-line bill)**: **coins 5 770 d = 15.80 years** at 700 T/day · **clock 104 035.3 d** =
 285 y single-slot = **57.01 y** on five slots = **15.3 y** with the ×3.725 stack · the ×1.5 boost on the whole covered part
 is **2.4968 × 10⁷ cells** = **24 968 d ≈ 68 years** of cell income ⇒ **cells bind by ×4.33** over the coins.
 
-Scaled to the **121-line** bill the same two conversions give **coins 6 951 d = 19.03 y** at 700 T/day and
-**clock 270 725.1 d = 741.2 y** single-slot = **148.2 y** on five slots = **39.8 y** with the ×3.725 stack (the cell bill
+Scaled to the **159-line** bill the same two conversions give **coins 9 237 d = 25.29 y** at 700 T/day and
+**clock 290 785.7 d = 796.1 y** single-slot = **159.2 y** on five slots = **42.7 y** with the ×3.725 stack (the cell bill
 is read from the printed boost table rather than re-derived here).
 
 **Three facts the table produces.**
-1. **Coverage is 121 / 169 census lines = 71.6 %.** Layers `H`–`K` were added from the fandom per-line lab
-   tables at Rev 27/28/29/30; the unpriced **48** now sit in `Card` (18), `Perk` (9), `Bot` (8),
+1. **Coverage is 159 / 189 census lines = 84.1 %** (the 32-mastery-lab reading; on the 12-lab reading it is
+   **139 / 169 = 82.2 %**, see §Card Research finding 4 and H063). Layers `H`–`M` were added from the fandom per-line lab
+   tables at Rev 27–31; the unpriced **30** now sit in `Perk` (9), `Bot` (8),
    `Module` (6), `Enemies` (the 2 `Boss` lines) and `Battle Condition` (5) — those pages print a ladder but no `Total`,
    so they need a device read or a per-level product.
 2. **One band dominates the old bill, but not the new one: the fourteen T19-band lines** (`B2` + `C`, the
    `0.25 q × n` / `n × 933 078 s` arithmetic ladders) are **40.29 %** of the covered coins and **67.6 %** of the covered
-   clock **inside the 72-line bill**; with `H`–`K` they are **33.4 %** and **26.0 %**, because `H`’s single
+   clock **inside the 72-line bill**; with `H`–`M` they are **25.2 %** and **24.2 %** (the mastery-lab block alone takes
+   **24.7 %** of the coins and **6.2 %** of the clock), because `H`’s single
    `Enhancement Coin Discount` line (826.445 q) and `I`’s clock (124 747.5 d, 94.47 % of it in the two Super Crit lines)
    and `J`’s single `Wall Fortification` line (174.666 T) all became major contributors. Because both columns of the T19 band are arithmetic there,
    their clock grows *proportionally* with their coins — unlike the geometric `L-I…L-VI` families, which front-load coins.
@@ -1304,6 +1318,63 @@ as Appendix B layer `F`. Re-added offline by `tools/utility-research-family.ps1`
 9. **Gates** printed on the pages: the four workshop-increment lines **T1 W30** (`Interest`, `Max Interest`, the three
    Recovery lines and `Package After Boss` print no gate sentence — the Milestones screen is the authority for those).
 
+### The Card Research category priced line by line, and the 32 mastery labs (new, Rev 31)
+
+Nine named lines from `Lab/Double Death Ray`, `Lab/Extra Orb Adjuster`, `Lab/Extra Extra Orbs`, `Lab/Energy Shield`
+(the *Energy Shield Extra Hit* line), `Lab/Recharge Demon Mode`, `Lab/Recharge Nuke`, `Lab/Recharge Missile Barrage`,
+`Second Wind Labs/Recharge Second Wind`, `Second Wind Labs/Second Wind Blast`, `Lab/Super Tower Bonus`, plus the mastery
+labs from `Card Masteries`; caps cross-checked against `Lab Category/Card Research`. Re-added offline by
+`tools/card-research-family.ps1`.
+
+| Line | Levels | Σ coins | Σ clock | printed value law | coins per unit of value |
+|---|---|---|---|---|---|
+| `Recharge Second Wind` · `Recharge Demon Mode` · `Recharge Nuke` (+ `Recharge Missile Barrage`, UW) | 7 each | **14.430 T** each | 172 622 min = **119.88 d** each | recharge after `2 000 → 400` / `1 500 → 300` / `1 500 → 200` waves | **9.018 8 × 10⁹** per 100 waves |
+| `Double Death Ray` | 30 | 1.097 08 T | 1 284 912 min = 892.30 d | `1n` pp ⇒ 30 % | 3.656 9 × 10¹⁰ |
+| `Super Tower Bonus` | **30** | **12.304 T** | 1 292 112 min = 897.30 d | `1 + 0.03n` ⇒ **1.90** | 1.367 1 × 10¹¹ per +0.01 |
+| `Energy Shield Extra Hit` | 2 | 890 B | 63 332 min = 43.98 d | `+1` / `+2` hits | 4.45 × 10¹¹ |
+| `Extra Extra Orbs` | 2 | 925 M | 10 666 min = 7.41 d | `+1` / `+2` orbs | 4.625 × 10⁸ |
+| `Extra Orb Adjuster` | 1 | 1.5 M | 2 999 min = 2.08 d | `Unlocked` | 1.5 × 10⁶ |
+| `Second Wind Blast` (layer `D`) | 4 | 84.3 M | 750 000 s = 8.68 d | `25n` pp | 843 000 |
+| **each of the 32 mastery labs** | 9 | **50.00 q** | 810 000 min = **562.5 d** | printed `Total` | 1.388 9 × 10¹⁶ |
+| **Σ 41 lines** (9 named + 32 mastery) | **378** | **1.600 Q** | **29 104 387 min = 20 211.4 d** = 55.3 y | — | — |
+
+1. **Four census lines, one 7-level column.** `Recharge Second Wind`, `Recharge Demon Mode`, `Recharge Nuke` and
+   `Recharge Missile Barrage` print the *same* seven costs (550 B, 1.05 T, 1.55 T, 2.05 T, 2.56 T, 3.07 T, 3.6 T) and the
+   same seven times (5 d 4 h 59 m → 51 d 8 h 11 m): Σ **14.430 T** / 172 622 min = **119.88 d** each — the re-add is exact
+   (0.55 + 1.05 + 1.55 + 2.05 + 2.56 + 3.07 + 3.6 = 14.430). Only the value column separates them, so the buy order is
+   decided by the printed wave count: Second Wind takes 2 000 → **400** waves (**1 600** saved, 9.018 8 × 10⁹ per 100
+   waves), Missile Barrage 1 500 → **200** (1 300 saved, 1.11 × 10¹⁰), Nuke and Demon Mode 1 500 → **300** (1 200 saved,
+   1.2025 × 10¹⁰). Same bill, so `Second Wind` is the cheapest wave and `Recharge Nuke` / `Demon Mode` the next.
+2. **`Super Tower Bonus` has 30 printed levels, not 10.** The 10-level prefix re-adds to **115.95 B / 22.19 d** —
+   exactly the Rev 11 print (115.94 B / 22.2 d), which confirms the same table — and the full 30-level line is
+   **12.304 T / 897.30 d**, i.e. **×106** the coins and **×40** the clock of the ten-level reading. Its value column is the
+   exact `1 + 0.03n` step (1.03 → 1.90) ⇒ **1.367 1 × 10¹¹ coins per +0.01**. Layer `G` in Appendix B is restated to the
+   30-level figure.
+3. **The mastery labs are the census’s largest single block: 1.600 Q over 18 000 d.** The wiki prints one shared 9-level
+   table (`1.10 q … 10.00 q`, `20d 20h … 104d 4h`, `Total 50.00q / 562d 12h`) and **32** mastered cards, so the block is
+   32 × 50 q = **1.600 Q** coins and 32 × 562.5 = **18 000 d** of clock — **24.7 %** of the whole priced bill’s coins for
+   **6.2 %** of its clock. Both printed totals re-add exactly (50000000000000000 = 50.00 q; 13 500 h = 562.5 d), the times
+   differ by a constant **250 h** (`500, 750, … 2 500 h`, the T012 §2.1 law) and the coin increments are
+   **mirror-symmetric**: +0.20 +0.70 +1.40 +2.20 +2.10 +1.40 +0.70 +0.20 q.
+4. **The two mastery-lab counts are two readings, and the bigger one is the wiki’s current list.** With 32 mastery labs
+   the Card category is **41 lines / Σ 378 levels** and the census is **189 lines**; the Rev 23 reading (12 mastery labs)
+   gives 21 lines / Σ 198 and **169** lines. Both re-add internally (`90 + 32 × 9 = 378` vs `99 − 9 + 12 × 9 = 198`); the
+   in-game **Lab** screen’s Card-category line count settles it (H063).
+5. **Mastery stones re-add to the printed 28 500 only with fourteen 1 000-stone cards**: `2 × 500 + 13 × 750 + 14 × 1 000 +
+   3 × 1 250 = 28 500` over 32 rows; the 13-bucket version T012 printed sums to 27 500 over 31 rows, so the fourth bucket
+   is `1 000 × 14` (fixed at T012 Rev 7).
+6. **The mastery labs are the most expensive per unit of printed value in the census** (1.388 9 × 10¹⁶ coins per unit of
+   multiplier on the `Damage` mastery, ×1.4 → ×5) while the four Recharge lines are among the cheapest
+   (9.018 8 × 10⁹ per 100 waves). In queue terms the mastery labs are pure late-game: **562.5 d** each of raw clock
+   (**37.5 d** with the ×1.15-chain stack of T006, **7.5 d** on five slots), and 32 of them are 18 000 d.
+7. **Cheap single-level unlocks deserve their own queue slot.** `Extra Orb Adjuster` is **1.5 M / 2.08 d** and
+   `Extra Extra Orbs` **925 M / 7.41 d** (the second orb alone is 900 M = **36×** the first), `Energy Shield Extra Hit`
+   **890 B / 43.98 d** for two extra charges; together they cost 0.92 B coins — under one printed income second at
+   700 T/day — and are pure clock, so they belong in a short side-slot.
+8. **Gates** printed on the pages: `Double Death Ray` **T3 W300**, `Energy Shield Extra Hit` **T4 W300**,
+   `Extra Orb Adjuster` **T6 W50**, `Extra Extra Orbs` **T6 W80**, all four Recharge lines **T14 W60**,
+   `Super Tower Bonus` **T8 W300**.
+
 ## Reproduction checklist
 
 - [ ] No slot shows “completed, not started” for more than a few minutes; at least one long level is running overnight.
@@ -1467,6 +1538,14 @@ as Appendix B layer `F`. Re-added offline by `tools/utility-research-family.ps1`
       level 20 is **476.6 B** / **41 d 10 h 16 m** / **20 %**, and `Fast Enemy Health` level 20 shows the *same*
       **41 d 10 h 16 m** while `Recovery Package Amount` / `Chance` show **476.6 B** and that time too; the two
       `* Level Skip` lines are the only other 20-level Utility lines.
+- [ ] **§Card Research (Rev 31):** all four Recharge lines print level 1 = **550 B** / **5 d 4 h 59 m** and level 7 =
+      **3.6 T** / **51 d 8 h 11 m** (Missile Barrage’s page rounds that last one to **51 d 8 h 12 m**).
+- [ ] **§Card Research (Rev 31):** `Super Tower Bonus` level 10 is **32.14 B** / **5 d 2 h 31 m** / **1.30** and level 30
+      is **1.83 T** / **116 d 16 h 28 m** / **1.90**; `Double Death Ray` level 30 is **205.12 B** / **116 d 12 h 28 m** /
+      **30 %**.
+- [ ] **§Card Research (Rev 31):** any mastered card’s lab prints level 1 = **1.10 q** / **20 d 20 h** and level 9 =
+      **10.00 q** / **104 d 4 h**, and the page’s `Total` row is **50.00 q** / **562 d 12 h**; the Card category shows
+      **41** lines (32 of them mastery labs) on the current wiki list.
 
 ## Falsification
 
@@ -1602,6 +1681,12 @@ as Appendix B layer `F`. Re-added offline by `tools/utility-research-family.ps1`
   stop obeying **`enemy(n) = Recovery(n) + 10 + 25(n − 1)`** (0 of 20 cells today), re-derive both arrays separately. If
   `Max Interest` level 15 prints something other than **$15 000**, the cap ladder was rebalanced and the
   **154.1 coins per dollar of cap** figure must be recomputed from the new cells.
+- **§Card Research (Rev 31):** if any one of the four Recharge lines stops printing **550 B … 3.6 T** across seven rows,
+  the shared-column claim (finding 1) is broken and that line must be summed on its own; if `Super Tower Bonus` prints ten
+  rows again, layer `G` reverts to the 10-level **115.94 B / 22.2 d** and the bill loses **12.188 T** / **875.1 d**.
+- **§Card Research census:** if the Lab screen’s Card category lists **21** lines rather than **41**, the mastery-lab
+  block is the 12-lab reading (**0.600 Q** / **6 750 d**), the census is **169** and coverage **139 / 169 = 82.2 %**; the
+  whole Appendix B coin column drops by **1.000 Q** to **5.466 Q**.
 - **§Main Research:** if `Starting Cash` and `Workshop Attack Discount` no longer print an identical cost column, the
   shared ladder split ⇒ re-run `tools/main-research-family.ps1` with two arrays; the four per-line figures change but the
   category total does not (each line is still counted once). If `Enhancement Coin Discount` level 1 stops being **1.00B**
@@ -1785,3 +1870,13 @@ as Appendix B layer `F`. Re-added offline by `tools/utility-research-family.ps1`
   `2d 7h 33m … 41d 10h 16m`) plus `Lab/Fast Enemy Health` (the 30-row ladder the Recovery times prefix) and
   `Lab Category/Utility Research` (the 12-line name list with `Max Lv`). New script:
   `tools/utility-research-family.ps1`.
+- fandom lab pages, raw wikitext via `api.php?action=parse&prop=wikitext` (pulled 2026-11-03) — the **Card Research
+  category** tables: `Lab/Double Death Ray` (30 rows `2,500,000 … 205,120,000,000`, `1% … 30%`),
+  `Lab/Extra Orb Adjuster` (1 row `1,500,000` / `2d 1h 59m`), `Lab/Extra Extra Orbs`
+  (2 rows `25,000,000` / `900,000,000`), `Lab/Energy Shield` (= the *Energy Shield Extra Hit* line, 2 rows
+  `40,000,000,000` / `850,000,000,000`), the four Recharge pages `Lab/Recharge Demon Mode`, `Lab/Recharge Nuke`,
+  `Lab/Recharge Missile Barrage`, `Second Wind Labs/Recharge Second Wind` (7 rows `550B … 3.6T`),
+  `Second Wind Labs/Second Wind Blast`, `Lab/Super Tower Bonus` (now **30** rows `2,000,000,000 … 1,830,000,000,000`,
+  `1.03 … 1.90`), `Lab Category/Card Research` (the 10-row list whose mastery row is `Max Lv 9`) and `Card Masteries`
+  (the shared 9-level `Mastery lab costs` table with `Total 50.00q / 562d 12h`, the 32-row stone list totalling 28,500 and
+  the per-card 0-to-9 value ladders). New script: `tools/card-research-family.ps1`.
