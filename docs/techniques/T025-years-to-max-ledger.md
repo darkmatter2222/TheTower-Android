@@ -1,5 +1,9 @@
 # T025 — The years-to-max ledger: what every sink costs in days of income
 
+Rev: 4 (2026-11-03) — adds **§1.④**, the whole *priced* lab census from [T006](T006-lab-queue-packing.md) Appendix B:
+**72 / 169** lines, **4.039 Q** coins, **104 035.3 d** of clock, **2.4968 × 10⁷** cells at ×1.5 — cells bind by **×4.33**,
+the fourteen T19-band lines are **40.29 %** of the coins and **67.6 %** of the clock, the 19 lines below that band cost
+**0.57 days** of income.
 Rev: 3 (2026-11-03) — adds **§1.③**, the UW lab layer from [T006](T006-lab-queue-packing.md) Appendix A.2:
 **2.4111 Q** coins and **18 165.95 d** of clock for 39 tables, of which **six lines carry 99.99 %** of the coins, and the
 two-tier binding-currency law (cells bind the 33 cheap lines by **×5 203**, coins bind the six by **×1.56**).
@@ -37,6 +41,7 @@ at 8 h uptime, **≈ 435/day** at 24 h; **≈ 1 000 Elite Cells/day** at T5).
 | **Coins — enhancement layer** | same | all 18 enhancements = **12.374 S** coins | **4.84 × 10⁷ years** at 700 T/day | effectively infinite ⇒ buy to the printed knees only |
 | **Coins — module slots** | same | to L41 = **7.45 M** · to L300 = **18.07 s** | L41 is a two-week leg, the cap is another scale | **L41** is the first real wall (one extra sub-stat) |
 | **Coins + Cells — the 39 UW lab tables** | 700 T coins/day · ≈ 1 000 cells/day | **2.4111 Q** coins, **or** **4.36 M** cells for the ×1.5 boost bill, **or** **18 165.95 d** of slot clock | **9.43 y** of coin income · **11.94 y** of cell income · **9.95 y** of five-slot clock (**2.67 y** with the ×3.725 stack) | six lines carry **99.99 %** of the coin bill ⇒ exhaust the **33** cheap lines first (**§1.③**) |
+| **Coins + Cells — the whole priced lab census** | same two flows | **4.039 Q** coins / **104 035.3 d** clock / **2.4968 × 10⁷** cells at ×1.5, over **72** of the 169 lines | **15.80 y** of coins · **57.01 y** of five-slot clock (**15.3 y** stacked) · **68.4 y** of cells | **cells** bind by ×4.33; the 14 T19-band lines are 40 % of it (**§1.④**) |
 | **Medals** | **945**/event + **270**/week (boxes) + **10/day** (`Fetch`) | event-shop trade lines cost **40** medals each | ≈ **1 355** medals per event cycle | spend inside the live event ([T013](T013-event-medal-economy.md)) |
 
 ### 1.① The stone bill closes at *line* level, and it is front-loaded (Rev 2)
@@ -110,6 +115,17 @@ sub-T11 plan, arithmetic rather than taste:
 2. **Above the knee coins bind and the clock is nearly a coincidence.** The six need **9.43 years** of coin income but
    only **6.05 years** of cell income, so boosting them changes little — let `Chrono Jump` (10 levels, **916.7 d**) run
    overnight and pay the coins.
+
+### 1.④ The whole priced lab census, in one line (Rev 4)
+
+[T006](T006-lab-queue-packing.md) Appendix B adds every layer the docs price end to end: **72** of the **169** census
+lines, **4.039 Q** coins and **104 035.3 d** of clock ⇒ **15.80 years** of coin income (700 T/day), **57.01 years** of
+five-slot queue time (**15.3 y** with the ×3.725 stack), or **24 968 days ≈ 68 years** of cell income if all of it runs at
+×1.5 — **cells bind the lab system by ×4.33 over coins**. Inside that 4.039 Q: the **fourteen T19-band lines**
+(`Vampire`/`Ray`/`Scatter` Health+Attack + the 8 assist labs, all `0.25 q × n`) are **40.29 %** of the coins and **67.6 %**
+of the clock, while the 19 covered lines below that band cost **399.15 T = 0.57 days** of income. So the same two-tier
+shape appears everywhere: *everything below the T19 band is a rounding error; the T19 band is where the ×1.5 boost pays
+best (its cost and time grow proportionally); the UW q-scale lines are coin-bound.*
 
 ## 2. The three ratios this ledger is for
 
@@ -190,6 +206,10 @@ not the 452 282 total.
        `8 956.7 + 9 209.2 =` **18 165.9 d** ≈ the printed **18 165.95**; the clock conversions are
        `18 165.95 / 5 =` **3 633.19 d**, `/ 3.725 =` **975.4 d = 2.67 y**, and the cell bill is
        `18 165.95 × 24 × (1 − 1/1.5) × 30 =` **4.3598 M cells**.
+- [ ] **§1.④ whole census:** the q-scale layer sums `2 411.1 + 0.383113 + 697.5 + 930 + 0.0144301 =` **4 039 q =**
+       **4.039 Q** (the M/B rows are below the printed precision); `104 035.3 / 5 / 365 =` **57.01 years**,
+       `/ 3.725 =` **15.3 years**; the cell bill is `104 035.3 × 24 × (1 − 1/1.5) × 30 =` **2.4968 × 10⁷**;
+       `14 × 116.25 =` **1 627.5 q** and `1 627.5 / 4 039 =` **40.29 %**; `72 / 169 =` **42.6 %** coverage.
 
 ## 5. Falsification
 
@@ -213,6 +233,9 @@ not the 452 282 total.
   rebuild from T006 Appendix A/A.1's per-line cells; the order (33 cheap → four `L-IV` → the two Q-scale singles) is the
   part that survives, only the year figures move. If a ×1.5 boost is not **30 cells per skipped hour**, the “binds”
   column flips where the two day-counts cross (the crossover is at ~**1.56** for the six lines).
+- **§1.④ whole census:** if the coverage is no longer **72 / 169**, a category gained a printed `Total` (or a device read
+  filled a gap) ⇒ rebuild the sum from T006 Appendix B’s per-layer column; the three ratios (**40.29 %** / **67.6 %** /
+  **×4.33**) are quotients of that same table, so they move with it while the *ordering* of the layers does not.
 
 ## Sources
 
@@ -228,9 +251,11 @@ not the 452 282 total.
   [T016](T016-guild-tokens-bits.md) Rev 3 (**185** tokens/week, the **1 225**-token full shop, **255** spare),
   [T022](T022-free-currency-census-paid-ladder.md) §1 (the free income census),
   [T006](T006-lab-queue-packing.md) (the boost table **15 cells/h** per slot at ×1.5 = **30 cells per skipped hour**, the
-  **7.5 gems/h** gem rush, the ≈ 1 000 cells/day figure, and **Appendix A.2**'s 39-table totals **2.4111 Q / 18 165.95 d**),
+  **7.5 gems/h** gem rush, the ≈ 1 000 cells/day figure, and **Appendix A.2 / B**'s totals **2.4111 Q / 18 165.95 d** and
+  **4.039 Q / 104 035.3 d**),
   [T020](T020-workshop-coin-order.md) §6 (the enhancement bills),
   [T013](T013-event-medal-economy.md) (medals).
 - Arithmetic: `tools/years-ledger.ps1` (§4 in order), `tools/ledger-year1.ps1` (§1.①/§1.② and the 52-week totals),
   `tools/ledger-year1b.ps1` (surpluses, leftovers, the cell-hour split), `tools/ledger-year1c.ps1` (the stage ladder in
-  weeks per band), `tools/lab-summit2.ps1` + `tools/lab-summit-d.ps1` (§1.③, shared with T006 Appendix A.2).
+  weeks per band), `tools/lab-summit2.ps1` + `tools/lab-summit-d.ps1` (§1.③, shared with T006 Appendix A.2) and
+  `tools/lab-summit-e.ps1` (§1.④, shared with T006 Appendix B).

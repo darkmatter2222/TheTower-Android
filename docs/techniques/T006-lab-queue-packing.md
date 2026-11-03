@@ -1,5 +1,9 @@
 # T006 — Pack the Lab queue, then buy the *cheapest* skipped hour
 
+Rev: 25 (2026-11-03) - **Appendix B: the running bill of the priced lab layers.** **72** of the **169** census lines are
+priced end to end and add to **4.039 Q** coins / **104 035.3 d** of clock (**15.80 y** of coin income, **57.01 y** on five
+slots, **24 968 d** of cell income at ×1.5 ⇒ cells bind by **×4.33**); the fourteen T19-band lines are **40.29 %** of the
+coins and **67.6 %** of the clock, and the 19 covered lines below that band cost **399.15 T = 0.57 days**.
 Rev: 24 (2026-11-03) - **Appendix A.2: the 39 UW lab tables get their grand totals.** Σ **2.4111 Q** coins and
 Σ **18 165.95 d** of base slot clock, closed three ways (lines, nine per-weapon subtotals, cheap/q split), with the two
 new laws: **six lines carry 99.99 %** of the coin bill (`Inner Land Mine - Chrono Jump` alone is **51.74 %** = 8.134× the
@@ -718,6 +722,40 @@ Read: for the cheap tier the coins are a rounding error and *only* slot-hours ma
 (×1.5, auto-queued) and never wait on them; for the six q-scale lines the coin price is what makes them late-game, so let
 them run unboosted overnight — a 2 210-day cell bill buys nothing that the clock would not have covered.
 
+### Appendix B — the running bill of every lab layer priced end to end (new, Rev 25)
+
+`tools/lab-summit-e.ps1` adds the layers this doc prices line by line, so a reader can see how far the census is covered
+and what the covered part costs. Only layers whose **every** line carries a printed `Σ` are included.
+
+| Layer (source section) | Lines | Σ coins | Σ clock |
+|---|---|---|---|
+| `A` the 39 UW lab tables (Appendix A.2) | 39 | **2.4111 Q** | 18 165.95 d |
+| `B` enemy-stat T9–T13 band (§enemy-stat layer) | 13 | 383.113 T | 15 127.87 d |
+| `B2` the T19 trio: `Vampire`/`Ray`/`Scatter` Health+Attack | 6 | 697.5 q | 30 130.08 d |
+| `C` the 8 assist module labs (T19 W50) | 8 | 930 q | 40 174.4 d |
+| `D` the Second Wind pair | 2 | 14.4301 T | 128.68 d |
+| `E` `Garlic Thorns` | 1 | 1.35 M | 25.45 d |
+| `F` the two `* Level Skip` labs | 2 | 1.49 T | 260.62 d |
+| `G` `Super Tower Bonus`, printed ten levels | 1 | 115.94 B | 22.2 d |
+| **Σ priced** | **72** | **4.039 Q** | **104 035.3 d** |
+
+In income units: **coins 5 770 d = 15.80 years** at 700 T/day · **clock 104 035.3 d** = 285 y single-slot =
+**57.01 y** on five slots = **15.3 y** with the ×3.725 stack · the ×1.5 boost on the whole covered part is
+**2.4968 × 10⁷ cells** = **24 968 d ≈ 68 years** of cell income ⇒ **cells bind by ×4.33** over the coins.
+
+**Three facts the table produces.**
+1. **Coverage is 72 / 169 census lines = 42.6 %.** The unpriced 97 sit in `Main` (15), `Attack` (9), `Defense` (15 of 16),
+   `Utility` (10 of 12), `Card` (18 of 21), `Perk` (9), `Bot` (8), `Module` (6 of 14), `Enemies` (the 2 `Boss` lines) and
+   `Battle Condition` (5) — those pages print a ladder but no `Total`, so they need a device read or a per-level product.
+2. **One band dominates: the fourteen T19-band lines** (`B2` + `C`, the `0.25 q × n` / `n × 933 078 s` arithmetic ladders)
+   are **40.29 %** of the covered coins and **67.6 %** of the covered clock. Because both columns are arithmetic there,
+   their clock grows *proportionally* with their coins — unlike the geometric `L-I…L-VI` families, which front-load coins.
+   Practical effect: a T19-band line is the one place where the cell boost and the coin price are comparable, so the
+   ×1.5 boost is worth most there.
+3. **Everything below the T19 band is a rounding error.** The 19 covered lines that are not in `A`/`B2`/`C` together cost
+   **399.15 T = 0.57 days** of income (0.01 % of the bill) while taking **15 564 d** of clock — the same knee as
+   Appendix A.2’s “33 cheap lines”, now seen across layers.
+
 ### The enemy-stat layer, ladder by ladder (Rev 11)
 
 Source: `wiki/enemy/common-enemy-labs`, `fast-enemy-labs`, `protector-labs`, `vampire-labs`, `ray-labs`, `scatter-labs`
@@ -1044,6 +1082,11 @@ online often (it raises levels/day for all 5 slots: a `3 d 11 h` line becomes **
        the largest *line* total on the nine UW lab pages, ahead of `Swamp Rend - Additional Enemies` (**1.01 Q** =
        **1 010 q**) — and `Chain Thunder` L30 reads **38.34 q / 2 011.1 d**, the three `Swamp` 30-level lines read
        **116.24 B / 825.4 d** each.
+- [ ] **Appendix B running bill:** the eight layer subtotals re-add to **4.039 Q** coins and **104 035.3 d**
+       (`2 411.1 q + 0.383113 q + 697.5 q + 930 q + 0.0144301 q + … =` **4 039 q**), the coverage is
+       `72 / 169 =` **42.6 %**, the T19 band is `1 627.5 / 4 039 =` **40.29 %** of the coins and
+       `(30 130.08 + 40 174.4) / 104 035.3 =` **67.6 %** of the clock, and the sub-T19 band is
+       `399.15 T / 700 T =` **0.57 days** of income.
 
 ## Falsification
 
@@ -1134,6 +1177,11 @@ online often (it raises levels/day for all 5 slots: a `3 d 11 h` line becomes **
 - **§Appendix A.2 boost price:** if the Lab panel prices a ×1.5 boost at something other than **30 cells per skipped
   hour**, the whole-layer cell bill moves with it (`cells = clock_h × (1 − 1/m) × price_per_skipped_h` at that multiplier)
   while the coin bill is unchanged ⇒ re-check which currency binds, the flip point is the ratio in the A.2 table.
+- **§Appendix B:** if the eight layer subtotals no longer re-add to **4.039 Q / 104 035.3 d**, one layer was re-priced ⇒
+  the layer table lists each layer’s own printed `Σ`, so rebuild from those; the coverage figure (72 / 169) moves only when
+  a category page gains a `Total` row or a device read supplies the missing 97 lines.
+- **§Appendix B T19 band:** if a T19-band line’s level 30 is not **7.50 q** (`0.25 q × 30`), the arithmetic ladder changed
+  ⇒ re-derive the line’s `Σ = 0.25 q × 465 =` **116.25 q** from the new step and re-weight the 40.29 % / 67.6 % shares.
 
 ## Sources
 
@@ -1153,7 +1201,7 @@ online often (it raises levels/day for all 5 slots: a `3 d 11 h` line becomes **
   `Spotlight Missiles` **19 → 2**, `Missile Barrage Quantity` **25 → 50**), and the workshop `Total` rows used by T008 §2;
   parsed with `tools/uw-lab-census.ps1` (rows / L1 / last / step / Σ / Σ L1–10 / coins-per-point) and totalled by
   `tools/lab-summit2.ps1` + `tools/lab-summit-d.ps1` for Appendix A.2 (`tools/lab-summit.ps1` / `-b` / `-c` are the
-  pre-correction passes, kept for comparison).
+  pre-correction passes, kept for comparison) and `tools/lab-summit-e.ps1` for Appendix B’s layer ledger.
 - Tower Hub `wiki/enemy/common-enemy-labs` · `fast-enemy-labs` · `protector-labs` · `vampire-labs` · `ray-labs` ·
   `scatter-labs` (last verified **2026-11-01**, `ray-labs` 2026-07-29) — the per-level `Level | Time | Cost | Value`
   rows behind §enemy-stat layer: Common 20.00 B → 2.40 T with **−0.40 % … −12.00 %**, Fast 30.00 B → 2.70 T,
