@@ -1,5 +1,15 @@
 # T006 — Pack the Lab queue, then buy the *cheapest* skipped hour
 
+Rev: 29 (2026-11-03) — **the Defense Research category is priced line by line** (§Defense Research,
+`tools/defense-research-family.ps1`): **16 lines / 635 levels = 187.228 T coins over 15 076.3 d**, with **three**
+more lines (`Health`, `Health Regen`, `Defense Absolute`) joining the shared 99-level column at
+**116 005 939** coins / **1 495.22 d** each and a **+0.03** step (**386 686** coins per +0.01 against `Damage`’s
+580 030), `Land Mine Decay` proven a **20-cell prefix extension** of `Land Mine Damage` (0 differing cells),
+`Shockwave Size` a coin-twin of it with **1.449×** the clock, `Wall Regen` carrying the **×1.1500** clock law on 18
+consecutive steps after an eleven-level head, three more **arithmetic-price** labs (`Wall Regen` Δ 5.1→7.63 B,
+`Wall Thorns` Δ 8.1→10.18 B, `Wall Invincibility` Δ 51→55.77 B), and one line — `Wall Fortification` — holding
+**93.29 %** of the whole layer’s coins for 7.49 % of its clock; Appendix B now covers
+**111 / 169 lines = 4.866 Q / 260 639.7 d (65.7 %)**.
 Rev: 28 (2026-11-03) — **the Attack Research category closes: 9 lines / 598 levels = 25.594 T coins / 124 747.5 d**
 (§Attack Research, `tools/attack-research-family.ps1`): one 99-level column prices **four** of the nine lines
 (`Damage` 1–99, `Attack Speed`, `Critical Factor`, `Range` 1–80 = **111 695 939** / **1 444.98 d** each), **597/597**
@@ -794,26 +804,27 @@ and what the covered part costs. Only layers whose **every** line carries a prin
 | `G` `Super Tower Bonus`, printed ten levels | 1 | 115.94 B | 22.2 d |
 | `H` the **Main Research** category (§Main Research, Rev 27) | 15 | **826.445 q** | 16 806.0 d |
 | `I` the **Attack Research** category (§Attack Research, Rev 28) | 9 | 25.594 T | 124 747.5 d |
-| **Σ priced** | **96** | **4.865 Q** | **245 588.8 d** |
+| `J` the **Defense Research** category (§Defense Research, Rev 29) | 15 | **187.228 T** | 15 050.9 d |
+| **Σ priced** | **111** | **4.866 Q** | **260 639.7 d** |
 
 In income units **(the Rev 25 72-line bill)**: **coins 5 770 d = 15.80 years** at 700 T/day · **clock 104 035.3 d** =
 285 y single-slot = **57.01 y** on five slots = **15.3 y** with the ×3.725 stack · the ×1.5 boost on the whole covered part
 is **2.4968 × 10⁷ cells** = **24 968 d ≈ 68 years** of cell income ⇒ **cells bind by ×4.33** over the coins.
 
-Scaled to the **96-line** bill the same two conversions give **coins 6 950 d = 19.03 y** at 700 T/day and
-**clock 245 588.8 d = 672.4 y** single-slot = **134.5 y** on five slots = **36.1 y** with the ×3.725 stack (the cell bill
+Scaled to the **111-line** bill the same two conversions give **coins 6 951 d = 19.03 y** at 700 T/day and
+**clock 260 639.7 d = 713.6 y** single-slot = **142.7 y** on five slots = **38.3 y** with the ×3.725 stack (the cell bill
 is read from the printed boost table rather than re-derived here).
 
 **Three facts the table produces.**
-1. **Coverage is 96 / 169 census lines = 56.8 %.** Layers `H` and `I` were added from the fandom per-line lab tables at
-   Rev 27/28; the unpriced **73** now sit in `Defense` (15), `Utility` (10), `Card` (18), `Perk` (9), `Bot` (8),
+1. **Coverage is 111 / 169 census lines = 65.7 %.** Layers `H`, `I` and `J` were added from the fandom per-line lab
+   tables at Rev 27/28/29; the unpriced **58** now sit in `Utility` (10), `Card` (18), `Perk` (9), `Bot` (8),
    `Module` (6), `Enemies` (the 2 `Boss` lines) and `Battle Condition` (5) — those pages print a ladder but no `Total`,
    so they need a device read or a per-level product.
 2. **One band dominates the old bill, but not the new one: the fourteen T19-band lines** (`B2` + `C`, the
    `0.25 q × n` / `n × 933 078 s` arithmetic ladders) are **40.29 %** of the covered coins and **67.6 %** of the covered
-   clock **inside the 72-line bill**; with `H` and `I` they are **33.4 %** and **28.6 %**, because `H`’s single
+   clock **inside the 72-line bill**; with `H`, `I` and `J` they are **33.4 %** and **27.0 %**, because `H`’s single
    `Enhancement Coin Discount` line (826.445 q) and `I`’s clock (124 747.5 d, 94.47 % of it in the two Super Crit lines)
-   both became major contributors. Because both columns of the T19 band are arithmetic there,
+   and `J`’s single `Wall Fortification` line (174.666 T) all became major contributors. Because both columns of the T19 band are arithmetic there,
    their clock grows *proportionally* with their coins — unlike the geometric `L-I…L-VI` families, which front-load coins.
    Practical effect: a T19-band line is the one place where the cell boost and the coin price are comparable, so the
    ×1.5 boost is worth most there.
@@ -821,7 +832,9 @@ is read from the printed boost table rather than re-derived here).
    **399.15 T = 0.57 days** of income (0.01 % of the bill) while taking **15 564 d** of clock — the same knee as
    Appendix A.2’s “33 cheap lines”, now seen across layers. The **whole Attack layer is the extreme case**: 25.594 T of
    coins (**0.0005 %** of the bill, 0.051 % of one 500 T income day) for **124 747.5 d** of clock, i.e. it is the layer
-   whose price is *entirely* clock-bound (§Attack Research, finding 7).
+   whose price is *entirely* clock-bound (§Attack Research, finding 7). The **Defense layer** (15 lines) is the mirror
+   image: **187.228 T** of coins = **0.0038 %** of the bill for **5.8 %** of its clock, with **93.29 %** of that
+   layer’s coins in the single 60-level `Wall Fortification` line (§Defense Research, finding 6).
 
 ### The enemy-stat layer, ladder by ladder (Rev 11)
 
@@ -1155,6 +1168,69 @@ Same route as §Main Research: the fandom prints one `Level | Time | Cost | Valu
    `Max Rend Armor Multiplier` **T13 W10**, `Damage` **tier 1** (wave not printed). Same one-test rule as §Main Research:
    the in-game **Milestones** cell is the authority when a page and a block table disagree.
 
+### The Defense Research category priced line by line (new, Rev 29)
+
+Fifteen new lines (`Garlic Thorns` was already priced at Rev 11), from `Lab/Health`, `Lab/Health Regen`,
+`Lab/Defense Absolute`, `Lab/Defense Percent`, `Lab/Orb Speed`, `Lab/Orb Boss Hit`, `Lab/Land Mine Damage`,
+`Lab/Land Mine Decay`, `Lab/Shockwave Size` and the six `Wall Labs/<name>` pages; caps cross-checked against
+`Lab Category/Defense Research`. Re-added offline by `tools/defense-research-family.ps1`. Every value column is an exact
+step sequence (`1 + 0.03n`, `0.20n`, `10n`, `0.5n`, …), and the category closes at **16 lines / 635 levels**.
+
+| Line | Levels | Σ coins | Σ clock | printed value law | coins per unit of value |
+|---|---|---|---|---|---|
+| `Health` · `Health Regen` · `Defense Absolute` | 100 each | **116 005 939** each | 2 153 117 min = **1 495.22 d** each | `1 + 0.03n` ⇒ **×4.00** | **386 686** |
+| `Defense Percent` | 50 | 59 428 431 500 | 5 314 424 min = 3 690.57 d | `0.20n` pp ⇒ 10.00 % | 5.942 8 × 10⁹ |
+| `Orb Speed` | 20 | 3 712 537 770 | 146 176 min = 101.51 d | `0.10n` ⇒ 2.00 | 1.856 3 × 10⁹ |
+| `Land Mine Damage` | 20 | 12 936 316 980 | 205 239 min = 142.53 d | `10n` pp ⇒ 200 % | **6.468 2 × 10⁷** |
+| `Land Mine Decay` | 35 | 266 556 316 980 | 2 278 640 min = 1 582.39 d | `0.5n` ⇒ 17.5 | 1.523 2 × 10¹⁰ |
+| `Shockwave Size` | 20 | 12 937 873 980 | 297 315 min = 206.47 d | `0.05n` ⇒ 1.00 | 1.293 8 × 10¹⁰ |
+| `Orb Boss Hit` | 10 | 76 950 000 000 | 47 075 min = 32.69 d | `0.20n` pp ⇒ 2.00 % | 3.847 5 × 10¹⁰ |
+| `Wall Health` | 50 | 745.04 B | 218 913 min = 152.02 d | `+2n` pp ⇒ +100 % | 7.450 4 × 10⁹ |
+| `Wall Rebuild` | 20 | 193.9 B | 360 873 min = 250.61 d | `−10n` s ⇒ −200 s | 9.695 × 10⁸ |
+| `Wall Regen` | 30 | **3.540 84 T** | 2 961 672 min = 2 056.72 d | `10n` pp ⇒ 300 % | 1.180 3 × 10¹⁰ |
+| `Wall Thorns` | 20 | 2.265 71 T | 1 637 600 min = 1 137.22 d | `1n` pp ⇒ 20 % | 1.132 9 × 10¹¹ |
+| `Wall Invincibility` | 10 | 5.383 72 T | 120 610 min = 83.76 d | `1n` s ⇒ 10.0 s | 5.383 7 × 10¹¹ |
+| `Wall Fortification` | 60 | **174.666 T** | 1 625 333 min = 1 128.70 d | `20n` pp ⇒ 1 200 % | 1.455 5 × 10¹¹ |
+| `Garlic Thorns` | 10 | 1 350 000 | 25.45 d (Rev 11 print) | `1n` pp ⇒ 10 % | 135 000 |
+| **Σ 16 lines** | **635** | **187.228 T** | **21 709 869 min = 15 076.3 d** = 41.3 y | — | — |
+
+1. **Seven census lines now sit on one price column** - the four Attack lines of Rev 28 plus `Health`, `Health Regen`
+   and `Defense Absolute`, all printing L1 30 coins / 0 m and L99 4 190 000 / 49 d 0 h 57 m, the three 100-level ones
+   adding the same L100 cell (4 310 000 / 72 352 min = 3.72 % of the line on its own). Same price, different printed
+   step, so the step alone orders the buy queue: per +0.01 the 80-level `Range` costs 312 725, the 99-level
+   `Critical Factor` 376 081, the three 100-level Defense lines 386 686, `Attack Speed` and `Damage Per Meter`
+   564 121-122 and `Damage` 580 030 coins.
+2. **`Land Mine Decay` is `Land Mine Damage` with fifteen cells bolted on.** The first 20 cost cells and the first 20
+   time cells match with **0 differing cells**; the 21-35 tail is 253.62 B coins / 2 073 401 min = 1 439.9 d. One table
+   prices both lines.
+3. **`Shockwave Size` and `Land Mine Damage` are near-twins with different clocks.** 15 of 20 cost cells differ, by
+   +1 557 000 coins in total (0.012 %), but all 20 time cells differ by +92 076 min in total, so the same-priced line
+   takes 1.449x the clock. Same coin bill, half-again the waiting: a clean example of why the two columns must be read
+   separately (T006's binding-currency law).
+4. **The x1.15 clock law re-appears verbatim in the wall labs.** `Wall Regen`'s 30 printed times have ratios of exactly
+   **1.1500** on 18 consecutive steps (L12 to L30) after an eleven-level head (1 666 to 28 278 min) - the same per-level
+   clock law as the `L-I ... L-VI` families, now with a head/tail split. `Wall Fortification` instead decays
+   1.054 to 1.042 over L41-L60 (the decaying-ratio shape).
+5. **The arithmetic-price family grows to four members**: `Max Rend Armor Multiplier` (delta 40 B), `Wall Regen`
+   (5.1 to 7.63 B), `Wall Thorns` (8.1 to 10.18 B), `Wall Invincibility` (51 to 55.77 B). In these the last level costs
+   about 1.1x to 2.6x the first (784 B vs 300 B over ten cells for `Wall Invincibility`), against 139 667x for the shared
+   ladder's L99 vs L1 - so finishing an arithmetic line is cheap and finishing a geometric line is not. Buy the wall labs
+   to their caps; leave the 99-level lines at ~80 (finding 2 of Rev 28).
+6. **`Wall Fortification` is the category's whole coin bill**: 174.666 T of the category's 187.228 T (93.29 %) for
+   7.49 % of its clock. The other 15 lines together cost 12.562 T. So `Wall Fortification` (T14 W60) is the one Defense
+   line where coins bind; everything else in the category is clock-bound.
+7. **Buy order, coins per unit of printed value ascending**: `Garlic Thorns` 135 000 -> the three 100-level lines
+   386 686 -> `Land Mine Damage` 6.4682 x 10^7 -> `Wall Rebuild` 9.695 x 10^8 -> `Orb Speed` 1.856 3 x 10^9 ->
+   `Defense Percent` 5.942 8 x 10^9 -> `Wall Health` 7.450 4 x 10^9 -> `Wall Regen` 1.180 3 x 10^10 -> `Shockwave Size`
+   1.293 84 x 10^10 -> `Land Mine Decay` 1.523 18 x 10^10 -> `Orb Boss Hit` 3.847 5 x 10^10 -> `Wall Thorns`
+   1.132 86 x 10^11 -> `Wall Fortification` 1.455 5 x 10^11 -> `Wall Invincibility` 5.383 72 x 10^11. By clock per unit
+   the order is almost the reverse at the top: `Land Mine Damage` 0.713 d/unit, `Wall Fortification` 0.941 d,
+   `Wall Rebuild` 1.253 d, `Wall Health` 1.520 d, the 100-level trio 4.984 d - so `Land Mine Damage` is the single
+   line that is cheap in both currencies and belongs first.
+8. **Gates** (printed on the lab pages, the wall labs print none): `Health`, `Health Regen`, `Defense Absolute`
+   **T1 W30**; `Shockwave Size` **T3 W50**; `Orb Speed` **T3 W80**; `Defense Percent` **T5 W30**; `Land Mine Damage` and
+   `Land Mine Decay` **T6 W30**; `Orb Boss Hit` **T6 W750**; `Wall Fortification` **T14 W60**.
+
 ## Reproduction checklist
 
 - [ ] No slot shows “completed, not started” for more than a few minutes; at least one long level is running overnight.
@@ -1300,6 +1376,14 @@ Same route as §Main Research: the fandom prints one `Level | Time | Cost | Valu
       **87,900,000,000** / **10201d 12h 58m** / **5.00**, and `Super Crit Mult` level 40 is **30,070,000,000** / **1.80**.
 - [ ] **§Attack Research (Rev 28):** `Max Rend Armor Multiplier` prints **825 %** at level 1, **1 550 %** at level 30, and
       its first four prices are **200 B / 240 B / 280.01 B / 320.03 B** (+40 B each).
+- [ ] **§Defense Research (Rev 29):** `Health` level 1 reads **30** coins / **0 m** / **1.03** and level 100 reads
+      **4 310 000** / **50 d 5 h 52 m** / **4.00** - the same two columns as `Damage`, only the value step differs.
+- [ ] **§Defense Research (Rev 29):** `Land Mine Damage` level 1 is **25 000** coins / **1 h 39 m** / **10 %** and level 20
+      is **3 150 000 000** / **26 d 22 h 20 m** / **200 %**; `Land Mine Decay` prints those same 20 rows and continues to
+      **38 490 000 000** at level 35.
+- [ ] **§Defense Research (Rev 29):** `Wall Invincibility` prints ten prices from **300 000 000 000** to
+      **783 630 000 000** (steps of about 51 B) with **1.0 s … 10.0 s**, and `Wall Fortification` level 60 reads
+      **10 570 000 000 000** / **57 d 10 h 12 m** / **1200 %**.
 
 ## Falsification
 
@@ -1419,6 +1503,14 @@ Same route as §Main Research: the fandom prints one `Level | Time | Cost | Valu
 - **§Attack Research buy order:** the per-pp ranking assumes the printed `+0.02` / `+0.03` steps; if a version changes
   one step (say `Attack Speed` to +0.03), that line overtakes `Critical Factor` immediately — recompute the two
   `coins per +0.01` figures rather than reusing the table.
+- **§Defense Research (Rev 29):** if `Land Mine Decay` stops printing `Land Mine Damage`'s 20 rows as its own prefix, the
+  prefix relation (finding 2) is gone and the 15-cell tail must be summed on its own; if `Wall Regen` stops showing
+  **1.1500** between consecutive times from L12 on, the head/tail split moved and the clock law needs re-fitting from the
+  new cells. If `Health` prints **1.02** at level 1 instead of **1.03**, the Defense trio has been rebalanced to
+  `Damage`'s step and the 386 686-coins-per-pp figure becomes 580 030.
+- **§Defense Research ladder twins:** `Shockwave Size` and `Land Mine Damage` agree on coins to 0.012 % but not on clock
+  (ratio **1.449**); if a version makes those two rows identical in both columns, one of the two tables is being copied
+  and only a device read can separate them again.
 - **§Main Research:** if `Starting Cash` and `Workshop Attack Discount` no longer print an identical cost column, the
   shared ladder split ⇒ re-run `tools/main-research-family.ps1` with two arrays; the four per-line figures change but the
   category total does not (each line is still counted once). If `Enhancement Coin Discount` level 1 stops being **1.00B**
@@ -1583,3 +1675,14 @@ Same route as §Main Research: the fandom prints one `Level | Time | Cost | Valu
   (`tier 1 wave 30`, `tier 2 wave 30`, `tier 3 wave 30`, `tier 5 wave 200`, `tier 7 wave 10`, `tier 13 wave 10`) and the
   `Damage` page's printed **damage product** (`Workshop x Lab x Damage Card x (1 + Relics) x (1 + Cannon Module %) x
   Enhancements x Perk + Berserker`).
+- fandom lab pages, raw wikitext via `api.php?action=parse&prop=wikitext` (pulled 2026-11-03) — the **Defense Research
+  category** tables: `Lab/Health`, `Lab/Health Regen`, `Lab/Defense Absolute` (100 rows, `30 … 4,310,000`,
+  `0d 0h 0m … 50d 5h 52m`, `1.03 … 4.00`), `Lab/Defense Percent` (50 rows `5,000 … 5,760,000,000`, `0.20 … 10.00`),
+  `Lab/Orb Speed` (20 rows `15,000 … 874,760,000`), `Lab/Orb Boss Hit` (10 rows `800,000,000 … 25,540,000,000`),
+  `Lab/Land Mine Damage` and `Lab/Land Mine Decay` (20/35 rows, `25,000 … 38,490,000,000`), `Lab/Shockwave Size`
+  (20 rows `100,000 … 3,150,000,000`) and the six `Wall Labs/<name>` pages (`Wall Health` 50 rows `1,00B … 48,61B`,
+  `Wall Rebuild` 20 rows, `Wall Regen` 30 rows `30.00B … 217.89B`, `Wall Thorns` 20 rows, `Wall Invincibility` 10 rows
+  `300,000,000,000 … 783,630,000,000`, `Wall Fortification` 60 rows `300,000,000,000 … 10,570,000,000,000`), plus
+  `Lab Category/Defense Research` (the 16-line name list with `Max Lv`) and `Lab Category/Utility Research` (the 12-line
+  list, used to confirm the census counts). Note the wall tables write decimals with a comma (`48,61B` = 48.61 B), so a
+  naive comma-strip mis-scales them by x10 — `tools/defense-research-family.ps1` transcribes the normalized values.
