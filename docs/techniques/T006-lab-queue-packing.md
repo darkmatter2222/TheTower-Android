@@ -1,5 +1,10 @@
 # T006 — Pack the Lab queue, then buy the *cheapest* skipped hour
 
+Rev: 21 (2026-11-02) - **the UW row of the cap table is now fully enumerated** from `wiki/lab/lab-category-ultimate-weapon-research`
+(all **39** caps printed, Σ re-adds to **669** cell by cell; incl. `Shock Multiplier` **14**, `Missile Barrage Quantity` **6**,
+`Spotlight Missiles` **18**, `Recharge Missile Barrage` **7**) + a three-way skew note on `Swamp Rend - Additional Enemies`
+(category **6** vs lab page **11** vs Rev 16’s **9**; the 11-row bill stays) + the pages’ own spellings
+(`Enhancment Coin Discount`, `Missle Amplifier`).
 Rev: 20 (2026-11-02) - **the Assist Module Labs layer closed** (`wiki/module/assist-module-labs`, 2026-11-01):
 **8 labs** (Bonus + Substats × Cannon/Armor/Generator/Core), **30** levels each, gate **T19 W50**; the printed ladder is
 linear — cost **0.25 q × n** (one lab **116.25 q**, all eight **930.00 q** coins) and time **933 078 s × n** (one lab
@@ -359,7 +364,7 @@ of that category. The counts re-add to the census (15 · 9 · 16 · 12 · 39 · 
 | Attack Research | 9 | **598** | Damage **100** · Attack Speed 99 · Critical Factor 99 · Range **80** · Damage/Meter 99 · Super Crit Chance 50 · Super Crit Mult 40 · Max Rend Armor Multiplier 30 · Light Speed Shots 1 |
 | Defense Research | 16 | **655** | Health 100 · Health Regen 100 · Defense Absolute 100 · Defense % **50** · Orb Speed 20 · Land Mine Damage 20 · Land Mine Decay **35** · Shockwave Size 20 · Orb Boss Hit 10 · Wall Health 50 · Wall Rebuild 20 · Wall Regen 30 · Wall Thorn 20 · Wall Invincibility 10 · Wall Fortification 60 · Garlic Thorns 10 |
 | Utility Research | 12 | **611** | Cash Bonus 99 · Cash / Wave 99 · Coins / Kill Bonus 99 · Coins/wave 99 · Interest 99 · Max Interest 15 · Package After Boss 1 · Recovery Package Amount / Max / Chance 20 · **Enemy Attack Level Skip 20 · Enemy Health Level Skip 20** |
-| Ultimate Weapon | 39 | **669** | eight **1-level** unlocks (Missiles Explosion, Chrono Field Damage Reduction, Swamp Stun, Chain Lightning Shock, Missile Barrage, Inner Mine Stun, Extra Black Hole, Black Hole Disable Ranged Enemies) + nine 25–30-level depth lines (Chrono Field Duration / Reduction % / Range, Swamp Radius / Stun Chance / Stun Time, Death Wave Health, Chain Thunder, Lightning Amplifier) + the rest at 1–20 |
+| Ultimate Weapon | 39 | **669** | *full 39-cell print (Rev 21), category-page order, Σ re-adds to 669 ✓*: Missiles Despawn Time 20 · Missiles Explosion 1 · Missiles Radius 20 · Chrono Field Duration 30 · Chrono Field Damage Reduction 1 · Chrono Field Reduction % 30 · Swamp Radius 30 · Swamp Stun 1 · Swamp Stun Chance 30 · Swamp Stun Time 30 · Golden Tower Bonus 25 · Golden Tower Duration 20 · Chain Lightning Shock 1 · Shock Chance 30 · Shock Multiplier **14** · Death Wave Health 30 · Death Wave Coin Bonus 20 · Inner Mine Blast Radius 20 · Inner Mine Rotation Speed 20 · Chrono Field Range 20 · Missle Amplifier 25 · Missile Barrage 1 · Missile Barrage Quantity **6** · Inner Mine Stun 1 · Black Hole Damage 10 · Extra Black Hole 1 · Black Hole Coins Bonus 20 · Spotlight Coin Bonus 20 · Spotlight Missiles **18** · Black Hole Disable Ranged Enemies 1 · Recharge Missile Barrage **7** · Swamp Rend - Basic Enemies 30 · Swamp Rend - Additional Enemies **6 (skew)** · Chain Thunder 30 · Lightning Amplifier 30 · Death Wave Cell Bonus 20 · Death Wave Damage Amplifier 30 · Death Wave Armor Stripping 10 · Inner Land Mine - Chrono Jump 10 |
 | Card Research | 10 | **99** | Second Wind Blast 4 · Double Death Ray 30 · Extra Orb Adjuster 1 · Extra Extra Orbs 2 · Energy Shield Extra Hit 2 · Super Tower Bonus 30 · Recharge Second Wind / Demon Mode / Nuke 7 · Card Mastery **9 (one lab per card)** |
 | Perk Research | 9 | **180** | Unlock Perks 1 · Waves Required 100 · Auto Pick Perks 1 · Standard Perks Bonus 25 · Perk Option Quantity 2 · First Perk Choice 1 · Ban Perks **8** · Improve Trade-Off Perks 10 · Auto Pick Ranking 32 |
 | Bot Research | 8 | **165** | four Cooldown lines **25** · Burn Stacks **5** · Linger Time 20 · two Duration lines 20 = `4×25 + 5 + 3×20` ✓ T015 |
@@ -367,6 +372,15 @@ of that category. The counts re-add to the census (15 · 9 · 16 · 12 · 39 · 
 | Module Research | 14 | **314** | the 12 lines of T010 §2.2 (Σ **254**: Reroll Shards 100, Daily Mission Shards 50, the two Cost lines 30, the two Drop Chance lines 10, Shatter 5, Unmerge 1, bans 4/4/3/7) **+ the two assist lines at 30** |
 | Battle Condition | 5 | **70** | generic `Battle Condition Reduction` **10** · Group 1 **20** · Group 2 **20** · Group 3 **10** · Group 4 **10** |
 | **All** | **158** | **4 693** | (= 4 633 if the two assist lines are counted with the module page's 12) |
+
+**Three notes on the category-page prints (Rev 21).** ① The six category pages pulled as individual slugs
+(`lab-category-{main, attack, defense, perk, bot, ultimate-weapon}-research`, 2026-11-01) agree with the census on every
+cap; the Σ of the now-fully-enumerated UW row re-adds to **669** cell by cell. ② New three-way skew: the category page
+prints `Swamp Rend - Additional Enemies` **Max lv 6**, while the lab page itself prints **11** rows today (9 at
+Rev 16) — the bill in §“Poison Swamp” keeps the **11-row** ladder (its costs are per-row prints); treat the category
+“6” as the older grid if the lab page still shows 11. ③ Page-intrinsic spellings to expect in the UI: **`Enhancment
+Coin Discount`** (sic, one `n`) on the main page and **`Missle Amplifier`** (sic) in the UW list — matching the game's
+own labels; `Defense %` there renders as `Defense|%` with the percent glyph after a bar.
 
 Four consequences:
 
