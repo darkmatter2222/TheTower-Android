@@ -1,5 +1,13 @@
 # T012 — Buy card levels by gems-per-percentage-point, not by card
 
+Rev: 9 (2026-11-03) — **the mastery layer gets its second source and closes (§2.3 item 10)**: fandom `Card Masteries`
+prints **32** mastery rows × 10 values plus the shared lab ladder; the stones column re-adds to the printed
+**28 500** exactly (`500 ×2 + 750 ×13 + 1 000 ×14 + 1 250 ×3`), the lab clock has the closed form
+`t(n) = 250 × (n + 1)` h (**Σ 13 500 h = 562.5 d**) against a hand-set price column (**Σ 50.00 q**), linearity is
+**31/32** rows with `Ultimate Crit+` the only rounded print, the **`Enhanced Ray`** ladder is finally printed
+(**750 st**, **5 % → 50 %**, 150 st/pp), the gate is **T16 W100 + 30 cards at L7** (never during a run, effect only
+while the card is equipped), and all 32 labs full = **1 600 q / 49.3 y** base = **13.2 y** under the ×3.725 stack.
+Script: `tools/mastery-census.ps1`.
 Rev: 8 (2026-11-03) - **the `death-ray` page finished (§2.3 items 3 and 9)**: all **30** `Double Death Ray` cells
 transcribed, both totals re-added cell for cell (**Σ 1 097.15 B** coins, **Σ 21 415.5 h = 892.31 d**), the block split
 (**0.11 % / 8.22 % / 91.66 %** of the coins; **2.3 % / 18.0 % / 79.7 %** of the clock) and the per-point law
@@ -489,6 +497,33 @@ research time. `energy-net`, `plasma-cannon`, `slow-aura` print prose only (no t
    event, the first such case recorded here). ③ The binary prints `Assets\Scripts\DeathRay.cs` and
    `DeathRayController.cs` (plus the `|DeathRay` / `|DeathRayController` enum rows) and **no** `Mastery` string at all,
    which is why every mastery name in this doc comes from the wiki rather than the dump.
+10. **The fandom `Card Masteries` page prints the whole mastery census in one table** — **32** rows × 10 values, plus the
+    shared lab ladder and the per-card stone price, and it all re-adds (`tools/mastery-census.ps1`). ① **The gate is two
+    numbers:** claim the **Tier 16 Wave 100** milestone **and** have **30 cards at level 7** (two of the 32 may sit below
+    L7); masteries **cannot be bought during a round**, so the mastery button is only live between runs, and a mastery's
+    effect applies only **while its card is equipped**. ② **The stones
+    column closes exactly:** `500 ×2 + 750 ×13 + 1 000 ×14 + 1 250 ×3` over the 32 rows = **28 500** = the page's own
+    total, Δ **0**, and it equals §2.2's per-page figure (**27 500** for the 31 rows **+** `Cells` **1 000**) ⇒ the price
+    classes are complete and `Cells+` is the 32nd row; mean price **890.6 st** ⇒ all 32 = **518 d** of stone income.
+    ③ **The mastery lab has a closed form:** its nine times are **500 / 750 / 1 000 / 1 250 / 1 500 / 1 750 / 2 000 /
+    2 250 / 2 500 h** = `t(n) = 250 × (n + 1)` h, Σ **13 500 h = 562.5 d** = the printed `562d 12h`; the nine costs add to
+    exactly **50.00 q** on hand-set decaying ratios (**1.182 → 1.020**, one interior bump **1.70**) ⇒ *inside one ladder*
+    the clock is arithmetic and the price is hand-set, so only the time column is worth extrapolating. All **32** labs
+    full = **1 600 q** coins and **18 000 d = 49.3 y** of base clock = **4 832 d = 13.2 y** under the ×3.725 stack.
+    ④ **Linearity, final count:** **31 of 32** rows are exactly linear with a clean step; only `Ultimate Crit+`
+    (**0.3 → 3.3**, step **⅓ pp**) needs the rounded-print reading, so `v(k) = base + (k + 1) s` now covers every
+    printed mastery row. ⑤ **The `Enhanced Ray` ladder is printed at last:** **750 st**, **5 % → 50 %** in 5-pp steps —
+    this *is* the `Enhanced Ray Mastery` lab of item 9, and its value is the share of **max health** a protector and the
+    enemies it shields take when the beam touches them ⇒ **150 st/pp**, tied with `Radiation` for cheapest pp-class row.
+    ⑥ **Ranking law:** the two value classes are **not** comparable by stones-per-point. The multiplier rows have steps
+    of **0.03** (`Coins+` 1 250 st for ×1.03 → ×1.30 = **41 667 st** per 0.01 ×, `Cells+` 1 000 st for ×1.05 → ×1.32 =
+    **33 333**, `Coin Orb` 750 st for ×1.04 → ×1.40 = **18 750**, `Attack Speed+` 750 st for ×1.03 → ×1.30 = **25 000**)
+    yet they are the layer's only *compounding* sources; the pp-class leaders read **`Double Coins` 100 st/pp** (the one
+    direct coin-currency row: chance to double an enemy's kill coins), **`Spawn Accelerator` 100**, **`Enhanced Ray` /**
+    **`Radiation` 150**, **`Elite Balance` 167** (more elites ⇒ more cells), **`Double Wave Skip` / `Slow Attack` /**
+    `Repel` 200, **`Elite Cannon` 250**, `Flashbang` / `Blast Zone` 400, `Ultimate Tower` 333 (per s), `Electrified Net`
+    375, `Locked Upgrade` 500, `Warp Speed` 694, `Super Crit` 750, `Angel Wings` 1 111, **`Elite Farming` 1 250** (module
+    reroll shards per pp) and `Care Package` 2 500, with `Viking Funeral` cheapest of all at **25 st** per second of cap.
 
 ## 3. Step-by-step (UI only)
 
@@ -569,6 +604,11 @@ the 31 printed rows plus `Cells`, and `time = 250n + 250 h` per level). Until th
       **1 097.15 B**) and take **492.7 h**, while L21–L30 cost **1 005.68 B** (**91.66 %**) and take **17 058 h**.
 - [ ] **§2.3 beam limits:** with `Death Ray` equipped the beam leaves a **boss** and a **protector-shielded** enemy
       untouched, and the elite types `Ray`, `Scatter`, `Vampire` are not removed by it.
+- [ ] **§2.3 mastery census:** `Enhanced Ray` costs **750** stones with the ladder **5 % → 50 %** (5 pp per level), and
+      its lab reads **20 d 20 h / 1.10q** at level 1 and **104 d 4 h / 10.00q** at level 9, with **250 h** between every
+      pair of levels (500 / 750 / 1 000 / 1 250 / 1 500 / 1 750 / 2 000 / 2 250 / 2 500 h).
+- [ ] **§2.3 gate:** the mastery buttons stay dark until **Tier 16 Wave 100** is claimed **and** **30** cards read level
+      **7**, and no mastery can be bought while a run is in progress.
 
 ## 5. Falsification
 
@@ -613,6 +653,13 @@ the 31 printed rows plus `Cells`, and `time = 250n + 250 h` per level). Until th
   the `v(n) = n` law is dead for this line and the 36.572 B/pp figure must be recomputed as `Σcost / v(30)`.
 - **§2.3 beam limits:** if a `Death Ray` activation removes a **boss** or an enemy inside a protector radius on your
   client, the immunity list is stale ⇒ re-read the `Good to know` block; the coin/clock ladder is unaffected.
+- **§2.3 mastery census:** if the 32 printed stone prices no longer add to **28 500**, a card was added or re-priced ⇒
+  re-run `tools/mastery-census.ps1` (the classes are **2 / 13 / 14 / 3** rows at **500 / 750 / 1 000 / 1 250**); the
+  per-row ladders do not move, only the totals. If the mastery lab's times stop being **250 h** apart, the arithmetic law
+  `t(n) = 250 × (n + 1)` h is dead and the nine cells must be read one by one.
+- **§2.3 gate:** if mastery buttons light up with **fewer than 30** cards at level 7, the gate is per-card rather than
+  account-wide ⇒ re-read the **Cards** screen's level-7 count; the Lab-panel line count moves with it (each mastered card
+  adds one lab line, so a full layer is 32 lines on top of T006's census).
 - **§2.3:** if the in-game `Second Wind Blast` times read as **cumulative** (level 4 ≈ 3 d 11 h total, not ≈ 8 d total),
   this page family's `Time` column differs from the other lab pages → divide the 892.3 d Double Death Ray Σ accordingly
   (cumulative would make it 116.5 d); the coin Σ (1.10 T) is unaffected either way.
@@ -664,6 +711,16 @@ the 31 printed rows plus `Cells`, and `time = 250n + 250 h` per level). Until th
   radius**”; “Elites (**Ray, Scatter, Vampire**) are **immune**”; max-level rotation “covers **more than 180 degrees**”),
   and the mastery line (“partially pierce Protector shields and unlocks the **Enhanced Ray Mastery** research”). Fandom
   second source: `Death Ray` (last edited **2025-07-24**).
+- fandom **`Card Masteries`** (raw wikitext via `api.php`), pulled 2026-11-03 — the **whole mastery census in one place**:
+  the gate prose (“unlocks once you have claimed the **Tier 16, Wave 100** milestone and have **30 cards at level 7** …
+  Masteries cannot be bought during a round”), “**Mastering all 32 cards costs 28,500 stones**”, the `Mastery lab costs`
+  table (**9** rows, `20d 20h / 1.10q` … `104d 4h / 10.00q`, totals `562d 12h` / `50.00q`), and the 32-row
+  `Card | Mastery | Effect | Stones | 0..9` block that names every mastery (**`Enhanced Ray` 750 st, 5 % → 50 %**,
+  `Double Coins`, `Elite Balance`, `Elite Farming`, `Care Package`, `Warp Speed`, `Angel Wings`, `Demon Revenge`,
+  `Viking Funeral`, `Radiation`, `Repel`, `Blast Zone`, `Spawn Accelerator`, `Locked Upgrade`, `Coin Orb`,
+  `Elite Cannon`, `Flashbang`, `Electrified Net`, `Ultimate Tower`, `Slow Attack`, `Super Critical Chance`,
+  `Fortress Walls`, …) and is re-added by `tools/mastery-census.ps1`. It also carries the `AdvancedAnalysis` pointer
+  (that page is table-free here) and flags “Land Mine Stun is old scaling values”.
 - Tower Hub `wiki/guide/milestones` (last verified **2026-07-29**, 10 data tables), re-pulled 2026-11-03 — the second source
   for the four card gates: the T7/T8/T9 block prints **`Card: Land Mine Stun`** in the **wave 250** free cell, the
   T10/T11/T12 block **`Card: Nuke`** at **wave 10**, the T13/T14/T15 block **`Card: UW Crit`** at **wave 50**, and the
