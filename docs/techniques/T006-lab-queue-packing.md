@@ -1,5 +1,13 @@
 # T006 — Pack the Lab queue, then buy the *cheapest* skipped hour
 
+Rev: 40 (2026-11-03) — **§Four more layers on the value side** (new): `Σ ln` for `Q` **27.351 3** · `J` **42.529 0** ·
+`H` **38.390 5** · `K` **20.051 6** (densities **0.025 603 / 0.014 128 / 0.011 422 / 0.009 941** per day), both readings of
+a pp law carried; the merged **eleven-row** schedule is `E · D · F · sheet · L · Q · par · J · H · M · K · O · G` with the
+`J`/`H`/`K` block the only pp-convention-sensitive part. Two asymmetries: `Q`’s four ban labs are **99.70 %** of the coins
+for **21.27 %** of the `ln` (**1 216×** per coin for the rest) and `H`’s single `Enhancement Coin Discount` is **100 %** of
+the coins for **12.00 %** (**171 464×**). Two print corrections: **Defense is 655 levels, not 635** (the §Defense `Σ` row is
+short by one 20-level line) and **`Presets` 5 lv vs `Card Presets` 1 lv swaps `H` past `M`** (H069).
+`tools/lab-value-layers-2.ps1`.
 Rev: 39 (2026-11-03) — **§The value side of the cheap layers** (new): `Σ ln` computed from the printed value laws for
 `E` **2.3026** · `D` **2.9957** · `F` **5.9915** · `L` **8.0064** · `M` **40.7349** (32 × `ln(5/1.4)`) · `O` **4.5990** ·
 `G` **0.6123**, which turns the cost ledger into a schedule. Density order: **`E` 0.452 374 > `D` 0.116 339 > `F` 0.114 946
@@ -1318,7 +1326,9 @@ Fifteen new lines (`Garlic Thorns` was already priced at Rev 11), from `Lab/Heal
 `Lab/Defense Absolute`, `Lab/Defense Percent`, `Lab/Orb Speed`, `Lab/Orb Boss Hit`, `Lab/Land Mine Damage`,
 `Lab/Land Mine Decay`, `Lab/Shockwave Size` and the six `Wall Labs/<name>` pages; caps cross-checked against
 `Lab Category/Defense Research`. Re-added offline by `tools/defense-research-family.ps1`. Every value column is an exact
-step sequence (`1 + 0.03n`, `0.20n`, `10n`, `0.5n`, …), and the category closes at **16 lines / 635 levels**.
+step sequence (`1 + 0.03n`, `0.20n`, `10n`, `0.5n`, …), and the category closes at **16 lines / 655 levels** *(restated at
+Rev 40: the row printed **635**, short by exactly **20**; the itemised §cap-table list sums to 655 and the layer-`J`
+subtotal below to 645)*.
 
 | Line | Levels | Σ coins | Σ clock | printed value law | coins per unit of value |
 |---|---|---|---|---|---|
@@ -1336,7 +1346,7 @@ step sequence (`1 + 0.03n`, `0.20n`, `10n`, `0.5n`, …), and the category close
 | `Wall Invincibility` | 10 | 5.383 72 T | 120 610 min = 83.76 d | `1n` s ⇒ 10.0 s | 5.383 7 × 10¹¹ |
 | `Wall Fortification` | 60 | **174.666 T** | 1 625 333 min = 1 128.70 d | `20n` pp ⇒ 1 200 % | 1.455 5 × 10¹¹ |
 | `Garlic Thorns` | 10 | 1 350 000 | 25.45 d (Rev 11 print) | `1n` pp ⇒ 10 % | 135 000 |
-| **Σ 16 lines** | **635** | **187.228 T** | **21 709 869 min = 15 076.3 d** = 41.3 y | — | — |
+| **Σ 16 lines** | **655** *(635 at Rev 29, a mis-add: see the note above)* | **187.228 T** | **21 709 869 min = 15 076.3 d** = 41.3 y | — | — |
 
 1. **Seven census lines now sit on one price column** - the four Attack lines of Rev 28 plus `Health`, `Health Regen`
    and `Defense Absolute`, all printing L1 30 coins / 0 m and L99 4 190 000 / 49 d 0 h 57 m, the three 100-level ones
@@ -1777,6 +1787,54 @@ printed **14.4301 T** ✓; `L`’s six lines = **30.847 1 T** and **1 185.53 d**
 **140.6** and **206.5** `ln` per line to catch the sheet, while the richest single lab line found here is `E` at **2.3026**
 — so the sheet stays ahead of every unpriced layer by two orders of magnitude.
 
+### Four more layers on the value side (`Q`, `J`, `H`, `K`), and the merged schedule (new, Rev 40)
+
+`tools/lab-value-layers-2.ps1` sums the printed laws of the four category layers that Rev 39 left out — the twelve named
+`Module` labs (`Q`), **Defense** (`J`), **Main** (`H`) and **Utility** (`K`) — line by line, and merges them with the seven
+layers above. Two readings of a percentage-point law are carried, because the pages print pp steps without saying whether
+the underlying quantity is `1 + pp`:
+
+* **reading R (raw):** a `k·n` pp line contributes `ln(N)` (the ratio of the printed totals, `pp_N / pp_1`);
+* **reading P (physical):** the same line contributes `ln((1 + pp_N) / (1 + pp_1))`.
+  `1 + kn` and pure-multiplier laws (`1 + 0.03n ⇒ 4.00`, `×1.4 → ×5`, the wave counts) are identical in both; unlock-only
+  lines take `ln = 0`.
+
+| layer | lines | Σ ln (**R**) | per line | cal-days | **/day (R)** | + stack | /day (P) |
+|---|---|---|---|---|---|---|---|
+| `Q` twelve named `Module` labs | 12 | **27.351 3** | 2.279 | 1 068.3 | **0.025 603** | 0.095 372 | 0.014 562 |
+| `J` Defense Research | 15 | **42.529 0** | 2.835 | 3 010.2 | **0.014 128** | 0.052 628 | 0.008 155 |
+| `H` Main Research | 15 | **38.390 5** | 2.559 | 3 361.2 | **0.011 422** | 0.042 546 | 0.004 099 |
+| `K` Utility Research | 10 | **20.051 6** | 2.005 | 2 017.1 | **0.009 941** | 0.037 030 | 0.005 625 |
+
+**1. The merged schedule (eleven of the eighteen rows are now value-complete).** Reading R:
+`E` 0.452 374 > `D` 0.116 339 > `F` 0.114 946 > **medal sheet** 0.050 720 > `L` 0.033 768 > `Q` 0.025 603 > **par** 0.017 957
+> `J` 0.014 128 > `H` 0.011 422 > `M` 0.011 315 > `K` 0.009 941 > `O` 0.003 481 > `G` 0.003 412 per day. Reading P moves
+`Q` below the par and re-orders the middle block to `M > J > K > H`:
+`E · D · F · sheet · L · par · Q` 0.014 562 · `M` 0.011 315 · `J` 0.008 155 · `K` 0.005 625 · `H` 0.004 099 · `O` · `G`.
+**Invariant in both readings:** `E > D > F > sheet > L` at the top, `O > G` at the bottom, and `M` inside the middle block.
+The block whose order is *not* stable is `J`, `H`, `K` — 40 lines, the largest uncertainty left in the schedule.
+Coverage: **11 rows / 106 of 197 lines / Σ ln 193.565** for **14 877.4** calendar days at five slots.
+
+**2. Two layers are “one line deep” — the per-coin asymmetry is enormous.**
+* `Q`: the four `* Effect Bans` labs are **99.70 %** of the coins (0.716 2 Q of 0.718 3 Q) for **21.27 %** of the `Σ ln`;
+  the other eleven lines cost 117.513 T + 2.063 56 q and are **1 216× better per coin** — buy `Reroll Shards`
+  (`ln 4.605` for 13.327 9 T), `Daily Mission Shards` (3.912 for 4.500 02 T) and the two `* Cost` twins before any ban lab.
+* `H`: the single `Enhancement Coin Discount` line is **100.00 %** of the layer’s coins (8.264 45 × 10¹⁷ of 8.264 5 × 10¹⁷)
+  and **12.00 %** of its `ln`; the other fourteen lines cost **3.536 × 10¹³** coins in total (the four-line block
+  446 783 756 + the two 99-level discount lines 944 965 752 + `Game Speed` 1 714 800 + `Buy multiplier` 562 500 +
+  `Presets` 3.535 35 × 10¹³ + the five unlock lines) and are **171 464× better per coin**. Same conclusion as finding 1 of
+  §Main Research, now on the day scale: leave that one line for last and it never binds.
+
+**3. Two print corrections from the level sums.**
+* **Defense is 655 levels, not 635.** The §cap table row itemises `100+100+100+50+20+20+35+20+10+50+20+30+20+10+60+10 =`
+  **655** ✓ and the §Defense Research table’s `Σ 16 lines` row prints **635**, short by exactly **20** — one of the four
+  20-level lines was dropped in that addition. Layer `J` is **15 lines / 645 levels** (655 − `Garlic Thorns` 10), which is
+  what the value sum above uses.
+* **`Presets` (5 levels) vs `Card Presets` (1 level) is one row that moves a rank.** With the 5-level print, layer `H` is
+  `Σ ln 38.3905 → 0.011 422`; with the cap table’s 1-level `Card Presets` (which is what makes the category 15 lines /
+  **712** levels exactly) it is **36.7811 → 0.010 943**, and `M` sits between the two at **0.011 315** ⇒ `H` and `M` swap.
+  Filed as **H069**; one look at the **Lab** screen’s Main category settles it.
+
 ### The Battle Condition category and the two `Boss` lines — the census closes at 100 % (new, Rev 34)
 
 Five BC lines (`Lab/Battle Condition Reduction`, `Lab/Battle Conditions Group 1…4`) plus the two `Boss` lines
@@ -2133,6 +2191,14 @@ the §census Module row’s “12 lines, Σ **254**” ✓. `tools/module-named-
       point for a `* Level Skip` line, and `50.00 q / 3.6 =` **1.388 9e16** coins per unit of multiplier for a mastery lab.
 - [ ] **§Rev 39:** the schedule is `E → D → F → L`, then the medal sheet, then `M`, then `O`, then `G` — with the stack up
       their clock legs are **1.4 / 6.9 / 14.0 / 63.7** days, i.e. **86** days for `Σ ln` **19.30**.
+- [ ] **§Rev 40:** the four new layers re-add from their own tables — `Q` **12 lines / 254 levels** and
+      **0.718 3 Q**, `K` **571 levels** (+ the two 20-level `* Level Skip` lines = the printed **611**), `J` **645 levels**
+      (+ `Garlic Thorns` 10 = **655**), `H` **15 lines / 712** or **716** levels depending on the presets row.
+- [ ] **§Rev 40:** the two one-line-deep checks: the four `* Effect Bans` labs cost **0.716 2 Q** of the category’s
+      **0.718 3 Q** (= **99.70 %**) and `Enhancement Coin Discount` costs **8.264 45 × 10¹⁷** of layer `H`’s
+      **8.264 5 × 10¹⁷**; the other lines of each layer cost **117.513 T + 2.063 56 q** and **3.536 09 × 10¹³** coins.
+- [ ] **§Rev 40:** the schedule to follow is `E → D → F → L`, the medal sheet in parallel, then `Q`, then the middle block
+      `J`/`H`/`M`/`K` (order per the pp reading), then `O`, `G`; `A`, `B`, `B2`, `C`, `I`, `N`, `P` are still cost-side only.
 
 ## Falsification
 
@@ -2347,6 +2413,16 @@ the §census Module row’s “12 lines, Σ **254**” ✓. `tools/module-named-
 - **§Rev 39:** the `+1`/`+2` two-level lines (`Energy Shield Extra Hit`, `Extra Extra Orbs`) are the only ones whose `ln`
   depends on the level-0-vs-level-1 reading (**58.5 %**); if the **Lab** page prints a level-0 value for them, use `ln 3`
   and `L`’s density rises from 0.033 768 to **0.037 189** (`Σ ln 8.8172 / 237.1`) — still between the par and the sheet.
+- **§Rev 40:** the pp reading is a model choice, not a print — if a **Lab** page prints the underlying multiplier instead
+  of the pp step (e.g. `Wall Fortification` showing `×13.00` rather than `1 200 %`), use reading **P** throughout and take
+  the second order (`Q · M · J · K · H` in the middle block); mixing the two readings inside one layer is what would make
+  the table wrong.
+- **§Rev 40:** if the **Lab** screen’s Main category does not have **15** lines, or the presets row’s cap is neither **5**
+  nor **1**, H069’s three cases are all dead and layer `H`’s `Σ ln` (and its `Σ clock`) must be re-summed from the screen;
+  no other layer is touched by that row.
+- **§Rev 40:** if the **Defense** category’s itemised list stops summing to **655** (the 16 printed caps are
+  `100+100+100+50+20+20+35+20+10+50+20+30+20+10+60+10`), the level restatement above is wrong and layer `J`’s 645 follows
+  the new list — the density is unaffected because it divides by the printed `Σ clock`, not by the level count.
 
 ## Sources
 
@@ -2600,3 +2676,7 @@ the §census Module row’s “12 lines, Σ **254**” ✓. `tools/module-named-
   0.003 481 / 0.003 412** per day, and the ×3.725-stack column), the convention-sensitivity list (`+4.1 / +1.6 / +4.8 /
   +1.0 / +58.5 / +16.1 %`), and the re-adds **373 B** per point, **1.388 9e16** per multiplier, `D` **14.430 09 T**,
   `L` **30.847 1 T / 1 185.53 d**, `M` **18 000 d**.
+- `tools/lab-value-layers-2.ps1` (new, Rev 40) — the four category layers and the merged schedule: the line-by-line `ln`
+  lists for `Q` (12), `J` (15), `K` (10) and `H` (15), the two pp readings with both orders, the level re-adds
+  (**254** / **645** / **571** / **716–712**), the two one-line-deep ratios (**1 216×** and **171 464×**) and the coverage
+  line (**11 rows / 106 of 197 lines / Σ ln 193.565 / 14 877.4 calendar days**).
