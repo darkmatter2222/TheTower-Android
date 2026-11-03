@@ -1,5 +1,11 @@
 # T014 — Tournament tickets: buy them while the marginal value beats the next card slot
 
+Rev: 11 (2026-11-03) — **§3.3 finding 4: `a` is pinned by the medal budget** (T013 §2.4 +
+`tools/medal-weekly-ledger.ps1`): an F2P event pays **1 215** medals (`945 + 2 × 135`), all-in on the stone line that is
+**7** trades = **105** stones ⇒ `a =` **3.5**/week, and with the Event Boost **10** trades = **150** stones ⇒ `a =` **5.0**;
+the band table therefore prints **both** totals — **177.5 / 251.5 / 529.5 / 1 177.5 / 6 497.5 / 20 257.5** F2P against
+**200 / 274 / 552 / 1 200 / 6 520 / 20 280** boosted — so the bill's years run **49.0 / 34.6 / 16.4 / 7.39 / 1.34 / 0.43**
+(F2P) → **43.5 / 31.7 / 15.8 / 7.25 / 1.33 / 0.43** (boosted); the cheapest-*trade* "level" plan gives `a = 2.5–3.0`.
 Rev: 10 (2026-11-03) — **§3.3: the band ladder closes on one formula**: `stones/week = 2·t·S = 2·S·(S + ⌊G/10⌋ + 2)` with
 `t = 2 + ⌊(G + 10S)/10⌋` — the identity holds on **70/70** band cells and the six ladder cells re-add **6/6**, which also
 closes the logged skew (“does not fit `45 + k × 1st place`”): the ladder is ticket-multiplied **band** pay, not the
@@ -293,27 +299,33 @@ pay the same band), and stopping short costs a whole band. The `wave → band` t
 stones/week = 2 · t · S   +   45   +   15·a        (a = event-shop stone trades)
 ```
 
-`45` is the daily-mission weekly boxes (needs **T1 W60**, T004 §finding 5) and `15·a` the Event Shop line — a
-full-2-week event pays ≈ **607** medals/week (945 event medals ÷ 2 + 135 box medals), and the stone line's own ladder
-`40 + 65 + 90 + 130 + 175 = 500` buys **5** trades = **75** stones ⇒ `a = 5` for an all-in-on-stones week (the line is
-one of the three 150-gem-equivalent options, T013 §2, so `a` trades only when stones bind).
+`45` is the daily-mission weekly boxes (needs **T1 W60**, T004 §finding 5) and `15·a` the Event Shop line — and **`a` is now
+pinned by the medal budget** ([T013](T013-event-medal-economy.md) §2.4). The stone line's own ladder
+`40 + 65 + 90 + 130 + 175 = 500` is five trades, but the whole **F2P** event budget (**1 215** medals = 945 mission +
+2 × 135 box) pushed **all-in** on that line buys **7** trades (cumulative **1 110**) = **105** stones per 2-week event ⇒
+`a = 105 / 2 / 15 =` **3.5 trades/week**; the **boosted** budget (**2 160**) buys **10** trades (cumulative 2 250) =
+**150** stones ⇒ `a =` **5.0**. The table prints both readings (the +75 column is the boosted one). A *level* plan — the
+cheapest way to buy many trades, T013 §2.4 — leaves the stone line only 4–6 of the 13–18 trades, i.e. `a = 2.5–3.0`, so it
+is right only when gems or shards bind as well as stones.
 
-| Band | `G`/`S` | `n*` | `t` | tickets only | **total (+45 +75)** | stop-wave `W` | years to **452 282** (tickets → total) |
-|---|---|---|---|---|---|---|---|
-| Copper 23–30 | 10/5 | 6 | 8 | 80 | **200** | ≈ 1 062 | 108.7 → **43.5** |
-| Copper 13–15 | 20/7 | 9 | 11 | 154 | **274** | ≈ 773 | 56.5 → **31.7** |
-| Silver 23–30 | 40/12 | 16 | 18 | 432 | **552** | ≈ 472 | 20.1 → **15.8** |
-| Gold 23–30 | 50/20 | 25 | 27 | 1 080 | **1 200** | ≈ 315 | 8.05 → **7.25** |
-| Platinum 16–24 | 125/50 | 62 | 64 | 6 400 | **6 520** | ≈ 133 | 1.36 → **1.33** |
-| Champion 16–24 | 200/90 | 110 | 112 | 20 160 | **20 280** | ≈ 76 | 0.43 → **0.43** |
+| Band | `G`/`S` | `n*` | `t` | tickets only | total **F2P** (+45 +52.5) | total **boosted** (+45 +75) | stop-wave `W` | years to **452 282** (tickets → F2P → boosted) |
+|---|---|---|---|---|---|---|---|---|
+| Copper 23–30 | 10/5 | 6 | 8 | 80 | **177.5** | **200** | ≈ 1 062 | 108.7 → **49.0** → **43.5** |
+| Copper 13–15 | 20/7 | 9 | 11 | 154 | **251.5** | **274** | ≈ 773 | 56.5 → **34.6** → **31.7** |
+| Silver 23–30 | 40/12 | 16 | 18 | 432 | **529.5** | **552** | ≈ 472 | 20.1 → **16.4** → **15.8** |
+| Gold 23–30 | 50/20 | 25 | 27 | 1 080 | **1 177.5** | **1 200** | ≈ 315 | 8.05 → **7.39** → **7.25** |
+| Platinum 16–24 | 125/50 | 62 | 64 | 6 400 | **6 497.5** | **6 520** | ≈ 133 | 1.36 → **1.34** → **1.33** |
+| Champion 16–24 | 200/90 | 110 | 112 | 20 160 | **20 257.5** | **20 280** | ≈ 76 | 0.43 → **0.43** → **0.43** |
 
-⇒ **the `45 + 15a` terms are 60 % of the Copper-bottom week and 0.59 % at Champion 16–24**: below **Gold** the boxes and
-the medal trades are the main lever (claim all seven boxes, dump medals into the stone line), above it the ticket count is.
+⇒ **the `45 + 15a` terms are 60 % (boosted) / 54.9 % (F2P) of the Copper-bottom week and 0.59 % / 0.48 % at Champion
+16–24**: below **Gold** the boxes and the medal trades are the main lever (claim all seven boxes, dump medals into the
+stone line), above it the ticket count is. The two added terms are worth **≈ 6 years** of the bill at the Copper bottom
+(**49.0 → 43.5** boosted) and under **0.1 y** everywhere above Platinum — so `a` is a *beginner* lever only.
 
 **5. If H014 fails** (the bracket pays once, best wave only), the whole grid collapses to `2·S + 45 + 15a`: the six bands
-become **130 / 134 / 144 / 160 / 220 / 300** per week and `n*` stops mattering — the box + trade terms then dominate every
-band up to Platinum. That single panel read ([H014](../hypotheses/H014-per-ticket-payout.md)) sets the scale of the entire
-stone ledger.
+become **130 / 134 / 144 / 160 / 220 / 300** per week (boosted `a = 5`) or **107.5 / 111.5 / 121.5 / 137.5 / 197.5 / 277.5**
+(F2P `a = 3.5`) and `n*` stops mattering — the box + trade terms then dominate every band up to Platinum. That single panel
+read ([H014](../hypotheses/H014-per-ticket-payout.md)) sets the scale of the entire stone ledger.
 
 ## 4. Tournament-specific build facts (they change the card preset)
 
@@ -543,7 +555,14 @@ is [H057](../hypotheses/H057-heat-increase-wave-spacing.md) — one panel read s
       `2 · 27 · 20 = 1 080 = 2 · 20 · (20 + 5 + 2)`; do the arithmetic for your league and check it against the grid.
 - [ ] **§3.3 total income:** in one week record (a) the **Tournament End Panel**'s stone total, (b) the **Weekly Rewards**
       box row (**45** once all seven are claimed, from T1 W60), (c) the Event Shop stone trades (**15** each) — the sum
-      should sit near the §3.3 table for your band (**200** at the Copper bottom, **1 200** at Gold bottom).
+      should sit near the §3.3 table for your band (**177.5** F2P / **200** boosted at the Copper bottom, **1 177.5** /
+      **1 200** at Gold bottom).
+- [ ] **§3.3, `a` (T013 §2.4):** with **no** pass, an all-in **stones** plan should reach **7** trades over the two event
+      weeks (**1 110** medals total, **105** stones) ⇒ `a = 3.5`; with the **Event Boost** **10** trades (**2 250** medals,
+      **150** stones) ⇒ `a = 5.0`. Count the purchases in the **Event Shop** panel.
+- [ ] **§3.3, level vs all-in:** buying one trade on each of the three lines keeps every marginal price equal
+      (**40 / 40 / 40**, then **65 / 65 / 65**) — 13 F2P trades cost **1 150** medals where all-in-on-stones buys **7** for
+      **1 110**; the stone column is where the two plans differ.
 - [ ] **§3.3 stop-wave:** at the Copper bottom band, `t = 8` meets the clock at **W ≈ 1 062**; if you stop at **W ≈ 1 500**
       instead, the extra attempts should be **fewer** while the band pay stays the same (the product drops).
 - [ ] **§3.3 quadratic placement:** moving up one band multiplies the week by something **between** the pay ratio and its
@@ -572,11 +591,13 @@ is [H057](../hypotheses/H057-heat-increase-wave-spacing.md) — one panel read s
   reduction lab → then `Battle Condition Reduction` does not apply to the two Overheat decays, and §4.1's priority order
   (generic first) flips for these two conditions only.
 - **Rev 10:** if the bracket's stone total is **not** `t × S` (say it equals `S` for any `t`), the per-ticket model fails
-  with **H014** → use the `2·S + 45 + 15a` column (**130 / 134 / 144 / 160 / 220 / 300**) and re-derive the ticket count
-  from the gem side only.
-- **Rev 10:** if a **6th** stone trade is available for fewer than the ladder's **380** medals, `a` is larger than 5 →
-  recount the ladder from the **Event Shop** and re-scale the `+15a` term (the grid itself is unaffected — it is tickets
-  only).
+  with **H014** → use the `2·S + 45 + 15a` column (**130 / 134 / 144 / 160 / 220 / 300** boosted, **107.5 / 111.5 / 121.5 /
+  137.5 / 197.5 / 277.5** F2P) and re-derive the ticket count from the gem side only.
+- **Rev 11:** the two `a` values come from the **all-in** plan on the stone line (**7** trades per event F2P, **10**
+  boosted). If the **6th** purchase of that line prints something other than **230** medals, or the 7th not **380**, the
+  ladder changed → re-read the first ten prices from the **Event Shop** panel and re-run
+  `tools/medal-weekly-ledger.ps1`; `a` follows as `⌊trades⌋ × 15 / 2` per week (the **level** plan instead gives
+  `a = 2.5–3.0`, so the stone column of §3.3 is a *stones-bind* reading).
 - **Rev 10:** if the identity check in the checklist disagrees for your own band, the printed `G`/`S` you read belongs to a
   **different league table** (the seven are near-duplicates) → re-read the panel header; the closed form itself is
   arithmetic and cannot drift.
@@ -640,8 +661,12 @@ is [H057](../hypotheses/H057-heat-increase-wave-spacing.md) — one panel read s
   Champion `550/300 → 175/20`, Legend `675/375/25 → 250/100/0`, Mythic as above — the numbers behind the print note in
   §3.3. fandom `Currency/Power Stones` (2026-11-03) prints the **1st-place** stone row **20 / 40 / 80 / 180 / 300 / 375 /
   475** and the four spend lines; its Platinum/Champion/Legend cells (180/300/375) are the fandom version of the same
-  skew. New script: `tools/stones-band-closed-form.ps1` (§3.3's identity, the 70-cell grid, the stop-waves and the
-  total-income column).
+  skew. New scripts: `tools/stones-band-closed-form.ps1` (§3.3's identity, the 70-cell grid, the stop-waves and the
+  total-income column) and `tools/medal-weekly-ledger.ps1` (the `a = 3.5 / 5.0` solves).
+- fandom `Currency/Medals` + game-vault `Guide:Event_Guide` (**2026-11-03**, §3.3 finding 4) — goals **10/15/20** per
+  mission (**20/30/40** with the boost, which also **retroactively** doubles what is already banked), weekly boxes **2–7 =
+  135**, **Fetch ≤ 10/day**, medals **do not expire**; the trade ladder **40/65/90/130/175/230/380** with a **per-line**
+  counter and per-event reset, and the event totals **945 + 2 × 135 = 1 215** F2P / **2 160** boosted.
 - Tower Hub `wiki/lab/lab-category-battle-condition` (last verified **2026-11-02**) — the five reduction lines with their
   caps in one table: `Battle Condition Reduction` **10**, `… Group 1` **20**, `… Group 2` **20**, `… Group 3` **10**,
   `… Group 4` **10** (Σ **70** levels), which is what turns §4.1's steps into the derived ceiling **R = 54.4 %**.

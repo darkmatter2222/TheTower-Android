@@ -1,5 +1,9 @@
 # T025 — The years-to-max ledger: what every sink costs in days of income
 
+Rev: 6 (2026-11-03) — the `+ 15a` term is **pinned by the medal budget** (T013 §2.4): F2P **1 215** medals per event buy
+**7** all-in stone trades ⇒ `a =` **3.5** and the totals read **177.5 / 251.5 / 529.5 / 1 177.5 / 6 497.5 / 20 257.5** per
+week = **49.0 / 34.6 / 16.4 / 7.39 / 1.34 / 0.43 years**; the boost (**2 160** medals) buys **10** trades ⇒ `a =` **5.0**,
+the **200 / 274 / 552 / 1 200 / 6 520 / 20 280** column (`tools/medal-weekly-ledger.ps1`).
 Rev: 5 (2026-11-03) — the **stone band ladder is no longer a list of six numbers**: it is
 [T014](T014-tournament-tickets.md) §3.3's closed form `stones/week = 2·S·(S + ⌊G/10⌋ + 2)` (identity verified on
 **70/70** band cells; the six rows re-add **6/6**), and the **total** week also carries the two printed flow terms
@@ -173,6 +177,12 @@ two printed flow terms — `+ 45` from the weekly boxes (from **T1 W60**) and `+
 line at 500 medals — so the ledger has a *tickets-only* and a *total* reading of the same six bands; the closed form
 `2·S·(S + ⌊G/10⌋ + 2)` re-adds all six (**6/6**, identity on **70/70** band cells, `tools/stones-band-closed-form.ps1`).
 
+**Rev 6:** the `+ 75` is the **boosted** reading. `a` follows the medal budget ([T013](T013-event-medal-economy.md) §2.4):
+**1 215** medals per F2P event (`945 + 2 × 135`) buys **7** all-in stone trades = **105** stones ⇒ `a =` **3.5**, so the F2P
+weeks are **177.5 / 251.5 / 529.5 / 1 177.5 / 6 497.5 / 20 257.5** and the years **49.0 / 34.6 / 16.4 / 7.39 / 1.34 /
+0.43**; with the Event Boost **2 160** medals buy **10** trades = **150** stones ⇒ `a =` **5.0**, the printed column. The
+level (three-line) plan buys more trades overall but only 4–6 land on the stone line (`a = 2.5–3.0`).
+
 Read: **only the two fastest bands close the stone ledger inside one year** (Platinum covers 74 % of it, Champion 232 %);
 every band below **Gold** should treat the §1.① **staged** ladder — 11 461 then 25 045 stones — as the year-one target,
 not the 452 282 total.
@@ -203,6 +213,9 @@ not the 452 282 total.
 - [ ] **Rev 5, total week:** claim all seven boxes (**45** stones, needs **T1 W60**) and **5** stone trades (**75**), then
        add them to the tickets: at the Copper bottom band the week should land on ≈ **200** stones
        (`452 282 / 200 / 52 =` **43.5 y**), and the two added terms should be **60 %** of that total.
+- [ ] **Rev 6, `a`:** without the pass the same tally gives **7** stone trades (**105** stones = `52.5/week`, `a = 3.5`) ⇒
+       the Copper-bottom week lands on **177.5** (`452 282 / 177.5 / 52 =` **49.0 y**); with the pass **10** trades
+       (**150** stones, `a = 5.0`). Count the purchases in the **Event Shop** panel.
 - [ ] **Shards:** `20 595 / 1 470 =` **14.0 weeks**, `20 595 / 3 570 =` **5.8 weeks**; `466 095 / 1 470 =` **317.1
        weeks = 6.1 y**; `3 136 095 / 1 470 =` **41 y**, `/ 3 570 =` **16.9 y**.
 - [ ] **Keys:** `73 000 / 16 =` **4 562.5 weeks = 87.7 years**; at Legend-1st (`25/week`) **56.2 years**.
@@ -253,6 +266,9 @@ not the 452 282 total.
   `452 282 / 130 / 52 =` **66.9 y** at the Copper bottom, in which case promotion (not the ticket count) is the only lever.
 - **Rev 5:** if a stone trade pays other than **15** (or the weekly boxes other than **10 / 15 / 20 = 45**), the two added
   terms change but the ticket grid does not — re-scale `+ 15a` and re-add.
+- **Rev 6:** if the stone line's ladder is not **40/65/90/130/175/230/380**, re-solve the trade count from the panel
+  (`Σ c_k ≤` the medal tally) — `a` moves with it, the ticket grid does not; a tally far below **1 215** medals means
+  missions or boxes were left unclaimed ([T013](T013-event-medal-economy.md) §2.4's checklist).
 - If `Daily Mission Shards` at L50 does **not** print **3 570** shards/week at T10 (i.e. `42 × (35 + L)`), the mission
   shard law changed ⇒ use T004's own tier table, and re-derive the 23.1-week L50 fleet leg from it.
 - **§1.③:** if the six q-scale lines' coin bill is no longer **99.99 %** of the layer, a q-scale line was re-priced ⇒

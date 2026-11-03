@@ -1,5 +1,12 @@
 # T013 — Run the event window: every mission is a double-dip, every trade line is capped
 
+Rev: 7 (2026-11-03) — **§2.4: the ladder closes against the budget** — `cost(n) = 3·C(q) + r·c(q+1)` for `n = 3q + r`
+(level plan, one counter per line) ⇒ the four printed budgets buy **13 / 14 / 17 / 18** trades
+(**1 950 / 2 100 / 2 550 / 2 700** gem-equivalents, residuals **65 / 30 / 200 / 110**) versus **7 / 7 / 9 / 10** all-in on
+one line; this pins `a` in [T014](T014-tournament-tickets.md) §3.3 at **3.5 trades/week F2P** and **5.0 with the boost**;
+**1 215 = 945 + 2 × 135** (boosted **2 160**), per week **607.5 / 677.5 / 1 080 / 1 150**; relic gates as mission counts
+**8** (350) and **16** (700) F2P, **4** and **8** boosted; the bot ladder (Σ **3 150**) is double-sourced.
+`tools/medal-weekly-ledger.ps1`.
 Rev: 6 (2026-11-02) — the **free leg of the cosmetic line is closed** (same page, 2026-11-01): the 24-row milestone-skin
 table obeys **`paid ⇔ tier ≡ 2 (mod 3)`** (**21/21** classified rows; paid = 2, 5, 8, 11, 14, 17, 20) so the number of
 **free** skins by Tier *N* is **`N − ⌊(N+1)/3⌋`** (**21/21** ✓: 7 at T11 = **+2.8 pp**, 9 at T13 = +3.6 pp), the unlock is
@@ -111,7 +118,43 @@ Consequences:
 1. **Diversify within the event.** Trades 1–3 on all three lines cost **585 medals** and return **450 gems + 45 stones + 750 shards**. The same 585 medals spent down one line would reach only trade 5 (500) + 1 of another. The first three trades of a line are **2.4× more efficient per medal** than its fifth — so *never* push a line past 4 while another line still sits at trade 1.
 2. **Because the counters reset each event, a saved medal is not idle**: hoarding into the next event and then taking trade 1 of each line again is better than grinding a line to 7 in one event. Keep **500–700 medals banked** (skins and relics do not appear in every shop; relics only appear during an event **rerun**, at 200 Rare / 500 Epic).
 3. **Stones are the line a sub-T11 account wants most**: the full Golden Tower + Death Wave + Black Hole sync needs **910 stones** ([T008](T008-uw-sync-with-stones.md)) and the stone line yields only 45 per event at trades 1–3 — that is the main reason not to burn medals on skins early.
-4. **Bots** unlock at 150 / 300 / 600 / 900 / 1 200 medals (by how many you already own; cumulative 150 → 3 150 for all five). **Bots can be respec'd once per event for free**, returning every invested medal — so bot levels are a *refundable* store of surplus medals, which is why they are the safest place for odd remainders. Start with the **Golden Bot** (it is the coin/cash engine; its window matters for the sync table).
+4. **Bots** unlock at 150 / 300 / 600 / 900 / 1 200 medals (by how many you already own; cumulative 150 → 3 150 for all five). **Bots can be respec'd once per event for free**, returning every invested medal — so bot levels are a *refundable* store of surplus medals, which is why they are the safest place for odd remainders. Start with the **Golden Bot** (it is the coin/cash engine; its window matters for the sync table). The unlock ladder is now **double-sourced**: fandom `Currency/Medals` prints the same five prices as its own “Bot unlocks” table (`150/300/600/900/1200`, Σ **3 150**, ratios ×2.00 / ×2.00 / ×1.50 / ×1.33) and adds “*You can unlock the bots in any order. The price depends on how many you already own*”.
+
+### 2.4 The budget closes the ladder — exactly how many trades one event buys (new, Rev 7)
+
+Because each line keeps **its own counter** (§2) and the ladder is convex, the cheapest *n*-trade purchase set is always
+the “level” one — the marginal prices come in triples `40,40,40 · 65,65,65 · 90,90,90 · …`, so with `n = 3q + r`
+(`r ∈ {0,1,2}`):
+
+```
+cost(n) = 3·C(q) + r·c(q+1)      c = (40, 65, 90, 130, 175, 230, 380, 380, …)
+                                 C = (40, 105, 195, 325, 500, 730, 1110, 1490, 1870, 2250)   [per line]
+value(n) = 150·n gem-equivalents (the 150-identity — independent of how the three lines are split)
+```
+
+Four budgets, all printed (`tools/medal-weekly-ledger.ps1`):
+
+| Medals per event | how earned | **max trades `n`** | spent | residual | ge paid | line split | stones if the stone line leads |
+|---|---|---|---|---|---|---|---|
+| **1 215** | 945 missions + 2 × 135 boxes | **13** | 1 150 | 65 | **1 950** | 5/4/4 | **75** |
+| **1 355** | + Fetch (≤ 10/day) | **14** | 1 325 | 30 | **2 100** | 5/5/4 | **75** |
+| **2 160** | boost: 1 890 + 270 | **17** | 1 960 | 200 | **2 550** | 6/6/5 | **90** |
+| **2 300** | boost + Fetch | **18** | 2 190 | 110 | **2 700** | 6/6/6 | **90** |
+
+1. **All-in vs level.** Pushing a single line instead buys only **7 / 7 / 9 / 10** trades for the same four budgets
+   (= **105 / 105 / 135 / 150** stones per event) — the level plan nearly **doubles** the trade count because it never pays
+   a higher marginal price while a cheap counter is still open. All-in is only right when one currency is the hard
+   constraint (below T11 that is stones, consequence 3).
+2. **`a` in [T014](T014-tournament-tickets.md) §3.3 is now pinned**: all-in-on-stones gives
+   `a = 105 stones / 2 =` **3.5 trades-equivalent per week** F2P and `150 / 2 =` **5.0** with the boost, so T014’s
+   `+ 75` term is the **boosted** reading; the F2P reading is `+ 52.5` (the `+ 45` box term is identical in both).
+3. **The `1 215` figure is arithmetic, not a fourth print:** `945 (missions) + 2 × 135 (two box weeks) =` **1 215** ✓, and
+   the boosted equivalent is `1 890 + 270 =` **2 160** — per week that is **607.5 / 677.5** (F2P, without/with Fetch) and
+   **1 080 / 1 150** (boosted). The boost itself doubles **only the mission milestones** (45 → 90 per mission), so it is
+   worth **945** medals for its price.
+4. **Relic gates as mission counts** (only mission medals count, §1): at 45/mission the **350** Rare gate needs
+   `⌈350/45⌉ =` **8** missions and the **700** Epic gate `⌈700/45⌉ =` **16** of the 21; with the boost (90/mission) they are
+   **4** and **8**. That is the reason for the order in §1: missions to 700 first, boxes and Fetch afterwards.
 
 > **Rev 2:** the exchange rates implied by the 40-medal trades — **1 Stone = 10 gems, 1 Module Shard = 0.6 gems, 1 Medal = 0.267 gems** — are used as the common unit across this repository; the table lives in [T014 §2](T014-tournament-tickets.md).
 
@@ -229,6 +272,14 @@ Most event missions *are* the currency actions from the other techniques, so doi
 - [ ] Bot respec returns the full invested medal count in the same event.
 - [ ] Total medals at the end of a 2-week event land near **1 215** for a complete F2P run.
 - [ ] The **7th and 8th** purchases of any trade line both cost **380** (flat floor).
+- [ ] **§2.4 level plan:** after buying **one** trade on each of the three lines the panel shows **40 / 40 / 40** spent to
+      **65 / 65 / 65** — i.e. three counters really do run independently (the cost of trade *k* is the same on all three
+      lines); after 12 trades (4 rounds) the next single trade costs **175**.
+- [ ] **§2.4 budget:** tally the medals you personally hold at the end of an event — a complete F2P run should land on
+      ≈ **1 215** (**607.5/week**), and buying the trade plan should leave a residual of **65** after **13** trades
+      (`3 × 325 + 175 =` **1 150** spent).
+- [ ] **§2.4 relic counts:** the **350** gate lights up on your **8th** completed mission and **700** on the **16th**
+      (F2P; **4th** and **8th** with the boost) — and box medals claimed in between do **not** move the gate.
 - [ ] On day 1 the mission panel shows **7** missions, and by day 8 there are **21** (7 + 2 × 7).
 - [ ] One purchase on each line pays **150 gems / 15 stones / 250 shards** — and with the unit table each equals
       **150 gem-equivalents**.
@@ -258,6 +309,13 @@ Most event missions *are* the currency actions from the other techniques, so doi
 - If the 4th trade of a line costs 90 again, the counter reset mid-event; note the trigger (likely the second week's mission batch).
 - If the **7th** purchase costs something other than **380** (i.e. no flat floor), the 8-column print is a version skew →
   record the first eight prices from the panel; only the tail of §2 changes, trades 1–6 drive every decision anyway.
+- **§2.4:** if buying **one** trade on each of the three lines shows three **different** prices, the counters are not
+  level-independent (§2's per-line law fails) → recompute `cost(n)` from the panel as a single merged ladder
+  (`cost(n) = Σ c_k` once) and re-run `tools/medal-weekly-ledger.ps1` with `3·` removed; the trade count then drops toward
+  the all-in column (**7 / 7 / 9 / 10**).
+- **§2.4:** if your own event tally is far from **1 215** F2P, first check whether the **Fetch** medals and all seven boxes
+  were claimed (they are **140 + 270** of the total); a permanently lower tally means missions are being left unclaimed,
+  which also delays the 350/700 gates.
 - If a **song bought but unequipped** stops showing its bonus, the “apply without being equipped” line is wrong → cosmetic
   priority drops behind stat items (it is then a loadout-slot trade-off, not a free stack).
 - If day 8 still shows **new** missions, the “+2/day for days 2–8, then nothing” pacing is re-versioned → the 21-mission
@@ -326,6 +384,23 @@ Most event missions *are* the currency actions from the other techniques, so doi
   **cooldown** alone”, “three songs available, each giving **+0.6 % coins**”.
 - Tower Hub `wiki/guide/event-guide` (2026-07-29) — per-quest walkthroughs and the tip that “if a quest calls for an
   ultimate weapon you do not own, the **random ultimate weapon perk** can provide it”.
-- fandom `Currency/Medals` (raw wikitext) — mission 10/15/20, Event Boost doubling, weekly boxes 10…35 = 135, Fetch ≤10/day, shop item list, **trade ladder 40/65/90/130/175/230/380 with per-event reset and per-line counters**, bot ladder 150/300/600/900/1 200, relic gates counting only in-event medals.
-- game-vault `Guide:Event_Guide` — events unlock at T1 W70, 2-week length, 21 missions, 45/mission, 945 + 270 = 1 215 per event, relic gates 350/700, full mission table with tips, spending-priority table (background 250, tower 150, Rare relic 200, Epic relic 500, 15 stones for 40), bot respec once per event, mailed unclaimed rewards.
-- `tools/gm_strings.txt` — panel strings `Themed Event UI`, `v25 Themed Event UI`, `Bots`, `Synchronicity`, `Event Shop`, `Featured Banner` / `Standard Banner`, `Free Reward` / `Premium Reward`.
+- fandom `Currency/Medals` (**raw wikitext, 2026-11-03** — re-fetched for §2.4) — mission goals **10/15/20** per mission
+  (**20/30/40 with the Event Boost**), the boost "also **doubles the Medals you have earned in the current event so far**",
+  weekly boxes **2–7 give 10/15/20/25/30/35 = 135 per week**, **Fetch ≤ 10/day**, "medals **do not expire** when an Event
+  ends" and can be banked; the shop list (**150 gems / 15 stones / 250 shards** per trade, skin **150**, background **250**,
+  music **200**, relics **200 Rare / 500 Epic on rerun only**), the **trade ladder 40/65/90/130/175/230/380 with per-event
+  reset and per-line counters**, and the bot ladder **150/300/600/900/1 200** with "you can unlock the bots **in any
+  order**… the price depends on **how many you already own**" (Σ **3 150**, ratios ×2 / ×2 / ×1.5 / ×1.33 — §2.4 item 4).
+- game-vault `Guide:Event_Guide` (**2026-11-03**) — events unlock at **T1 W70**, run **2 weeks**, **21 missions** at
+  **45** medals each = **945**, "**double that**" with the boost; the event totals **945 + 2 × 135 = 1 215** per event
+  (the figure §2.4 uses as its F2P budget) and **1 890 + 270 = 2 160** boosted; relic gates **350 / 700**; the
+  spending-priority table (background 250, tower 150, Rare relic 200, Epic relic 500, **15 stones for 40**), bot respec
+  **once per event**, unclaimed rewards arrive by **mail**.
+- `tools/medal-weekly-ledger.ps1` (new) — the income ledger (**607.5 / 677.5 / 1 080 / 1 150** medals per week), the
+  per-line ladder with `ge/medal` (**3.750 → 0.395**), and the four budget solves (**13 / 14 / 17 / 18** level-plan
+  trades vs **7 / 7 / 9 / 10** all-in).
+- `tools/gm_strings.txt` — panel strings `Themed Event UI`, `v25 Themed Event UI`, `Bots`, `Synchronicity`, `Event Shop`, `Featured Banner` / `Standard Banner`, `Free Reward` / `Premium Reward`; the script-side classes behind §2.4 are all present:
+  `Assets\Scripts\EventData.cs` + `EventPanelUI.cs` (the shop's per-line counters and the gate tally), `Mission.cs` /
+  `MissionEvent.cs` / `MissionTile.cs` (the 21-mission pool), `DailyMissionTile.cs` / `DailyMissionManager.cs` with
+  `addWeeklyBoxContribution` (the 135/week box row), `StoreOrganizer.cs` / `StoreLink.cs` (the boost purchase), and
+  `ThemeManager|EventShopGemRelicWindow` (the gem/stone/shard trade window itself).

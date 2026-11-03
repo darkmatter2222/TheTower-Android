@@ -89,3 +89,22 @@ foreach ($k in @('Copper@10','Copper@8','Silver@10','Gold@10','Platinum@9','Cham
 Write-Output ('  boxes+trades share of the total: Copper bottom ' + (('{0:F1}' -f (120 / 200 * 100))) +
   ' % ; Gold bottom ' + (('{0:F1}' -f (120 / 1200 * 100))) + ' % ; Champion 16-24 ' +
   (('{0:F2}' -f (120 / 20280 * 100))) + ' %')
+
+Write-Output '--- a from the medal budget: F2P all-in 7 trades/2wk = 3.5 per week, boosted 10 = 5.0 ---'
+# trade counts per 2-week event from tools/medal-weekly-ledger.ps1: all-in on the stone line
+#   F2P budget 1 215 -> 7 trades (cum 1 110) = 105 stones/event ; boosted 2 160 -> 10 trades (cum 2 250) = 150 stones/event
+foreach ($cfg in @(@(3.5, 'F2P a=3.5  (+52.5)'), @(5.0, 'boosted a=5.0 (+75.0)'), @(2.5, 'level plan a=2.5 (+37.5)'))) {
+  $a = $cfg[0]; $addTrade = 15 * $a
+  $row = @()
+  foreach ($k in @('Copper@10','Copper@8','Silver@10','Gold@10','Platinum@9','Champion@9')) {
+    $parts = $k.Split('@'); $lg = $parts[0]; $b = [int]$parts[1]
+    $S = $bands[$lg][$b - 1][1]
+    $G = $bands[$lg][$b - 1][0]
+    $t = 2 + [Math]::Floor(($G + 10 * $S) / 10)
+    $tot = 2 * $t * $S + 45 + $addTrade
+    $row += (('{0,7:F1}' -f $tot)) + ' (' + (('{0:F1}' -f ($bill / $tot / 52))) + 'y)'
+  }
+  Write-Output ('  ' + $cfg[1].PadRight(19) + ' : ' + ($row -join ' '))
+}
+Write-Output ('  check: 105/2 = ' + (('{0:F1}' -f (105 / 2))) + ' ; 150/2 = ' + (('{0:F1}' -f (150 / 2))) +
+  ' ; level-plan stone line F2P 5 trades = ' + (('{0:F1}' -f (75 / 2))) + ' ; 4 trades = ' + (('{0:F1}' -f (60 / 2))))
