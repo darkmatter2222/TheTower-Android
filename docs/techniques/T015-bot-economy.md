@@ -1,5 +1,13 @@
 # T015 — Bot economy: the three exact cost formulas, and the sync-aware order
 
+Rev: 11 (2026-11-03) — **§3.4: the Bot+ block on the same scale** (new). All three medal ladders in the layer are one law,
+`price(n) = 100 + s(n−1)` with **s = 40** (stat lines), **50** (Bot+ lines), **200** (Echoing Shot), so the first step of any
+line is still `100/ρ`: **Echoing Shot 33.33e-4 (ρ = 3) and Titan Shock 20.00e-4 (ρ = 5) are the two densest buys in the whole
+medal layer**, ahead of Flame Damage (16.00). The par-optimal Bot+ block is **78 levels / 43 550 medals = 72.5 %** of the
+capped **60 100** (`Σ ln = 4.754`, **1.09e-4**/medal) with **both cell lines stopping at level 15 = 6 750**; the merged
+25-line plan is **445 taps / 212 660 medals = 175.0 events ≈ 350 weeks** F2P, and the **6 250-stone** Bot+ unlock gate costs
+only **0.3–78 weeks** of the T014 stone grid, so the UW sync (910 st) keeps priority. Three fandom pages re-fetched with the
+**full per-level columns** (Wild Fire and Titan Shock now **printed**, not derived). `tools/botplus-density.ps1`.
 Rev: 10 (2026-11-03) — **§3.3: the cross-bot ranking** (new). Every bot line collapses to **one** parameter
 **`ρ = base / increment`**: `gain(n) = 1/(ρ + n − 1)` for the growing lines and `1/(ρ − n + 1)` for the Cooldown lines, so
 the first step of any line is **100/ρ × 10⁻⁴** — **Flame Damage 16.00 > Flame DmgRed = Thunder Linger 15.00 > Flame Range
@@ -156,6 +164,14 @@ Flame’s DR cap also self-checks: `20 + 25 × 3 = 95` = the printed cap. Note t
 **Linger** (+3 %/lv, not a duration), Flame has **no Duration line** (its “Duration” column is the DR line), and
 **Flame Range adds +4 m/level** while every other bot adds +2 m.
 
+**Print notes (fandom, fetched 2026-11-03).** The `Thunder Bot` page says “each of the **3** Thunder bot upgrades start with
+a base upgrade cost of **100** medals and increase by **40** medals each level” while listing **four** upgrade sections
+(Duration 20 lv, Cooldown 15 lv, Linger 20 lv, Range 15 lv) — the four section headers with their level counts are the
+operative prints and the “3” is a prose artifact; that same page states “**Stun and linger are 50 % effective against Bosses
+and Elites**”, where the Tower Hub copy says the linger runs at **25 %** strength (v29.1.2) — one panel read of a boss’s slow
+% settles it. `Amplify Bot` prints all four of its lines with base, count and increment (**20 s**/+0.5/30 · **120 s**/−3/15 ·
+**×3.50**/+0.4/30 · **25 m**/+2/18), so §3.3’s `ρ` inputs are printed rather than derived there.
+
 Two of the three printed per-stat totals for Amplify (`20 400 / 7 920 / 5 700 / 20 400`, “together **54 420**”) and Golden’s
 **56 100** reproduce from the closed form with **no free parameters**, which is what makes the derived **44 440** for Bot Bot
 trustworthy — and the per-stat split is *also* a closed-form check: `20·30²+80·30 = 20 400` (Bonus/Duration),
@@ -207,8 +223,8 @@ the law at both ends, and the remaining three are doubly determined by their own
 | **Golden Bot+ — Bonus Cells** | elites killed in range grant more Cells | **25** | 1.25 → **2.5** (+0.05/lv) | **17 500** | **printed** ✓ `25·25²+75·25` |
 | **Bot Bot+ — Maximum Power** | boosts the *other* Bot+ abilities | **20** | 1.25 → **2.25** (+0.05/lv) | **11 500** | **printed** ✓ `25·20²+75·20` |
 | **Amplify Bot+ — Echoing Shot** | tower bullets count as several bullets; **UW projectiles get ⅓ of that** | **9** | 3 → 12 bullets | **8 100** | printed ladder `100 + 200(n−1)` ⇒ `100L²` ✓ |
-| **Flame Bot+ — Wildfire** | hit enemies become **Enflamed** as well as Burned; the amplification lasts as long as the current Flame damage | 20 | ×1.5 → ×3.5 (+0.1/lv) | 11 500 | derived (ladder closes at 20) |
-| **Thunder Bot+ — Titan Shock** | enemy attack speed −5 % → −25 % (× digits of enemy mass) | 20 | −1 %/lv | 11 500 | derived (ladder closes at 20) |
+| **Flame Bot+ — Wildfire** | hit enemies become **Enflamed** as well as Burned; the amplification lasts as long as the current Flame damage | 20 | ×1.5 → ×3.5 (+0.1/lv) | **11 500** | **printed** (fandom column 100 · 150 · … · 1050 + total) |
+| **Thunder Bot+ — Titan Shock** | enemy attack speed −5 % → −25 % (× digits of enemy mass) | 20 | −1 %/lv (5 % → 25 %) | **11 500** | **printed** (fandom column 100 · 150 · … · 1050 + total) |
 | | | | **Five lines** | **60 100** ✓ = 17 500 + 11 500 + 8 100 + 11 500 + 11 500 | + **6 250 stones** for the five unlocks |
 
 Two printed anchors (17 500 at L25 and 11 500 at L20) fit `25L² + 75L` with no free parameter, which is what makes the
@@ -466,6 +482,61 @@ lines' `ρ` to `(base + A)/i`, so it *moves the Range lines down the table* and 
 `Flame.Range` 13.33 → 5.71, `Thunder.Range` 12.00 → 4.62, `Golden/Bot Bot Range` 10.00 → 3.33, `Amplify.Range` 8.00 →
 3.08e-4 — at that point every Range line sits below `Bot Bot.Bonus` (4.76) and the tap order flips to Bonus-first.
 
+### 3.4 The Bot+ block on the same scale — three price ladders, one law (new, Rev 11)
+
+The fandom now prints **cell-by-cell** the Bot+ tables (`Flame Bot`, `Thunder Bot`, `Amplify Bot`, fetched 2026-11-03), and
+all three medal ladders in the bot layer are the *same* arithmetic line with a different slope:
+
+```
+price(n) = 100 + s(n−1)      s = 40  stat lines        Σ = 100L + 20L(L−1) = 20L² + 80L
+                             s = 50  Bot+ lines        Σ = 100L + 25L(L−1) = 25L² + 75L
+                             s = 200 Echoing Shot      Σ = 100L + 100L(L−1) = 100L²
+density(n) = 1/((ρ + n − 1)(100 + s(n−1)))   or   1/((ρ − n + 1)(100 + s(n−1))) for the Cooldown lines
+```
+
+(the three Σ forms already banked in §1 and §1.4 are this one formula at `s = 40 / 50 / 200`; every ladder starts at
+**100**, so the first step of *any* line in the layer is still **100/ρ**.)
+
+**1. The unified ranking of all 25 lines** — the two densest buys in the whole medal layer are **Bot+ levels**:
+
+| # | line | base → +i | `s` | `ρ` | cap | stop | first step | medals | ln | e-4/medal |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | **Echoing Shot** (Amplify+) | 3 → +1 bullet | 200 | 3 | 9 | 9 | **33.33** | 8 100 | 1.3863 = ×4.00 | **1.71** |
+| 2 | **Titan Shock** (Thunder+) | 5 % → +1 % | 50 | 5 | 20 | 20 | **20.00** | 11 500 | 1.6094 = ×5.00 | 1.40 |
+| 3 | Flame Damage | 50 → +8 | 40 | 6.25 | 30 | 25 | 16.00 | 14 500 | 1.6094 | 1.11 |
+| 4–5 | Thunder Linger / Flame DmgRed | 20 % → +3 | 40 | 6.667 | 20 / 25 | cap | 15.00 | 9 600 / 14 500 | 1.3863 / 1.5581 | 1.44 / 1.07 |
+| 6–7 | Flame Range / Thunder Range | 30 → +4 / 25 → +3 | 40 | 7.5 / 8.333 | 15 | cap | 13.33 / 12.00 | 5 700 each | 1.0986 / 1.0296 | 1.93 / 1.81 |
+| 8 | Amplify Bonus | ×3.5 → +0.4 | 40 | 8.75 | 30 | 24 | 11.43 | 13 440 | 1.3198 | 0.98 |
+| 9–12 | the four `ρ = 10` lines | — | 40 | 10 | 20/30 | 20 / 24 | 10.00 | 9 600 / 13 440 | 1.0986 / 1.2238 | 1.14 / 0.91 |
+| 13 | Amplify Range | 25 → +2 m | 40 | 12.5 | 18 | 18 | 8.00 | 7 920 | 0.8920 | 1.13 |
+| 14 | **Wild Fire** (Flame+) | ×1.5 → +0.1 | 50 | **15** | 20 | **19** | 6.67 | 10 450 | 0.8183 = ×2.27 | 0.78 |
+| 15 | Bot Bot Bonus | ×1.05 → +0.05 | 40 | 21 | 19 | 19 | 4.76 | 8 740 | 0.6444 | 0.74 |
+| 16–18 | **Bonus Cells** / **Maximum Power** (1.25 → +0.05) and Flame Cooldown | — | 50 / 50 / 40 | 25 | 25 / 20 / 15 | **15** / 15 / 15 | 4.00 | 6 750 / 6 750 / 5 700 | 0.4700 / 0.4700 / 0.9163 | 0.70 / 0.70 / 1.61 |
+| 19–25 | the seven `ρ = 40` uptime lines | — | 40 | 40 | 30 / 15 | 14 / 15 | 2.50 | 5 040 / 5 700 | 0.3001 / 0.4700 | 0.60 / 0.82 |
+
+**2. The Bot+ block at the par** (`density ≥ 2.956e-5`): **78 levels / 43 550 medals = 72.5 %** of the capped **60 100**,
+`Σ ln = 4.754`, **1.09e-4** per medal (**35.8 events** F2P, 20.2 boosted). Echoing Shot and Titan Shock run to their caps
+(**100.0 %** of their bills above par), Wild Fire stops one level short of its cap (19/20), and **both cell lines stop at
+level 15** — which reproduces the §5 step-6 recommendation (`×2.00` for **6 750**) from the density side rather than from
+the block table. Note the asymmetry the par exposes: at the same `ρ = 25`, the 25-level line is above par only to 15
+(**38.6 %** of its 17 500) while the 20-level line reaches **58.7 %** — the long cell line's tail (levels 16–25, **10 750**
+medals for `×2.50/×2.00 = ×1.25`, **0.21e-4**) is the single worst medal block in the bot layer.
+
+**3. Where the block enters the tap order.** The Bot+ levels are locked behind **all five** bot unlocks (3 150 medals), and
+the fifth unlock (Bot Bot, 1 200) is itself only `0.41e-4`, so a pure density-greedy defers it far down the sheet: the
+merged 25-line plan is **445 taps / 212 660 medals = 175.0 events ≈ 350 weeks** F2P (**98.5 events ≈ 197 weeks** boosted),
+with the unlocks at taps **1 / 2 / 54 / 88 / 331** (cumulative **0 / 150 / 8 910 / 17 410 / 139 030**) and the Bot+ block
+opening at **tap 332 (cum 140 230)**. Priced as a *package* instead, the last unlock plus the whole Bot+ block is
+`(0.0488 + 4.754) / (1 200 + 43 550) =` **1.07e-4** per medal, i.e. **above** the `ρ = 40` uptime lines (`0.60`) and the two
+cell lines (`0.70`): the practical rule is **finish the five unlocks as fast as possible** (they are 3 150 medals, 2.6 events
+in total) **and then take Echoing Shot's 9 levels and Titan Shock's 20 before finishing the uptime lines** of the stat bots.
+
+**4. The stone gate is not the binding one.** The five Bot+ unlocks cost **5 × 1 250 = 6 250 stones**. Against the T014 §3.3
+weekly grid: **78.1 / 40.6 / 14.5 / 5.8 / 1.0 / 0.3 weeks** in the bands **80 / 154 / 432 / 1 080 / 6 400 / 20 160**
+stones/week, so below Platinum the gate costs weeks but never more than the ~350-week medal bill — while the **910-stone**
+GT+DW+BH sync of T008 needs only **0.8–11.4** of those same weeks. Order the stone wallet as **UW sync first, Bot+ second**,
+and note that Bot+ levels themselves cost **medals**, not stones (the 1 250 is per unlock).
+
 ## 4. What each Bot+ ability is worth
 
 | Bot+ (1 250 stones) | Levels | Effect at 0 → max | Why it ranks |
@@ -528,6 +599,13 @@ lines' `ρ` to `(base + A)/i`, so it *moves the Range lines down the table* and 
       1–5 (**8 / 15 / 20 / 27 / 32** taps).
 - [ ] **§3.3 the unlock milestones:** the Thunder unlock becomes the best buy after **2 790** medals of levels, the Flame
       unlock after **10 330**, the Bot Bot unlock only after **116 090**; the whole sheet is **367 taps / 169 110 medals**.
+- [ ] **§3.4 the Bot+ price column:** the first five levels read **100 · 150 · 200 · 250 · 300** (`Σ = 1 000`) and the
+      twentieth reads **1 050** with the panel total **11 500**; the **Echoing Shot** column reads
+      **100 · 300 · 500 · … · 1 700** with the total **8 100**.
+- [ ] **§3.4 the cell-line stop:** **Golden Bot+** at **level 15** reads **×2.00** on **6 750** medals (`25·15² + 75·15`),
+      and that is exactly the density-par stop; levels 16–25 are **10 750** medals for `×2.50/×2.00` = **0.21e-4**.
+- [ ] **§3.4 the block bill:** at the par the five Bot+ lines total `8 100 + 11 500 + 10 450 + 6 750 + 6 750 =` **43 550**
+      medals (**72.5 %** of the capped **60 100**) after `5 × 1 250 =` **6 250** stones.
 - [ ] The respec costs **300 gems** and the medal counter returns in full.
 - [ ] The five unlock prices are **150 / 300 / 600 / 900 / 1 200** ⇒ **Σ 3 150**.
 - [ ] The **theme** costs **150** and the **background** **250** in the current event (**400** together), and each of the
@@ -592,6 +670,14 @@ lines' `ρ` to `(base + A)/i`, so it *moves the Range lines down the table* and 
   the block totals do not.
 - **§3.3:** if Thunder's Linger prints a per-level increment other than **+3 %**, its `ρ = 6.667` and its
   **1.44e-4**-per-medal block leave the table (the block total 30 600 is unaffected, it is a cap sum).
+- **§3.4:** if a **Bot+** level-1 price is other than **100**, or its step other than **50** (**200** for Echoing Shot),
+  the slope `s` for that line changes → re-run `tools/botplus-density.ps1` on the printed column; the `ρ` values and the
+  ranking of *first steps* are unaffected, only the stop levels and block totals move.
+- **§3.4:** if a Bot+ level does not move its printed value by exactly its increment (**×1.5 → ×1.6** for Wild Fire,
+  **5 % → 6 %** for Titan Shock, **3 → 4** bullets for Echoing Shot), that line leaves the `100/ρ` table and is re-entered
+  with its measured ladder.
+- **§3.4:** if Bot+ levels turn out to be buyable **before** all five bots are unlocked, the block moves earlier in the
+  sheet — its package density **1.07e-4** then outranks the `ρ = 40` uptime lines (0.60) from the first event.
 
 ## Sources
 
@@ -664,3 +750,14 @@ lines' `ρ` to `(base + A)/i`, so it *moves the Range lines down the table* and 
   the feasibility-constrained 367-tap sheet with the five unlock positions (**0 / 150 / 2 790 / 10 330 / 116 090**) and the
   per-event ledger, the tail-split table, and the `A` sensitivity of the five Range lines. Its inputs are the §1.3 prints
   only, and it re-adds all five capped bills (**56 100 / 54 420 / 44 440 / 30 600 / 46 300 = 231 860**) from `20L² + 80L`.
+- `tools/botplus-density.ps1` (new, §3.4) — the three-slope law `price(n) = 100 + s(n−1)` (`s = 40 / 50 / 200`) and the
+  unified 25-line ranking (**33.33 / 20.00 / 16.00 / 15.00 …**), the Bot+ block at the par (**78 levels / 43 550 = 72.5 %**
+  of **60 100**, both cell lines stopping at **15 = 6 750**), the merged 25-line sheet (**445 taps / 212 660 medals =
+  175.0 events**), the unlock positions **1 / 2 / 54 / 88 / 331** and the Bot+ opening at **tap 332 (cum 140 230)**, the
+  package density **1.07e-4**, and the **6 250-stone** gate against the T014 grid. It re-adds the printed totals from
+  `Σ = 100L + s·L(L−1)/2`: **17 500** (L25, s50) · **11 500** (L20, s50) · **8 100** (L9, s200) · **20 400** / **5 700** (s40).
+- fandom raw wikitext, fetched **2026-11-03**: `Flame Bot` (the **Wild Fire** column 0 · 100 · 150 · … · 1050 with ×1.5 →
+  **×3.5** in **+0.1** steps and the total **11 500**), `Thunder Bot` (**Titan Shock** 5 % → **25 %** in **+1 %** steps,
+  total **11 500**; the four upgrade sections 20/15/20/15 against the prose “**3** upgrades”; “Stun and linger are **50 %**
+  effective against Bosses and Elites”), `Amplify Bot` (**Echoing Shot** 100 · 300 · … · 1700 = **8 100** for 3 → **12**
+  bullets, and the four stat lines **20 s**/+0.5/30 · **120 s**/−3/15 · **×3.50**/+0.4/30 · **25 m**/+2/18).
