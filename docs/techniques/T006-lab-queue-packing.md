@@ -1,5 +1,19 @@
 # T006 — Pack the Lab queue, then buy the *cheapest* skipped hour
 
+Rev: 33 (2026-11-03) — **the Bot Research category closes on two shared columns, and the census gains two lines**
+(§Bot Research, `tools/bot-research-family.ps1`): the **five `* Cooldown` labs print one identical 25-level column**
+(**1.808 T** / **576.67 d** each) and the **four `* Duration`/`Linger` labs one identical 20-level column**
+(**664.838 T** / **853.69 d** each) — **0 differing cells** in both; `Thunder Bot Linger Time` is the duration column with
+its value ladder shifted by **+3.00 on 20/20 cells**. `Burn Stack` and the duration column print the family law
+**undistorted** (×1.5000 costs with max deviation **1.953 × 10⁻³**, **×1.1500 on all nineteen time steps**; Burn Stack
+**3.445 × 10⁻⁵** / **2.877 × 10⁻⁶**), while the cooldown column is head/tail-humped (first ratio **2.0017**, peak
+**1.8036**). Category **10 lines / Σ 210 = 3.235 5 q** coins for **6 605.8 d**, split **0.28 % / 43.65 %** (cooldowns),
+**82.19 % / 51.69 %** (durations), **17.53 % / 4.66 %** (Burn Stack) — the cooldown labs are the cheapest per queue-day in
+the table at **3.136 × 10⁹** coins per day (Burn Stack is **×588** dearer). Three prints re-add against T015: the
+**515.0 M** cooldown block-1, the **1.32 T** duration five-block, the **853.7 d** duration line; and the census moves from
+**8 / Σ 165** to **10 / Σ 210** for this category (the two `Bot Bot` lines), so the whole census is **191 lines /
+Σ 5 017** on the 32-mastery reading (**171 / Σ 4 837** on the 12-lab one). Appendix B row `O`; bill now
+**178 / 191 lines = 6.473 5 Q / 480 565.4 d (93.2 %)**.
 Rev: 32 (2026-11-03) — **the Perk Research category closes, and it is a clock-only layer**
 (§Perk Research, `tools/perk-research-family.ps1`): **9 lines / Σ 180 levels** re-add to the census (`100 + 25 + 32 + 10 +
 8 + 2 + 1 + 1 + 1`), total **4.337 329 q** coins for **183 173.9 d** of clock — i.e. **0.07 %** of the bill’s coins but
@@ -175,7 +189,8 @@ times **100 000/150 000/200 000/300 000 s** ⇒ Σ **750 000 s = 8 d 16 h 20 m**
 **different** shapes, so the family must be read per column; plus the printed mechanic (revive at **50 %** HP, Wall
 respawn, invincibility `5 × star + 5` ⇒ **10…40 s**).
 Rev: 7 (2026-11-02) — the **printed lab census** added: **158 named labs in 11 categories** (Main 15 · Attack 9 ·
-Defense 16 · Utility 12 · UW 39 · Card 10 · Perk 9 · Bot 8 · Enemies 21 · Module 14 · Battle Condition 5), every
+Defense 16 · Utility 12 · UW 39 · Card 10 · Perk 9 · Bot 8 · Enemies 21 · Module 14 · Battle Condition 5 — the Rev-7 print,
+whose Σ is **158**; `Bot` became **10** lines at Rev 33 (§Bot Research finding 5)), every
 per-level law in this repo capped-checked against the printed `Max Lv` (`Labs Speed` 99 ⇒ ×2.98, `Labs Coin Discount` 99 ⇒
 −29.7 %, the five 99-level coin lines ⇒ ×2.98, `Starting Cash` 99 ⇒ 495, `Max Interest` 15, `Enhancement Coin Discount`
 100 ⇒ −30 %, `Shatter Shards` 5 ⇒ +100 %, `Module Shard Costs` 30 ⇒ −30 %); the **gem-rush ladder** closes on
@@ -485,17 +500,19 @@ of that category. The counts re-add to the census (15 · 9 · 16 · 12 · 39 · 
 | Ultimate Weapon | 39 | **669** | *full 39-cell print (Rev 21), category-page order, Σ re-adds to 669 ✓*: Missiles Despawn Time 20 · Missiles Explosion 1 · Missiles Radius 20 · Chrono Field Duration 30 · Chrono Field Damage Reduction 1 · Chrono Field Reduction % 30 · Swamp Radius 30 · Swamp Stun 1 · Swamp Stun Chance 30 · Swamp Stun Time 30 · Golden Tower Bonus 25 · Golden Tower Duration 20 · Chain Lightning Shock 1 · Shock Chance 30 · Shock Multiplier **14** · Death Wave Health 30 · Death Wave Coin Bonus 20 · Inner Mine Blast Radius 20 · Inner Mine Rotation Speed 20 · Chrono Field Range 20 · Missle Amplifier 25 · Missile Barrage 1 · Missile Barrage Quantity **6** · Inner Mine Stun 1 · Black Hole Damage 10 · Extra Black Hole 1 · Black Hole Coins Bonus 20 · Spotlight Coin Bonus 20 · Spotlight Missiles **18** · Black Hole Disable Ranged Enemies 1 · Recharge Missile Barrage **7** · Swamp Rend - Basic Enemies 30 · Swamp Rend - Additional Enemies **6 (skew)** · Chain Thunder 30 · Lightning Amplifier 30 · Death Wave Cell Bonus 20 · Death Wave Damage Amplifier 30 · Death Wave Armor Stripping 10 · Inner Land Mine - Chrono Jump 10 |
 | Card Research | 10 | **99** | Second Wind Blast 4 · Double Death Ray 30 · Extra Orb Adjuster 1 · Extra Extra Orbs 2 · Energy Shield Extra Hit 2 · Super Tower Bonus 30 · Recharge Second Wind / Demon Mode / Nuke 7 · Card Mastery **9 (one lab per card)** |
 | Perk Research | 9 | **180** | Unlock Perks 1 · Waves Required 100 · Auto Pick Perks 1 · Standard Perks Bonus 25 · Perk Option Quantity 2 · First Perk Choice 1 · Ban Perks **8** · Improve Trade-Off Perks 10 · Auto Pick Ranking 32 |
-| Bot Research | 8 | **165** | four Cooldown lines **25** · Burn Stacks **5** · Linger Time 20 · two Duration lines 20 = `4×25 + 5 + 3×20` ✓ T015 |
+| Bot Research | **10** | **210** | five Cooldown lines **25** · four Duration/Linger lines 20 · Burn Stack **5** = `5×25 + 4×20 + 5` ✓ (the Rev-23 print had **8 / 165**, missing the two `Bot Bot` lines: `165 + 25 + 20 = 210`) |
 | Enemies Research | 21 | **620** | twenty lines at **30** + `Protector Damage Reduction` at **20** |
 | Module Research | 14 | **314** | the 12 lines of T010 §2.2 (Σ **254**: Reroll Shards 100, Daily Mission Shards 50, the two Cost lines 30, the two Drop Chance lines 10, Shatter 5, Unmerge 1, bans 4/4/3/7) **+ the two assist lines at 30** |
 | Battle Condition | 5 | **70** | generic `Battle Condition Reduction` **10** · Group 1 **20** · Group 2 **20** · Group 3 **10** · Group 4 **10** |
-| **All** | **158** | **4 693** | (= 4 633 if the two assist lines are counted with the module page's 12) |
+| **All** | **160** | **4 738** | (= 4 678 if the two assist lines are counted with the module page's 12; the Bot row gained two `Bot Bot` lines at +2 / +45 at Rev 33) |
 
 **Card-lab count: two consistent readings (Rev 23).** `wiki/lab/lab-category-card-research` prints **10** rows whose `Card
 Mastery (1 lab per card) Max Lv 9` collapses the mastery labs into one row (Σ **99** ✓ re-added term by term). Counted the
 way the Lab screen lists them — **one mastery lab per card** — the category is **21** lines with Σ **198**
-(`99 − 9 + 12 × 9`), and the whole census moves from **158 lines / Σ 4 693** to **169 / 4 792**. Both readings are
+(`99 − 9 + 12 × 9`), and the whole census moves from **160 lines / Σ 4 738** to **171 / 4 837**. Both readings are
 internally consistent; the 12-lab version is what the game shows (T012 §2.1 lists one mastery lab per card).
+The **32-mastery-lab** reading (H063, used by Appendix B from Rev 31) adds twenty more lines and `378 − 198 = 180`
+levels: **191 lines / Σ 5 017** (`171 + 20` lines, `4 837 − 198 + 378 = 5 017`).
 `wiki/lab/lab-category-utility-research` re-adds exactly as printed here (**12** lines, Σ **611** ✓), including
 `Max Interest` **15** (the H003 ladder), `Package After Boss` **1**, and the two **20**-level `Enemy … Level Skip` lines
 that T024’s ledger counts.
@@ -842,24 +859,25 @@ and what the covered part costs. Only layers whose **every** line carries a prin
 | `L` the six newly priced **Card Research** lines (§Card Research, Rev 31) | 6 | **30.848 T** | 1 185.5 d |
 | `M` the **32 mastery labs** — 32 × the printed 50.00 q / 562 d 12 h (§Card Research, Rev 31) | 32 | **1.600 Q** | 18 000 d |
 | `N` the **Perk Research** category (§Perk Research, Rev 32) | 9 | **4.337 329 q** | **183 173.9 d** |
-| **Σ priced** | **168** | **6.470 3 Q** | **473 959.6 d** |
+| `O` the **Bot Research** category — 2 shared columns + 1 exact-law line (§Bot Research, Rev 33) | 10 | **3.235 5 q** | **6 605.8 d** |
+| **Σ priced** | **178** | **6.473 5 Q** | **480 565.4 d** |
 
 In income units **(the Rev 25 72-line bill)**: **coins 5 770 d = 15.80 years** at 700 T/day · **clock 104 035.3 d** =
 285 y single-slot = **57.01 y** on five slots = **15.3 y** with the ×3.725 stack · the ×1.5 boost on the whole covered part
 is **2.4968 × 10⁷ cells** = **24 968 d ≈ 68 years** of cell income ⇒ **cells bind by ×4.33** over the coins.
 
-Scaled to the **168-line** bill the same two conversions give **coins 9 243 d = 25.31 y** at 700 T/day and
-**clock 473 959.6 d = 1 297.6 y** single-slot = **259.5 y** on five slots = **69.7 y** with the ×3.725 stack (the cell bill
+Scaled to the **178-line** bill the same two conversions give **coins 9 248 d = 25.32 y** at 700 T/day and
+**clock 480 565.4 d = 1 315.7 y** single-slot = **263.1 y** on five slots = **70.6 y** with the ×3.725 stack (the cell bill
 is read from the printed boost table rather than re-derived here).
 
 **Three facts the table produces.**
-1. **Coverage is 168 / 189 census lines = 88.9 %** (the 32-mastery-lab reading; on the 12-lab reading it is
-   **148 / 169 = 87.6 %**, see §Card Research finding 4 and H063). Layers `H`–`N` were added from the fandom per-line lab
-   tables at Rev 27–32; the unpriced **21** now sit in `Bot` (8), `Module` (6), `Enemies` (the 2 `Boss` lines) and
+1. **Coverage is 178 / 191 census lines = 93.2 %** (the 32-mastery-lab reading; on the 12-lab reading it is
+   **158 / 171 = 92.4 %**, see §Card Research finding 4 and H063). Layers `H`–`O` were added from the fandom per-line lab
+   tables at Rev 27–33; the unpriced **13** now sit in `Module` (6), `Enemies` (the 2 `Boss` lines) and
    `Battle Condition` (5) — those pages print a ladder but no `Total`, so they need a device read or a per-level product.
 2. **One band dominates the old bill, but not the new one: the fourteen T19-band lines** (`B2` + `C`, the
    `0.25 q × n` / `n × 933 078 s` arithmetic ladders) are **40.29 %** of the covered coins and **67.6 %** of the covered
-   clock **inside the 72-line bill**; with `H`–`N` they are **25.2 %** and **14.8 %** (the mastery-lab block alone takes
+   clock **inside the 72-line bill**; with `H`–`O` they are **25.2 %** and **14.6 %** (the mastery-lab block alone takes
    **24.7 %** of the coins and **6.2 %** of the clock), because `H`’s single
    `Enhancement Coin Discount` line (826.445 q) and `I`’s clock (124 747.5 d, 94.47 % of it in the two Super Crit lines)
    and `J`’s single `Wall Fortification` line (174.666 T) all became major contributors. Because both columns of the T19 band are arithmetic there,
@@ -879,7 +897,10 @@ is read from the printed boost table rather than re-derived here).
    is that split taken to its extreme: **0.07 %** of the bill’s coins (**4.337 329 q**) for **38.65 %** of its clock, with
    **96.5 %** of the category’s clock inside the single 100-level `Waves Required` line (§Perk Research, finding 1) — the
    most clock-bound layer in the table, and the reason the bill’s clock grew **+63.1 %** while its coins moved by four
-   thousandths of a Q.
+   thousandths of a Q. The **Bot layer** `O` is the opposite shape (**0.05 %** of the coins for **1.37 %** of the clock):
+   its five `* Cooldown` lines are the cheapest per clock-day in the table — **9.041 T** for **2 883.4 d**, i.e.
+   **3.136 × 10⁹** coins per queue-day, against **7.787 × 10¹¹** for the four `* Duration` lines and **1.843 × 10¹²** for
+   `Burn Stack` (**×588** dearer per day) — so the cooldown labs are a pure queue decision (§Bot Research, finding 6).
 
 ### The enemy-stat layer, ladder by ladder (Rev 11)
 
@@ -1374,7 +1395,8 @@ labs from `Card Masteries`; caps cross-checked against `Lab Category/Card Resear
    differ by a constant **250 h** (`500, 750, … 2 500 h`, the T012 §2.1 law) and the coin increments are
    **mirror-symmetric**: +0.20 +0.70 +1.40 +2.20 +2.10 +1.40 +0.70 +0.20 q.
 4. **The two mastery-lab counts are two readings, and the bigger one is the wiki’s current list.** With 32 mastery labs
-   the Card category is **41 lines / Σ 378 levels** and the census is **189 lines**; the Rev 23 reading (12 mastery labs)
+   the Card category is **41 lines / Σ 378 levels** and the census is **189 lines** (**191 / Σ 5 017** once the two
+   `Bot Bot` lines join it at Rev 33, §Bot Research finding 5); the Rev 23 reading (12 mastery labs)
    gives 21 lines / Σ 198 and **169** lines. Both re-add internally (`90 + 32 × 9 = 378` vs `99 − 9 + 12 × 9 = 198`); the
    in-game **Lab** screen’s Card-category line count settles it (H063).
 5. **Mastery stones re-add to the printed 28 500 only with fourteen 1 000-stone cards**: `2 × 500 + 13 × 750 + 14 × 1 000 +
@@ -1450,6 +1472,64 @@ figure below is a fresh re-add — `tools/perk-research-family.ps1`.
    `Ban Perks` **T5 W40**, `Auto Pick Ranking` **T6 W10** — every one below Tier 11, so the whole category is reachable in
    the reader’s tier band; only the deep `Waves Required` tail is not.
 
+### The Bot Research category priced line by line (new, Rev 33)
+
+Ten lines under `Lab/<name>`: five `* Cooldown` labs (`Flame`, `Thunder`, `Golden`, `Amplify`, `Bot Bot`), four
+`* Duration`/`Linger Time` labs (`Thunder Bot Linger Time`, `Golden Bot Duration`, `Amplify Bot Duration`,
+`Bot Bot Duration`) and `Lab/Flame Bot - Burn Stack`. None of the ten pages prints a `Total` row, so every figure is a
+fresh re-add — `tools/bot-research-family.ps1`.
+
+| Line | Levels | Σ coins | Σ clock | printed value law | coins per unit of value |
+|---|---|---|---|---|---|
+| `* Cooldown` **× 5** (Flame T5 W60 · Thunder T5 W70 · Golden T5 W80 · Amplify T5 W90 · Bot Bot **T6 W60**) | 25 each | **1.808 T** each (**9.041 T** for all five) | 830 411 min = **576.67 d** each | `−1n` s ⇒ −25 s | 7.233 0 × 10¹⁰ |
+| `* Duration` **× 4** (Thunder **Linger** · Golden · Amplify · Bot Bot, all T10 W50) | 20 each | **664.838 T** each (**2 659.35 T** for all four) | 1 229 315 min = **853.69 d** each | `0.5n` s ⇒ +10 s (Linger prints `3.5 + 0.5n` ⇒ 13.0) | 3.324 2 × 10¹³ |
+| `Flame Bot - Burn Stack` (T10 W50) | 5 | **567.07 T** (exact-law sum **567.062 5 T**) | 442 973 min = 307.62 d | `1n` stacks | 1.134 1 × 10¹⁴ |
+| **Σ 10 lines** | **210** | **3 235.464 T** = 3.235 5 q | 9 512 288 min = **6 605.8 d** = 18.09 y | — | — |
+
+1. **Two shared columns carry eight of the ten lines, cell for cell.** The five `* Cooldown` pages print the same 25
+   costs (`30 M … 398.88 B`) and the same 25 times (`1d 14h 53m … 85d 8h 22m`); the four `* Duration`/`Linger` pages
+   print the same 20 costs (`100 B … 221.68 B`) and the same 20 times (`8d 8h 0m … 118d 14h 21m`) — **0 differing cells**
+   in both cases. Eight census lines, two price ladders: the per-line bill is **1.808 T / 576.67 d** for a cooldown and
+   **664.838 T / 853.69 d** for a duration.
+2. **The Duration column is the raw family law undistorted** — cost ratio **1.5000** (max relative deviation
+   **1.953 × 10⁻³**, entirely from the 3-s.f. prints `759.38 B` and `1140 B`) and **×1.1500 on all nineteen time steps**
+   (max deviation **2.740 × 10⁻⁵**). `Burn Stack` matches it too (cost deviation **3.445 × 10⁻⁵**, time
+   **2.877 × 10⁻⁶**). That lets T015’s closed form price a whole line from its first row:
+   `t₁ × (1.15ⁿ − 1) / 0.15` gives **1 229 323.0 min** for the duration line against the printed re-add
+   **1 229 315 min** (Δ **8 min** = **6.5 × 10⁻⁶**) and **442 974.4** for Burn Stack against **442 973** (Δ 1.4 min). The
+   **Cooldown** column is the distorted one: its first ratio is **2.0017** where the law says 1.5, then 1.5254 / 1.4427 /
+   1.5225 / 1.6712 / 1.7808 / **1.8036** (peak) and a decay to 1.5779 — the head/tail-with-hump shape of §Attack
+   Research, max deviation **2.506 × 10⁻¹**.
+3. **`Thunder Bot Linger Time` is the duration column shifted by 3.00 on every cell** (0 of 20 differ): the value ladder
+   is `3.5 → 13.0` where the three `* Duration` ladders are `0.5 → 10.0`, same step `0.5`, same bill, same clock. So the
+   Thunder bot’s second lab is a copy with a 3-second head start — it is worth its first levels *before* the other three.
+4. **Three independent cross-checks against T015 all re-add.** Cooldown levels 1–5 = 30 + 60.05 + 91.6 + 132.15 +
+   201.2 = **515.0 M** ✓ (T015 §4 “cooldown-lab block 1 = **515.0 M** on all three bots”); duration levels 1–5 =
+   **1 318.75 B = 1.32 T** ✓ (T015’s Bot Bot `* Duration` block); the whole duration line = **853.69 d** ✓ (T015 prints
+   **853.7 d ≈ 2.34 y**). Burn Stack from the printed cells is **567.07 T** against the law’s **567.062 5 T** (T015:
+   **567.06 T**) — the gap is exactly the 5-s.f. rounding of the `145.13 B` and `217.69 B` cells.
+5. **The census moves to 10 lines / Σ 210 for this category** (`5 × 25 + 4 × 20 + 5 = 210`). The Rev-23 census printed
+   **8 / 165** because the two `Bot Bot` lines (25 + 20 = **45** levels) were missing; `165 + 45 = 210` ✓. With the
+   32-mastery-lab reading that makes the whole census **191 lines / Σ 5 017** (`4 693 − 99 + 378 + 45`), and on the
+   12-lab reading **171 / Σ 4 837** (§Card Research finding 4, H063).
+6. **Coins and clock bind on different halves of the category.** The five cooldowns are **0.28 %** of the category’s
+   coins but **43.65 %** of its clock; the four duration labs are **82.19 %** of the coins for **51.69 %** of the clock;
+   `Burn Stack` alone is **17.53 %** of the coins for **4.66 %** of the clock. Per clock-day the cooldown lab is the
+   cheapest thing in the category by **≈590×** against `Burn Stack` (0.28/43.65 = 0.0064 vs 17.53/4.66 = 3.76) — all five
+   maxed together are **9.041 T**, i.e. **18.6 minutes** of the printed 700 T/day income, so they are a queue decision
+   only. Per printed unit: **−1 s** of cooldown = 7.233 0 × 10¹⁰ coins / 23.07 d; **+0.5 s** of duration = 3.324 2 × 10¹³
+   / 42.68 d; **+1 burn stack** = 1.134 1 × 10¹⁴ / 61.52 d.
+7. **Stop-level prefixes.** *Cooldown*: *k* = 3 → 181.65 M / 5.91 d; *k* = 5 → **515.0 M / 11.74 d**; *k* = 10 →
+   **7.69 B / 37.32 d**; *k* = 15 → 80.58 B / 99.37 d; *k* = 20 → 462.95 B / 249.45 d; *k* = 25 → 1 808.24 B / 576.67 d.
+   *Duration*: *k* = 3 → 475 B / 28.94 d; *k* = 5 → **1 318.75 B / 56.19 d**; *k* = 10 → 11 328.13 B / 169.20 d;
+   *k* = 15 → 87 368.13 B / 396.50 d; *k* = 20 → 664 838 B / 853.69 d. *Burn Stack*: *k* = 1 → **43 T / 45.63 d** for a
+   single stack — the single dearest first level in the category, and it is 100 % clock-bound above *k* = 3
+   (204.25 B / 158.43 d). The nine level-1 buys (five cooldowns + four durations) are **400 150 000 000** coins for
+   **59 665 min = 41.43 d**.
+8. **Gate skew to read on the device.** Today’s `Lab/Bot Bot Cooldown` prints **tier 6 wave 60**; T015’s table has
+   **T6 W90** and its 2026-11-02 fetch showed **T5 W90** (footnote ¹ there). The other four cooldown gates form the
+   clean **W60/W70/W80/W90** ladder across T5, and all four duration labs plus `Burn Stack` print **T10 W50**.
+
 ## Reproduction checklist
 
 - [ ] No slot shows “completed, not started” for more than a few minutes; at least one long level is running overnight.
@@ -1474,8 +1554,9 @@ figure below is a fresh re-add — `tools/perk-research-family.ps1`.
       **1.42 T**; the 300-level cap is visible in its panel.
 - [ ] A Wave-Skipped wave during **Intro Sprint** still pays cells (≈ 0.22× of a normal wave = 1.1 × 0.20).
 - [ ] **Census (§census):** the Lab list’s category counts are Main **15** · Attack **9** · Defense **16** · Utility **12** ·
-      UW **39** · Card **10** · Perk **9** · Bot **8** · Enemies **21** · Module **14** · Battle Condition **5**; a missing
-      line = an unclaimed milestone gate.
+      UW **39** · Card **10** (or **41** with the 32 mastery labs listed one-per-card, H063) · Perk **9** · Bot **10**
+      (the two `Bot Bot` labs must be visible: five Cooldown + four Duration/Linger + Burn Stack) · Enemies **21** ·
+      Module **14** · Battle Condition **5**; a missing line = an unclaimed milestone gate.
 - [ ] **Rush prices:** a 1-day remaining reads **163** gems, 1 week **1 000**, 30 d **3 550**, 90 d **8 000**, and anything
       past 360 d reads **25 000** (the flat tail ⇒ deep lines are the cheapest gems-per-hour in the game).
 - [ ] The Speed Up menu’s `all labs` price is exactly **5 ×** the single-slot price (e.g. **15 → 75**, **360 → 1 800**), and
@@ -1629,6 +1710,14 @@ figure below is a fresh re-add — `tools/perk-research-family.ps1`.
 - [ ] **§Perk Research (Rev 32):** the single-level unlocks print **1,500,000** / `3d 11h 19m`, **100,000,000** /
       `4d 23h 26m`, **1,000,000,000** / `4d 15h 6m`, and `Perk Option Quantity` **200,000,000** / `4d 23h 26m` then
       **2,000,000,000** / `10d 4h 26m` — the two `4d 23h 26m` prints are the shared time cell of finding 4.
+- [ ] **§Bot Research (Rev 33):** the **Bot** category lists **10** lines (the two `Bot Bot` labs included) and any
+      `* Cooldown` lab prints level 1 = **30 M** / **1 d 14 h 53 m** / **−1** and level 25 = **398.88 B** /
+      **85 d 8 h 22 m** / **−25**; the five prints are identical.
+- [ ] **§Bot Research (Rev 33):** any `* Duration` lab prints level 1 = **100 B** / **8 d 8 h 0 m** / **0.50** and level
+      20 = **221.68 B** / **118 d 14 h 21 m** / **10.00**, while `Thunder Bot Linger Time` prints the same two columns
+      with **3.50** and **13.00** in the value cell.
+- [ ] **§Bot Research (Rev 33):** `Flame Bot - Burn Stack` prints exactly **5** rows: **43 T, 64.5 T, 96.75 T, 145.13 T,
+      217.69 T** with times **45d 15h 0m … 79d 19h 9m** (the ×1.5 / ×1.15 pair), and its gate is **T10 W50**.
 
 ## Falsification
 
@@ -1777,6 +1866,14 @@ figure below is a fresh re-add — `tools/perk-research-family.ps1`.
 - **§Perk Research census:** if the Lab screen’s **Perk** category lists a number of lines other than **9**, or the
   `Waves Required` cap is not **100**, the category Σ of **180** levels is stale and layer `N` must be re-summed; every
   other layer in Appendix B is unaffected.
+- **§Bot Research (Rev 33):** if any one `* Cooldown` lab stops printing **30 M … 398.88 B** across 25 rows, the
+  five-way shared column (finding 1) is broken and that lab must be summed on its own; likewise for the four
+  `* Duration` labs against **100 B … 221.68 B**. If `Thunder Bot Linger Time` prints a value column that is *not* the
+  duration column **+ 3.00**, finding 3 is wrong and the ladder is independent.
+- **§Bot Research census:** if the Lab screen’s **Bot** category lists **8** lines rather than **10**, the two `Bot Bot`
+  labs are not separate entries (they are one lab per bot), the category Σ is **165** again, the census returns to
+  **189** lines, and layer `O` loses the two `Bot Bot` lines: **666.646 T** of coins (1.808 + 664.838) and
+  **1 430.36 d** of clock (576.67 + 853.69), leaving **176 / 189** lines priced.
 - **§Main Research:** if `Starting Cash` and `Workshop Attack Discount` no longer print an identical cost column, the
   shared ladder split ⇒ re-run `tools/main-research-family.ps1` with two arrays; the four per-line figures change but the
   category total does not (each line is still counted once). If `Enhancement Coin Discount` level 1 stops being **1.00B**
@@ -1982,3 +2079,15 @@ figure below is a fresh re-add — `tools/perk-research-family.ps1`.
   `Perk Labs/Auto Pick Ranking` (**32** rows `100.00K … 154.26B`, whose last six
   times print with a `y` unit — `1y 24d 20h` … `2y 37d 9h` — read here as 1 y = 365 d, T6 W10).
   New script: `tools/perk-research-family.ps1`.
+- fandom lab pages, raw wikitext via `api.php?action=parse&prop=wikitext` (pulled 2026-11-03) — the **Bot Research
+  category** tables, all under the `Lab/` prefix: `Lab/Flame Bot Cooldown`, `Lab/Thunder Bot Cooldown`,
+  `Lab/Golden Bot Cooldown`, `Lab/Amplify Bot Cooldown`, `Lab/Bot Bot Cooldown` (**25** rows each, `30M, 60.05M, 91.6M,
+  132.15M, 201.2M, 336.25M, 598.8M, 1.08B, 1.91B, 3.25B, 5.33B, 8.41B, 12.83B, 18.98B, 27.34B, 38.45B, 52.94B, 71.53B,
+  95.05B, 124.4B, 160.63B, 204.87B, 258.37B, 322.54B, 398.88B`; times `1d 14h 53m` … `85d 8h 22m`; value `-1` … `-25`),
+  `Lab/Thunder Bot Linger Time`, `Lab/Golden Bot Duration`, `Lab/Amplify Bot Duration`, `Lab/Bot Bot Duration`
+  (**20** rows each, `100B, 150B, 225B, 337.5B, 506.25B, 759.38B, 1140B, 1710B, 2560B, 3840B, 5770B, 8650B, 12970B,
+  19460B, 29190B, 43790B, 65680B, 98530B, 147790B, 221680B`; times `8d 8h 0m` … `118d 14h 21m`; value `0.50` … `10.00`,
+  with `Linger Time` printing `3.50` … `13.00`), and `Lab/Flame Bot - Burn Stack` (**5** rows `43T, 64.5T, 96.75T,
+  145.13T, 217.69T`; times `45d 15h 0m` … `79d 19h 9m`; value `1` … `5`). Gates as printed: T5 W60/W70/W80/W90,
+  Bot Bot **T6 W60**, all four duration labs and Burn Stack **T10 W50**. `Lab Category/Bot Research` prints the 10-row
+  name list with `Max Lv 25 / 20 / 5`. New script: `tools/bot-research-family.ps1`.

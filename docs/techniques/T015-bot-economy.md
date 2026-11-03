@@ -1,5 +1,17 @@
 # T015 — Bot economy: the three exact cost formulas, and the sync-aware order
 
+Rev: 7 (2026-11-03) — **the bot lab layer is confirmed from the full per-level tables** (`tools/bot-research-family.ps1`,
+cross-read with T006 §Bot Research): the five `* Cooldown` labs print **one identical 25-level column** and the four
+`* Duration`/`Linger` labs **one identical 20-level column** (0 differing cells), so the six-column law of §1.3 is a
+two-ladder system; the **20-level time law reproduces on all nineteen steps** (max relative deviation
+**2.740 × 10⁻⁵**) and its closed form `t₁(1.15ⁿ−1)/0.15` gives **1 229 323 min** against the printed re-add
+**1 229 315 min** (Δ **8 min**) — i.e. the **853.7 d** of Rev 6 is exact; `Burn Stack` too (**442 974.4** vs **442 973**).
+Three of this doc’s prints re-add from the tables: the **515.0 M** cooldown block-1, the **1.32 T** Bot-Bot duration block
+(= **1 318.75 B** over levels 1-5) and **Σ 567.06 T** for Burn Stack. New: `Thunder Bot Linger Time` is the duration
+column with its value ladder shifted by **+3.00 on 20/20 cells**; the per-unit bills are **7.233 0 × 10¹⁰** coins per
+−1 s of cooldown, **3.324 2 × 10¹³** per +0.5 s of duration, **1.134 1 × 10¹⁴** per burn stack; the category is
+**10 lines / Σ 210 levels = 3.235 5 q** coins for **6 605.8 d**; and `Bot Bot Cooldown` now prints **T6 W60** (a third
+gate print, next to **T6 W90** and the 2026-11-02 **T5 W90**) — read the Milestones screen.
 Rev: 6 (2026-11-02) — **the Bot+ census closes**: the bot pages now print **Golden Bot+ = 25 levels, 17 500 medals
 (×1.25 → ×2.50)** and **Bot Bot+ = 20 levels, 11 500 medals (×1.25 → ×2.25)** in prose, and both re-add from the family
 law `25L² + 75L` ⇒ the five-line bill **60 100** is confirmed rather than assembled (§1.4); the **lab research-time law
@@ -144,7 +156,9 @@ and the *same* price series; the time labs are +0.5 s with **20** levels; only F
 
 ¹ The Bot Bot page gates **both** of its labs at “tier 6 wave 90” (“This lab is **also** unlocked in Milestones at tier 6
 wave 90”), while the Amplify page prints **T5 W90** (cooldown) / **T10 W50** (duration) — so the lab gates are **per bot**,
-not one shared pair; one 2026-11-02 fetch also showed T5 W90 for Bot Bot's cooldown gate. Read your own Milestones screen.
+not one shared pair; one 2026-11-02 fetch also showed T5 W90 for Bot Bot's cooldown gate, and a 2026-11-03 fetch of
+`Lab/Bot Bot Cooldown` shows **T6 W60** — three distinct prints, so the Bot Bot gates stay unconfirmed
+¹. Read your own Milestones screen.
 
 The cooldown-lab gates form a clean **W60→W70→W80→W90** ladder across Flame/Thunder/Golden/Amplify — a nice confirmation
 the milestone waves are per-bot constants. The practical consequence: **each of the five cooldown labs costs ≈ 515 M coins
