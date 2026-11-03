@@ -1,5 +1,13 @@
 # T008 — Stone economy: knee-first UW buying + cooldown sync
 
+Rev: 9 (2026-11-02) - **all 27 workshop lines priced one by one** (§3.①): parsed column by column, **27/27** re-add to
+their own printed `Total` and to §2's **244 542**. Six lines are *pure arithmetic* (`Σ = n/2 × (2c₁ + (n−1)d)`
+reproduces BH Cooldown **2 040**, CL Chance = PS Cooldown **2 010** — the same ladder twice — ILM Cooldown **1 800**,
+CF Duration **5 530**, CF Cooldown **1 506** from two printed cells each). The five `×damage` lines are **one ladder**
+(**85 / 322 / 841** at L5/10/15, 5/5) and are the only lines that get **cheaper** with depth (**×0.24 … ×0.40**); the
+other 22 degrade **×2.8 … ×580**. Budgets: first 5 levels of all lines = **11 461** = **4.69 %** of the bill, first 10
+= **25 045**, first 15 = **49 194**; the knee-first package across all 27 lines is **8 865** stones and still contains
+§4's **2 620** triple-sync package (910 + 910 + 800 ✓). §3.①.
 Rev: 8 (2026-11-02) - the **nine UW+ `Cost` rows collapse to four sequences** (A / A' / B / C), each closed at every depth it
 is used: A -> GT+ **20 070**; A' (same ten cells then a +50 tail) -> ILM+ **18 570**, and **A - A' = 1 500** cell by cell
 (**50 / 200 / 450 / 800**); B -> CF+ **16 350** at 13, BH+/DW+ **19 050** at 14, Spotlight+ **37 050** at 19; C -> SM+/CL+
@@ -35,7 +43,7 @@ Rev: 3 (2026-11-02) — the **sync lattice** gets its step sizes: bot medal upgr
 printed base cooldowns **GT 300 s / BH 200 s**, the 1:1 and 2:1 funding rule, MVN’s “training wheels” verdict and the four
 printed footguns (§4, after the ladder table).
 Rev: 2 (2026-11-01) — the whole stone ledger is now numeric (per-level columns read and summed; all 9 UW totals and all 9 perk-UW `stone value` entries reproduced exactly), and the sync ladder is rebuilt from those columns.
-Currency: **Power Stones** (and the coin rate they buy) · Status: **Verified** — the derived model reproduces 9/9 published stone values exactly (§6).
+Currency: **Power Stones** (and the coin rate they buy) · Status: **Verified** — the derived model reproduces 9/9 published stone values exactly (§6) and 27/27 per-line `Total` rows (§3.①).
 
 | | |
 |---|---|
@@ -285,6 +293,78 @@ Read as a rule: **every stat line is ≈4× cheaper in its first block than in i
 50** — are the same numbers the `footguns` page prints independently for the max lattice, so the sync targets are whole
 numbers of levels: **200 s = 10 levels** of GT, **150 s = 5 levels** of BH, never “half a block”.
 
+### 3.① All 27 workshop lines, block by block (Rev 9)
+
+The nine basic-stat tables were re-pulled and parsed column by column with `tools/uw-track-knees.ps1` (it reads every
+`(value, cost)` pair to its last numeric cell and re-adds it against the page's own `Total` row). **27 / 27 columns
+agree** with their printed `Total`, and the 27 line totals re-add to §2's **244 542**, so the ledger is now closed at
+*line* level, not just page level. `st/unit` = marginal cost ÷ marginal value printed by the same row.
+
+| UW | line | levels | value row | line Σ | Σ L1–5 | Σ L1–10 | Σ L1–15 | st/unit L1 | st/unit at cap | × |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Black Hole | Size | 20 | 30 → 70 m (+2) | 2 291 | 96 | 421 | 1 096 | 2.5 | 147.5 | ×59 |
+| Black Hole | Duration | 23 | 15 → 38 s (+1) | 5 392 | 115 | 455 | 1 020 | 5 | 1 103 | ×221 |
+| Black Hole | Cooldown | 15 | 200 → 50 s (−10) | 2 040 | 230 | 910 | 2 040 | 1 | 26.2 | ×26 |
+| Chain Lightning | Damage | 31 | 2× → 7 961× | 15 710 | 85 | 322 | **841** | 5 | 1.98 | **×0.40** |
+| Chain Lightning | Quantity | 4 | 1# → 5# (+1) | 655 | 655 | 655 | 655 | 30 | 400 | ×13 |
+| Chain Lightning | Chance | 15 | 5.0 → 27.5 % (+1.5) | 2 010 | 220 | 890 | 2 010 | 5.33 | 173.3 | ×33 |
+| Chrono Field | Duration | 35 | 5 → 40 s (+1) | 5 530 | 115 | 455 | 1 020 | 5 | 311 | ×62 |
+| Chrono Field | Slow | 11 | 20 → 75 % (+5) | 2 910 | 260 | 2 010 | 2 910 | 3 | 180 | ×60 |
+| Chrono Field | Cooldown | 12 | 180 → 60 s (−10) | 1 506 | 260 | 1 045 | 1 506 | 1 | 24.1 | ×24 |
+| Death Wave | Damage | 30 | 2× → 9 119× | 17 591 | 85 | 322 | **841** | 5 | 1.67 | **×0.33** |
+| Death Wave | Effect Wave Quantity | 4 | 1 → 5 (+1) | 2 950 | 2 950 | 2 950 | 2 950 | 200 | 1 400 | ×7 |
+| Death Wave | Cooldown | 25 | 300 → 50 s (−10) | 8 850 | 200 | 800 | 1 800 | 0.8 | 149.2 | ×187 |
+| Golden Tower | Multiplier | 20 | 5.0× → 21.0× (+0.8) | 8 434 | 115 | 534 | 1 934 | 6.25 | 2 500 | ×400 |
+| Golden Tower | Duration | 38 | 15 → 53 s (+1) | 14 052 | 115 | 456 | **1 076** | 5 | 1 748 | ×350 |
+| Golden Tower | Cooldown | 20 | 300 → 100 s (−10) | 4 700 | 230 | 910 | 2 040 | 1 | 87.2 | ×87 |
+| Inner Land Mines | Damage % | 35 | 10× → 9 219× | 20 807 | 85 | 322 | **841** | 5 | 1.21 | **×0.24** |
+| Inner Land Mines | Quantity | 3 | 3# → 6# (+1) | 425 | 425 | 425 | 425 | 50 | 250 | ×5 |
+| Inner Land Mines | Cooldown | 15 | 200 → 50 s (−10) | 1 800 | 200 | 800 | 1 800 | 0.8 | 23.2 | ×29 |
+| Poison Swamp | Damage | 35 | 10× → 9 219× | 28 716 | 85 | 322 | **841** | 5 | 1.85 | **×0.37** |
+| Poison Swamp | Duration | 14 | 30 → 100 s (+5) | 3 500 | 220 | 1 280 | 3 500 | 2 | 142 | ×71 |
+| Poison Swamp | Cooldown | 15 | 125 → 50 s (−5) | 2 010 | 220 | 890 | 2 010 | 1.6 | 52 | ×33 |
+| Smart Missiles | Damage | 35 | 10× → 9 219× | 29 661 | 85 | 322 | **841** | 5 | 1.72 | **×0.34** |
+| Smart Missiles | Quantity | 15 | 5# → 20# (+1) | 6 966 | 241 | 1 966 | 6 966 | 4 | 1 500 | ×375 |
+| Smart Missiles | Cooldown | 16 | 180 → 20 s (−10) | 2 550 | 200 | 800 | 1 800 | 0.8 | 75 | ×94 |
+| Spotlight | Bonus | 30 | 8× → 50× (+1.4) | 20 071 | 109 | 513 | 1 476 | 3.57 | 2 071 | ×580 |
+| Spotlight | Angle | 60 | 30° → 90° (+1) | 29 690 | 135 | 545 | 1 230 | 5 | 1 584 | ×317 |
+| Spotlight | Quantity | 3 | 1 → 4 (+1) | 3 725 | 3 725 | 3 725 | 3 725 | 375 | 2 500 | ×6.7 |
+| | | | | **244 542** | **11 461** | **25 045** | **49 194** | | | |
+
+Four laws come out of the parsed columns:
+
+1. **Six lines are one pure arithmetic progression** — `cost(n) = c₁ + (n − 1)·d`, `Σ = n/2 · (2c₁ + (n − 1)d)` — with
+   no tail at all: Black Hole Cooldown (`10, 18·…` ⇒ c₁ 10, d **18**, n 15 ⇒ 7.5 × (20 + 252) = **2 040** ✓), Chain
+   Lightning Chance and Poison Swamp Cooldown (both c₁ **8**, d **18**, n 15 ⇒ 7.5 × (16 + 252) = **2 010** ✓ — the
+   *same* ladder twice), Inner Land Mines Cooldown (c₁ 8, d **16**, n 15 ⇒ 7.5 × (16 + 224) = **1 800** ✓), Chrono
+   Field Duration (c₁ 5, d **9**, n 35 ⇒ 17.5 × (10 + 306) = **5 530** ✓) and Chrono Field Cooldown (c₁ 10, d **21**,
+   n 12 ⇒ 6 × (20 + 231) = **1 506** ✓). Six lines, two printed cells each, and the whole line is priced.
+2. **The five `×damage` lines are one ladder** — Chain Lightning, Death Wave, Inner Land Mines, Poison Swamp and Smart
+   Missiles agree cell for cell for at least their first **17** levels (`5 11 17 23 29 35 41 47 53 61 71 84 100 120
+   144 174 210`, i.e. **+6 arithmetic for nine levels**, Σ 261), so each of them costs exactly **85 / 322 / 841**
+   stones at level **5 / 10 / 15** (5/5 ✓). Their *value* rows are shared too — ILM, PS and SM print an identical
+   36-cell row `10.00× … 9 219.00×` — which is why these are the only lines whose price **improves** with depth
+   (×0.24 … ×0.40): the value row is itself geometric (ratio ≈ 1.19, matching the cost row's ≈ 1.2), so deep levels
+   stay ≈ 2 stones per ×1.
+3. **The other 22 lines all degrade** (arithmetic head, geometric tail): ×2.8 (ILM Quantity) up to **×580** (Spotlight
+   Bonus), with **GT Multiplier ×400, SM Quantity ×375, GT Duration ×350, Spotlight Angle ×317** next. The head is
+   almost nothing: GT Multiplier's arithmetic head (`5, 13` at +8) is **18** stones of its 8 434, Spotlight Bonus's
+   (`5, 13, 21` at +8) is **39** of 20 071 — i.e. the price of a line is its tail, and the first five levels are where
+   the value is.
+4. **Three budget rows** (Σ over the 27 lines): the first **5** levels of every line = **11 461** stones =
+   **4.69 %** of the maxed bill; the first **10** = **25 045** (10.2 %); the first **15** = **49 194** (20.1 %). Per
+   page the first-5 bill is BH 441 · CL 960 · CF 635 · DW 3 235 · GT 460 · ILM 710 · PS 525 · SM 526 · Spotlight 3 969.
+   Five *quantity* lines (DW 2 950 + Spotlight 3 725 + CL 655 + ILM 425 + SM 241) take **7 996** of the 11 461 =
+   **70 %** of that budget for 3–5 levels each, so they are the lines to leave at level 1.
+
+**The 8 865-stone package** (the knee-first reading of the table, 3.63 % of the maxed bill, 27 lines covered): the
+five ×damage lines to **L15** (5 × 841 = **4 205**) + the five `−10 s` cooldowns to **L5** (**1 060**) + CL Chance and
+PS Cooldown L5 (**440**) + CF Slow / Duration / Cooldown L5 (**635**) + GT Multiplier L5 and GT Duration **L15**
+(**1 191**) + BH Size and Duration L5 (**211**) + PS Duration L5 (**220**) + the five quantity lines at **L1**
+(**659**) + Spotlight Bonus and Angle L5 (**244**) = **8 865**. It contains §4's Stage-3 triple-sync package, because
+GT 910 + BH 910 + DW 800 = **2 620** ✓ — the parser's L10 column reproduces §3's hand-read blocks exactly (910 / 910
+/ 800 / 534 / 1 076), which is the cross-check between the two readings.
+
 ## 4. The sync ladder (what to actually buy, in order)
 
 All UW timers start at 0 when the run starts and reset on each activation, so two UWs share a window every **LCM(cooldowns)**. Multipliers multiply, so the coincidence period is the coin rate.
@@ -422,6 +502,18 @@ Also: each `Basic_Upgrades` page's `Total` equals the sum of its own column (BH 
 - [ ] **The nine workshop totals (9 / 9):** each page’s prose total equals its table’s `Total` row equals the sum of its
       three per-level columns — BH **9 723**, CF **9 946**, CL **18 375**, ILM **23 032**, GT **27 186**, DW **29 391**,
       PS **34 226**, SM **39 177**, Spotlight **53 486** ⇒ **244 542** stones for all basic UW stats.
+- [ ] **The 27-line ledger (§3.①):** each `Cost` column sums to its own page's `Total` cell. Six spot checks that need
+      no adding: BH Cooldown **2 040** (`10 28 46 …`, +18 flat), CL Chance **2 010** and PS Cooldown **2 010** (`8 26
+      44 …`, +18 flat, the same ladder twice), ILM Cooldown **1 800** (`8 24 40 …`, +16 flat), CF Duration **5 530**
+      (`5 14 23 …`, +9 flat, 35 levels), CF Cooldown **1 506** (`10 31 52 …`, +21 flat, 12 levels).
+- [ ] **The shared ×damage ladder:** the first 15 levels of the Damage line read **85 / 322 / 841** stones on Chain
+      Lightning, Death Wave, Inner Land Mines, Poison Swamp *and* Smart Missiles (the same five cells
+      `5 11 17 23 29 35 41 47 53 61 71 84 100 120 144 174 210`, so **841** five times).
+- [ ] **The improvement test:** on those five lines the *last* level is cheaper per ×1 than the first (Chain Lightning
+      **1.98** vs **5**, ILM **1.21** vs **5**), while GT's `Multiplier` runs the other way (**2 500** vs **6.25**) —
+      one tap on the last level of each shows the two price shapes.
+- [ ] **The budget rows:** first 5 levels of all 27 lines = **11 461**, first 10 = **25 045**, first 15 = **49 194**
+      (percentages of 244 542: **4.69 / 10.2 / 20.1 %**) — re-add from the table in §3.① with a calculator.
 - [ ] **The counting law:** every workshop table starts at **level 0** (cost 0) and ends with a `Total` row, so
       **levels = numeric cells − 2**; on `Smart Missiles` that gives **35 / 15 / 16**, the same numbers the page prints.
 
@@ -434,6 +526,12 @@ Also: each `Basic_Upgrades` page's `Total` equals the sum of its own column (BH 
 - If a page’s **prose total** no longer equals the sum of its three `Total` columns, those tables are mid-update → trust the
   `Total` rows, re-derive §2, and stamp the date (the whole §2 ledger rests on that three-way agreement; the Rev-7 pass found
   and fixed two addition slips worth **240** stones there).
+- If the five `×damage` lines no longer all read **841** at level 15 (§3.①), the shared ladder was re-binned per weapon
+  → re-read the 17-cell prefix on each page; the six arithmetic lines are unaffected (they are closed by their own two
+  cells), and only the three budget rows (11 461 / 25 045 / 49 194) move — by exactly the summed delta.
+- If a `Cost` column stops summing to its page's `Total` cell, the tables are mid-update → trust the `Total` cells,
+  re-run `tools/uw-track-knees.ps1`, and shift the budget rows by the delta; the four laws in §3.① are per-cell and
+  survive a re-binning.
 - If the **level-11 cell** of a 300-start tree is neither **2 050** (GT+) nor **2 000** (ILM+) nor **3 150** (PS+), the family
   map in §1.④ is stale for that tree → re-read its `Cost` row end to end and add the delta to **179 240** (the nine-tree Σ
   moves by exactly that delta, nothing else in the table changes).
@@ -470,7 +568,9 @@ Also: each `Basic_Upgrades` page's `Total` equals the sum of its own column (BH 
   `Value` rows, plus Chain Lightning’s own `TOTAL` row **12 650 + unlock**), the basic-stat `Stones (…)` columns (GT starts
   at 5 / 13 / 22 / 32 / 43 … for 5.0 → 9.0×, which is the **115** block already used in §6), the CL damage/quantity/chance
   columns (damage 2× → 3× for 5, 5× for 11, 9× for 17 …; chance +1.5 pp/level at 8 / 26 / 44 / 62 …), the CL lab
-  `Rank`/`Community note` table, and the per-UW lab ladders quoted by §4.
+  `Rank`/`Community note` table, and the per-UW lab ladders quoted by §4. Re-pulled **2026-11-02** for §3.①, where all
+  **27** per-line `Cost` columns are read with `tools/uw-track-knees.ps1` (each column re-added against the page's own
+  `Total` cell — 27/27, and the 27 totals re-add to §2's 244 542).
 - Tower Hub `wiki/guide/which-uw-do-i-select` (last verified **2026-11-01**) — both stone ladders printed as the
   “Good to know” lines (**5 … 3 000** by UWs owned, **500 … 3 800** by UW+ owned, plus the “UW+ can only be unlocked once
   all 9 UWs are owned” rule), the community ranking with the printed per-UW numbers (**+20 %** on GT unlock, DW
