@@ -1,5 +1,11 @@
 # T005 — Tier-rush with a survival build, then farm the new tier
 
+Rev: 4 (2026-11-02) — **the content timeline** (all 27 `wiki/patch/version-history-v0-*` pages + the index page, 2026-07-29):
+every numbered system is now dated — **Def % cap 90 → 98 at v0.22** (second, dated print for the 98-vs-99 skew), **milestone
+gates exist only from v0.18** (with Tier 13 + the Protector), **Elite Cells = “speed up lab research” printed at v0.23**,
+the **time-weighted lab gem discount at v0.17**, **Dissonance’s 5×/3× are v0.28 hotfix numbers** (briefly 2×), and the tier
+map T10 → v0.4.0 · T11 → v0.8 · T12 → v0.14 · T13 → v0.18 · T14–15 → v0.20 · T16–18 → v0.24 · T19–21 → v0.27; derived slot
+cap **19** moves to **H061**.
 Rev: 3 (2026-11-02) — the **printed tier ladder** (`wiki/system/tiers`) is added: the Coin Bonus column is exactly
 `1 + 0.8 × (tier − 1)` for **Tiers 1–8** (8/8), breaks at T9, and runs to **60 at Tier 21** with every step in the band
 **×1.13 … ×1.25** (geometric mean **×1.227/tier**); **Tiers 1–13 need no battle conditions at all** (1 → 14.7 free), the
@@ -182,6 +188,61 @@ the farming there; the depth you gained from the push is what raises the *missio
   BC bill is a necessary, not sufficient, condition.
 - If Second Wind is available twice in one rush, its cooldown is not “hundreds of waves” → re-time it in waves and
   re-value the table (it is the largest single leg, so everything else is unaffected).
+
+## The content timeline: which version put which printed number in the game
+
+Source: `wiki/patch/version-history` + the **27** per-version pages `wiki/patch/version-history-v0-{2,3,4-0,5…28}` (all
+“Last verified **2026-07-29**”; each page is a single intro paragraph — the `Change list` block renders empty in the page
+payload, so these are the only recoverable facts). Use it to *date* a number: if your panel disagrees with a value below,
+your build is newer than the page (this repo’s APK is **29.1.3**, i.e. two majors after the last documented release).
+
+| Ver | What landed (as printed) | Which of our prints it dates |
+|---|---|---|
+| v0.2 | **Tournaments** (30 players, 24 h, twice weekly) + `Buy Multiplier` lab + Death Ray / Plasma Cannon / Energy Net cards | T014’s bracket width **30**; T006’s Main cap `Buy multiplier 4`; T012’s card list |
+| v0.3 | **Ultimate Upgrades** bought with **power stones** from tournaments; five UWs (Smart Missiles, Land Mines, Chain Lightning, Chrono Field, Death Field) | T008’s stone economy; T022’s stone sources |
+| v0.4.0 | Poison Swamp + Golden Tower UWs; **top tier 10**; interest shown after every wave | T001’s interest display; the `Swamp *` / `Golden Tower *` UW caps |
+| v0.5 | Enemy Balance / Critical Coin / Super Tower / Second Wind cards; Land Mines + Death Defy | T012’s per-card pages |
+| v0.6 | waves past **≈ 60** scale harder; enemies ramp damage on consecutive hits | T002’s wave clock |
+| v0.7 | orb-speed / missile / chrono / swamp / GT / land-mine stat pools; **target priorities**; **daily gem gift moved to 08:00** | T006’s `Target Priority` (2 lv) line; T007’s gift timing |
+| v0.8 | **Tier 11**; Second Wind Blast, Double Death Ray, Inner Orb upgrades; higher-tier coin bonuses raised | T012’s special-card pages; this doc’s tier ladder |
+| v0.9 | Chain Lightning Shock + Shock Chance + Shock Multiplier; Death Wave max-health and coins/kill perks | UW caps `Chain Lightning Shock 1`, `Shock Chance 30`, `Shock Multiplier 14`, `Death Wave Health 30`, `Death Wave Coin Bonus 20` |
+| v0.10 | Inner Mine blast radius + rotation, Chrono Field range; **Enemy Balance cash bonus ×1.5 → ×1.3** | UW caps (20 / 20 / 20); T012’s `Enemy Balance` **×1.3** |
+| v0.11 | **Demon Mode, Wave Skip, Critical Chance**; Tier-5 lab = card presets; **+1 card slot** | Main cap `Card Presets 1`; T024’s Wave Skip; the slot-cap arithmetic below |
+| v0.12 | Recovery Package utility upgrades; **Intro Sprint** card; Tier-4 workshop-respec lab; expanded end-of-round stats | T020’s `Packages` trio; T012’s Intro Sprint; Main caps `Workshop Respec 1`, `More Round Stats 1` |
+| v0.13 | **Perk system at Tier 3+** + seven perk labs; ×100 buy option; UW toggle | T011 (9 perk lines, Σ **180**) |
+| v0.14 | **Black Hole UW** + Energy Shield card; **Tier 12**; **max card slots 16**; lab bonuses shown on UW/card panels | T014’s league ladder; the derived slot cap (**H061**) |
+| v0.15 | **Events** (two-week cycle) + **bots**; Champion league (**Tier 10+**); super-critical upgrades; UW scaling switched linear → **exponential** | T013, T015; T020’s `Super Critical` rows |
+| v0.16 | leaderboards (tier beats wave); three cards; **7th card level**; +1 slot; **orbs switched to fixed distances** | T012’s “7 stars” mastery half-gate; the `Orb Speed` / `Orb Size` lines |
+| v0.17 | **Spotlight UW** + spotlight coin bonus + spotlight missiles + **advanced target priority** (sorts); UW unlocks offer **3** choices; **lab gem price now discounted by research time** | UW caps `Spotlight Coin Bonus 20`, `Spotlight Missiles 18`; `Target Priority 2`; T006’s cheap-tier bill |
+| v0.18 | **Milestone system** (the gate mechanism itself); **Tier 13**; Protector enemy; faster cooldown timer; 120 FPS | every `T# W#` gate in this corpus; T006’s `Protector *` lines |
+| v0.19 | **Daily missions with weekly rewards**; four workshop upgrades (The Wall, Render Armor) + eight labs; double-counted amplify/spotlight/shock/protector multipliers removed; T10+ coin bonuses raised | T004, T019 |
+| v0.20 | **Tiers 14 & 15 with battle conditions**; **relics**; tower-skin avatars; Ultimate Crit card; **Light Speed Shots**; **4 500 milestone reward per tier**; adjustable Range lab levels | T018; T019’s ladder tail **4 500**; Attack cap `Light Speed Shots 1`; the `Range` line’s **T13 W80** |
+| v0.21 | tournament battle conditions for **Silver+**; **PLUS upgrades** (own all UWs); **UW timers synchronized all round**; UW toggle cap | T014 §4.3; T008’s sync rule |
+| v0.22 | **Modules at Milestones Tier 2 Wave 90** (Cannon / Armor / Generator / Core, main stat + random sub-stats, Epic uniques); **Def % limit 90 % → 98 %** | T010’s whole layer; the **98 %** hard cap |
+| v0.23 | **Elite enemies (Vampire / Scatter / Ray) dropping Elite Cells “used to speed up lab research”**; **workshop enhancements panel unlocked through labs**; **+2 active card slots**; Nuke card; recharge labs; module favorites / unmerge / reroll rollback | T006’s T19 trio + cells table; T020 §6’s lab gate; T012’s Nuke recharge **1 500 → 300**; T010 |
+| v0.24 | bot redesign (**UW-style timing + in-run toggles**); **Death Wave rework** (persistent damage pool, Effect Waves); **Tiers 16 / 17 / 18**; T14+ scaling rebalance; new battle conditions | T015; this doc’s Tier-16/17/18 condition rows; T008’s Death Wave matrix |
+| v0.25 | **Card Mastery** (stones, gated **T16 W100**); **Legends league + Keys + Vault trees**; lab search / favourites / history / auto-research; Cinematic Mode | T012 §2.1; T014; T017; T006’s queue notes |
+| v0.26 | **Guilds** (≤ 30 players, Guild Tokens, weekly challenges, shared chests); **Guardians**; module featured banners, shattering, **level-300 cap**, new sub-stats; expanded vault trees | T016, T023, T010, T017 |
+| v0.27 | **Tiers 19–21 + Fleets (T14+)**; **Assist Modules**; Area of Effect card; attack-speed calculation refactored; Guardian chip rework + Om Chip; **ELS battle conditions**; Lab Speed Up auto-queue | T006’s eight assist labs (**T19 W50**); T024 |
+| v0.28 | **Dissonance** (one Workshop tab locked per tier); Bot Bot + five Bot+ abilities; Synchronicity pathing; **Overheat conditions**; rotating relic section in the Event Store | T021’s table; T018’s relic rotation |
+
+**Five things the timeline settles.**
+① **`Defense %` = 98 % since v0.22** (raised from 90 %) — a second, dated print for the 98-vs-99 skew, and it agrees with
+the assist-lab page’s own **98 %** hard cap ⇒ the 99 reading is the outlier.
+② **Milestone gates only exist from v0.18** (same release as Tier 13 and the Protector) ⇒ every `T# W#` unlock quoted in
+this corpus is a v0.18-or-newer construct; pre-v0.18 accounts had no gates at all.
+③ **Elite Cells’ job is printed** (v0.23): “speed up lab research” — the frame for the cells-vs-gems research-speed
+question in the open pool; and the **time-weighted gem discount on lab rushing** predates it (v0.17).
+④ **Dissonance’s 5× / 3× are hotfix numbers** (v0.28): the bonus “shipped higher than intended”, was briefly capped at
+**2×**, then settled at **5× Attack / Defense / Ultimate Weapon** and **3× Utility** — exactly T021’s table.
+⑤ **Derived, not printed:** the active card-slot cap should read **19** today (**16** at v0.14, **+1** at v0.16, **+2** at
+v0.23 — the earlier `+1` prints of v0.11 are already inside the 16) ⇒ **H061** (one-tap count on the **Cards** screen
+settles it).
+
+**Beginner consequence.** A sub-T11 account can only own what landed by **v0.22** (milestones v0.18, daily missions
+v0.19, the 4 500 milestone and relics v0.20, modules v0.22): the mastery layer, enhancements, assist modules, guilds,
+Guardians and Dissonance are all **v0.23 +** and gated behind **T12 / T16 / T19** anyway — so the pre-T11 loop is
+interest + workshop + lab + cards + missions + tournaments, and nothing newer changes that ordering.
 
 ## Sources
 
