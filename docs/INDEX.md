@@ -13,7 +13,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | T005 | [Tier-rush then farm](techniques/T005-tier-rush-then-farm.md) | Coins (daily/weekly) | **Verified (Rev 3**, arithmetic: lattice + gate table + the printed tier ladder `1 + 0.8n` T1–T8 → 60 at T21 + the BC bills) |
 | T006 | [Lab queue packing + cheapest skipped hour](techniques/T006-lab-queue-packing.md) | all (multipliers) | **Verified (Rev 18**, arithmetic: 29/29 value laws + the cheap-tier bill 8.10 B / 462.33 d + the 5 h-per-level relation) |
 | T007 | [Ad-gem sweep](techniques/T007-ad-gem-sweep.md) | Gems | Amounts verified (Rev 2) |
-| T008 | [Stone economy: knee-first UW buying + cooldown sync](techniques/T008-uw-sync-with-stones.md) | Stones → Coins | **Verified (Rev 9**, arithmetic: 9/9 stone values + 4/4 lattice rows + the 53 547 ledger + the 9 UW+ tables closing as 4 sequences (179 240) + the GT matrix + 9/9 workshop totals + the **27/27** per-line `Total` rows) |
+| T008 | [Stone economy: knee-first UW buying + cooldown sync](techniques/T008-uw-sync-with-stones.md) | Stones → Coins | **Verified (Rev 10**, arithmetic: 9/9 stone values + 4/4 lattice rows + the 53 547 ledger + the 9 UW+ tables closing as 4 sequences (179 240) + the GT matrix + 9/9 workshop totals + the **27/27** per-line `Total` rows + the index page's 42/42 family cells and 27/27 value ranges) |
 | T009 | [Gem spend order](techniques/T009-gem-spend-order.md) | Coins/min | **Three-sourced (Rev 5**; device read pending) |
 | T010 | [Module economy (slot levels, merges, rerolls)](techniques/T010-module-merge-chain.md) | Modules, shards | **Verified (Rev 8**, arithmetic: the `40 + 5(t−11)` tier law, the 13-row currency sub-stat table, the lock ladder, the printed ledger) |
 | T011 | [Perk engine tuning](techniques/T011-perk-engine-tuning.md) | Coins (run multipliers) | **Verified (Rev 6**, arithmetic: the printed ladders + the per-tier perk bill 0 → 1 46…1 056 picks, 8/8 marginals re-added) |
@@ -194,6 +194,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 - [2026-11-02 - session 89 (T020 Rev 11)](log/2026-11-02.md#2026-11-02---session-89-iteration-98-the-defense-track-splits-the-same-way-and-the-wall-gets-two-closed-forms)
 - [2026-11-02 - session 90 (T020 Rev 12)](log/2026-11-02.md#2026-11-02---session-90-iteration-99-the-packages-trio-rides-one-ladder-and-wave-skip-gets-a-compounding-law)
 - [2026-11-02 - session 91 (T008 Rev 9)](log/2026-11-02.md#2026-11-02---session-91-iteration-100-the-twenty-seven-workshop-lines-are-priced-and-the-five-damage-lines-ride-one-ladder)
+- [2026-11-02 - session 92 (T008 Rev 10)](log/2026-11-02.md#2026-11-02---session-92-iteration-101-the-index-page-prints-the-whole-plus-layer-and-the-value-rows-get-a-second-source)
 
 ## Reference material in this repo
 

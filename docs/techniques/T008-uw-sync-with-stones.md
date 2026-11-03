@@ -1,5 +1,11 @@
 # T008 — Stone economy: knee-first UW buying + cooldown sync
 
+Rev: 10 (2026-11-02) - the **index page prices the whole UW+ layer in three printed rows** (§1.⑥): the slot ladder's own
+`Total 9705` row, the 500 … 3 800 unlock ladder (Σ 14 650), and three consolidated cost rows whose 42 cells are
+**cell-for-cell the A / B / C families of §1.④** (Σ 20 070 / 19 050 / 23 800). Its `18570` header sitting over a
+20 070 row is the A / A′ gap printed on one page (**1 500** ✓), its rows stop at level 14 (Light Range's 15–19 live only
+on its own page), and its prose "ten times" contradicts its own 14-cell rows. Its **effect table double-sources all 27
+value rows** (27/27 min/max) and with **`levels = (max − min) ÷ step`** (22/22) two panel reads give any line's depth.
 Rev: 9 (2026-11-02) - **all 27 workshop lines priced one by one** (§3.①): parsed column by column, **27/27** re-add to
 their own printed `Total` and to §2's **244 542**. Six lines are *pure arithmetic* (`Σ = n/2 × (2c₁ + (n−1)d)`
 reproduces BH Cooldown **2 040**, CL Chance = PS Cooldown **2 010** — the same ladder twice — ILM Cooldown **1 800**,
@@ -234,6 +240,48 @@ intercept and a per-second value that rises with the level, which is what the pa
 (activations = run time ÷ duration, so shortening the cooldown also re-enters). Use the **printed cells**, not the formula,
 whenever a number matters — the formula is only the shape.
 
+### 1.⑥ The index page prices the whole UW+ layer in three printed rows (Rev 10)
+
+`wiki/uw/ultimate-weapons` (4 data tables, last verified **2026-11-01**, re-pulled **2026-11-02**) carries three things
+the nine per-weapon pages do not:
+
+1. **The slot ladder with its own `Total` row**: `5 50 150 300 800 1250 1750 2400 3000 | Total 9705` — the first
+   *tabular* print of the **9 705** (previously only prose on `uw-tier-list`) ✓ the nine cells re-add to it.
+2. **The UW+ unlock ladder** `500 625 750 975 1250 1650 2200 2900 3800` (Σ **14 650** ✓) plus the rules: the plus layer
+   opens only after all nine UWs, its abilities are bought **in any order**, each purchase raises the next price, and
+   "newly unlocked abilities start at level 0" (which is why §1.④'s value rows begin above zero).
+3. **Three consolidated cost rows**, each under a header that states its own total:
+
+| printed header | its 14 cells | Σ of the cells | §1.④ family |
+|---|---|---|---|
+| `300 Base Scaling Total Cost: 23800` | 300 375 475 600 725 925 1150 1450 1800 2200 2650 3150 3700 4300 | **23 800** ✓ header agrees | **C** at cap 14 (Death Creep) |
+| `300 Base Scaling Total Cost: 18570` | 300 360 430 510 620 750 900 1100 1350 1650 2050 2600 3300 4150 | **20 070** — header says **18 570** | **A** (its two value rows are GT+ *and* ILM+) |
+| `400 Base Scaling Total Cost: 19050` | 400 500 610 730 860 1000 1150 1300 1500 1700 1950 2200 2450 2700 | **19 050** ✓ header agrees | **B** at cap 14 (Consume / Kill Wall) |
+
+All three rows are **cell for cell the families of §1.④**: A's cells are `300` plus the running sum of
+`60 70 80 110 130 150 200 250 300 400 550 700 850`, C's of `75 100 125 125 200 225 300 350 400 450 500 550 600`, B's of
+`100 110 120 130 140 150 150 200 200 250 250 250 250 300 …` ⇒ **42 / 42 cells** reproduced from two independent prints.
+
+Three things to know about this page: **the 18 570 header is not the sum of the row under it** (those 14 cells sum to
+**20 070** = GT+'s bill, while 18 570 is ILM+'s — the page merges the two 300-start trees under one header, so the A /
+A′ gap is printed on a single page: 20 070 − 18 570 = **1 500** ✓ exactly §1.④'s tail delta); **the rows stop at 14
+cells**, so Light Range's levels 15–19 exist only on `wiki/uw/spotlight` (five more `+300` steps — 3 000 / 3 300 /
+3 600 / 3 900 / 4 200 = 18 000 — carrying 19 050 → **37 050** ✓); and the prose's "each ability can be upgraded **ten
+times**" contradicts its own 14-cell rows and the nine caps **11 / 13 / 14 / 19** (H033) — trust the tables.
+
+**The effect table double-sources §3.①.** Its nine rows print each line's name plus `Min` and `Max`; parsed min→max vs
+the index min→max agree **27 / 27**, and the names are the in-game panel's (`Bonus` on GT rather than "Multiplier",
+`Speed Reduction` on CF, GT's max cooldown as **1m 40s** = 100 s). Because 22 of the 27 value rows are arithmetic, one
+law recovers every depth from two panel reads: **`levels = (max − min) ÷ step`** — 22/22 ✓ (GT `Bonus`
+(21.0 − 5.0)/0.8 = **20**, GT `Duration` (53 − 15)/1 = **38**, SM `Cooldown` (180 − 20)/10 = **16**, PS `Cooldown`
+(125 − 50)/5 = **15**, CL `Chance` (27.5 − 5.0)/1.5 = **15**); only the five `×damage` rows are geometric and need
+their printed cells. Two reads therefore give a line's depth, and §3.① then gives its block prices.
+
+Printed on the same page and used elsewhere here: the **UW damage formula** (the basis of §1.③'s shares), **40 toggles
+per run**, the 3-offer persistence rule (§5.2), "Chain Lightning has no cooldown and rolls on every projectile hit" ✓
+consistent with its three workshop lines (`Damage / Quantity / Chance` — no Cooldown line, §3.①), the **Ultimate Crit**
+card adding crit to damage-dealing UWs "but not to percentage-based damage", and **Smite's `Max hits: 100/enemy`** cap.
+
 ## 2. Per-UW max-out cost (the `Total` rows, verified by summing the per-level columns)
 
 | UW | Total | stat 1 | stat 2 | stat 3 |
@@ -298,7 +346,9 @@ numbers of levels: **200 s = 10 levels** of GT, **150 s = 5 levels** of BH, neve
 The nine basic-stat tables were re-pulled and parsed column by column with `tools/uw-track-knees.ps1` (it reads every
 `(value, cost)` pair to its last numeric cell and re-adds it against the page's own `Total` row). **27 / 27 columns
 agree** with their printed `Total`, and the 27 line totals re-add to §2's **244 542**, so the ledger is now closed at
-*line* level, not just page level. `st/unit` = marginal cost ÷ marginal value printed by the same row.
+*line* level, not just page level. `st/unit` = marginal cost ÷ marginal value printed by the same row. The `value row`
+column is double-sourced by the index page's `Min`/`Max` table (§1.⑥, **27/27** agree), and for the 22 arithmetic rows
+`levels = (max − min) ÷ step` re-adds the printed depth 22/22 ✓.
 
 | UW | line | levels | value row | line Σ | Σ L1–5 | Σ L1–10 | Σ L1–15 | st/unit L1 | st/unit at cap | × |
 |---|---|---|---|---|---|---|---|---|---|---|
@@ -496,6 +546,13 @@ Also: each `Basic_Upgrades` page's `Total` equals the sum of its own column (BH 
       whole grid.
 - [ ] **Duration block:** the GT **Duration** workshop line prices its first ten levels **5 / 14 / 23 / 32 / 41 / 50 / 59 /
       68 / 77 / 98** (Σ **467**) and the value column steps **15 s → 25 s**; buy it before GT+ level 4+.
+- [ ] **The index page's three UW+ rows (§1.⑥):** the `300 … 4300` row's 14 cells sum to **23 800**, the `400 … 2700`
+      row's to **19 050**, and the `300 … 4150` row's to **20 070** while its header prints **18 570** (that is ILM+'s
+      total — the difference is exactly **1 500** = A − A′). The slot table's own `Total` cell reads **9 705**.
+- [ ] **The depth law (§1.⑥):** two reads per line give its depth — GT `Bonus` (21.0 − 5.0) ÷ 0.8 = **20** levels,
+      GT `Cooldown` (300 − 100) ÷ 10 = **20**, PS `Cooldown` (125 − 50) ÷ 5 = **15**, CL `Chance` (27.5 − 5.0) ÷ 1.5 =
+      **15** — and the panel shows GT's maxed cooldown as **1m 40s** (= 100 s).
+- [ ] **Smite's printed cap:** the ability text carries `Max hits: 100/enemy`.
 - [ ] Fully maxed: **Black Hole 50 s**, **Death Wave 50 s**, bots (except Flame) **50 s**, **Golden Tower 100 s**.
 - [ ] **The 2:1 check:** BH at 150 s against GT at 300 s ⇒ BH fires **twice** per GT in the same window (count activations
       over one 300 s span: 2 and 1).
@@ -548,6 +605,11 @@ Also: each `Basic_Upgrades` page's `Total` equals the sum of its own column (BH 
   two printed rows).
 - If the GT income table’s anchor cell (GT+10 at 60 s) is not **1.000**, the matrix is normalised differently → divide
   every cell by that anchor before using the two laws; the ratio laws themselves are anchor-free.
+- If the index page's three `Base Scaling` rows stop matching §1.④'s A / B / C families cell for cell, the trees were
+  re-binned → the nine per-ability tables are the primary source (Chain Lightning's own `TOTAL` row is the anchor), so
+  rebuild §1.⑥'s table from those and keep the family step lists.
+- If a line's `(max − min) ÷ step` disagrees with its level counter, that line's value row is not arithmetic — the five
+  `×damage` rows are geometric ⇒ use their printed cells (§3.① lists all 27 counts).
 - If a first UW+ level costs something other than **300** (GT / CL / SM / ILM / PS) or **400** (CF / BH / DW / Spotlight),
   the cost tree was re-binned → read the first three cells per line and rebuild the ratio column; the *knee* levels of the
   two quadratic rows (8 and 4) still hold as long as the value increments keep stepping by 1 and 0.4.
@@ -581,6 +643,13 @@ Also: each `Basic_Upgrades` page's `Total` equals the sum of its own column (BH 
   **9 705** total for the nine slots, the Legend account’s per-UW UW+ ledger (**13 838 / 10 456 / 5 740 / 5 393 / 4 374 /
   3 416 / 625 / 0 / 0**, headline **53 547**), the **374**-run coin-share and damage-share tables, and the Smart-Missiles-7th
   community skew.
+- Tower Hub `wiki/uw/ultimate-weapons` (last verified **2026-11-01**, re-pulled **2026-11-02**) — §1.⑥'s three
+  consolidated `Base Scaling` cost rows with their header totals (**23 800 / 18 570 / 19 050**, 42 cells that reproduce
+  §1.④'s A / B / C families), the slot ladder's printed `Total` **9705**, the UW+ `Unlock 500 … 3800` row, the nine-row
+  effect table (line names + `Min`/`Max` ⇒ §3.①'s value rows and the `levels = (max − min) ÷ step` law), the
+  “abilities start at level 0 / buy in any order / each purchase raises the next price” rules, the full **UW damage
+  formula**, the **40 toggles per run**, the 3-offer persistence rule, “Chain Lightning has no cooldown and rolls on
+  every projectile hit”, the Ultimate Crit card note, and Smite's `Max hits: 100/enemy`.
 - Tower Hub `wiki/guide/coin-guide-basics` (2026-07-29) — GT **300 s** / BH **200 s** base, the 200 s (1:1) and 150 s (2:1)
   sync targets, the “fund both blocks in the same sitting” rule, MVN’s averaging + small penalty, and the **11× / 20.75× /
   228.25×** multiplier product.

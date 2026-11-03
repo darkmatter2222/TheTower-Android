@@ -121,6 +121,47 @@ foreach ($o in $all) {
 Write-Output ('  TOTAL 27 lines: all={0} first5={1} first10={2} first15={3}' -f $gSum, $g5, $g10, $g15)
 
 Write-Output ''
+Write-Output '== value-row law check: arithmetic rows must satisfy n = (max - min) / step'
+foreach ($o in $all) {
+  $v = foreach ($x in $o.vals) { Get-Num $x }
+  $d = $v[1] - $v[0]; $arith = $true
+  for ($k = 2; $k -lt $v.Count; $k++) { if ([math]::Abs(($v[$k] - $v[$k - 1]) - $d) -gt 1e-9) { $arith = $false; break } }
+  if (-not $arith) { Write-Output ('  {0,-16} {1,-16} geometric value row (n={2}) - needs the printed cells' -f $o.page, $o.track, $o.n); continue }
+  $pred = [math]::Round((($v[$o.n] - $v[0]) / $d), 6)
+  Write-Output ('  {0,-16} {1,-16} step {2,-6} min {3,-8} max {4,-9} predicted n = {5,-4} printed n = {6,-4} {7}' -f `
+    $o.page, $o.track, $d, $v[0], $v[$o.n], $pred, $o.n, $(if ($pred -eq $o.n) { 'OK' } else { 'MISMATCH' }))
+}
+
+Write-Output ''
+Write-Output '== second source: wiki/uw/ultimate-weapons effect table (min/max) vs the parsed value rows'
+# Printed on the index page as `1st/2nd/3rd Effect` + `Min` + `Max` (fetched 2026-11-02).
+$idx = @{
+  'black-hole|Size'             = @(30, 70); 'black-hole|Duration' = @(15, 38); 'black-hole|Cooldown' = @(200, 50)
+  'chain-lightning|Damage'      = @(2, 7961); 'chain-lightning|Quantity' = @(1, 5); 'chain-lightning|Chance' = @(5.0, 27.5)
+  'chrono-field|Duration'       = @(5, 40); 'chrono-field|Slow' = @(20, 75); 'chrono-field|Cooldown' = @(180, 60)
+  'death-wave|Damage'           = @(2, 9119); 'death-wave|Effect Wave Quantity' = @(1, 5); 'death-wave|Cooldown' = @(300, 50)
+  'golden-tower|Multiplier'     = @(5.0, 21.0); 'golden-tower|Duration' = @(15, 53); 'golden-tower|Cooldown' = @(300, 100)
+  'inner-land-mines|Damage'     = @(10, 9219);
+  'inner-land-mines|Quantity'   = @(3, 6); 'inner-land-mines|Cooldown' = @(200, 50)
+  'poison-swamp|Damage'         = @(10, 9219); 'poison-swamp|Duration' = @(30, 100); 'poison-swamp|Cooldown' = @(125, 50)
+  'smart-missiles|Damage'       = @(10, 9219); 'smart-missiles|Quantity' = @(5, 20); 'smart-missiles|Cooldown' = @(180, 20)
+  'spotlight|Bonus'             = @(8.0, 50.0); 'spotlight|Angle' = @(30, 90); 'spotlight|Quantity' = @(1, 4)
+}
+$nm = 0; $okc = 0
+foreach ($o in $all) {
+  $key = ($o.page -replace '^uw/', '') + '|' + $o.track
+  $m = $null
+  if ($o.track -like 'Damage*') { $m = $idx.($o.page + '|Damage') }
+  if ($null -eq $m) { $m = $idx.$key }
+  if ($null -eq $m) { Write-Output ("  no index row for " + $key); $nm++; continue }
+  $a = Get-Num $o.vals[0]; $b = Get-Num $o.vals[$o.n]
+  $ok = ([math]::Abs($a - $m[0]) -lt 1e-9 -and [math]::Abs($b - $m[1]) -lt 1e-9)
+  if ($ok) { $okc++ }
+  Write-Output ('  {0,-16} {1,-16} parsed {2} -> {3,-9} index {4} -> {5,-9} {6}' -f $o.page, $o.track, $a, $b, $m[0], $m[1], $(if ($ok) { 'OK' } else { 'MISMATCH' }))
+}
+Write-Output ('  matched ' + $okc + ' / ' + $all.Count + '   (no row: ' + $nm + ')')
+
+Write-Output ''
 Write-Output '== value-row identity groups (>= 10 cells)'
 for ($i = 0; $i -lt $all.Count; $i++) {
   for ($j = $i + 1; $j -lt $all.Count; $j++) {
