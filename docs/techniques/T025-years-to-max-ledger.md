@@ -1,5 +1,12 @@
 # T025 — The years-to-max ledger: what every sink costs in days of income
 
+Rev: 5 (2026-11-03) — the **stone band ladder is no longer a list of six numbers**: it is
+[T014](T014-tournament-tickets.md) §3.3's closed form `stones/week = 2·S·(S + ⌊G/10⌋ + 2)` (identity verified on
+**70/70** band cells; the six rows re-add **6/6**), and the **total** week also carries the two printed flow terms
+`+ 45` (weekly boxes) `+ 15·a` (event-shop trades, **a = 5** at 500 medals) ⇒
+**200 / 274 / 552 / 1 200 / 6 520 / 20 280** per week and **43.5 / 31.7 / 15.8 / 7.25 / 1.33 / 0.43 years** to the
+**452 282** bill (`tools/stones-band-closed-form.ps1`). The `+45 + 75` terms are **60 %** of the Copper-bottom week and
+**0.59 %** at Champion 16–24, so below Gold the boxes and medal trades are the lever, above it the ticket count.
 Rev: 4 (2026-11-03) — adds **§1.④**, the whole *priced* lab census from [T006](T006-lab-queue-packing.md) Appendix B:
 **72 / 169** lines, **4.039 Q** coins, **104 035.3 d** of clock, **2.4968 × 10⁷** cells at ×1.5 — cells bind by **×4.33**,
 the fourteen T19-band lines are **40.29 %** of the coins and **67.6 %** of the clock, the 19 lines below that band cost
@@ -152,14 +159,19 @@ The band-independent side, at 24 h uptime:
 
 The band-dependent side (stones), with the 910-sync and the full **452 282** bill as the two rulers:
 
-| stones/week | 52-week stones | ÷ 910 (syncs) | ÷ 452 282 | years to the full bill |
-|---|---|---|---|---|
-| 80 | 4 160 | 4.6 | 0.009 | 108.7 |
-| 154 | 8 008 | 8.8 | 0.018 | 56.5 |
-| 432 | 22 464 | 24.7 | 0.05 | 20.1 |
-| 1 080 | 56 160 | 61.7 | 0.124 | 8.05 |
-| 6 400 | 332 800 | 365.7 | 0.736 | 1.36 |
-| 20 160 | 1 048 320 | 1 152 | **2.318** | 0.43 |
+| stones/week | 52-week stones | ÷ 910 (syncs) | ÷ 452 282 | years to the full bill | **total/week (Rev 5)** | **years (total)** |
+|---|---|---|---|---|---|---|
+| 80 | 4 160 | 4.6 | 0.009 | 108.7 | **200** | **43.5** |
+| 154 | 8 008 | 8.8 | 0.018 | 56.5 | **274** | **31.7** |
+| 432 | 22 464 | 24.7 | 0.05 | 20.1 | **552** | **15.8** |
+| 1 080 | 56 160 | 61.7 | 0.124 | 8.05 | **1 200** | **7.25** |
+| 6 400 | 332 800 | 365.7 | 0.736 | 1.36 | **6 520** | **1.33** |
+| 20 160 | 1 048 320 | 1 152 | **2.318** | 0.43 | **20 280** | **0.43** |
+
+**Rev 5:** the first column is [T014](T014-tournament-tickets.md) §3.3's `2·t·S` (tickets only) and the new pair adds the
+two printed flow terms — `+ 45` from the weekly boxes (from **T1 W60**) and `+ 15 × 5 = 75` from the Event Shop's stone
+line at 500 medals — so the ledger has a *tickets-only* and a *total* reading of the same six bands; the closed form
+`2·S·(S + ⌊G/10⌋ + 2)` re-adds all six (**6/6**, identity on **70/70** band cells, `tools/stones-band-closed-form.ps1`).
 
 Read: **only the two fastest bands close the stone ledger inside one year** (Platinum covers 74 % of it, Champion 232 %);
 every band below **Gold** should treat the §1.① **staged** ladder — 11 461 then 25 045 stones — as the year-one target,
@@ -184,6 +196,13 @@ not the 452 282 total.
 - [ ] **Stone bill:** `244 542 + 179 240 + 28 500 =` **452 282**, and the six band divisions give
        **108.7 / 56.5 / 20.1 / 8.05 / 1.36 / 0.43 years** (`452 282 / (stones/week) / 52`); the 910-stone sync alone is
        **11.4 / 5.9 / 2.1 / 0.84 / 0.14 / 0.05 weeks** — the same six cells the T014 table prints.
+- [ ] **Rev 5, band closed form:** for each of the six bands, `2·S·(S + ⌊G/10⌋ + 2)` reproduces the first column —
+       `10/5 → 2·5·8 = 80`, `20/7 → 2·7·11 = 154`, `40/12 → 2·12·18 = 432`, `50/20 → 2·20·27 = 1 080`,
+       `125/50 → 2·50·64 = 6 400`, `200/90 → 2·90·112 = 20 160` (70/70 band cells in
+       [T014](T014-tournament-tickets.md) §3.3's grid).
+- [ ] **Rev 5, total week:** claim all seven boxes (**45** stones, needs **T1 W60**) and **5** stone trades (**75**), then
+       add them to the tickets: at the Copper bottom band the week should land on ≈ **200** stones
+       (`452 282 / 200 / 52 =` **43.5 y**), and the two added terms should be **60 %** of that total.
 - [ ] **Shards:** `20 595 / 1 470 =` **14.0 weeks**, `20 595 / 3 570 =` **5.8 weeks**; `466 095 / 1 470 =` **317.1
        weeks = 6.1 y**; `3 136 095 / 1 470 =` **41 y**, `/ 3 570 =` **16.9 y**.
 - [ ] **Keys:** `73 000 / 16 =` **4 562.5 weeks = 87.7 years**; at Legend-1st (`25/week`) **56.2 years**.
@@ -227,6 +246,13 @@ not the 452 282 total.
   number of equipped slots ⇒ the fleet bill is `slots ×` the single-slot ladder (T010 §1), everything else is unchanged.
 - If the Champion band's 52-week stone figure no longer covers **452 282** about **2.3×**, a league reward table moved ⇒
   re-read the tournament panel's last row per league (T014 §3.2) and rebuild §2.① from those three numbers.
+- **Rev 5:** if a band's own cells give `2·S·(S + ⌊G/10⌋ + 2)` different from the first column, the panel's pair is from
+  another league's table (they are near-duplicates) ⇒ re-read the header and re-run
+  `tools/stones-band-closed-form.ps1`; if the bracket pays **once** instead of `t × S` (**H014**), use the total-week
+  column minus the ticket term (**130 / 134 / 144 / 160 / 220 / 300**) and the years become
+  `452 282 / 130 / 52 =` **66.9 y** at the Copper bottom, in which case promotion (not the ticket count) is the only lever.
+- **Rev 5:** if a stone trade pays other than **15** (or the weekly boxes other than **10 / 15 / 20 = 45**), the two added
+  terms change but the ticket grid does not — re-scale `+ 15a` and re-add.
 - If `Daily Mission Shards` at L50 does **not** print **3 570** shards/week at T10 (i.e. `42 × (35 + L)`), the mission
   shard law changed ⇒ use T004's own tier table, and re-derive the 23.1-week L50 fleet leg from it.
 - **§1.③:** if the six q-scale lines' coin bill is no longer **99.99 %** of the layer, a q-scale line was re-priced ⇒
@@ -243,7 +269,8 @@ not the 452 282 total.
   (**244 542** basic UW stats and its **§3.①** 27-line column with the `Σ L1–5 / L1–10 / L1–15` columns,
   **179 240** UW+), [T012](T012-card-deck-order.md) (**58 400** slot ladder, **51 200**
   cards, **27 500 / 28 500** mastery stones, the **2 063.56 T** `Shatter Shards` bill),
-  [T014](T014-tournament-tickets.md) §3.2 (stones/week by band),
+  [T014](T014-tournament-tickets.md) §3.2–§3.3 (stones/week by band; the closed form, the 70-cell grid, the stop-waves
+  and the total-week column),
   [T010](T010-module-merge-chain.md) §1–2 (shard ladder + income), [T004](T004-mission-farming-low-tier.md) §1
   (weekly mission income at T10 and the shard law `42 × (base(n) + L)`, so **1 470 → 3 570** at lab L50; the lab gate is
   **T4 W70**), [T017](T017-vault-keys-priority.md) (73 000 keys, per-league years),

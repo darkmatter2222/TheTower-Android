@@ -1,5 +1,13 @@
 # T014 — Tournament tickets: buy them while the marginal value beats the next card slot
 
+Rev: 10 (2026-11-03) — **§3.3: the band ladder closes on one formula**: `stones/week = 2·t·S = 2·S·(S + ⌊G/10⌋ + 2)` with
+`t = 2 + ⌊(G + 10S)/10⌋` — the identity holds on **70/70** band cells and the six ladder cells re-add **6/6**, which also
+closes the logged skew (“does not fit `45 + k × 1st place`”): the ladder is ticket-multiplied **band** pay, not the
+1st-place column. **Placement is quadratic** (exponents **1.89–2.04**, `Copper 5→20` pay = `80→1 280` = ×16 = 4²), the
+clock branch `runs(W) = 8 498 / W` puts a **stop-wave** on every row (**1 062 / 773 / 472 / 315 / 133 / 76**, ⇒ **H066**
+for the missing thresholds), and the **total** weekly income is `2·t·S + 45 + 15·a` ⇒ the **452 282**-bill years fall from
+**108.7 → 43.5 y** at the Copper bottom (the `+45 + 75` terms are **60 %** of that week but **0.59 %** at Champion 16–24).
+`tools/stones-band-closed-form.ps1`.
 Rev: 9 (2026-11-02) — **§4.3: a bracket's contents become derivable from the league index**: `r(k) = k − 1` random
 conditions, `active(k) = (k − 1) + [k ≥ 3] + [k ≥ 4]` ⇒ the conditions panel should count **0 / 1 / 3 / 5 / 6 / 7** for
 Copper → Legend; the enumerable configurations are **C(pool, r) = 1 / 15 / 105 / 455 / 1 820 / 6 188** (Legend **12 376**
@@ -225,6 +233,88 @@ Platinum), **16** (Champion), **17** (Legend *and* Mythic) — the per-league ve
 decomposition `17 + 4 + 5 = 26` closes; the lower leagues' 21-row tables are **not** decomposed on the page. The BC-strength
 law is printed as `M = 1 − Battle Condition Reduction − that condition's own lab`, “the two add up” ✓ = §4.1/§4.2's `R_total`.
 
+### 3.3 The band ladder in one formula, and the total weekly stone income (new, Rev 10)
+
+The six-cell ladder of §3.2 (`80 / 154 / 432 / 1 080 / 6 400 / 20 160`, the numbers [T025](T025-years-to-max-ledger.md)
+§1–§2 divides the whole stone bill by) is **not** a printed table — it is this doc's own ticket model, and it now has a
+one-line closed form. With `S` = your band's stone pay and `G` = its gem pay:
+
+```
+P = G + 10·S        n* = floor(P / 10)        t = 2 + n*        (tickets per bracket)
+stones/week = 2 · t · S  =  2 · S · (S + floor(G/10) + 2)       (two brackets a week)
+```
+
+The two right-hand forms are **identical**, because `floor((G + 10·S)/10) = S + floor(G/10)` exactly (`10S/10 = S`) — so
+the model is a pure quadratic in your band's stone pay. `tools/stones-band-closed-form.ps1` checks it against the §3.2
+tables: the identity holds on **70/70** band cells (7 leagues × 10 bands) and the six ladder cells re-add **6/6** —
+`Copper 23–30` (10/5 ⇒ `t = 8` ⇒ 80), `Copper 13–15` (20/7 ⇒ `t = 11` ⇒ 154), `Silver 23–30` (40/12 ⇒ 18 ⇒ 432),
+`Gold 23–30` (50/20 ⇒ 27 ⇒ 1 080), `Platinum 16–24` (125/50 ⇒ 64 ⇒ 6 400), `Champion 16–24` (200/90 ⇒ 112 ⇒ 20 160).
+The logged oddity is now closed: the ladder never contained the **45**-stone box row or the **1st-place** column, which is
+why it did not fit `45 + k × (1st place)`; the non-multiple-of-5 cell (**154**) is `2 × 11 × 7`, the ticket product itself.
+
+**1. Full weekly grid** (`2·t·S`, tickets only, from the same script):
+
+| League | band 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Copper | 1 280 | 1 008 | 768 | 456 | 320 | 270 | 208 | **154** | 108 | **80** |
+| Silver | 4 960 | 3 640 | 2 520 | 1 160 | 1 026 | 936 | 816 | 736 | 560 | **432** |
+| Gold | 17 920 | 13 580 | 9 840 | 4 560 | 2 640 | 2 240 | 1 924 | 1 632 | 1 364 | **1 080** |
+| Platinum | 64 640 | 49 560 | 36 480 | 13 580 | 11 570 | 9 840 | 8 400 | 7 420 | **6 400** | 1 280 |
+| Champion | 244 480 | 211 200 | 180 320 | 94 800 | 73 150 | 54 600 | 38 500 | 25 400 | **20 160** | 1 480 |
+| Legend | 430 950 | 377 600 | 327 750 | 281 400 | 243 100 | 208 200 | 175 450 | 146 000 | 118 800 | 34 080 |
+| Mythic | 538 650 | 478 800 | 422 450 | 373 600 | 344 190 | 317 460 | 292 520 | 267 920 | 245 050 | 117 000 |
+
+**Print note:** the six leagues are the Tower Hub copy (§3.2) and Mythic is the fandom copy. The closed form is
+print-independent — feed it the pair your own panel shows. On the **fandom** copy the two skewed middle rows come out
+**7 200** (Platinum 16–24: 200/50 ⇒ `t = 72`) and **26 400** (Champion 16–24: 300/100 ⇒ `t = 132`) instead of 6 400 /
+20 160, and `Copper / Silver / Gold` are identical in both prints (20/20 cells).
+
+**2. Placement is quadratic** — the exponent of `weekly stones` on `band pay` is **2.00 / 2.03 / 2.03 / 1.89 / 2.01 /
+2.04** (Copper → Mythic, bottom band vs rank 1), because `2S(S + ⌊G/10⌋ + 2)` is `~2S²` and `⌊G/10⌋` tracks `S`
+proportionally inside a league. Worked: Copper `5 → 20` stones of pay (×4.00) is `80 → 1 280` per week (**×16.00 = 4²**);
+Platinum `20 → 160` (×8.00) is `1 280 → 64 640` (**×50.50**, the one league whose tail re-cut breaks the square). Hence the
+whole ladder's **×252** (= 20 160 / 80) is a squared pay ratio.
+
+**3. The clock version — what a human actually gets.** Each ticket is one attempt, so `t` is capped by the 72-h bracket:
+`runs(W) = 72 × 3 600 / 30.5·W = 8 498 / W` (T002's 30.5 s per wave at ×1) ⇒
+
+```
+stones/week = 2 · S · min( 2 + floor(P/10) , floor(8 498 / W) )
+```
+
+The six ladder rows each sit exactly where the two branches meet, so each encodes a **stop-wave**: `t = 8 → W ≈ 1 062`,
+`11 → 773`, `18 → 472`, `27 → 315`, `64 → 133`, `112 → 76`. Running past the stop-wave buys nothing (the extra attempts
+pay the same band), and stopping short costs a whole band. The `wave → band` thresholds themselves are **not printed**
+⇒ [H066](../hypotheses/H066-score-to-band-thresholds.md).
+
+**4. Total weekly stone income — tickets are not the whole ledger.** Add the two printed flow rows:
+
+```
+stones/week = 2 · t · S   +   45   +   15·a        (a = event-shop stone trades)
+```
+
+`45` is the daily-mission weekly boxes (needs **T1 W60**, T004 §finding 5) and `15·a` the Event Shop line — a
+full-2-week event pays ≈ **607** medals/week (945 event medals ÷ 2 + 135 box medals), and the stone line's own ladder
+`40 + 65 + 90 + 130 + 175 = 500` buys **5** trades = **75** stones ⇒ `a = 5` for an all-in-on-stones week (the line is
+one of the three 150-gem-equivalent options, T013 §2, so `a` trades only when stones bind).
+
+| Band | `G`/`S` | `n*` | `t` | tickets only | **total (+45 +75)** | stop-wave `W` | years to **452 282** (tickets → total) |
+|---|---|---|---|---|---|---|---|
+| Copper 23–30 | 10/5 | 6 | 8 | 80 | **200** | ≈ 1 062 | 108.7 → **43.5** |
+| Copper 13–15 | 20/7 | 9 | 11 | 154 | **274** | ≈ 773 | 56.5 → **31.7** |
+| Silver 23–30 | 40/12 | 16 | 18 | 432 | **552** | ≈ 472 | 20.1 → **15.8** |
+| Gold 23–30 | 50/20 | 25 | 27 | 1 080 | **1 200** | ≈ 315 | 8.05 → **7.25** |
+| Platinum 16–24 | 125/50 | 62 | 64 | 6 400 | **6 520** | ≈ 133 | 1.36 → **1.33** |
+| Champion 16–24 | 200/90 | 110 | 112 | 20 160 | **20 280** | ≈ 76 | 0.43 → **0.43** |
+
+⇒ **the `45 + 15a` terms are 60 % of the Copper-bottom week and 0.59 % at Champion 16–24**: below **Gold** the boxes and
+the medal trades are the main lever (claim all seven boxes, dump medals into the stone line), above it the ticket count is.
+
+**5. If H014 fails** (the bracket pays once, best wave only), the whole grid collapses to `2·S + 45 + 15a`: the six bands
+become **130 / 134 / 144 / 160 / 220 / 300** per week and `n*` stops mattering — the box + trade terms then dominate every
+band up to Platinum. That single panel read ([H014](../hypotheses/H014-per-ticket-payout.md)) sets the scale of the entire
+stone ledger.
+
 ## 4. Tournament-specific build facts (they change the card preset)
 
 - **Perks do not exist in tournaments** (T011) — so the perk-driven coin engine is off; tournaments are a *wave*-score contest, optimise for **wave count**, not coins/min.
@@ -449,6 +539,16 @@ is [H057](../hypotheses/H057-heat-increase-wave-spacing.md) — one panel read s
       80 gems + 40 stones paid back), at **Copper 13–15** it is **9**, at Gold bottom **25**.
 - [ ] **§3.2 stones/week:** count the stones credited by one bracket (`t × band stones`) and compare with §3.2’s table —
       **40** for 8 tickets at the Copper bottom band, **540** for 27 at Gold bottom.
+- [ ] **§3.3 identity:** with your own band's printed `G`/`S`, the two forms agree — e.g. `Gold 23–30` (50/20):
+      `2 · 27 · 20 = 1 080 = 2 · 20 · (20 + 5 + 2)`; do the arithmetic for your league and check it against the grid.
+- [ ] **§3.3 total income:** in one week record (a) the **Tournament End Panel**'s stone total, (b) the **Weekly Rewards**
+      box row (**45** once all seven are claimed, from T1 W60), (c) the Event Shop stone trades (**15** each) — the sum
+      should sit near the §3.3 table for your band (**200** at the Copper bottom, **1 200** at Gold bottom).
+- [ ] **§3.3 stop-wave:** at the Copper bottom band, `t = 8` meets the clock at **W ≈ 1 062**; if you stop at **W ≈ 1 500**
+      instead, the extra attempts should be **fewer** while the band pay stays the same (the product drops).
+- [ ] **§3.3 quadratic placement:** moving up one band multiplies the week by something **between** the pay ratio and its
+      square (Copper `10/5 → 15/6`: pay **×1.20**, week **108/80 = ×1.35**, the square being 1.44 — the gap is the
+      `⌊G/10⌋` term moving with the gems); over a whole league the fitted exponent is **2.00**.
 - [ ] **§4.3 condition count:** the **Tournament Conditions Panel** counts exactly **1** condition in **Silver**, **3** in
       **Gold**, **5** in **Platinum** (`active(k) = (k−1) + [k≥3] + [k≥4]`), and **none** in Copper.
 - [ ] **§4.3 skip values:** the panel prints `Enemy Level Skip` at value **10** in Gold and **50** in Legend; with all five
@@ -471,6 +571,15 @@ is [H057](../hypotheses/H057-heat-increase-wave-spacing.md) — one panel read s
 - If the Workshop loses **35/50** levels at 20 % reduction (rather than 28/40), the decay law is **unscaled** by the
   reduction lab → then `Battle Condition Reduction` does not apply to the two Overheat decays, and §4.1's priority order
   (generic first) flips for these two conditions only.
+- **Rev 10:** if the bracket's stone total is **not** `t × S` (say it equals `S` for any `t`), the per-ticket model fails
+  with **H014** → use the `2·S + 45 + 15a` column (**130 / 134 / 144 / 160 / 220 / 300**) and re-derive the ticket count
+  from the gem side only.
+- **Rev 10:** if a **6th** stone trade is available for fewer than the ladder's **380** medals, `a` is larger than 5 →
+  recount the ladder from the **Event Shop** and re-scale the `+15a` term (the grid itself is unaffected — it is tickets
+  only).
+- **Rev 10:** if the identity check in the checklist disagrees for your own band, the printed `G`/`S` you read belongs to a
+  **different league table** (the seven are near-duplicates) → re-read the panel header; the closed form itself is
+  arithmetic and cannot drift.
 - If extra Fleet/Elite waves come every **101 − value** (no `max(1, …)` floor) or the intervals ignore the panel's
   `value` column, re-derive the interval law from two measured gaps (100 and 5 are what the printed values 1 and 96 give).
 - If a repeatedly-stunned enemy keeps the **full** 10 s after ten applications, the per-enemy stun counter is not shared
@@ -489,6 +598,12 @@ is [H057](../hypotheses/H057-heat-increase-wave-spacing.md) — one panel read s
   panel's last row per league and rebuild the stones/week table from those three numbers.
 - **§3.2:** if the conditions panel of a lower league shows a row count inconsistent with a **15**-entry pool, the pool
   sizes changed → take the pool count from the panel per league; §4.2's `17 + 4 + 5 = 26` Legend closure is independent.
+- **§3.3:** if the two forms of the closed form disagree for one band of your league, the printed `G`/`S` pair is from
+  another league's table (they are near-duplicates) → re-read the panel header and re-run
+  `tools/stones-band-closed-form.ps1`; the identity itself is algebra.
+- **§3.3:** if the observed stone total per bracket is closer to `runs` than to `2 + floor(P/10)`, the clock (not the gem
+  optimum) is already binding → read `W` from the run screen and use `floor(8 498 / W)` as `t`; the grid becomes the
+  clock-capped column.
 - **§4.3:** if the panel counts something other than `active(k)` (e.g. **4** in Gold rather than 3), the always-on set moved →
   rebuild the two indicator terms `[k ≥ 3]`, `[k ≥ 4]` from the panel, then recompute the `C(pool, r)` row; the printed
   per-league skip values are independent of the count.
@@ -521,6 +636,12 @@ is [H057](../hypotheses/H057-heat-increase-wave-spacing.md) — one panel read s
 - fandom `Tournaments` (raw page text) — the **seventh** table (**Mythic**, introduced **v29, 2026-08-26**: 900/475/50 →
   335/225/8, Σ 15 935 gems / 10 090 stones / **738** keys) and the copy against which Copper, Silver and Gold re-add
   **20/20 cells**; its Legend copy differs in the gem column and pays **1** key at 16–24 (§3.1's skew rows).
+- fandom `Tournaments` (**raw wikitext, 2026-11-03** — all seven tables re-fetched for §3.3): Platinum `425/180 → 100/20`,
+  Champion `550/300 → 175/20`, Legend `675/375/25 → 250/100/0`, Mythic as above — the numbers behind the print note in
+  §3.3. fandom `Currency/Power Stones` (2026-11-03) prints the **1st-place** stone row **20 / 40 / 80 / 180 / 300 / 375 /
+  475** and the four spend lines; its Platinum/Champion/Legend cells (180/300/375) are the fandom version of the same
+  skew. New script: `tools/stones-band-closed-form.ps1` (§3.3's identity, the 70-cell grid, the stop-waves and the
+  total-income column).
 - Tower Hub `wiki/lab/lab-category-battle-condition` (last verified **2026-11-02**) — the five reduction lines with their
   caps in one table: `Battle Condition Reduction` **10**, `… Group 1` **20**, `… Group 2` **20**, `… Group 3` **10**,
   `… Group 4` **10** (Σ **70** levels), which is what turns §4.1's steps into the derived ceiling **R = 54.4 %**.
