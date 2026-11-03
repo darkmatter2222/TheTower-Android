@@ -1,5 +1,11 @@
 # T008 — Stone economy: knee-first UW buying + cooldown sync
 
+Rev: 11 (2026-11-03) - **§4.①, the orbless acceptance test** (`wiki/guide/orbless-guide`, 2026-11-01): the synced set now
+has printed numbers — **uptime > 50 %** with a **second BH** and **GT bonus ≥ 16×**, **BH size 44–48 m at 30 m range**,
+`Spotlight` **3 beams / ≥ 40° angle / ≥ 20× bonus** (**≥ 60°** before taking SL4), kills **≥ 20×** faster inside the beam,
+`Wall Regen` **10** / `Wall Thorns` **11** with **SPB 25** and **Def % 23**, **CL ≤ 596×** / **SLM ≥ 34×**, the
+`Singularity Harness` → `Galaxy Compressor` crossover at **≈ 60 %** uptime, `Anticube Portal` ancestral worth
+**+1 000 waves**, and the phase itself starting at **7 000+ waves**.
 Rev: 10 (2026-11-02) - the **index page prices the whole UW+ layer in three printed rows** (§1.⑥): the slot ladder's own
 `Total 9705` row, the 500 … 3 800 unlock ladder (Σ 14 650), and three consolidated cost rows whose 42 cells are
 **cell-for-cell the A / B / C families of §1.④** (Σ 20 070 / 19 050 / 23 800). Its `18570` header sitting over a
@@ -465,6 +471,26 @@ CPK and CPW (`coin-guide-basics`), so they enter the same product as the UW bonu
 Do **not** insert partial values: 250 vs 200 s aligns only every 1 000 s, 270/180 every 520 s — i.e. a half-finished
 block costs the same 9.1 st/s and can *worsen* the LCM. Finish a block of 5 or 10 levels in one sitting.
 
+### 4.① The orbless package — the sync target with its numbers printed (Rev 11)
+
+`wiki/guide/orbless-guide` (2026-11-01) is the cleanest printed **acceptance test** for a synced set: every line is a
+number you can read off a panel, and the build is “kills only inside the Spotlight beam while GT and BH are active” —
+i.e. the 1:1 lattice of §4, expressed as a build.
+
+| Line (exact stat name) | Printed requirement | Why it is a sync quantity |
+|---|---|---|
+| `Golden Tower` / `Black Hole` | **synchronised**, a **second** Black Hole, **uptime > 50 %**; permanent GT/BH “highly desirable”; **GT bonus ≥ 16×**; **`BH Coins` lab maxed** | uptime is the fraction of the LCM cycle in which all three bonuses are live |
+| `Black Hole` size | fully covers tower range ⇒ **44–48 m at 30 m range**; bigger is better | the clump must sit inside both the beam and the range |
+| `Spotlight` | **3 beams**, **≥ 40°** stone-invested **angle**, **≥ 20× bonus**, **`SL Coins` lab maxed**; with **SL4** go to **≥ 60°** (a 4th beam leaves gaps with no BH inside the beam) | the beam is the kill zone; angle sets its coverage |
+| kills inside the beam | “at least **20×** faster” than outside, with the SL bonus | the spillage law: every kill outside the overlap is a lost multiplier |
+| kill method | bullets with restricted **Bounce Shot Range** + `Astral Deliverance` (mythic+; T021 §4.1 has the rarity ladder), or **Chain Lightning** (Shock unlocked, multiplier maxed, **chance ≥ 10**, **CL damage ≤ 596×**), or **Spotlight Missiles** (SLM lab maxed, SM unlocked, **≥ 34×** damage, **Missile Amp** and **Radius** maxed) | each is confined to the beam, so the multiplier product is never diluted |
+| survival | Wall build: **`Wall Regen` 10**, **`Wall Thorns` 11**, Health / Health Regen / Wall Health / Wall Fortification as needed, plus **`SPB` 25** and **`Def %` 23** and the `Disable Ranged Enemies` card (permanent-BH variant: **absolutely required**); or permanent Black Hole; or glass-cannon juggling with **`Crowd Control` maxed** | the three answers are mixable; the orbless phase itself runs at **7 000+ waves** |
+| `Death Wave` | synced to **GT**, `DW Coins` lab maxed, **Quantity** is the most important stone stat, DW **damage** upgrades limited (it kills outside SL) | a third coin multiplier on the same lattice |
+| support | `Singularity Harness` (mythic+) while uptime is low, `Galaxy Compressor` once uptime is **≈ 60 %** — test both for your crossover; `Anticube Portal` at **ancestral extends the phase by 1 000 waves**; `Land Mine Radius` **minimised**, LM **damage maxed**; **`Target Priority 2` = “In Spotlight”** (Closest “costs a significant chunk of CPM”) | the SH→GComp crossover is the same 50→60 % uptime axis as the first row |
+
+Three of those numbers are the cheapest diagnostics in the whole catalog: **uptime** (50 % / 60 %), **SL angle**
+(40° / 60° around SL4) and **`AD` rarity** (3.8 / 6.5 / 10.5×) each decide one purchase without any spreadsheet.
+
 ## 5. Two free (stone-less) UW sources
 
 1. **`Unlock a Random Ultimate Weapon` perk** (Standard perk pool, quantity 1, needs the Perks lab at T2 W150). It grants a *semi-upgraded* UW for the rest of the run — worth, by the table below, **700–2 426 stones each**, and it costs no stones. It does **not** enable that UW's labs and does not grant its UW+ ability.
@@ -556,6 +582,9 @@ Also: each `Basic_Upgrades` page's `Total` equals the sum of its own column (BH 
 - [ ] Fully maxed: **Black Hole 50 s**, **Death Wave 50 s**, bots (except Flame) **50 s**, **Golden Tower 100 s**.
 - [ ] **The 2:1 check:** BH at 150 s against GT at 300 s ⇒ BH fires **twice** per GT in the same window (count activations
       over one 300 s span: 2 and 1).
+- [ ] **The orbless gate (§4.①):** the panel reads **GT bonus ≥ 16×** and **BH size 44–48 m** with the Range workshop at
+      **30 m**, the `Spotlight` **angle ≥ 40°** on **3 beams**, and **uptime above 50 %**; after moving
+      `Singularity Harness` → `Galaxy Compressor` at **≈ 60 %** uptime the cooldown cycle gets shorter, not longer.
 - [ ] **The nine workshop totals (9 / 9):** each page’s prose total equals its table’s `Total` row equals the sum of its
       three per-level columns — BH **9 723**, CF **9 946**, CL **18 375**, ILM **23 032**, GT **27 186**, DW **29 391**,
       PS **34 226**, SM **39 177**, Spotlight **53 486** ⇒ **244 542** stones for all basic UW stats.
@@ -596,6 +625,10 @@ Also: each `Basic_Upgrades` page's `Total` equals the sum of its own column (BH 
 - If a cooldown `+` costs something other than the printed per-level column (10, 28, 46, …), the client uses a different price tree → record the whole column and rescale §3–§4 (the *ratios* between blocks are what the plan needs).
 - If the UW totals row disagrees (e.g. GT ≠ 27 186), the version changed a ladder — trust the panel, keep the block ratios.
 - If the triple-coincidence period does not shorten after §7 step 2, a third timer offsets the phase (Golden Bot, MVN, or a toggle): the UW timers **reset when a UW is toggled off and on again** (40 toggles/run max), so compare with all toggles left in their default state.
+- If the orbless acceptance numbers (§4.①) do not reproduce — e.g. **3 SL beams** already cover every Black Hole at an
+  angle below **40°**, or the **BH size** at a 30 m Range is not **44–48 m** — the page's build target moved with a patch
+  → record the three panel values (angle, BH size, uptime) and treat the table as a checklist of *what to read*, not as
+  fixed constants.
 - If the nine UW+ prices do **not** follow 500 / 625 / … / 3 800 *in purchase order*, the price is per ability rather than
   per slot → record the nine pairs (ability, price) and rebuild §1's second row; the total bill is what the plan needs.
 - If a freshly unlocked Golden Tower reads something other than **+20 %** cash/coins, the "+20 %" is a *lab* value or a
@@ -658,3 +691,11 @@ Also: each `Basic_Upgrades` page's `Total` equals the sum of its own column (BH 
   exception of range, cannot be switched off”, the medal-respec contrast, the **69 s** MVN average and its training-wheels
   verdict, and the Chrono Field range note (lower CPH, still max it).
 - Cross-references: [T022](T022-free-currency-census-paid-ladder.md) §1–§2 (stone income and the masteries/Bot+/Synchronicity bills), [T011](T011-perk-engine-tuning.md) (ranking the random-UW perk), [T014](T014-tournament-tickets.md) (the other stone source).
+
+- Tower Hub ``wiki/guide/orbless-guide`` (last verified **2026-11-01**) - the acceptance numbers of the synced set used in
+  Â§4.1: uptime **> 50 %** with a second Black Hole, **GT bonus >= 16x**, maxed ``BH Coins``, **BH size 44-48 m at 30 m
+  range**, Spotlight **3 beams / >= 40 degrees / >= 20x** (**>= 60 degrees** for SL4), maxed ``SL Coins``, kills **>= 20x**
+  faster inside the beam, ``Wall Regen`` **10** and ``Wall Thorns`` **11** with **SPB 25** and **Def % 23**, the
+  ``Disable Ranged Enemies`` card, **CL <= 596x** with shock chance **>= 10**, **SLM >= 34x** with maxed Missile Amp and
+  Radius, the **SH -> GComp** crossover near **60 %** uptime, ``Anticube Portal`` **+1 000 waves** at ancestral, and
+  ``Target Priority 2`` = "In Spotlight".

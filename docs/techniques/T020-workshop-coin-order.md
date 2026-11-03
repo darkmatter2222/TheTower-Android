@@ -1,5 +1,9 @@
 # T020 — Workshop coin-spend order: the level-band rule and the knee table
 
+Rev: 16 (2026-11-03) - the **notation key extended to the two-letter pairs** (`wiki/guide/common-abbreviations`): the
+printed ladder continues `N` 10³⁰ · `D` 10³³ then `aa` 10³⁶ … `av` 10⁹⁹, each step ×1 000, so a deep-lab cell like
+**4.11ab** is 4.11 × 10³⁹ = **41 100 S**; the same page is the abbreviation table behind the module names used in
+T010/T021 (AD, SD, PF, MH, ACP, …) and the community shorthand (DWEW, SMEW, WAWSIS, CTO, eHP).
 Rev: 15 (2026-11-02) - **§1.13, the `Range` pair printed end to end** (`wiki/workshop/range`, 2026-10-13): the workshop line
 is **79 levels** of **+0.5 m** from **30 m** (max **69.5 m**, whole line **1.46 M** coins, unlocked for **50** after
 `Critical Factor`, `Total Cost` column re-adding 76/79 with the three 3-sig-digit cells as the only drift), and the lab is
@@ -597,7 +601,9 @@ enhancement of each track is free** (Attack `Damage +`, Defense `Health +`, Util
 all three tracks need their own 500 T.
 
 **Notation key** (the game's suffixes, needed to read these tables): `K` 10³ · `M` 10⁶ · `B` 10⁹ · `T` 10¹² · `q` 10¹⁵ ·
-`Q` 10¹⁸ · `s` 10²¹ · `S` 10²⁴ · `O` 10²⁷.
+`Q` 10¹⁸ · `s` 10²¹ · `S` 10²⁴ · `O` 10²⁷ · `N` 10³⁰ · `D` 10³³, then **two-letter pairs** `aa` 10³⁶ · `ab` 10³⁹ · …
+`av` 10⁹⁹ (each step ×1 000; the ladder is printed with its names — Undecillion … Duotrigintillion — on
+`wiki/guide/common-abbreviations`, so a value like `4.11ab` is `4.11 × 10³⁹` = **41 100 S**).
 
 ### 6.1 The 12 standard enhancements — one shared curve
 
@@ -1310,3 +1316,7 @@ on Defense, **L25** on Attack and **L30** (or 99) on Utility. So the taps go: **
   special curves (Attack Speed + 26.62 s · Orb Size 336.82 s · Coin Bonus + and Cells/Kill 2.99 S each · Free Upgrades +
   734.30 s · Enemy Level Skip + 1.51 s); the **12.37 S** total; the `Enhancement Coin Discount` lab (T21 W60, 3 labs,
   100 levels, −0.30 %/level, L1 = 1.00 B coins / 1 d 1 h 55 m); the v29 cap changes; and the `Max Buy` discount fix.
+
+- Tower Hub ``wiki/guide/common-abbreviations`` - the printed number-suffix table behind Â§6's notation key: ``K`` 10^3 â€¦
+  ``O`` 10^27, then ``N`` 10^30 Â· ``D`` 10^33 Â· ``aa`` 10^36 â€¦ ``av`` 10^99 (Undecillion â€¦ Duotrigintillion), each step
+  **x1 000**.

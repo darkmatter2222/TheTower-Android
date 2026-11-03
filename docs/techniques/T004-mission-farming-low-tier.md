@@ -165,3 +165,9 @@ the revision — the rest of the technique (low tier = faster counters) is indep
   **Max Lv 1** (the caps the §ledger's shard scaling is taken against).
 - fandom `Daily Missions` (raw wikitext, via T007/T013 tables) — the 10/15/20/25/30/35 = **135** medal ladder that the
   Tower Hub Total row reproduces.
+
+- Tower Hub ``wiki/guide/beginner-s-exploration-guide`` (last verified **2026-07-29**) - the hands-off priority list,
+  which prints **35 missions per week** for the weekly boxes (second source for 6's ladder), the four universal gem
+  sinks (**lab slots, cards, card slots, modules**), the in-run gem sources (gems orbit the tower, plus an on-screen gem
+  every **10-15 minutes** on the left edge), and the **150-gem** full Workshop respec available from **Tier 10-15**
+  (distinct from the 300-gem medal respec of T009 and the 150-gem Guardian respec).

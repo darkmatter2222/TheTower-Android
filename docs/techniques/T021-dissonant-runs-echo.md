@@ -1,5 +1,12 @@
 # T021 — Dissonant Runs: one tap-to-lock run that buys a permanent per-tier multiplier
 
+Rev: 4 (2026-11-02) — **§4.1, the locks enumerated** (`wiki/guide/dissonant-runs-guide`, 2026-11-01): the four exclusion
+lists are printed in full — **17 Attack · 17 Defense · 12 Utility · 9 UW = 55** stat lines — with the printed **module
+loadouts per variant** (DP on Cannon everywhere; SF+OA or OA+NMP on Armor; GC+SH / PH+SH / PF+PH / PH+PF on Generator;
+PCol+HC or MH or PC+DC on Core), the printed run order **Attack → UW → Health → Utility** started from your farming
+tier, and four tested numbers: max vs min **Range** is worth **≈ 2 000 waves** in a UW lock, **AD** reads **3.8 / 6.5 /
+10.5×** at legendary / mythic / ancestral, the **bounce-target ceiling is 22**, and past ~100 % bounce chance bullets
+pass **1 000×** the land-mine output.
 Rev: 3 (2026-11-02) — the **per-tier echo law is closed** with a third print (`wiki/lab/echo-lab`, 2026-11-01, a 21-row
 `Lab | Percent | 3x | 5x` table): `Percent = 0.5 + 0.5·L` and `echoed = (B − 1) × Percent / 100` per contributing tier
 (L0 → **0.01/0.02**, L20 10.5 % → **0.21/0.42**, every cell re-adds), and the page's own prose example is the **10-tier
@@ -153,6 +160,61 @@ path, so a damage/health lock is never the *inefficient* choice per wave — tak
 coins specifically on that tier; (ii) because a lock that leaves you with 1 HP reaches only a shallow wave, its boost
 is small (§2's `f`), so the *order* Attack → Utility → UW → Defense usually maximises the boost-per-minute.
 
+## 4.1 What each lock strips, stat by stat, and the printed loadouts (`guide/dissonant-runs-guide`, 2026-11-01; new Rev 4)
+
+The page prints the **complete exclusion list** per variant — **Attack 17 · Defense 17 · Utility 12 · UW 9 = 55** stat
+lines — which turns §4’s “what you lose” from prose into a checklist you can read against your own Workshop tabs.
+
+| Lock | Printed list, in the page’s own order | n | Cross-read |
+|---|---|---|---|
+| **Attack** | Damage · Attack Speed · Critical Chance · Critical Factor · Range · Damage Per Meter · Multishot Chance · Multishot Targets · Rapid Fire Chance · Rapid Fire Duration · Bounce Shot Chance · Bounce Shot Targets · Bounce Shot Range · Super Crit Chance · Super Crit Multiplier · Rend Armor Chance · Rend Armor Multiplier | **17** | the *stat* lines of the Attack track in T020 §6.1 (17, where the enhancement census has 18 rows) |
+| **Defense / Health** | Health · Health Regen · Defense % · Defense Absolute · Thorn Damage · Lifesteal · Knockback Chance · Knockback Force · Orb Speed · Orbs Max · Shockwave Size · Shockwave Frequency · Land Mine Chance · Land Mine Damage · Land Mine Radius · Death Defy · Wall Health | **17** | the Defense track; **Wall Health** is inside the lock, Wall Regen / Fortification are not listed |
+| **Utility** | Cash Bonus · Cash / Wave · Coins / Kill Bonus · Coins Per Wave · Free Attack Upgrade · Free Defense Upgrade · Free Utility Upgrade · Interest / Wave · Recovery Amount · Max Recovery Package Chance · Enemy Attack Level Skip · Enemy Health Level Skip | **12** | same count as the **12** lines of `lab/lab-category-utility-research`, but **different membership**: `Max Interest` and `Package After Boss` are absent from the lock list, the three `Free … Upgrade` lines are in it |
+| **UW** | Chain Lightning · Smart Missiles · Death Wave · Chrono Field · Inner Land Mines · Golden Tower · Poison Swamp · Black Hole · Spotlight | **9** | the nine stone UWs of T008; **Multiverse Nexus is not in the printed list** |
+
+**The printed order** differs from §4’s derived one and is worth following on a fresh account: **Attack → Ultimate
+Weapon → Health → Utility**, always started **from the tier you normally farm at** (so a short run still pays), and when
+you stop progressing, “cycle between the Attack, Health and Utility variants to nudge each one higher”. §4’s ranking is
+*boost per wave*; this is *boost per calendar week* — the two agree that Attack is first and that Utility is the coin
+lock, and they differ only in whether Defense or Utility comes third.
+
+**The printed per-variant respec** (one line each): Attack and UW → move **all attack coin into defense** and strip the
+coin/cell bonuses out of utility; Health → move **every defense point into damage**; Utility → **empty utility** into
+damage or health. Before any of it, **write down the `Wall Health`/`Wall Health+` (the page also says `WS/WS+`) base
+levels** so the respec is reversible, swap `Summon Guardian` → `Ally`, switch **off auto-pick perks** during the run and
+retune **Target Priority**; restore everything afterwards from the notes.
+
+**The module loadouts exactly as printed** (Cannon / Armor / Generator / Core):
+
+| Variant | Cannon | Armor | Generator | Core | Printed notes |
+|---|---|---|---|---|---|
+| Attack (“Max eHP”) | **DP** (+ Ass’d Mod 2nd) | **SF + OA** | **GC + SH** | **PCol + HC** | Cannon *level* is irrelevant (attack substats do nothing); on Generator **PF, RB and PH don’t help** |
+| UW (“Heavy eHP / hybrid”) | **DP** (+ Ass’d Mod) | **SF + OA** | **PH + SH** | **MH** (substats irrelevant) | **GC** on Generator; everything on Core **except MH** is “useless or worse” |
+| Health (“Glass Cannon / CC”) | **DP** (+ Ass’d Mod) | **OA + NMP** | **PF + PH** | **PC + DC** | **SR on Cannon is a liability**; on Armor only **OA and NMP** do anything (NMP needs the `Extra Orbs` card) |
+| Utility (“eHP / Glass Cannon”) | **DP** (+ Ass’d Mod) | **SF + OA** | **PH + PF** | **PC + DC** | **BHD on Generator is the only real trap**; no Recovery Packages ⇒ **`Galaxy Compressor` is ruled out**; with PF, the `Starting Cash` lab matters |
+
+**Four numbers from the page’s UW-disco deep dive** (the ones that change what you buy):
+
+1. **Range: go max, not min** — maxed range cleared **≈ 2 000 waves more** than min range in the same build (a tested
+   figure credited to /u/priesten), with the stated reasons being higher damage with range (their relative figures read
+   **×4 vs ×43.5**), range substituting for the missing slows (PS/CF are locked), and bounce shots chaining screen-wide.
+   This is the opposite of the Blender advice in T002/T003, and it is variant-specific — in a *UW lock* range is crowd
+   control, so set the §“Range lab slider” **4×** for this run only.
+2. **Astral Deliverance multiplies bullet damage** (does not add), and **AD primary + Amplifying Strike** (an
+   **Epic-only** ass’d-mod slot) was worth **several thousand extra waves**. AD’s 4th-bounce bonus by rarity reads
+   **3.8× legendary · 6.5× mythic · 10.5× ancestral** ⇒ below mythic, AD is not worth the slot.
+3. The **bounce-target ceiling is 22**; while bounce chance is still low, ordinary **land mines** carry the damage (fund
+   `Wall Skip+` for them and **unban** their perk), and once chance approaches 100 % with 22 targets **bullet damage
+   passes 1 000× the mine output** — i.e. mines are the *early* damage line of this run, bullets the late one.
+4. Under the UW lock, **`Space Displacer` still spawns Inner Land Mines and their stun still works**, and **Magnetic
+   Hook also launches ILM** (normally a weak core, one of the few worth running here) — the printed confirmation of §4’s
+   stun-and-regen exception, plus its tie-breaker: MH’s substats do not matter.
+
+**Four abbreviations the community pages use** (`guide/common-abbreviations`): **DWEW** = Death Wave Effective Wave,
+**SMEW** = Smart Missile Effective Wave (the wave where the SM volley stops killing in S-Max Devo), **WAWSIS** =
+`Wave Accelerator` + `Wave Skip` + `Intro Sprint` (a card-mastery farming stack), **CTO** = the Coins-Trade-Off perk
+(`x1.80 coins, but Tower Max Health −70 %`), and **eHP** = effective health points (§ T003’s `1 / (1 − Def %)` law).
+
 ## 5. Steps (UI only)
 
 1. Claim the **Tier 4 Wave 90** milestone first (the **Milestones** button, T019) — until then the Dissonance tab does
@@ -204,6 +266,13 @@ is small (§2's `f`), so the *order* Attack → Utility → UW → Defense usual
       **4.91s / 1 y 51 d 16 h** (the `n × t₁` time law); the four labs together are **3.54e22 coins** and
       **4 × 378 000 000 s = 17 500 d ≈ 47.9 y** of base slot time.
 
+- [ ] **§4.1 counts:** the four lock panels list **17 / 17 / 12 / 9** `DISABLED` stat lines (Attack / Defense / Utility /
+       UW) in the order printed there; the Utility panel lists **12** and does **not** include `Max Interest` or
+       `Package After Boss`.
+- [ ] **§4.1 UW lock:** the same build reads **≈ 2 000 waves higher** with the **Range** lab at **4×** than at **1×**, and
+       `Space Displacer` still drops **Inner Land Mines** that still **stun**.
+- [ ] **§4.1 AD rarity:** the 4th-bounce bonus reads **3.8×** at legendary, **6.5×** at mythic, **10.5×** at ancestral.
+
 ## 8. Falsification
 
 - If a run's printed boost ≠ §2's value for its best wave, the version changed the exponent (1.75) or the cap wave
@@ -225,6 +294,13 @@ is small (§2's `f`), so the *order* Attack → Utility → UW → Defense usual
 - If an Echo lab's **level 2 time** prints **23 d 23 h** (= `1.15 ×` 20 d 20 h) instead of **41 d 16 h** (= `2 ×`), the
   time shape is the ×1.15 geometric law of T006, not `n · t₁` ⇒ the line's total becomes
   `t₁(1.15²⁰ − 1)/0.15 = 1.844e8 s ≈ 2 134 d ≈ 5.8 y` instead of **4 375 d**.
+- If a **Utility-lock** panel still lists Recovery Packages as dropping after boss waves, the two prints disagree (the
+  dissonant page says “recovery packages don’t exist in this run”, which also rules `Galaxy Compressor` out; the lab page
+  keeps `Package After Boss` at 1 level) → trust the in-run panel and drop the `Package After Boss` term from §4’s
+  Utility exceptions.
+- If in a **UW lock** the *unlisted* **Multiverse Nexus** still fires (or `Space Displacer`’s ILM stop stunning), the
+  printed nine-item UW list is not the full set of locked sources → re-read the panel’s `DISABLED` rows and rebuild the
+  §4.1 counts from them.
 - If the panel prints **2.500** (not `2.501`) at best wave 4 243, the boost is computed from a *rounded* `f` rather than
   the raw power law → §2's third decimals are display artefacts and only the `k/8` rungs are trustworthy.
 
@@ -257,3 +333,11 @@ is small (§2's `f`), so the *order* Attack → Utility → UW → Defense usual
   `DissonantBoostsTierDataEntry` (per-tier stored boosts), `DissonantRunButton`, `DissonantRunPanelUI`, and
   `DissonanceManager|DissonanceRemoteData` (remote-configurable values → the 1.75/5000 pair is server data, which is
   why the strings are absent from the metadata dump).
+
+- Tower Hub ``wiki/guide/dissonant-runs-guide`` (last verified **2026-11-01**, "6 data tables") - the four printed
+  exclusion lists (**17 / 17 / 12 / 9** lines), the per-variant module loadouts and respec rules, the printed run order
+  (**Attack -> UW -> Health -> Utility**, started from the farming tier), the UW-disco numbers (max vs min range
+  **~+2 000 waves**, damage **x4 vs x43.5**, **AD** at **3.8 / 6.5 / 10.5x** by rarity, **22** bounce targets, bullets
+  past **1 000x** the mine output), and the card / module / perk rating matrices. Tower Hub
+  ``wiki/guide/common-abbreviations`` - **DWEW**, **SMEW**, **WAWSIS**, **CTO**, **eHP**, and the module names behind the
+  abbreviations (Astral Deliverance, Space Displacer, Project Funding, Magnetic Hook, Anti-Cube Portal, ...).
