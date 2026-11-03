@@ -1,5 +1,14 @@
 # T006 — Pack the Lab queue, then buy the *cheapest* skipped hour
 
+Rev: 28 (2026-11-03) — **the Attack Research category closes: 9 lines / 598 levels = 25.594 T coins / 124 747.5 d**
+(§Attack Research, `tools/attack-research-family.ps1`): one 99-level column prices **four** of the nine lines
+(`Damage` 1–99, `Attack Speed`, `Critical Factor`, `Range` 1–80 = **111 695 939** / **1 444.98 d** each), **597/597**
+value cells fit `1 + 0.02n` / `1 + 0.03n` / `0.10n` / `800 % + 25n` exactly, the **80-level knee** is
+**44.80 %** of the coins for **80.81 %** of the value, `Damage Per Meter` is that ladder re-printed (**16** cost cells
++10 coins, **9** time cells +1 min, Δ **+160 / +9 min**), the two Super Crit lines share the *price* column but not the
+*clock* column, `Max Rend Armor Multiplier` has a near-arithmetic price (Δ 40 B) and a **quadratic** clock
+(Δ 835→976 min, second differences 3–7 min) at **0.492 d per pp**, and the Appendix B bill now covers
+**96 / 169 lines = 4.865 Q / 245 588.8 d**.
 Rev: 27 (2026-11-03) — **the Main Research category is priced line by line** (§Main Research, 13 lines from the fandom
 lab pages, `tools/main-research-family.ps1`): **`Starting Cash` and the three `Workshop … Discount` lines share one
 99-level column** (Σ **111 695 939** coins / **1 444.98 d** each ⇒ **446 783 756** coins and **5 779.9 d** for the
@@ -783,24 +792,36 @@ and what the covered part costs. Only layers whose **every** line carries a prin
 | `E` `Garlic Thorns` | 1 | 1.35 M | 25.45 d |
 | `F` the two `* Level Skip` labs | 2 | 1.49 T | 260.62 d |
 | `G` `Super Tower Bonus`, printed ten levels | 1 | 115.94 B | 22.2 d |
-| **Σ priced** | **72** | **4.039 Q** | **104 035.3 d** |
+| `H` the **Main Research** category (§Main Research, Rev 27) | 15 | **826.445 q** | 16 806.0 d |
+| `I` the **Attack Research** category (§Attack Research, Rev 28) | 9 | 25.594 T | 124 747.5 d |
+| **Σ priced** | **96** | **4.865 Q** | **245 588.8 d** |
 
-In income units: **coins 5 770 d = 15.80 years** at 700 T/day · **clock 104 035.3 d** = 285 y single-slot =
-**57.01 y** on five slots = **15.3 y** with the ×3.725 stack · the ×1.5 boost on the whole covered part is
-**2.4968 × 10⁷ cells** = **24 968 d ≈ 68 years** of cell income ⇒ **cells bind by ×4.33** over the coins.
+In income units **(the Rev 25 72-line bill)**: **coins 5 770 d = 15.80 years** at 700 T/day · **clock 104 035.3 d** =
+285 y single-slot = **57.01 y** on five slots = **15.3 y** with the ×3.725 stack · the ×1.5 boost on the whole covered part
+is **2.4968 × 10⁷ cells** = **24 968 d ≈ 68 years** of cell income ⇒ **cells bind by ×4.33** over the coins.
+
+Scaled to the **96-line** bill the same two conversions give **coins 6 950 d = 19.03 y** at 700 T/day and
+**clock 245 588.8 d = 672.4 y** single-slot = **134.5 y** on five slots = **36.1 y** with the ×3.725 stack (the cell bill
+is read from the printed boost table rather than re-derived here).
 
 **Three facts the table produces.**
-1. **Coverage is 72 / 169 census lines = 42.6 %.** The unpriced 97 sit in `Main` (15), `Attack` (9), `Defense` (15 of 16),
-   `Utility` (10 of 12), `Card` (18 of 21), `Perk` (9), `Bot` (8), `Module` (6 of 14), `Enemies` (the 2 `Boss` lines) and
-   `Battle Condition` (5) — those pages print a ladder but no `Total`, so they need a device read or a per-level product.
-2. **One band dominates: the fourteen T19-band lines** (`B2` + `C`, the `0.25 q × n` / `n × 933 078 s` arithmetic ladders)
-   are **40.29 %** of the covered coins and **67.6 %** of the covered clock. Because both columns are arithmetic there,
+1. **Coverage is 96 / 169 census lines = 56.8 %.** Layers `H` and `I` were added from the fandom per-line lab tables at
+   Rev 27/28; the unpriced **73** now sit in `Defense` (15), `Utility` (10), `Card` (18), `Perk` (9), `Bot` (8),
+   `Module` (6), `Enemies` (the 2 `Boss` lines) and `Battle Condition` (5) — those pages print a ladder but no `Total`,
+   so they need a device read or a per-level product.
+2. **One band dominates the old bill, but not the new one: the fourteen T19-band lines** (`B2` + `C`, the
+   `0.25 q × n` / `n × 933 078 s` arithmetic ladders) are **40.29 %** of the covered coins and **67.6 %** of the covered
+   clock **inside the 72-line bill**; with `H` and `I` they are **33.4 %** and **28.6 %**, because `H`’s single
+   `Enhancement Coin Discount` line (826.445 q) and `I`’s clock (124 747.5 d, 94.47 % of it in the two Super Crit lines)
+   both became major contributors. Because both columns of the T19 band are arithmetic there,
    their clock grows *proportionally* with their coins — unlike the geometric `L-I…L-VI` families, which front-load coins.
    Practical effect: a T19-band line is the one place where the cell boost and the coin price are comparable, so the
    ×1.5 boost is worth most there.
 3. **Everything below the T19 band is a rounding error.** The 19 covered lines that are not in `A`/`B2`/`C` together cost
    **399.15 T = 0.57 days** of income (0.01 % of the bill) while taking **15 564 d** of clock — the same knee as
-   Appendix A.2’s “33 cheap lines”, now seen across layers.
+   Appendix A.2’s “33 cheap lines”, now seen across layers. The **whole Attack layer is the extreme case**: 25.594 T of
+   coins (**0.0005 %** of the bill, 0.051 % of one 500 T income day) for **124 747.5 d** of clock, i.e. it is the layer
+   whose price is *entirely* clock-bound (§Attack Research, finding 7).
 
 ### The enemy-stat layer, ladder by ladder (Rev 11)
 
@@ -1070,6 +1091,70 @@ read **2 751 d**).
    1 800 cells/day**, exactly the printed daily cell income ⇒ the ×1.5-on-all-slots row is the budget-exact build and the
    first row that exceeds income is ×2 on one slot (**160/h = 3 840/day**).
 
+### The Attack Research category priced line by line (new, Rev 28)
+
+Same route as §Main Research: the fandom prints one `Level | Time | Cost | Value` table per lab
+(`Lab/Damage`, `Lab/Attack Speed`, `Lab/Critical Factor`, `Lab/Range`, `Lab/Damage Per Meter`,
+`Lab/Super Crit Chance`, `Lab/Super Crit Mult`, `Lab/Rend Armor Max`, `Lab/Light Speed Shots`) and the category page
+`Lab Category/Attack Research` confirms the caps, so **all nine lines close** — 598 levels. Re-added offline by
+`tools/attack-research-family.ps1`. Every printed value cell obeys its line's law: **597 / 597** numeric cells fit
+`1 + s·n` (or `s·n`, or `800 % + 25n`) exactly.
+
+| Line | Levels | Σ coins | Σ clock | printed value law | coins per +0.01 |
+|---|---|---|---|---|---|
+| `Damage` | **100** | **116 005 939** | 2 153 117 min = **1 495.22 d** | `1 + 0.02n` ⇒ **×3.00** | 580 030 |
+| `Attack Speed` | 99 | 111 695 939 | 2 080 765 min = 1 444.98 d | `1 + 0.02n` ⇒ ×2.98 | 564 121 |
+| `Critical Factor` | 99 | 111 695 939 | 1 444.98 d | `1 + 0.03n` ⇒ **×3.97** | **376 081** |
+| `Range` | **80** | **50 035 939** | 1 008 194 min = **700.13 d** | `1 + 0.02n` ⇒ ×2.60 | **312 725** |
+| `Damage Per Meter` | 99 | 111 696 099 | 2 080 774 min = 1 444.98 d | `1 + 0.02n` ⇒ ×2.98 | 564 122 |
+| `Super Crit Chance` | 50 | **800 429 361 760** | 146 559 209 min = **101 777.2 d** | `0.10 · n` pp ⇒ **5.00 %** | 1.6009 × 10¹¹ |
+| `Super Crit Mult` | 40 | 221 179 361 760 | 23 141 533 min = 16 070.5 d | `1 + 0.02n` ⇒ ×1.80 | 2.764 7 × 10⁹ |
+| `Max Rend Armor Multiplier` | 30 | **24.571 81 T** | 530 896 min = **368.68 d** | `800 % + 25n` ⇒ **1 550 %** | 3.276 2 × 10¹⁰ |
+| `Light Speed Shots` | 1 | 3 000 000 | 1 199 min = 19.98 h | `Unlocked` | — |
+| **Σ 9 lines** | **598** | **25.594 T** | **179 636 452 min = 124 747.5 d** = 341.5 y | — | — |
+
+1. **One column prices four of the nine lines.** `Damage` levels 1–99, `Attack Speed`, `Critical Factor` and (as its
+   prefix) `Range` print the *same* two columns as the Main Research block: L1 **30 / 0 m**, L2 **71 / 6 m**, L99
+   **4 190 000 / 49 d 0 h 57 m** ⇒ Σ **111 695 939** coins and **1 444.98 d** per 99-level line. `Damage` adds a printed
+   level 100 (**4 310 000 / 50 d 5 h 52 m** = 72 352 min) ⇒ **116 005 939** coins / **1 495.22 d**, and `Range` stops at
+   level 80 ⇒ **50 035 939** coins / **700.13 d**.
+2. **The 80-level cap is the coin knee of that ladder.** Levels 1–80 = **44.80 %** of the coins for **80.81 %** of the
+   value (clock **48.45 %**), because the last 19 levels alone cost **61 660 000** = **55.20 %** of the line. So a
+   99-level shared-ladder line is *worse* per coin than its own first 80 levels by ×1.23 — read `Range` as the published
+   efficiency target and stop the 99-level lines near level 80 while coins are the binding currency.
+3. **`Damage Per Meter` is the same ladder, re-printed.** Diffed cell by cell against the shared column it differs in
+   exactly **16** cost cells, each by exactly **+10** coins, and only inside levels 1–26 (L1 **40** vs 30, L2 **81** vs
+   71, L3 **188** vs 178, …, L26 **98 540** vs 98 530) and **9** time cells each by **+1 min** ⇒ totals differ by
+   **Δ +160 coins / +9 min** only. One in-game ladder, two tables, differences of the third-significant-figure print.
+4. **The two Super Crit lines share the price column but not the clock column.** `Super Crit Mult` levels 1–40 are
+   cell-identical to `Super Crit Chance` levels 1–40 (L1 **200 000 / 1 d 3 h 46 m**, L40 **30 070 000 000**), while 38 of
+   40 time cells differ (L3 3 354 vs 3 351 min, L4 4 284 vs 4 261 min) — the first pair in this census with a shared
+   `Cost` ladder and an independent `Time` ladder. `Super Crit Chance`'s extra ten levels sum to exactly
+   **579 250 000 000** coins. Their per-level cost ratios decay **1.126 → 1.102** across L41–L50: the decaying-ratio
+   shape again, now with a *second* tail value.
+5. **`Max Rend Armor Multiplier` is the census's near-arithmetic price line** — consecutive differences **40 B** for the
+   first 19 cells (200, 240, 280.01, 320.03, 360.1, 400.23, 440.45 …), 50–60 B in the rounded tail — with a
+   **quadratic clock**: increments run **835 → 976 min** and their second differences are **3…7 min**, so
+   `t(n) ≈ 4999 + 835(n − 1) + 2.5(n − 1)(n − 2)` (worst error 155 min = 0.5 % at L30, from minute truncation). Its
+   value column is the plainest in the game: **800 % + 25 pp × n ⇒ 1 550 %** at L30, and **0.492 d of clock per pp** is
+   the cheapest clock per unit anywhere in this category (next best 4.376 d).
+6. **Buy order, from the two per-pp columns.** Coins first: `Range` **312 725** → `Critical Factor` **376 081** →
+   `Attack Speed` **564 121** ≈ `Damage Per Meter` **564 122** → `Damage` **580 030** → `Super Crit Mult` **2.764 7 × 10⁹**
+   → `Max Rend Armor Multiplier` **3.276 2 × 10¹⁰** → `Super Crit Chance` **1.6009 × 10¹¹**. `Critical Factor` is the
+   one to note: same 99-level price as `Attack Speed` but **+0.03 vs +0.02 per level**, so it pays **1.5×** the value per
+   coin — a lab of the same price is only worth buying before another if its step is larger. Because the damage stack is
+   printed as a product (`Displayed damage = Workshop × Lab × Damage Card × (1 + Relics) × …`), each +0.02 of the Lab
+   factor multiplies the whole chain rather than adding to it.
+7. **Which currency binds this category.** Σ coins **25.594 T** = **0.051 %** of a single 500 T income day, while the
+   clock is **124 747.5 d** (341.5 y), of which the two Super Crit lines are **94.47 %**. The Attack category is
+   therefore purely clock-bound: every coin bill in it is a rounding error, so it is exactly where the ×1.5 Elite-Cell
+   boost (30 cells per skipped hour per slot) earns most and where gem rushing (180 gems/day at 0 % discount) is least
+   needed — spend gems on the q-scale lines of Appendix A.2 instead.
+8. **Gates, straight from the lab pages** (they ladder cleanly): `Attack Speed` and `Critical Factor` **T1 W30**,
+   `Range` **T2 W30**, `Damage Per Meter` **T3 W30**, `Super Critical` **T5 W200**, `Light Speed Shots` **T7 W10**,
+   `Max Rend Armor Multiplier` **T13 W10**, `Damage` **tier 1** (wave not printed). Same one-test rule as §Main Research:
+   the in-game **Milestones** cell is the authority when a page and a block table disagree.
+
 ## Reproduction checklist
 
 - [ ] No slot shows “completed, not started” for more than a few minutes; at least one long level is running overnight.
@@ -1208,6 +1293,13 @@ read **2 751 d**).
       (27 h 55 m), and L2 = 1.30 × L1, L3 = 1.30 × L2.
 - [ ] **§Main Research (Rev 27):** the three one-level QoL lines read **250 000** (`More Round Stats`), **3 000 000**
       (`Workshop Respec`) and **20 000 000** (`Reroll Daily Mission`) coins, and `Workshop Enhancements` is **5B**.
+- [ ] **§Attack Research (Rev 28):** `Damage` level 1 reads **30** coins / **0 m** / **1.02** and level 100 reads
+      **4 310 000** / **50 d 5 h 52 m** / **3.00**; `Range` stops at level **80** with **2 320 000** / **29 d 7 h 22 m** /
+      **2.60**; `Critical Factor` level 99 reads **4 190 000** / **49 d 0 h 57 m** / **3.97**.
+- [ ] **§Attack Research (Rev 28):** `Super Crit Chance` level 1 is **200 000** / **1d 3h 46m** / **0.10** and level 50 is
+      **87,900,000,000** / **10201d 12h 58m** / **5.00**, and `Super Crit Mult` level 40 is **30,070,000,000** / **1.80**.
+- [ ] **§Attack Research (Rev 28):** `Max Rend Armor Multiplier` prints **825 %** at level 1, **1 550 %** at level 30, and
+      its first four prices are **200 B / 240 B / 280.01 B / 320.03 B** (+40 B each).
 
 ## Falsification
 
@@ -1317,6 +1409,16 @@ read **2 751 d**).
 - **§Main Research gates:** if the in-game **Milestones** screen shows `Workshop Attack Discount` on **Tier 2** wave 40
   rather than Tier 1, the lab page's gate sentence is the stale one and the Hub block column is the live one (the inverse
   of the H047 outcome) ⇒ the four-line block's unlock window moves one tier later, its prices do not.
+- **§Attack Research (Rev 28):** if `Damage` level 100 exists on one wiki but the in-game lab caps at **99**, the extra
+  cell is a wiki artefact and the line's total drops to the shared **111 695 939** / **1 444.98 d** (the category total
+  then loses 4 310 000 coins and 72 352 min). If `Damage Per Meter` starts printing prices that differ from the shared
+  column by more than **10** coins at some level, the two tables are genuinely different ladders ⇒ re-run
+  `tools/attack-research-family.ps1` with two independent arrays and drop finding 3. If `Max Rend Armor Multiplier`
+  reaches level **31**, or its step stops being 25 pp, both the near-arithmetic price law and the quadratic clock need
+  re-fitting from the new cells.
+- **§Attack Research buy order:** the per-pp ranking assumes the printed `+0.02` / `+0.03` steps; if a version changes
+  one step (say `Attack Speed` to +0.03), that line overtakes `Critical Factor` immediately — recompute the two
+  `coins per +0.01` figures rather than reusing the table.
 - **§Main Research:** if `Starting Cash` and `Workshop Attack Discount` no longer print an identical cost column, the
   shared ladder split ⇒ re-run `tools/main-research-family.ps1` with two arrays; the four per-line figures change but the
   category total does not (each line is still counted once). If `Enhancement Coin Discount` level 1 stops being **1.00B**
@@ -1471,3 +1573,13 @@ read **2 751 d**).
   prints its own gate sentence (`tier 1 wave 40`, `tier 4 wave 30`, `tier 4 wave 150`). Plus `Lab Category/Main Research`
   (the 20-line name list with `Max Lv` caps) and `Lab Upgrades` (the 5-slot ladder `Free / 100 / 400 / 1 400 / 3 000` =
   **4 900** gems, the rush ladder with its discount column, and both Elite-Cell boost tables).
+- fandom lab pages, raw wikitext via `api.php?action=parse&prop=wikitext` (pulled 2026-11-03) — the **Attack Research
+  category** tables: `Lab/Damage` (100 rows, `30 … 4 310 000`, `0d 0h 0m … 50d 5h 52m`, `1.02 … 3.00`),
+  `Lab/Attack Speed`, `Lab/Critical Factor` (`1.03 … 3.97`), `Lab/Range` (80 rows, last `2,320,000`),
+  `Lab/Damage Per Meter` (head `40 / 81 / 188 / 408 / 782`), `Lab/Super Crit Chance` (50 rows `200,000 …
+  87,900,000,000`), `Lab/Super Crit Mult` (40 rows), `Lab/Rend Armor Max` (30 rows `200,000,000,000 …
+  1,540,000,000,000`, `825% … 1550%`) and `Lab/Light Speed Shots` (1 row `3,000,000 / 0d 19h 59m / Unlocked`), plus
+  `Lab Category/Attack Research` (the 9-line name list with its `Max Lv` caps), the per-page gate sentences
+  (`tier 1 wave 30`, `tier 2 wave 30`, `tier 3 wave 30`, `tier 5 wave 200`, `tier 7 wave 10`, `tier 13 wave 10`) and the
+  `Damage` page's printed **damage product** (`Workshop x Lab x Damage Card x (1 + Relics) x (1 + Cannon Module %) x
+  Enhancements x Perk + Berserker`).
