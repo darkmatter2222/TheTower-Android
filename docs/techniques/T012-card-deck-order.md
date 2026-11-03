@@ -1,6 +1,12 @@
 # T012 — Buy card levels by gems-per-percentage-point, not by card
 
-Rev: 7 (2026-11-03) — **the `nuke` page mined (§2.3 item 8)**: the first **special-card star ladder**
+Rev: 8 (2026-11-03) - **the `death-ray` page finished (§2.3 items 3 and 9)**: all **30** `Double Death Ray` cells
+transcribed, both totals re-added cell for cell (**Σ 1 097.15 B** coins, **Σ 21 415.5 h = 892.31 d**), the block split
+(**0.11 % / 8.22 % / 91.66 %** of the coins; **2.3 % / 18.0 % / 79.7 %** of the clock) and the per-point law
+(**0.125 125 B/pp** at L1–10 vs **36.572 B/pp** line average vs **100.57 B/pp** at L21–30 ⇒ **292× / 804×**), plus a
+**fifth clock shape** (monotonically decaying ratios, cost tail **1.208**, time tail **1.13**) and the beam's immunity
+list with the new **`Enhanced Ray Mastery`** lab name. Script: `tools/death-ray-lab.ps1`.
+Rev: 7 (2026-11-03) - **the `nuke` page mined (§2.3 item 8)**: the first **special-card star ladder**
 (**25 / 35 / 45 / 55 / 65 / 80 / 100 %**, non-arithmetic: **+10 ×4, +15, +20**), the **save order**
 `Death Defy` → `Energy Shield` → `Second Wind` → `Demon Mode` → `Nuke`, the corrected Recharge Σ
 (**14.43 T / 10 374 360 s = 120 d 1 h 46 m**, `tools/recharge-family.ps1`), and the printed **`Nuke(k) = Second Wind(k + 1)`**
@@ -424,10 +430,28 @@ research time. `energy-net`, `plasma-cannon`, `slow-aura` print prose only (no t
    `Missile Barrage` shares L1–L4 and departs at L5 (**550 vs 500**) — the family rule covers price and clock only.
 3. **`death-ray` prints the whole 30-level `Double Death Ray` lab** — the §census row that so far only showed “30”.
    Prose: the lab is milestone-gated at **tier 3 wave 300**, and each level adds **exactly +1 pp** second-beam chance
-   (value column = the level number), the second beam always appearing **opposite** the first; max-level rotation covers
-   **> 180°**. The printed ladder: cost **2.5 M → 205.13 B** ⇒ **Σ = 1 097.15 B ≈ 1.10 T** coins over 30 levels; time
-   **1 h → 116 d 12 h 29 m** per level ⇒ **Σ = 21 415.5 h = 892.3 d** (per-level reading, as established in ①). Levels 21–30
-alone take 17 058 h = **79.7 %** of the whole lab's time — **stop-the-lab rule applies** ([T006 §“stop-the-lab”](T006-lab-queue-packing.md)).
+   (value column = the level number, so `v(n) = n` and the cap is **30 %**), the second beam always appearing **opposite**
+   the first; max-level rotation covers **> 180°**. **All 30 cells are now transcribed** and both totals re-add from them
+   cell for cell (`tools/death-ray-lab.ps1`): cost **2.5 M → 205.13 B** ⇒ **Σ = 1 097.15 B ≈ 1.10 T** coins; time
+   **1 h → 116 d 12 h 29 m** per level ⇒ **Σ = 21 415.5 h = 892.31 d** (per-level reading, as established in ①).
+
+   | Block | Cost cells as printed | Block Σ coins | % of Σ | Block Σ time | % of Σ |
+   |---|---|---|---|---|---|
+   | L1–10 | 2 500 000 → 596 590 000 | **1 251.25 M** | **0.11 %** | 492.7 h = 20.5 d | 2.3 % |
+   | L11–20 | 1.01 B → 24.77 B | 90.22 B | 8.22 % | 3 864.8 h = 161.0 d | 18.0 % |
+   | L21–30 | 32.01 B → 205.13 B | **1 005.68 B** | **91.66 %** | 17 058 h = 710.7 d | **79.7 %** |
+   | **Σ 30** | 2.5 M → 205.13 B | **1 097.15 B** | 100 % | **21 415.5 h = 892.31 d** | 100 % |
+
+   Three consequences. **(a) The knee is at level 10:** ten of the thirty levels — a third of the value, 10 pp of the
+   30-pp cap — cost **0.11 %** of the line's coins and **2.3 %** of its clock, i.e. **0.125 125 B/pp** at L1–10 against
+   **36.572 B/pp** for the whole line and **100.57 B/pp** at L21–30 ⇒ the first ten levels are **292×** cheaper per point
+   than the line average and **804×** cheaper than the last ten. **Stop-the-lab rule applies** at L10 (or L20)
+   ([T006 §“stop-the-lab”](T006-lab-queue-packing.md)). **(b) A fifth clock shape:** both columns' per-level ratios decay
+   *monotonically* — cost **1.237** (L9→10) to **1.192** (L29→30), last-five average **1.208**; time **1.230** to
+   **1.122**, last-five average **1.13** — so this is neither the **×1.5 / ×1.15** main family nor the **×2.25 / `n × t1`**
+   echo family: hand-set with a decaying ratio and an irregular head (time jumps **×9.35** then **×1.913**), the signature
+   of a two-term price/time formula ⇒ read the cells, do not extrapolate a ratio. **(c) Per-point budget:** the line
+   averages **36.572 B** coins and **29.74 d** of clock per percentage point of second-beam chance.
 4. **`energy-shield` prints the 2-level `Energy Shield Extra Hit`**: value **1 → 2** extra hits, costs **40 B + 850 B =
    Σ 890 B**, times 11 d 13 h 47 m + 32 d 9 h 47 m = **43.98 d**.
 5. **`card-presets` double-sources the preset ladder with names and times**: level 1 `Card Presets` **350 000** / 13 h
@@ -455,6 +479,16 @@ alone take 17 058 h = **79.7 %** of the whole lab's time — **stop-the-lab rule
    details that change what a save is worth: the automatic Nuke does **not** clear projectiles already in flight, and since
    **v27.3 (18 December 2025)** `Smart Nuke Automation` also grants **15 s** of invulnerability, and re-fires only after
    Nuke was used once that run.
+9. **The `death-ray` page adds the beam's immunity list and one new lab name** (new, Rev 8). ① The beam **cannot kill
+   bosses** and has **no effect on enemies inside a protector's radius**; the three elite types — **`Ray`, `Scatter`,
+   `Vampire`** — are **immune** outright. Practical effect for a sub-T11 reader: the card is a *clean-up* tool for the
+   basic/fast/tank/scatter masses and does nothing on a boss wave, so it never replaces orb damage in the wave budget.
+   ② Its mastery “lets Death Ray **partially pierce Protector shields** and unlocks the **`Enhanced Ray Mastery`**
+   research” — a lab name that appears nowhere in the lab census pages, i.e. the mastery itself grants a follow-up lab,
+   so a mastery purchase can change the Lab-panel line count (relevant to T006's 169-line census: it is a **+1 line**
+   event, the first such case recorded here). ③ The binary prints `Assets\Scripts\DeathRay.cs` and
+   `DeathRayController.cs` (plus the `|DeathRay` / `|DeathRayController` enum rows) and **no** `Mastery` string at all,
+   which is why every mastery name in this doc comes from the wiki rather than the dump.
 
 ## 3. Step-by-step (UI only)
 
@@ -530,6 +564,11 @@ the 31 printed rows plus `Cells`, and `time = 250n + 250 h` per level). Until th
       the **T7 W250** free cell, `Card: Nuke` in **T11 W10**, `Card: UW Crit` in **T14 W50** and `Area of Effect Card` in
       **T20 W80** ⇒ the four special-card unlocks are pinned to two waves each and the “T11 W10 for both Nuke and Land
       Mine Stun” print is one row’s offset (**H047** resolved at **T7 W250**).
+- [ ] **§2.3 `Double Death Ray`:** the lab's level 1 reads **2 500 000** coins / **0d 1h 0m** / **1 %** and level 30 reads
+      **205.13B** / **116d 12h 29m** / **30 %**; L1–L10 together cost **1 251.25 M** (= **0.11 %** of the line's
+      **1 097.15 B**) and take **492.7 h**, while L21–L30 cost **1 005.68 B** (**91.66 %**) and take **17 058 h**.
+- [ ] **§2.3 beam limits:** with `Death Ray` equipped the beam leaves a **boss** and a **protector-shielded** enemy
+      untouched, and the elite types `Ray`, `Scatter`, `Vampire` are not removed by it.
 
 ## 5. Falsification
 
@@ -568,6 +607,12 @@ the 31 printed rows plus `Cells`, and `time = 250n + 250 h` per level). Until th
 - **§2.3 card gates:** if the in-game **Milestones** screen puts `Land Mine Stun` at **T11 W10** instead of T7 W250, the
   wiki's column order is not free/premium per tier ⇒ re-read the block header row (`Tier | Tier N | Tier N+1 | Tier N+2`
   over `Wave | Standard | Premium | …`) and rebuild the four gate readings from the header, not from the column index.
+- **§2.3 `Double Death Ray`:** if the 30 printed cells no longer add to **1 097.15 B / 21 415.5 h**, the lab was
+  re-priced ⇒ re-run `tools/death-ray-lab.ps1`; the *knee* conclusion survives as long as L1–L10 stay under ~1 % of the
+  bill, and only the per-point numbers change. If the value column stops being the level number (e.g. level 5 = 5.5 %),
+  the `v(n) = n` law is dead for this line and the 36.572 B/pp figure must be recomputed as `Σcost / v(30)`.
+- **§2.3 beam limits:** if a `Death Ray` activation removes a **boss** or an enemy inside a protector radius on your
+  client, the immunity list is stale ⇒ re-read the `Good to know` block; the coin/clock ladder is unaffected.
 - **§2.3:** if the in-game `Second Wind Blast` times read as **cumulative** (level 4 ≈ 3 d 11 h total, not ≈ 8 d total),
   this page family's `Time` column differs from the other lab pages → divide the 892.3 d Double Death Ray Σ accordingly
   (cumulative would make it 116.5 d); the coin Σ (1.10 T) is unaffected either way.
@@ -611,6 +656,14 @@ the 31 printed rows plus `Cells`, and `time = 250n + 250 h` per level). Until th
   **not** destroy projectiles already in flight”, the **v27.3 (18 December 2025)** “**15 seconds of invulnerability**” note,
   and the “**only after** Nuke was used once in that run” rule. Sums reproduced by `tools/recharge-family.ps1`; the fandom
   `Nuke` page (last edited 2026-01-20) is the listed second source.
+- Tower Hub `wiki/card/death-ray` (last verified **2026-11-01**, 1 data table), re-pulled 2026-11-03 — the **complete**
+  30-row `Double Death Ray` table (`Level | Time | Cost | Value`, L1 **2 500 000** / **0d 1h 0m** / **1 %** … L30
+  **205.13B** / **116d 12h 29m** / **30 %**, quoted in full in §2.3 item 3 and summed by `tools/death-ray-lab.ps1` to
+  **1 097.15 B** coins and **21 415.5 h**), the gate prose (“unlocked through Milestones at **tier 3, wave 300** … The lab
+  has **30 levels**”), the beam limits (“**cannot kill bosses** … no effect on any enemy sitting inside a **protector's
+  radius**”; “Elites (**Ray, Scatter, Vampire**) are **immune**”; max-level rotation “covers **more than 180 degrees**”),
+  and the mastery line (“partially pierce Protector shields and unlocks the **Enhanced Ray Mastery** research”). Fandom
+  second source: `Death Ray` (last edited **2025-07-24**).
 - Tower Hub `wiki/guide/milestones` (last verified **2026-07-29**, 10 data tables), re-pulled 2026-11-03 — the second source
   for the four card gates: the T7/T8/T9 block prints **`Card: Land Mine Stun`** in the **wave 250** free cell, the
   T10/T11/T12 block **`Card: Nuke`** at **wave 10**, the T13/T14/T15 block **`Card: UW Crit`** at **wave 50**, and the
