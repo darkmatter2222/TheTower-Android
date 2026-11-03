@@ -30,7 +30,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | T022 | [Free-currency census & paid ladder](techniques/T022-free-currency-census-paid-ladder.md) | Gems, Stones (budget + bills) | **Verified (Rev 2**, arithmetic) |
 | T023 | [Guardian economy (bit model, Fetch droptable, sync layer)](techniques/T023-guardian-economy.md) | Bits → Gems, Medals, Shards, Coins | **Verified (Rev 5**, arithmetic) |
 | T024 | [Enemy Level Skip ledger (workshop + lab + enhancement)](techniques/T024-enemy-level-skip-ledger.md) | Coins → wave depth | **Verified (Rev 2**, arithmetic: 14/14 workshop checkpoints + the tier staircase `5 × (tier − 13)`) |
-| T025 | [Years-to-max ledger (income vs every sink)](techniques/T025-years-to-max-ledger.md) | all (budget sheet) | **Verified (Rev 1**, arithmetic: the gem framework **114 500 = 263 d** at 435/day, the stone bill **452 282** in six band-bound year figures (**108.7 → 0.43 y**), shard **L50 = 14.0 weeks** vs **L300 = 41 y**, keys **73 000 = 87.7 y**, `Ally` **9.3 seasons**, cells **1.8×**/day, enhancements **4.84 × 10⁷ y**) |
+| T025 | [Years-to-max ledger (income vs every sink)](techniques/T025-years-to-max-ledger.md) | all (budget sheet) | **Verified (Rev 2**, arithmetic: the gem framework **114 500 = 263 d** at 435/day, the stone bill **452 282** in six band-bound year figures (**108.7 → 0.43 y**) with the **nine-page** closure to **244 542** and the four-stage ladder **11 461 / 25 045 / 49 194 / 244 542** (79.9 % in one leg), the four-slot shard fleet **82 380 = 23.1 weeks** with the `Daily Mission Shards` lab, keys **73 000 = 87.7 y**, `Ally` **9.3 seasons**, cells **1.8×**/day, enhancements **4.84 × 10⁷ y**) |
 
 ## Hypotheses (open)
 
@@ -211,6 +211,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 - [2026-11-03 - session 104 (T021 Rev 4, T008 Rev 11, T020 Rev 16)](log/2026-11-03.md#2026-11-03---session-104-iteration-113-the-dissonant-locks-are-enumerated-and-the-orbless-package-gets-its-numbers)
 - [2026-11-03 - session 105 (T012 Rev 6, H061 partial)](log/2026-11-03.md#2026-11-03---session-105-iteration-114-the-card-layer-is-re-added-by-one-script-and-the-slot-ladder-closes-at-22-rows)
 - [2026-11-03 - session 106 (T025 Rev 1)](log/2026-11-03.md#2026-11-03---session-106-iteration-115-the-years-to-max-ledger-turns-the-printed-bills-into-one-time-axis)
+- [2026-11-03 - session 107 (T025 Rev 2)](log/2026-11-03.md#2026-11-03---session-107-iteration-116-the-stone-bill-closes-at-line-level-and-the-shard-fleet-bill-gets-a-lab-law)
 
 ## Reference material in this repo
 
