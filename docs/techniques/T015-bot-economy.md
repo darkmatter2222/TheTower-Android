@@ -1,5 +1,13 @@
 # T015 — Bot economy: the three exact cost formulas, and the sync-aware order
 
+Rev: 8 (2026-11-03) — **§3.1: the uptime density ladder** (new). The two medal lines have **separable** relative gains,
+`0.5/(19.5 + 0.5n)` (Duration) and `3/(123 − 3n)` (Cooldown) over the `40n + 60` price, so **level 1 of each is worth
+exactly 2.5 %** of uptime and the Cooldown line pulls ahead to `dC/dD =` **2.077** by level 15; the greedy order is
+`D1 C1 C2 D2 C3 D3 C4 C5 D4 …` (**7 levels / 1 060 medals** at the 1 215 budget, **13 / 2 820** at 3 000). Ranked by
+`ln(multiplier)/medals`: **Flame Cooldown 1.61e-4 > Thunder Duration 1.14e-4 > the four 120→75 Cooldown lines 0.82e-4 >
+cosmetics 0.296e-4 > the three 20→35 Duration lines 0.27e-4**, and against that cosmetic par the stop is
+**Cooldown 15 / Duration 14** (`0.583` and `0.304` above par, `0.281` below) = **10 740** medals for `27 s / 75 s` = 36 %.
+`tools/bot-uptime-density.ps1`.
 Rev: 7 (2026-11-03) — **the bot lab layer is confirmed from the full per-level tables** (`tools/bot-research-family.ps1`,
 cross-read with T006 §Bot Research): the five `* Cooldown` labs print **one identical 25-level column** and the four
 `* Duration`/`Linger` labs **one identical 20-level column** (0 differing cells), so the six-column law of §1.3 is a
@@ -241,6 +249,64 @@ is always inside it; the fully-maxed **50 s** (= 15 + 25) is the other clean div
 researching level 1. The medal lines *are* respeccable, for **300 gems** (T022 §2's respec list; the Vault reduces it to 0,
 T017), and the refund covers Bot+ levels too — re-unlocking Bot+ after a respec costs no stones again.
 
+### 3.1 The uptime density ladder — why Cooldown outranks Duration, level for level (new, Rev 8)
+
+With `U = Duration / Cooldown` (`D` seconds on out of every `C`), the two medal lines are `+0.5 s` and `−3 s` per level on
+the shared price ladder `price(n) = 100 + 40(n − 1) = 40n + 60`, so the **relative** gain of a level is separable and
+depends only on that line's own index:
+
+```
+duration level n :  dU/U = 0.5 / (19.5 + 0.5n)        cooldown level n :  dU/U = 3 / (123 − 3n)
+density          :  dD(n) = [0.5/(19.5 + 0.5n)] / (40n + 60)      dC(n) = [3/(123 − 3n)] / (40n + 60)
+```
+
+at the Golden/Amplify/Bot Bot base (`D = 20`, `C = 120`); Thunder is `5 / 120`, Flame `? / 75`. `tools/bot-uptime-density.ps1`
+prints the ladder; the first levels and the decay:
+
+| level | price | dD | density (×10⁻⁴) | dC | density (×10⁻⁴) | `dC/dD` |
+|---|---|---|---|---|---|---|
+| 1 | 100 | 0.5/20.0 = 0.02500 | **2.500** | 3/120 = 0.02500 | **2.500** | 1.000 |
+| 2 | 140 | 0.02439 | 1.742 | 0.02564 | **1.832** | 1.051 |
+| 5 | 260 | 0.02273 | 0.874 | 0.02778 | 1.068 | 1.222 |
+| 10 | 460 | 0.02041 | 0.444 | 0.03226 | 0.701 | 1.581 |
+| 15 | 660 | 0.01852 | 0.281 | 0.03846 | 0.583 | **2.077** |
+
+**1. The two lines start exactly equal and then the Cooldown line pulls ahead.** Level 1 of either line is worth exactly
+**2.5 %** of uptime (`0.5/20 = 3/120`), and after that `dC/dD = 6(19.5 + 0.5n)/(123 − 3n)` rises monotonically from 1.000 to
+**2.077** — the cooldown's numerator is constant while its denominator shrinks (each level makes the *next* one stronger),
+whereas the duration's denominator grows. Hence the greedy order interleaves as
+`D1 C1 C2 D2 C3 D3 C4 C5 D4 C6 D5 C7 C8 …`: **7 levels for 1 060 medals** (D 3 / C 4) at a 1 215-medal budget, uptime
+`16.667 % → 19.907 %` = **×1.194**, and **13 levels for 2 820 medals** (D 5 / C 8, ×1.406) at 3 000 medals.
+
+**2. Per-line efficiency, ranked** (the block multiplier ÷ medals, as `ln(multiplier)/medals`; the whole cosmetic line
+`ln(1.03)/1 000 =` **0.296 × 10⁻⁴** is the numeraire):
+
+| medal line | uptime multiplier | medals | ×10⁻⁴/medal | events |
+|---|---|---|---|---|
+| **Flame Cooldown** (75 → 30 s) | ×2.500 | 5 700 | **1.61** | 4.7 |
+| **Thunder Duration** (5 → 15 s) | ×3.000 | 9 600 | **1.14** | 7.9 |
+| Golden / Amplify / Bot Bot / Thunder **Cooldown** (120 → 75) | ×1.600 | 5 700 | **0.82** | 4.7 |
+| cosmetics (theme + background + 3 songs) | ×1.030 | 1 000 | **0.296** | 0.8 |
+| Golden / Amplify / Bot Bot **Duration** (20 → 35 s) | ×1.750 | 20 400 | **0.27** | 16.8 |
+
+⇒ **max the Cooldown line before touching Duration** (it is ×3 the density: `0.82` vs `0.27`), and Thunder's Duration line
+is the single best *duration* buy (**1.14**, because its base of 5 s triples). The three blocks with both lines capped:
+Golden/Amplify/Bot Bot `16.67 % → 46.67 %` = ×2.80 for **26 100** medals (**21.5 events**), Thunder `4.17 % → 20.00 %` =
+×4.80 for **15 300** (**12.6 events**) — the five uptime blocks together are **99 300** medals ≈ **81.7 events ≈ 163 weeks**
+(Flame contributes its **5 700**-medal Cooldown line only: its page prints no Duration column, so that line is the whole
+uptime ladder there).
+
+**3. The stop rule (density ≥ the cosmetic par).** With `par = 0.296e-4`, the Cooldown line stays above par on **all 15**
+levels (`0.583e-4` at 15) while the Duration line drops below at **level 15** (`0.281 < 0.296`; level 14 = `0.304`). So the
+medal-optimal placement is **Cooldown 15 / Duration 14** per bot — Duration levels 1–14 cost `20·14² + 80·14 =` **5 040**
+medals and the remaining **15–30** cost `20 400 − 5 040 =` **15 360** for a further `27 → 35 s` (×1.296, **0.17e-4**/medal). Both sync-divisor targets from §3 sit inside that plan: **100 s** = 5 Cooldown levels (`100 + 140 + 180 + 220 + 260 =` **900** medals,
+density `ln(120/105)/900 =` **1.48e-4**, the best five-level buy on the line), **75 s** = the full 15 levels.
+
+**4. Segment check on the decay** (why the early levels carry the block): the first five Cooldown levels cost **900**
+medals for `120 → 105 s` = ×1.143 (**1.48e-4**/medal) while the last five cost **2 900** for `90 → 75 s` = ×1.200
+(**0.63e-4**) — 3.2× the medals for 1.05× the effect. Level 15 is still worth buying (it is above par) but it is not worth
+buying *before* another bot's level 1.
+
 ## 4. What each Bot+ ability is worth
 
 | Bot+ (1 250 stones) | Levels | Effect at 0 → max | Why it ranks |
@@ -282,6 +348,14 @@ T017), and the refund covers Bot+ levels too — re-unlocking Bot+ after a respe
       total is **17 500** medals (this is also the H015 read: 0.05, not 0.5).
 - [ ] `Maximum Power` caps at **×2.25** (20 levels, 11 500 medals).
 - [ ] With 5 cooldown-lab levels + 5 medal levels, Golden Bot's cooldown reads exactly **100 s**.
+- [ ] **§3.1 density:** with **0** levels the **Bots** screen shows Golden `20 s / 120 s`; after **one** level on each of
+      the two lines it reads `20.5 s / 117 s`, i.e. uptime `(20.5/117)/(20/120) =` **×1.05128**, which is exactly
+      `(1 + 0.5/20)(1 + 3/120)` from the separable law.
+- [ ] **§3.1 the 900-medal checkpoint:** five Cooldown levels cost `100 + 140 + 180 + 220 + 260 =` **900** medals and the
+      panel must read **105 s** (= 120 − 3·5); ten levels ⇒ **2 800** medals on that line and **90 s**.
+- [ ] **§3.1 the stop rule:** **Cooldown 15 / Duration 14** reads `27 s / 75 s` = **36 %** uptime on
+      `5 040 + 5 700 =` **10 740** medals (against **26 100** fully capped) — the last sixteen levels sit below the
+      cosmetic par of **0.296e-4**.
 - [ ] The respec costs **300 gems** and the medal counter returns in full.
 - [ ] The five unlock prices are **150 / 300 / 600 / 900 / 1 200** ⇒ **Σ 3 150**.
 - [ ] The **theme** costs **150** and the **background** **250** in the current event (**400** together), and each of the
@@ -325,6 +399,14 @@ T017), and the refund covers Bot+ levels too — re-unlocking Bot+ after a respe
   “max it or skip it” rule relaxes to normal per-unit ordering (§1.2 row 3).
 - If the Golden Bot cooldown reads a value that is not `120 − 3·(medal levels) − (lab levels)`, another source (module
   sub-stat, relic, Vault line) is in the sum → list them and re-derive the divisor.
+- **§3.1:** if a **Duration** level moves the printed value by other than **0.5 s**, or a **Cooldown** level by other than
+  **3 s**, the two numerators change → re-read the per-level value from the **Bots** screen and re-run
+  `tools/bot-uptime-density.ps1` (the par comparison survives, only the stop levels move).
+- **§3.1:** if the panel shows a **Duration** value for **Flame** other than the assumed base, the absolute uptime % moves
+  but the Cooldown block's **×2.50** (`75 → 30 s`) does not — it is a ratio of the printed column alone.
+- **§3.1:** if the bot's coin output does **not** scale with the on-time fraction (e.g. a fixed number of collections per
+  activation), the ranking still orders the lines but the multipliers are no longer the coin multipliers → re-check the
+  coin/day counter with the two lines capped (**46.67 %** uptime expected).
 
 ## Sources
 
@@ -381,3 +463,9 @@ T017), and the refund covers Bot+ levels too — re-unlocking Bot+ after a respe
 - Cross-references: [T013](T013-event-medal-economy.md) (medal income), [T006](T006-lab-queue-packing.md) (what cells buy),
   [T008](T008-uw-sync-with-stones.md) §4 (the 200-s sync package the bot must divide), [T017](T017-vault-keys-priority.md)
   (respec-to-0 lines).
+- `tools/bot-uptime-density.ps1` (new, §3.1) — the two density laws and their 15-level tables, the greedy interleave
+  (**7 levels / 1 060 medals** at 1 215; **13 / 2 820** at 3 000), the per-line ranking
+  (**1.61 / 1.14 / 0.82 / 0.296 / 0.27 × 10⁻⁴**), the cosmetic par `ln(1.03)/1 000`, the stop levels
+  (**Cooldown 15 / Duration 14**, `5 040 + 5 700 =` **10 740** medals) and the segment check
+  (**900** medals for ×1.143 vs **2 900** for ×1.200). It also re-adds every printed per-line total from
+  `Σ(100 + 40(n−1)) = 20L² + 80L`: **20 400** (L30) · **5 700** (L15) · **9 600** (L20) · **7 920** (L18).
