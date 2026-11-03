@@ -1,5 +1,13 @@
 # T006 — Pack the Lab queue, then buy the *cheapest* skipped hour
 
+Rev: 43 (2026-11-03) — **the medal unit is fixed**: the printed **607.5 / 1 080** of T013 §2.4 are **per week**, not per
+day (an event is 2 weeks and pays **1 215**/**2 160**), so every medal leg of Rev 37–42 was **7× too short**. Re-issued
+figures: sheet **2 450.4 d = 350.06 weeks = 6.71 y** F2P (**1 378.4 d** boosted) and density **0.007 246/day**; the cosmetic
+**par 0.002 565/day**; the medal-to-lab ratio **14.6× → 2.082×**; the merged schedule’s head becomes
+**`E → D → F → L → Q`** with the sheet at **12th** (R) / **9th** (P) and the par at **16th** / **14th**; `A` is above the par
+on both readings (**7.07× / 6.81×**), so Rev 41’s “`A` straddles the par” was an artefact. The **event identity** closes it:
+`212 660/1 215 =` **175.03 events** `× 2 =` **350.06 weeks**, exactly T015’s own print, and `× 7 =` **2 450.4 d**. `tools/
+medal-unit-fix.ps1` (new) prints all of it; `tools/lab-day-density.ps1` now divides by `607.5/7`.
 Rev: 42 (2026-11-03) — **§The four single-law blocks (`B`, `B2`, `C`, `P`)** (new): `Σ ln` **43.810 1 / 20.407 2 /
 27.209 6 / 19.701 6** (R) and **1.513 4 / 0.743 0 / 21.926 7 / 1.002 4** (P), densities **0.014 480 / 0.003 387 /
 0.000 020 / 0.000 006** per day. New identity: **a line’s `ln` under R is `ln(cap ÷ step)`**, and every shared-ladder line
@@ -1640,26 +1648,36 @@ The ten lines above are priced in **two** scarce resources (coins and lab-slot c
 [T015](T015-bot-economy.md) §3.3–§3.4 are priced in one (medals). Putting them in one queue needs a numeraire; the only one
 that is printed for every currency is **time**: `cost_days = max( price / income_of_that_currency , Σclock / (1440 × slots) )`
 and the statistic is `ln(value ratio) / cost_days`, i.e. **relative value per calendar day**. Incomes used: medals
-**607.5/day** F2P (**1 080** boosted, T013 §2.4) and coins the player’s own printed `/day` (**700 T/day** at the top of the
-printed ladder). The **par** is the cosmetic line: `0.029559 / (1 000/607.5) =` **0.017 957 per day**.
+**607.5 per week = 86.786/day** F2P (**1 080/week = 154.286/day** boosted, **677.5** and **1 150** with the two `Fetch`
+passes, T013 §2.4) and coins the player’s own printed `/day` (**700 T/day** at the top of the printed ladder). The **par**
+is the cosmetic line: `0.029559 / (1 000/86.786) =` **0.002 565 per day**.
 `tools/lab-day-density.ps1` computes every cell from the printed sums above.
 
-**1. Medal blocks all clear the par; no lab line does.**
+**Rev 43 unit note.** T013 §2.4 prints the medal flow **per week** (an event is 2 weeks and pays **1 215** F2P /
+**2 160** boosted, so `1 215/2 =` **607.5/week**). Rev 37–42 divided by **607.5 as if it were a daily** figure, which
+made every medal leg 7× too short. The per-week print is the one the game itself reproduces:
+`212 660/1 215 =` **175.03 events** `× 2 =` **350.06 weeks**, exactly T015’s own “175.0 events ≈ 350 weeks”. Every medal
+density below is therefore the Rev 42 value **÷ 7**, and no coin/clock/stone figure changes.
+
+**1. Medal blocks all clear the par; only the two coin-bound lab layers fall under it.**
 
 | buy | cost | days | ln | per day |
 |---|---|---|---|---|
-| **Echoing Shot 9 lv** | 8 100 m | 13.33 | 1.3863 | **0.103 973** |
-| **Flame Cooldown 15 lv** | 5 700 m | 9.38 | 0.9163 | **0.097 658** |
-| Titan Shock 20 lv | 11 500 m | 18.93 | 1.6094 | 0.085 018 |
-| Thunder’s four lines | 30 600 m | 50.37 | 3.9850 | 0.079 114 |
-| Golden’s four par lines | 33 780 m | 55.60 | 3.0920 | 0.055 607 |
-| **whole medal sheet (445 taps)** | 212 660 m | 350.06 | 17.7550 | **0.050 720** |
-| cosmetics (the par) | 1 000 m | 1.65 | 0.0296 | 0.017 957 |
+| **Echoing Shot 9 lv** | 8 100 m | 93.33 | 1.3863 | **0.014 853** |
+| **Flame Cooldown 15 lv** | 5 700 m | 65.68 | 0.9163 | **0.013 951** |
+| Titan Shock 20 lv | 11 500 m | 132.51 | 1.6094 | 0.012 145 |
+| Thunder’s four lines | 30 600 m | 352.59 | 3.9850 | 0.011 302 |
+| Golden’s four par lines | 33 780 m | 389.23 | 3.0920 | 0.007 944 |
+| **whole medal sheet (445 taps)** | 212 660 m | 2 450.40 | 17.7550 | **0.007 246** |
+| cosmetics (the par) | 1 000 m | 11.52 | 0.0296 | 0.002 565 |
 | — lab category, all ten lines | 3.235 5 q | 1 321.2 (5 slots) | 4.5990 | **0.003 481** |
 
-⇒ **the medal layer is 14.6× the lab category per calendar day**, so for a sub-Tier-11 player the order is unambiguous:
-**finish the medal sheet (T015 §3.4) first, run the bot labs in the lab slots behind it**. The lab category’s own value is
-not small — `Σ ln = 4.5990` is ~26 % of the medal layer’s 17.755 — it is simply 4.2× slower to accumulate.
+⇒ **the medal layer is 2.08× the lab category per calendar day** (`0.007 246/0.003 481`, exactly 14.57/7), so the
+ordering of those two blocks is unchanged, but the whole gap narrowed by the 7×: **finish the medal sheet
+(T015 §3.4) first, run the bot labs in the lab slots behind it**. The lab category’s own value is
+not small — `Σ ln = 4.5990` is ~26 % of the medal layer’s 17.755 — it is simply 2.1× slower to accumulate.
+The par drops to **0.002 565**, which now sits *between* the clock-bound lab layers (all ≥ **0.003 387**) and the two
+coin-bound ones (`C` **0.000 020**, `P` **0.000 006**) — so the par’s role is now exactly the `C`/`P` cut-line.
 
 **2. Inside the lab category the best order depends on whether coins bind** (the two-resource flip):
 
@@ -1680,8 +1698,9 @@ not small — `Σ ln = 4.5990` is ~26 % of the medal layer’s 17.755 — it is 
   Linger/Burn/Duration lines are still coin-bound while the five cooldown labs are already clock-bound — which is exactly the
   “coins and clock bind on different halves” finding, now with the thresholds.
 * Slot count scales the clock term linearly: every lab density is `×slots`, so at **1 slot** the best lab line
-  (`Burn Stack`) is **0.002 253**/day, **8× under par**; at 5 slots it is 0.011 266, still **1.6× under par**. The lab
-  category never overtakes the medal layer on calendar days — the flip only re-orders the labs among themselves.
+  (`Burn Stack`) is **0.002 253**/day, **0.88× the par** (0.002 565 — just under it); at 5 slots it is 0.011 266,
+  **4.39× the par** (above it). The lab category overtakes the par once the slots are there, while the medal sheet still
+  leads the whole block 2.08×; the flip only re-orders the labs among themselves.
 
 **3. Print correction found by the re-add.** Finding 7 lists Burn Stack’s `k = 3` prefix as “**204.25 B**”; the printed
 column is `43 + 64.5 + 96.75 =` **204.25 T** (and the five-level total is **567.06 T**, so a `B` suffix is impossible).
@@ -1697,7 +1716,7 @@ The day-scale model of the previous section is not specific to the bots: every l
 with the medal sheet. `tools/lab-tree-day-ledger.ps1` prints every cell below.
 
 `coin-days = Σ coins / income_coins` · `calendar days = Σ clock / slots` (and `/ 3.725` again with the lab-speed stack) ·
-`cost = max(both)`, at the anchors **700 T coins/day**, **5 slots**, medals **607.5/day**.
+`cost = max(both)`, at the anchors **700 T coins/day**, **5 slots**, medals **607.5 per week = 86.786/day** (Rev 43).
 
 | layer | lines | Σ coins | coin-days | **cal-days** | + stack | binds |
 |---|---|---|---|---|---|---|
@@ -1706,10 +1725,11 @@ with the medal sheet. `tools/lab-tree-day-ledger.ps1` prints every cell below.
 | `F` the two `* Level Skip` | 2 | 1.49 T | 0.00 | **52.1** | 14.0 | clock |
 | `G` `Super Tower Bonus` | 1 | 12.304 T | 0.02 | **179.5** | 48.2 | clock |
 | `L` six named Card lines | 6 | 30.848 T | 0.04 | **237.1** | 63.7 | clock |
-| — the whole medal sheet | 445 taps | — | — | **350.1** | 350.1 | medals |
 | `Q` twelve named `Module` labs | 12 | 0.718 3 Q | 1 026.1 | **1 068.3** | 286.8 | clock |
 | `O` Bot Research (10 lines) | 10 | 3.235 5 q | 4.62 | **1 321.2** | 354.7 | clock |
 | `K` Utility | 10 | 8.906 T | 0.01 | **2 017.1** | 541.5 | clock |
+| — the whole medal sheet (445 taps, F2P) | 445 taps | — | — | **2 450.4** | 2 450.4 | medals |
+| — the same sheet, boosted flow (1 080/wk) | 445 taps | — | — | **1 378.4** | 1 378.4 | medals |
 | `J` Defense | 15 | 187.228 T | 0.27 | **3 010.2** | 808.1 | clock |
 | `B` enemy-stat T9–T13 | 13 | 383.113 T | 0.55 | **3 025.6** | 812.2 | clock |
 | `H` Main Research | 15 | 826.445 q | 1 180.6 | **3 361.2** | 902.3 | clock |
@@ -1732,17 +1752,20 @@ anchor — only `C` and `P` are coin-bound there, which is why the appendix’s 
 is really “two layers arrived”.
 
 **3. The cheapest-first queue** (cost = the `max` column, the medal sheet inserted where it sorts) is the table order
-above: `E · D · F · G · L` then the **medal sheet** (8th item counting it, 6th of the lab layers), cumulative **499.5 d**
-for the five cheap layers and **849.6 d** with the sheet; then `Q · O · K · J · B · H · M · A · B2 · I · N`, and only then
-the two coin-bound layers `C` and `P`. Two useful cuts of it:
+above: `E · D · F · G · L · Q · O · K` then the **medal sheet** (**9th** item counting it, 8th of the lab layers — it was
+6th under the 7×-fast medal leg of Rev 38–42), cumulative **4 906.2 d** through `K`; then `J · B · H · M · A · B2 · I · N`,
+and only then the two coin-bound layers `C` and `P`. Two useful cuts of it:
 * **per lab line** (cost / lines, the fair comparison when a layer’s `Σ ln` is not yet known): `E` 5.1 · `D` 12.9 ·
   `F` 26.1 · `L` 39.5 · `Q` 89.0 · `A` 93.2 · `M` 112.5 · `O` 132.1 · `G` 179.5 · `J` 200.7 · `K` 201.7 · `H` 224.1 ·
   `B` 232.7 · `B2` 1 004.3 · `I` 2 772.2 · `N` 4 070.5 · `C` 166 071 · `P` 470 934 d.
-* **the year-one plan**: the five layers above the sheet are only **12 of 191 lines** and **0.50 %** of the clock
+* **the year-one plan**: the five cheapest layers are only **12 of 191 lines** and **0.50 %** of the clock
   (499.6 of 99 471.9 d), and with the ×3.725 stack they need **134.1 calendar days** of slot time — so they fit
-  **entirely inside** the 350.06-day medal sheet. Concretely: keep the stack up, run `E → D → F → G → L` in the five
-  slots, and buy medals in every gap; both are complete in about **350 days**, and the first layer that does *not* fit
-  (`Q`, cumulative 420.9 d with the stack) is the one to start on day 351.
+  **entirely inside** the 2 450.4-day medal sheet (Rev 43: **350.06 weeks**). Because medals and lab clock are *different*
+  counters, the joint cost is the **max**, not the sum: `max(134.1 , 2 450.4) =` **2 450.4 d** (1 378.4 d on the boosted
+  flow), and the two flows run in parallel. Concretely: keep the stack up, run `E → D → F → G → L → Q → O → K` in the five
+  slots (**1 317.1 d** of stacked slot time) and buy medals in every gap; the lab chain is the short leg in every case, so
+  the **sheet’s 175 events are the calendar**, and the first layer that does *not* fit inside it is `J`
+  (cumulative 2 125.2 d stacked, still inside the F2P sheet but not inside the boosted one at 1 378.4 d).
 
 **4. Where the flip happens, per layer** — the same crossover idea as the bot category, now for the whole tree at 5 slots
 (`income* = slots × Σ coins / Σ clock`, so divide by 5 for a single slot): `E` 265.2 K · `I` 1.026 B · `K` 4.415 B ·
@@ -1762,29 +1785,32 @@ tree — 61.9 % of the clock between them — so a mistake in either of their sh
 ### The value side of the cheap layers — `Σ ln` for `E`, `D`, `F`, `G`, `L`, `M` (new, Rev 39)
 
 The Rev 38 ledger was cost-side. Seven layers carry a **complete printed value law**, so their `Σ ln` and therefore their
-density can be computed and compared with the medal sheet (**0.050 720/day**) and the par (**0.017 957/day**). Convention,
+density can be computed and compared with the medal sheet (**0.007 246/day**, Rev 43) and the par (**0.002 565/day**). Convention,
 as in T015 §3.2: `gain = ln(value at max level / value at level 1)` read from the printed law — for a pure `k·n` law that is
 `ln(N)` — and `density = Σ ln / (Σ clock / (1440 × 5 slots))`. `tools/lab-value-layers.ps1`.
 
 | layer | the printed law | Σ ln | cal-days | **per day** | + stack | × par | × sheet |
 |---|---|---|---|---|---|---|---|
-| `E` `Garlic Thorns` | `+0.5 × n` ⇒ 5.0 (10 lv) | 2.302 6 | 5.09 | **0.452 374** | 1.685 094 | 25.2 | 8.92 |
-| `D` Recharge Second Wind + Second Wind Blast | `2 000 → 400` waves · `25n` (4 lv) | 2.995 7 | 25.75 | **0.116 339** | 0.433 363 | 6.5 | 2.29 |
-| `F` the two `* Level Skip` | `0.10 × n` ⇒ +2.00 (20 lv each) | 5.991 5 | 52.12 | **0.114 946** | 0.428 175 | 6.4 | 2.27 |
-| `L` the six named Card lines | `1n`⇒30 pp · `+1/+2` ×2 · `1 500 → 300` ×2 | 8.006 4 | 237.10 | **0.033 768** | 0.125 785 | 1.9 | 0.67 |
-| `M` the 32 mastery labs | ×1.4 → ×5 (9 lv, shared table) | 40.734 9 | 3 600.0 | **0.011 315** | 0.042 149 | 0.63 | 0.22 |
-| `O` Bot Research | (the ten lines of Rev 37) | 4.599 0 | 1 321.16 | **0.003 481** | 0.012 967 | 0.19 | 0.07 |
-| `G` `Super Tower Bonus` | `1 + 0.03n` ⇒ 1.90 (30 lv) | 0.612 3 | 179.46 | **0.003 412** | 0.012 709 | 0.19 | 0.07 |
+| `E` `Garlic Thorns` | `+0.5 × n` ⇒ 5.0 (10 lv) | 2.302 6 | 5.09 | **0.452 374** | 1.685 094 | 176.4 | 62.4 |
+| `D` Recharge Second Wind + Second Wind Blast | `2 000 → 400` waves · `25n` (4 lv) | 2.995 7 | 25.75 | **0.116 339** | 0.433 363 | 45.4 | 16.1 |
+| `F` the two `* Level Skip` | `0.10 × n` ⇒ +2.00 (20 lv each) | 5.991 5 | 52.12 | **0.114 946** | 0.428 175 | 44.8 | 15.9 |
+| `L` the six named Card lines | `1n`⇒30 pp · `+1/+2` ×2 · `1 500 → 300` ×2 | 8.006 4 | 237.10 | **0.033 768** | 0.125 785 | 13.2 | 4.66 |
+| `M` the 32 mastery labs | ×1.4 → ×5 (9 lv, shared table) | 40.734 9 | 3 600.0 | **0.011 315** | 0.042 149 | 4.41 | 1.56 |
+| `O` Bot Research | (the ten lines of Rev 37) | 4.599 0 | 1 321.16 | **0.003 481** | 0.012 967 | 1.36 | 0.48 |
+| `G` `Super Tower Bonus` | `1 + 0.03n` ⇒ 1.90 (30 lv) | 0.612 3 | 179.46 | **0.003 412** | 0.012 709 | 1.33 | 0.47 |
 
-**1. Three lab layers outrank the whole medal sheet.** Sorted by density (Smith’s rule = the schedule that maximises the
-`Σ ln` delivered by a deadline): `E` 0.452 374 · `D` 0.116 339 · `F` 0.114 946 · **medal sheet** 0.050 720 · `L` 0.033 768 ·
-**par** 0.017 957 · `M` 0.011 315 · `O` 0.003 481 · `G` 0.003 412. So the practical order is
-**`E → D → F → L`, then the medal sheet, then `M`, then `O` and `G`** — one change against the cost-side queue of Rev 38,
-which had `G` ahead of `L`: **`L` is 9.9× the density of `G`** (8.0064/237.1 vs 0.6123/179.46), so `G` drops behind the
-sheet. Concretely, with the stack up: `E` is a **1.4-day** item, `D` **6.9 d**, `F` **14.0 d**, `L` **63.7 d** — the four of
-them are 86 calendar days of slot time for `Σ ln` **19.30**, against the sheet’s 17.755 for 350 days.
+**1. Eleven of the sixteen value-priced rows outrank the whole medal sheet.** Sorted by density (Smith’s rule =
+the schedule that maximises the `Σ ln` delivered by a deadline):
+`E` 0.452 374 · `D` 0.116 339 · `F` 0.114 946 · `L` 0.033 768 · `Q` 0.025 603 · `A` 0.018 143 · `B` 0.014 480 ·
+`J` 0.014 128 · `H` 0.011 422 · `M` 0.011 315 · `K` 0.009 941 · **medal sheet** 0.007 246 · `O` 0.003 481 ·
+`G` 0.003 412 · (`B2` 0.003 387, `C` 0.000 020, `P` 0.000 006). So the practical order is
+**`E → D → F → L → Q → A → B → J → H → M → K`, then the medal sheet, then `O` `G` `B2`, then the par, then `C` `P`** — the
+one change against the cost-side queue of Rev 38 is that **`L` is 9.9× the density of `G`** (8.0064/237.1 vs 0.6123/179.46),
+so `G` drops behind the sheet. Concretely, with the stack up: `E` is a **1.4-day** item, `D` **6.9 d**, `F` **14.0 d**,
+`L` **63.7 d** — the four of them are 86 calendar days of slot time for `Σ ln` **19.30**, against the sheet’s 17.755 for
+2 450 days.
 *(`Garlic Thorns` is the highest-density object found anywhere in this research: **1.685 094/day** with the stack,
-**94×** the par — it is a 1 350 000-coin, 10-level line whose whole ladder is 25.45 slot-hours of clock.)*
+**657×** the par — it is a 1 350 000-coin, 10-level line whose whole ladder is 25.45 slot-hours of clock.)*
 
 **2. Convention sensitivity (the two ways to read a `k·n` law).** Taking the level-0 base instead of the level-1 base, i.e.
 `ln((ρ+N)/ρ)` with `ρ = base/increment`, changes `Σ ln` by `+4.1 %` (`E`), `+1.6 %` (`F`), `+4.8 %` (`G`), `+1.0 %` (`L`’s
@@ -1822,12 +1848,14 @@ the underlying quantity is `1 + pp`:
 | `H` Main Research | 15 | **38.390 5** | 2.559 | 3 361.2 | **0.011 422** | 0.042 546 | 0.004 099 |
 | `K` Utility Research | 10 | **20.051 6** | 2.005 | 2 017.1 | **0.009 941** | 0.037 030 | 0.005 625 |
 
-**1. The merged schedule (eleven of the eighteen rows are now value-complete).** Reading R:
-`E` 0.452 374 > `D` 0.116 339 > `F` 0.114 946 > **medal sheet** 0.050 720 > `L` 0.033 768 > `Q` 0.025 603 > **par** 0.017 957
-> `J` 0.014 128 > `H` 0.011 422 > `M` 0.011 315 > `K` 0.009 941 > `O` 0.003 481 > `G` 0.003 412 per day. Reading P moves
-`Q` below the par and re-orders the middle block to `M > J > K > H`:
-`E · D · F · sheet · L · par · Q` 0.014 562 · `M` 0.011 315 · `J` 0.008 155 · `K` 0.005 625 · `H` 0.004 099 · `O` · `G`.
-**Invariant in both readings:** `E > D > F > sheet > L` at the top, `O > G` at the bottom, and `M` inside the middle block.
+**1. The merged schedule (eleven of the eighteen rows are now value-complete).** Reading R, with the Rev 43 densities:
+`E` 0.452 374 > `D` 0.116 339 > `F` 0.114 946 > `L` 0.033 768 > `Q` 0.025 603 > `J` 0.014 128 > `H` 0.011 422 >
+`M` 0.011 315 > `K` 0.009 941 > **medal sheet** 0.007 246 > `O` 0.003 481 > `G` 0.003 412 per day, with **par** 0.002 565
+sitting below `G`. Reading P (`Q` 0.014 562 · `J` 0.008 155 · `K` 0.005 625 · `H` 0.004 099) puts the sheet at 8th and
+re-orders the middle block to `M > J > sheet > K > H`:
+`E · D · F · L · Q · M · J · sheet · K · H · G · O · par`.
+**Invariant in both readings:** `E > D > F > L > Q` at the top (the sheet fell from the head to the middle of the list when
+the medal leg was corrected) and `M` inside the middle block.
 The block whose order is *not* stable is `J`, `H`, `K` — 40 lines, the largest uncertainty left in the schedule.
 Coverage: **11 rows / 106 of 197 lines / Σ ln 193.565** for **14 877.4** calendar days at five slots.
 
@@ -1865,13 +1893,15 @@ count closes without a new fetch. Each line's `ln` is `ln(v_cap / v_1)` from the
 | calendar days (5 slots) | 3 633.2 | 3 633.2 |
 | **density /day** | **0.018 143** | **0.017 473** |
 | with the ×3.725 stack | **0.067 582** | 0.065 087 |
-| against the par (0.017 957) | **1.010×** | **0.973×** |
-| the medal sheet ÷ layer `A` | 2.796× | 2.900× |
+| against the par (0.002 565, Rev 43) | **7.07×** | **6.81×** |
+| layer `A` ÷ the medal sheet (0.007 246) | 2.50× | 2.41× |
 
-**1. `A` straddles the par — it is the one layer whose side of the par depends on the pp reading** (1.010× under R, 0.973×
-under P). Under R the schedule is `E · D · F · sheet · L · Q · A · par · J · H · M · K · O · G`; under P the par sits above
-`A`: `E · D · F · sheet · L · par · A · Q · M · J · K · H · O · G`. The head (`E D F sheet L`) and the tail (`O > G`) are
-unchanged in both.
+**1. `A` is above the par on both readings** (7.07× under R, 6.81× under P). Under the Rev 38–42 par of 0.017 957 this
+layer was the only one that *straddled* it (1.010× vs 0.973×); that straddle was an artefact of the 7×-fast medal
+denominator, and with the corrected par the layer is comfortably above it in both readings while the *relative* order of
+`A` against the other layers is untouched. Under R the schedule is `E · D · F · L · Q · A · J · H · M · K · sheet · O · G ·
+par`; under P it is `E · D · F · L · A · Q · M · J · sheet · K · H · G · O · par`. The head (`E D F L Q`) and the tail
+(`O > G > par`) are unchanged in both.
 
 **2. Inside the layer the L-IV family dominates the value.** Five lines print `ln 30 = 3.401 197` — `Chrono Field
 Duration`, `Chain Thunder`, `Lightning Amplifier-Scatter`, `Swamp Radius`, `Swamp Rend - Basic Enemies` — then
@@ -1922,14 +1952,18 @@ at the 700 T anchor (their clock is only 8 034.8 d and 2 290.6 d), so their dens
 **6.0 × 10⁻⁶** per day — 4 digits below the sheet. With their **T18–T21** gates that is the same answer the cost ledger
 gave at Rev 38, now from the value side: **never let a sub-T11 save spend on `C` or `P` ahead of anything else.**
 
-**4. The merged schedule (sixteen rows).** Reading R:
-`E 0.452374 > D 0.116339 > F 0.114946 > sheet 0.050720 > L 0.033768 > Q 0.025603 > A 0.018143 > par 0.017957 > B 0.014480 >
-J 0.014128 > H 0.011422 > M 0.011315 > K 0.009941 > O 0.003481 > G 0.003412 > B2 0.003387 > C 0.000020 > P 0.000006`.
-Reading P: `E 0.471099 > D 0.125005 > F 0.116818 > sheet 0.050720 > L 0.033768 > par 0.017957 > A 0.017473 > Q 0.014562 >
-M 0.011315 > J 0.008155 > K 0.005625 > H 0.004099 > G 0.003577 > O 0.003481 > B 0.000500 > B2 0.000123 > C 0.000017 > P`.
-**Invariant in both: the head `E → D → F → medal sheet → L`.** Everything from 6th to 15th sits in the band
+**4. The merged schedule (sixteen rows), re-issued with the Rev 43 medal unit.** Reading R:
+`E 0.452374 > D 0.116339 > F 0.114946 > L 0.033768 > Q 0.025603 > A 0.018143 > B 0.014480 > J 0.014128 > H 0.011422 >
+M 0.011315 > K 0.009941 > sheet 0.007246 > O 0.003481 > G 0.003412 > B2 0.003387 > par 0.002565 > C 0.000020 > P 0.000006`
+(the sheet is **12th** of 18, the par **16th**).
+Reading P: `E 0.471099 > D 0.125005 > F 0.116818 > L 0.033768 > A 0.017473 > Q 0.014562 > M 0.011315 > J 0.008155 >
+sheet 0.007246 > K 0.005625 > H 0.004099 > G 0.003577 > O 0.003481 > par 0.002565 > B 0.000500 > B2 0.000123 >
+C 0.000017 > P 0.0000003` (the sheet is **9th**, the par **14th**).
+**Invariant in both: the head `E → D → F → L → Q`.** Under the 7×-fast medal leg the sheet had forced its way into 4th
+place; at the correct per-week flow it sits mid-list, and the practical rule is unchanged in spirit —
+*head first, then the middle block in any order, `C`/`P` last.* Everything from 6th to 15th sits in the band
 **0.003 … 0.026** per day, a factor of 8 across ten layers — so after the head, the order matters far less than finishing
-them; the practical rule is *head first, then the ten middle layers in any order, `C`/`P` last.*
+them.
 
 **5. Coverage: 16 of 18 rows, 179 of 197 lines, `Σ ln 370.610`** (mean **2.07** per line). Only `I` (Attack, 9 lines) and
 `N` (Perk, 9 lines) still lack value columns — their pages print the laws as shapes (`L-I … L-VI`, the doubling columns)
@@ -2273,15 +2307,21 @@ the §census Module row’s “12 lines, Σ **254**” ✓. `tools/module-named-
 - [ ] **§Rev 37 (the day scale):** your own coin `/day` counter decides the order — if it reads below **15.68 B** all four
       lab columns are coin-bound (buy the five `* Cooldown` labs first); above **9.217 T** everything is clock-bound (buy
       `Burn Stack`, then `Thunder Bot Linger Time`).
-- [ ] **§Rev 37 (the day scale):** the medal side re-adds independently of the lab side: **1 215** medals per event
-      (T013 §2.4) and **607.5/day**, so the whole medal sheet is `212 660/607.5 =` **350.06** days and the ten lab lines are
-      `9 512 288/(1440 × 5) =` **1 321.2** days ⇒ the ratio **14.6×** is checkable from two divisions.
+- [ ] **§Rev 37 (the day scale):** the medal side re-adds independently of the lab side, on the **week** unit: **1 215**
+      medals per event (T013 §2.4) ⇒ **607.5/week = 86.786/day** F2P, so the whole medal sheet is
+      `212 660/86.786 =` **2 450.4 days = 350.06 weeks = 6.71 years** (and `212 660/1 215 =` **175.03 events**, ×2 weeks =
+      the same 350.06 ✓) while the ten lab lines are `9 512 288/(1440 × 5) =` **1 321.2** days ⇒ the ratio
+      **2.08×** (`0.007 246/0.003 481`), all three checkable from three divisions.
+- [ ] **§Rev 43 (the unit fix):** the two densities re-add by hand: `17.7550/2 450.4 =` **0.007 246** and
+      `0.029559/(1 000/86.786) =` **0.002 565**; the par sits **below** `O` (**0.003 481**) and **above** `C`
+      (**0.000 020**), and the sheet is **12th** of 18 under reading R and **9th** under reading P.
 
 - [ ] **§Rev 38 (the whole tree):** the two divisions of the appendix re-add — `3 243.8393 Q / 700 T =` **4 634 055.8**
       days and `497 359.8/(5) =` **99 472.0** days (`= 272.3 y`), `/(5 × 3.725) =` **26 704** days (`= 73.1 y`).
 - [ ] **§Rev 38:** the first five layers of the queue print the clock column `25.45 + 128.75 + 260.62 + 897.30 + 1 185.5`
       **slot-days** for **12 lines**, i.e. `499.6` calendar days at 5 slots and **134.1** with the stack — all less than
-      `212 660/607.5 =` **350.06** days of the medal sheet.
+      the `212 660/86.786 =` **2 450.4** days of the medal sheet, and `5.1 + 25.8 + 52.1 + 179.5 + 237.1 + 1 068.3 +
+      1 321.2 + 2 017.1 =` **4 906.2** d takes the queue to `K`, the layer just before the sheet row.
 - [ ] **§Rev 38:** the two coin-bound layers are the ones whose appendix `Σ coins` is in the `Q` range (`C` **930.00 Q**,
       `P` **2 307.577 5 Q**) and their coin-days are **1 328 571.4** and **3 296 539.3**, together **99.81 %** of the bill.
 - [ ] **§Rev 39 (the value side):** the four laws read straight off the **Lab** pages — `Garlic Thorns` level **10** prints
@@ -2508,19 +2548,19 @@ the §census Module row’s “12 lines, Σ **254**” ✓. `tools/module-named-
   changes if two incomes cross each other.
 - **§Rev 38:** if `Garlic Thorns` (`E`) stops printing **1.35 M / 25.45 d** or the appendix’s 497 359.8 d total moves by
   more than a day, the queue order is still produced by `max(coin-days, Σ clock/slots)` but the year-one numbers
-  (499.6 d · 134.1 d · 350.06 d) must be re-divided — re-run `tools/lab-tree-day-ledger.ps1`, whose layer array is a
+  (499.6 d · 134.1 d · 2 450.4 d) must be re-divided — re-run `tools/lab-tree-day-ledger.ps1`, whose layer array is a
   literal copy of the §Appendix B table.
 - **§Rev 38:** the ledger is **cost-side**; the value ceiling is computable though — layer `I` reaches the medal sheet’s
-  density (**0.050 720/day**) only at `0.050 720 × 24 949.5 =` **Σ ln 1 265.4**, i.e. **140.6 per line**, and `N` at
-  **Σ ln 1 858.2** (**206.5 per line**). No lab line’s `ln` exceeds **1.4** anywhere in this doc, so the sheet stays ahead
+  density (**0.007 246/day**, Rev 43) only at `0.007 246 × 24 949.5 =` **Σ ln 180.8**, i.e. **20.1 per line**, and `N` at
+  **Σ ln 265.5** (**29.5 per line**). No lab line’s `ln` exceeds **1.4** anywhere in this doc, so the sheet stays ahead
   of every layer; if a device read ever prints a `Σ ln` above those two numbers, re-sort the queue.
 - **§Rev 38:** if your printed coin `income/day` is between **663.6 T** and **672.4 T**, layers `A` and `Q` are on
   opposite sides of their flips — the two of them are the only order-sensitive layers at the anchor, all others are the
   same in both regimes.
 - **§Rev 39:** if a mastery lab other than `Damage` prints a final multiplier other than **×5** (or a base other than
   **×1.4**), `Σ ln = 40.7349` for layer `M` is wrong and the layer must be summed from the 32 printed pairs; the other six
-  layers are unaffected. The layer-`M` density only changes the ranking if it moves below **0.003 481** (past `O`) or above
-  **0.017 957** (past the par), i.e. if `Σ ln` leaves **12.53 … 64.65**.
+  layers are unaffected. The layer-`M` density only changes the ranking if it moves below **0.009 941** (past `K`) or above
+  **0.011 422** (past `H`), i.e. if `Σ ln` leaves **35.79 … 41.12** (the two neighbours, not the par, are the limits).
 - **§Rev 39:** if `Garlic Thorns` prints a **`+0.5`** step at a level other than 10 (the cap is **10** in the §cap table),
   `ln 10` becomes `ln N`; first place survives down to **`N = 2`** (`ln 2 / 5.09 =` **0.136 2** > 0.114 946), so only a
   one-level cap would move it.
@@ -2539,7 +2579,8 @@ the §census Module row’s “12 lines, Σ **254**” ✓. `tools/module-named-
   the new list — the density is unaffected because it divides by the printed `Σ clock`, not by the level count.
 - **§Rev 41:** if the nine UW pages print fewer or more than **31** leveled tables (or the eight one-level unlock rows stop
   summing to **565.25 B / 70.32 d**), the `31 + 8 = 39` closure fails and layer `A`'s `Σ ln` must be re-added from the pages;
-  the density only leaves the par band (**0.017 957**) if `Σ ln` leaves **65.24 … 93.02** under R (and **52.91 … 65.24**
+  the density only leaves its place (between `Q` **0.025 603** and `B` **0.014 480** under R, between `L` **0.033 768** and
+  `Q` **0.014 562** under P) if `Σ ln` leaves **52.61 … 93.02** under R (and **52.91 … 122.68**
   under P), i.e. the layer keeps its place unless roughly five `ln 30` lines go missing or appear.
 - **§Rev 41:** if a value column's first printed cell is not the level-1 value (some pages print the level-0 base), use the
   `ρ`-form `ln((ρ+N)/ρ)`; for the five `ln 30` lines that is `ln(31/1) = 3.433 98` each, `+0.96 %` on the layer — the
@@ -2551,14 +2592,28 @@ the §census Module row’s “12 lines, Σ **254**” ✓. `tools/module-named-
   `−0.40 %` line capping at `−11 %` gives `ln 27.5 =` **3.314 1** (−2.6 % on the layer); re-add those lines from the printed
   value column and the table still holds layer by layer.
 - **§Rev 42:** if the **Lab** screen shows the resulting stat rather than the pp step (a boss at `0.997` health instead of
-  `−0.30 %`), take reading **P** and its order (`B` and `B2` fall to 15th–16th); the head `E D F sheet L` is identical in
+  `−0.30 %`), take reading **P** and its order (`B` and `B2` fall to 15th–16th); the head `E D F L Q` is identical in
   both, so no instruction changes.
 - **§Rev 42:** if the assist labs multiply the stone track’s efficiency instead of adding `+1 pp` to it, each lab is
   `ln(100/71) =` **0.342 5**, layer `C` is `Σ ln` **2.740 2** and density **2.1 × 10⁻⁶**/day — still one of the last two
   places, so the buy order is unchanged.
+- **§Rev 43 (the unit):** if the **Event** screen’s shop shows a different **per-day** medal flow than **86.786** — e.g. the
+  counter prints **607** on a day-1 snapshot that is really the two-week total — the whole medal column scales by the
+  ratio and the sheet’s rank moves: with `density = 17.755 × W / 1 488 620` (`W` = medals per week) the sheet overtakes
+  `K` (**0.009 941**) at `W =` **833.5**/week and returns to 4th place (behind `L` **0.033 768**) only at
+  `W =` **2 831.2**/week, so the 4th-place result of Rev 38–42 needs the unreachable **4 252.5**/week. If instead your event runs 1 week (a shortened bracket), halve the day figures again.
+- **§Rev 43:** the three independent closures must agree: `212 660/1 215 × 2 =` **350.06** weeks, `212 660/86.786 =`
+  **2 450.4** days, and `350.06 × 7 =` **2 450.4** ✓. If they do not, the medals-per-event print (T013 §2.4) or the
+  sheet total (T015 §3.4) has changed and both must be re-read before the schedule is used.
 
 ## Sources
 
+- `tools/medal-unit-fix.ps1` (new, Rev 43) — the medal-unit reconciliation: the four flows (**86.786 / 154.286 / 96.786 /
+  164.286** medals per day for **607.5 / 1 080 / 677.5 / 1 150** per week), the **event identity**
+  (`212 660/1 215 = 175.03` events `× 2 =` **350.06 weeks** `× 7 =` **2 450.4 d**), the re-issued block table and the two
+  merged 18-row schedules with the sheet at **12th**/par at **16th** (R) and **9th**/**14th** (P), the five joint-plan cases
+  (**2 450.4 / 2 450.4 / 1 378.4 / 2 197.2 / 1 294.5 d**, every one bound by medals), and the medal sensitivity
+  (**+10/50/100 per week = 39.7/186.3/346.3 d** saved).
 - Tower Hub `wiki/system/the-tower` (last verified **2026-11-01**, re-pulled 2026-11-02, “1 data table”) — the
   `Super Tower Bonus` lab's printed rows (**10** of **30**: gate T8 W300, `1 + 0.03·L`, **2.00 B → 32.14 B**, 5 h →
   5 d 2 h 32 m) and the four taxonomy prints (workshop = minimum level, lab = scaling *or* cap incl. `Max Interest`,
@@ -2792,8 +2847,9 @@ the §census Module row’s “12 lines, Σ **254**” ✓. `tools/module-named-
   +30 %**”), **`Modules/Cost`** (28 milestone rows, level 1 → 300, `7 → 49 500` shards and `10 000 → 886Q` coins per
   level, cumulative `3 136 095` shards / `18.07s` coins) and **`Currency/Power Stones`** (the stone income and price
   lists, used by T010). New script: `tools/assist-primary-tail.ps1`.
-- `tools/lab-day-density.ps1` (new, Rev 37) — the two-resource day-scale model and every number in §The Bot category on a
-  calendar-day scale: the medal-block table (**0.103 973 / 0.097 658 / 0.085 018 / 0.079 114 / 0.055 607 / 0.050 720** per
+- `tools/lab-day-density.ps1` (new, Rev 37; **per-week medal unit since Rev 43** — the block loop divides by
+  `607.5/7 = 86.7857`) — the two-resource day-scale model and every number in §The Bot category on a
+  calendar-day scale: the medal-block table (**0.014 853 / 0.013 951 / 0.012 145 / 0.011 302 / 0.007 944 / 0.007 246** per
   day), the lab-category figure (**0.003 481** per day for `Σ ln = 4.5990` over **1 321.2** days at 5 slots), the
   clock-bound order (**0.011 266 / 0.007 906 / 0.003 516 / 0.002 375 / 0.002 026**), the per-coin column
   (**2.242e-13 / 1.292e-13 / 2.030e-15 / 1.222e-15 / 6.099e-16**, the cooldown/duration ratio **211.8**), the crossover

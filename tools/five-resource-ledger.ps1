@@ -6,7 +6,8 @@ $coins = 700e12
 $gems = 435.0
 $gemsLow = 360.0
 $cells = 1000.0
-$medals = 607.5
+# Rev 43 (T006): the printed 607.5 / 1 080 of T013 2.4 are PER WEEK (an event is 2 weeks, 1 215 / 2 160 medals).
+$medals = 607.5 / 7
 $tokens = 185 / 7
 $bits = 1555 / 56
 $keys = 16 / 7

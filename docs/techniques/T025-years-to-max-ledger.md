@@ -1,5 +1,16 @@
 # T025 — The years-to-max ledger: what every sink costs in days of income
 
+Rev: 8 (2026-11-03) - **the medal leg is restated in weeks** (T006 Rev 43): the printed **607.5** is **per week**
+(`1 215 ÷ 2`, T013 §2.4; T013 §1 itself says **“≈ 87/day”**), so the 445-tap sheet costs **2 450.4 d = 6.71 y** F2P and
+**1 378.4 d = 3.78 y** on the boosted flow, not **350 d**. Consequences in this sheet: the plan table is split into the
+**core set** (four counters, **499.5 → 392.3 → 349.6 d** as the stack and the shard lab arrive, and **263.2 d** from the
+Copper 13-15 band up where **gems** bind) and the **full set** (every state bound by medals at **2 450.4 d**, band-
+independent); the sensitivity table becomes a **two-regime** table (stones bind inside the core set: **+1/day = 13.3 d**,
+the whole 97.5/wk flow = **86.4 d** because gems then bind; medals bind with the sheet on: **+10/50/100 per week =
+39.7/186.3/346.3 d**, `Fetch` = free **253.2 d**, the **Event Boost** = **1 072.0 d**); and **§1.⑥** adds the **weekly**
+form - a four-division self-service table (`114 500/3 045 · 8 865/177.5 · 82 380/1 470 · 212 660/607.5` then take the
+`max`) with the per-band leg table, the whole-census week column (**4 638.8 … 22.3 weeks**) and the crossover set
+(**25.3 / 158.2 / 384.2 / 8 070.6** stones per week). `tools/weekly-plan-table.ps1`, `tools/medal-unit-fix.ps1`.
 Rev: 7 (2026-11-03) - **§1.⑤, the whole sheet on one scale**: every bill of §1 divided by its own income in **days**, so
 the nine currencies become one ranked list, and the joint plan costs `max(legs)` — **499.5 d** with nothing bought,
 **392.3 d** once the ×3.725 lab stack is up, **350.1 d** once `Daily Mission Shards` reaches L50, each time bound by a
@@ -159,7 +170,8 @@ ranked list, and combining them for one plan is the same `max()` model that pric
 | gem framework (4 900 + 58 400 + 51 200) | 114 500 ge | 435/day | **263.2** | 0.72 |
 | gem framework at the 8-h claim rate | 114 500 ge | 360/day | **318.1** | 0.87 |
 | four module slots to L50, lab at L50 | 82 380 sh | 510/day (3 570/wk) | **161.5** | 0.44 |
-| the bot sheet (445 taps) | 212 660 md | 607.5/day | **350.1** | 0.96 |
+| the bot sheet (445 taps), F2P flow | 212 660 md | 86.786/day (607.5/wk) | **2 450.4** | 6.71 |
+| the same sheet, boosted flow | 212 660 md | 154.286/day (1 080/wk) | **1 378.4** | 3.78 |
 | four module slots to L50, no lab | 82 380 sh | 210/day (1 470/wk) | **392.3** | 1.07 |
 | four module slots to L101, lab at L50 | 94 380 sh | 510/day | **185.1** | 0.51 |
 | four module slots to L201, lab at L50 | 1 864 380 sh | 510/day | **3 655.6** | 10.02 |
@@ -183,42 +195,102 @@ make the event shop's **150-identity** close: 150 × 1 = 15 × 10 = 250 × 0.6 =
 `452 282 ÷ 25.357`, so the ge column is a check, not a second model; (b) the **scarcest currency of a beginner is shards**,
 at 126 ge/day, then stones, then gems — the nominal counters (1 470 shards vs 435 gems) invert once each is priced.
 
-**2. The binding-resource law, and the three-step first-year plan.** A plan costs its slowest leg, so only *that*
-leg's income matters (finding 4). Three states of the same beginner set - the gem framework, the **8 865**-stone knee
-package, four slots to L50, the 445-tap bot sheet, the five cheap lab layers:
+**2. The binding-resource law: a core set that finishes inside a year, and a medal tail that does not** (Rev 8).
+A plan costs its slowest leg, so only *that* leg's income matters (finding 4). The **core set** is the four counters that do
+not involve medals - the gem framework, the **8 865**-stone knee package, four module slots to L50, the five cheap lab layers:
 
-| plan | gems | stones | shards | medals | clock | **joint cost** | bound by |
+| core-set state | gems | stones | shards | clock | **joint cost** | bound by |
+|---|---|---|---|---|---|---|
+| nothing boosted | 263.2 | 349.6 | 392.3 | **499.5** | **499.5 d = 1.37 y** | clock |
+| ×3.725 lab stack up | 263.2 | 349.6 | **392.3** | 134.1 | **392.3 d = 1.07 y** | shards |
+| + `Daily Mission Shards` L50, Copper bottom | 263.2 | **349.6** | 161.5 | 134.1 | **349.6 d = 0.96 y** | stones |
+| + the same at Copper 13-15 or better | **263.2** | 246.4 … 2.8 | 161.5 | 134.1 | **263.2 d = 0.72 y** | gems |
+
+so **the core set is complete inside one calendar year** once the stack and the shard lab are in, and from the
+**Copper 13-15** band up it is a **263-day** gem-bound plan. Adding the 445-tap bot sheet changes the picture completely,
+because the medal flow is 7× slower than the other four looked - it is **607.5 per week**, not per day:
+
+| set (+ the bot sheet) | gems | stones | shards | medals | clock | **joint cost** | bound by |
 |---|---|---|---|---|---|---|---|
-| nothing boosted | 263.2 | 349.6 | 392.3 | 350.1 | **499.5** | **499.5 d = 1.37 y** | clock |
-| ×3.725 lab stack up | 263.2 | 349.6 | **392.3** | 350.1 | 134.1 | **392.3 d = 1.07 y** | shards |
-| + `Daily Mission Shards` L50 | 263.2 | 349.6 | 161.5 | **350.1** | 134.1 | **350.1 d = 0.96 y** | medals |
+| F2P flow, nothing boosted | 263.2 | 349.6 | 392.3 | **2 450.4** | 499.5 | **2 450.4 d = 6.71 y** | medals |
+| F2P flow, stack + shard lab | 263.2 | 349.6 | 161.5 | **2 450.4** | 134.1 | **2 450.4 d = 6.71 y** | medals |
+| boosted flow (1 080/wk), full boosts | 263.2 | 349.6 | 161.5 | **1 378.4** | 134.1 | **1 378.4 d = 3.78 y** | medals |
+| both `Fetch` passes on (677.5/wk) | 263.2 | 349.6 | 161.5 | **2 197.2** | 134.1 | **2 197.2 d = 6.02 y** | medals |
+| boosted + `Fetch` (1 150/wk) | 263.2 | 349.6 | 161.5 | **1 294.5** | 134.1 | **1 294.5 d = 3.55 y** | medals |
 
-Read: the first-year set is **complete inside one calendar year** once the stack and the shard lab are in, and its last
-binding leg is the **medal** flow - which is exactly why the 445-tap sheet of [T015](T015-bot-economy.md) *is* the
-year-one schedule. The two near-ties (stones 349.6 vs medals 350.1) mean the stone package and the medal sheet fill each
-other's gaps without extending the calendar.
+Three consequences. (i) The **sheet leg is band-independent** (`212 660/607.5 =` **350.06 weeks** in every league, because
+neither the medal total nor the sheet total depends on the tournament band), so the 6.71-year figure is the same for every
+player and only the *stone* leg moves with the band. (ii) **The two flows are parallel, not serial**: lab clock and medals
+are different counters, so the core set and the sheet run at the same time and the combined plan costs
+`max(349.6 , 2 450.4) =` **2 450.4 d**, not their sum **2 800.0**. (iii) The sheet is therefore the **calendar** of the first
+six-to-seven years and the core set is the **first-year** work inside it - which is exactly how
+[T015](T015-bot-economy.md) §3.4 presents the 445 taps.
 
-**3. Nothing after the first year is bound by gems.** At 435/day the entire gem framework is **263 d** - the second
-shortest leg in the table - so gem income stops mattering while stones (17 836 d at the Copper bottom) bind; the ledger's
-own §2 ratio "**263 days vs 8-109 years**" is the same fact seen per currency.
+**3. Nothing after the core set is bound by gems.** At 435/day the entire gem framework is **263 d** - the shortest leg of
+the table once the player is at Copper 13-15 or better; the ledger's own §2 ratio "**263 days vs 8-109 years**" is the same
+fact seen per currency, and the whole-census stone rows (17 836 d at the Copper bottom) dominate everything else.
 
-**4. Sensitivity of the stone-bound plan (the only leg that pays):**
+**4. Sensitivity - only the binding leg's income pays, and which leg binds depends on the set:**
 
-| extra income | new cost | saved |
+| extra income | core set (stones bind, 349.6 d) | full set (medals bind, 2 450.4 d) |
 |---|---|---|
-| +1 stone/day (+7/wk) | 17 159.8 d | **676.7 d = 1.85 y** |
-| +5 stones/day (+35/wk) | 14 898.7 d | 2 937.8 d = 8.05 y |
-| +13.929/day (= the whole 97.5/wk box + trade flow) | 11 512.6 d | **6 323.9 d = 17.33 y** |
-| +1 of any *non-binding* counter (gems, shards, medals) | unchanged | **0 d** |
+| +1 stone/day (+7/wk) | **336.3 d (saves 13.3 d)** | 2 450.4 d (**0 d**) |
+| +5 stones/day (+35/wk) | 292.1 d (saves 57.5 d) | 2 450.4 d (0 d) |
+| +13.929/day (the whole 97.5/wk box + trade flow) | **225.6 d** on that leg, so the plan lands on **263.2 d** (saves **86.4 d**) - gems now bind | 2 450.4 d (0 d) |
+| +10 / +50 / +100 medals per week | 349.6 d (**0 d**) | **2 410.7 / 2 264.1 / 2 104.1 d** (39.7 / 186.3 / 346.3 d) |
+| +1 of any other non-binding counter | 0 d | 0 d |
 
-so claiming all seven weekly boxes and dumping medals into the stone line is worth **17.3 years** of the stone bill at the
-Copper bottom - the largest single lever in the game, and it is free ([T004](T004-mission-farming-low-tier.md),
-[T013](T013-event-medal-economy.md) §2.4). Nominal income on a non-binding counter buys **nothing** until it becomes the
-slowest leg, which is the arithmetic behind "one thing at a time" in the other docs.
+Read the two columns as the two regimes: while you are still inside the core set, **stones** are the lever
+(124 d for the whole free box+trade flow); the moment the bot sheet is on your list, the **medal** flow is the lever and the
+stone and shard income are worth nothing extra - the two `Fetch` passes (**+70/wk**, free: 10 medals/day of the Guardian
+ability, capped at **140** per event) are the cheapest 253 days in
+the game, and the *next* cheapest is the **Event Boost** (**+472.5/wk**: `1 890 + 270` instead of `945 + 270` per event),
+worth `2 450.4 − 1 378.4 =` **1 072.0 d** of the sheet leg. On the **whole-census** stone bill the same law gives the
+larger numbers of Rev 7: `452 282/(25.3571+1) =` **17 159.8 d** (**676.7 d** saved), `/(25.3571+5) =` **14 898.7**
+(**2 937.8**), `/(25.3571+13.9286) =` **11 512.6** (**6 323.9 d = 17.33 y**), because there the stone leg is 17 836 d and
+binds against everything.
 
 **5. Two convention skews.** (a) The **5 940**-shard first-year shortfall is the 52-week print (`1 470 × 52 = 76 440`);
 on a 365-day year it is 76 650, short by **5 730** - same conclusion, 1.4 % apart. (b) The Vault's **87.7 y** in §1 is
-31 937.5 d = **87.50 y** on a 365-day year; the difference is the 52-week convention again (4 562.5 weeks).
+31 937.5 d = **87.50 y** on a 365-day year; the difference is the 52-week convention again (4 562.5 weeks). The same
+convention explains the **0.3-day** gap between the weekly table's `49.9 × 7 = 349.3` and the day table's **349.6**.
+
+### 1.⑥ The same sheet in **weeks** - a four-division self-service form (new, Rev 8)
+
+Every leg in per-**week** units, so a player reads four counters off the UI and does four divisions. Fixed flows
+(band-independent): gems **3 045/wk** (24-h claims) or 2 520 at the 8-h rate · shards **1 470** → **3 570** with
+`Daily Mission Shards` at L50 · medals **607.5** (F2P) / **1 080** (boosted) · clock **35 slot-days/wk** → **130.375** with
+the ×3.725 stack · tokens **185** · bits **194.375** · keys **16**. Band-dependent: stones **97.5 / 177.5 / 251.5 / 529.5 /
+1 177.5 / 6 497.5 / 20 257.5** per week (`tools/weekly-plan-table.ps1`).
+
+| band | stones leg | shards leg (no lab / lab) | medals leg | gems leg | clock leg (raw / stack) | **core set** | bound by |
+|---|---|---|---|---|---|---|---|
+| no tournaments | **90.9** | 56.0 / 23.1 | 350.1 | 37.6 | 71.4 / 19.2 | **90.9 wks** | stones |
+| Copper 23-30 | 49.9 | **56.0** / 23.1 | 350.1 | 37.6 | 71.4 / 19.2 | **71.4 → 56.0 → 49.9 wks** | clock → shards → stones |
+| Copper 13-15 | 35.2 | **56.0** / 23.1 | 350.1 | 37.6 | 71.4 / 19.2 | **71.4 → 56.0 → 37.6** | clock → shards → gems |
+| Silver 23-30 | 16.7 | **56.0** / 23.1 | 350.1 | 37.6 | 71.4 / 19.2 | **71.4 → 56.0 → 37.6** | clock → shards → gems |
+| Gold 23-30 | 7.5 | **56.0** / 23.1 | 350.1 | 37.6 | 71.4 / 19.2 | **71.4 → 56.0 → 37.6** | clock → shards → gems |
+| Platinum 16-24 | 1.4 | **56.0** / 23.1 | 350.1 | 37.6 | 71.4 / 19.2 | **71.4 → 56.0 → 37.6** | clock → shards → gems |
+| Champion 16-24 | 0.4 | **56.0** / 23.1 | 350.1 | 37.6 | 71.4 / 19.2 | **71.4 → 56.0 → 37.6** | clock → shards → gems |
+
+(the three numbers per band are the three states of the table in finding 2: nothing boosted → with the stack → also with
+the shard lab; the whole-census stone bill in weeks is **4 638.8 / 2 548.1 / 1 798.3 / 854.2 / 384.1 / 69.6 / 22.3**.)
+
+**How to use it with your own counters** - four divisions and one `max`, at the Copper bottom worked out:
+
+```
+read    : gems 3 045 ; stones 177.5 ; shards 1 470 ; medals 607.5   (per week, off the UI)
+divide  : 114 500/3 045 = 37.6 ; 8 865/177.5 = 49.9 ; 82 380/1 470 = 56.0 ; 212 660/607.5 = 350.06
+max     : 350.06 weeks                                          <- the plan's length
+```
+
+If your own numbers print the same four quotients, the sheet is the binding leg and nothing else can be finished "early" -
+which is the practical answer to "what do I do this week": **buy medals into the sheet, and run the lab queue in the gaps**.
+
+**Crossovers** (where a leg stops binding, stones/week): the stone knee package overtakes the sheet below
+`8 865/350.06 =` **25.3** st/wk - below every band, so the sheet always binds first; it overtakes the shard lab leg below
+**384.2** (lab) or **158.2** (no lab); and the whole **452 282**-stone census overtakes the four-slot fleet below
+**8 070.6** st/wk, which is T013 §2.5's **8 071** re-derived independently.
 
 ## 2. The three ratios this ledger is for
 
@@ -327,8 +399,16 @@ not the 452 282 total.
 - [ ] **§1.⑤ the ge cross-check by hand:** `4 522 820 ge / 253.57 ge/day =` **17 836** and `452 282 / 25.357 =`
       **17 836** - the two readings of the stone leg agree to four digits, which is the invariance claim.
 - [ ] **§1.⑤ the four first-year legs:** `114 500 / 435 =` **263.2** ; `8 865 / 25.357 =` **349.6** ;
-      `82 380 / 210 =` **392.3** and `/ 510 =` **161.5** ; `212 660 / 607.5 =` **350.1** ;
-      `2 497.5 / 5 =` **499.5** and `/ 3.725 =` **134.1**. The three plan maxima are **499.5 / 392.3 / 350.1 d**.
+      `82 380 / 210 =` **392.3** and `/ 510 =` **161.5** ; `212 660/86.786 =` **2 450.4 d = 350.06 wks** ;
+      `2 497.5 / 5 =` **499.5** and `/ 3.725 =` **134.1**. The three core-set maxima are **499.5 / 392.3 / 349.6 d** and
+      every full-set maximum is the medal leg, **2 450.4 d**.
+- [ ] **§1.⑤ the medal unit (Rev 8):** three independent closures agree — `212 660/1 215 =` **175.03 events** `× 2 =`
+      **350.06 weeks**, `350.06 × 7 =` **2 450.4 d**, and T013 §1's own **“≈ 87/day”** for the 1 215 total. If a fourth
+      print (the in-game `Events` counter) disagrees, re-derive from the event total.
+- [ ] **§1.⑥ the weekly form, worked at the Copper bottom:** `114 500/3 045 =` **37.6** ; `8 865/177.5 =` **49.9** ;
+      `82 380/1 470 =` **56.0** and `/ 3 570 =` **23.1** ; `212 660/607.5 =` **350.06** ; the four legs' maximum is
+      **350.06 weeks** (the sheet), and the core set's maximum is **49.9 weeks** in the fully-boosted state.
+      The whole-census stone bill is `452 282/177.5 =` **2 548.1 weeks** at the Copper bottom.
 - [ ] **§1.⑤ sensitivity:** `452 282 / 26.3571 =` **17 159.8** vs `/ 25.3571 =` **17 836.5** - so **+1 stone/day
       saves 676.7 d**; `452 282 / 39.2857 =` **11 512.6**, so the 97.5/week flow saves **6 323.9 d**.
 - [ ] **§1.⑤ the convention check:** `1 470 x 52 =` **76 440** (short of 82 380 by **5 940**) while `210 x 365 =`
@@ -374,14 +454,32 @@ not the 452 282 total.
   `452 282 ÷ 392.3 =` **1 152.9 st/day = 8 070/week**, the same crossover T013 §2.5 prints from the other side (**8 071**).
 - **§1.⑤:** if the 150-identity fails (one event purchase is not **150 gems / 15 stones / 250 shards**), the ge column is
   void - the day table is not, because it divides each bill by its own counter and never uses the exchange rates.
-- **§1.⑤:** if the bot sheet is not **445 taps / 212 660 medals**, the third plan's maximum moves off **350.1 d**; the
-  medal leg stays the binding one while `212 660 / 607.5` is the largest of the five legs (it is, by 0.5 d over the stone
-  package, so a small re-print can hand the binding to **stones** - both are ≈ 350 d and the plan length will not move).
+- **§1.⑤:** if the bot sheet is not **445 taps / 212 660 medals**, the plan's maximum moves off **2 450.4 d**; the medal
+  leg stays the binding one while `212 660 ÷ 86.786` is the largest of the five legs (it is, by **1 950.9 d** over the raw
+  clock leg, so the binding is robust - the sheet hands the binding back to the **clock** only above
+  `1 488 620 ÷ 499.5 =` **2 980.2** medals/week, i.e. beyond the boosted-plus-`Fetch` flow of 1 150).
+- **§1.⑤ (the unit, Rev 8):** if the in-game `Events` counter shows a **per-day** medal flow other than **86.786**, the
+  medal rows scale by the ratio (`×7` if the print is the two-week total read as daily) and the whole picture inverts back
+  to the Rev 7 shape; three closures must agree - `212 660/1 215 × 2 = 350.06` weeks, `350.06 × 7 = 2 450.4` d, and
+  T013 §1's **≈ 87/day**. If your event is a **1-week** bracket, halve them again (**175.0 weeks**).
+- **§1.⑥:** if your four weekly counters give quotients other than **37.6 / 49.9 / 56.0 / 350.06**, re-take the `max` —
+  the ordering of the four quotients is all that decides the binding leg, and the core-set maximum is only
+  **49.9 weeks** in the boosted state, so the sheet hands the binding to the other counters only once the flow passes
+  `1 488 620 ÷ 499.5 =` **2 980.2** medals/week - nine times the F2P print, i.e. never in practice.
 - **§1.⑤:** if a weekly counter differs from the printed one (a guild chest that pays other than **185** bits, a bracket
   paying other than **16** keys), recompute only that row; the **max()** logic is unaffected.
 
 ## Sources
 
+- `tools/weekly-plan-table.ps1` (new, Rev 8) - the **weekly** form of §1.⑤: the fixed per-week flows (**3 045** gems at 24 h
+  claims, **607.5/1 080/677.5/1 150** medals, **1 470 → 3 570** shards, **35 → 130.375** slot-days of clock, 185 tokens,
+  194.375 bits, 16 keys), the band-dependent stone row, the per-band leg table in weeks with the three states of the plan and
+  the binding leg, the whole-census week column (**4 638.8 / 2 548.1 / 1 798.3 / 854.2 / 384.1 / 69.6 / 22.3**), and the
+  crossover points **25.3 / 158.2 / 384.2 / 8 070.6** stones per week.
+- `tools/medal-unit-fix.ps1` (new, Rev 8, shared with T006 Rev 43) - the four medal flows in per-day and per-week form, the
+  **event identity** (**175.03 events = 350.06 weeks = 2 450.4 d**), the re-issued sheet/par densities
+  (**0.007 246 / 0.002 565**) and the block table, the five joint-plan cases (**2 450.4 / 2 450.4 / 1 378.4 / 2 197.2 /
+  1 294.5 d**), and the medal sensitivity (**+10/50/100 per week = 39.7/186.3/346.3 d**).
 - `tools/five-resource-ledger.ps1` (new, Rev 7) - the day table for all nine currencies, the ge cross-check of the three
   exchange rates, the three first-year plans with their maxima and binding legs, the binding-resource sensitivity table,
   and the 52-week vs 365-day reconciliation.

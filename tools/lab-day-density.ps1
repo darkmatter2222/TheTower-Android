@@ -40,7 +40,7 @@ foreach ($inc in @(1e11, 1e12, 7e14)) {
       (($rows | Sort-Object -Property per -Descending | ForEach-Object { $_.name + ' ' + (('{0,9:F6}' -f $_.per)) + '(' + $_.bind + ')' }) -join ' ; '))
   }
 }
-Write-Output '--- 2. the medal layer on the same scale (607.5 medals/day F2P) ---'
+Write-Output '--- 2. the medal layer on the same scale (607.5 medals/week = 86.786/day F2P, Rev 43) ---'
 $medalBlocks = @(
   @('cosmetics 1 000',            0.029559, 1000.0),
   @('Echoing Shot 9 lv',          1.3863,   8100.0),
@@ -51,7 +51,8 @@ $medalBlocks = @(
   @('whole medal sheet 445 taps',17.7550, 212660.0)
 )
 foreach ($m in $medalBlocks) {
-  $days = $m[2] / 607.5
+  # Rev 43: the printed 607.5 (and 1 080) are PER WEEK figures (T013 2.4: 1 215 per 2-week event / 2 160 boosted).
+  $days = $m[2] / (607.5 / 7.0)
   Write-Output ('  ' + $m[0].PadRight(24) + ' ' + (('{0,7}' -f $m[2])) + ' medals = ' + (('{0,8:F2}' -f $days)) +
     ' days ; ln ' + (('{0,6:F3}' -f $m[1])) + ' ; ' + (('{0,9:F6}' -f ($m[1] / $days))) + ' per day')
 }
@@ -105,10 +106,10 @@ foreach ($x in $cb) {
   $d1 = $x[1] / ($x[2] / (1440.0 * 1))
   Write-Output ('  ' + $x[0].PadRight(24) + ' ln ' + (('{0,6:F4}' -f $x[1])) + ' / ' + (('{0,8:F1}' -f ($x[2] / 1440))) +
     ' slot-days = ' + (('{0,9:F6}' -f $d5)) + '/day at 5 slots ; ' + (('{0,9:F6}' -f $d1)) + ' at 1 slot ; ' +
-    $(if ($d5 -ge 0.017957) { 'ABOVE par' } else { 'below par' }))
+    $(if ($d5 -ge 0.002565) { 'ABOVE par' } else { 'below par' }))
 }
-Write-Output ('  medal layer reference : whole sheet 0.050720/day ; best single block (Echoing Shot) 0.103973/day ;' +
-  ' cosmetics par 0.017957/day')
+Write-Output ('  medal layer reference (Rev 43, per-week medals) : whole sheet 0.007246/day ; best single block' +
+  ' (Echoing Shot) 0.014853/day ; cosmetics par 0.002565/day')
 Write-Output ('  category totals : lab clock 9 512 288 min = 6 605.8 slot-days = ' + (('{0,8:F1}' -f (6605.8 / 5))) +
   ' calendar days at 5 slots for ln ' + (('{0,6:F3}' -f $catLn)) + ' => ' + (('{0,9:F6}' -f ($catLn / (6605.8 / 5)))) +
   '/day (the whole category)')

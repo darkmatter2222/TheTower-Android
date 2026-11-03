@@ -1,5 +1,11 @@
 # T008 — Stone economy: knee-first UW buying + cooldown sync
 
+Rev: 13 (2026-11-03) - **the medal unit in §3.②’s merged schedule is corrected** (T006 Rev 43): the printed medal flow is
+**607.5 per week** (1 215 per 2-week event) `=` **86.786/day**, not 607.5/day, so the medal sheet row becomes
+**2 450.4 d** and its density **0.007 246/day** (the cosmetic par **0.002 565**). The stone rows are untouched (they divide
+by the stone income), so every `st/ln` figure and the four stage densities stand; only the two medal rows move, and with
+them the merged **head shrinks from six items to five** - `E D F quintet knee-pkg` then `L`, with the sheet at **18th** and
+the par at **24th** of 28. `tools/medal-unit-fix.ps1`.
 Rev: 12 (2026-11-03) - **§3.②, stones as the third resource of the day-scale model**: `cost = max(coins/700 T, clock/5,
 stones/income)` on the nine §3.① blocks + the nine §1.④ trees, with `income` = T014 §3.3 ÷ 7 (**13.929 … 2 893.929**
 st/day) and the value convention “a stone buy grants the **level-0** value ⇒ `ln(v(n)/v(0))`”. The 27 basic lines close
@@ -491,12 +497,14 @@ census is **491 387** st (T008 §1's ≈493 k with the 6 000-stone Synchronicity
 Copper-bottom F2P income, and the 8 865 package is **1.8 %** of it for **29.2 %** of its `ln`.
 
 **4. The merged 27-item schedule** (18 lab rows + 9 stone rows, each priced by its own binding resource at the
-Copper-bottom income). Reading R: `E 0.452374 > D 0.116339 > F 0.114946 > ×damage quintet 0.102515 > knee pkg 0.077310 >
-sheet 0.050720 > L 0.033768 > Q 0.025603 > S1b 0.022090 > A 0.018143 > par 0.017957 > UW+ first-5 0.015258 > B 0.014480
-> J 0.014128 > S1c 0.012283 > H 0.011422 > M 0.011315 > K 0.009941 > Bot+ 0.008121 > masteries 0.003691 > O 0.003481 >
-G 0.003412 > B2 0.003387 > S1d 0.003272 > S2b 0.001737 > C 0.000020 > P 0.000006 > unlock rows 0`. Reading P keeps the
-same head and moves `B`/`B2` to the tail as before (T006 Rev 42). **The head is now six items and invariant in both
-readings: `E → D → F → the ×damage quintet → the knee package → the medal sheet`, then `L`.**
+Copper-bottom income), re-issued with the Rev 43 medal unit. Reading R: `E 0.452374 > D 0.116339 > F 0.114946 >
+×damage quintet 0.102515 > knee pkg 0.077310 > L 0.033768 > Q 0.025603 > S1b 0.022090 > A 0.018143 > UW+ first-5 0.015258 >
+B 0.014480 > J 0.014128 > S1c 0.012283 > H 0.011422 > M 0.011315 > K 0.009941 > Bot+ 0.008121 > sheet 0.007246 >
+masteries 0.003691 > O 0.003481 > G 0.003412 > B2 0.003387 > S1d 0.003272 > par 0.002565 > S2b 0.001737 > C 0.000020 >
+P 0.000006 > unlock rows 0`. Reading P keeps the same head and moves `B`/`B2` to the tail as before (T006 Rev 42).
+**The head is now five items and invariant in both readings: `E → D → F → the ×damage quintet → the knee package`, then
+`L`.** The medal sheet, 4th under the 7×-fast leg, is **18th** of 28 at the corrected flow, and the cosmetic par is **24th**
+— both still worth doing, neither worth interrupting the stone ladder for.
 
 **5. The stone rows scale linearly with the band** (their density is `income × ln ÷ stones`), so one table gives every
 league; the lab rows do not move. `×damage quintet`: **0.056 3 / 0.102 5 / 0.145 3 / 0.305 8 / 0.680 1 / 3.752 6 /
