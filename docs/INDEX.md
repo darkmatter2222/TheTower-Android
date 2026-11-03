@@ -17,7 +17,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | T009 | [Gem spend order](techniques/T009-gem-spend-order.md) | Coins/min | **Three-sourced (Rev 5**; device read pending) |
 | T010 | [Module economy (slot levels, merges, rerolls)](techniques/T010-module-merge-chain.md) | Modules, shards | **Verified (Rev 8**, arithmetic: the `40 + 5(t−11)` tier law, the 13-row currency sub-stat table, the lock ladder, the printed ledger) |
 | T011 | [Perk engine tuning](techniques/T011-perk-engine-tuning.md) | Coins (run multipliers) | **Verified (Rev 6**, arithmetic: the printed ladders + the per-tier perk bill 0 → 1 46…1 056 picks, 8/8 marginals re-added) |
-| T012 | [Card deck order (gems per percentage point)](techniques/T012-card-deck-order.md) | Coins, Cash, Elite Cells | **Verified (Rev 3**, arithmetic: the printed Lv.1–7 ladders for 31 cards, the mastery 10 % law, Σ 27 500 stones, the 50 q / 562.5 d lab) |
+| T012 | [Card deck order (gems per percentage point)](techniques/T012-card-deck-order.md) | Coins, Cash, Elite Cells | **Verified (Rev 4**, arithmetic: the printed Lv.1–7 ladders for 31 cards double-sourced on 8 per-card pages, the mastery 10 % law with its own **bonus(k) = (k+1)s** print, Σ 27 500 stones confirmed per card, the 50 q / 562.5 d lab, plus **Coin Decay** (half coins after 3 waves alive)) |
 | T013 | [Event window & medal economy](techniques/T013-event-medal-economy.md) | Medals → Gems, Stones, Shards | **Verified (Rev 6**, arithmetic: the ladder + the 21/21 milestone-skin laws + the 83/58/44 bucket table at +95.2 pp) |
 | T014 | [Tournament tickets & league ladder](techniques/T014-tournament-tickets.md) | Gems, Stones, Keys | **Verified (Rev 9**, arithmetic: 130 ladder cells, the two width sets Σ 30, `n* = floor(P/10)` at ≥ ×2.00, and §4.3's per-league condition/skip laws) |
 | T015 | [Bot economy & cell/coin chain](techniques/T015-bot-economy.md) | Medals, Coins, Elite Cells | **Verified (Rev 6**, arithmetic) |
@@ -197,6 +197,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 - [2026-11-02 - session 92 (T008 Rev 10)](log/2026-11-02.md#2026-11-02---session-92-iteration-101-the-index-page-prints-the-whole-plus-layer-and-the-value-rows-get-a-second-source)
 - [2026-11-02 - session 93 (T020 Rev 13)](log/2026-11-02.md#2026-11-02---session-93-iteration-102-the-99-row-discount-ladder-folds-into-20-blocks-and-each-tab-gets-its-own-stop-level)
 - [2026-11-02 - session 94 (T006 Rev 19)](log/2026-11-02.md#2026-11-02---session-94-iteration-103-the-super-tower-bonus-lab-is-a-fourth-clock-shape-and-prices-the-card-product-to-513)
+- [2026-11-02 - session 95 (T012 Rev 4)](log/2026-11-02.md#2026-11-02---session-95-iteration-104-the-per-card-pages-double-source-both-ladders-and-print-coin-decay)
 
 ## Reference material in this repo
 

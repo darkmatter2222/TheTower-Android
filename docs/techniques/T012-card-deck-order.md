@@ -1,5 +1,12 @@
 # T012 — Buy card levels by gems-per-percentage-point, not by card
 
+Rev: 4 (2026-11-02) — **§2.2, the per-card pages**: `wiki/card/cards-<name>` prints **two** tables (`Card Level | Effect`
+**7** rows, `Mastery Level | Value` **10** rows), and 8 pulled pages give a second independent print of **8/8 card
+ladders** (both non-arithmetic shapes included), of **seven stone costs** (all inside §2.1's four buckets), and the
+mastery ladder's own law **`bonus(k) = (k + 1) × s`** (so level 0 = exactly 1/10 of level 9; `Wave Skip` `10 + 5k` is the
+only break). Three mechanic prints are new: **Coin Decay** (an enemy alive **3 waves** drops **half** coins), the cosmetic
+per-item table (**+0.4 / +0.8 / +0.6 %**), and the Cash/Coins definition set; the `Coins` page's “increases the card's stat
+multiplier” wording is prose support for **H058 reading (A)**.
 Rev: 3 (2026-11-02) — **§“printed ladders” + §2.1**: the printed Lv.1–Lv.7 table for **31 cards** now backs the gems/pt
 ranking with **every card's own arithmetic step**, and the **mastery layer collapses to one law** (31 rows, `v(k) = base +
 (k+1)·s`; the unlock carries **exactly 10 % of the levelled effect** — 30 of 31 rows, `Wave Skip` the exception at 2/11),
@@ -266,6 +273,51 @@ way); this is the 1-level Attack-Research line of [T006](T006-lab-queue-packing.
 ⇒ **Σ 2 063.56 T coins** (Σ base time 35 348 h = 1 473 d); this agrees cell-for-cell with
 [T010](T010-module-merge-chain.md) §2.1's `wiki/lab/lab-shatter-shards` print ✓ (two pages, one table).
 
+### 2.2 The per-card pages — both ladders double-sourced, and the mastery ladder's own law (new, Rev 4)
+
+`wiki/card/cards-<name>` prints **two** tables per card: `Card Level | Effect` (**7** rows) and `Mastery Level | Value`
+(**10** rows, *k* = 0…9). Eight pages were pulled (`tools/fetch-hub.ps1`) and parsed with the new
+`tools/card-page-parse.ps1`; **7 of the 8 print both tables** — `cards-recovery-package-chance` carries only the card
+ladder, so its mastery ladder still lives solely on `card-masteries`.
+
+| Card | `Card Level \| Effect` (Lv 1 → 7) | step | `Mastery Level \| Value` (k = 0 → 9) | step | printed stones |
+|---|---|---|---|---|---|
+| `Cash` | ×1.20 → ×2.40 | +0.20 | 0.4 % → 4 % | +0.4 | **500** |
+| `Coins` | ×1.15 → ×1.45 | +0.05 | ×1.03 → ×1.30 | +0.03 | **1 250** |
+| `Critical Coin` | 15 % → 33 % | +3 | 10 % → 100 % | +10 | **1 000** |
+| `Enemy Balance` | ×1.30 → ×1.90 | +0.10 | 6 % → 60 % | +6 | **1 000** |
+| `Free Upgrades` | 4 % → 10 % | +1 | 1 % → 10 % | +1 | **500** |
+| `Super Tower` | 2.5 → 5 (2.5 · 2.9 · 3.3 · 3.7 · 4.1 · 4.5 · **5**) | +0.4 ×5 then +0.5 | −3 s → −30 s | −3 | **1 000** |
+| `Wave Skip` | 9 % → 19 % (9 · 10 · 11 · 13 · 15 · 17 · 19) | +1, +1, +2 ×4 | 10 % → 55 % | +5 | **1 000** |
+
+1. **The card ladders match §1 cell for cell** (8/8), including the two non-arithmetic shapes §“seven exceptions” lists
+   (`Wave Skip` 9/10/11/13/15/17/19 and `Super Tower` +0.4 ×5 then +0.5) ⇒ the deck table now has two independent prints.
+2. **The mastery ladder has a one-line law of its own.** On every arithmetic mastery table the printed values are
+   **`bonus(k) = (k + 1) × s`** — `Cash` 0.4 / 0.8 / … / 4 ✓, `Critical Coin` 10 … 100 ✓, `Enemy Balance` 6 … 60 ✓,
+   `Free Upgrades` 1 … 10 ✓, `Super Tower` −3 … −30 ✓, and `Coins` in ×-form as **`v(k) = 1 + 0.03 × (k + 1)`** ✓ — so
+   **the level-0 (stone-purchase) value is exactly 1/10 of the level-9 value**, which is §2.1's 10 % law re-derived from a
+   second page type. `Wave Skip` (`10 + 5k`, so 10 / 55 = 2/11) is again the only break.
+3. **The stone costs are printed on the card pages as well**, and all seven land inside §2.1's four buckets
+   (500 ×2 = `Cash` + `Free Upgrades`; 1 000 for `Critical Coin` / `Enemy Balance` / `Wave Skip` / `Super Tower`;
+   1 250 for `Coins`) ⇒ the **27 500**-stone census has a second print, and `Cells` = 1 000 is the only value still
+   unprinted.
+4. **The mastery's unit changes by family** — % for the “chance” masteries, × for the stat multipliers, seconds for
+   `Super Tower` — so one shared lab (50 q coins / 562.5 d) buys different *units* per card; only same-family rows are
+   comparable per stone.
+
+**Three mechanic prints from the pages' own `Good to know` blocks.** ① **Coin Decay**, recorded here for the first time in
+this repo: “enemies that live **3 waves** or more drop **half** coins” — a slow build is therefore penalised twice (the
+wave timer *and* a half payout), which is the arithmetic reason `Wave Skip` / `Wave Accelerator` earn their gem cost.
+② The cosmetic stack in per-item form: “skins **+0.4 %**, backgrounds **+0.8 %**, menu skins, profile banners, the three
+shop songs and Guardian skins **+0.6 %** each … they add up … and the total multiplies the whole coin bonus” ✓ the same
+**+95.2 pp ⇒ ×1.952** law as T013's cosmetic line and T016 §1. ③ The two-currency definition set on the `Cash` page:
+“Cash is earned during a run and spent on in-run upgrades; it resets each round. Coins are the permanent currency spent in
+the Workshop and Labs. **Cash Bonus multiplies all cash incl. the wave bonus**” ✓ T020 §5's multiplication order.
+
+**Prose evidence for H058.** The `Coins` page describes its mastery as “**increases the card's stat multiplier**, making
+the coin bonus stronger than the base card alone” — wording that fits reading **(A)** (whole value) in
+[H058](../hypotheses/H058-mastery-multiplies-card-value-or-bonus.md); the two-read numeric test there still decides it.
+
 ## 3. Step-by-step (UI only)
 
 1. Home screen → **Cards** tab (the card icon). The **info button** (ℹ) in this screen shows the **live drop chance of every rarity and every card** — that is the panel to read after each maxed card.
@@ -305,6 +357,14 @@ the 31 printed rows plus `Cells`, and `time = 250n + 250 h` per level). Until th
 - [ ] **§2.1 the shared lab:** any mastery lab prints level 1 = **1.10 q / 20 d 20 h** and level 9 = **10.00 q / 104 d 4 h**,
       while the `Cells` mastery lab prints a **different** ladder (the page's “except Cells” note).
 - [ ] **§2.1 the gate:** the mastery list stays closed until **30** cards show 7 stars and the **T16 W100** milestone is claimed.
+- [ ] **§2.2 the two tables:** the `Cash` card page prints `Card Level | Effect` = **1.20 · 1.40 · 1.60 · 1.80 · 2.00 ·
+      2.20 · 2.40** and `Mastery Level | Value` = **0.4 % … 4 %** with its prose reading “Unlocking the Cash card mastery
+      costs **500** stones”; the `Coins` page's mastery table runs **x1.03 … x1.30** for **1 250** stones.
+- [ ] **§2.2 the mastery law:** on any %-mastery the level-0 value is one tenth of the level-9 value (`Cash` 0.4 / 4,
+      `Critical Coin` 10 / 100, `Enemy Balance` 6 / 60, `Free Upgrades` 1 / 10, `Super Tower` −3 s / −30 s) — the single
+      exception is `Wave Skip` (**10 %** at 0, **55 %** at 9).
+- [ ] **§2.2 Coin Decay:** with the `Coins` card equipped, an enemy that survives **3** waves starts paying **half** coins
+      (the wave's coin delta drops by ≈ ×0.5 for that enemy).
 
 ## 5. Falsification
 
@@ -331,6 +391,12 @@ the 31 printed rows plus `Cells`, and `time = 250n + 250 h` per level). Until th
   printed cost); the four-bucket census itself is unaffected.
 - **§2.1:** if the Card Detail value does not change when a mastery is unlocked, both readings of the mastery product are wrong
   → see [H058](../hypotheses/H058-mastery-multiplies-card-value-or-bonus.md)'s falsification branch.
+- **§2.2:** if a card page's `Mastery Level | Value` starts at **0** rather than one step, the law is `v(k) = k × s` and every
+  “the unlock already pays 10 %” statement in §2.1 must be re-read as “nothing yet” (the per-stone *ranking* survives — it uses
+  the step). If a card page's printed stone cost disagrees with the mastery list's own row for that card, the card page is the
+  newer print → re-bucket the census (**27 500** and the `Cells` = **1 000** prediction both move with it).
+- **§2.2:** if an enemy that survives 3 waves still pays full coins, the printed **Coin Decay** line is stale → the cosmetic
+  and decay notes on that page need re-reading, but the gem/copy arithmetic in §1 is independent of it.
 
 ## 6. Notes
 
@@ -338,6 +404,13 @@ the 31 printed rows plus `Cells`, and `time = 250n + 250 h` per level). Until th
 - `AutoRerollUI.cs` / the `Auto Reroll` string belong to the **module substat** reroll, not to card pulls — card pulls are one 20-gem flat cost with no reroll state.
 
 ## Sources
+
+- Tower Hub per-card pages (all last verified **2026-11-01**, pulled 2026-11-02): `wiki/card/cards-cash` ·
+  `cards-coins` · `cards-critical-coin` · `cards-wave-skip` · `cards-enemy-balance` · `cards-recovery-package-chance` ·
+  `cards-free-upgrades` · `cards-super-tower` — §2.2: the `Card Level | Effect` (7 rows) and `Mastery Level | Value`
+  (10 rows, *k* = 0…9) tables, the per-page stone costs (**500 / 1 000 / 1 250**), and the `Good to know` prints
+  (**Coin Decay** half coins after **3** waves alive; cosmetics **+0.4 / +0.8 / +0.6 %**; the Cash/Coins reset rules).
+  Parsed with `tools/card-page-parse.ps1` (row counts, steps, arithmetic test, the `bonus(k) = (k+1)s` check, stone cost).
 
 - fandom `Cards` (raw wikitext) — 32 cards / 12-9-11 split, 20-gem pull, 80/17/3, level copy table (1/3/8/16/28/48/80), 2 560 pulls = 51 200 gems, slot ladder to 58 400 gems + 6 Vault slots, locked-card list, preset rules, per-card level values, Vault/Keys card upgrades, card-specific labs.
 - Tower Hub `wiki/card/cards` (last verified **2026-10-13**, 9 data tables) — “Each card costs **20 Gems** to buy, and the

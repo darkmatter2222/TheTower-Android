@@ -21,6 +21,13 @@ a maxed `Coins` card and **×5** on the `Damage` card; reading (B) makes the sam
 every absolute number in it (and the “×270 for three masteries” product) moves by the base term, which is what feeds
 T022's stone/coin bills.
 
+**Update (iteration 104, prose support for A).** The `Coins` card page (`wiki/card/cards-coins`, 2026-11-01) describes the
+same mastery as “Unlocking the … mastery … **increases the card's stat multiplier**, making the coin bonus stronger than the
+base card alone” — a *multiplier on the card's multiplier*, i.e. reading **(A)** — whereas the `Cash` page phrases its own
+mastery as a plain drop chance (it is a %-row, so it is not one of the `×` cases). Two of the eight pulled pages use the
+“stat multiplier” wording, none uses “the part above ×1.00”. Still **Open**: only the numeric read below separates 1.885
+from 1.585.
+
 **Settling observation (UI only, two reads, no run needed).**
 
 1. Cards screen → tap the **Coins** card → the **Card Detail** panel shows the level value (**1.45** at Lv. 7). With the
