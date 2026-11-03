@@ -1,5 +1,12 @@
 # T020 — Workshop coin-spend order: the level-band rule and the knee table
 
+Rev: 13 (2026-11-02) — **§6.5.1, the 99-row tab-discount ladder as printed**: the defense lab's whole `Level / Time /
+Cost / Value` table is parsed (99/99 rows on `0.50 % × n`, last cell **4 190 609**, column Σ **111 682 359**, gate
+**T2 W50**); the `Time` cells sum to **1 445.0 d** = the five-lab bill ⇒ per-level again, and `111 683 349 − 111 682 359 =
+990 = 99 × 10` proves §1.4's **+10-coins-per-level** offset holds for all 99 levels; priced as **20 five-level blocks**
+with the payback rule **a block pays iff the track bill ≥ 40 × its price**, which reads the stop level straight off the
+table — **Defense L20** (bill 10.767 M), **Attack L25** (22.88 M), **Utility L30** (34.29 M, matching the per-level `n*`)
+and **all 99** once the `Packages` trio counts (17.42 T).
 Rev: 12 (2026-11-02) — **§1.12, the Packages trio + two printed income laws**: `Package Chance` (**60** lv, 30.00 %,
 **321.28 M**), `Recovery Amount` (**300** lv, `14 + 0.4·L` = 134.00 %, **1.33 T**), `Max Recovery` (**500** lv,
 `1.50 + 0.03·L` = 16.50x, **15.77 T**) all ride **one** price ladder (L1 1.00 K, L1–L10 total **59.12 K** each ⇒
@@ -841,6 +848,74 @@ bill (**≈ 3.4 × 10¹⁶×**). So the order is: **pay the discount lab of the 
 `Enhancement Coin Discount` labs suggest only the tab) — [H060](../hypotheses/H060-workshop-discount-lab-covers-enhancements.md).
 Until it is read, use `R = 34.29 M` (⇒ **L30**) for the Utility tab and treat the 99-level answer as the upside case.
 
+### 6.5.1 The 99-row ladder as printed — 20 blocks and the `40 × price` payback rule (new, Rev 13)
+
+`wiki/system/workshop-defense-discount` prints the defense lab's whole **99-row** `Level | Time | Cost | Value` table
+(fetched 2026-11-02; parsed by `tools/lab-fourcol-parse.ps1`, block economics by `tools/lab-payback.ps1`, tail identity by
+`tools/lab-block-tail.ps1`, shape by `tools/lab-shape.ps1`). Three things it settles:
+
+1. **The value law and the bill close.** `Value` = **`0.50 % × n`** for all 99 rows (L1 `0.50%` → L99 `49.5%`), the last
+   `Cost` cell is **4 190 609**, and the **column sums to 111 682 359** ✓ §6.5's total; the unlock is printed **T2 W50** ✓.
+2. **The `Time` column is per-level (again, and now for this ladder too).** The 99 cells sum to **2 080 811 min =
+   1 445.0 d**, which is exactly the ≈ **1 445 d** the fandom prints as the per-lab bill of the five T1-W30 labs (§1.2),
+   while the *last cell alone* is 70 618 min = 49.0 d (ratio Σ/last = **29.47**) ⇒ same verdict as H050.
+3. **The +10-coins-per-level offset of §1.4 holds across all 99 levels.** The four income labs print Σ **111 683 349**;
+   this ladder's own column sums to **111 682 359**; the difference is **990 = 99 × 10** ✓ — a per-level offset, not a
+   difference in the first rows only. One ladder therefore prices **five** labs (four income + `Starting Cash`, each
+   +10/level cheaper) plus the three tab-discount labs.
+
+**Measured shape.** Per-level price ratio over four spans: **2.25** (L1→5), **1.22** (L10→20), **1.06** (L40→50),
+**1.03** (L90→99) ⇒ beyond L20 the ladder is near-geometric ≈ **×1.03 per level** = **×1.16–1.24 per 5-level block**.
+
+**The block table.** A 5-level block buys **+2.5 pp**, so it saves `0.025 × B` where `B` is the bill the lab discounts:
+
+| block | price | coins / pp | pays back iff the track bill ≥ |
+|---|---|---|---|
+| L1–5 | **1 449** | 580 | 57 960 |
+| L6–10 | 17 303 | 6 921 | 692 120 |
+| L11–15 | 68 931 | 27 572 | 2 757 240 |
+| L16–20 | 174 633 | 69 853 | 6 985 320 |
+| L21–25 | 350 702 | 140 281 | 14 028 080 |
+| L26–30 | 612 218 | 244 887 | 24 488 720 |
+| L31–35 | 973 408 | 389 363 | 38 936 320 |
+| L36–40 | 1 447 847 | 579 139 | 57 913 880 |
+| L41–45 | 2 048 578 | 819 431 | 81 943 120 |
+| L46–50 | 2 788 207 | 1 115 283 | 111 528 280 |
+| L51–55 | 3 678 974 | 1 471 590 | 147 158 960 |
+| L56–60 | 4 732 789 | 1 893 116 | 189 311 560 |
+| L61–65 | 5 961 283 | 2 384 513 | 238 451 320 |
+| L66–70 | 7 375 828 | 2 950 331 | 295 033 120 |
+| L71–75 | 8 987 577 | 3 595 031 | 359 503 080 |
+| L76–80 | 10 807 466 | 4 322 986 | 432 298 640 |
+| L81–85 | 12 846 249 | 5 138 500 | 513 849 960 |
+| L86–90 | 15 114 506 | 6 045 802 | 604 580 240 |
+| L91–95 | 17 622 654 | 7 049 062 | 704 906 160 |
+| L96–99 (4 lv) | 16 071 757 | 8 035 879 | 803 587 850 |
+
+Blocks 1–19 sum to **95 610 602** and the last 4-level block to **16 071 757** ⇒ **111 682 359** ✓ the column total. The
+cumulative at each 5-level mark (`Σ1–L5 / 10 / … / 95 / 99`): **1 449** · 18 752 · 87 683 · **262 316** · 613 018 ·
+**1 225 236** · 2 198 644 · 3 646 491 · 5 695 069 · 8 483 276 · 12 162 250 · 16 895 039 · 22 856 322 · 30 232 150 ·
+39 219 727 · 50 027 193 · 62 873 442 · 77 987 948 · 95 610 602 · **111 682 359** coins. (The 4-level tail block breaks the
+`40 ×` pattern: 4 levels = 2.0 pp ⇒ its threshold is `price ÷ 0.02` = **50 × price**.)
+
+**Read the stop level off the table** (`40 × price` = the bill threshold, so: ≈ **L20** at 7 M, **L25** at 14 M,
+**L30** at 24 M, **L35** at 39 M, **L40** at 58 M, **L50** at 112 M, **L60** at 189 M):
+
+| track the lab discounts | bill `B` (from §1) | last paying block (return) | next block needs | **stop at** |
+|---|---|---|---|---|
+| Defense tab, cheap-cap set (§1.10) | **10.767 M** | L16–20 (**1.54×**) | 14.03 M | **L20** |
+| Attack tab, cheap-cap set (§1.8) | **22.88 M** | L21–25 (**1.63×**) | 24.49 M | **L25** |
+| Utility tab, four currency lines (§1.7) | **34.29 M** | L26–30 (**1.40×**) | 38.94 M | **L30** ✓ = the per-level `n*` |
+| Utility tab incl. the `Packages` trio (§1.12) | **17.42 T** | L96–99 (**2.17 × 10⁴×**) | none | **all 99** |
+
+Whole-lab check (all 99 levels, `0.495 × B ÷ 111 682 359`): Defense **0.048×**, Attack **0.101×**, Utility four lines
+**0.152×** ✓ (the 0.15× above), Utility full **77 209×**.
+
+**Why the block view is the useful one:** the *per-level* returns in §6.5 look identical for the three tracks (same
+ladder, same 0.50 %), but the *stop levels differ* because the tracks' bills differ — the same 99-level lab is worth **L20**
+on Defense, **L25** on Attack and **L30** (or 99) on Utility. So the taps go: **discount lab → grind that tab's cheap caps
+→ next block while its threshold is still met.**
+
 ## 7. Steps (UI only)
 
 1. Home screen → **Lab** → research **`Game Speed` L1–L3** (Main Research, unlocked at the **T1 W30** milestone: **14 800
@@ -890,6 +965,14 @@ Until it is read, use `R = 34.29 M` (⇒ **L30**) for the Utility tab and treat 
       (+0.50 pp per level), reaching **49.50 %** at level 99.
 - [ ] **§6.5 effect:** with `Workshop Utility Discount` at L10 (−5.00 %), the Utility tab's next-level prices read ~5 % below
       the §1.7 table (e.g. a coin line's L41–50 band ≈ **218.5 K** instead of 230.04 K); at L30 ≈ **195.5 K**.
+- [ ] **§6.5.1 block arithmetic:** the panel's cells **21–25** are **53 532 / 61 163 / 69 456 / 78 433 / 88 118** and their
+      sum is the block price **350 702**; the L99 time cell reads **49 d 0 h 58 m** = **70 618 min** while the 99 cells sum
+      to **2 080 811 min = 1 445.0 d**.
+- [ ] **§6.5.1 the 40 × rule on the Attack tab:** block L21–25 needs **14 028 080** coins of bill (the tab has **22.88 M** ⇒
+      buy, 1.63×) and block L26–30 needs **24 488 720** (⇒ stop at **L25**). On Defense the same two thresholds fall the
+      other way around **L20** (bill **10.767 M**: L16–20 needs 6 985 320 ✓, L21–25 needs 14 028 080 ✗).
+- [ ] **§6.5.1 offset:** the four income labs' printed total **111 683 349** − this ladder's column total **111 682 359** =
+      **990** = 99 × 10 exactly.
 - [ ] **§6.5 gate:** the Utility tab's `Coin Bonus +` first level costs **5.00 B** coins at discount level 0 — the number the
       H060 read compares against.
 - [ ] **Coins** ladder checkpoints: L1 = **50**, L10 = **838** (Σ **3.52 K**), L50 Σ = **448.41 K**, L90 Σ = **3.22 M**.
@@ -986,11 +1069,14 @@ Until it is read, use `R = 34.29 M` (⇒ **L30**) for the Utility tab and treat 
 - **§6.5:** if a `Workshop … Discount` lab's value column reads **0.30 %/level** instead of 0.50 %, that page is the
   `Enhancement Coin Discount` ladder (0.30 %/level, 100 levels, L1 = 1.00 B) → the two lab families are easy to confuse in
   the Lab screen; confirm by the level-1 price (**30** coins vs **1.00 B**).
-- **§6.5:** if the L1 price of the discount lab is **not 30** coins, the ladder differs from `Starting Cash` → price each lab
-  from its own column; the marginal rule (`price(n) ≤ 0.005 × R`) is unaffected.
+- **§6.5:** if the L1 price of the discount lab is **not 30** coins, the ladder differs from `Starting Cash` → price each lab  from its own column; the marginal rule (`price(n) ≤ 0.005 × R`) is unaffected.
 - **§6.5:** if `n* = 30` does not match the panel (e.g. the tab's prices stay flat past L30), the discount is **additive**
   rather than multiplicative per level, or `R` includes lines the tab discount does not cover → recompute `R` from the lines
   the panel actually discounts and re-solve the crossover.
+- **§6.5.1:** if a 5-level block's five printed cells do not sum to the §6.5.1 block price (e.g. L21–25 ≠ **350 702**), the
+  ladder was re-versioned → rebuild the block table by summing the panel's own cells; the payback rule itself (bill ≥
+  **40 ×** the block price) is pure arithmetic and survives. If the summed `Time` column is not **1 445.0 d** while the
+  last cell still reads 49 d, the column switched to a cumulative reading and H050 must be re-opened.
 - If the workshop's quantity selector offers **×100 before Max**, the version ordering in §1.5 is stale → read the selector
   order on the panel and re-derive which lab level is the one worth buying first (the Σ **562 500** is unaffected).
 - If the four income labs' L1 price is not **40** coins (value **1.02**), they are re-versioned → re-read L1/L5/L10 and
@@ -1066,6 +1152,12 @@ Until it is read, use `R = 34.29 M` (⇒ **L30**) for the Utility tab and treat 
   (§1.9; the numerator is linear, the denominator is the convex part).
 
 ## Sources
+
+- Tower Hub `wiki/system/workshop-defense-discount` (fetched **2026-11-02**) — §6.5.1: the `Workshop Defense Discount` lab's
+  full **99-row** `Level | Time | Cost | Value` table (`0.50 %` → `49.5 %`, last cost **4 190 609**, gate **T2 W50**) and its
+  two closes: the `Time` cells sum to **2 080 811 min = 1 445.0 d** while the last cell reads `49 d 0 h 58 m`, and the
+  cost column sums to **111 682 359** = the income labs' **111 683 349** − 990. Parsed with the new
+  `tools/lab-fourcol-parse.ps1` / `lab-time-shape.ps1` / `lab-payback.ps1` / `lab-block-tail.ps1` / `lab-shape.ps1`.
 
 - Tower Hub `wiki/workshop/attack-upgrades` (last verified **2026-11-01**, “17 data tables”) plus the nine per-stat pages
   `wiki/workshop/{damage, attack-speed, critical-hits, damage-per-meter, multishot, rapid-fire, super-critical, rend-armor,
