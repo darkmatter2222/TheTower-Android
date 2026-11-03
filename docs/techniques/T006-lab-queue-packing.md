@@ -1,5 +1,13 @@
 # T006 — Pack the Lab queue, then buy the *cheapest* skipped hour
 
+Rev: 37 (2026-11-03) — **§The Bot category on a calendar-day scale** (new): the two-resource model
+`cost_days = max(price/income, Σclock/(1440·slots))` puts the ten lab lines and the 25 medal lines in **one** queue.
+The **medal layer is 14.6× the lab category per calendar day** (**0.050 720** vs **0.003 481**, par **0.017 957**), so the
+medal sheet is finished first and the labs run behind it; inside the category the best order **flips with the coin income**
+— clock-bound: `Burn Stack 0.011 266 > Linger Time 0.007 906 > Flame Cooldown 0.003 516 > Duration 0.002 375 >
+Cooldown 0.002 026`, coin-bound: the same list almost reversed (per coin **2.242e-13 / 1.292e-13** for the cooldown labs vs
+**6.099e-16** for the duration column, a **212×** gap), with the crossovers at **15.68 B / 3.894 T / 9.217 T** coins/day
+(5 slots). Print correction: Burn Stack’s `k = 3` prefix is **204.25 T**, not B. `tools/lab-day-density.ps1`.
 Rev: 36 (2026-11-03) — **the assist layer’s unit is Q, not q, and the module tail is pinned** (§The Assist Module Labs,
 §Module named labs findings 8–10, `tools/assist-primary-tail.ps1`): the fandom page prints **`Cost (Q Coins)`**, so the
 eight assist labs are **930.00 Q = 9.30 × 10²⁰** coins (one lab **116.25 Q**), corroborated by the same-tier
@@ -1583,6 +1591,62 @@ fresh re-add — `tools/bot-research-family.ps1`.
    **T6 W90** and its 2026-11-02 fetch showed **T5 W90** (footnote ¹ there). The other four cooldown gates form the
    clean **W60/W70/W80/W90** ladder across T5, and all four duration labs plus `Burn Stack` print **T10 W50**.
 
+### The Bot category on a calendar-day scale — the joint medal/lab queue (new, Rev 37)
+
+The ten lines above are priced in **two** scarce resources (coins and lab-slot clock), while the 25 bot **medal** lines of
+[T015](T015-bot-economy.md) §3.3–§3.4 are priced in one (medals). Putting them in one queue needs a numeraire; the only one
+that is printed for every currency is **time**: `cost_days = max( price / income_of_that_currency , Σclock / (1440 × slots) )`
+and the statistic is `ln(value ratio) / cost_days`, i.e. **relative value per calendar day**. Incomes used: medals
+**607.5/day** F2P (**1 080** boosted, T013 §2.4) and coins the player’s own printed `/day` (**700 T/day** at the top of the
+printed ladder). The **par** is the cosmetic line: `0.029559 / (1 000/607.5) =` **0.017 957 per day**.
+`tools/lab-day-density.ps1` computes every cell from the printed sums above.
+
+**1. Medal blocks all clear the par; no lab line does.**
+
+| buy | cost | days | ln | per day |
+|---|---|---|---|---|
+| **Echoing Shot 9 lv** | 8 100 m | 13.33 | 1.3863 | **0.103 973** |
+| **Flame Cooldown 15 lv** | 5 700 m | 9.38 | 0.9163 | **0.097 658** |
+| Titan Shock 20 lv | 11 500 m | 18.93 | 1.6094 | 0.085 018 |
+| Thunder’s four lines | 30 600 m | 50.37 | 3.9850 | 0.079 114 |
+| Golden’s four par lines | 33 780 m | 55.60 | 3.0920 | 0.055 607 |
+| **whole medal sheet (445 taps)** | 212 660 m | 350.06 | 17.7550 | **0.050 720** |
+| cosmetics (the par) | 1 000 m | 1.65 | 0.0296 | 0.017 957 |
+| — lab category, all ten lines | 3.235 5 q | 1 321.2 (5 slots) | 4.5990 | **0.003 481** |
+
+⇒ **the medal layer is 14.6× the lab category per calendar day**, so for a sub-Tier-11 player the order is unambiguous:
+**finish the medal sheet (T015 §3.4) first, run the bot labs in the lab slots behind it**. The lab category’s own value is
+not small — `Σ ln = 4.5990` is ~26 % of the medal layer’s 17.755 — it is simply 4.2× slower to accumulate.
+
+**2. Inside the lab category the best order depends on whether coins bind** (the two-resource flip):
+
+| line | Σ coins | Σ slot-days | ln | **per day at 5 slots** | per coin |
+|---|---|---|---|---|---|
+| `Burn Stack` (5 lv) | 567.06 T | 307.6 | 0.6931 | **0.011 266** | 1.222 × 10⁻¹⁵ |
+| `Thunder Linger Time` (20 lv) | 664.838 T | 853.7 | 1.3499 | **0.007 906** | 2.030 × 10⁻¹⁵ |
+| `Flame Bot Cooldown` (25 lv) | 1.808 24 T | 576.7 | 0.4055 | 0.003 516 | **2.242 × 10⁻¹³** |
+| the three `* Duration` (20 lv) | 664.838 T | 853.7 | 0.4055 | 0.002 375 | 6.099 × 10⁻¹⁶ |
+| the four 120-s `* Cooldown` (25 lv) | 1.808 24 T | 576.7 | 0.2336 | 0.002 026 | 1.292 × 10⁻¹³ |
+
+* **clock-bound (rich, ≳ 10 T coins/day)**: `Burn Stack → Linger Time → Flame Cooldown → Duration ×3 → Cooldown ×4`.
+* **coin-bound (the 1e11–1e13/day range most sub-T11 saves are in)**: the order **inverts** to
+  `Flame Cooldown → the four Cooldowns (2.242e-13 / 1.292e-13 per coin) → Linger Time → Burn Stack → Duration`, because the
+  cooldown labs are **212×** the duration labs per coin (finding 6’s “0.28 % of the coins for 43.65 % of the clock”).
+* **The crossover incomes** (5 slots, from the same script): the **cooldown** lab is coin-bound below
+  **15.68 B** coins/day, the **duration** lab below **3.894 T**, **Burn Stack** below **9.217 T**. So at 1 000 B/day the
+  Linger/Burn/Duration lines are still coin-bound while the five cooldown labs are already clock-bound — which is exactly the
+  “coins and clock bind on different halves” finding, now with the thresholds.
+* Slot count scales the clock term linearly: every lab density is `×slots`, so at **1 slot** the best lab line
+  (`Burn Stack`) is **0.002 253**/day, **8× under par**; at 5 slots it is 0.011 266, still **1.6× under par**. The lab
+  category never overtakes the medal layer on calendar days — the flip only re-orders the labs among themselves.
+
+**3. Print correction found by the re-add.** Finding 7 lists Burn Stack’s `k = 3` prefix as “**204.25 B**”; the printed
+column is `43 + 64.5 + 96.75 =` **204.25 T** (and the five-level total is **567.06 T**, so a `B` suffix is impossible).
+The prefix ladder used above is therefore `k = 1 · 3 · 5 = 43 T · 204.25 T · 567.06 T` for Burn Stack,
+`475 B · 1 318.75 B · 11 328.13 B · 87 368.13 B · 664 838 B` for the duration column and
+`181.65 M · 515.0 M · 7.69 B · 80.58 B · 462.95 B · 1 808.24 B` for the cooldown column — every block delta re-adds to the
+line total, and `5 × 1.808 24 T + 4 × 664.838 T + 567.06 T =` **3.235 455 7 q** = the printed **3.235 5 q** ✓.
+
 ### The Battle Condition category and the two `Boss` lines — the census closes at 100 % (new, Rev 34)
 
 Five BC lines (`Lab/Battle Condition Reduction`, `Lab/Battle Conditions Group 1…4`) plus the two `Boss` lines
@@ -1915,6 +1979,15 @@ the §census Module row’s “12 lines, Σ **254**” ✓. `tools/module-named-
       level, ending at **+30 %** (H065’s read).
 - [ ] **Rev 36:** the module slot ladder’s level **1** price is **7 shards + 10 000 coins** and its printed cumulative at
       level **300** is **3 136 095 shards** / **18.07 s** coins.
+- [ ] **§Rev 37 (the day scale):** the three lab columns still print the prefix sums used by the model —
+      `Burn Stack` `43 T` (L1) and the five-level total **567.06 T**; each `* Cooldown` lab L1 = **30 M** / `1d 14h 53m`
+      (**2 693 min**) and each `* Duration` lab L1 = **100 B** / `8d 8h 0m` (**12 480 min**).
+- [ ] **§Rev 37 (the day scale):** your own coin `/day` counter decides the order — if it reads below **15.68 B** all four
+      lab columns are coin-bound (buy the five `* Cooldown` labs first); above **9.217 T** everything is clock-bound (buy
+      `Burn Stack`, then `Thunder Bot Linger Time`).
+- [ ] **§Rev 37 (the day scale):** the medal side re-adds independently of the lab side: **1 215** medals per event
+      (T013 §2.4) and **607.5/day**, so the whole medal sheet is `212 660/607.5 =` **350.06** days and the ten lab lines are
+      `9 512 288/(1440 × 5) =` **1 321.2** days ⇒ the ratio **14.6×** is checkable from two divisions.
 
 ## Falsification
 
@@ -2099,6 +2172,15 @@ the §census Module row’s “12 lines, Σ **254**” ✓. `tools/module-named-
 - **§Main Research gates:** if the **Milestones** screen shows `Workshop Attack Discount` on **T2** W40 rather than T1
   W40, the lab page gate sentence is the stale one and the Hub block column is the live one (the inverse of the H047
   reading) ⇒ the four-line block unlock window shifts by one tier, its prices do not.
+- **§Rev 37 (the day scale):** if the **Bots**/**Lab** screens show a lab’s clock column that is not the shared column of
+  its family (`2 693 min` at `* Cooldown` L1, `12 480 min` at `* Duration` L1), the `Σclock` totals move and every
+  per-day figure must be re-divided — the per-coin column is unaffected.
+- **§Rev 37:** if your printed coin `income/day` is **between** the crossovers (**15.68 B** and **9.217 T**), the category
+  is *mixed*: the five `* Cooldown` labs are clock-bound and the rest coin-bound, which is the case the script prints as
+  “coins” and “clock” side by side — the order is then the union of the two lists, best-first per line.
+- **§Rev 37:** the model assumes the four medal/cell/stone/gem incomes are the printed ones; if your own counter differs
+  (Fetch on, ad gems, guild), rescale each line by the ratio — the statistic is linear in income, so the *ordering* only
+  changes if two incomes cross each other.
 
 ## Sources
 
@@ -2335,3 +2417,10 @@ the §census Module row’s “12 lines, Σ **254**” ✓. `tools/module-named-
   +30 %**”), **`Modules/Cost`** (28 milestone rows, level 1 → 300, `7 → 49 500` shards and `10 000 → 886Q` coins per
   level, cumulative `3 136 095` shards / `18.07s` coins) and **`Currency/Power Stones`** (the stone income and price
   lists, used by T010). New script: `tools/assist-primary-tail.ps1`.
+- `tools/lab-day-density.ps1` (new, Rev 37) — the two-resource day-scale model and every number in §The Bot category on a
+  calendar-day scale: the medal-block table (**0.103 973 / 0.097 658 / 0.085 018 / 0.079 114 / 0.055 607 / 0.050 720** per
+  day), the lab-category figure (**0.003 481** per day for `Σ ln = 4.5990` over **1 321.2** days at 5 slots), the
+  clock-bound order (**0.011 266 / 0.007 906 / 0.003 516 / 0.002 375 / 0.002 026**), the per-coin column
+  (**2.242e-13 / 1.292e-13 / 2.030e-15 / 1.222e-15 / 6.099e-16**, the cooldown/duration ratio **211.8**), the crossover
+  incomes (**15.68 B / 3.894 T / 9.217 T**), and the prefix re-adds (`5 × 1.808 24 T + 4 × 664.838 T + 567.06 T =`
+  **3.235 455 7 q**) with the **204.25 T** unit correction.
