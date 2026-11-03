@@ -8,9 +8,10 @@ $all = $docs -join "`n"
 $n = 0
 $cited = 0
 foreach ($u in $urls) {
-  $slug = ($u -split '/wiki/')[1]
+  $slug = (($u -split '/wiki/')[1])
+  $bare = ($slug -split '/')[-1]
   $n++
-  if ($all.Contains($slug)) { $cited++ }
+  if ($all.Contains($slug) -or $all.Contains($bare)) { $cited++ }
   else { Write-Output ('UNCITED ' + $slug) }
 }
 Write-Output ('section=' + $Section + ' total=' + $n + ' cited=' + $cited)

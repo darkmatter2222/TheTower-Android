@@ -1,5 +1,13 @@
 # T012 — Buy card levels by gems-per-percentage-point, not by card
 
+Rev: 5 (2026-11-02) — **the card-page census is closed (§2.2) and the special-card pages add a lab layer (§2.3)**:
+22 of 23 standard card pages now print both tables; the mastery law is universal as **`v(k) = base + (k+1) × s`** over
+all 22 (base = 1 for `×`, 0 for plain %, the printed offset otherwise), 22 stone costs match their four buckets, and the
+five non-arithmetic card ladders are exactly §1's “seven exceptions”. §2.3: the `Level | Time | Cost | Value` pages
+**double-source T006's Second Wind labs (proving `Time` per-level a third time)**, print the **1 500 → 300** Demon
+Mode/Nuke recharge values, the full 30-level **Double Death Ray** lab (T3 W300, +1 pp/level, **Σ 1.10 T coins /
+892.3 d**), the 890 B Energy-Shield bill and the 5-level named Presets ladder (Σ 35.35 T), and the printed **×1.50 × ×2.00
+= ×3.00** mastery product.
 Rev: 4 (2026-11-02) — **§2.2, the per-card pages**: `wiki/card/cards-<name>` prints **two** tables (`Card Level | Effect`
 **7** rows, `Mastery Level | Value` **10** rows), and 8 pulled pages give a second independent print of **8/8 card
 ladders** (both non-arithmetic shapes included), of **seven stone costs** (all inside §2.1's four buckets), and the
@@ -305,6 +313,44 @@ ladder, so its mastery ladder still lives solely on `card-masteries`.
    `Super Tower` — so one shared lab (50 q coins / 562.5 d) buys different *units* per card; only same-family rows are
    comparable per stone.
 
+**The full census (new, Rev 5).** Fifteen further card pages were pulled, so **22 of the 23 standard card pages** now print
+both tables (only `cards-recovery-package-chance` still prints the card ladder alone). Every card ladder again matches §1
+cell for cell, and the five non-arithmetic shapes are exactly §1's “seven exceptions” — no new break appears:
+
+| Card (15 new pages) | `Card Level \\| Effect` (Lv 1 → 7) | step shape | `Mastery Level \\| Value` (k = 0 → 9) | printed stones |
+|---|---|---|---|---|
+| `Area of Effect` | 5 → 25 % | +3 ×5 then +5 (§1 ✓) | +2.5 % → +25 % | 1 000 |
+| `Attack Speed` | ×1.25 → ×2.15 | +0.15 | ×1.03 → ×1.30 | 750 |
+| `Berserker` | ×0.8 → ×1.4 | +0.10 | 30 s → 300 s | 750 |
+| `Critical Chance` | 5 % → 11 % | +1 pp | 1 % → 10 % | 750 |
+| `Damage` | ×1.5 → ×4 | +0.5 then +0.4 ×5 (§1 ✓) | ×1.4 → ×5 | 750 |
+| `Extra Defense` | 5 % → 11 % | +1 pp | +0.7 % → +7 % | 1 000 |
+| `Extra Orb` | ×0.3 → ×0.9 | +0.10 | ×1.04 → ×1.40 | 750 |
+| `Fortress` | ×1.3 → ×2.2 | +0.15 | −10 → −100 | 750 |
+| `Health` | ×1.5 → ×4 | +0.5 then +0.4 ×5 (§1 ✓) | ×1.2 → ×3 | 750 |
+| `Health Regen` | ×1.4 → ×2.6 | +0.20 | ×1.4 → ×5 | 750 |
+| `Intro Sprint` | 20 → 100 waves | +10 ×4 then +20 ×2 (§1 ✓) | ×1.8 → ×18 | **1 250** |
+| `Land Mine Stun` | ×1.4 → ×3.8 | +0.40 | 2.5 s → 25 s | 1 000 |
+| `Range` | ×1.15 → ×1.45 | +0.05 | ×1.2 → ×3 | 750 |
+| `Ultimate Crit` | 1 % → 3 % | rounded +⅓ pp (§1 ✓) | **+0.3 → +3.3 %** = the rounded +⅓ pp ladder itself | 750 |
+| `Wave Accelerator` | 30 % → 54 % | +4 pp | 110 % → 200 % | 1 000 |
+
+Three census conclusions:
+
+1. **The mastery law is now universal over the 22 two-table pages, in one form**: `v(k) = base + (k + 1) × s`, where the
+   “base” is the family's neutral element — **1** for the `×` rows (`Coins` 1 + 0.03·(k+1) ✓, `Attack Speed` identical
+   ladder ✓, `Extra Orb` 1 + 0.04·(k+1) ✓, `Damage`/`Health Regen` 1 + 0.4·(k+1) ✓, `Health`/`Range` 1 + 0.2·(k+1) ✓),
+   **0** for the plain %-rows, and the printed offset where the card names a base (`Wave Accelerator` 100 + 10(k+1) ✓,
+   `Wave Skip` 5 + 5(k+1) ✓). The §2.1 “10 % law” is that law read on the **bonus above base**. `Ultimate Crit` now prints
+   the rounded ⅓ ladder on *both* tables (card 1 → 3 %, mastery 0.3 → 3.3 % = `(k+1)/3` to 1 dp), so the §2.1 rounding
+   call is double-sourced.
+2. **Stone-cost coverage: 22 of the 31 printed mastery rows have a second, per-page print** — 500 ×2 (done), 750 ×10 of
+   13, 1 000 ×8 of 13, 1 250 ×2 of 3 — and every one matches its §2.1 bucket. Only 9 rows stay single-print: three more
+   750, five more 1 000, and `Plasma Cannon` (1 250); plus `Cells` = 1 000 by prediction.
+3. **The unit-by-family rule survives** (22 rows): %-steps for chance masteries, ×-steps for stat multipliers, seconds for
+   timers (`Berserker` 30 → 300 s, `Land Mine Stun` 2.5 → 25 s), minus-seconds for `Super Tower`/`Fortress` — so the
+   50 q / 562.5 d shared lab buys different units per family (unchanged from Rev 4).
+
 **Three mechanic prints from the pages' own `Good to know` blocks.** ① **Coin Decay**, recorded here for the first time in
 this repo: “enemies that live **3 waves** or more drop **half** coins” — a slow build is therefore penalised twice (the
 wave timer *and* a half payout), which is the arithmetic reason `Wave Skip` / `Wave Accelerator` earn their gem cost.
@@ -317,6 +363,45 @@ the Workshop and Labs. **Cash Bonus multiplies all cash incl. the wave bonus**�
 **Prose evidence for H058.** The `Coins` page describes its mastery as “**increases the card's stat multiplier**, making
 the coin bonus stronger than the base card alone” — wording that fits reading **(A)** (whole value) in
 [H058](../hypotheses/H058-mastery-multiplies-card-value-or-bonus.md); the two-read numeric test there still decides it.
+
+### 2.3 The special-card pages print the Card-Research labs (`Level | Time | Cost | Value`) — new, Rev 5
+
+The nine non-`cards-` pages under `wiki/card/` (`death-ray`, `demon-mode`, `energy-net`, `energy-shield`, `nuke`,
+`nuke-vs-slow-aura-mastery`, `plasma-cannon`, `second-wind`, `slow-aura`, plus `card-presets`) use the **lab table shape**
+`Level | Time | Cost | Value`, i.e. the special cards are levelled like labs: a per-level coin cost *and* a per-level
+research time. `energy-net`, `plasma-cannon`, `slow-aura` print prose only (no table).
+
+1. **The `second-wind` page reproduces T006's two Second Wind labs cell for cell.** `Second Wind Blast`: 4 levels,
+   value 25/50/75/100 %, costs **1.8 M / 3.0 M / 4.5 M / 75 M**, times 27 h 47 m · 41 h 40 m · 55 h 33 m · 83 h 20 m
+   (= the printed **100 000 / 150 000 / 200 000 / 300 000 s**); `Recharge Second Wind`: 7 levels, **2 000 → 400**,
+   **550 B → 3.60 T**. Because the four printed `Blast` times *sum* to T006's printed Σ **750 000 s**, this page family's
+   `Time` column is **per-level** — the [H050](../hypotheses/H050-lab-time-column-per-level-vs-cumulative.md) reading,
+   confirmed a third time on a third page type.
+2. **`demon-mode` and `nuke` print their own recharge ladder: 1 500 → 1 250 → 1 000 → 750 → 550 → 400 → 300**, with the
+   *identical* cost/time columns as `Recharge Second Wind` (550 B → 3.60 T, Σ 14.43 T / 120 d 1 h 6 m) ⇒ the three
+   recharge labs share cost and time but differ in value: Second Wind starts at 2 000, Demon Mode and Nuke at 1 500.
+3. **`death-ray` prints the whole 30-level `Double Death Ray` lab** — the §census row that so far only showed “30”.
+   Prose: the lab is milestone-gated at **tier 3 wave 300**, and each level adds **exactly +1 pp** second-beam chance
+   (value column = the level number), the second beam always appearing **opposite** the first; max-level rotation covers
+   **> 180°**. The printed ladder: cost **2.5 M → 205.13 B** ⇒ **Σ = 1 097.15 B ≈ 1.10 T** coins over 30 levels; time
+   **1 h → 116 d 12 h 29 m** per level ⇒ **Σ = 21 415.5 h = 892.3 d** (per-level reading, as established in ①). Levels 21–30
+alone take 17 058 h = **79.7 %** of the whole lab's time — **stop-the-lab rule applies** ([T006 §“stop-the-lab”](T006-lab-queue-packing.md)).
+4. **`energy-shield` prints the 2-level `Energy Shield Extra Hit`**: value **1 → 2** extra hits, costs **40 B + 850 B =
+   Σ 890 B**, times 11 d 13 h 47 m + 32 d 9 h 47 m = **43.98 d**.
+5. **`card-presets` double-sources the preset ladder with names and times**: level 1 `Card Presets` **350 000** / 13 h
+   53 m, 2 `Workshop Presets` **35 M** / 4 d, 3 `Bot Presets` **3.50 B** / 7 d, 4 `Module Presets` **350 B** / 10 d,
+   5 `Guardian Presets` **35.00 T** / 14 d ⇒ Σ **35.353 535 350 000** ≈ 35.35 T coins, 34 d 4 h of lab time (the cost
+   ladder itself was already in T007; the names and times are new).
+6. **The `nuke-vs-slow-aura-mastery` page is the printed example that masteries multiply.** Partial rows pin both
+   ladders to the §2.1 form: `Slow Aura` = 1 + 0.05·(k+1) (lv 3 ×1.20, 4 ×1.25, 6 ×1.35, 9 ×1.50 ✓) and `Nuke` =
+   1 + 0.10·(k+1) (lv 3 ×1.40, 4 ×1.50, 6 ×1.70, 9 ×2.00 ✓); “**Both at 9 … ×3.00 combined**” = 1.50 × 2.00 ✓ — the
+   product law of §2.1 (`270 = 5 × 6 × 9`) verified on a second page. Its timer table is fully multiplicative too:
+   attack pause 2.0 s → 3.0 s (SA 9) → 4.0 s (Nuke 9) → **6.0 s** (both), hits in 5 min 150 → 100 → 75 → **50**, ray-beam
+   interval 30 s → 45 → 60 → **90 s**.
+7. **Prose mechanics** from the three table-less pages: `Slow Aura` slows Basic/Fast/Tank by a % of their speed **inside
+   tower range only** and stacks **multiplicatively** with the Chrono Field UW and the −40 % speed / ×2.5 damage perk;
+   `Energy Net` (bosses only) and `Plasma Cannon` (% of boss max HP) projectiles both scale with **Attack Speed** and
+   are **not** affected by the `Light Speed Shot(s)` lab — a stat many build guides optimise blind.
 
 ## 3. Step-by-step (UI only)
 
@@ -365,6 +450,13 @@ the 31 printed rows plus `Cells`, and `time = 250n + 250 h` per level). Until th
       exception is `Wave Skip` (**10 %** at 0, **55 %** at 9).
 - [ ] **§2.2 Coin Decay:** with the `Coins` card equipped, an enemy that survives **3** waves starts paying **half** coins
       (the wave's coin delta drops by ≈ ×0.5 for that enemy).
+- [ ] **§2.2 census:** the `Ultimate Crit` card page's mastery table reads **+0.3 % · +0.7 % · +1.0 % · … · +3.3 %** for
+      *k* = 0…9 and prints **750** stones; `Intro Sprint` prints **1 250**; `Area of Effect` 5→25 % with its mastery
+      2.5→25 % for **1 000**.
+- [ ] **§2.3 Second Wind:** the card page's two lab tables read **25/50/75/100 %** at **1.8 M/3.0 M/4.5 M/75 M** and
+      **2 000→400** at **550 B→3.60 T**; the `Nuke` page instead values **1 500→300** for the same cost column.
+- [ ] **§2.3 Double Death Ray:** the lab unlocks after the **T3 W300** milestone and level *n* reads exactly **n %**
+      (level 1 = 1 %, level 30 = 30 %), with level 1 costing **2 500 000** coins and taking **1 h**.
 
 ## 5. Falsification
 
@@ -397,6 +489,14 @@ the 31 printed rows plus `Cells`, and `time = 250n + 250 h` per level). Until th
   newer print → re-bucket the census (**27 500** and the `Cells` = **1 000** prediction both move with it).
 - **§2.2:** if an enemy that survives 3 waves still pays full coins, the printed **Coin Decay** line is stale → the cosmetic
   and decay notes on that page need re-reading, but the gem/copy arithmetic in §1 is independent of it.
+- **§2.2 census:** if any *new* card page shows a mastery ladder that is not `base + (k+1) × s` (e.g. a first term other
+  than one step above its family's base), the law is per-page after all → keep the printed rows and drop the closed form
+  (the stone buckets are independent of the law).
+- **§2.3:** if the in-game `Second Wind Blast` times read as **cumulative** (level 4 ≈ 3 d 11 h total, not ≈ 8 d total),
+  this page family's `Time` column differs from the other lab pages → divide the 892.3 d Double Death Ray Σ accordingly
+  (cumulative would make it 116.5 d); the coin Σ (1.10 T) is unaffected either way.
+- **§2.3:** if `Double Death Ray` level 1 does not read **1 %** (or the gate is not the T3 W300 milestone), the value
+  column is not the level number → re-read the panel; the Σ coin ladder is unaffected.
 
 ## 6. Notes
 
@@ -411,6 +511,13 @@ the 31 printed rows plus `Cells`, and `time = 250n + 250 h` per level). Until th
   (10 rows, *k* = 0…9) tables, the per-page stone costs (**500 / 1 000 / 1 250**), and the `Good to know` prints
   (**Coin Decay** half coins after **3** waves alive; cosmetics **+0.4 / +0.8 / +0.6 %**; the Cash/Coins reset rules).
   Parsed with `tools/card-page-parse.ps1` (row counts, steps, arithmetic test, the `bonus(k) = (k+1)s` check, stone cost).
+- Tower Hub, same last-verified date, pulled 2026-11-02 for §2.2 census + §2.3 — 15 more card pages: `cards-area-of-effect` ·
+  `cards-attack-speed` · `cards-berserker` · `cards-critical-chance` · `cards-damage` · `cards-extra-defense` ·
+  `cards-extra-orb` · `cards-fortress` · `cards-health` · `cards-health-regen` · `cards-intro-sprint` ·
+  `cards-land-mine-stun` · `cards-range` · `cards-ultimate-crit` · `cards-wave-accelerator`; and the special/preset pages
+  `death-ray` · `demon-mode` · `energy-net` · `energy-shield` · `nuke` · `nuke-vs-slow-aura-mastery` · `plasma-cannon` ·
+  `second-wind` · `slow-aura` · `card-presets`. Arithmetic checked by `tools/card-page-parse.ps1`; the `Time` columns
+  summed by hand against T006's printed lab totals.
 
 - fandom `Cards` (raw wikitext) — 32 cards / 12-9-11 split, 20-gem pull, 80/17/3, level copy table (1/3/8/16/28/48/80), 2 560 pulls = 51 200 gems, slot ladder to 58 400 gems + 6 Vault slots, locked-card list, preset rules, per-card level values, Vault/Keys card upgrades, card-specific labs.
 - Tower Hub `wiki/card/cards` (last verified **2026-10-13**, 9 data tables) — “Each card costs **20 Gems** to buy, and the
