@@ -1,5 +1,13 @@
 # T006 — Pack the Lab queue, then buy the *cheapest* skipped hour
 
+Rev: 27 (2026-11-03) — **the Main Research category is priced line by line** (§Main Research, 13 lines from the fandom
+lab pages, `tools/main-research-family.ps1`): **`Starting Cash` and the three `Workshop … Discount` lines share one
+99-level column** (Σ **111 695 939** coins / **1 444.98 d** each ⇒ **446 783 756** coins and **5 779.9 d** for the
+block), `Labs Coin Discount` Σ **472 509 506** coins / **2 751 d** (0.011 % above the Hub's exact `Labs Speed` sum = the
+three-significant-figure print), `Enhancement Coin Discount` is the census's one **exact geometric** price line
+(**1.00 B × 1.30^(n−1)**, Σ **826.445 q** = **20.46 %** of the whole priced census) riding an **arithmetic** clock
+(`t(n) = 1 555 n` min ⇒ Σ **5 453.3 d**), `Buy multiplier` is the cheapest complete line in the game (**562 500** coins /
+**89.8 h**), `Presets` follows `3.5 × 10^(2n+3)`, and the category Σ is **826.45 q** over **14 055 d = 38.5 y**.
 Rev: 26 (2026-11-03) - **the Recharge family resolved** (`wiki/card/nuke` + `wiki/lab/second-wind-labs`, both 2026-11-01):
 four **T14 W60** seven-level labs share one cost/time ladder — **14.43 T** coins over **10 374 360 s = 120 d 1 h 46 m**
 each (the Σ re-adds from the seven printed cells; earlier drafts carried 10 371 960 s) — while their **value** ladders are
@@ -1002,6 +1010,66 @@ online often (it raises levels/day for all 5 slots: a `3 d 11 h` line becomes **
    - **Skip:** `Range` (breaks orb/land-mine builds), `Health Regen`, `Defense Absolute` past the first few levels.
 7. When you switch a running research: the coins are refunded and elapsed time is kept as a **green bar**, but you pay the coins again on resuming — so switch only to another line you also want.
 
+### The Main Research category priced line by line (new, Rev 27)
+
+The Tower Hub category page lists the Main Research lines with their caps but no prices. The fandom lab pages print the
+`Level | Time | Cost | Value` tables, so **13 of the category's lines are now priced** (`tools/main-research-family.ps1`).
+Fandom prints costs to **three significant figures**, so its sums differ from Tower Hub's exact integers in the fourth
+digit (`Labs Coin Discount` Σ **472 509 506** vs `Labs Speed` Σ **472 456 246**, Δ 53 260 = **0.011 %**, while both clocks
+read **2 751 d**).
+
+| Line | Levels | Σ coins | Σ clock | printed value law | coins per unit of effect |
+|---|---|---|---|---|---|
+| `Starting Cash` | 99 | **111 695 939** | 2 080 765 min = **1 444.98 d** | +5 per level ⇒ **495** | 225 648 per unit |
+| `Workshop Attack Discount` | 99 | 111 695 939 | 1 444.98 d | +0.50 pp ⇒ **49.50 %** | 2 256 484 per pp |
+| `Workshop Defense Discount` | 99 | 111 695 939 | 1 444.98 d | +0.50 pp ⇒ 49.50 % | 2 256 484 per pp |
+| `Workshop Utility Discount` | 99 | 111 695 939 | 1 444.98 d | +0.50 pp ⇒ 49.50 % | 2 256 484 per pp |
+| **the four-line block** | 396 | **446 783 756** | **5 779.9 d** = 15.82 y | one shared cost/time column | — |
+| `Labs Coin Discount` | 99 | 472 509 506 | 3 961 437 min = **2 751 d** | −0.30 pp ⇒ **−29.7 %** | 15 909 411 per pp |
+| `Enhancement Coin Discount` | **100** | **826.445 q** | **7 852 750 min = 5 453.3 d** | −0.30 pp ⇒ −30 % | **27.548 q per pp** |
+| `Game Speed` | 7 | 1 714 800 | 65 273 min = 45.33 d | ×2.0 ⇒ ×5.0 (+0.5) | 571 600 per ×1.0 |
+| `Buy multiplier` | 4 | **562 500** | 5 391 min = **89.8 h** | 5, 10, Max, 100 | 140 625 per step |
+| `Presets` | 5 | 3.535 35 × 10¹³ | 833 min (L1 only) | one preset class per level | 7.07 × 10¹² per level |
+| `More Round Stats` | 1 | 250 000 | 719 min = 11 h 59 m | unlocked | — |
+| `Workshop Respec` | 1 | 3 000 000 | 3 666 min = 2 d 13 h 6 m | unlocked (150 gems per respec) | — |
+| `Reroll Daily Mission` | 1 | 20 000 000 | 2 399 min = 1 d 15 h 59 m | unlocked | — |
+| `Workshop Enhancements` | 1 | 5 000 000 000 | 9 599 min = 6 d 15 h 59 m | unlocked | — |
+| `Target Priority` | 2 | 1 001 000 000 | 14 399 min = 9.99 d | unlocked ×2 | — |
+| **Σ 13 lines** | 712 | **826.45 q** | **14 055 d = 38.5 y** | — | — |
+
+1. **The category is one line deep.** The Σ is **826.45 q** and the single 100-level `Enhancement Coin Discount` line
+   contributes **826.445 q** of it ⇒ **20.46 %** of the entire *priced* census (4 039 q) sits in one line, while the other
+   12 lines together are **0.005 q**. Order inside the category therefore ignores the big line and takes the cheap ones.
+2. **A four-line shared ladder.** `Starting Cash` and the three `Workshop … Discount` lines print cell-identical columns
+   (L1 **30 / 0 m**, L2 **71 / 6 m**, L3 **178 / 16 m** … L98 **4 070 000 / 47 d 20 h 27 m**, L99 **4 190 000 /
+   49 d 0 h 57 m**) ⇒ one table prices four lines: Σ **111 695 939** coins and **2 080 765 min = 1 444.98 d** each,
+   **446 783 756** coins and **5 779.9 d** for the block. Their per-level ratios decay from **2.37** (L1→2) through
+   **1.37** (L9→10) to a flat **1.03** tail (L90→98 average **1.030**) — the fifth clock shape from T012 again.
+3. **`Enhancement Coin Discount` is the census's one exact geometric ladder:** cost `1.00 B × 1.30^(n−1)`
+   (1.00 → 1.30 → 1.69 → 2.20 → 2.86 ✓ at 3 s.f.) and time `1 555 × n` **min** exactly (L1 `1d 1h 55m`, L100
+   `107d 23h 40m`) ⇒ Σ time = 1 555 × 5 050 = **7 852 750 min**. Per percentage point of discount: **27.548 q** and
+   **181.8 d** — by both currencies it is the last line in the category worth buying.
+4. **The practical order inside the category** (cheapest per unit of effect first): `Buy multiplier` — the whole ×100
+   capability for **562 500 coins / 89.8 h**, the cheapest complete line in the game; then the three workshop-discount
+   lines at **2 256 484 coins per pp** each; then `Labs Coin Discount` at **15.91 M per pp**; `Game Speed` is a fixed
+   1.71 M / 45 d bill that multiplies every other line (`×5.0` at L7); `Enhancement Coin Discount` last (27.5 q per pp),
+   even though its 30 % applies to the 4.84 × 10⁷-year enhancement ledger of T025.
+5. **Gate cross-check, with one skew.** The lab pages print their own milestone gates — `Workshop Attack Discount`
+   **T1 W40**, `More Round Stats` **T1 W250**, `Workshop Respec` **T4 W30**, `Target Priority` **T4 W150** — and they
+   agree with the per-tier table T019 uses. The Hub's *block* table puts the same `Workshop Attack Discount` cell in the
+   **second** tier's free column of its wave-40 row: the same one-column offset as the `Nuke` / `Land Mine Stun` case,
+   with the same single device test (read the T1 W40 cell of the **Milestones** screen).
+6. **Two adjacent closures on the same source** (they re-add by construction, `Lab Upgrades`): the five lab slots are
+   `Free / 100 / 400 / 1 400 / 3 000` = **4 900** gems ✓; the rush ladder's day-rate column is exactly `gems ÷ days of
+   timer` (**192 / 163 / 142.9 / 118.3 / 88.9 / 69.4**) and its discount column is `1 − rate ÷ 192` on all five rows
+   (**0 / 15 / 26 / 38 / 54 / 64 %**), with **> 360 d = 25 000 flat**, **< 1 min = 1 gem**, and “prices between the times
+   listed scale evenly” (piecewise-linear, so any timer is interpolable from the six anchors). The Elite-Cell boost rows
+   scale **×8** from 1 h to 8 h and **×24** from 1 h to 24 h (8/8), and the 40-row five-lab table is the sum of the five
+   single-lab 1-hour costs with day = hour × 24; reading skipped time as `(m − 1) × duration` gives **30 / 100 / 420 /
+   1 120 / 2 975 / 12 000 / 41 667 / 142 857** cells per skipped hour for ×1.5 … ×8. Five slots at ×1.5 = **75 cells/h =
+   1 800 cells/day**, exactly the printed daily cell income ⇒ the ×1.5-on-all-slots row is the budget-exact build and the
+   first row that exceeds income is ×2 on one slot (**160/h = 3 840/day**).
+
 ## Reproduction checklist
 
 - [ ] No slot shows “completed, not started” for more than a few minutes; at least one long level is running overnight.
@@ -1132,6 +1200,15 @@ online often (it raises levels/day for all 5 slots: a `3 d 11 h` line becomes **
        **2 000/1 500/1 250/1 000/750/550/400** ⇒ `Nuke(k) = SecondWind(k+1)` on **6/6** steps; the family is
        `3 × 14.43 T =` **43.29 T** and `3 × 120.074 =` **360.22 d**.
 
+- [ ] **§Main Research (Rev 27):** `Starting Cash` level 1 reads **30** coins / **0 m** and level 99 reads
+      **4 190 000** / **49 d 0 h 57 m**, and `Workshop Attack Discount` prints the *same* two columns; the four levels of
+      `Buy multiplier` are **2 500 / 10 000 / 50 000 / 500 000** coins (**562 500** total, **89.8 h**).
+- [ ] **§Main Research (Rev 27):** `Enhancement Coin Discount` level 1 reads **1.00B** / **1d 1h 55m** / **0.30 %** and
+      level 100 reads **190.72Q** / **107d 23h 40m** / **30.00 %** — every level's time is **1 555 min** apart
+      (27 h 55 m), and L2 = 1.30 × L1, L3 = 1.30 × L2.
+- [ ] **§Main Research (Rev 27):** the three one-level QoL lines read **250 000** (`More Round Stats`), **3 000 000**
+      (`Workshop Respec`) and **20 000 000** (`Reroll Daily Mission`) coins, and `Workshop Enhancements` is **5B**.
+
 ## Falsification
 
 - If a ×2 boost costs **less than ~3.3× the ×1.5 price**, the flat per-hour pricing changed (it was made flat in v25.5) → re-derive the ranking column from the in-game prices.
@@ -1231,6 +1308,24 @@ online often (it raises levels/day for all 5 slots: a `3 d 11 h` line becomes **
   already departs at L5). If the seven printed times sum to **10 371 960 s** rather than **10 374 360 s**, one cell lost
   40 min of truncation ⇒ take the per-cell readings, not a quoted Σ. If the Nuke save fires **before** `Second Wind` on
   your client, the automation order was re-versioned ⇒ re-read a lethal hit with all five saves loaded.
+- **§Main Research (Rev 27):** if `Starting Cash` and `Workshop Attack Discount` stop printing the *same* cost column, the
+  shared-ladder reading is wrong ⇒ re-run `tools/main-research-family.ps1` with two separate arrays; the four per-line
+  figures move but the category total does not. If `Enhancement Coin Discount` level 1 is not **1.00B** or its times stop
+  being **1 555 min** apart, the two closed forms (geometric **×1.30** price, arithmetic **1 555 n** clock) are dead and
+  the 100 cells must be re-transcribed. If fandom's cost column stops being three significant figures, the **0.011 %**
+  gap against the Tower Hub integers vanishes and the Hub print becomes the only one to use.
+- **§Main Research gates:** if the in-game **Milestones** screen shows `Workshop Attack Discount` on **Tier 2** wave 40
+  rather than Tier 1, the lab page's gate sentence is the stale one and the Hub block column is the live one (the inverse
+  of the H047 outcome) ⇒ the four-line block's unlock window moves one tier later, its prices do not.
+- **§Main Research:** if `Starting Cash` and `Workshop Attack Discount` no longer print an identical cost column, the
+  shared ladder split ⇒ re-run `tools/main-research-family.ps1` with two arrays; the four per-line figures change but the
+  category total does not (each line is still counted once). If `Enhancement Coin Discount` level 1 stops being **1.00B**
+  or its times stop being **1 555 min** apart, both closed forms are dead and the 100 cells need re-transcribing. If the
+  fandom cost column stops being three significant figures, the **0.011 %** gap against the Hub exact sums vanishes ⇒
+  prefer the Hub integers from that version on.
+- **§Main Research gates:** if the **Milestones** screen shows `Workshop Attack Discount` on **T2** W40 rather than T1
+  W40, the lab page gate sentence is the stale one and the Hub block column is the live one (the inverse of the H047
+  reading) ⇒ the four-line block unlock window shifts by one tier, its prices do not.
 
 ## Sources
 
@@ -1366,3 +1461,13 @@ online often (it raises levels/day for all 5 slots: a `3 d 11 h` line becomes **
 - Tower Hub `wiki/currency/currency-coins` (2026-11-01) — the **Coin Bonus** enhancement (gate **50 B** Utility spend,
   ×1 + 0.01/lv, L300 = ×4, “applies to both the tier bonus and Coins/Kill → effective benefit is **squared**”), the
   four coin sources (kills pay on every type *except* Basic), and the tier/farm-depth advice line.
+- fandom lab pages, raw wikitext via `api.php?action=parse&prop=wikitext` (pulled 2026-11-03) — the **Main Research
+  category** tables: `Lab/Starting Cash`, `Workshop_Attack_Discount` / `_Defense_` / `_Utility_` (the shared 99-level
+  column, costs at three significant figures), `Lab/Labs Coin Discount`, `Lab/Enhancement Coin Discount` (**100** rows,
+  `1.00B … 190.72Q` and `1d 1h 55m … 107d 23h 40m`), `Lab/Game Speed` (7 rows, `x2.0 … x5.0`), `Lab/Buy Multiplier`
+  (4 rows plus the “Max came before x100” note), `Card_Presets` (5 rows `350,000 … 35T`, four times printed `Unknown`),
+  `More_Round_Stats`, `Target_Priority`, `Workshop_Respec` (with the **150-gem** respec fee), `Daily_Missions` (the 20 M
+  reroll line and the `+1 shard per level, up to +50` Daily Mission Shards lab) and `Workshop_Enhancement`; each page also
+  prints its own gate sentence (`tier 1 wave 40`, `tier 4 wave 30`, `tier 4 wave 150`). Plus `Lab Category/Main Research`
+  (the 20-line name list with `Max Lv` caps) and `Lab Upgrades` (the 5-slot ladder `Free / 100 / 400 / 1 400 / 3 000` =
+  **4 900** gems, the rush ladder with its discount column, and both Elite-Cell boost tables).
