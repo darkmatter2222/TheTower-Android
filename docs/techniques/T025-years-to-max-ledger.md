@@ -1,5 +1,13 @@
 # T025 — The years-to-max ledger: what every sink costs in days of income
 
+Rev: 7 (2026-11-03) - **§1.⑤, the whole sheet on one scale**: every bill of §1 divided by its own income in **days**, so
+the nine currencies become one ranked list, and the joint plan costs `max(legs)` — **499.5 d** with nothing bought,
+**392.3 d** once the ×3.725 lab stack is up, **350.1 d** once `Daily Mission Shards` reaches L50, each time bound by a
+*different* resource (clock ⇒ shards ⇒ medals). Includes the gem-equivalent cross-check (**435 ge/day** of gems vs
+**253.57** of stones and **126** of shards ⇒ **shards are the scarcest currency of the beginner's three**), the
+binding-resource sensitivity (**+1 stone/day saves 676.7 d; the whole 97.5/week box+trade flow saves 6 323.9 d = 17.3 y;
++1 gem/day saves nothing while stones bind**), and the 52-week vs 365-day convention that explains the **5 940**-shard gap.
+`tools/five-resource-ledger.ps1`.
 Rev: 6 (2026-11-03) — the `+ 15a` term is **pinned by the medal budget** (T013 §2.4): F2P **1 215** medals per event buy
 **7** all-in stone trades ⇒ `a =` **3.5** and the totals read **177.5 / 251.5 / 529.5 / 1 177.5 / 6 497.5 / 20 257.5** per
 week = **49.0 / 34.6 / 16.4 / 7.39 / 1.34 / 0.43 years**; the boost (**2 160** medals) buys **10** trades ⇒ `a =` **5.0**,
@@ -138,6 +146,80 @@ of the clock, while the 19 covered lines below that band cost **399.15 T = 0.57 
 shape appears everywhere: *everything below the T19 band is a rounding error; the T19 band is where the ×1.5 boost pays
 best (its cost and time grow proportionally); the UW q-scale lines are coin-bound.*
 
+### 1.⑤ The whole sheet on one scale - five resources, the ge cross-check, and the binding-resource law (new, Rev 7)
+
+Every row of §1 is `bill ÷ income`, which is already a **day** figure; putting all nine in one column makes the ledger a
+ranked list, and combining them for one plan is the same `max()` model that prices the lab tree
+([T006](T006-lab-queue-packing.md) §Rev 38) and the stone layer ([T008](T008-uw-sync-with-stones.md) §3.②):
+**`cost_days = max(bill_r / income_r)` over the resources the plan consumes**. `tools/five-resource-ledger.ps1`.
+
+| bill | units | income | **days** | years |
+|---|---|---|---|---|
+| Guild Store, full | 1 225 tokens | 26.429/day (185/wk) | **46.4** | 0.13 |
+| gem framework (4 900 + 58 400 + 51 200) | 114 500 ge | 435/day | **263.2** | 0.72 |
+| gem framework at the 8-h claim rate | 114 500 ge | 360/day | **318.1** | 0.87 |
+| four module slots to L50, lab at L50 | 82 380 sh | 510/day (3 570/wk) | **161.5** | 0.44 |
+| the bot sheet (445 taps) | 212 660 md | 607.5/day | **350.1** | 0.96 |
+| four module slots to L50, no lab | 82 380 sh | 210/day (1 470/wk) | **392.3** | 1.07 |
+| four module slots to L101, lab at L50 | 94 380 sh | 510/day | **185.1** | 0.51 |
+| four module slots to L201, lab at L50 | 1 864 380 sh | 510/day | **3 655.6** | 10.02 |
+| `Ally` chip | 14 470 bits | 27.768/day (1 555/season) | **521.1** | 1.43 |
+| the five cheap lab layers (`E D F G L`) | 2 497.5 slot-days | 5 slots | **499.5** | 1.37 |
+| the same with the ×3.725 stack | 2 497.5 | 5 × 3.725 | **134.1** | 0.37 |
+| the stone census, no tournaments | 452 282 st | 97.5/wk = 13.929/day | **32 471.5** | 88.96 |
+| the stone census by band (6 rows) | 452 282 st | 177.5 … 20 257.5/wk | **17 836.5 … 156.3** | **48.87 … 0.43** |
+| the Vault, whole | 73 000 keys | 2.286/day (16/wk) | **31 937.5** | 87.50 |
+| the whole lab census, cells at ×1.5 | 2.4968 × 10⁷ cells | 1 000/day | **24 968.0** | 68.41 |
+| the whole lab census, coins | 3 243.8393 Q | 700 T/day | **4 634 056.1** | 12 693.3 |
+| the whole lab census, clock | 497 359.8 slot-days | 5 slots | **99 472.0** | 272.4 |
+
+The stone rows re-derive T014 §3.3's printed year column (**49.0 / 34.6 / 16.4 / 7.39 / 1.34 / 0.43**) from the same
+weekly incomes: the deltas are only the **52-week vs 365-day** convention (49.0 y = 2 548 weeks exactly).
+
+**1. The gem-equivalent cross-check.** With the printed unit table (**1 stone = 10 ge, 1 shard = 0.6 ge**, the rates that
+make the event shop's **150-identity** close: 150 × 1 = 15 × 10 = 250 × 0.6 = **150** ✓) each flow has a ge/day figure:
+**gems 435 · stones 253.57 · shards 126** unlabbed (**306** with `Daily Mission Shards` at L50). Two uses: (a) the model is
+**invariant** to the rates — the stone leg in ge is `4 522 820 ge ÷ 253.57 ge/day =` **17 836 d**, the same number as
+`452 282 ÷ 25.357`, so the ge column is a check, not a second model; (b) the **scarcest currency of a beginner is shards**,
+at 126 ge/day, then stones, then gems — the nominal counters (1 470 shards vs 435 gems) invert once each is priced.
+
+**2. The binding-resource law, and the three-step first-year plan.** A plan costs its slowest leg, so only *that*
+leg's income matters (finding 4). Three states of the same beginner set - the gem framework, the **8 865**-stone knee
+package, four slots to L50, the 445-tap bot sheet, the five cheap lab layers:
+
+| plan | gems | stones | shards | medals | clock | **joint cost** | bound by |
+|---|---|---|---|---|---|---|---|
+| nothing boosted | 263.2 | 349.6 | 392.3 | 350.1 | **499.5** | **499.5 d = 1.37 y** | clock |
+| ×3.725 lab stack up | 263.2 | 349.6 | **392.3** | 350.1 | 134.1 | **392.3 d = 1.07 y** | shards |
+| + `Daily Mission Shards` L50 | 263.2 | 349.6 | 161.5 | **350.1** | 134.1 | **350.1 d = 0.96 y** | medals |
+
+Read: the first-year set is **complete inside one calendar year** once the stack and the shard lab are in, and its last
+binding leg is the **medal** flow - which is exactly why the 445-tap sheet of [T015](T015-bot-economy.md) *is* the
+year-one schedule. The two near-ties (stones 349.6 vs medals 350.1) mean the stone package and the medal sheet fill each
+other's gaps without extending the calendar.
+
+**3. Nothing after the first year is bound by gems.** At 435/day the entire gem framework is **263 d** - the second
+shortest leg in the table - so gem income stops mattering while stones (17 836 d at the Copper bottom) bind; the ledger's
+own §2 ratio "**263 days vs 8-109 years**" is the same fact seen per currency.
+
+**4. Sensitivity of the stone-bound plan (the only leg that pays):**
+
+| extra income | new cost | saved |
+|---|---|---|
+| +1 stone/day (+7/wk) | 17 159.8 d | **676.7 d = 1.85 y** |
+| +5 stones/day (+35/wk) | 14 898.7 d | 2 937.8 d = 8.05 y |
+| +13.929/day (= the whole 97.5/wk box + trade flow) | 11 512.6 d | **6 323.9 d = 17.33 y** |
+| +1 of any *non-binding* counter (gems, shards, medals) | unchanged | **0 d** |
+
+so claiming all seven weekly boxes and dumping medals into the stone line is worth **17.3 years** of the stone bill at the
+Copper bottom - the largest single lever in the game, and it is free ([T004](T004-mission-farming-low-tier.md),
+[T013](T013-event-medal-economy.md) §2.4). Nominal income on a non-binding counter buys **nothing** until it becomes the
+slowest leg, which is the arithmetic behind "one thing at a time" in the other docs.
+
+**5. Two convention skews.** (a) The **5 940**-shard first-year shortfall is the 52-week print (`1 470 × 52 = 76 440`);
+on a 365-day year it is 76 650, short by **5 730** - same conclusion, 1.4 % apart. (b) The Vault's **87.7 y** in §1 is
+31 937.5 d = **87.50 y** on a 365-day year; the difference is the 52-week convention again (4 562.5 weeks).
+
 ## 2. The three ratios this ledger is for
 
 1. **Gem side vs stone side = 263 days vs 8–109 years.** Everything on the *gem* side of the framework (slots, card
@@ -242,6 +324,15 @@ not the 452 282 total.
        **4.039 Q** (the M/B rows are below the printed precision); `104 035.3 / 5 / 365 =` **57.01 years**,
        `/ 3.725 =` **15.3 years**; the cell bill is `104 035.3 × 24 × (1 − 1/1.5) × 30 =` **2.4968 × 10⁷**;
        `14 × 116.25 =` **1 627.5 q** and `1 627.5 / 4 039 =` **40.29 %**; `72 / 169 =` **42.6 %** coverage.
+- [ ] **§1.⑤ the ge cross-check by hand:** `4 522 820 ge / 253.57 ge/day =` **17 836** and `452 282 / 25.357 =`
+      **17 836** - the two readings of the stone leg agree to four digits, which is the invariance claim.
+- [ ] **§1.⑤ the four first-year legs:** `114 500 / 435 =` **263.2** ; `8 865 / 25.357 =` **349.6** ;
+      `82 380 / 210 =` **392.3** and `/ 510 =` **161.5** ; `212 660 / 607.5 =` **350.1** ;
+      `2 497.5 / 5 =` **499.5** and `/ 3.725 =` **134.1**. The three plan maxima are **499.5 / 392.3 / 350.1 d**.
+- [ ] **§1.⑤ sensitivity:** `452 282 / 26.3571 =` **17 159.8** vs `/ 25.3571 =` **17 836.5** - so **+1 stone/day
+      saves 676.7 d**; `452 282 / 39.2857 =` **11 512.6**, so the 97.5/week flow saves **6 323.9 d**.
+- [ ] **§1.⑤ the convention check:** `1 470 x 52 =` **76 440** (short of 82 380 by **5 940**) while `210 x 365 =`
+      **76 650** (short by **5 730**); `3 570 x 52 =` **185 640**, a surplus of **103 260** over the four-slot bill.
 
 ## 5. Falsification
 
@@ -278,9 +369,22 @@ not the 452 282 total.
 - **§1.④ whole census:** if the coverage is no longer **72 / 169**, a category gained a printed `Total` (or a device read
   filled a gap) ⇒ rebuild the sum from T006 Appendix B’s per-layer column; the three ratios (**40.29 %** / **67.6 %** /
   **×4.33**) are quotients of that same table, so they move with it while the *ordering* of the layers does not.
+- **§1.⑤:** if your own weekly stone income is not **177.5**, only the stone legs move (each by `177.5 ÷ yours`), and the
+  plan's **binding leg can change**: shards stop binding and stones take over at
+  `452 282 ÷ 392.3 =` **1 152.9 st/day = 8 070/week**, the same crossover T013 §2.5 prints from the other side (**8 071**).
+- **§1.⑤:** if the 150-identity fails (one event purchase is not **150 gems / 15 stones / 250 shards**), the ge column is
+  void - the day table is not, because it divides each bill by its own counter and never uses the exchange rates.
+- **§1.⑤:** if the bot sheet is not **445 taps / 212 660 medals**, the third plan's maximum moves off **350.1 d**; the
+  medal leg stays the binding one while `212 660 / 607.5` is the largest of the five legs (it is, by 0.5 d over the stone
+  package, so a small re-print can hand the binding to **stones** - both are ≈ 350 d and the plan length will not move).
+- **§1.⑤:** if a weekly counter differs from the printed one (a guild chest that pays other than **185** bits, a bracket
+  paying other than **16** keys), recompute only that row; the **max()** logic is unaffected.
 
 ## Sources
 
+- `tools/five-resource-ledger.ps1` (new, Rev 7) - the day table for all nine currencies, the ge cross-check of the three
+  exchange rates, the three first-year plans with their maxima and binding legs, the binding-resource sensitivity table,
+  and the 52-week vs 365-day reconciliation.
 - Internal: [T009](T009-gem-spend-order.md) (gem framework bill), [T008](T008-uw-sync-with-stones.md)
   (**244 542** basic UW stats and its **§3.①** 27-line column with the `Σ L1–5 / L1–10 / L1–15` columns,
   **179 240** UW+), [T012](T012-card-deck-order.md) (**58 400** slot ladder, **51 200**
