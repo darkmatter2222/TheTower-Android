@@ -1,5 +1,12 @@
 # T012 — Buy card levels by gems-per-percentage-point, not by card
 
+Rev: 6 (2026-11-03) — **the card layer re-added by one script** (`wiki/card/cards`, 2026-10-13, “9 data tables”, via the new
+`tools/card-mastery.ps1`): the slot ladder is **triple-printed** at **22 rows / Σ 58 400 gems** with new cumulative marks
+**15 900** (slot 16) and **32 400** (slot 19); the **31 × 10** mastery block is linear on **30 rows** (worst residual
+0.0000) with `Ultimate Crit` the only break (**0.0667** = rounded ⅓ pp), the stone column re-adds to **27 500**
+(**500 ×2 · 750 ×13 · 1 000 ×13 · 1 250 ×3**), the shared mastery lab’s times have a **single distinct difference of
+250 h** (⇒ `250n + 250`) and its coins sum to **exactly 50.00 q**; `Shatter Shards` closes at **Σ 2 063.56 T** and
+**Σ 1 473 d**.
 Rev: 5 (2026-11-02) — **the card-page census is closed (§2.2) and the special-card pages add a lab layer (§2.3)**:
 22 of 23 standard card pages now print both tables; the mastery law is universal as **`v(k) = base + (k+1) × s`** over
 all 22 (base = 1 for `×`, 0 for plain %, the printed offset otherwise), 22 stone costs match their four buckets, and the
@@ -69,6 +76,12 @@ Two consequences a sub-Tier-11 player can exploit immediately:
 2. **A new card slot competes on price with a card's 6th/7th level.** Slot 6 costs 400 gems (1 050 cumulative) and equips a whole extra card — for the same 400 gems the Coins card's 6th level buys only +5 %. **Buy slots up to ~8–10 before chasing level 6–7 on any card.**
    Slot ladder (cumulative gems): 2 = 50 · 3 = 150 · 4 = 350 · 5 = 650 · 6 = 1 050 · 7 = 1 550 · 8 = 2 150 · 9 = 2 900 · 10 = 3 900 · 11 = 5 100 · 12 = 6 500 · … 22 = 58 400. (Vault keys add 6 more, max 28 slots.)
    Compare with lab slots (0/100/400/1 400/3 000 = 4 900) — the two ladders interleave, which is the alternation rule in [T009](T009-gem-spend-order.md).
+   **Third print of the same ladder (Rev 6):** `wiki/card/cards` (2026-10-13) carries a `Slot | Gem Cost` table with exactly
+   **22 rows**, starting `1 = Free` and ending `22 = 10 000`; parsed by `tools/card-mastery.ps1` it re-adds to **58 400**
+   with the cumulative marks **3 900** (slot 10), **15 900** (slot 16) and **32 400** (slot 19). Three independent prints
+   (Tower Hub, fandom, game-vault) now agree cell-for-cell, so the *priced* ladder is settled at 22 rows ⇒ the remaining
+   open part of [H061](../hypotheses/H061-active-card-slot-cap-19.md) is only how many of those 22 the panel shows as
+   unlocked-purchasable today.
 
 ### The printed copy/gem table (all 7 totals reproduce)
 
@@ -229,6 +242,15 @@ states the same law: “A mastery whose lab never runs keeps its level-0 value, 
 Mastery.” Practical consequence: **per stone the unlock is a 10 % purchase; the other 90 % costs 50 q coins and 562 days of
 one lab slot.**
 
+**Independent re-derivation (Rev 6).** `tools/card-mastery.ps1` parses the `card/cards` print of the same 31 × 10 block and
+fits each row’s own endpoints: **30 of 31 rows are exactly linear** (worst residual **0.0000** — e.g. `Damage` first 1.4 /
+last 5 / step **0.4**, `Attack Speed` 1.03 → 1.30 step **0.03**, `Health` and `Range` step **0.2**, `Cash` step **0.4 pp**),
+and the single non-linear row is **`Ultimate Crit`** with worst residual **0.0667** = the rounded **⅓ pp** ladder
+(+0.3 / +0.7 / +1.0 / +1.3 / +1.7 …, i.e. ⅓·k printed to one decimal) — the same 30-of-31 + one-break pattern §2.1
+reports, from a second page. The stone column re-adds to **27 500** with the buckets **500 ×2 / 750 ×13 / 1 000 ×13 /
+1 250 ×3** ✓, and the shared lab’s nine levels give times **30 000 → 150 000 min** with a single distinct difference
+(**15 000 min = 250 h**) and a coin column summing to exactly **50.00 q** ✓.
+
 **The stone census.** The 31 printed costs fall in **four buckets** — 500 ×2 (`Cash`, `Free Upgrades`), 750 ×13, 1 000 ×13,
 1 250 ×3 (`Coins`, `Plasma Cannon`, `Intro Sprint`) ⇒ **Σ = 27 500 stones**. The 32nd card, `Cells`, has no printed row (its
 lab is the one the page excludes: “every card mastery lab **except Cells** shares the same lab costs and research times”), and
@@ -247,6 +269,16 @@ levels about **50q coins and 562 days** before Lab Speed”, and only the **per-
 be 104 d) — the same twin as [H050](../hypotheses/H050-lab-time-column-per-level-vs-cumulative.md), here resolved by the page's
 own arithmetic. Note the shape: coin cost saturates (9.80 → 10.00 q) while time keeps rising ⇒ **levels 8–9 are the
 time-bound ones**.
+
+**One script, three prints (new, Rev 6).** `tools/card-mastery.ps1` parses the `card/cards` page end to end and re-adds all
+of it: the **31 × 10** mastery block is **exactly linear on 30 rows** (worst residual **0.0000**) with the single break at
+`Ultimate Crit` (**0.0667** = the rounded ⅓ pp ladder), the stone column sums to **27 500** on the buckets
+**500 ×2 · 750 ×13 · 1 000 ×13 · 1 250 ×3**, the shared lab’s nine times have **exactly one distinct difference
+(15 000 min = 250 h)** ⇒ the `250n + 250` law, its nine coin cells sum to **exactly 50.00 q**, and the slot column
+(22 rows, `1 = Free` … `22 = 10 000`) sums to **58 400** with the cumulative marks **3 900** at slot 10,
+**15 900** at slot 16, **32 400** at slot 19 and **48 400** at slot 21 (the two 16/19 marks are new). The same script’s
+`Shatter Shards` block adds to **2 063.56 T** coins with the printed value law `+20 % × n` and **Σ 1 473 d** of per-level
+slot time.
 
 **Masteries multiply each other, and multiply their card.** The page's comparison-video figures reproduce exactly:
 `Damage` ×5 **×** `Demon Mode` ×6 **×** `Super Tower` ×9 = **270** ✓ (its “roughly x270 damage together”). The same product
@@ -429,6 +461,14 @@ the 31 printed rows plus `Cells`, and `time = 250n + 250 h` per level). Until th
 - [ ] The ℹ panel shows **80 / 17 / 3** before anything is maxed, and after the last Common maxes it shows either
       **85 / 15** or **97 / 3** — record which (that is H046's settling read).
 - [ ] Card slot 22 costs **10 000** gems (cumulative **58 400** with it, **48 400** without).
+- [ ] **Rev 6 marks:** the cumulative gem totals are **3 900** at slot **10**, **15 900** at slot **16**, **32 400** at slot
+       **19** and **48 400** at slot **21** (`tools/card-mastery.ps1` re-adds all four from the 22 printed prices).
+- [ ] **Rev 6 linearity:** in the mastery block, `Ultimate Crit` is the only row whose ten values are *not* an exact
+       arithmetic progression of the endpoints — its steps alternate **0.3 / 0.4 / 0.3 …** because the true step is **⅓ pp**
+       (0.3333 printed to one decimal), so a 0.0667 residual there is expected and every other row must read **0.0000**.
+- [ ] **Rev 6 lab shape:** the shared mastery lab’s nine times differ by exactly **250 h** each (**500 → 2 500 h**, one
+       distinct difference), and its nine coin cells add to exactly **50.00 q** — one more `Time`-is-per-level witness for
+       [H050](../hypotheses/H050-lab-time-column-per-level-vs-cumulative.md).
 - [ ] No pity counter is shown for the card banner (unlike the Module banner's 150-pull pity) — the chances are per-pull.
 - [ ] A skipped wave pays wave coins **and** cash **and** interest (visible as a jump in the in-run Cash bar at the skipped wave).
 - [ ] Card Presets: switching presets **during** a round only works when the locked-card sets match.

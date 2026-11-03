@@ -1,6 +1,21 @@
 # H061 — Is the active card-slot cap **19** (16 at v0.14 + 1 at v0.16 + 2 at v0.23)?
 
-Status: open · Raised: 2026-11-02
+Status: **partially resolved by print** (2026-11-03) — the *priced* ladder is settled at **22 rows / Σ 58 400 gems**; the
+in-panel **active** count is the one read still outstanding · Raised: 2026-11-02
+
+**Print settlement (Rev 0 → partial).** Three independent prints now agree on the gem ladder, so the *priced* part of the
+claim is closed: Tower Hub `wiki/card/cards` (2026-10-13) prints a `Slot | Gem Cost` table with exactly **22 rows**
+(`1 = Free`, `2 = 50`, `3 = 100`, `4 = 200`, `5 = 300`, `6 = 400`, `7 = 500`, `8 = 600`, `9 = 750`, `10 = 1 000`,
+`11 = 1 200`, `12 = 1 400`, `13 = 1 600`, `14 = 1 800`, `15 = 2 500`, `16 = 3 500`, `17 = 4 500`, `18 = 5 500`,
+`19 = 6 500`, `20 = 7 500`, `21 = 8 500`, `22 = 10 000`), cell-for-cell the fandom and game-vault tables already used in
+T012 §1 ⇒ **Σ 58 400** with the cumulative marks **3 900 / 15 900 / 32 400 / 48 400** at slots 10 / 16 / 19 / 21 (parsed by
+`tools/card-mastery.ps1`). Two consequences: ① the slot-11…22 tail is no longer missing from this corpus — it is
+`1 200 → 10 000`, **not** the guessed `1 250, 1 500, 2 000 …`, so T009’s ladder extends by reading the table instead of
+extrapolating; ② the patch-note arithmetic (16 at v0.14, +1 at v0.16, +2 at v0.23 = **19**) and the **22**-row price table
+cannot both be the whole story — either three more slots were priced in before they were granted, or the later versions
+(v0.24 → v0.28, whose notes do not mention slots) raised the active cap silently.
+
+**What is still open (one screen, two reads).**
 
 **Claim.** The number of *buyable* card slots on the **Cards** screen is **19** in the current build, because the three
 printed raises are cumulative: **16** at v0.14 (“max card slots raised to 16”), **+1** at v0.16 (“one extra card slot”),
