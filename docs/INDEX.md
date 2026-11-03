@@ -11,7 +11,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 | T003 | [Turtle build T1–T2](techniques/T003-turtle-build-t1-t2.md) | tier unlocks | **Verified (Rev 3**, arithmetic) |
 | T004 | [Mission farming on low tier](techniques/T004-mission-farming-low-tier.md) | Gems, Coins, Shards, Medals, Tokens | **Verified (Rev 4**, arithmetic) |
 | T005 | [Tier-rush then farm](techniques/T005-tier-rush-then-farm.md) | Coins (daily/weekly) | **Verified (Rev 3**, arithmetic: lattice + gate table + the printed tier ladder `1 + 0.8n` T1–T8 → 60 at T21 + the BC bills) |
-| T006 | [Lab queue packing + cheapest skipped hour](techniques/T006-lab-queue-packing.md) | all (multipliers) | **Verified (Rev 18**, arithmetic: 29/29 value laws + the cheap-tier bill 8.10 B / 462.33 d + the 5 h-per-level relation) |
+| T006 | [Lab queue packing + cheapest skipped hour](techniques/T006-lab-queue-packing.md) | all (multipliers) | **Verified (Rev 19**, arithmetic: 29/29 value laws + the cheap-tier bill 8.10 B / 462.33 d + the 5 h-per-level relation + the **`Super Tower Bonus`** ladder as the **fourth clock shape** (`1 + 0.03·L` 10/10, cap **×1.90**, **Σ10 = 115.94 B** in blocks **21.37 B** / **94.57 B** = **×4.43**, price **×1.3451**/level rather than ×1.5, card product **270 → 351 → 513**) |
 | T007 | [Ad-gem sweep](techniques/T007-ad-gem-sweep.md) | Gems | Amounts verified (Rev 2) |
 | T008 | [Stone economy: knee-first UW buying + cooldown sync](techniques/T008-uw-sync-with-stones.md) | Stones → Coins | **Verified (Rev 10**, arithmetic: 9/9 stone values + 4/4 lattice rows + the 53 547 ledger + the 9 UW+ tables closing as 4 sequences (179 240) + the GT matrix + 9/9 workshop totals + the **27/27** per-line `Total` rows + the index page's 42/42 family cells and 27/27 value ranges) |
 | T009 | [Gem spend order](techniques/T009-gem-spend-order.md) | Coins/min | **Three-sourced (Rev 5**; device read pending) |
@@ -196,6 +196,7 @@ Ranked summary lives in [../README.md](../README.md). Goal definition: [../goal.
 - [2026-11-02 - session 91 (T008 Rev 9)](log/2026-11-02.md#2026-11-02---session-91-iteration-100-the-twenty-seven-workshop-lines-are-priced-and-the-five-damage-lines-ride-one-ladder)
 - [2026-11-02 - session 92 (T008 Rev 10)](log/2026-11-02.md#2026-11-02---session-92-iteration-101-the-index-page-prints-the-whole-plus-layer-and-the-value-rows-get-a-second-source)
 - [2026-11-02 - session 93 (T020 Rev 13)](log/2026-11-02.md#2026-11-02---session-93-iteration-102-the-99-row-discount-ladder-folds-into-20-blocks-and-each-tab-gets-its-own-stop-level)
+- [2026-11-02 - session 94 (T006 Rev 19)](log/2026-11-02.md#2026-11-02---session-94-iteration-103-the-super-tower-bonus-lab-is-a-fourth-clock-shape-and-prices-the-card-product-to-513)
 
 ## Reference material in this repo
 

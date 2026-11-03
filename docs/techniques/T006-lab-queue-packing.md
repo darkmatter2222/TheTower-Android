@@ -1,5 +1,12 @@
 # T006 — Pack the Lab queue, then buy the *cheapest* skipped hour
 
+Rev: 19 (2026-11-02) - **a fourth clock shape, from the `Super Tower Bonus` lab** (`wiki/system/the-tower`, T8 W300,
+**30** levels): `Value` = **`1 + 0.03·L`** (10/10 ✓) ⇒ cap **×1.90**; price is **not** the ×1.5 law (first step 1.500,
+then **1.31–1.37**, fit **×1.3451**/level) with **Σ10 = 115.94 B** coins in two blocks of **+0.15** each —
+**21.37 B** then **94.57 B** (**×4.43**) ⇒ the knee sits inside the first ten levels; the ten `Time` cells give **22.2 d**
+(per-level) or **5.1 d** (cumulative) with **no printed `Total`** to decide it, so the reading is now a one-tap panel test.
+Card-product effect: T012's **270** becomes **351** at L10 and **513** at L30. Four taxonomy prints on the same page
+double-source T020 §1, T001 §C, T012 §5 and T011.
 Rev: 18 (2026-11-02) - **Appendix A.1: the value laws + the L1–10 bills.** The **31** leveled UW lines are arithmetic on
 their `Value` column too (`cap = v1 + step × (levels − 1)`, **29/29** numeric columns exact), and the beginner's number is
 the **cheap tier**: the **18** labs whose level-1 price is ≤ 1 M coins cost **Σ 8.10 B coins / 462.33 d** of base slot time
@@ -145,6 +152,49 @@ the **≈102 × t₁** the geometric law predicts.
    before the tail of one (the same knee rule as every other ladder in this repo).
 3. With five slots, one season (8 weeks = 56 d) buys ≈ **280 slot-days**; at `t₁ = 8 d 8 h` that is 4 first-levels per
    slot per season, so the queue is the scarcest currency in the game — cheaper than coins, cells or gems to refill.
+
+### The `Super Tower Bonus` lab — a fourth clock shape, printed in full (new, Rev 19)
+
+`wiki/system/the-tower` (last verified **2026-11-01**, re-pulled 2026-11-02) has exactly one data table, and it is the only
+print of this lab's rows: gate **T8 W300** ✓ the same number as T019's tier-8 milestone row, **30 levels** ✓ this doc's
+census row (`Card Research … Super Tower Bonus 30`). The table itself shows 10 of its 30 rows.
+
+| L | Time (printed) | Cost | Value | L | Time (printed) | Cost | Value |
+|---|---|---|---|---|---|---|---|
+| 1 | 0d 5h 0m | **2.00 B** | 1.03 | 6 | 2d 4h 6m | 9.26 B | 1.18 |
+| 2 | 0d 13h 21m | 3.00 B | 1.06 | 7 | 2d 17h 17m | 12.53 B | 1.21 |
+| 3 | 0d 21h 53m | 4.07 B | 1.09 | 8 | 3d 8h 59m | 17.13 B | 1.24 |
+| 4 | 1d 6h 55m | 5.33 B | 1.12 | 9 | 4d 3h 50m | 23.51 B | 1.27 |
+| 5 | 1d 16h 49m | 6.97 B | 1.15 | 10 | 5d 2h 32m | **32.14 B** | **1.30** |
+
+1. **Value** is exactly **`1 + 0.03 · L`** (10/10 ✓, step 0.03), so with the printed 30-level cap the line ends at
+   **×1.90**.
+2. **Price is *not* the ×1.5 law.** Measured per-level ratios: **1.500 · 1.357 · 1.310 · 1.308 · 1.329 · 1.353 · 1.367 ·
+   1.372 · 1.367** — one ×1.5 step, then ≈ **1.31–1.37** (geometric fit over L2–L10 = **×1.3451/level**). Use the printed
+   cells, not §the two clock laws' `1.5^(n−1)`, for this family.
+3. **The bill.** Σ10 = **115.94 B coins**; split into the two 5-level blocks a player actually buys: **L1–5 = 21.37 B**
+   for **+0.15** of multiplier, **L6–10 = 94.57 B** for the next **+0.15** ⇒ the second block is **×4.43** the first, so the
+   knee is *inside* the first ten levels. Extrapolating the fit to 30 levels gives ≈ **47 T** coins with its last level at
+   ≈ **12.07 T** — four orders of magnitude above the printed ten, which is why the buy list stops at L10 for a sub-T11
+   account (`tools/stb-lab.ps1` re-adds all of this).
+4. **Time — the H050 ambiguity, with a device test.** The ten cells in minutes are 300 · 801 · 1 313 · 1 855 · 2 449 ·
+   3 126 · 3 917 · 4 859 · 5 990 · **7 352**. Per-level reading ⇒ **Σ10 = 31 962 min = 22.2 d**; cumulative reading ⇒ the
+   ten levels take **7 352 min = 5.1 d** (Σ/last = **4.35**). This table prints **no `Total` row**, so unlike the
+   `Game Speed` lab (T020 §1.6) it cannot settle the reading itself. The one-tap test: read the **Research time** on the
+   Lab panel for level **1** — **5 h** means per-level (22.2 d for ten levels), while a value that only matches the
+   10-cell ladder at L10 means cumulative (5.1 d).
+5. **What the ×1.90 buys.** The page's own wording is that the lab “raises the multiplier on the `Super Tower` card”, so the
+   printed card product of T012 (`Damage` ×5 × `Demon Mode` ×6 × `Super Tower` ×9 = **270**) becomes
+   **5 × 6 × (9 × 1.30) = 351** at STB L10 and **5 × 6 × (9 × 1.90) = 513** at L30 — **+243** on the product for the
+   ≈ 47 T bill, and **+81** for the 115.94 B of the first ten levels.
+
+**Four taxonomy prints on the same page**, all double-sourcing existing entries: the Workshop “raises the **minimum level**
+of the corresponding in-run upgrade” (T020 §1); the Lab either “improve[s] the scaling” or “raise[s] the maximum … such as
+increasing the cap on `Max Interest`” ✓ T001 §C's cap ladder; cards are slot-limited and *some* are locked once equipped
+✓ T012 §5's ten 🔒 cards; Perks arrive “one every **200 rounds**” and only after their lab is researched ✓ T011. The
+`system/content-creator-page` (2026-11-01) adds the store-side numbers: a creator code costs the buyer nothing, pays the
+creator **5 %** of in-app and **8 %** of Webstore revenue, stays active **30 days**, is entered in **Settings** in-game and
+on the Webstore itself, and **no longer exists on iOS since 29.0.5** ⇒ re-enter it once per 30-day window (T022).
 
 ### The printed lab census, the rush-rate law, and the 5× identity (Rev 7)
 
@@ -842,6 +892,11 @@ online often (it raises levels/day for all 5 slots: a `3 d 11 h` line becomes **
       **+50 000** per level).
 - [ ] **Corrected caps:** the three `Swamp` lines run to **level 30**, `Swamp Rend - Additional Enemies` to **11**,
       `Death Wave Health` to **30** with its bill **15.79 B**.
+- [ ] **`Super Tower Bonus` ladder (§ the STB lab):** L1 **2.00 B / 0d 5h 0m / 1.03**, L5 **6.97 B / 1d 16h 49m / 1.15**,
+      L10 **32.14 B / 5d 2h 32m / 1.30** — value law `1 + 0.03·L` (10/10), Σ10 = **115.94 B** coins, the two blocks are
+      **21.37 B** (L1–5) and **94.57 B** (L6–10) = **×4.43**, and the Lab panel's level counter tops out at **30**.
+- [ ] **Time reading:** at STB L1 the Lab panel's `Research time` reads **0d 5h 0m** (= 300 min) — the per-level reading
+      confirmed (Σ10 = 22.2 d), matching the `Game Speed` lab's own printed-total proof (T020 §1.6).
 
 ## Falsification
 
@@ -919,8 +974,24 @@ online often (it raises levels/day for all 5 slots: a `3 d 11 h` line becomes **
 - If `Swamp Radius` / `Swamp Stun Chance` / `Swamp Stun Time` stop at **level 20** on your client, the appendix's correction
   is the newer print → use **12.94 B / 157.8 d** for the 20-level prefix and treat the 30-level figures as the post-patch
   value (both numbers come off the same page, so note which one your screen shows).
+- **§STB:** if level 2 costs **2.72 B** rather than **3.00 B**, the ladder really is a clean geometric and the printed cells
+  are rounded → refit from L1 with `2.00 × r^(n−1)` and re-derive the block bills (**21.37 B** / **94.57 B** move with it).
+  If the `Value` at level 10 is **not 1.30**, the `1 + 0.03·L` law breaks past the printed rows → take the cap from the
+  panel and recompute the **351 / 513** card products from that cap alone.
+- **§STB clock:** if the Lab panel's `Research time` at level 1 reads **5 d 2 h 32 m**-style numbers already (i.e. the first
+  cell is not 5 h), the `Time` column is cumulative for this family → the ten levels take **5.1 d**, not **22.2 d**, and the
+  slot-hours table in §the two clock laws needs the cumulative total for B-scale lines.
 
 ## Sources
+
+- Tower Hub `wiki/system/the-tower` (last verified **2026-11-01**, re-pulled 2026-11-02, “1 data table”) — the
+  `Super Tower Bonus` lab's printed rows (**10** of **30**: gate T8 W300, `1 + 0.03·L`, **2.00 B → 32.14 B**, 5 h →
+  5 d 2 h 32 m) and the four taxonomy prints (workshop = minimum level, lab = scaling *or* cap incl. `Max Interest`,
+  slot-limited cards with some locked mid-run, one perk every **200 rounds** after its lab). Parsed with
+  `tools/stb-lab.ps1` (value law, price ratios and fit, Σ10, block bills, the two time readings, the card products).
+- Tower Hub `wiki/system/content-creator-page` (last verified **2026-11-01**) — creator codes: **5 %** of in-app and
+  **8 %** of Webstore revenue to the creator at no extra cost to the buyer, valid **30 days**, entered in **Settings**
+  in-game / on the Webstore, **removed on iOS since 29.0.5**, programme closed to new creators.
 
 - Tower Hub `wiki/uw/black-hole` · `chain-lightning` · `chrono-field` · `death-wave` · `golden-tower` ·
   `inner-land-mines` · `poison-swamp` · `smart-missiles` · `spotlight` (last verified **2026-11-01**, pulled 2026-11-02)
