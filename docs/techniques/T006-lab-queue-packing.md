@@ -1,5 +1,11 @@
 # T006 — Pack the Lab queue, then buy the *cheapest* skipped hour
 
+Rev: 26 (2026-11-03) - **the Recharge family resolved** (`wiki/card/nuke` + `wiki/lab/second-wind-labs`, both 2026-11-01):
+four **T14 W60** seven-level labs share one cost/time ladder — **14.43 T** coins over **10 374 360 s = 120 d 1 h 46 m**
+each (the Σ re-adds from the seven printed cells; earlier drafts carried 10 371 960 s) — while their **value** ladders are
+per-lab: `Nuke(k) = Second Wind(k + 1)` on 6/6 steps, `Missile Barrage` departs from L5. Three printed lines = **43.29 T /
+360.22 d**, four with `Recharge Demon Mode` = **57.72 T / 480.29 d**. Plus the printed **save-order law**
+(`Death Defy` → `Energy Shield` → `Second Wind` → `Demon Mode` → `Nuke`) and the v27.3 15-s invulnerability note.
 Rev: 25 (2026-11-03) - **Appendix B: the running bill of the priced lab layers.** **72** of the **169** census lines are
 priced end to end and add to **4.039 Q** coins / **104 035.3 d** of clock (**15.80 y** of coin income, **57.01 y** on five
 slots, **24 968 d** of cell income at ×1.5 ⇒ cells bind by **×4.33**); the fourteen T19-band lines are **40.29 %** of the
@@ -268,7 +274,7 @@ and both confirm the “read the family from the first two rows” rule rather t
 | Lab (gate) | Levels | Per-level **value** | Per-level **cost** | Σ |
 |---|---|---|---|---|
 | `Second Wind Blast` (**T3 W150**) | **4** | `25 × n` ⇒ 25/50/75/**100 %** ✓ | 1.8 M · 3.0 M · 4.5 M · **75 M** (ratios 1.667 / 1.5 / **16.667**) | **84.3 M** coins, **750 000 s = 8 d 16 h 20 m** |
-| `Recharge Second Wind` (**T14 W60**) | **7** | 2 000→1 500→1 250→1 000→750→550→**400** waves | 550 B · 1.05 T · 1.55 T · 2.05 T · 2.56 T · 3.07 T · 3.60 T (Δ **+500/+500/+500/+510/+510/+530 B**) | **14.43 T** coins, **10 371 960 s = 120 d 1 h 6 m** |
+| `Recharge Second Wind` (**T14 W60**) | **7** | 2 000→1 500→1 250→1 000→750→550→**400** waves | 550 B · 1.05 T · 1.55 T · 2.05 T · 2.56 T · 3.07 T · 3.60 T (Δ **+500/+500/+500/+510/+510/+530 B**) | **14.43 T** coins, **10 374 360 s = 120 d 1 h 46 m** (re-added from the seven printed cells, Rev 26; earlier drafts of this doc carried **10 371 960 s**) |
 
 Three reads worth having: (a) the Blast **times** are exactly **100 000 / 150 000 / 200 000 / 300 000 s** (the printed
 minute forms are those values rounded, and the four sum to a clean **750 000 s**), so this line's time column is arithmetic
@@ -280,6 +286,38 @@ invincibility once per round**, and the invincibility is `5 × star + 5` seconds
 1–7 ✓ (star = the card's star rank, max **7**, T012). `Blast` is a **T3 W150** milestone gate, so it is inside the
 sub-T11 window; `Recharge` needs **T14 W60** and its level 1 alone ties up a slot for **5 d 5 h** for 2 000 waves of
 recharge delay.
+
+**The Recharge family — one cost/time ladder, three different value ladders (new, Rev 26).** Four 7-level labs share the
+same price and clock ladder; three of them print their value ladder, on three different pages
+(`wiki/lab/second-wind-labs`, `wiki/card/nuke`, and the Smart Missiles lab page via Appendix A.1):
+
+| Lab (all **T14 W60**, 7 levels) | Value ladder as printed | L1→L7 |
+|---|---|---|
+| `Recharge Second Wind` | 2 000 · 1 500 · 1 250 · 1 000 · 750 · 550 · **400** waves | −1 600 |
+| `Recharge Nuke` | 1 500 · 1 250 · 1 000 · 750 · 550 · 400 · **300** | −1 200 |
+| `Recharge Missile Barrage` | 1 500 · 1 250 · 1 000 · 750 · 500 · 350 · **200** | −1 300 |
+| `Recharge Demon Mode` | not printed — same ladder predicted by the family rule | — |
+
+Four things the comparison yields:
+
+1. **Cost and time are cell-for-cell identical across the family** (7/7 on both columns: `550.00B / 1.05T / 1.55T /
+   2.05T / 2.56T / 3.07T / 3.60T` and `5d 5h / 6d 14h 21m / 8d 0h 55m / 9d 23h 10m / 14d 1h 59m / 24d 19h 29m /
+   51d 8h 12m`), so the two pages double-source each other, and **every Recharge line costs 14.43 T coins over
+   10 374 360 s = 120 d 1 h 46 m of slot clock**. The three printed lines therefore cost **43.29 T / 360.22 d**, and with
+   `Recharge Demon Mode` at the family ladder the four-lab family is **57.72 T / 480.29 d** — four saves for one
+   quarter-year of queue time.
+2. **The value ladders are per-lab, and two of them are the same ladder read at an offset:**
+   `Nuke(k) = Second Wind(k + 1)` on **6/6** steps, with a new terminal **300**. `Missile Barrage` shares the first four
+   levels and then departs (**550 vs 500** from L5) — so the family rule applies to price and clock only, and the value
+   column still has to be read per lab.
+3. **The clock is the cost that matters at this gate**: each line’s level 1 alone ties up a slot for **5 d 5 h**, and the
+   whole 7-level line takes **120 d**, which is why the family is a *late-queue* block even though 14.43 T is cheap next
+   to the q-scale lines of Appendix A.2 (a Recharge line is **0.04 %** of one `L-IV` line: 14.43 T vs **38.34 q**).
+4. **The save-order law** (printed on the Nuke page, from the automation labs): on a lethal hit the saves fire in this
+   order — **`Death Defy` → an `Energy Shield` charge → `Second Wind` → `Demon Mode` (needs its own automation lab) →
+   `Nuke`**. Two details: the automatic Nuke does **not** clear projectiles already in flight, and since **v27.3
+   (18 December 2025)** `Smart Nuke Automation` also grants **15 s of invulnerability** when it triggers; the automation
+   re-fires Nuke after its cooldown **only if** Nuke was used once that run.
 
 **Four more printed ladders, and the per-column law (Rev 9).** From `wiki/lab/wall-labs`, `wiki/lab/lab-garlic-thorns`,
 `wiki/lab/lab-category-*`-sibling pages `wiki/enemy/boss-labs` and `wiki/module/module-labs-reroll-shards` (all 2026-11-01
@@ -733,7 +771,7 @@ and what the covered part costs. Only layers whose **every** line carries a prin
 | `B` enemy-stat T9–T13 band (§enemy-stat layer) | 13 | 383.113 T | 15 127.87 d |
 | `B2` the T19 trio: `Vampire`/`Ray`/`Scatter` Health+Attack | 6 | 697.5 q | 30 130.08 d |
 | `C` the 8 assist module labs (T19 W50) | 8 | 930 q | 40 174.4 d |
-| `D` the Second Wind pair | 2 | 14.4301 T | 128.68 d |
+| `D` the Second Wind pair | 2 | 14.4301 T | 128.75 d |
 | `E` `Garlic Thorns` | 1 | 1.35 M | 25.45 d |
 | `F` the two `* Level Skip` labs | 2 | 1.49 T | 260.62 d |
 | `G` `Super Tower Bonus`, printed ten levels | 1 | 115.94 B | 22.2 d |
@@ -1087,6 +1125,12 @@ online often (it raises levels/day for all 5 slots: a `3 d 11 h` line becomes **
        `72 / 169 =` **42.6 %**, the T19 band is `1 627.5 / 4 039 =` **40.29 %** of the coins and
        `(30 130.08 + 40 174.4) / 104 035.3 =` **67.6 %** of the clock, and the sub-T19 band is
        `399.15 T / 700 T =` **0.57 days** of income.
+- [ ] **Recharge family:** every printed Recharge line reads **550.00B** at level 1 and **3.60T** at level 7 with the
+       seven times `5d 5h · 6d 14h 21m · 8d 0h 55m · 9d 23h 10m · 14d 1h 59m · 24d 19h 29m · 51d 8h 12m`, whose sum is
+       **10 374 360 s = 120 d 1 h 46 m** and whose cost sums to **14.43 T**; `Recharge Nuke` reads
+       **1 500/1 250/1 000/750/550/400/300** waves and `Recharge Second Wind` reads
+       **2 000/1 500/1 250/1 000/750/550/400** ⇒ `Nuke(k) = SecondWind(k+1)` on **6/6** steps; the family is
+       `3 × 14.43 T =` **43.29 T** and `3 × 120.074 =` **360.22 d**.
 
 ## Falsification
 
@@ -1182,6 +1226,11 @@ online often (it raises levels/day for all 5 slots: a `3 d 11 h` line becomes **
   a category page gains a `Total` row or a device read supplies the missing 97 lines.
 - **§Appendix B T19 band:** if a T19-band line’s level 30 is not **7.50 q** (`0.25 q × 30`), the arithmetic ladder changed
   ⇒ re-derive the line’s `Σ = 0.25 q × 465 =` **116.25 q** from the new step and re-weight the 40.29 % / 67.6 % shares.
+- **§Recharge family:** if a second Recharge lab’s level-1 price is **not 550.00B**, the shared ladder broke ⇒ price that
+  line from its own two first rows (the family rule covers cost and time only, never the value column — `Missile Barrage`
+  already departs at L5). If the seven printed times sum to **10 371 960 s** rather than **10 374 360 s**, one cell lost
+  40 min of truncation ⇒ take the per-cell readings, not a quoted Σ. If the Nuke save fires **before** `Second Wind` on
+  your client, the automation order was re-versioned ⇒ re-read a lethal hit with all five saves loaded.
 
 ## Sources
 
@@ -1201,7 +1250,8 @@ online often (it raises levels/day for all 5 slots: a `3 d 11 h` line becomes **
   `Spotlight Missiles` **19 → 2**, `Missile Barrage Quantity` **25 → 50**), and the workshop `Total` rows used by T008 §2;
   parsed with `tools/uw-lab-census.ps1` (rows / L1 / last / step / Σ / Σ L1–10 / coins-per-point) and totalled by
   `tools/lab-summit2.ps1` + `tools/lab-summit-d.ps1` for Appendix A.2 (`tools/lab-summit.ps1` / `-b` / `-c` are the
-  pre-correction passes, kept for comparison) and `tools/lab-summit-e.ps1` for Appendix B’s layer ledger.
+  pre-correction passes, kept for comparison), `tools/lab-summit-e.ps1` for Appendix B’s layer ledger, and
+  `tools/recharge-family.ps1` for the Recharge-family block.
 - Tower Hub `wiki/enemy/common-enemy-labs` · `fast-enemy-labs` · `protector-labs` · `vampire-labs` · `ray-labs` ·
   `scatter-labs` (last verified **2026-11-01**, `ray-labs` 2026-07-29) — the per-level `Level | Time | Cost | Value`
   rows behind §enemy-stat layer: Common 20.00 B → 2.40 T with **−0.40 % … −12.00 %**, Fast 30.00 B → 2.70 T,
@@ -1282,6 +1332,15 @@ online often (it raises levels/day for all 5 slots: a `3 d 11 h` line becomes **
   **7 levels**” with its seven rows (550.00 B → **3.60 T**, value **2,000 → 400**); “**Once per round Second Wind revives
   the tower at 50% health, respawns the Wall and grants invincibility** for a set time. Second Wind invincibility by
   star 1-7: **10, 15, 20, 25, 30, 35, 40 s**”.
+- Tower Hub `wiki/card/nuke` (last verified **2026-11-01**, 1 data table) — `Recharge Nuke` “unlocked in Milestones at
+  **tier 14, wave 60** … The lab has **7 levels**” with its seven rows: **550.00B / 1.05T / 1.55T / 2.05T / 2.56T /
+  3.07T / 3.60T** and **5d 5h 0m … 51d 8h 12m**, value **1,500 → 300** (the Second Wind ladder shifted one level); plus
+  the automation block (“First, Death Defy … an Energy Shield charge … Second Wind … Demon Mode … only then Nuke”), the
+  **v27.3 (18 December 2025)** note (“Smart Nuke Automation also grants you **15 seconds of invulnerability**”), “this
+  automatic Nuke does **not** destroy projectiles already in flight”, “Automation re-activates Nuke when its cooldown is
+  complete, but **only after** Nuke was used once in that run”, and the card’s own per-star ladder
+  (**25/35/45/55/65/80/100 %**) with `Nuke Mastery` “max level **9** … **0.05** at level 0 up to **0.5** at level 9, in
+  steps of 0.05” (T012 §2.3).
 - Tower Hub `wiki/lab/wall-labs` (2026-07-29, 6 data tables) — the six Wall labs with their milestone gates
   (“**Wall Health and Wall Rebuild** … at **tier 8 wave 10**; **Wall Regen and Wall Thorns** … at **tier 10 wave 70**;
   **Wall Invincibility** … at **tier 12 wave 10**; **Wall Fortification** … at **tier 14 wave 60** and has **60 levels**”),

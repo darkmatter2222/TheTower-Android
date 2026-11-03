@@ -1,5 +1,10 @@
 # T012 — Buy card levels by gems-per-percentage-point, not by card
 
+Rev: 7 (2026-11-03) — **the `nuke` page mined (§2.3 item 8)**: the first **special-card star ladder**
+(**25 / 35 / 45 / 55 / 65 / 80 / 100 %**, non-arithmetic: **+10 ×4, +15, +20**), the **save order**
+`Death Defy` → `Energy Shield` → `Second Wind` → `Demon Mode` → `Nuke`, the corrected Recharge Σ
+(**14.43 T / 10 374 360 s = 120 d 1 h 46 m**, `tools/recharge-family.ps1`), and the printed **`Nuke(k) = Second Wind(k + 1)`**
+column law on 6/6 steps. One conflict logged as [H062](../hypotheses/H062-nuke-mastery-ladder-which-print.md).
 Rev: 6 (2026-11-03) — **the card layer re-added by one script** (`wiki/card/cards`, 2026-10-13, “9 data tables”, via the new
 `tools/card-mastery.ps1`): the slot ladder is **triple-printed** at **22 rows / Σ 58 400 gems** with new cumulative marks
 **15 900** (slot 16) and **32 400** (slot 19); the **31 × 10** mastery block is linear on **30 rows** (worst residual
@@ -410,8 +415,11 @@ research time. `energy-net`, `plasma-cannon`, `slow-aura` print prose only (no t
    `Time` column is **per-level** — the [H050](../hypotheses/H050-lab-time-column-per-level-vs-cumulative.md) reading,
    confirmed a third time on a third page type.
 2. **`demon-mode` and `nuke` print their own recharge ladder: 1 500 → 1 250 → 1 000 → 750 → 550 → 400 → 300**, with the
-   *identical* cost/time columns as `Recharge Second Wind` (550 B → 3.60 T, Σ 14.43 T / 120 d 1 h 6 m) ⇒ the three
+   *identical* cost/time columns as `Recharge Second Wind` (550 B → 3.60 T, Σ **14.43 T** / **120 d 1 h 46 m**, re-added
+   from the seven printed cells — T006 Rev 26) ⇒ the three
    recharge labs share cost and time but differ in value: Second Wind starts at 2 000, Demon Mode and Nuke at 1 500.
+   Read as columns: **`Nuke(k) = Second Wind(k + 1)` on 6/6 steps** with a new terminal **300**, while
+   `Missile Barrage` shares L1–L4 and departs at L5 (**550 vs 500**) — the family rule covers price and clock only.
 3. **`death-ray` prints the whole 30-level `Double Death Ray` lab** — the §census row that so far only showed “30”.
    Prose: the lab is milestone-gated at **tier 3 wave 300**, and each level adds **exactly +1 pp** second-beam chance
    (value column = the level number), the second beam always appearing **opposite** the first; max-level rotation covers
@@ -434,6 +442,17 @@ alone take 17 058 h = **79.7 %** of the whole lab's time — **stop-the-lab rule
    tower range only** and stacks **multiplicatively** with the Chrono Field UW and the −40 % speed / ×2.5 damage perk;
    `Energy Net` (bosses only) and `Plasma Cannon` (% of boss max HP) projectiles both scale with **Attack Speed** and
    are **not** affected by the `Light Speed Shot(s)` lab — a stat many build guides optimise blind.
+8. **The `nuke` page adds the card’s own star ladder, a second mastery number, and the save order** (new, Rev 7).
+   ① `Card value per star 1-7: **25 %, 35 %, 45 %, 55 %, 65 %, 80 %, 100 %**` — the **first special-card star ladder** in
+   this repo, and a non-arithmetic shape like §1’s exceptions (**+10 ×4, then +15, +20**), so `Nuke` behaves like the two
+   special rows §1 already flags. ② Its mastery prints `0.05 at level 0 up to 0.5 at level 9, in steps of 0.05`
+   (“slows enemy attack speed for **300 waves**”) — a **different step** from the `×1.05 … ×2.00` ladder of ⑥ on the same
+   card, recorded as [H062](../hypotheses/H062-nuke-mastery-ladder-which-print.md) with a two-read test (Δ **0.05** vs
+   Δ **0.10**, endpoint **1.50** vs **2.00**). ③ The same page fixes the **save order** the automation labs use —
+   **`Death Defy` → an `Energy Shield` charge → `Second Wind` → `Demon Mode` → `Nuke`** (ledger in T006 Rev 26) — plus two
+   details that change what a save is worth: the automatic Nuke does **not** clear projectiles already in flight, and since
+   **v27.3 (18 December 2025)** `Smart Nuke Automation` also grants **15 s** of invulnerability, and re-fires only after
+   Nuke was used once that run.
 
 ## 3. Step-by-step (UI only)
 
@@ -497,6 +516,14 @@ the 31 printed rows plus `Cells`, and `time = 250n + 250 h` per level). Until th
       **2 000→400** at **550 B→3.60 T**; the `Nuke` page instead values **1 500→300** for the same cost column.
 - [ ] **§2.3 Double Death Ray:** the lab unlocks after the **T3 W300** milestone and level *n* reads exactly **n %**
       (level 1 = 1 %, level 30 = 30 %), with level 1 costing **2 500 000** coins and taking **1 h**.
+- [ ] **§2.3 Recharge family:** every printed Recharge line reads **550.00B** at level 1 and **3.60T** at level 7 (Σ
+      **14.43 T**) with the seven times `5d 5h 0m · 6d 14h 21m · 8d 0h 55m · 9d 23h 10m · 14d 1h 59m · 24d 19h 29m ·
+      51d 8h 12m` ⇒ **10 374 360 s = 120 d 1 h 46 m** per line (`tools/recharge-family.ps1`); `Recharge Second Wind`
+      values **2 000→400** waves and `Recharge Nuke` **1 500→300** ⇒ one ladder at an offset (**6/6** steps), while
+      `Recharge Missile Barrage` departs from level 5 (**550 vs 500**).
+- [ ] **§2.3 Nuke star ladder:** the `Nuke` page prints **25 % · 35 % · 45 % · 55 % · 65 % · 80 % · 100 %** for stars
+      1→7 (gaps **+10 +10 +10 +10 +15 +20**) and its mastery **0.05 → 0.5 in steps of 0.05**
+      (= `v(k) = 0.05 × (k + 1)`, the §2.2 law with base 0 — see [H062](../hypotheses/H062-nuke-mastery-ladder-which-print.md)).
 
 ## 5. Falsification
 
@@ -537,6 +564,14 @@ the 31 printed rows plus `Cells`, and `time = 250n + 250 h` per level). Until th
   (cumulative would make it 116.5 d); the coin Σ (1.10 T) is unaffected either way.
 - **§2.3:** if `Double Death Ray` level 1 does not read **1 %** (or the gate is not the T3 W300 milestone), the value
   column is not the level number → re-read the panel; the Σ coin ladder is unaffected.
+- **§2.3 Recharge family:** if a second Recharge lab’s level-1 price is **not 550.00B**, the shared cost/time ladder broke
+  ⇒ price that line from its own first two rows; the family rule covers price and clock only, never the value column
+  (`Missile Barrage` already departs at L5). If the seven printed times sum to **10 371 960 s** instead of
+  **10 374 360 s**, one cell lost 40 min of truncation ⇒ trust the per-cell readings, not a quoted Σ.
+- **§2.3 Nuke star ladder:** if the equipped `Nuke` card’s on-screen clear share is **not** the printed star row (25 % at 1
+  … 100 % at 7), that ladder belongs to another quantity ⇒ keep the printed row and use the panel’s own value, as in §1’s
+  exceptions. If a mastery purchase changes the clear share, the mastery multiplies the card value (**H062** reading B);
+  if only the attack-speed pause moves, it is the slow (reading A).
 
 ## 6. Notes
 
@@ -558,6 +593,15 @@ the 31 printed rows plus `Cells`, and `time = 250n + 250 h` per level). Until th
   `death-ray` · `demon-mode` · `energy-net` · `energy-shield` · `nuke` · `nuke-vs-slow-aura-mastery` · `plasma-cannon` ·
   `second-wind` · `slow-aura` · `card-presets`. Arithmetic checked by `tools/card-page-parse.ps1`; the `Time` columns
   summed by hand against T006's printed lab totals.
+- Tower Hub `wiki/card/nuke` (last verified **2026-11-01**, 1 data table), re-pulled 2026-11-03 for §2.3 item 8 — the seven
+  `Recharge Nuke` rows (**550.00B / 1.05T / 1.55T / 2.05T / 2.56T / 3.07T / 3.60T** at **5d 5h 0m … 51d 8h 12m**, value
+  **1,500 → 300**, “unlocked in Milestones at tier 14, wave 60 … The lab has 7 levels”), the star ladder (“Card value per
+  star 1-7: **25%, 35%, 45%, 55%, 65%, 80%, 100%**”), the mastery print (“max level 9 … **0.05** at level 0 up to **0.5** at
+  level 9, in steps of **0.05**”, quoted text “slows enemy attack speed for **300 waves**” → **H062**), the save order
+  (“First, Death Defy … an Energy Shield charge … Second Wind … Demon Mode … only then Nuke”), “this automatic Nuke does
+  **not** destroy projectiles already in flight”, the **v27.3 (18 December 2025)** “**15 seconds of invulnerability**” note,
+  and the “**only after** Nuke was used once in that run” rule. Sums reproduced by `tools/recharge-family.ps1`; the fandom
+  `Nuke` page (last edited 2026-01-20) is the listed second source.
 
 - fandom `Cards` (raw wikitext) — 32 cards / 12-9-11 split, 20-gem pull, 80/17/3, level copy table (1/3/8/16/28/48/80), 2 560 pulls = 51 200 gems, slot ladder to 58 400 gems + 6 Vault slots, locked-card list, preset rules, per-card level values, Vault/Keys card upgrades, card-specific labs.
 - Tower Hub `wiki/card/cards` (last verified **2026-10-13**, 9 data tables) — “Each card costs **20 Gems** to buy, and the
