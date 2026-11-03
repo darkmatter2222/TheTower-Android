@@ -1,5 +1,16 @@
 # T010 — Module economy: level the *slot*, merge by recipe, reroll with few locks
 
+Rev: 10 (2026-11-03) — **the twelve named lab lines now carry full per-level sums** (cross-checked against
+[T006](T006-lab-queue-packing.md) §Module named labs / Appendix B layer `Q`, `tools/module-named-family.ps1`): the twelve
+lines are **Σ 254 levels = 0.718 3 Q** for **5 341.4 d**; the four **ban** labs are **99.70 %** of that (Core 555.555 q)
+and live on **two master ladders** — costs `50 B, 500 B, 5 T, 50 T, 500 T, 5 q, 50 q, 500 q` (ratio **10.0000**) and a
+time ladder whose differences are the **100-h arithmetic** series `30 000 … 66 000 min` on a `24 000 min = 400 h` head,
+read as the subsequences `{2,4,6,7}` (`Cannon` = `Armor`, 0/4 differing cells), `{3,5,7}` (`Generator`) and
+`{1,3,4,5,6,7,8}` (`Core`). `Module Shard Cost` / `Module Coin Cost` share one **time** column (0/30 differ) but 18/30
+cost cells differ (**Σ −11.53 B**, the shard line cheaper ⇒ buy it first). Per-point: **Common 1.988 2 × 10¹⁰** coins
+per +1.00 pp vs **Rare 2.842 5 × 10¹³** — **×1 430** apart for the same printed effect. Two print skews against §2.1/§2.2:
+`Reroll Shards` L1-10 re-adds to **2 200 410 000** (was 2 240 400 402) and `Daily Mission Shards` L10 prints **2.1 B**
+(was 2.19 B) — 3-s.f. source-table differences, ratios unchanged; the Shatter ratios **2.3881 / 2.1741** re-add ✓.
 Rev: 9 (2026-11-02) — **§8.7, all four sub-stat tables in full (73 rows)** from `wiki/module/sub-module-effects`: Cannon
 **17 · Armor 17 · Generator 13 · Core 26**, with the **rarity-pool law** (rows starting at Common **23** · Rare **9** ·
 Epic **24** · Legendary **16** · Mythic **1** ⇒ cumulative pool **23 / 32 / 56 / 72 / 73**), **24 arithmetic rows**,

@@ -1,5 +1,18 @@
 # T006 — Pack the Lab queue, then buy the *cheapest* skipped hour
 
+Rev: 35 (2026-11-03) — **the twelve named `Module` labs close the census at 100 %** (§Module named labs,
+`tools/module-named-family.ps1`): **12 lines / Σ 254 levels = 0.718 3 Q** for **5 341.4 d**, and 254 re-adds to the
+§census Module row exactly ✓. New shapes: **two master ladders carry all 18 ban levels** — an exact **×10.0000** cost
+ladder `50 B → 500 q` and a time ladder whose differences are the **100-h arithmetic** series `30 000 … 66 000 min` on a
+`24 000 min = 400 h` head (the BC generic line’s unit), with the four labs as subsequences `Cannon` = `Armor` =
+**{2,4,6,7}**, `Generator` = **{3,5,7}**, `Core` = **{1,3,4,5,6,7,8}** and one unpaired cell (`Generator` L2); four new
+clock shapes (`Reroll` ×1.0255–1.0268, `Daily Mission` 1.0260 → 1.0448, the two drop lines ≈ ×1.075 / ×1.050). Twins:
+`Cannon` = `Armor` 0/4 cells and the two Cost lines share their time column (0/30) while 18/30 cost cells differ
+(Σ **−11.53 B**, the shard line cheaper). Per point: **1.988 2 × 10¹⁰** coins per +1.00 pp (`Common`) vs
+**2.842 5 × 10¹³** (`Rare`) — **×1 430** apart; the four in-band cheap buys cost **28 053 110 000** coins / **93.33 d**.
+Appendix B row `Q`; bill **191 distinct lines = 2 314.769 3 Q / 497 359.8 d (100 % coverage)** ⇒ **9 053.56 y** of coin
+income vs **1 361.7 y** of single-slot clock ⇒ **coins bind ×6.65**. Two source skews logged (`Reroll` Σ10
+2 200 410 000 vs 2 240 400 402; `Daily` L10 2.1 B vs 2.19 B).
 Rev: 34 (2026-11-03) — **the Battle Condition category and the two `Boss` lines close; coins become the binding currency**
 (§BC/Boss, `tools/battle-condition-boss-family.ps1`): **7 lines / Σ 130 levels = 2 307.577 5 Q** coins for
 **11 453.0 d**, i.e. the five BC labs alone are **99.72 %** of the priced bill’s coins (**Group 4 alone 88.42 %** — its
@@ -874,24 +887,27 @@ and what the covered part costs. Only layers whose **every** line carries a prin
 | `N` the **Perk Research** category (§Perk Research, Rev 32) | 9 | **4.337 329 q** | **183 173.9 d** |
 | `O` the **Bot Research** category — 2 shared columns + 1 exact-law line (§Bot Research, Rev 33) | 10 | **3.235 5 q** | **6 605.8 d** |
 | `P` the **Battle Condition** category (5 lines) + the two `Boss` lines (§Battle Condition …, Rev 34) | 7 | **2 307.577 5 Q** | **11 453.0 d** |
-| **Σ priced** | **185** *(of 191 census lines = 96.9 %; all distinct — `Garlic Thorns` is the 16th Defense line and sits in `E` only, so `J` carries 15; the remaining six are the `Module` named labs)* | **2 314.051 Q** | **492 018.4 d** |
+| `Q` the twelve named **Module** labs (§Module named labs, Rev 35) | 12 | **0.718 3 Q** | **5 341.4 d** |
+| **Σ priced** | **191 distinct = 100 % of the census** *(the rows sum to 197: layer `C` carries 8 rows where the Module category prints 2, so +6; `Garlic Thorns` sits in `E` only, so `J` carries 15 of Defense’s 16)* | **2 314.769 3 Q** | **497 359.8 d** |
 
 In income units **(the Rev 25 72-line bill)**: **coins 5 770 d = 15.80 years** at 700 T/day · **clock 104 035.3 d** =
 285 y single-slot = **57.01 y** on five slots = **15.3 y** with the ×3.725 stack · the ×1.5 boost on the whole covered part
 is **2.4968 × 10⁷ cells** = **24 968 d ≈ 68 years** of cell income ⇒ **cells bind by ×4.33** over the coins.
 
-Scaled to the **185 priced lines of the 191-line census** the same two conversions give **coins 3 305 787 d = 9 050.75 y**
-at 700 T/day and **clock 492 018.4 d = 1 347.1 y** single-slot = **269.4 y** on five slots = **72.3 y** with the ×3.725
-stack. **The binding currency flips at this Rev:** up to layer `O` the coins were a rounding error against the clock
-(25.32 y vs 1 315.7 y ⇒ cells bound); the five BC labs put 2 307.577 5 Q on the table, so **coins now bind by ×6.72
-against the single-slot clock and ×33.6 against the five-slot clock** — a queue decision became a savings decision.
+Scaled to the **closed census (191 lines, layer `Q` at Rev 35)** the same two conversions give **coins 3 306 813 d =
+9 053.56 y** at 700 T/day and **clock 497 359.8 d = 1 361.7 y** single-slot = **272.3 y** on five slots = **73.1 y** with
+the ×3.725 stack. **The binding currency flipped at Rev 34:** up to layer `O` the coins were a rounding error against the
+clock (25.32 y vs 1 315.7 y ⇒ cells bound); the five BC labs put 2 307.577 5 Q on the table, so **coins now bind by ×6.65
+against the single-slot clock and ×33.3 against the five-slot clock** — a queue decision became a savings decision. Layer
+`Q` moves both figures by only **+0.03 %** coins / **+1.07 %** clock, so closing the census did not change the verdict.
 
 **Three facts the table produces.**
-1. **Coverage is 185 / 191 census lines = 96.9 %** (the 32-mastery-lab reading; **165 / 171 = 96.5 %** on the 12-lab
-   reading, H063). Layers `H`–`P` were added from the fandom per-line lab tables at Rev 27–34; the unpriced **6** are the
-   `Module` named labs (`Module Labs/<name>`: the two Drop Chance lines **10**, `Shatter Shards` **5**, `Unmerge Module`
-   **1** and the two ban lines not yet in layer `C`), whose pages exist as individual slugs. Only the 8 assist labs are
-   priced so far, as layer `C`. The residual device reads are H063, H062, H061, H064.
+1. **Coverage is 191 / 191 census lines = 100 %** (the 32-mastery-lab reading; **171 / 171** on the 12-lab reading, H063).
+   Layers `H`–`Q` were added from the fandom per-line lab tables at Rev 27–35 and every one of the eleven categories now
+   carries a line-by-line Σ: `Main`, `Attack`, `Defense`, `Utility`, `UW`, `Card` (named + the mastery labs), `Perk`,
+   `Bot`, `Enemies` (the enemy-stat band + the two `Boss` lines), `Battle Condition` and `Module` (the 8 assist labs as
+   layer `C`, the 12 named labs as layer `Q`). The residual gaps are **device reads only** (H063, H062, H061, H064) plus
+   the printed `Primary Module Bonus` row, which the census does not count.
 2. **One band dominates the old bill, but not the new one: the fourteen T19-band lines** (`B2` + `C`, the
    `0.25 q × n` / `n × 933 078 s` arithmetic ladders) are **40.29 %** of the covered coins and **67.6 %** of the covered
    clock **inside the 72-line bill**; with `H`–`P` they are **0.07 %** and **14.3 %** (the mastery-lab block alone takes
@@ -1592,10 +1608,66 @@ Five BC lines (`Lab/Battle Condition Reduction`, `Lab/Battle Conditions Group 1�
    **R = 54.4 %** built from T014 §4.1’s per-step 0.21 % / 0.51 % for Groups 1–2. Logged as **H064**.
 7. **Coverage after this layer: 185 / 191 lines = 96.9 %.** The Appendix B rows sum to **185** and every one is distinct
    (`Garlic Thorns` is the Defense category's 16th line, priced as layer `E`, which is why layer `J` carries 15), and
-   **six lines remain unpriced** — the `Module` named labs. The bill is **2 314.051 Q / 492 018.4 d**: **3 305 787 d =
+   **six lines remain unpriced** — the `Module` named labs *(closed at Rev 35, §Module named labs: layer `Q` adds them and
+   the rows reach 197 for 191 distinct lines)*. The bill is **2 314.051 Q / 492 018.4 d**: **3 305 787 d =
    9 050.75 y** of coin income at 700 T/day against **1 347.1 y** of single-slot clock (269.4 y five-slot, 72.3 y
    stacked) — the first Rev at which **coins bind over the clock** (**×6.72** single-slot, **×33.6** five-slot) instead
    of the reverse.
+
+### The twelve named `Module` labs — the census closes at 100 % (new, Rev 35)
+
+Twelve lines from `Module Labs/<name>` (plus `Lab/Shatter Shards`, where the tabber points); their level counts re-add to
+the §census Module row’s “12 lines, Σ **254**” ✓. `tools/module-named-family.ps1`.
+
+| Line (gate as printed) | Lv | Σ coins | Σ clock | printed `Value` law |
+|---|---|---|---|---|
+| `Common Drop Chance` (**T4 W70**) | 10 | 19.882 B | 86 024 min = 59.74 d | `+0.10 pp × n` ⇒ +1.00 % |
+| `Rare Drop Chance` (**T10 W40**) | 10 | 28.425 4 T | 158 523 min = 110.09 d | `+0.10 pp × n` ⇒ +1.00 % |
+| `Reroll Shards` (**T4 W70**) | 100 | 13.327 9 T | 699 055 min = 485.45 d | `+1 shard × n` ⇒ +100 |
+| `Daily Mission Shards` (**T4 W70**) | 50 | 4.500 02 T | 359 411 min = 249.59 d | `+1 shard × n` ⇒ +50 |
+| `Module Shard Cost` (**T10 W40**) | 30 | 35.614 2 T | 452 440 min = 314.19 d | `−1 % × n` ⇒ −30 % |
+| `Module Coin Cost` (**T10 W40**) | 30 | 35.625 7 T | 452 440 min = 314.19 d | `−1 % × n` ⇒ −30 % |
+| `Unmerge Module` (**T8 W20**) | 1 | **10 M** | 2 880 min = 2 d | unlock |
+| `Shatter Shards` (**T16 W40**) | 5 | 2.063 56 q | 2 120 908 min = 1 472.85 d | `+20 % × n` ⇒ +100 % |
+| `Cannon Effect Bans` **and** `Armor Effect Bans` (**T10 W40**) | 4 ea | 55.050 5 q ea | 714 000 min = 495.83 d ea | `+1 ban × n` |
+| `Generator Effect Bans` (**T10 W40**) | 3 | 50.505 q | 618 000 min = 429.17 d | `+1 ban × n` |
+| `Core Effect Bans` (**T10 W40**) | 7 | 555.555 q | 1 314 000 min = 912.50 d | `+1 ban × n` |
+| **Σ 12 lines** | **254** | **0.718 3 Q** (718 342.1 T) | 7 691 681 min = **5 341.4 d** | — |
+
+1. **The four ban labs are 99.70 % of the category’s coins** (0.7162 Q of 0.7183 Q) for 43.68 % of its clock; `Core
+   Effect Bans` alone is 555.555 q — 77.6 % of the category. The 231 levels that are neither a ban lab nor
+   `Shatter Shards` cost **117.513 T** between them (the two Cost twins 71.240 T + the four cheap lines 46.273 T), i.e.
+   **0.016 %** of the layer.
+2. **Two master ladders carry all 18 ban levels.** Costs: 8 values on an exact **×10.0000** ladder `50 B, 500 B, 5 T,
+   50 T, 500 T, 5 q, 50 q, 500 q`. Times: 8 values whose successive differences are the **100-h arithmetic** series
+   `30 000, 36 000, 42 000, 48 000, 54 000, 60 000, 66 000 min` on a head of `24 000 min = 400 h` — the same 400-h unit
+   as `Battle Condition Reduction` (§BC/Boss finding 2). The four labs are subsequences of both: `Cannon` = `Armor` =
+   indices **{2,4,6,7}**, `Generator` = **{3,5,7}**, `Core` = **{1,3,4,5,6,7,8}**; the cost and time index sets match for
+   three of the four labs, and the single unpaired cell is `Generator` L2 (cost index 5 = 500 T, time index 6 = 162 d
+   12 h), so the two columns are indexed independently.
+3. **Twins.** `Cannon` = `Armor` cell for cell (0/4 differing in both columns). The two Cost lines share **one time
+   column** (0/30 differ) but **18/30 cost cells differ**, Σ delta **−11.53 B** — `Module Shard Cost` is the cheaper of
+   the pair at every level from 2, so buy it first.
+4. **Four new clock shapes, none of them the ×1.15 family law**: `Reroll Shards` ×1.0255–1.0268 (eleven steps, the most
+   stable column in the doc), `Daily Mission Shards` rising **1.0260 → 1.0448**, `Common Drop Chance` ≈ ×1.075,
+   `Rare Drop Chance` ≈ ×1.050. Cost tails: Reroll ≈ 1.028, Daily ≈ 1.064, and the two ten-level drop lines decay to
+   ×1.4582 / ×1.5041 — they *approach* the family law from above. `Shatter Shards`’ four ratios
+   (**8.7 / 2.6345 / 2.3881 / 2.1741**) reproduce the pair T010 §2.1 printed (2.3881 / 2.1741) ✓.
+5. **Per-point prices (what a sub-T11 player is choosing between).** Common Drop Chance **1.988 2 × 10¹⁰** coins per
+   +1.00 pp against Rare Drop Chance’s **2.842 5 × 10¹³** for the *identical* printed +1.00 pp — **×1 430 dearer**; the
+   cheapest per unit is `Daily Mission Shards` at **9.000 0 × 10¹⁰** per +1 shard, then `Reroll Shards` 1.332 8 × 10¹¹,
+   `Shatter Shards` 4.127 1 × 10¹⁴ per +20 %. The four in-band level-1…10 buys — Reroll L1-10 **2 200 410 000** coins /
+   15.64 d, Daily L1-10 **5 960 700 000** / 15.95 d, `Common Drop Chance` all 10 levels **19 882 000 000** / 59.74 d and
+   `Unmerge Module` **10 000 000** / 2 d — together cost **28 053 110 000** coins (28.05 B) for **93.33 d** of one slot,
+   which is 0.0012 % of the bill’s coins: the cheap tier of this category is a queue decision, not a savings decision.
+6. **Two source skews, logged.** Re-adding `Reroll Shards` L1-10 from the fandom cells gives **2 200 410 000** coins vs
+   the Rev-11 print **2 240 400 402** (1.8 %, the tables differ in the early cells; the 15.64-d time Σ agrees to 3 min),
+   and `Daily Mission Shards` L10 prints **2.1 B** here vs T010’s **2.19 B**. Neither changes any ratio materially.
+7. **The census is closed: 191 / 191 = 100 % coverage.** With layer `Q` the Appendix B rows sum to **197** for **191
+   distinct** lines (layer `C` carries 8 rows where the Module category prints 2, so +6), and no census line is unpriced.
+   The bill is **2 314.769 3 Q / 497 359.8 d** = **3 306 813 d = 9 053.56 y** of coin income at 700 T/day against
+   **1 361.7 y** of single-slot clock (272.3 y five-slot, 73.1 y stacked) ⇒ **coins bind ×6.65** single-slot, **×33.3**
+   five-slot.
 
 ## Reproduction checklist
 
@@ -1792,6 +1864,16 @@ Five BC lines (`Lab/Battle Condition Reduction`, `Lab/Battle Conditions Group 1�
 - [ ] **§BC/Boss (Rev 34):** `Battle Conditions Group 4` prints ten rows `2, 4, 8, 16, 32, 64, 128, 256, 512, 1024` under
       a `Cost(Q)` header with times `26d 23h 58m` … `187d 8h 55m`; `Battle Condition Reduction` prints `1.00q … 639.4q`
       with times `16d 16h 0m 0s` … `166d 16h 0m 0s`.
+- [ ] **§Module named labs (Rev 35):** `Common Drop Chance` has **10** levels `5 M … 7.32 B` (times `4d 4h 0m …`
+      `8d 5h 0m`) and `Rare Drop Chance` **10** levels `70 B … 11.01 T` (`8d 16h 20m … 13d 18h 19m`); both print
+      `+0.10 % … +1.00 %`.
+- [ ] **§Module named labs (Rev 35):** `Cannon Effect Bans` and `Armor Effect Bans` print the identical four rows
+      `500.00B, 50.00T, 5.00q, 50.00q` with times `37d 12h … 204d 4h`, and `Core Effect Bans` seven rows beginning
+      `50.00B / 16d 16h 0m 0s`.
+- [ ] **§Module named labs (Rev 35):** `Module Shard Cost` level 2 = **5.12B** while `Module Coin Cost` level 2 =
+      **5.13B**, and both print level-30 time `20d 7h 39m` / value **−30 %**.
+- [ ] **§Module named labs (Rev 35):** `Shatter Shards` (**T16 W40**) prints `10.00T, 87.00T, 229.20T, 547.36T, 1.19q`
+      ending at `1y 158d 6h 15m`; `Unmerge Module` is one level at **10,000,000** coins / `2d 0hr 0m`.
 
 ## Falsification
 
@@ -1956,6 +2038,12 @@ Five BC lines (`Lab/Battle Condition Reduction`, `Lab/Battle Conditions Group 1�
 - **§BC/Boss value columns:** if the **Perks/Tournaments** screen shows a condition reduction that is neither the additive
   **80 pp** nor the multiplicative **58.5 %** of finding 6, both readings are wrong and H064 must be rewritten from the
   screen’s own numbers (the model’s **R = 54.4 %** is the third candidate).
+- **§Module named labs (Rev 35):** if `Cannon Effect Bans` and `Armor Effect Bans` print different columns the twin claim
+  (finding 3) dies; if any ban level’s cost is not one of the eight `50 B … 500 q` values, the master-ladder claim
+  (finding 2) is wrong and each lab must be summed from its own cells. If the two Cost lines ever print different **time**
+  columns, the shared-clock finding is broken.
+- **§Module per-point prices:** if a drop-chance line’s per-level step is not **0.10 pp** (say 0.2 pp), the **×1 430**
+  gap of finding 5 rescales and the buy order must be rebuilt from the panel’s own numbers.
 - **§Main Research:** if `Starting Cash` and `Workshop Attack Discount` no longer print an identical cost column, the
   shared ladder split ⇒ re-run `tools/main-research-family.ps1` with two arrays; the four per-line figures change but the
   category total does not (each line is still counted once). If `Enhancement Coin Discount` level 1 stops being **1.00B**
@@ -2185,3 +2273,12 @@ Five BC lines (`Lab/Battle Condition Reduction`, `Lab/Battle Conditions Group 1�
   `2d 7h 33m` … `161d 9h 28m`; value `−0.30 % … −9.00 %`; both gated **T9 W50**). The four
   Group pages carry the unit header `Cost(Q)` (1 Q = 10¹⁸ coins), `Lab/Battle Condition Reduction` the per-cell `q`
   suffix (10¹⁵) — see §BC/Boss. New script: `tools/battle-condition-boss-family.ps1`.
+- fandom per-line tables for the twelve named **Module** labs (pulled 2026-11-03): the slugs `Module Labs/Common Drop
+  Chance` (10 rows `5M, 40M, 114.25M, 282.7M, 610.03M, 1.17B, 2.03B, 3.29B, 5.02B, 7.32B`), `Module Labs/Rare Drop
+  Chance` (10 rows `70B … 11,01T`, comma decimals), `Module Labs/Reroll Shards` (**100** rows `900K … 488.93B`),
+  `Module Labs/Daily Mission Shards` (**50** rows `1.2M … 352.9B`), `Module Labs/Module Shard Cost` and
+  `Module Labs/Module Coin Cost` (**30** rows each, `5B … 4.79T`), `Module Labs/Unmerge Module` (1 row `10,000,000` /
+  `2d 0hr 0m`), `Lab/Shatter Shards` (5 rows `10.00T, 87.00T, 229.20T, 547.36T, 1.19q`, T16 W40) and the four
+  `… Effect Bans` pages (4/4/3/7 rows). `Module Labs` itself is only a `{{:…}}` transclusion shell (856 bytes) and
+  `Lab Category/Module Research` prints **15** rows (the 12 named + 2 assist + `Primary Module Bonus`, the last not in the
+  census). New script: `tools/module-named-family.ps1`.
