@@ -1,0 +1,31 @@
+﻿  T1-3     free    620 ge +    30 st =     920 ge ; paid   1125 ge +   130 st =    2425 ge ; block    3345 ge =    7.7 d of gem income
+  T4-6     free   1045 ge +    80 st =    1845 ge ; paid   1640 ge +   235 st =    3990 ge ; block    5835 ge =   13.4 d of gem income
+  T7-9     free   1280 ge +   145 st =    2730 ge ; paid   2260 ge +   425 st =    6510 ge ; block    9240 ge =   21.2 d of gem income
+  T10-12   free   1790 ge +   285 st =    4640 ge ; paid   2825 ge +   590 st =    8725 ge ; block   13365 ge =   30.7 d of gem income
+  T13-15   free   3275 ge +   855 st =   11825 ge ; paid   5035 ge +  1395 st =   18985 ge ; block   30810 ge =   70.8 d of gem income
+  T16-18   free   3415 ge +  1000 st =   13415 ge ; paid   5195 ge +  1685 st =   22045 ge ; block   35460 ge =   81.5 d of gem income
+  T19-21   free   3760 ge +  1000 st =   13760 ge ; paid   5540 ge +  1685 st =   22390 ge ; block   36150 ge =   83.1 d of gem income
+  T22-24   free   4045 ge +  1035 st =   14395 ge ; paid   5875 ge +  1725 st =   23125 ge ; block   37520 ge =   86.3 d of gem income
+  columns close : free gems 19230 vs printed 19 230 ; paid gems 29495 vs 29 495 ; free stones 4430 vs 4 430 ; paid stones 7870 vs 7 870
+  ge totals : free ladder 63530 ge ; paid 108195 ge ; both 171725 ge =  394.8 d of gem income
+--- 1. the T1-T12 window (what a sub-T11 account can claim) ---
+  free track : 4735 ge (block basis ; the per-tier cumulative prints 4 675, the 60-gem T4 skew) + 540 st => 10135 ge =   23.3 d of gem income
+  + 4 premium passes : 12585 ge + 1920 st => 31785 ge =   73.1 d ; the passes alone 21650 ge =   49.8 d =  2.14x
+--- 2. lump-adjusted legs, the three states of the core set (Copper bottom) ---
+free T1-12   :   state A :   252.3 /   328.3 /   392.3 /   499.5 =>   499.5 d (clock)  state B :   252.3 /   328.3 /   392.3 /   134.1 =>   392.3 d (shards)  state C :   252.3 /   328.3 /   161.5 /   134.1 =>   328.3 d (stones)
+     lumps =   6.1 % of the knee package and   4.1 % of the gem framework ; census leg   17815.2 d from   17836.5, saves    21.3 d
+free+passes  :   state A :   234.3 /   273.9 /   392.3 /   499.5 =>   499.5 d (clock)  state B :   234.3 /   273.9 /   392.3 /   134.1 =>   392.3 d (shards)  state C :   234.3 /   273.9 /   161.5 /   134.1 =>   273.9 d (stones)
+     lumps =  21.7 % of the knee package and  11.0 % of the gem framework ; census leg   17760.8 d from   17836.5, saves    75.7 d
+full ladder  :   state A :   219.0 /   174.9 /   392.3 /   499.5 =>   499.5 d (clock)  state B :   219.0 /   174.9 /   392.3 /   134.1 =>   392.3 d (shards)  state C :   219.0 /   174.9 /   161.5 /   134.1 =>   219.0 d (gems)
+     lumps =  50.0 % of the knee package and  16.8 % of the gem framework ; census leg   17661.8 d from   17836.5, saves   174.7 d
+ladder+paid  :   state A :   151.2 /     0.0 /   392.3 /   499.5 =>   499.5 d (clock)  state B :   151.2 /     0.0 /   392.3 /   134.1 =>   392.3 d (shards)  state C :   151.2 /     0.0 /   161.5 /   134.1 =>   161.5 d (shards)
+     lumps = 138.7 % of the knee package and  42.6 % of the gem framework ; census leg   17351.4 d from   17836.5, saves   485.1 d
+--- 3. lumps as a share of one year of flow income ---
+  one year of flow (ge) : gems 158775 + stones   92553.4 + shards   45990.0 =   297318.4
+  T1-12 free track (10135 ge) =  3.41 % of a year ; with the four passes (31785) 10.69 %
+  the whole 24-tier ladder, both tracks (171725 ge) =  57.8 % of one year = 394.77 d of gem income
+--- 4. which legs can a lump-sum move at all ---
+  the medal leg has no lump source :  2450.4 d ; the clock leg neither :   499.5 /   134.1 d
+  at state C the knee leg must fall below the gem leg (  234.3 d with the passes) => stone lumps >  2924.2 ; printed T1-12 stones = 1920
+  the printed 24-tier stone ladder = 12300 st =  1.39x the knee package outright
+  unit price of a stone lump at the Copper bottom : 1 st = 10 ge = 0.0230 d of gem income => the 540 free stones of T1-12 are  12.4 d

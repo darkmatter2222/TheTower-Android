@@ -1,5 +1,13 @@
 # T025 — The years-to-max ledger: what every sink costs in days of income
 
+Rev: 9 (2026-11-03) - **§1.⑦, lump-sum income joined to the same `max()` model**: `leg = max(0, bill - lump) / income`,
+so only the **gem** and **stone** legs can shorten (clock **499.5/134.1 d** and medals **2 450.4 d** have no lump source).
+The state-C plan runs **349.6 -> 328.3 -> 273.9 -> 219.0 -> 161.5 d** as the free T1-12 track, the four Premium passes, the
+whole free 24-tier ladder and the paid column are claimed - **188.1 d** in all, with the binding leg walking
+**stones -> gems -> shards**; inside the sub-T12 window it is **21.3 d** (free) or **75.7 d** (passes). In ge the ladder is
+**171 725 ge** (free 63 530 + paid 108 195) = **394.8 d** of gem income = **57.8 %** of one idle year
+(**297 318 ge** of flow at the Copper bottom); the **12 300**-stone ladder is **1.39x** the 8 865 knee package but only
+**2.7 %** (**485.1 d**) of the 452 282 census. `tools/lump-sum-ledger.ps1`.
 Rev: 8 (2026-11-03) - **the medal leg is restated in weeks** (T006 Rev 43): the printed **607.5** is **per week**
 (`1 215 ÷ 2`, T013 §2.4; T013 §1 itself says **“≈ 87/day”**), so the 445-tap sheet costs **2 450.4 d = 6.71 y** F2P and
 **1 378.4 d = 3.78 y** on the boosted flow, not **350 d**. Consequences in this sheet: the plan table is split into the
@@ -292,6 +300,29 @@ which is the practical answer to "what do I do this week": **buy medals into the
 **384.2** (lab) or **158.2** (no lab); and the whole **452 282**-stone census overtakes the four-slot fleet below
 **8 070.6** st/wk, which is T013 §2.5's **8 071** re-derived independently.
 
+### 1.⑦ Lump-sum income in the same model - the milestone ladder (new, Rev 9)
+
+The five legs so far are **flows**; the milestone ladder ([T019](T019-milestone-claim-engine.md) §2.①/§2.②) is a set of
+**claim-once** cells. A lump enters the same model one way: `leg = max(0, bill − lump) ÷ income`, so it can only shorten the
+legs whose counter it pays in - **gems and stones**. The clock leg (**499.5 / 134.1 d**) and the medal leg
+(**2 450.4 d**) have no lump source at all, which is why the plan length in states A and B does not move. `tools/lump-sum-ledger.ps1`.
+
+| claimed (Copper bottom, state C) | gem leg | stone leg | shards | clock | **plan** | bound by |
+|---|---|---|---|---|---|---|
+| nothing | 263.2 | 349.6 | 161.5 | 134.1 | **349.6 d** | stones |
+| free track T1–12 (4 735 ge + 540 st) | 252.3 | 328.3 | 161.5 | 134.1 | **328.3 d** | stones |
+| + the four Premium passes (7 850 ge + 1 380 st) | 234.3 | 273.9 | 161.5 | 134.1 | **273.9 d** | stones |
+| whole free 24-tier ladder (19 230 ge + 4 430 st) | 219.0 | 174.9 | 161.5 | 134.1 | **219.0 d** | gems |
+| whole ladder, both tracks (48 725 ge + 12 300 st) | 151.2 | 0 | 161.5 | 134.1 | **161.5 d** | shards |
+
+**1.** Claiming everything moves the state-C plan by **188.1 d** and hands the binding leg from **stones** to **gems** to
+**shards** on the way; inside the sub-T12 window alone it is **21.3 d** (free) or **75.7 d** (with the passes).
+**2.** In ge the whole ladder is **171 725 ge** (free **63 530** + paid **108 195**) = **394.8 days** of gem income, i.e.
+**57.8 %** of one idle year (**297 318 ge** of gem + stone + shard flow at the Copper bottom) - the claim-once sources are a
+real but bounded third of a first-year income, not a separate economy.
+**3.** The stone lumps are **1.39×** the 8 865-stone knee package yet only **2.7 %** of the 452 282 census (**485.1 d** of
+17 836.5): the knee is a lump problem, the census is a flow problem.
+
 ## 2. The three ratios this ledger is for
 
 1. **Gem side vs stone side = 263 days vs 8–109 years.** Everything on the *gem* side of the framework (slots, card
@@ -414,6 +445,13 @@ not the 452 282 total.
 - [ ] **§1.⑤ the convention check:** `1 470 x 52 =` **76 440** (short of 82 380 by **5 940**) while `210 x 365 =`
       **76 650** (short by **5 730**); `3 570 x 52 =` **185 640**, a surplus of **103 260** over the four-slot bill.
 
+- [ ] **§1.⑦ the lump rows by hand:** with the passes on, the gem leg is `(114 500 − 12 585)/435 =` **234.3** and the knee
+      leg `(8 865 − 1 920)/25.3571 =` **273.9** ; with the whole ladder, `(114 500 − 48 725)/435 =` **151.2** and the knee
+      leg is **0** because `12 300 > 8 865`, which leaves the shard fleet at **161.5 d** as the binding leg.
+- [ ] **§1.⑦ the ge ladder:** `63 530 + 108 195 =` **171 725 ge** and `/435 =` **394.77 d** ; one year of flow is
+      `435 × 365 + 25.3571 × 10 × 365 + 210 × 0.6 × 365 =` **158 775 + 92 553.4 + 45 990 = 297 318.4 ge**, and
+      `171 725/297 318.4 =` **57.8 %** ✓.
+
 ## 5. Falsification
 
 - If the **per-minute** counter × 1 440 disagrees with the §1 income figures by more than the uptime difference, the
@@ -462,6 +500,11 @@ not the 452 282 total.
   medal rows scale by the ratio (`×7` if the print is the two-week total read as daily) and the whole picture inverts back
   to the Rev 7 shape; three closures must agree - `212 660/1 215 × 2 = 350.06` weeks, `350.06 × 7 = 2 450.4` d, and
   T013 §1's **≈ 87/day**. If your event is a **1-week** bracket, halve them again (**175.0 weeks**).
+- **§1.⑦:** a lump-sum can only move the **gem** and **stone** legs. If your own `Milestones` badge has claimed other than
+  **4 735** free gems / **540** stones (T1–12) or other than the printed ladder totals, recompute those two legs alone -
+  `max(0, bill − lump)/income` - and leave the clock and medal legs at **499.5 / 134.1 / 2 450.4 d**. If a lump total
+  exceeds its bill the leg becomes **0** and the binding hands to the next leg (the knee package does exactly this at
+  **12 300 > 8 865** stones), so a plan can get *shorter* than the stone leg without the stone leg disappearing.
 - **§1.⑥:** if your four weekly counters give quotients other than **37.6 / 49.9 / 56.0 / 350.06**, re-take the `max` —
   the ordering of the four quotients is all that decides the binding leg, and the core-set maximum is only
   **49.9 weeks** in the boosted state, so the sheet hands the binding to the other counters only once the flow passes
@@ -471,6 +514,10 @@ not the 452 282 total.
 
 ## Sources
 
+- `tools/lump-sum-ledger.ps1` (new, Rev 9, shared with T019 Rev 5) - the eight 3-tier blocks in ge and days of gem income,
+  the ladder's log-space shares (**34.0 %** at T13, **92.9 %** through T15, **7.1 %** for T16–24), the T1–T12 window
+  (**10 135 / 31 785 ge**), the one-year flow (**297 318.4 ge**) and the five-row lump-adjusted `max()` plan table
+  (**349.6 / 328.3 / 273.9 / 219.0 / 161.5 d**).
 - `tools/weekly-plan-table.ps1` (new, Rev 8) - the **weekly** form of §1.⑤: the fixed per-week flows (**3 045** gems at 24 h
   claims, **607.5/1 080/677.5/1 150** medals, **1 470 → 3 570** shards, **35 → 130.375** slot-days of clock, 185 tokens,
   194.375 bits, 16 keys), the band-dependent stone row, the per-band leg table in weeks with the three states of the plan and

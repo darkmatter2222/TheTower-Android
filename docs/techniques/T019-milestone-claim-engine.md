@@ -1,5 +1,14 @@
 # T019 — Milestone claim engine: the 23-step ladder, the W100 gate, and the pass-timing rule
 
+Rev: 5 (2026-11-03) — **§2.② (new): the eight blocks on the calendar scale.** Each block is priced in **days of gem
+income** (`block ge / 435`): **7.7 / 13.4 / 21.2 / 30.7 / 70.8 / 81.5 / 83.1 / 86.3 d**, Σ **171 725 ge = 394.8 d**; the free
+ladder grows ×2.0054 ×1.4797 ×1.6996 **×2.5485** ×1.1345 ×1.0257 ×1.0461, so in log space the **T13** gate is **34.0 %** of
+the whole **×15.647** growth and **T16–T24 together only 7.2 %**; the T1–T12 window is **10 135 ge = 23.3 d** free and **31 785 ge =**
+73.1 d** with the four passes (**2.14×**), i.e. **3.4 % / 10.7 %** of one idle year; and in the `max()` model the lumps move
+**only the gem and stone legs** — the state-C plan runs **349.6 → 328.3 → 273.9 → 219.0 → 161.5 d** as the free track, the
+passes, the full free ladder and the paid column are added, with the binding walking **stones → gems → shards**
+(**188.1 d** total), while the 12 300-stone ladder is **1.39×** the **8 865**-stone knee package but only **2.7 %** of the
+452 282 census. `tools/lump-sum-ledger.ps1`.
 Rev: 4 (2026-11-03) — **§2.①: the page’s own eight block **Totals** rows are transcribed and closed four ways**
 (`tools/milestone-totals.ps1`): free gems **19 230** ✓, free stones **4 430** ✓, paid stones **7 870** ✓, coins
 **1.3436 q** vs the printed `1.3q~`; the **one** open skew is the paid-gem grand row (**23 955** vs **29 495**, the
@@ -150,6 +159,61 @@ the older “T11 W10 for both” print is one row’s offset. One cell boundary 
 recharge labs and `Recharge Nuke` is printed in the cell *after* the other three (⇒ T15 by column order, while
 `wiki/card/nuke` says T14 W60) — a one-tier ambiguity with no currency effect.
 
+### 2.② The eight blocks on the **calendar** scale, and what a lump-sum can actually move (new, Rev 5)
+
+The same table, priced in **days of gem income** (435/day, [T025](T025-years-to-max-ledger.md) §1.⑤) with `1 stone = 10 ge`
+and `1 shard = 0.6 ge`, which is the only way to compare a claim-once cell with a flow. `tools/lump-sum-ledger.ps1`.
+
+| block | free ge | paid ge | **block ge** | **days of gem income** | free ratio to the previous block | free ge/tier |
+|---|---|---|---|---|---|---|
+| T1–3 | 920 | 2 425 | **3 345** | **7.7** | — | 306.7 |
+| T4–6 | 1 845 | 3 990 | **5 835** | **13.4** | ×2.0054 | 615.0 |
+| T7–9 | 2 730 | 6 510 | **9 240** | **21.2** | ×1.4797 | 910.0 |
+| T10–12 | 4 640 | 8 725 | **13 365** | **30.7** | ×1.6996 | 1 546.7 |
+| T13–15 | 11 825 | 18 985 | **30 810** | **70.8** | **×2.5485** | 3 941.7 |
+| T16–18 | 13 415 | 22 045 | **35 460** | **81.5** | ×1.1345 | 4 471.7 |
+| T19–21 | 13 760 | 22 390 | **36 150** | **83.1** | ×1.0257 | 4 586.7 |
+| T22–24 | 14 395 | 23 125 | **37 520** | **86.3** | ×1.0461 | 4 798.3 |
+| **Σ** | **63 530** | **108 195** | **171 725** | **394.8** | — | — |
+
+**1. The ladder has one real step and then saturates.** The free column grows **×2.0 / ×1.48 / ×1.70** through T12, jumps
+**×2.55** at the T13 block, and afterwards crawls (**×1.13 / ×1.03 / ×1.05**) — the last three blocks differ by under **6 %**
+from one another. Per tier the free yield runs **306.7 → 4 798.3 ge = ×15.647** across the whole ladder, and that growth is
+front-loaded: taking the seven steps in log space (**Σ ln = 2.750 263**, which equals `ln(14 395/920)` exactly), the
+**T13** gate alone carries `0.935 502/2.750 263 =` **34.0 %**, everything through **T15** carries **92.8 %**, and the three
+blocks from **T16 to T24** together are only **7.2 %** — so the milestone ladder is a *Tier-13* ladder with a long flat tail.
+
+**2. The window a sub-T11 account can hold:** free **10 135 ge** = **23.3 days** of gem income (the per-tier basis prints
+10 075 ge = 23.2 d, the 60-gem `T4` cell of §2.① finding 4), and with all four Premium passes **31 785 ge = 73.1 days** —
+the passes alone are **21 650 ge**, i.e. **2.14×** the whole free track for four taps. In flow units the free window is
+**3.4 %** of one year of income (**297 318 ge** of gems + stones + shards), with the passes **10.7 %**, so the entire 24-tier
+ladder on both tracks (**171 725 ge**) is **57.8 %** of a single idle year.
+
+**3. What a lump-sum can move in the `max()` model — only two of the five legs.** The clock leg (**499.5 / 134.1 d**) and
+the medal leg (**2 450.4 d**) have *no* lump source, so in states A and B of [T025](T025-years-to-max-ledger.md) §1.⑤ the
+plan's length does not change at all when you claim milestones. They start paying exactly when the binding leg becomes a
+**priced** one (state C, `Daily Mission Shards` at L50 plus the ×3.725 stack):
+
+| claimed | gem leg | knee-package leg | shards | clock | **plan** | bound by |
+|---|---|---|---|---|---|---|
+| nothing (bills only) | 263.2 | 349.6 | 161.5 | 134.1 | **349.6 d** | stones |
+| free track T1–12 (4 735 ge + 540 st) | 252.3 | 328.3 | 161.5 | 134.1 | **328.3 d** | stones |
+| + the four passes (7 850 ge + 1 380 st) | 234.3 | 273.9 | 161.5 | 134.1 | **273.9 d** | stones |
+| whole free 24-tier ladder (19 230 ge + 4 430 st) | 219.0 | 174.9 | 161.5 | 134.1 | **219.0 d** | **gems** |
+| whole ladder, both tracks (48 725 ge + 12 300 st) | 151.2 | **0** | 161.5 | 134.1 | **161.5 d** | **shards** |
+
+Reading: **claiming everything that exists takes the state-C plan from 349.6 d to 161.5 d — a saving of 188.1 days — and the
+binding leg walks stones → gems → shards as the lumps arrive.** Inside the sub-T12 window alone the saving is **21.3 d**
+(free) or **75.7 d** (with the passes). The stone ladder is the interesting one: **12 300** stones over 24 tiers is
+**1.39×** the **8 865**-stone knee package, so that package is fully paid for by milestone cells before any weekly flow is
+counted — but only **2.7 %** of the **452 282**-stone whole census (**485.1** of 17 836.5 d), which is why the long-run stone
+timeline is a *flow* problem, not a claim problem.
+
+**4. The three rules that follow, in order:** (i) claim every badge — one button, **2.14×** nothing; (ii) buy each Pass the
+week its block is finished (retroactive, §2 finding 2), which is worth **2.14×** the free track for four taps;
+(iii) spend the *idle* progress on the **T13** gate before polishing T1–T12, because that single step is worth **+155 %** of
+a whole 3-tier block while every later step is worth under **+15 %**.
+
 ## 3. The unlock map — which wave lights up which system (free column, T1–T12)
 
 Use this as the lab-queue forecast for [T006](T006-lab-queue-packing.md): the bunches (3–4 labs at one wave) are
@@ -212,6 +276,15 @@ buyable in Tier 1, and W80 of Tier 2 is the first milestone worth rushing after 
       **5 540** short = the T19–21 block); the coin columns re-add to **1.3436 q** against the printed `1.3q~`.
 - [ ] **§2.① the two gate reads:** the **Milestones** screen lists `Card: Land Mine Stun` on **Tier 7 wave 250** and
       `Card: Nuke` on **Tier 11 wave 10** (one card each, both on the free track).
+- [ ] **§2.② the block table by hand:** each block's ge is `free gems + 10 × free stones` (+ the same for the paid column),
+      e.g. `T10-12 = 1 790 + 10 × 285 =` **4 640** ge free and `2 825 + 10 × 590 =` **8 725** ge paid, and the eight block
+      totals re-add to **63 530** and **108 195** ge; the day column is the block ge `÷ 435` (**13 365/435 = 30.74** ✓).
+- [ ] **§2.② the two ladder laws:** the seven free ratios multiply to `14 395/920 =` **15.647** and the T13 step is
+      `0.935 502/2.750 263 =` **34.0 %** of the log growth, with **T16–T24 = 7.2 %**; the identity `Σ ln =`
+      `ln(14 395/920) = 2.750 263` closes, and `92.849 + 7.151 =` **100.0** for the T15/T16 cut ✓.
+- [ ] **§2.② the plan table:** the five rows are `max(legs)` with the lumps subtracted from the two priced bills, e.g. the
+      paid-column row `(114 500 − 48 725)/435 =` **151.2** and `(8 865 − 12 300) → 0`, so the binding leg is the shard
+      fleet at `82 380/510 =` **161.5 d**; the whole saving is `349.6 − 161.5 =` **188.1 d**.
 
 ## 6. Falsification
 
@@ -236,11 +309,25 @@ buyable in Tier 1, and W80 of Tier 2 is the first milestone worth rushing after 
   the *per-block* figures are unaffected either way, so §2’s pass table and the T1–T12 window do not move.
 - **§2.①:** if the in-game Milestones screen pays `Land Mine Stun` at T11 (not T7 W250), the gate print is the stale one
   ⇒ keep the in-game reading and re-check the column-position rule (odd column = free track of that tier).
+- **§2.②:** if the Premium Passes are **not** additive (H038’s alternative), the paid column of **108 195 ge** disappears and
+  the last row of the plan table reverts to the free-ladder row (**219.0 d**, gems binding) — the 12 300-stone ladder halves
+  to **4 430** stones, which is **0.50×** the knee package instead of **1.39×**, so the knee leg stops being free at level
+  `8 865 − 4 430 =` **4 435** stones.
+- **§2.②:** if your own gem income is not **435/day**, every day column in §2.② scales by `435 ÷ yours` and the *ratios*
+  (×15.647, 34.0 %, 7.1 %) are unchanged; if your stone income is not **25.357/day** (177.5 per week) only the stone legs of
+  the plan table move (`8 865 − lumps ÷ yours`).
+- **§2.②:** a new lump source (achievements, a guild first-time bonus) can only move the **gem** and **stone** legs — the
+  clock legs (**499.5 / 134.1 d**) and the **medal** leg (**2 450.4 d**) have no lump source, so if you see the plan’s length
+  change while stones and gems are *not* the binding leg, something else in the model is wrong.
 - **§2.① convexity:** if a T1–T12 coin cell pays materially more than printed, the coin cells are run-multiplier
   scaled rather than flat — that is [H039](../hypotheses/H039-milestone-coin-cell-scaling.md), and only the coin column
   of this table moves (gems and stones are fixed cells).
 
 ## Sources
+
+- `tools/lump-sum-ledger.ps1` (new, Rev 5) — the eight blocks in ge and in **days of gem income**, the ladder's log-space
+  shares (**34.0 %** at T13, **92.9 %** through T15, **7.1 %** for T16–24), the T1–T12 window (**10 135 / 31 785 ge**), and
+  the five-row lump-adjusted `max()` plan table (**349.6 → 328.3 → 273.9 → 219.0 → 161.5 d**).
 
 - fandom `Milestones` (raw wikitext) — reward types, “rewards are not claimed automatically”, **23 milestones/tier**
   and the exact wave list, **tier unlock at W100 (T1–14) / W300 (T15–23)**, skin at 2 500 + relic at 4 500,
